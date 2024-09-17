@@ -1,0 +1,1 @@
+# StreamTypes
