@@ -1,0 +1,32 @@
+{
+    "command_name": "grep",
+    "format": ["grep", "flag?", "arg"],
+    "default_input_type": ".*",
+    "default_output_type": ".*",
+    "args": [
+        {
+            "name": "pattern",
+            "type": ".+"
+        }
+    ],
+    "flags": [
+        {
+            "name": "-i",
+            "has_arg": false
+        }
+    ],
+    "rules": [
+        {
+            "condition": {
+                "flags": ["-i"]
+            },
+            "output_type": "(?i).*{pattern}.*"
+        },
+        {
+            "condition": {
+                "flags": []
+            },
+            "output_type": ".*{pattern}.*"
+        }
+    ]
+}

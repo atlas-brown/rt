@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "streamtypes"
+version = "0.0.1"
+description = "My small project"
+
+dependencies = [
+  "pash_annotations == 0.2.2",
+  "libdash == 0.3.1",
+  "shasta == 0.1.0",
+  "z3-solver",
+  "graphviz",
+  "shortuuid",
+  "pytest",
+  "caruca"
+]
+
+
