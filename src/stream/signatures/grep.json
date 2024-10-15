@@ -18,15 +18,9 @@
     "rules": [
         {
             "condition": {
-                "flags": ["-i"]
-            },
-            "output_type": "(?i).*{pattern}.*"
-        },
-        {
-            "condition": {
                 "flags": []
             },
-            "output_type": ".*{pattern}.*"
+            "output_type": ".*{pattern}.*&{actual_input_type}"
         }
     ]
 }

@@ -714,7 +714,7 @@ def regex_to_z3_expr(regex: sre_parse.SubPattern) -> z3.ReRef:
     The parsed regex is a sequence of regex constructs (literals, *, +, etc.)
     """
     if 0 == len(regex.data):
-        return z3.Re("")
+         raise ValueError("ERROR: regex is empty")
     elif 1 == len(regex.data):
         return regex_construct_to_z3_expr(regex.data[0])
     else:

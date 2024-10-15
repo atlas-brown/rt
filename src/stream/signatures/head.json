@@ -1,0 +1,16 @@
+{
+    "command_name": "head",
+    "format": ["head", "flag"],
+    "default_input_type": ".*",
+    "default_output_type": ".*",
+    "args": [],
+    "flags": [],
+    "rules": [
+        {
+            "condition": {
+                "flags": []
+            },
+            "output_type": "{actual_input_type}"
+        }
+    ]
+}

@@ -10,8 +10,8 @@ class RegularType:
         print(f"checking: {self.pattern} is subtype of {other.pattern}")
         s = z3.Solver()
         x = z3.String('x')
-        self_regex = regex_to_z3_expr(sre_parse.parse(self.pattern))
-        other_regex = regex_to_z3_expr(sre_parse.parse(other.pattern))
+        self_regex = translate_to_z3_regex(self.pattern)
+        other_regex = translate_to_z3_regex(other.pattern)
         intersection_regex = z3.Intersect(self_regex, z3.Complement(other_regex))
         s.add(z3.InRe(x, intersection_regex))
         return s.check() == z3.unsat
@@ -21,6 +21,15 @@ class RegularType:
     
     def __repr__(self) -> str:
         return f"RegularType({self.pattern})"
+    
+def translate_to_z3_regex(pattern: str) -> z3.ReRef:
+    if len(pattern) == 0:
+        return z3.Re('')
+    parts = pattern.split('&')
+    if len(parts) == 1:
+        return regex_to_z3_expr(sre_parse.parse(pattern))
+    else:
+        return z3.Intersect(*[translate_to_z3_regex(part) for part in parts])
     
 # def translate_to_z3_regex(pattern: str) -> z3.ReRef:
     # need to be refined!!!!

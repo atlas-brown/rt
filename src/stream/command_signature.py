@@ -110,6 +110,7 @@ class CommandSignature:
             if required_flags.issubset(set(map(lambda flag: flag.get_name(), parsed_command_node.flag_option_list))):
                 output_type_pattern: str = rule.get('output_type', self.default_output_type.pattern)
                 input_type_pattern: str = rule.get('input_type', self.default_input_type.pattern)
+                output_type_pattern = output_type_pattern.replace('{actual_input_type}', previous_output_type.pattern)
                 for arg in self.args:
                     arg_name = arg['name']
                     if arg_name in structured_args and structured_args[arg_name] is not None:
