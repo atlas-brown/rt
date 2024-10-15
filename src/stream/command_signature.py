@@ -38,46 +38,46 @@ class CommandSignature:
         return self.command_name == node.cmd_name
 
     # def extract_flags_and_args(self, node: CommandInvocationInitial) -> Tuple[List[str], Dict[str, List[str]]]:
-        parsed_flags: List[str] = [] # [flag_name] e.g., ["-v", "-i"]
-        parsed_args: Dict[List[str]] = {} # {arg_name: [arg_value]}, e.g., {"pattern: ["123"]"}
+        # parsed_flags: List[str] = [] # [flag_name] e.g., ["-v", "-i"]
+        # parsed_args: Dict[List[str]] = {} # {arg_name: [arg_value]}, e.g., {"pattern: ["123"]"}
 
-        index = 0
-        arg_index = 0
-        for element in self.format:
-            match element:
-                case "flag?":
-                    if index < len(command_parts) and self.is_flag(command_parts[index]):
-                        parsed_flags.append(command_parts[index])
-                        flag_name = command_parts[index]
-                        flag = next((flag for flag in self.flags if flag['name'] == flag_name), None)
-                        if flag is not None and flag.get('argument', True):
-                            index += 2
-                        else:
-                            index += 1
-                case "arg":
-                    if index < len(command_parts):
-                        parsed_args[self.args[arg_index]['name']] = [command_parts[index]]
-                        index += 1
-                        arg_index += 1
-                    else:
-                        raise ValueError(f"Missing required argument for {self.command_name}.")
-                case "arg?":
-                    if index < len(command_parts):
-                        parsed_args[self.args[arg_index]['name']] = [command_parts[index]]
-                        index += 1
-                        arg_index += 1
-                    else:
-                        parsed_args[self.args[arg_index]['name']] = []
-                case "arg+":
-                    parsed_args[self.args[arg_index]['name']] = []
-                    while index < len(command_parts):
-                        parsed_args[self.args[arg_index]['name']].append(command_parts[index])
-                        index += 1
-                    arg_index += 1
-                case _:
-                    index += 1
+        # index = 0
+        # arg_index = 0
+        # for element in self.format:
+        #     match element:
+        #         case "flag?":
+        #             if index < len(command_parts) and self.is_flag(command_parts[index]):
+        #                 parsed_flags.append(command_parts[index])
+        #                 flag_name = command_parts[index]
+        #                 flag = next((flag for flag in self.flags if flag['name'] == flag_name), None)
+        #                 if flag is not None and flag.get('argument', True):
+        #                     index += 2
+        #                 else:
+        #                     index += 1
+        #         case "arg":
+        #             if index < len(command_parts):
+        #                 parsed_args[self.args[arg_index]['name']] = [command_parts[index]]
+        #                 index += 1
+        #                 arg_index += 1
+        #             else:
+        #                 raise ValueError(f"Missing required argument for {self.command_name}.")
+        #         case "arg?":
+        #             if index < len(command_parts):
+        #                 parsed_args[self.args[arg_index]['name']] = [command_parts[index]]
+        #                 index += 1
+        #                 arg_index += 1
+        #             else:
+        #                 parsed_args[self.args[arg_index]['name']] = []
+        #         case "arg+":
+        #             parsed_args[self.args[arg_index]['name']] = []
+        #             while index < len(command_parts):
+        #                 parsed_args[self.args[arg_index]['name']].append(command_parts[index])
+        #                 index += 1
+        #             arg_index += 1
+        #         case _:
+        #             index += 1
 
-        return parsed_flags, parsed_args
+        # return parsed_flags, parsed_args
 
     # def is_flag(self, arg: str) -> bool:
     #     # need to be refined

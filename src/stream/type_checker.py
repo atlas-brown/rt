@@ -24,7 +24,7 @@ class TypeChecker:
 
             if not previous_output_type.is_subtype(input_type):
                 print(
-                    f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'."
+                    f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type.pattern}' for command '{signature.command_name}'."
                 )
                 return False
             previous_output_type = current_output_type
