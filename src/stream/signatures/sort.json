@@ -1,15 +1,9 @@
 {
     "command_name": "sort",
-    "format": ["sort", "flag?"],
     "default_input_type": ".*",
     "default_output_type": ".*",
     "args": [],
-    "flags": [
-        {
-            "name": "-n",
-            "has_arg": false
-        }
-    ],
+    "flags": [],
     "rules": [
         {
             "condition": {

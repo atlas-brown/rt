@@ -1,0 +1,8 @@
+{
+    "command_name": "cat",
+    "default_input_type": ".*",
+    "default_output_type": ".*",
+    "args": [],
+    "flags": [],
+    "rules": []
+}

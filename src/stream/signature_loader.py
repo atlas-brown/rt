@@ -14,7 +14,6 @@ class SignatureLoader:
             data = json.load(f)
         return CommandSignature(
             command_name=data['command_name'],
-            format=data['format'],
             default_input_type=data['default_input_type'],
             default_output_type=data['default_output_type'],
             args=data.get('args', []),

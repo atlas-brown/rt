@@ -1,6 +1,5 @@
 {
     "command_name": "seq",
-    "format": ["seq", "flag?", "arg", "arg?"],
     "default_input_type": ".*",
     "default_output_type": "-?[0-9]+",
     "args": [
@@ -13,11 +12,6 @@
             "type": "-?[0-9]+"
         }
     ],
-    "flags": [
-        {
-            "name": "-w",
-            "has_arg": false
-        }
-    ],
+    "flags": [],
     "rules": []
 }
