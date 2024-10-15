@@ -4,7 +4,7 @@ from stream.regular_type import RegularType
 from stream.type_checker import TypeChecker
 
 def main():
-    pipeline_address = './evaluation_pipelines/invalid/4.sh'
+    pipeline_address = './evaluation_pipelines/invalid/2.sh'
     type_checker = TypeChecker(pipeline_address)
     
     parsed_pipeline = type_checker.pipeline_parser.parse_pipeline()

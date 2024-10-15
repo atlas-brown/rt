@@ -2,6 +2,7 @@ from stream.regular_type import RegularType
 from stream.pipeline_parser import PipelineParser
 from typing import Any, Dict, List
 from stream.command_signature import CommandSignature
+from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 
 class TypeChecker:
@@ -13,17 +14,19 @@ class TypeChecker:
         previous_output_type = RegularType("") # start with empty type
 
         for parsed_command in parsed_commands:
-            signature: 'CommandSignature' = parsed_command['signature']
-            parsed_args: Dict[str, List[str]] = parsed_command['parsed_args']
-            parsed_flags: List[str] = parsed_command['parsed_flags']
 
-            if not previous_output_type.is_subtype(signature.default_input_type):
+            signature, parsed_command_node = parsed_command
+
+            assert isinstance(signature, CommandSignature)
+            assert isinstance(parsed_command_node, CommandInvocationInitial)
+            
+            input_type, current_output_type = signature.determine_input_output_type(previous_output_type, parsed_command_node)
+
+            if not previous_output_type.is_subtype(input_type):
                 print(
-                    f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{signature.default_input_type.pattern}' for command '{signature.command_name}'."
+                    f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'."
                 )
                 return False
-            
-            current_output_type = signature.determine_output_type(parsed_flags, parsed_args, previous_output_type)
             previous_output_type = current_output_type
 
         print("Pipeline is well-typed.")
