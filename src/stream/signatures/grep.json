@@ -16,9 +16,22 @@
     "rules": [
         {
             "condition": {
+                "args": ["file"],
+                "flags": ["-o"]
+            },
+            "output_type": "{pattern}"
+        },
+        {
+            "condition": {
                 "args": ["file"]
             },
             "output_type": ".*{pattern}.*"
+        },
+        {
+            "condition": {
+                "flags": ["-o"]
+            },
+            "output_type": "{pattern}&{actual_input_type}"
         },
         {
             "condition": {

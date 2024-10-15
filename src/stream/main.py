@@ -5,6 +5,7 @@ from stream.type_checker import TypeChecker
 
 def main():
     pipeline_address = './evaluation_pipelines/valid/6.sh'
+    pipeline_address = './evaluation_pipelines/invalid/2_1.sh'
     type_checker = TypeChecker(pipeline_address)
     
     parsed_pipeline = type_checker.pipeline_parser.parse_pipeline()
