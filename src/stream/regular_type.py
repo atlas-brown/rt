@@ -1,5 +1,5 @@
 import z3
-from regex_to_z3 import regex_to_z3_expr
+from stream.regex_to_z3 import regex_to_z3_expr
 import sre_parse
 
 class RegularType:

@@ -15,3 +15,5 @@ def test_subtyping():
     assert get_result(".*", "[0-9]+") == True
     assert get_result(".+", "[0-9]+") == True
     assert get_result(".+", "[0-9]*") == False
+    assert get_result("[0-9]+&[0-9a-z]+", "[0-9]+&[0-9a-z]") == True
+    assert get_result("[0-9]+&[0-9a-z]+", "[0-9]*&[0-9a-z]*") == False
