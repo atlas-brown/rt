@@ -34,5 +34,4 @@ class PipelineParser:
             cmd_raw = command_node.pretty()
             commands_in_pipe.append(annot_parse(cmd_raw))
         
-        # print(commands_in_pipe)
         return [self.parse_command_node(command) for command in commands_in_pipe]

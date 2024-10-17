@@ -1,13 +1,14 @@
 import z3
 from stream.regex_to_z3 import regex_to_z3_expr
 import sre_parse
+import logging
 
 class RegularType:
     def __init__(self, pattern: str):
         self.pattern = pattern
     
     def is_subtype(self, other: 'RegularType') -> bool:
-        print(f"checking: {self.pattern} is subtype of {other.pattern}")
+        logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
         s = z3.Solver()
         x = z3.String('x')
         self_regex = translate_to_z3_regex(self.pattern)

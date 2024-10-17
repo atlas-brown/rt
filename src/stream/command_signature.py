@@ -51,7 +51,7 @@ class CommandSignature:
                     arg_name = arg['name']
                     if arg_name in structured_args:
                         output_type_pattern = output_type_pattern.replace(f'{{{arg_name}}}', structured_args[arg_name]) # replace the placeholder with the actual value, e.g., grep {pattern} to grep 123
-                print(f"Input type: {input_type_pattern}, Output type: {output_type_pattern}")
+                logging.debug(f"Input type: {input_type_pattern}, Output type: {output_type_pattern}")
                 return RegularType(input_type_pattern), RegularType(output_type_pattern)
 
         # if no rules match, return the default output type

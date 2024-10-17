@@ -1,3 +1,4 @@
+import logging
 from stream.regular_type import RegularType
 from stream.pipeline_parser import PipelineParser
 from typing import Any, Dict, List
@@ -23,11 +24,11 @@ class TypeChecker:
             input_type, current_output_type = signature.determine_input_output_type(previous_output_type, parsed_command_node)
 
             if not previous_output_type.is_subtype(input_type):
-                print(
+                logging.debug(
                     f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type.pattern}' for command '{signature.command_name}'."
                 )
                 return False
             previous_output_type = current_output_type
 
-        print("Pipeline is well-typed.")
+        logging.debug("Pipeline is well-typed.")
         return True
