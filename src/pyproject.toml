@@ -12,10 +12,7 @@ dependencies = [
   "libdash == 0.3.1",
   "shasta == 0.1.0",
   "z3-solver",
-  "graphviz",
-  "shortuuid",
-  "pytest",
-  "caruca"
+  "pytest"
 ]
 
 
