@@ -2,3 +2,4 @@ z3-solver
 pash-annotations
 libdash
 shasta
+python_version >= "3.10"

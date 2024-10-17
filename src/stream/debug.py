@@ -1,4 +1,3 @@
-import sys
 from stream.shell_parser import parse_shell_to_asts
 from stream.pipeline_parser import PipelineParser
 from stream.regular_type import RegularType
@@ -15,7 +14,7 @@ def main():
     for command in parsed_pipeline:
         logging.debug(command)
     
-    return type_checker.check_pipeline()
+    type_checker.check_pipeline()
 
 if __name__ == "__main__":
     main()
