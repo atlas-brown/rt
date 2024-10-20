@@ -9,14 +9,16 @@
             "condition": {
                 "flags": ["-n"]
             },
-            "input_type": "-?[0-9]+.*",
-            "output_type": "-?[0-9]+.*&{actual_input_type}"
+            "update": {
+                "input_type": "-?[0-9]+.*",
+                "output_type": "-?[0-9]+.*&{{actual_input_type}}"
+            }
         },
         {
-            "condition": {
-                "flags": []
-            },
-            "output_type": "{actual_input_type}"
+            "condition": {},
+            "update": {
+                "output_type": "{{actual_input_type}}"
+            }
         }
     ]
 }

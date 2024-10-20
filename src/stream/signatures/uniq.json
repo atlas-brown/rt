@@ -1,5 +1,5 @@
 {
-    "command_name": "head",
+    "command_name": "uniq",
     "default_input_type": ".*",
     "default_output_type": ".*",
     "args": [],
@@ -7,7 +7,14 @@
     "rules": [
         {
             "condition": {
+                "args": ["-c"]
             },
+            "update": {
+                "output_type": "[0-9]+ {{actual_input_type}}"
+            }
+        },
+        {
+            "condition": {},
             "update": {
                 "output_type": "{{actual_input_type}}"
             }

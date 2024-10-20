@@ -16,28 +16,25 @@
     "rules": [
         {
             "condition": {
-                "args": ["file"],
-                "flags": ["-o"]
+                "no_flags": ["-o"]
             },
-            "output_type": "{pattern}"
+            "update": {
+                "pattern": ".*{{pattern}}.*"
+            }
         },
         {
             "condition": {
-                "args": ["file"]
+                "no_args": ["file"]
             },
-            "output_type": ".*{pattern}.*"
+            "update": {
+                "pattern": "{{pattern}}&{{actual_input_type}}"
+            }
         },
         {
-            "condition": {
-                "flags": ["-o"]
-            },
-            "output_type": "{pattern}&{actual_input_type}"
-        },
-        {
-            "condition": {
-                "flags": []
-            },
-            "output_type": ".*{pattern}.*&{actual_input_type}"
+            "condition": {},
+            "update": {
+                "output_type": "{{pattern}}"
+            }
         }
     ]
 }
