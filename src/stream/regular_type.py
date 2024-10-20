@@ -9,6 +9,7 @@ class RegularType:
     
     def is_subtype(self, other: 'RegularType') -> bool:
         logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
+        logging.debug("------------------------------")
         s = z3.Solver()
         x = z3.String('x')
         self_regex = translate_to_z3_regex(self.pattern)

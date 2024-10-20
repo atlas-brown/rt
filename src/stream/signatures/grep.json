@@ -24,6 +24,14 @@
         },
         {
             "condition": {
+                "flags": ["-v"]
+            },
+            "update": {
+                "pattern": "[^{{pattern}}]"
+            }
+        },
+        {
+            "condition": {
                 "no_args": ["file"]
             },
             "update": {

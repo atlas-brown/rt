@@ -59,13 +59,17 @@ class CommandSignature:
                 not any(arg in parsed_args for arg in no_args)):
 
                 # update env
-                update_variables: Dict[str, str] = rule.get('update', {})
+                update_variables: Dict[str, str] = rule.get('update', {}).copy()
+                logging.debug(f"Command: {self.command_name}, Rule: {rule['condition']} -> {rule['update']}")
                 for key, value in update_variables.items():
                     # find all {{variable}} in rule_env[key], replace them with env[variable]
+                    # { or } are not allowed in variable names
                     update_variables[key] = re.sub(r"{{([^{}]*)}}", lambda match: env[match.group(1)], value)
                 env.update(update_variables)
+                logging.debug(f"Command: {self.command_name}, Updated env: {env}")
 
-        logging.debug(f"Input type: {env['input_type']}, Output type: {env['output_type']}")
+        logging.debug(f"Command: {self.command_name}, Expected Input type: {env['input_type']}, Output type (if compatible): {env['output_type']}")
+        logging.debug("------------------------------")
         
         return RegularType(env['input_type']), RegularType(env['output_type'])
     
