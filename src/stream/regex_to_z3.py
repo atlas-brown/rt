@@ -2,6 +2,12 @@
 Copyright (c) [2024] [gravitational]
 This file is part of [rbac-linter] - [https://github.com/gravitational/rbac-linter]
 
+Modifications:
+- Modified by Zekai Li, 2024
+- Description of modifications: 
+  * add support for complement operator in regex_construct_to_z3_expr
+  * return z3.Re("") when regex is empty
+
 
                                  Apache License
                            Version 2.0, January 2004
@@ -658,6 +664,9 @@ def regex_construct_to_z3_expr(regex_construct) -> z3.ReRef:
     elif sre_constants.RANGE == node_type:  # [a-z]
         low, high = node_value
         return z3.Range(chr(low), chr(high))
+    elif sre_constants.ASSERT_NOT == node_type:  # (?!a)
+        return Minus(z3.Star(AnyChar()), regex_to_z3_expr(node_value[1]))
+        # return z3.Complement(regex_to_z3_expr(node_value[1]))
     elif sre_constants.CATEGORY == node_type:  # \d, \s, \w
         if sre_constants.CATEGORY_DIGIT == node_value:  # \d
             return category_regex(node_value)
@@ -714,7 +723,8 @@ def regex_to_z3_expr(regex: sre_parse.SubPattern) -> z3.ReRef:
     The parsed regex is a sequence of regex constructs (literals, *, +, etc.)
     """
     if 0 == len(regex.data):
-         raise ValueError("ERROR: regex is empty")
+        #  raise ValueError("ERROR: regex is empty")
+        return z3.Re("")
     elif 1 == len(regex.data):
         return regex_construct_to_z3_expr(regex.data[0])
     else:

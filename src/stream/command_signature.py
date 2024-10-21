@@ -34,9 +34,10 @@ class CommandSignature:
 
         env: Dict[str, str] = {}
         for i, arg in enumerate(self.args):
-            arg_name = arg['name']
+            arg_name: str = arg['name']
             if i < len(parsed_command_node.operand_list):
                 env[arg_name] = parsed_command_node.operand_list[i].name
+                env[f"arg_{arg_name}"] = parsed_command_node.operand_list[i].name # add constant arg_{arg_name} to env
 
         # add predefined variables to env
         env["actual_input_type"] = previous_output_type.pattern
