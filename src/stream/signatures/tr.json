@@ -1,0 +1,58 @@
+{
+    "command_name": "tr",
+    "default_input_type": ".*",
+    "default_output_type": ".*",
+    "args": [
+        {
+            "name": "set1",
+            "type": ".+"
+        },
+        {
+            "name": "set2",
+            "type": ".+"
+        }
+    ],
+    "flags": [],
+    "rules": [
+        {
+            "condition": {
+                "flags": ["-c"]
+            },
+            "update": {
+                "set1": "[^{{set1}}]"
+            }
+        },
+        {
+            "condition": {
+                "no_flags": ["-c"]
+            },
+            "update": {
+                "set1": "[{{set1}}]"
+            }
+        },
+        {
+            "condition": {
+                "flags": ["-s"]
+            },
+            "update": {
+                "output_type": "{{{actual_input_type}}}&{(?!.*{{set1}}{{set1}}.*}"
+            },
+            "stop": true
+        },
+        {
+            "condition": {
+                "flags": ["-d"]
+            },
+            "update": {
+                "output_type": "{{actual_input_type}}&(?!.*{{set1}}.*)"
+            },
+            "stop": true
+        },
+        {
+            "condition": {},
+            "update": {
+                "output_type": "{{actual_input_type}}&(?!.*{{set1}}.*)"
+            }
+        }
+    ]
+}
