@@ -35,7 +35,7 @@
                 "flags": ["-s"]
             },
             "update": {
-                "output_type": "{{{actual_input_type}}}&{(?!.*{{set1}}{{set1}}.*}"
+                "output_type": "{{{actual_input_type}}}&{(?!.*{{set1}}{{set1}}.*)}"
             },
             "stop": true
         },

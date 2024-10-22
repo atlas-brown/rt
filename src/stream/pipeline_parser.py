@@ -21,7 +21,7 @@ class PipelineParser:
         for signature in self.signature_loader.signatures:
             if signature.matches_command(node):
                 return (signature, node)
-        raise ValueError(f"No matching signature found for command {node.cmd_name}")
+        raise ValueError(f'No matching signature found for command {node.cmd_name if node.cmd_name != "xargs" else "xargs_" + node.operand_list[0].name}')
 
     def parse_pipeline(self) -> List[Tuple[CommandSignature, CommandInvocationInitial]]:
         assert len(self.ast) == 1
