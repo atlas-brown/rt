@@ -27,7 +27,7 @@ class CommandSignature:
         assert isinstance(node, CommandInvocationInitial)
         if node.cmd_name == self.command_name:
             return True
-        if node.cmd_name == "xargs" and node.operand_list[0].name == self.command_name:
+        if node.cmd_name == "xargs" and "xargs_" + node.operand_list[0].name == self.command_name:
             return True
         return False
 

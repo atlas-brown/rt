@@ -1,0 +1,8 @@
+{
+    "command_name": "expr",
+    "default_input_type": ".*",
+    "default_output_type": "-?[0-9]+",
+    "args": [],
+    "flags": [],
+    "rules": []
+}

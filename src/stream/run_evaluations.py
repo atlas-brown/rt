@@ -19,9 +19,13 @@ def evaluate_pipeline(pipeline_address) -> Optional[bool]:
             return None
 
 def calculate_accuracy(labels, preds):
-    count = sum(1 for label, pred in zip(labels, preds) if label == pred)
-    logging.info(f'Correct predictions: {count}')
-    return count / len(labels)
+    correct_count = sum(1 for label, pred in zip(labels, preds) if label == pred)
+    logging.info(f'Correct predictions: {correct_count}')
+    wrong_count = sum(1 for label, pred in zip(labels, preds) if label != pred and pred != None)
+    failed_count = sum(1 for label, pred in zip(labels, preds) if pred == None)
+    logging.info(f'Wrong predictions: {wrong_count}')
+    logging.info(f'Failed predictions: {failed_count}')
+    return correct_count / len(labels)
 
 def calculate_precision(labels, preds):
     TP = sum(1 for label, pred in zip(labels, preds) if label == pred and label == True)
