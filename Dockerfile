@@ -51,6 +51,9 @@ RUN sudo apt-get install libtool m4 automake -y
 RUN apt install vim -y
 ADD . /home/stream
 RUN /home/stream/run_tests.sh
+
+RUN pip3 install --no-cache-dir shasta libdash pash_annotations pytest z3-solver
+
 # The command the container will run by default
 SHELL ["/bin/bash", "-c"]
 
