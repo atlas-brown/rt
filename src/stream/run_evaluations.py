@@ -19,22 +19,29 @@ def evaluate_pipeline(pipeline_address) -> Optional[bool]:
             return None
 
 def calculate_accuracy(labels, preds):
-    return sum(1 for label, pred in zip(labels, preds) if label == pred) / len(labels)
+    count = sum(1 for label, pred in zip(labels, preds) if label == pred)
+    logging.info(f'Correct predictions: {count}')
+    return count / len(labels)
 
 def calculate_precision(labels, preds):
-    return sum(1 for label, pred in zip(labels, preds) if label == pred and label == True) / sum(1 for pred in preds if pred == True)
+    TP = sum(1 for label, pred in zip(labels, preds) if label == pred and label == True)
+    logging.info(f'TP: {TP}')
+    return TP / sum(1 for pred in preds if pred == True)
 
 def calculate_recall(labels, preds):
     return sum(1 for label, pred in zip(labels, preds) if label == pred and label == True) / sum(1 for label in labels if label == True)
 
 def calculate_fail_rate(labels, preds):
-    return sum(1 for _, pred in zip(labels, preds) if pred == None) / len(labels)
+    count = sum(1 for _, pred in zip(labels, preds) if pred == None)
+    logging.info(f'Failed predictions: {count}')
+    return count / len(labels)
 
 def run_all_evaluations():
 
     valid_pipelines = ['./evaluation_pipelines/valid/' + pipeline for pipeline in os.listdir('./evaluation_pipelines/valid')]
     print(valid_pipelines)
     invalid_pipelines = ['./evaluation_pipelines/invalid/' + pipeline for pipeline in os.listdir('./evaluation_pipelines/invalid')]
+    logging.info(f'Found {len(valid_pipelines)} valid pipelines and {len(invalid_pipelines)} invalid pipelines.')
 
     labels = [True] * len(valid_pipelines) + [False] * len(invalid_pipelines)
     preds = []

@@ -25,8 +25,11 @@ class CommandSignature:
 
     def matches_command(self, node: CommandInvocationInitial) -> bool:
         assert isinstance(node, CommandInvocationInitial)
-        # need to be more precise
-        return self.command_name == node.cmd_name
+        if node.cmd_name == self.command_name:
+            return True
+        if node.cmd_name == "xargs" and node.operand_list[0].name == self.command_name:
+            return True
+        return False
 
     def determine_input_output_type(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> Tuple[RegularType, RegularType]:
         assert isinstance(previous_output_type, RegularType)
@@ -67,6 +70,8 @@ class CommandSignature:
                     # { or } are not allowed in variable names
                     update_variables[key] = re.sub(r"{{([^{}]*)}}", lambda match: env[match.group(1)], value)
                 env.update(update_variables)
+                if rule.get('stop', False):
+                    break
                 logging.debug(f"Command: {self.command_name}, Updated env: {env}")
 
         logging.debug(f"Command: {self.command_name}, Expected Input type: {env['input_type']}, Output type (if compatible): {env['output_type']}")

@@ -1,1 +1,0 @@
-seq 2 100 | grep grep | xargs -n 1 expr 1 +
