@@ -18,7 +18,10 @@ class RegularType:
         logging.debug("------------------------------")
         intersection_regex = z3.Intersect(self_regex, z3.Complement(other_regex))
         s.add(z3.InRe(x, intersection_regex))
-        return s.check() == z3.unsat
+        result = s.check() == z3.unsat
+        if not result:
+            logging.debug(f"counterexample: {s.model()}")
+        return result
     
     def __le__(self, other: 'RegularType') -> bool:
         return self.is_subtype(other)

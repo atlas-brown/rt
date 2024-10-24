@@ -7,11 +7,12 @@
     "rules": [
         {
             "condition": {
-                "args": ["-c"]
+                "flags": ["-c"]
             },
             "update": {
                 "output_type": "[0-9]+ {{actual_input_type}}"
-            }
+            },
+            "stop": true
         },
         {
             "condition": {},

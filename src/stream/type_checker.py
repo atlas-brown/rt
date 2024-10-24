@@ -18,7 +18,7 @@ class TypeChecker:
 
             signature, parsed_command_node = parsed_command
 
-            assert isinstance(signature, CommandSignature)
+            # assert isinstance(signature, CommandSignature)
             assert isinstance(parsed_command_node, CommandInvocationInitial)
             
             input_type = signature.determine_input_type(parsed_command_node)

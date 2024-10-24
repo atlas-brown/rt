@@ -6,10 +6,7 @@ import logging
 
 def main():
     logging.basicConfig(level=logging.DEBUG)
-    pipeline_address = './evaluation_pipelines/valid/6.sh'
-    pipeline_address = './evaluation_pipelines/invalid/2_1.sh'
-    pipeline_address = './evaluation_pipelines/invalid/2.sh'
-    # pipeline_address = './evaluation_pipelines/invalid/ladder4_1.sh'
+    pipeline_address = './evaluation_pipelines/invalid/5.sh'
 
     with open(pipeline_address, 'r') as f:
         pipeline = f.read()

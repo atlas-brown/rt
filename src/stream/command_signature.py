@@ -34,7 +34,7 @@ class CommandSignature:
     def get_operands(self, parsed_command_node: CommandInvocationInitial) -> List[str]:
         assert isinstance(parsed_command_node, CommandInvocationInitial)
         if parsed_command_node.cmd_name == "xargs":
-            return [parsed_command_node.operand_list[1:]]
+            return [operand.name for operand in parsed_command_node.operand_list[1:]]
         return [operand.name for operand in parsed_command_node.operand_list]
 
     def inference_output_type(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> RegularType:
