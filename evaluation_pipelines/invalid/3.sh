@@ -1,1 +1,1 @@
-seq 1 10 | sed "s;^;;" | xargs -I{} curl {} | wc -l
+seq 1 10 | sed "s;^;;" | xargs curl | wc -l

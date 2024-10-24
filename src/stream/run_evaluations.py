@@ -44,7 +44,6 @@ def run_all_evaluations():
 
     valid_pipelines = ['./evaluation_pipelines/valid/' + pipeline for pipeline in os.listdir('./evaluation_pipelines/valid')]
     invalid_pipelines = ['./evaluation_pipelines/invalid/' + pipeline for pipeline in os.listdir('./evaluation_pipelines/invalid')]
-    logging.info(f'Found {len(valid_pipelines)} valid pipelines and {len(invalid_pipelines)} invalid pipelines.')
 
     pipelines = valid_pipelines + invalid_pipelines
 
@@ -63,7 +62,7 @@ def run_all_evaluations():
         else:
             logging.info(f"{address}: Wrong")
     logging.info("-------------------")
-
+    logging.info(f'Found {len(valid_pipelines)} valid pipelines and {len(invalid_pipelines)} invalid pipelines.')
     accuracy = calculate_accuracy(labels, preds)
     precision = calculate_precision(labels, preds)
     recall = calculate_recall(labels, preds)

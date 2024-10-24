@@ -1,0 +1,17 @@
+{
+    "command_name": "wc",
+    "default_input_type": ".*",
+    "default_output_type": "[0-9]+( )+[0-9]+( )+[0-9]+",
+    "args": [],
+    "flags": [],
+    "rules": [
+        {
+            "condition": {
+                "flag": ["-l"]
+            },
+            "update": {
+                "output_type": "[0-9]+"
+            }
+        }
+    ]
+}

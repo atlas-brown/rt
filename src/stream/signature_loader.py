@@ -4,11 +4,12 @@ from typing import List, Dict
 from stream.command_signature import CommandSignature
 
 from special_signatures.xargs_stat import XargsStatSignature
+from special_signatures.sed import SedSignature
 
 class SignatureLoader:
     def __init__(self, signature_dir : str = "./src/stream/signatures") -> None:
         self.signature_dir = signature_dir
-        self.special_signatures: Dict[str, CommandSignature] = {"xargs_stat": XargsStatSignature}
+        self.special_signatures: Dict[str, CommandSignature] = {"xargs_stat": XargsStatSignature, "sed": SedSignature}
         self.signatures = self.load_all_signatures()
 
     def load_signature(self, command_name: str) -> CommandSignature:

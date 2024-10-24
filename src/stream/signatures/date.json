@@ -1,0 +1,21 @@
+{
+    "command_name": "date",
+    "default_input_type": ".*",
+    "default_output_type": ".*",
+    "args": [
+        {
+            "name": "format"
+        }
+    ],
+    "flags": [],
+    "rules": [
+        {
+            "condition": {
+                "args": ["format"]
+            },
+            "update": {
+                "output_type": "[0-9]+"
+            }
+        }
+    ]
+}
