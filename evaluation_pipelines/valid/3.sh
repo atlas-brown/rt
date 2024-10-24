@@ -1,1 +1,1 @@
-seq 1 10 | sed "s;^;http://data.com/chunk/;" | xargs curl | wc -l
+seq 1 10 | sed "s;^;http://data\\.com/chunk/;" | xargs curl | wc -l
