@@ -21,13 +21,14 @@ class TypeChecker:
             assert isinstance(signature, CommandSignature)
             assert isinstance(parsed_command_node, CommandInvocationInitial)
             
-            input_type, current_output_type = signature.determine_input_output_type(previous_output_type, parsed_command_node)
+            input_type = signature.determine_input_type(parsed_command_node)
 
             if not previous_output_type.is_subtype(input_type):
                 logging.info(
                     f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type.pattern}' for command '{signature.command_name}'."
                 )
                 return False
+            current_output_type = signature.inference_output_type(previous_output_type, parsed_command_node)
             previous_output_type = current_output_type
 
         logging.info("Pipeline is well-typed.")

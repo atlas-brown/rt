@@ -30,8 +30,14 @@ class CommandSignature:
         if node.cmd_name == "xargs" and "xargs_" + node.operand_list[0].name == self.command_name:
             return True
         return False
+    
+    def get_operands(self, parsed_command_node: CommandInvocationInitial) -> List[str]:
+        assert isinstance(parsed_command_node, CommandInvocationInitial)
+        if parsed_command_node.cmd_name == "xargs":
+            return [parsed_command_node.operand_list[1:]]
+        return [operand.name for operand in parsed_command_node.operand_list]
 
-    def determine_input_output_type(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> Tuple[RegularType, RegularType]:
+    def inference_output_type(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> RegularType:
         assert isinstance(previous_output_type, RegularType)
         assert isinstance(parsed_command_node, CommandInvocationInitial)
 
@@ -45,7 +51,6 @@ class CommandSignature:
         # add predefined variables to env
         env["actual_input_type"] = previous_output_type.pattern
         env["output_type"] = self.default_output_type.pattern
-        env["input_type"] = self.default_input_type.pattern
 
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_node.flag_option_list))
         parsed_args = set(env.keys())
@@ -70,14 +75,48 @@ class CommandSignature:
                     # { or } are not allowed in variable names
                     update_variables[key] = re.sub(r"{{([^{}]*)}}", lambda match: env[match.group(1)], value)
                 env.update(update_variables)
+                logging.debug(f"Command: {self.command_name}, Updated env: {env}")
                 if rule.get('stop', False):
                     break
-                logging.debug(f"Command: {self.command_name}, Updated env: {env}")
 
-        logging.debug(f"Command: {self.command_name}, Expected Input type: {env['input_type']}, Output type (if compatible): {env['output_type']}")
+        logging.debug(f"Command: {self.command_name}, Output type (if compatible): {env['output_type']}")
         logging.debug("------------------------------")
         
-        return RegularType(env['input_type']), RegularType(env['output_type'])
+        return RegularType(env['output_type'])
+    
+    def determine_input_type(self, parsed_command_node: CommandInvocationInitial) -> RegularType:
+        assert isinstance(parsed_command_node, CommandInvocationInitial)
+
+        input_type = self.default_input_type.pattern
+
+        parsed_args = set(map(lambda arg: arg['name'], self.args[:len(self.get_operands(parsed_command_node))]))
+
+        parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_node.flag_option_list))
+
+        for rule in self.rules: # iterate over all rules, from top to bottom
+            required_flags = set(rule['condition'].get('flags', []))
+            required_args = set(rule['condition'].get('args', []))
+            no_flags = set(rule['condition'].get('no_flags', []))
+            no_args = set(rule['condition'].get('no_args', []))
+
+            # match the rule, required flags and args are subset of actual flags and args, and no_flags and no_args are not in actual flags and args
+            if (required_flags.issubset(parsed_flags) and
+                required_args.issubset(parsed_args) and
+                not any(flag in parsed_flags for flag in no_flags) and
+                not any(arg in parsed_args for arg in no_args)):
+
+                # update input type
+                update_variables: Dict[str, str] = rule.get('update', {}).copy()
+                for key, value in update_variables.items():
+                    if key == 'input_type':
+                        input_type = value
+                logging.debug(f"Command: {self.command_name}, Updated input type: {input_type}")
+                if rule.get('stop', False):
+                    break
+
+        logging.debug(f"Command: {self.command_name}, Expected input type: {input_type}")
+        
+        return RegularType(input_type)
     
     def __repr__(self) -> str:
         return f"CommandSignature({self.command_name}, {self.default_input_type}, {self.default_output_type}, {self.args}, {self.flags}, {self.rules})"
