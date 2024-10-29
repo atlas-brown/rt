@@ -1,7 +1,7 @@
 import logging
 from stream.regular_type import RegularType
 from stream.pipeline_parser import PipelineParser
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 from stream.command_signature import CommandSignature
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
@@ -10,7 +10,7 @@ class TypeChecker:
     def __init__(self, pipeline_address: str) -> None:
         self.pipeline_parser = PipelineParser(pipeline_address)
 
-    def check_pipeline(self) -> bool:
+    def check_pipeline(self) -> Tuple[bool, str|None]:
         parsed_commands = self.pipeline_parser.parse_pipeline()
         previous_output_type = RegularType("") # start with empty type
 
@@ -27,9 +27,10 @@ class TypeChecker:
                 logging.info(
                     f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type.pattern}' for command '{signature.command_name}'."
                 )
-                return False
+                return False, f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type.pattern}' for command '{signature.command_name}'"
+
             current_output_type = signature.inference_output_type(previous_output_type, parsed_command_node)
             previous_output_type = current_output_type
 
         logging.info("Pipeline is well-typed.")
-        return True
+        return True, None

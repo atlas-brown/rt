@@ -1,68 +1,94 @@
 import os
-import sys
-from typing import Optional
-from stream.shell_parser import parse_shell_to_asts
-from stream.pipeline_parser import PipelineParser
-from stream.regular_type import RegularType
-from stream.type_checker import TypeChecker
+import json
 import logging
+from typing import Optional
+from stream.type_checker import TypeChecker
 
+class ListHandler(logging.Handler):
+    def __init__(self):
+        super().__init__()
+        self.log_entries = []
 
-def evaluate_pipeline(pipeline_address) -> Optional[bool]:
-        try:
-            type_checker = TypeChecker(pipeline_address)
-            result = type_checker.check_pipeline()
-            logging.info(f'Pipeline {pipeline_address} evaluated as {result}')
-            return result
-        except Exception as e:
-            logging.error(f'Error while evaluating pipeline {pipeline_address}: {e}')
-            return None
+    def emit(self, record):
+        log_entry = self.format(record)
+        self.log_entries.append(log_entry)
+
+list_handler = ListHandler()
+logging.basicConfig(level=logging.INFO, handlers=[list_handler, logging.StreamHandler()])
+logger = logging.getLogger()
+
+def evaluate_pipeline(pipeline_address) -> dict:
+    pipeline_data = {
+        "path": pipeline_address,
+        "ground_truth": None,
+        "prediction": None,
+        "error message generated": None,
+        "tool runtime error": None,
+        "content": None,
+        "notes": ""
+    }
+    try:
+        with open(pipeline_address, 'r') as file:
+            pipeline_data["content"] = file.read()
+
+        type_checker = TypeChecker(pipeline_address)
+        result, err_msg = type_checker.check_pipeline()
+        
+        pipeline_data["prediction"] = result
+        logging.info(f'Pipeline {pipeline_address} evaluated as {result}')
+        
+        if not result:
+            pipeline_data["error message generated"] = err_msg
+            logging.info(f'Error detected in pipeline {pipeline_address}: {err_msg}')
+    except Exception as e:
+        logging.error(f'Tool runtime error while evaluating pipeline {pipeline_address}: {e}')
+        pipeline_data["tool runtime error"] = str(e)
+    
+    return pipeline_data
 
 def calculate_accuracy(labels, preds):
     correct_count = sum(1 for label, pred in zip(labels, preds) if label == pred)
     logging.info(f'Correct predictions: {correct_count}')
-    wrong_count = sum(1 for label, pred in zip(labels, preds) if label != pred and pred != None)
-    failed_count = sum(1 for label, pred in zip(labels, preds) if pred == None)
-    logging.info(f'Wrong predictions: {wrong_count}')
-    logging.info(f'Failed predictions: {failed_count}')
     return correct_count / len(labels)
 
 def calculate_precision(labels, preds):
-    TP = sum(1 for label, pred in zip(labels, preds) if label == pred and label == False)
-    logging.info(f'TP: {TP}')
+    TP = sum(1 for label, pred in zip(labels, preds) if label == pred and not label)
+    logging.info(f'TP (True Positives for buggy pipelines): {TP}')
     return TP / sum(1 for pred in preds if pred == False)
 
 def calculate_recall(labels, preds):
-    return sum(1 for label, pred in zip(labels, preds) if label == pred and label == False) / sum(1 for label in labels if label == False)
+    recall = sum(1 for label, pred in zip(labels, preds) if label == pred and not label) / sum(1 for label in labels if not label)
+    logging.info(f'Recall: {recall}')
+    return recall
 
 def calculate_fail_rate(labels, preds):
-    count = sum(1 for _, pred in zip(labels, preds) if pred == None)
-    # logging.info(f'Failed predictions: {count}')
-    return count / len(labels)
+    fail_count = sum(1 for _, pred in zip(labels, preds) if pred is None)
+    logging.info(f'Failed predictions: {fail_count}')
+    return fail_count / len(labels)
 
-def run_all_evaluations():
-
+def run_all_evaluations(output_json='evaluation_results/evaluation_results.json'):
     valid_pipelines = ['./evaluation_pipelines/valid/' + pipeline for pipeline in os.listdir('./evaluation_pipelines/valid')]
     invalid_pipelines = ['./evaluation_pipelines/invalid/' + pipeline for pipeline in os.listdir('./evaluation_pipelines/invalid')]
 
     pipelines = valid_pipelines + invalid_pipelines
-
     labels = [True] * len(valid_pipelines) + [False] * len(invalid_pipelines)
-    preds = []
+    results = []
 
-    for pipeline in pipelines:
-        preds.append(evaluate_pipeline(pipeline))
+    correct_valid_count = 0
+    correct_invalid_count = 0
 
-    logging.info("-------------------")
-    for pred, label, address in zip(preds, labels, pipelines):
-        if pred is None:
-            logging.info(f"{address}: Failed")
-        elif pred == label:
-            logging.info(f"{address}: Correct")
-        else:
-            logging.info(f"{address}: Wrong")
-    logging.info("-------------------")
-    logging.info(f'Found {len(valid_pipelines)} valid pipelines and {len(invalid_pipelines)} invalid pipelines.')
+    for pipeline, label in zip(pipelines, labels):
+        pipeline_result = evaluate_pipeline(pipeline)
+        pipeline_result["ground_truth"] = label
+        results.append(pipeline_result)
+        
+        if pipeline_result["prediction"] == label:
+            if label:
+                correct_valid_count += 1
+            else:
+                correct_invalid_count += 1
+
+    preds = [result["prediction"] for result in results]
     accuracy = calculate_accuracy(labels, preds)
     precision = calculate_precision(labels, preds)
     recall = calculate_recall(labels, preds)
@@ -72,9 +98,28 @@ def run_all_evaluations():
     logging.info(f'Precision: {precision}')
     logging.info(f'Recall: {recall}')
     logging.info(f'Fail rate: {fail_rate}')
-    
+    logging.info(f'Total correct valid pipelines: {correct_valid_count}')
+    logging.info(f'Total buggy pipelines detected: {correct_invalid_count}')
 
+    output_data = {
+        "evaluation_results": results,
+        "statistics": {
+            "correct_valid_pipelines": correct_valid_count,
+            "correct_pipelines_handled": f"{correct_valid_count}/{len(valid_pipelines)}",
+            "buggy_pipelines_detected": f"{correct_invalid_count}/{len(invalid_pipelines)}",
+            "wrong_predictions": sum(1 for label, pred in zip(labels, preds) if label != pred and pred is not None),
+            "failed_predictions": sum(1 for _, pred in zip(labels, preds) if pred is None),
+            "accuracy": accuracy,
+            "precision": precision,
+            "recall": recall,
+            "fail_rate": fail_rate
+        },
+        "logs": list_handler.log_entries
+    }
+
+    with open(output_json, 'w') as json_file:
+        json.dump(output_data, json_file, indent=4)
+    logging.info(f"Results written to {output_json}")
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
     run_all_evaluations()

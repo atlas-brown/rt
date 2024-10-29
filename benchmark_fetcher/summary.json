@@ -40,5 +40,17 @@
         "added_lines": [
             "+  ps x | grep ${SSH_AGENT_PID} | grep ssh-agent > /dev/null || {"
         ]
+    },
+    {
+        "message": "add faq urls to some functions, added more colors, also use a static url for remote digs",
+        "commit_url": "https://github.com/pi-hole/pi-hole/commit/ef5a6e7880901ed0c6d9aef4cf658f12fa04aa2c",
+        "removed_lines": [
+            "-  done < <( lsof -i -P -n | awk -F' ' '/LISTEN/ {print $9, $1}' | sort | uniq | cut -d':' -f2 )"
+        ],
+        "added_lines": [
+            "+      if [[ \"${PI_HOLE_VERSION}\" == \"$(pihole -v | awk '/Pi-hole/ {print $6}' | cut -d ')' -f1)\" ]]; then",
+            "+      if [[ \"${WEB_VERSION}\" == \"$(pihole -v | awk '/AdminLTE/ {print $6}' | cut -d ')' -f1)\" ]]; then",
+            "+  done < <( lsof -i -P -n | awk -F' ' '/LISTEN/ {print $9, $1}' | sort -n | uniq | cut -d':' -f2 )"
+        ]
     }
 ]
