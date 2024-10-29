@@ -5,12 +5,16 @@ import json
 from tqdm import tqdm
 import requests
 from requests.exceptions import RequestException
+from openai import OpenAI
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 pipeline_pattern = re.compile(r'(\bgrep\b|\bawk\b|\bsed\b|\bcut\b|\bsort\b|\buniq\b|\btr\b|\bxargs\b|\becho\b|\bcat\b).*\|\s*')
 debug_commit_hash = "6f994715d6e86297d1c9851666221cd2eb09ac3c"
 
 def get_popular_repos(language="Shell", max_size_kb=5000, top_n=50, min_results=15):
+    if not GITHUB_TOKEN:
+        raise ValueError("GITHUB_TOKEN environment variable not set.")
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
     url = "https://api.github.com/search/repositories"
     params = {
@@ -33,7 +37,6 @@ def get_popular_repos(language="Shell", max_size_kb=5000, top_n=50, min_results=
         print(f"Error fetching popular repos: {e}")
         return []
 
-
 def clone_repo(github_url: str, local_path: str):
     try:
         if not os.path.exists(local_path):
@@ -43,6 +46,35 @@ def clone_repo(github_url: str, local_path: str):
             print(f"Repository already exists at {local_path}.")
     except git.exc.GitCommandError as e:
         print(f"Error cloning repo {github_url}: {e}")
+
+def analyze_commit_with_openai(commit_data):
+    if not OPENAI_API_KEY:
+        return True
+
+    client = OpenAI(api_key=OPENAI_API_KEY, base_url="https://api.deepseek.com")
+
+    system_prompt = """Analyze each commit to determine if it modifies at least one pipeline by adding, removing, or changing flags, options, or arguments. Ignore changes irrelevant to the pipeline or changes to the commands themselves. Respond with 'T' if the commit meets the criteria; otherwise, respond with 'F'.
+
+    Examples:
+    - `grep -oE [0-9]+ | sort` to `grep -oE [0-9]+ | sort -n` → 'T' (flag added)
+    - `grep -oE [0-9]+ | sort` to `grep -oE [0-9]+ | uniq` → 'F' (command changed)
+    - `grep -oE [0-9A-Z]+ | sort -n` to `grep -oE [0-9A-Z]+` → 'F' (command dropped)
+    - `grep -oE [0-9]+ | sort` to `grep -oE [0-9]+ | sort | uniq` → 'F' (command added)"""
+
+
+    user_prompt = f"Commit message: {commit_data['message']}\n\nRemoved lines:\n{commit_data['removed_lines']}\n\n Added lines:\n{commit_data['added_lines']}"
+    
+    response = client.chat.completions.create(
+        model="deepseek-chat",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        stream=False,
+        max_tokens=2,
+        temperature=0
+    )
+    return "T" in response.choices[0].message.content
 
 def find_pipeline_commits(repo: git.Repo, github_url: str):
     pipeline_commits = []
@@ -84,6 +116,23 @@ def find_pipeline_commits(repo: git.Repo, github_url: str):
 
     return pipeline_commits
 
+def filter_commits_with_openai_analysis(commits, repo_name, save_path):
+    if OPENAI_API_KEY:
+        filtered_commits = []
+        with tqdm(total=len(commits[:200]), desc="OpenAI Analysis Progress") as pbar:
+            for commit in commits[:200]:
+                if analyze_commit_with_openai(commit):
+                    filtered_commits.append(commit)
+                pbar.update(1)
+                pbar.set_postfix(found=len(filtered_commits))
+    else:
+        print(f"Skipping OpenAI analysis for {repo_name} (no API key provided).")
+        filtered_commits = commits
+
+    with open(save_path, "w", encoding="utf-8") as f:
+        json.dump({repo_name: filtered_commits}, f, ensure_ascii=False, indent=4)
+    print(f"Filtered results saved to {save_path}.")
+
 def main():
     repos = get_popular_repos()
     base_path = "./benchmark_fetcher/repos"
@@ -94,6 +143,7 @@ def main():
         repo_url = repo_info["html_url"]
         local_path = os.path.join(base_path, repo_name.replace("/", "_"))
         save_path = f"./benchmark_fetcher/results/{repo_name.replace('/', '_')}_pipeline_commits.json"
+        openai_save_path = f"./benchmark_fetcher/results/{repo_name.replace('/', '_')}_filtered_commits.json"
 
         print(f"\nProcessing repository: {repo_name}...")
 
@@ -105,6 +155,9 @@ def main():
         if commits:
             results[repo_name] = commits
             print(f"Found {len(commits)} commits with pipeline changes in {repo_name}.")
+
+            filter_commits_with_openai_analysis(commits, repo_name, openai_save_path)
+            
         else:
             print(f"No pipeline changes found in {repo_name}.")
 
@@ -112,10 +165,6 @@ def main():
         with open(save_path, "w", encoding="utf-8") as f:
             json.dump({repo_name: commits}, f, ensure_ascii=False, indent=4)
         print(f"\nResults saved to {save_path}.")
-
-    with open("./benchmark_fetcher/pipeline_commits_summary.json", "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=4)
-    print("\nSummary of all results saved to pipeline_commits_summary.json.")
 
 if __name__ == "__main__":
     main()

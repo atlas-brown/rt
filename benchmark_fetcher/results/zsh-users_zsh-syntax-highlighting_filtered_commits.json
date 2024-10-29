@@ -1,0 +1,52 @@
+{
+    "zsh-users/zsh-syntax-highlighting": [
+        {
+            "commit_hash": "bb8d325c0cbdc830ed638a1220c723f82c029b00",
+            "author": "Matthew Martin",
+            "message": "tests: Fix grep syntax\n\nIn basic regular expressions | is not a special character that spearates\nbranches, so use an extended regular expression.",
+            "commit_url": "https://github.com/zsh-users/zsh-syntax-highlighting/commit/bb8d325c0cbdc830ed638a1220c723f82c029b00",
+            "removed_lines": [
+                "-  run_test \"$data_file\" | tee >($results_filter | ${0:A:h}/tap-colorizer.zsh) | grep -v '^not ok.*# TODO' | grep -Eq '^not ok|^ok.*# TODO' && (( something_failed=1 ))"
+            ],
+            "added_lines": [
+                "+  run_test \"$data_file\" | tee >($results_filter | ${0:A:h}/tap-colorizer.zsh) | grep -v '^not ok.*# TODO' | grep -q '^not ok\\|^ok.*# TODO' && (( something_failed=1 ))"
+            ]
+        },
+        {
+            "commit_hash": "9b64ad750f356f828c3cfa96bc42489b2f081d8a",
+            "author": "Daniel Shahaf",
+            "message": "tests: Add a 'print failures only' mode to 'make test', called 'make quiet-test'.\n\nFixes zsh-users/zsh-syntax-highlighting#262.\n\nCurrently, 'make quiet-test' uses Perl.  However, since it is considered a development\ntool rather than a user-facing tool, users and downstream packages needn't install Perl.\nFurthermore, even this dev-only dependency may be dropped in the future.\n\nThe only difference between tests/tap-filter here and the one in the issue is using\na `cat` subshell v. using 'undef $/; <STDIN>'.",
+            "commit_url": "https://github.com/zsh-users/zsh-syntax-highlighting/commit/9b64ad750f356f828c3cfa96bc42489b2f081d8a",
+            "removed_lines": [
+                "-  run_test \"$data_file\" | tee >($results_filter | ${0:A:h}/tap-colorizer.zsh) | grep -v '^not ok.*# TODO' | grep -q '^not ok\\|^ok.*# TODO' && (( something_failed=1 ))"
+            ],
+            "added_lines": [
+                "+  run_test \"$data_file\" | tee >(${0:A:h}/tap-colorizer.zsh) | grep -v '^not ok.*# TODO' | grep -q '^not ok\\|^ok.*# TODO' && (( something_failed=1 ))"
+            ]
+        },
+        {
+            "commit_hash": "1397f1bae16be8848c31b1345217703384c2dae2",
+            "author": "Daniel Shahaf",
+            "message": "tests: Tweak the isolation wrapper for style and robustness.\n\nFollowup to c01533920245599e4fbc4a1825520737b2c1a6ce.\n\nSuggested-by: Matthew Martin",
+            "commit_url": "https://github.com/zsh-users/zsh-syntax-highlighting/commit/1397f1bae16be8848c31b1345217703384c2dae2",
+            "removed_lines": [
+                "-  run_test \"$data_file\" | tee >(${0:A:h}/tap-colorizer.zsh) | grep -v '^not ok.*# TODO' | grep -q '^not ok\\|^ok.*# TODO' && (( something_failed=1 ))"
+            ],
+            "added_lines": [
+                "+  (run_test \"$data_file\") | tee >(${0:A:h}/tap-colorizer.zsh) | grep -v '^not ok.*# TODO' | grep -q '^not ok\\|^ok.*# TODO' && (( something_failed=1 ))"
+            ]
+        },
+        {
+            "commit_hash": "c4a9fe93792b11d26f20028cba6f97b0ede8beb7",
+            "author": "Daniel Shahaf",
+            "message": "test harness: Exit 1 if a 'todo' test passed.",
+            "commit_url": "https://github.com/zsh-users/zsh-syntax-highlighting/commit/c4a9fe93792b11d26f20028cba6f97b0ede8beb7",
+            "removed_lines": [
+                "-  (run_test \"$data_file\") | tee >(cat) | grep -v '^not ok.*# TODO' | grep -q '^not ok\\|^ok.*# TODO' && (( something_failed=1 ))"
+            ],
+            "added_lines": [
+                "+  (run_test \"$data_file\") | tee >(cat) | grep '^not ok' | grep -qv ' # TODO' && (( something_failed=1 ))"
+            ]
+        }
+    ]
+}

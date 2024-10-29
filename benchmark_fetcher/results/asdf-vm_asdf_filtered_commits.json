@@ -1,0 +1,251 @@
+{
+    "asdf-vm/asdf": [
+        {
+            "commit_hash": "d7e0740461a26bd3d437c2bfb02619d7e20d2489",
+            "author": "Edwin Kofler",
+            "message": "refactor: prefer grep `--quiet` over standard output redirection (#1655)",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/d7e0740461a26bd3d437c2bfb02619d7e20d2489",
+            "removed_lines": [
+                "-  if ! grep -q \"# asdf-plugin:\" \"$shim_path\" ||"
+            ],
+            "added_lines": [
+                "+  if ! grep \"# asdf-plugin:\" \"$shim_path\" >/dev/null ||"
+            ]
+        },
+        {
+            "commit_hash": "624604a8626dc6006d78121d4cf0f6c920449c56",
+            "author": "Edwin Kofler",
+            "message": "fix: no longer write temporary files to home directory (#1592)",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/624604a8626dc6006d78121d4cf0f6c920449c56",
+            "removed_lines": [
+                "-    sed -e \"s|^$plugin_name .*$|$plugin_name ${resolved_versions[*]}|\" \"$temp_tool_versions_file\" >\"$file\""
+            ],
+            "added_lines": [
+                "+    sed -i.bak -e \"s|^$plugin_name .*$|$plugin_name ${resolved_versions[*]}|\" \"$file\""
+            ]
+        },
+        {
+            "commit_hash": "15faf93a0d3615834e550ea1562fb6b8cee5a205",
+            "author": "Edwin Kofler",
+            "message": "fix: Remove unecessary backslashes (#1384)",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/15faf93a0d3615834e550ea1562fb6b8cee5a205",
+            "removed_lines": [
+                "-  result=$(grep -E \"^\\s*$key\\s*=\\s*\" \"$config_path\" | head | sed -e 's/^[^=]*= *//' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+            ],
+            "added_lines": [
+                "+  result=$(grep -E \"^\\\\s*$key\\\\s*=\\\\s*\" \"$config_path\" | head | sed -e 's/^[^=]*= *//' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+            ]
+        },
+        {
+            "commit_hash": "5334d1db3d390c46ed49101528f74483eb6b2987",
+            "author": "Lorenzo Gallucci",
+            "message": "fix: excludes \"milestone\" releases in \"latest\" command (#1307)\n\nFixes #1306",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/5334d1db3d390c46ed49101528f74483eb6b2987",
+            "removed_lines": [
+                "-      grep -ivE \"(^Available versions:|-src|-dev|-latest|-stm|[-\\\\.]rc|-milestone|-alpha|-beta|[-\\\\.]pre|-next|(a|b|c)[0-9]+|snapshot|master)\" |"
+            ],
+            "added_lines": [
+                "+      grep -ivE \"(^Available versions:|-src|-dev|-latest|-stm|[-\\\\.]rc|-alpha|-beta|[-\\\\.]pre|-next|(a|b|c)[0-9]+|snapshot|master)\" |"
+            ]
+        },
+        {
+            "commit_hash": "afd622429815af7e9f80771405d0a5d631c0ab4e",
+            "author": "David le Blanc",
+            "message": "Fixed config file parsing to handle \"=\" in value field.",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/afd622429815af7e9f80771405d0a5d631c0ab4e",
+            "removed_lines": [
+                "-  result=$(grep -E \"^\\\\s*$key\\\\s*=\\\\s*\" \"$config_path\" | head | sed -e 's/^[^=]*= *//' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+            ],
+            "added_lines": [
+                "+  result=$(grep -E \"^\\\\s*$key\\\\s*=\\\\s*\" \"$config_path\" | head | awk -F '=' '{print $2}' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+            ]
+        },
+        {
+            "commit_hash": "e61e3d9ade0d7bdfb4413184284038c50ba1e09c",
+            "author": "Jochen Schalanda",
+            "message": "feat: case-insensitive filtering of unstable versions in `latest` (#1139)\n\n* feat: case-insensitive filtering of unstable versions in `latest`\r\n* Fix versions in version_commands tests",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/e61e3d9ade0d7bdfb4413184284038c50ba1e09c",
+            "removed_lines": [
+                "-      grep -ivE \"(^Available versions:|-src|-dev|-latest|-stm|[-\\\\.]rc|-alpha|-beta|[-\\\\.]pre|-next|(a|b|c)[0-9]+|snapshot|master)\" |",
+                "-          grep -ivE \"(^Available version:|-src|-dev|-latest|-stm|[-\\\\.]rc|-alpha|-beta|[-\\\\.]pre|-next|(a|b|c)[0-9]+|snapshot|master)\" |"
+            ],
+            "added_lines": [
+                "+      grep -vE \"(^Available versions:|-src|-dev|-latest|-stm|[-\\\\.]rc|-alpha|-beta|[-\\\\.]pre|-next|(a|b|c)[0-9]+|snapshot|master)\" |",
+                "+          grep -vE \"(^Available version:|-src|-dev|-latest|-stm|[-\\\\.]rc|-alpha|-beta|[-\\\\.]pre|-next|(a|b|c)[0-9]+|snapshot|master)\" |"
+            ]
+        },
+        {
+            "commit_hash": "4b93bc81aa982b72621cd09e71eeea71ee009185",
+            "author": "Trevor Brown",
+            "message": "fix: Sed improvements (#1087)",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/4b93bc81aa982b72621cd09e71eeea71ee009185",
+            "removed_lines": [
+                "-  substitute \"$PATH\" \"$path\" \"\" | sed -e \"s|::|:|g\""
+            ],
+            "added_lines": [
+                "+    path=$(sed -e \"s|$(asdf_data_dir)/shims||g; s|::|:|g\" <<<\"$PATH\")",
+                "+      path=$(sed -e \"s|$(asdf_data_dir)/shims||g; s|::|:|g\" <<<\"$PATH\")"
+            ]
+        },
+        {
+            "commit_hash": "47e8fb051b3577d251376976d5767c520f3524fc",
+            "author": "Filip Chabik",
+            "message": "fix: sed re error trailing backslash on FreeBSD (#1046). (#1047)",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/47e8fb051b3577d251376976d5767c520f3524fc",
+            "removed_lines": [
+                "-      sed 's/^[[:space:]]\\+//' |"
+            ],
+            "added_lines": [
+                "+      sed 's/^\\s\\+//' |"
+            ]
+        },
+        {
+            "commit_hash": "664d82ed8a734eb30988840829a972f8ddd8e523",
+            "author": "Alberto de Murga",
+            "message": "feat: asdf latest defer to plugin to determine the latest version (#938)\n\nCo-authored-by: James Hegedus <jthegedus@hey.com>",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/664d82ed8a734eb30988840829a972f8ddd8e523",
+            "removed_lines": [
+                "-      grep -vE \"(^Available versions:|-src|-dev|-latest|-stm|[-\\\\.]rc|-alpha|-beta|[-\\\\.]pre|-next|(a|b|c)[0-9]+|snapshot|master)\" |",
+                "-      sed 's/^\\s\\+//' |"
+            ],
+            "added_lines": [
+                "+    grep -vE \"(^Available versions:|-src|-dev|-latest|-stm|[-\\\\.]rc|-alpha|-beta|[-\\\\.]pre|-next|(a|b|c)[0-9]+|snapshot|master)\" |",
+                "+    sed 's/^\\s\\+//' |"
+            ]
+        },
+        {
+            "commit_hash": "f125741fb5d1cdbb9700fc1b857a77cce22d404d",
+            "author": "Trevor Brown",
+            "message": "Update code to use . instead of source",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/f125741fb5d1cdbb9700fc1b857a77cce22d404d",
+            "removed_lines": [
+                "-  shim_plugin_versions \"${shim_name}\" | cut -d' ' -f 1 | uniq | xargs -IPLUGIN bash -c \". $(asdf_dir)/lib/utils.bash; printf \\\"%s %s\\\\n\\\" PLUGIN \\$(get_preset_version_for PLUGIN)\""
+            ],
+            "added_lines": [
+                "+  shim_plugin_versions \"${shim_name}\" | cut -d' ' -f 1 | uniq | xargs -IPLUGIN bash -c \"source $(asdf_dir)/lib/utils.bash; printf \\\"%s %s\\\\n\\\" PLUGIN \\$(get_preset_version_for PLUGIN)\""
+            ]
+        },
+        {
+            "commit_hash": "52cbf1165c79c7efbb1c9b2f26167a047a7335d0",
+            "author": "Trevor Brown",
+            "message": "Add .bash file extensions to files containing code executed by Bash",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/52cbf1165c79c7efbb1c9b2f26167a047a7335d0",
+            "removed_lines": [
+                "-  shim_plugin_versions \"${shim_name}\" | cut -d' ' -f 1 | uniq | xargs -IPLUGIN bash -c \"source $(asdf_dir)/lib/utils.bash; echo PLUGIN \\$(get_preset_version_for PLUGIN)\""
+            ],
+            "added_lines": [
+                "+  shim_plugin_versions \"${shim_name}\" | cut -d' ' -f 1 | uniq | xargs -IPLUGIN bash -c \"source $(asdf_dir)/lib/utils.sh; echo PLUGIN \\$(get_preset_version_for PLUGIN)\""
+            ]
+        },
+        {
+            "commit_hash": "b8dc5f160447baabab9c69683824512ded577254",
+            "author": "Victor Hugo Borja",
+            "message": "Run shfmt on bash files",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/b8dc5f160447baabab9c69683824512ded577254",
+            "removed_lines": [
+                "-      available_plugins=$( (asdf plugin-list 2>/dev/null && asdf plugin-list-all 2>/dev/null) | sort | uniq -u)"
+            ],
+            "added_lines": [
+                "+      available_plugins=$( (asdf plugin-list 2> /dev/null && asdf plugin-list-all 2> /dev/null) | sort | uniq -u)"
+            ]
+        },
+        {
+            "commit_hash": "81709db18af15a761a0f5de5bfbcea7290be5daa",
+            "author": "Daniel Perez",
+            "message": "Fix shim_plugin_version",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/81709db18af15a761a0f5de5bfbcea7290be5daa",
+            "removed_lines": [
+                "-    grep \"# asdf-plugin: \" \"$shim_path\" 2>/dev/null | sed -e \"s/# asdf-plugin: //\" | uniq"
+            ],
+            "added_lines": [
+                "+    grep -y \"# asdf-plugin: \" \"$shim_path\" 2>/dev/null | sed -e \"s/# asdf-plugin: //\" | uniq"
+            ]
+        },
+        {
+            "commit_hash": "9a79ac952603300ee3e8f03e77c2149989401bc8",
+            "author": "Victor Hugo Borja",
+            "message": "user configurable pre-post command hooks\n\nSuppose a `foo` plugin is installed and provides a `bar` executable.\nThe following hooks will be executed when set in `.asdfrc`:\n\n```shell\npost_asdf_install_foo = echo installed foo version ${1}\npost_asdf_reshim_foo = echo reshimmed foo version ${1}\n\npre_foo_bar = echo about to execute command bar from foo with args: ${@}\npost_foo_bar = echo just executed command bar from foo with args: ${@}\n```",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/9a79ac952603300ee3e8f03e77c2149989401bc8",
+            "removed_lines": [
+                "-  result=$(grep -E \"^\\\\s*$key\\\\s*=\\\\s*\" \"$config_path\" | head | awk -F '=' '{print $2}' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+            ],
+            "added_lines": [
+                "+  result=$(grep -E \"^\\\\s*$key\\\\s*=\" \"$config_path\" | awk -F '=' '{ gsub(/ /, \"\", $2); print $2 }')"
+            ]
+        },
+        {
+            "commit_hash": "0871b7fe8f42ed3b265b73d37356387c8111c97c",
+            "author": "Fernando Crespo",
+            "message": "Change maxdepth position to fix error in ubuntu trusty",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/0871b7fe8f42ed3b265b73d37356387c8111c97c",
+            "removed_lines": [
+                "-        location=$(find -L \"$full_executable_path\" -maxdepth 4 -name \"$command\" -type f -perm -u+x | sed -e 's|//|/|g')"
+            ],
+            "added_lines": [
+                "+        location=$(find -L \"$full_executable_path\" -name \"$command\" -type f -perm -u+x -maxdepth 4 | sed -e 's|//|/|g')"
+            ]
+        },
+        {
+            "commit_hash": "fc1b3b9f8720ed3885506297e0acfd3cb36ab0bd",
+            "author": "Robert Liebowitz",
+            "message": "Silence errors during tab completion",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/fc1b3b9f8720ed3885506297e0acfd3cb36ab0bd",
+            "removed_lines": [
+                "-      available_plugins=$( (asdf plugin-list 2> /dev/null && asdf plugin-list-all 2> /dev/null) | sort | uniq -u)"
+            ],
+            "added_lines": [
+                "+      available_plugins=$( (asdf plugin-list && asdf plugin-list-all) | sort | uniq -u)"
+            ]
+        },
+        {
+            "commit_hash": "349132260105318222d5a5e064a8a95864d43366",
+            "author": "Fernando Crespo",
+            "message": "Fixed review issues and added -L to find to account for python having its main binary as a symlink",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/349132260105318222d5a5e064a8a95864d43366",
+            "removed_lines": [
+                "-        location=$(find -L \"$full_executable_path\" -name \"$command\" -type f -perm -u+x -maxdepth 4 | sed -e 's|//|/|g')"
+            ],
+            "added_lines": [
+                "+        location=$(find \"$full_executable_path\" -name \"$command\" -type f -perm -u+x | sed -e 's|//|/|g')"
+            ]
+        },
+        {
+            "commit_hash": "974597ddc71e777016214917f6436f9ef87e7670",
+            "author": "Trevor Brown",
+            "message": "Correct sed command that removes asdf from PATH.",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/974597ddc71e777016214917f6436f9ef87e7670",
+            "removed_lines": [
+                "-    path=$(echo $PATH | sed -e \"s|$ASDF_DIR/shims||g; s|::|:|g\")"
+            ],
+            "added_lines": [
+                "+    path=$(echo $PATH | sed -e \"s|$(asdf_dir)/shims:\\?||g\")"
+            ]
+        },
+        {
+            "commit_hash": "0f1db849817f5fffe54876b6bbe85b19774b50e8",
+            "author": "Akash Manohar J",
+            "message": "Remove last use of tag/commit",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/0f1db849817f5fffe54876b6bbe85b19774b50e8",
+            "removed_lines": [
+                "-      local full_version_name=$(echo $(basename $install) | sed 's/ref\\-/ref\\:/')"
+            ],
+            "added_lines": [
+                "+      local full_version_name=$(echo $(basename $install) | sed 's/tag\\-/tag\\:/' | sed 's/commit-/commit:/')"
+            ]
+        },
+        {
+            "commit_hash": "d06de933e117574e12da8aceaeff9280907ab0ea",
+            "author": "Akash Manohar J",
+            "message": "Fixes",
+            "commit_url": "https://github.com/asdf-vm/asdf/commit/d06de933e117574e12da8aceaeff9280907ab0ea",
+            "removed_lines": [
+                "-    local tool_name=$(echo \"${tool_info[0]}\" | xargs)",
+                "-    local tool_version=$(echo \"${tool_info[1]}\" | xargs)"
+            ],
+            "added_lines": [
+                "+    local tool_name=$(echo -e \"${tool_info[0]}\" | xargs)",
+                "+    local tool_version=$(echo -e \"${tool_info[1]}\" | xargs)"
+            ]
+        }
+    ]
+}
