@@ -18,3 +18,4 @@ logic.log
 **/results.log
 **/localtest.py
 **/rebase.sh
+benchmark_fetcher/repos

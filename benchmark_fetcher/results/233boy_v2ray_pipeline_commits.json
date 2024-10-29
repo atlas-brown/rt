@@ -1,0 +1,365 @@
+{
+    "233boy/v2ray": [
+        {
+            "commit_hash": "4771de764d446c6c5d197591be772e07a36fd231",
+            "author": "233boy",
+            "message": "add *TLS  protocol change port",
+            "commit_url": "https://github.com/233boy/v2ray/commit/4771de764d446c6c5d197591be772e07a36fd231",
+            "removed_lines": [
+                "-        is_url=\"ss://$(echo -n ${ss_method}:${ss_password} | base64 -w 0)@${is_addr}:${port}#233boy-$net-${is_addr}\"",
+                "-        is_url=\"socks://$(echo -n ${is_socks_user}:${is_socks_pass} | base64 -w 0)@${is_addr}:${port}#233boy-$net-${is_addr}\""
+            ],
+            "added_lines": [
+                "+        is_url=\"ss://$(echo -n ${ss_method}:${ss_password} | base64 -w 0)@${is_addr}:${port}#233boy-ss-${is_addr}\"",
+                "+        is_url=\"socks://$(echo -n ${is_socks_user}:${is_socks_pass} | base64 -w 0)@${is_addr}:${port}#233boy-socks-${is_addr}\""
+            ]
+        },
+        {
+            "commit_hash": "b09b8b5c51795e6c19c3af6d48f4b0af2b1aced7",
+            "author": "233boy",
+            "message": "fix config read err",
+            "commit_url": "https://github.com/233boy/v2ray/commit/b09b8b5c51795e6c19c3af6d48f4b0af2b1aced7",
+            "removed_lines": [
+                "-        readarray -t is_all_json <<<\"$(ls $is_conf_dir | egrep -i \"$is_file_str\" | sed '/dynamic-port-.*-link/d' | head -233)\" # limit max 233 lines for show."
+            ],
+            "added_lines": [
+                "+        readarray -t is_all_json <<<$(ls $is_conf_dir | egrep -i \"$is_file_str\" | sed '/dynamic-port-.*-link/d' | head -233) # limit max 233 lines for show."
+            ]
+        },
+        {
+            "commit_hash": "61e55aed2f0f1922522ea9d4c68affa77d0d636f",
+            "author": "233boy",
+            "message": "v4",
+            "commit_url": "https://github.com/233boy/v2ray/commit/61e55aed2f0f1922522ea9d4c68affa77d0d636f",
+            "removed_lines": [
+                "-    echo -e \"Usage: $0 [-f xxx | -l | -p xxx | -v xxx | -h]\"",
+                "-        pkg=$(echo $cmd_not_found | sed 's/,/ /g')"
+            ],
+            "added_lines": [
+                "+\t\techo \"备注2: [utp | srtp | wechat-video | dtls | wireguard] 分别伪装成 [BT下载 | 视频通话 | 微信视频通话 | DTLS 1.2 数据包 | WireGuard 数据包]\"",
+                "+\t# test_domain=$(wget -qO- --header='accept: application/dns-json' \"https://cloudflare-dns.com/dns-query?name=$domain&type=A\" | grep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" | head -1)",
+                "+\t# test_domain=$(curl -sH 'accept: application/dns-json' \"https://cloudflare-dns.com/dns-query?name=$domain&type=A\" | grep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" | head -1)",
+                "+\tif [[ ! $(echo $test_domain | grep $ip) ]]; then",
+                "+\t# date -s \"$(curl -sI g.cn | grep Date | cut -d' ' -f3-6)Z\""
+            ]
+        },
+        {
+            "commit_hash": "ab15bf6f7fe42802aa91ee0a59c4fe8bfb4aa763",
+            "author": "233boy",
+            "message": "support ipv6",
+            "commit_url": "https://github.com/233boy/v2ray/commit/ab15bf6f7fe42802aa91ee0a59c4fe8bfb4aa763",
+            "removed_lines": [
+                "-\t# test_domain=$(curl -sH 'accept: application/dns-json' \"https://cloudflare-dns.com/dns-query?name=$domain&type=A\" | grep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" | head -1)",
+                "-\tif [[ ! $(echo $test_domain | grep $ip) ]]; then"
+            ],
+            "added_lines": [
+                "+\ttest_domain=$(curl -sH 'accept: application/dns-json' \"https://cloudflare-dns.com/dns-query?name=$domain&type=A\" | grep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" | head -1)"
+            ]
+        },
+        {
+            "commit_hash": "7028fbe67938ac320538fc1136615bad26e3751a",
+            "author": "233boy",
+            "message": "use ping check domain",
+            "commit_url": "https://github.com/233boy/v2ray/commit/7028fbe67938ac320538fc1136615bad26e3751a",
+            "removed_lines": [
+                "-\t# test_domain=$(curl -sH 'accept: application/dns-json' \"https://cloudflare-dns.com/dns-query?name=$new_domain&type=A\" | grep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" | head -1)"
+            ],
+            "added_lines": [
+                "+\ttest_domain=$(curl -sH 'accept: application/dns-json' \"https://cloudflare-dns.com/dns-query?name=$new_domain&type=A\" | grep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" | head -1)"
+            ]
+        },
+        {
+            "commit_hash": "e8339d0652b399419a216048e7300b164095bd03",
+            "author": "233boy",
+            "message": "support vless url",
+            "commit_url": "https://github.com/233boy/v2ray/commit/e8339d0652b399419a216048e7300b164095bd03",
+            "removed_lines": [
+                "-\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | base64 -w 0)\""
+            ],
+            "added_lines": [
+                "+\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | base64 -w 0)\""
+            ]
+        },
+        {
+            "commit_hash": "ed619a6b2c0b17fe1cdd9787bd22c03cd8ec2dbf",
+            "author": "233boy",
+            "message": "fix v2ray download error!",
+            "commit_url": "https://github.com/233boy/v2ray/commit/ed619a6b2c0b17fe1cdd9787bd22c03cd8ec2dbf",
+            "removed_lines": [
+                "-\tv2ray_latest_ver=\"$(curl -s $v2ray_repos_url | grep 'tag_name' | cut -d\\\" -f4)\"",
+                "-\tif [[ ! $(cat /root/.bashrc | grep v2ray) ]]; then"
+            ],
+            "added_lines": [
+                "+\tv2ray_latest_ver=\"$(curl -H 'Cache-Control: no-cache' -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep 'tag_name' | cut -d\\\" -f4)\""
+            ]
+        },
+        {
+            "commit_hash": "5ea36e805ed5d6e9038454fa2927b0056940dd9e",
+            "author": "233boy",
+            "message": "fix domain check bug.",
+            "commit_url": "https://github.com/233boy/v2ray/commit/5ea36e805ed5d6e9038454fa2927b0056940dd9e",
+            "removed_lines": [
+                "-\t# test_domain=$(wget -qO- --header='accept: application/dns-json' \"https://cloudflare-dns.com/dns-query?name=$new_domain&type=A\" | grep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" | head -1)"
+            ],
+            "added_lines": [
+                "+\t# test_domain=$(wget -qO- --header='accept: application/dns-json' \"https://cloudflare-dns.com/dns-query?name=$domain&type=A\" | grep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" | head -1)"
+            ]
+        },
+        {
+            "commit_hash": "29c99e16b1ed4c40087814a0388b42edd1c698b0",
+            "author": "zqigolden",
+            "message": "Update v2ray.sh",
+            "commit_url": "https://github.com/233boy/v2ray/commit/29c99e16b1ed4c40087814a0388b42edd1c698b0",
+            "removed_lines": [
+                "-\ttest_domain=$(curl -sH 'accept: application/dns-json' \"https://cloudflare-dns.com/dns-query?name=$new_domain&type=A\" | grep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" | head -1)"
+            ],
+            "added_lines": [
+                "+\ttest_domain=$(curl -sH 'accept: application/dns-json' \"https://cloudflare-dns.com/dns-query?name=$domain&type=A\" | grep -oE \"([0-9]{1,3}\\.){3}[0-9]{1,3}\" | head -1)"
+            ]
+        },
+        {
+            "commit_hash": "f515968ebfdc182b857772e0b599b9f7988aa8bc",
+            "author": "233boy",
+            "message": "fix #249",
+            "commit_url": "https://github.com/233boy/v2ray/commit/f515968ebfdc182b857772e0b599b9f7988aa8bc",
+            "removed_lines": [
+                "-\t# date -s \"$(curl -sI g.cn | grep Date | cut -d' ' -f3-6)Z\""
+            ],
+            "added_lines": [
+                "+\tdate -s \"$(curl -sI g.cn | grep Date | cut -d' ' -f3-6)Z\""
+            ]
+        },
+        {
+            "commit_hash": "e43667561dc68f856a35f77948b8ae98c9ee5b3c",
+            "author": "233boy",
+            "message": "update domain",
+            "commit_url": "https://github.com/233boy/v2ray/commit/e43667561dc68f856a35f77948b8ae98c9ee5b3c",
+            "removed_lines": [
+                "-\tlocal ss_link=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233v2.com_ss_${ip}\""
+            ],
+            "added_lines": [
+                "+\tlocal ss_link=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#v2ray6.com_ss_${ip}\""
+            ]
+        },
+        {
+            "commit_hash": "077ef7f74e508b7b602d540454b1f42b798b3f54",
+            "author": "233boy",
+            "message": "update domain!!!",
+            "commit_url": "https://github.com/233boy/v2ray/commit/077ef7f74e508b7b602d540454b1f42b798b3f54",
+            "removed_lines": [
+                "-\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#v2ray6.com_ss_${ip}\""
+            ],
+            "added_lines": [
+                "+\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233now.com_ss_${ip}\""
+            ]
+        },
+        {
+            "commit_hash": "b9282f75c13997456af71f92722bc79ce675a7b1",
+            "author": "233boy",
+            "message": "update domain",
+            "commit_url": "https://github.com/233boy/v2ray/commit/b9282f75c13997456af71f92722bc79ce675a7b1",
+            "removed_lines": [
+                "-\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233now.com_ss_${ip}\""
+            ],
+            "added_lines": [
+                "+\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233yes.com_ss_${ip}\""
+            ]
+        },
+        {
+            "commit_hash": "620ec46f5a55c6e1132986e93ac26542d9eb4944",
+            "author": "233boy",
+            "message": "v3 boom",
+            "commit_url": "https://github.com/233boy/v2ray/commit/620ec46f5a55c6e1132986e93ac26542d9eb4944",
+            "removed_lines": [
+                "-\t\techo \"备注2: [utp | srtp | wechat-video | dtls | wireguard] 分别伪装成 [BT下载 | 视频通话 | 微信视频通话 | DTLS 1.2 数据包 | WireGuard 数据包]\""
+            ],
+            "added_lines": [
+                "+\t\techo \"备注2: [utp | srtp | wechat-video] 分别为 伪装成 [BT下载 | 视频通话 | 微信视频通话]\"",
+                "+\tv2ray_ver=\"$(curl -H 'Cache-Control: no-cache' -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep 'tag_name' | cut -d\\\" -f4)\"",
+                "+\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233yes.com_ss_${ip}\"",
+                "+\t\tlocal random1=$(echo $RANDOM-$RANDOM-$RANDOM | base64 -w 0)",
+                "+\t\tlocal random2=$(echo $RANDOM-$RANDOM-$RANDOM | base64 -w 0)",
+                "+\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | tr -d '\\n' | base64 -w 0)\"",
+                "+\t\techo $vmess | tr -d '\\n' >/etc/v2ray/vmess.txt",
+                "+\t\tcat /etc/v2ray/vmess.txt | qrencode -s 50 -o /tmp/233blog_v2ray.png",
+                "+\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233yes.com_ss_${ip}\"",
+                "+\t\tcat /tmp/233blog_shadowsocks.txt | qrencode -s 50 -o /tmp/233blog_shadowsocks.png",
+                "+\t\tlocal random1=$(echo $RANDOM-$RANDOM-$RANDOM | base64 -w 0)",
+                "+\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | tr -d '\\n' | base64 -w 0)\"",
+                "+\t\techo $vmess | tr -d '\\n' >/etc/v2ray/vmess.txt",
+                "+\t\tcat /etc/v2ray/vmess.txt | qrencode -s 50 -o /tmp/233blog_v2ray.png",
+                "+\t\t\tv2ray_pid=$(ps ux | grep \"/usr/bin/v2ray/v2ray\" | grep -v grep | awk '{print $2}')",
+                "+\t\t\tv2ray_pid=$(ps ux | grep \"/usr/bin/v2ray/v2ray\" | grep -v grep | awk '{print $2}')",
+                "+\t\t\tv2ray_pid=$(ps ux | grep \"/usr/bin/v2ray/v2ray\" | grep -v grep | awk '{print $2}')",
+                "+\t\t\tv2ray_pid=$(ps ux | grep \"/usr/bin/v2ray/v2ray\" | grep -v grep | awk '{print $2}')"
+            ]
+        },
+        {
+            "commit_hash": "b361a420e25d3732c6068c28f0f9e87a6e1891cf",
+            "author": "233boy",
+            "message": "update domain",
+            "commit_url": "https://github.com/233boy/v2ray/commit/b361a420e25d3732c6068c28f0f9e87a6e1891cf",
+            "removed_lines": [
+                "-\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233yes.com_ss_${ip}\"",
+                "-\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233yes.com_ss_${ip}\""
+            ],
+            "added_lines": [
+                "+\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#v2ray66.com_ss_${ip}\"",
+                "+\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#v2ray66.com_ss_${ip}\""
+            ]
+        },
+        {
+            "commit_hash": "077585ceb4e4453f0ca19649ef10fabde2f5b6f0",
+            "author": "233boy",
+            "message": "curl header add no cache",
+            "commit_url": "https://github.com/233boy/v2ray/commit/077585ceb4e4453f0ca19649ef10fabde2f5b6f0",
+            "removed_lines": [
+                "-\tlocal latest_version=$(curl -H 'Cache-Control: no-cache' -s -L \"https://raw.githubusercontent.com/233boy/v2ray/master/v2ray.sh\" | grep '_version' -m1 | cut -d\\\" -f2)"
+            ],
+            "added_lines": [
+                "+\tlocal latest_version=$(curl -s -L \"https://raw.githubusercontent.com/233boy/v2ray/master/v2ray.sh?r=$RANDOM\" | grep '_version' -m1 | cut -d\\\" -f2)"
+            ]
+        },
+        {
+            "commit_hash": "2fd7b602651688a9dc95c3eaf018b9e958539660",
+            "author": "233boy",
+            "message": "bug fix",
+            "commit_url": "https://github.com/233boy/v2ray/commit/2fd7b602651688a9dc95c3eaf018b9e958539660",
+            "removed_lines": [
+                "-\tv2ray_ver=\"$(curl -H 'Cache-Control: no-cache' -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep 'tag_name' | cut -d\\\" -f4)\""
+            ],
+            "added_lines": [
+                "+\t# v2ray_ver=\"$(curl -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep 'tag_name' | cut -d\\\" -f4)\""
+            ]
+        },
+        {
+            "commit_hash": "f7994300c7818549a7aee423e969e1e531299ea4",
+            "author": "233boy",
+            "message": "update",
+            "commit_url": "https://github.com/233boy/v2ray/commit/f7994300c7818549a7aee423e969e1e531299ea4",
+            "removed_lines": [
+                "-\t# v2ray_ver=\"$(curl -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep 'tag_name' | cut -d\\\" -f4)\""
+            ],
+            "added_lines": [
+                "+\tv2ray_ver=\"$(curl -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep 'tag_name' | cut -d\\\" -f4)\""
+            ]
+        },
+        {
+            "commit_hash": "76495c810bca56c756d09a4ea1ebfc1aacce51ca",
+            "author": "233boy",
+            "message": "update domain name",
+            "commit_url": "https://github.com/233boy/v2ray/commit/76495c810bca56c756d09a4ea1ebfc1aacce51ca",
+            "removed_lines": [
+                "-\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#v2ray66.com_ss_${ip}\"",
+                "-\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#v2ray66.com_ss_${ip}\""
+            ],
+            "added_lines": [
+                "+\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#v2ray666.com_ss_${ip}\"",
+                "+\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#v2ray666.com_ss_${ip}\""
+            ]
+        },
+        {
+            "commit_hash": "7ffafe039c4ddd950143ab432c2e4e0d1455a019",
+            "author": "233boy",
+            "message": "update domain name",
+            "commit_url": "https://github.com/233boy/v2ray/commit/7ffafe039c4ddd950143ab432c2e4e0d1455a019",
+            "removed_lines": [
+                "-\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#v2ray666.com_ss_${ip}\"",
+                "-\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#v2ray666.com_ss_${ip}\""
+            ],
+            "added_lines": [
+                "+\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233blog_ss_${ip}\"",
+                "+\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233blog_ss_${ip}\""
+            ]
+        },
+        {
+            "commit_hash": "462fe888c60476e0de997876833a2750af46f917",
+            "author": "233boy",
+            "message": "boring...",
+            "commit_url": "https://github.com/233boy/v2ray/commit/462fe888c60476e0de997876833a2750af46f917",
+            "removed_lines": [
+                "-\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | tr -d '\\n' | base64 -w 0)\"",
+                "-\t\techo $vmess | tr -d '\\n' >/etc/v2ray/vmess.txt",
+                "-\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | tr -d '\\n' | base64 -w 0)\"",
+                "-\t\techo $vmess | tr -d '\\n' >/etc/v2ray/vmess.txt"
+            ],
+            "added_lines": [
+                "+\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | base64 -w 0)\"",
+                "+\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | base64 -w 0)\""
+            ]
+        },
+        {
+            "commit_hash": "9168af9b0afe104958143f8d1f52377824ef27cc",
+            "author": "233boy",
+            "message": "[fix] base64 disable line wrapping",
+            "commit_url": "https://github.com/233boy/v2ray/commit/9168af9b0afe104958143f8d1f52377824ef27cc",
+            "removed_lines": [
+                "-\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233blog_ss_${ip}\"",
+                "-\t\tlocal random1=$(echo $RANDOM-$RANDOM-$RANDOM | base64 -w 0)",
+                "-\t\tlocal random2=$(echo $RANDOM-$RANDOM-$RANDOM | base64 -w 0)",
+                "-\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | base64 -w 0)\"",
+                "-\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64 -w 0)#233blog_ss_${ip}\"",
+                "-\t\tlocal random1=$(echo $RANDOM-$RANDOM-$RANDOM | base64 -w 0)",
+                "-\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | base64 -w 0)\""
+            ],
+            "added_lines": [
+                "+\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64)#233blog_ss_${ip}\"",
+                "+\t\tlocal random1=$(echo $RANDOM-$RANDOM-$RANDOM | base64)",
+                "+\t\tlocal random2=$(echo $RANDOM-$RANDOM-$RANDOM | base64)",
+                "+\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | base64)\"",
+                "+\t\tlocal ss=\"ss://$(echo -n \"${ssciphers}:${sspass}@${ip}:${ssport}\" | base64)#233blog_ss_${ip}\"",
+                "+\t\tlocal random1=$(echo $RANDOM-$RANDOM-$RANDOM | base64)",
+                "+\t\tlocal vmess=\"vmess://$(cat /etc/v2ray/vmess_qr.json | base64)\""
+            ]
+        },
+        {
+            "commit_hash": "d8515991d1e36f3612a19c19672ccf69e780783b",
+            "author": "233boy",
+            "message": "support socks5",
+            "commit_url": "https://github.com/233boy/v2ray/commit/d8515991d1e36f3612a19c19672ccf69e780783b",
+            "removed_lines": [
+                "-\t\tlocal random1=$(echo $RANDOM-$RANDOM-$RANDOM | base64)",
+                "-\t\tlocal random2=$(echo $RANDOM-$RANDOM-$RANDOM | base64)",
+                "-\t\tlocal random1=$(echo $RANDOM-$RANDOM-$RANDOM | base64)"
+            ],
+            "added_lines": [
+                "+\t# \tlocal shadowray_qr=\"vmess://$(echo -n \"aes-128-cfb:${uuid}@${ip_or_domain}:${v2ray_port}\" | base64)?remarks=233blog_v2ray_${ip_or_domain}&obfs=${obfs}\"",
+                "+\t# \tlocal random3=$(echo $RANDOM-$RANDOM-$RANDOM | base64)",
+                "+\t# \tcat /etc/v2ray/shadowray_qr.txt | qrencode -s 50 -o /tmp/233blog_shadowray_qr.png",
+                "+\t\tlocal random1=$(echo $RANDOM-$RANDOM-$RANDOM | base64)",
+                "+\t\tlocal random2=$(echo $RANDOM-$RANDOM-$RANDOM | base64)",
+                "+\t\tlocal random1=$(echo $RANDOM-$RANDOM-$RANDOM | base64)"
+            ]
+        },
+        {
+            "commit_hash": "1268ebbd1edb260019ca8d1ffea2b3a4b1ee7297",
+            "author": "233boy",
+            "message": "skip cache",
+            "commit_url": "https://github.com/233boy/v2ray/commit/1268ebbd1edb260019ca8d1ffea2b3a4b1ee7297",
+            "removed_lines": [
+                "-\tv2ray_latest_ver=\"$(curl -s \"https://api.github.com/repos/v2ray/v2ray-core/releases/latest?r=$RANDOM\" | grep 'tag_name' | cut -d\\\" -f4)\"",
+                "-\tlocal latest_version=$(curl -s -L \"https://raw.githubusercontent.com/233boy/v2ray/master/v2ray.sh?r=$RANDOM\" | grep '_version' -m1 | cut -d\\\" -f2)"
+            ],
+            "added_lines": [
+                "+\tv2ray_latest_ver=\"$(curl -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep 'tag_name' | cut -d\\\" -f4)\"",
+                "+\tlocal latest_version=$(curl -s -L https://raw.githubusercontent.com/233boy/v2ray/master/v2ray.sh | grep '_version' -m1 | cut -d\\\" -f2)"
+            ]
+        },
+        {
+            "commit_hash": "90a1e2be7c2d8e0b74da4cfb9b7f1e5d976d53ae",
+            "author": "233boy",
+            "message": "support h2",
+            "commit_url": "https://github.com/233boy/v2ray/commit/90a1e2be7c2d8e0b74da4cfb9b7f1e5d976d53ae",
+            "removed_lines": [
+                "-\t# \tlocal shadowray_qr=\"vmess://$(echo -n \"aes-128-cfb:${uuid}@${ip_or_domain}:${v2ray_port}\" | base64)?remarks=233blog_v2ray_${ip_or_domain}&obfs=${obfs}\"",
+                "-\t# \tlocal random3=$(echo $RANDOM-$RANDOM-$RANDOM | base64)",
+                "-\t# \tcat /etc/v2ray/shadowray_qr.txt | qrencode -s 50 -o /tmp/233blog_shadowray_qr.png"
+            ],
+            "added_lines": [
+                "+\t\tlocal shadowray_qr=\"vmess://$(echo -n \"aes-128-cfb:${uuid}@${ip_or_domain}:${v2ray_port}\" | base64)?remarks=233blog_v2ray_${ip_or_domain}&obfs=${obfs}\"",
+                "+\t\tlocal random3=$(echo $RANDOM-$RANDOM-$RANDOM | base64)",
+                "+\t\tcat /etc/v2ray/shadowray_qr.txt | qrencode -s 50 -o /tmp/233blog_shadowray_qr.png"
+            ]
+        }
+    ]
+}

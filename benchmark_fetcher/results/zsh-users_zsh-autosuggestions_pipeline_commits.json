@@ -1,0 +1,28 @@
+{
+    "zsh-users/zsh-autosuggestions": [
+        {
+            "commit_hash": "ab8f29522522007fa22266538af7ef19e2331fa6",
+            "author": "Eric Freese",
+            "message": "First pass at async functionality",
+            "commit_url": "https://github.com/zsh-users/zsh-autosuggestions/commit/ab8f29522522007fa22266538af7ef19e2331fa6",
+            "removed_lines": [
+                "-\techo -E \"${1//(#m)[\\\"\\'\\\\()\\[\\]|*?~]/\\\\$MATCH}\""
+            ],
+            "added_lines": [
+                "+\techo -E \"${1//(#m)[\\\\()\\[\\]|*?~]/\\\\$MATCH}\""
+            ]
+        },
+        {
+            "commit_hash": "b4b3a82ee32732fa250cd76cefceb2db644fce59",
+            "author": "Eric Freese",
+            "message": "Fix #168 and #130: Escape tildes when fetching suggestions",
+            "commit_url": "https://github.com/zsh-users/zsh-autosuggestions/commit/b4b3a82ee32732fa250cd76cefceb2db644fce59",
+            "removed_lines": [
+                "-\techo -E \"${1//(#m)[\\\\()\\[\\]|*?~]/\\\\$MATCH}\""
+            ],
+            "added_lines": [
+                "+\techo -E \"${1//(#m)[\\\\()\\[\\]|*?]/\\\\$MATCH}\""
+            ]
+        }
+    ]
+}
