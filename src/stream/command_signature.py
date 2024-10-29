@@ -80,7 +80,7 @@ class CommandSignature:
                     break
 
         logging.debug(f"Command: {self.command_name}, Output type (if compatible): {env['output_type']}")
-        logging.debug("------------------------------")
+        logging.debug("-"*60)
         
         return RegularType(env['output_type'])
     

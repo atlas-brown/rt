@@ -15,7 +15,7 @@ class RegularType:
         logging.debug(f"self_regex: {self_regex}")
         other_regex = regex_to_z3_expr(sre_parse.parse(preprocess(other.pattern)))
         logging.debug(f"other_regex: {other_regex}")
-        logging.debug("------------------------------")
+        logging.debug("-"*60)
         intersection_regex = z3.Intersect(self_regex, z3.Complement(other_regex))
         s.add(z3.InRe(x, intersection_regex))
         result = s.check() == z3.unsat

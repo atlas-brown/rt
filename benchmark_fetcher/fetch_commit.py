@@ -136,6 +136,8 @@ def filter_commits_with_openai_analysis(commits, repo_name, save_path):
 def main():
     repos = get_popular_repos()
     base_path = "./benchmark_fetcher/repos"
+    if not os.path.exists(base_path):
+        os.makedirs(base_path)
     results = {}
 
     for repo_info in repos:
