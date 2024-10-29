@@ -1,0 +1,602 @@
+{
+    "pi-hole/pi-hole": [
+        {
+            "message": "@MrDuck2742 dropped a `]` on the floor without me seeing. I picked it up and put it back again\n\nSigned-off-by: Adam Warner <me@adamwarner.co.uk>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/11679a5188c1e29fcaa13fa5c29204443349a794",
+            "removed_lines": [
+                "-    validDomain=$(grep -P \"^((-|_)*[a-z0-9]((-|_)*[a-z0-9)*(-|_)*)(\\\\.(-|_)*([a-z0-9]((-|_)*[a-z0-9])*))*$\" <<< \"${domain}\") # Valid chars check"
+            ],
+            "added_lines": [
+                "+    validDomain=$(grep -P \"^((-|_)*[a-z0-9]((-|_)*[a-z0-9])*(-|_)*)(\\\\.(-|_)*([a-z0-9]((-|_)*[a-z0-9])*))*$\" <<< \"${domain}\") # Valid chars check"
+            ]
+        },
+        {
+            "message": "Add support for RISC-V 64-bit installs\n\nSigned-off-by: MichaIng <micha@dietpi.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/b74c6d5120d9630ff835bff70c531e5b16bf9e8d",
+            "removed_lines": [
+                "-        PKG_COUNT=\"${PKG_MANAGER} check-update | grep -E '(.i686|.x86|.noarch|.arm|.src)' | wc -l || true\""
+            ],
+            "added_lines": [
+                "+        PKG_COUNT=\"${PKG_MANAGER} check-update | grep -E '(.i686|.x86|.noarch|.arm|.src|.riscv64)' | wc -l || true\""
+            ]
+        },
+        {
+            "message": "Speed things up a bit with some humble greps. Consolodate regexes and remove the need for so many mapfile/arrays\n\nSigned-off-by: Adam Warner <me@adamwarner.co.uk>\n\nUse temp files for parsing and remove when done.\n\nAlways rm the non-domains temp file.\n\nexit 1 if gravity database creation fails.\n\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>\nCo-authored-by: Dan Schaper <dan.schaper@pi-hole.net>\nCo-authored-by: DL6ER <dl6er@dl6er.de>\nCo-authored-by: Adam Warner <me@adamwarner.co.uk>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/0656ceb149a25bb424f654da74ae0f34e6b4efd0",
+            "removed_lines": [
+                "-  mapfile -t non_domains < <(grep -Fvf \"${temp_file}\" \"${src}\" | sort -u )",
+                "-  IFS=\" \" read -r -a sample_non_domains <<< \"$(tr ' ' '\\n' <<< \"${non_domains[@]}\" | head -n 5 | tr '\\n' ' ')\""
+            ],
+            "added_lines": [
+                "+  num_domains=$(grep -E \"^(${valid_domain_pattern}|${abp_domain_pattern})$\" \"${src}\" | tee >(sed \"s/$/,${adlistID}/\" >> \"${target}\") | wc -l)",
+                "+  num_non_domains=$(grep -Ev \"^(${valid_domain_pattern}|${abp_domain_pattern}|${false_positives})$\" \"${src}\" | tee \"${invalid_domains}\" | wc -l)",
+                "+  \techo \"${invalid_lines}\" | awk '{print \"        - \" $0}'"
+            ]
+        },
+        {
+            "message": "Grab local FTL hash correctly from FTL's own version output, and grab one digit less for remote hashes (also in debug log)\n\nSigned-off-by: Adam Warner <me@adamwarner.co.uk>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/ba74051502dd64b8bccc1f4ec1d74587202d902f",
+            "removed_lines": [
+                "-    git ls-remote \"https://github.com/pi-hole/${1}\" --tags \"${2}\" | awk '{print substr($0, 0,9);}' || return 1"
+            ],
+            "added_lines": [
+                "+    git ls-remote \"https://github.com/pi-hole/${1}\" --tags \"${2}\" | awk '{print substr($0, 0,8);}' || return 1"
+            ]
+        },
+        {
+            "message": "Don't fail if Alma or Rocky is detected\n\nSigned-off-by: Christian K\u00f6nig <ckoenig@posteo.de>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/a3f1317add4dbc786c083302fb1c1bfb078e22ac",
+            "removed_lines": [
+                "-    elif grep -qiE 'centos|scientific' /etc/redhat-release; then"
+            ],
+            "added_lines": [
+                "+    elif grep -qiE 'centos|scientific|alma|rocky' /etc/redhat-release; then"
+            ]
+        },
+        {
+            "message": "Stickler quoting",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/71072b4beb0e4356f64e3f24f5524c878d1cb756",
+            "removed_lines": [
+                "-        lib=$(ldd $(which sh) | grep -E '^\\s*/lib' | awk '{ print $1 }')"
+            ],
+            "added_lines": [
+                "+        lib=$(ldd \"$(which sh)\" | grep -E '^\\s*/lib' | awk '{ print $1 }')"
+            ]
+        },
+        {
+            "message": "Update automated install/basic-install.sh\n\nCo-authored-by: Dan Schaper <dan.schaper@pi-hole.net>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/9840148ba95678c7b9316e171fd2a4659a88c1d3",
+            "removed_lines": [
+                "-        lib=$(ldd /bin/bash | grep -E '^\\s*/lib' | awk '{ print $1 }')"
+            ],
+            "added_lines": [
+                "+        lib=$(ldd $(which sh) | grep -E '^\\s*/lib' | awk '{ print $1 }')"
+            ]
+        },
+        {
+            "message": "Changed ldd binary check from /bin/ls to /usr/bin/bash\n\nSigned-off-by: spmfox <spmfox@foxwd.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/2601162243028115768878f3bb0f5ec8fdde8393",
+            "removed_lines": [
+                "-        lib=$(ldd /bin/ls | grep -E '^\\s*/lib' | awk '{ print $1 }')"
+            ],
+            "added_lines": [
+                "+        lib=$(ldd /bin/bash | grep -E '^\\s*/lib' | awk '{ print $1 }')"
+            ]
+        },
+        {
+            "message": "Some shellchecks in basic-install.sh (#4088)\n\n* Some shellchecks in basic-install.sh\r\n\r\nSigned-off-by: ChillerDragon <ChillerDragon@gmail.com>\r\n\r\n* Use more explicit grep (thanks to @MichaIng)\r\n\r\nSigned-off-by: ChillerDragon <ChillerDragon@gmail.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/e485a7b9bb3da8e0ab7ccb5b16caac07ba70782d",
+            "removed_lines": [
+                "-        detected_os=$(grep \"\\bID\\b\" /etc/os-release | cut -d '=' -f2 | tr -d '\"')"
+            ],
+            "added_lines": [
+                "+        detected_os=$(grep '^ID=' /etc/os-release | cut -d '=' -f2 | tr -d '\"')"
+            ]
+        },
+        {
+            "message": "Update piholeDebug.sh\n\nSigned-off-by: Alexander Schmitz <Flashbang007@gmail.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/1ab193fa9d5f94798cd4e50d969495d60913ed78",
+            "removed_lines": [
+                "-    gateway=\"$(ip -\"${protocol}\" route | grep default | cut -d ' ' -f 3)\""
+            ],
+            "added_lines": [
+                "+    gateway=\"$(ip -\"${protocol}\" route | grep default | grep \"${PIHOLE_INTERFACE}\" | cut -d ' ' -f 3)\""
+            ]
+        },
+        {
+            "message": "Use the 'Location:' header only.\n\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/523f6501576f76bfcc7e5d3ddc3cf0a287089790",
+            "removed_lines": [
+                "-            if ! FTLlatesttag=$(curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location | awk -F / '{print $NF}' | tr -d '[:cntrl:]'); then"
+            ],
+            "added_lines": [
+                "+            if ! FTLlatesttag=$(curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location: | awk -F / '{print $NF}' | tr -d '[:cntrl:]'); then"
+            ]
+        },
+        {
+            "message": "piholeDebug: Fix version check if lighttpd/php are not installed\n\nSigned-off-by: Reto Gantenbein <reto.gantenbein@linuxmonk.ch>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/18e4eb460c1cdcf396736b403bbd83ece7e8e637",
+            "removed_lines": [
+                "-        \"lighttpd\") program_version=\"$(${program_name} -v |& head -n1 | cut -d '/' -f2 | cut -d ' ' -f1)\"",
+                "-        \"php\") program_version=\"$(${program_name} -v |& head -n1 | cut -d '-' -f1 | cut -d ' ' -f2)\""
+            ],
+            "added_lines": [
+                "+        \"lighttpd\") program_version=\"$(${program_name} -v 2> /dev/null | head -n1 | cut -d '/' -f2 | cut -d ' ' -f1)\"",
+                "+        \"php\") program_version=\"$(${program_name} -v 2> /dev/null | head -n1 | cut -d '-' -f1 | cut -d ' ' -f2)\""
+            ]
+        },
+        {
+            "message": "Strip such lines starting with a #. Do not silently truncate lines if they have a # somewhere in between (like server=127.0.0.1#5353)\n\nSigned-off-by: DL6ER <dl6er@dl6er.de>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/36937b19132df631220e4a5912f889e58a357cbc",
+            "removed_lines": [
+                "-            new_line=$(echo \"${line}\" | sed -e 's/#.*$//' -e '/^$/d')"
+            ],
+            "added_lines": [
+                "+            new_line=$(echo \"${line}\" | sed -e 's/^\\s*#.*$//' -e '/^$/d')"
+            ]
+        },
+        {
+            "message": "Strip comments from downloaded lists instead of discarding lines with comments altogether\n\nSigned-off-by: DL6ER <dl6er@dl6er.de>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/7b15a88dc45e4bda8e52a9ed6c64c1c7c44a9882",
+            "removed_lines": [
+                "-    sed -r '/(\\/|#).*$/d' | \\"
+            ],
+            "added_lines": [
+                "+    sed 's/\\s*#.*//g' | \\",
+                "+    sed -r '/(\\/).*$/d' | \\"
+            ]
+        },
+        {
+            "message": "Safeguard against colour output in grep commandadd -i to grep to make search for \"Location\" case-insensitive\n\nSigned-off-by: Adam Warner <me@adamwarner.co.uk>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/6104d816226761ffc47279fa9b0cdcf54af472f7",
+            "removed_lines": [
+                "-            FTLlatesttag=$(grep 'Location' <<< \"${FTLreleaseData}\" | awk -F '/' '{print $NF}' | tr -d '\\r\\n')"
+            ],
+            "added_lines": [
+                "+            if ! FTLlatesttag=$(curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location | awk -F / '{print $NF}' | tr -d '[:cntrl:]'); then"
+            ]
+        },
+        {
+            "message": "Restore and improve 'pihole -q' matching\n\nRemoves regex lookaround which 'grep -E' does not support.\nRestores support for blocklists in hosts format.\nSimplifies domain match cleanup logic by eliminating an if-condition.\nImproves domain matching by eliminating commented domain names,\neliminating false positives in a few edge cases.\n\nSigned-off-by: Niklas Elmose Andersen <mail@niklasea.dk>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/989d1aff60f92f10763bfe273d5ceddeaeab631b",
+            "removed_lines": [
+                "-        \"exact\" ) grep -i -E -l \"(^|(?<!#)\\\\s)${domain}($|\\\\s|#)\" ${lists} /dev/null 2>/dev/null;;"
+            ],
+            "added_lines": [
+                "+        \"exact\" ) grep -i -E \"(^|\\\\s)${domain}($|\\\\s|#)\" ${lists} /dev/null 2>/dev/null;;"
+            ]
+        },
+        {
+            "message": "Fix error when getting latest FTL tag\n\nThe headers containing the latest FTL tag were not properly input to the\ncommand (`<` vs `<<<`). This caused Bash to try and open the file named\nafter the header string, which does not exist.\n\nSigned-off-by: Mcat12 <newtoncat12@yahoo.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/febdbceab1b0250fd86f6a8b9b9748d1e6b4a7dd",
+            "removed_lines": [
+                "-            FTLlatesttag=$(grep 'Location' < \"${FTLreleaseData}\" | awk -F '/' '{print $NF}' | tr -d '\\r\\n')"
+            ],
+            "added_lines": [
+                "+            FTLlatesttag=$(grep 'Location' <<< \"${FTLreleaseData}\" | awk -F '/' '{print $NF}' | tr -d '\\r\\n')"
+            ]
+        },
+        {
+            "message": "Quote variables in basic-install.sh\n\nThis greatly reduces the number of warnings emitted by ShellCheck, and\nin turn should make it more likely that errors are caught in the\nfuture.\n\nSigned-off-by: David Haguenauer <ml@kurokatta.org>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/ab2f8a0c09ecdb1ce1499f48267c05021e2bb29b",
+            "removed_lines": [
+                "-        AVAILABLE_PHP_VERSION=$(${PKG_MANAGER} info php | grep -i version | grep -o '[0-9]\\+' | head -1)"
+            ],
+            "added_lines": [
+                "+        AVAILABLE_PHP_VERSION=$(\"${PKG_MANAGER}\" info php | grep -i version | grep -o '[0-9]\\+' | head -1)"
+            ]
+        },
+        {
+            "message": "Fix getting IP address in the presence of similar subnets\n\nChange was suggested by @computergeek125 in #2387\n\nSigned-off-by: Mcat12 <newtoncat12@yahoo.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/466fd79c66cea40d97490b8c120c1fe5e2ace2a8",
+            "removed_lines": [
+                "-    IPV4_ADDRESS=$(ip -oneline -family inet address show | grep \"${IPv4bare}\" |  awk '{print $4}' | awk 'END {print}')"
+            ],
+            "added_lines": [
+                "+    IPV4_ADDRESS=$(ip -oneline -family inet address show | grep \"${IPv4bare}/\" |  awk '{print $4}' | awk 'END {print}')"
+            ]
+        },
+        {
+            "message": "Ignore matches that start `# ` using negative lookbehind\n\nSigned-off-by: Adam Warner <me@adamwarner.co.uk>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/a7f6c9b3a056d58605623429fccb4ecd85ca1f53",
+            "removed_lines": [
+                "-        \"exact\" ) grep -i -E -l \"(^|\\\\s)${domain}($|\\\\s|#)\" ${lists} /dev/null 2>/dev/null;;"
+            ],
+            "added_lines": [
+                "+        \"exact\" ) grep -i -E -l \"(^|(?<!#)\\\\s)${domain}($|\\\\s|#)\" ${lists} /dev/null 2>/dev/null;;"
+            ]
+        },
+        {
+            "message": "remove 'System' from NetworkManager connection name\n\nSigned-off-by: bcambl <blayne@blaynecampbell.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/14ebb2fb93dfa5c3669b21f9e9618edea9d71f99",
+            "removed_lines": [
+                "-        CONNECTION_NAME=$(nmcli dev show \"${PIHOLE_INTERFACE}\" | grep 'GENERAL.CONNECTION' | cut -d: -f2 | xargs | tr ' ' '_')"
+            ],
+            "added_lines": [
+                "+        CONNECTION_NAME=$(nmcli dev show \"${PIHOLE_INTERFACE}\" | grep 'GENERAL.CONNECTION' | cut -d: -f2 | sed 's/^System//' | xargs | tr ' ' '_')"
+            ]
+        },
+        {
+            "message": "Support multiple distributions and release versions in find_IPv4_information().\n\nAdd basic sanity check to function, remove unused variable.\n\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/61c67849d7d05ec7c0955a1b74c1da1248e570e3",
+            "removed_lines": [
+                "-    IPV4_ADDRESS=$(ip -o -f inet addr show | grep \"${IPv4bare}\" |  awk '{print $4}' | awk 'END {print}')"
+            ],
+            "added_lines": [
+                "+    IPV4_ADDRESS=$(ip -oneline -family inet address show | grep \"${IPv4bare}\" |  awk '{print $4}' | awk 'END {print}')"
+            ]
+        },
+        {
+            "message": "Only get the first gateway for chronometer\n\nSigned-off-by: Mark Drobnak <mark.drobnak@gmail.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/dac27f1f181f0c107ed623ca17e946fc9aafc045",
+            "removed_lines": [
+                "-        net_gateway=$(ip route | grep default | cut -d ' ' -f 3)"
+            ],
+            "added_lines": [
+                "+        net_gateway=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1)"
+            ]
+        },
+        {
+            "message": "Mode double brackets",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/fe46dee19435e23154d04309b4fc1c6316920f09",
+            "removed_lines": [
+                "-    if [ $(echo \"${url}\" | awk -F '://' '{print $1}') = \"https\" ]; then"
+            ],
+            "added_lines": [
+                "+    if [[ $(echo \"${url}\" | awk -F '://' '{print $1}') = \"https\" ]]; then"
+            ]
+        },
+        {
+            "message": "changed flag and variable name\n\nSigned-off-by: RamSet <RamSet@gmail.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/49c79405bc9a460d08f4356bb62bd4a9ca7b498f",
+            "removed_lines": [
+                "-        echo -e \"    ${COL_LIGHT_CYAN}curl -sSL https://install.pi-hole.net | bash -s -- --forceFTLDNS${COL_NC}\"",
+                "-        echo -e \"    ${COL_LIGHT_CYAN}curl -sSL https://install.pi-hole.net | bash -s -- --forceFTLDNS${COL_NC}\""
+            ],
+            "added_lines": [
+                "+        echo -e \"    ${COL_LIGHT_CYAN}curl -sSL https://install.pi-hole.net | bash -s -- --skip-DNS-port-check${COL_NC}\"",
+                "+        echo -e \"    ${COL_LIGHT_CYAN}curl -sSL https://install.pi-hole.net | bash -s -- --skip-DNS-port-check${COL_NC}\""
+            ]
+        },
+        {
+            "message": "Use strict grep instead of regex for duplicates\n\nSigned-off-by: Mcat12 <newtoncat12@yahoo.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/cffb4de83b99361a46ced3ba33253fe69c987075",
+            "removed_lines": [
+                "-    grep -E \"^${domain}$\" \"${regexlist}\" > /dev/null 2>&1 || bool=false",
+                "-    grep -E \"^${domain}$\" \"${regexlist}\" > /dev/null 2>&1 || bool=false"
+            ],
+            "added_lines": [
+                "+    grep -Fx \"${domain}\" \"${regexlist}\" > /dev/null 2>&1 || bool=false",
+                "+    grep -Fx \"${domain}\" \"${regexlist}\" > /dev/null 2>&1 || bool=false"
+            ]
+        },
+        {
+            "message": "Refine regex filter generation\n\nSigned-off-by: DL6ER <dl6er@dl6er.de>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/2809579dd736dfe5f5a5273c55777baf59e3eb8e",
+            "removed_lines": [
+                "-  awk '{print \"(^)|(\\\\.)\"$0\"$\"}' <<< \"${uniquedomains}\" >> \"${regexFile:?}\" && rm \"${wildcardFile}\""
+            ],
+            "added_lines": [
+                "+  awk '{print \"((^)|(\\\\.))\"$0\"$\"}' <<< \"${uniquedomains}\" >> \"${regexFile:?}\" && rm \"${wildcardFile}\""
+            ]
+        },
+        {
+            "message": "Stop grep leak in query\n\nFix grep error leak from #1805\r\n\r\nSigned-off-by: Rob Gill <rrobgill@protonmail.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/45a8eda49b7d632ca4d6652558aa8d349fe2bbd3",
+            "removed_lines": [
+                "-    \"exact\" ) grep -i -E -l \"(^|\\\\s)${domain}($|\\\\s|#)\" ${lists} /dev/null;;"
+            ],
+            "added_lines": [
+                "+    \"exact\" ) grep -i -E -l \"(^|\\\\s)${domain}($|\\\\s|#)\" ${lists} /dev/null 2>/dev/null;;"
+            ]
+        },
+        {
+            "message": "don't use major.minor for PHP 5\n\nSigned-off-by: <rrobgill@protonmail.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/6381bdbf334e6583e96cb3c0e2bb6e2f21507201",
+            "removed_lines": [
+                "-    if [ \"$(echo \"$phpInsMajor.$phpInsMinor < 5.5\" | bc )\" == 0 ]; then"
+            ],
+            "added_lines": [
+                "+    if [ \"$(echo \"$phpInsMajor.$phpInsMinor < 7.0\" | bc )\" == 0 ]; then"
+            ]
+        },
+        {
+            "message": "Version strings & bash.\n\nFixed up the version checking. Thanks for your help @dschaper.\r\n\r\nNo longer uses the version string as returned, but uses the major and minor version numbers extracted from it, against the minimum of 5.5. \r\n\r\nTested against real install of php 7.0, (and the version check logic separately tested against a variety of artificial version numbers, of multiple digits for both major and minor version. - Lesson learned, I'm never trusting bash again)\r\n\r\nSigned-off-by: Rob Gill <rrobgill@protonmail.com>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/a3569d88c95ed2dae32753ffa25fab3a217e5f5b",
+            "removed_lines": [
+                "-    phpInsMajor=\"$(echo \"$phpInsVersion\" | cut -d\\. -f1)\"",
+                "-    phpInsMinor=\"$(echo \"$phpInsVersion\" | cut -d\\. -f2)\""
+            ],
+            "added_lines": [
+                "+    phpInsMajor=\"$(echo \"$phpInsVersion\" | cut -d\\. -f1)\"",
+                "+    phpInsMinor=\"$(echo \"$phpInsVersion\" | cut -d\\. -f2)\"",
+                "+    if [ \"$(echo \"$phpInsMajor.$phpInsMinor < 5.5\" | bc )\" == 0 ]; then"
+            ]
+        },
+        {
+            "message": "fix some shellcheck/stickler compaints in debug script\n\nSigned-off-by: Adam Warner <adamw@rner.email>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/776ae924169ac53aa883d92429b84b867ece3dc1",
+            "removed_lines": [
+                "-  the_os=$(echo ${os_to_check} | sed 's/ .*//')",
+                "-    local pretty_name_key=$(echo \"${distro_attribute}\" | grep \"PRETTY_NAME\" | cut -d '=' -f1)",
+                "-  local setup_vars_ip=$(< ${PIHOLE_SETUP_VARS_FILE} grep IPV${protocol}_ADDRESS | cut -d '=' -f2)",
+                "-  gateway=\"$(ip -${protocol} route | grep default | cut -d ' ' -f 3)\"",
+                "-    error_to_check_for=$(echo ${head_line} | grep 'bad address at')",
+                "-    line_to_obfuscate=$(echo ${head_line} | grep ': query\\|: forwarded\\|: reply')",
+                "-          obfuscated_line=$(echo ${line_to_obfuscate} | awk -v placeholder=\"${OBFUSCATED_PLACEHOLDER}\" '{sub($6,placeholder); print $0}')"
+            ],
+            "added_lines": [
+                "+  the_os=$(echo \"${os_to_check}\" | sed 's/ .*//')",
+                "+    pretty_name_key=$(echo \"${distro_attribute}\" | grep \"PRETTY_NAME\" | cut -d '=' -f1)",
+                "+  setup_vars_ip=$(< ${PIHOLE_SETUP_VARS_FILE} grep IPV\"${protocol}\"_ADDRESS | cut -d '=' -f2)",
+                "+  gateway=\"$(ip -\"${protocol}\" route | grep default | cut -d ' ' -f 3)\"",
+                "+    error_to_check_for=$(echo \"${head_line}\" | grep 'bad address at')",
+                "+    line_to_obfuscate=$(echo \"${head_line}\" | grep ': query\\|: forwarded\\|: reply')",
+                "+          obfuscated_line=$(echo \"${line_to_obfuscate}\" | awk -v placeholder=\"${OBFUSCATED_PLACEHOLDER}\" '{sub($6,placeholder); print $0}')"
+            ]
+        },
+        {
+            "message": "fix empty ports on some systems\n\nSigned-off-by: Jacob Salmela <jacob.salmela@pi-hole.net>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/143e75d213a0cbcf9b2f179fe4e4a095c248c8e1",
+            "removed_lines": [
+                "-  done < <( lsof -i -P -n | awk -F' ' '/LISTEN/ {print $9, $1}' | sort -n | uniq | cut -d':' -f2 )"
+            ],
+            "added_lines": [
+                "+  done < <( lsof -i -P -n | awk -F' ' '/LISTEN/ {print $1, $9}' | sort -n | tr -d '[*]\\r' | uniq | awk '{print $2, $1}' )"
+            ]
+        },
+        {
+            "message": "Useless cat. Consider 'cmd < file | ..' or 'cmd file | ..' instead.\n\nSigned-off-by: Adam Warner <adamw@rner.email>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/a9a40ca46c7f086b2efa9464fa90026e47004f72",
+            "removed_lines": [
+                "-  local setup_vars_ip=$(cat ${PIHOLE_SETUP_VARS_FILE} | grep IPV${protocol}_ADDRESS | cut -d '=' -f2)"
+            ],
+            "added_lines": [
+                "+  local setup_vars_ip=$(< ${PIHOLE_SETUP_VARS_FILE} grep IPV${protocol}_ADDRESS | cut -d '=' -f2)"
+            ]
+        },
+        {
+            "message": "more shellcheck fixes",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/b6a2a4ad5a8c67c9f214aa38e69337036417bd23",
+            "removed_lines": [
+                "-  local setup_vars_ip=$(cat ${PIHOLE_SETUP_VARS_FILE} | grep IPV${protocol}_ADDRESS | cut -d '=' -f2)"
+            ],
+            "added_lines": [
+                "+  local setup_vars_ip=$(< ${PIHOLE_SETUP_VARS_FILE} | grep IPV${protocol}_ADDRESS | cut -d '=' -f2)"
+            ]
+        },
+        {
+            "message": "[Staging] 3.1 (#1502)\n\n* Fix handling of wildcard help text\r\n\r\n* Rewrite help text for better handling of params\r\n\r\n* Replace misleading letter variable\r\n\r\n* stash changes on branch switch, else it fails if any changes have been made.\r\n\r\n* Make changes according to comment in #1384\r\n\r\n* Update queryFunc()\r\n\r\n* Allow scanList() to search files using a wildcard by removing quotes wrapped around `${list}`\r\n* scanList() will not provide a domain ouput on each string if exact is specified (`grep -l`)\r\n* Remove unused processWildcards() function\r\n* Return a message if no domain is specified\r\n* IDN domains are converted to punycode when running a `pihole -q` search if the `python` package is available, otherwise will revert to current behaviour\r\n* Scan Blacklist & Wildcards first, exiting from search if a match is found (Fixes #1330)\r\n* Use one `grep` subshell to search for all \"*.domains\" lists at once (opposed to looping to get every matching file name, and then spawning a `grep` instance for every matching file)\r\n* queryFunc() will not return \"(0 results)\" output from files where no match is found\r\n* Sort results based off list number\r\n* Return a message if no results are found\r\n\r\n* Update basic-install.sh\r\n\r\n* Update block page. Allow for setupVars setting of CUSTOMBLOCKPAGE (bool) to prevent it being overwritten\r\n\r\n* simplify\r\n\r\n* further simplify\r\n\r\n* fix inteliJ IDEA complaints\r\n\r\n* even further simplify\r\n\r\n* tidy up output\r\n\r\n* revert line, looks tidyer\r\n\r\n* clarify\r\n\r\n* Revert \"Ensure any changes to blocking page are updated.\"\r\n\r\n* We test for dpkg lock on line 830 directly, no need for the check also\r\nin the template section.\r\n\r\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>\r\n\r\n* Display FTL version & version.sh rewrite\r\n\r\nWhile testing to make sure `pihole -v` would output `pihole-FTL version`, I noticed some options didn't work how I expected them to. For example, if I use `pihole -v -p`, I would expect to see the version output of Pi-hole Core. Instead, I'm informed that it's an invalid option.\r\n\r\nI've had the following things in mind while rewriting this:\r\n  * I'm operating under the assumption that FTL is only installed if the Admin Console is (Line 113 exit 0)\r\n  * I have modified the help text to only output with `pihole -v --help`\r\n  * I have modified all output to be more similar to the output style of `grep` and `curl` (Ditching \":::\")\r\n\r\nTesting output:\r\n```\r\nw3k@MCT:~$ pihole -v\r\n  Pi-hole version is v3.0.1-14-ga928cd3 (Latest: v3.0.1)\r\n  Admin Console version is v3.0-9-g3760482 (Latest: v3.0.1)\r\n  FTL version is v2.6.2 (Latest: v2.6.2)\r\nw3k@MCT:~$ pihole -v -c\r\n  Current Pi-hole version is v3.0.1-14-ga928cd3\r\n  Current Admin Console version is v3.0-9-g3760482\r\n  Current FTL version is v2.6.2\r\nw3k@MCT:~$ pihole -v -l\r\n  Latest Pi-hole version is v3.0.1\r\n  Latest Admin Console version is v3.0.1\r\n  Latest FTL version is v2.6.2\r\nw3k@MCT:~$ pihole -v -p --hash\r\n  Current Pi-hole hash is a928cd3\r\nw3k@MCT:~$ pihole -v -a --hash\r\n  Current Admin Console hash is 3760482\r\nw3k@MCT:~$ pihole -v --help\r\nUsage: pihole -v [REPO | OPTION] [OPTION]\r\nShow Pi-hole, Web Admin & FTL versions\r\n  <Shows all Repositories and Options>\r\nw3k@MCT:~$ pihole -v -foo\r\n  Invalid Option!\r\n```\r\n\r\n* Update -h to work as --hash\r\n\r\nAlso provide error output as per https://github.com/pi-hole/pi-hole/pull/1447#issuecomment-300600093\r\n\r\n* Perform EXACT searches on HOSTS lists correctly\r\n\r\n`\\s` on the end may be overkill, but it is the existing scanList() behaviour.\r\n\r\n* Fixed indentation\r\n\r\n* Minimise string duplication & other minor changes\r\n\r\nInstead of duplicating output strings, rewrite core/web/ftlOutput() into one neat versionOutput().\r\n\r\n* Modified syntax to be valid for Shellcheck\r\n\r\n* Log and echo gateway responses\r\n\r\n* Update queryFunc() to search Whitelist\r\n\r\nIf there is a match in Whitelist/Blacklist/Wildcards, `[ ! -t 1 ]` will cause the search to end if the terminal is closed when the script is called. This has the intended effect of allowing a user to search for a W/B/W domain (as well as all the adlists it's found in) using `pihole -q` via Terminal, but the script will stop searching after a W/B/W match when called by the block page.\r\n\r\n* Wrap in double brackets\r\n\r\n* Provide remote hashes for version.sh\r\n\r\n * Provide remote hashes for comparison\r\n * Use double braces for all conditions (for consistency)\r\n * Suppress potential \"cd\" error output\r\n * Provide \"not applicable\" output upon any hash request for FTL\r\n\r\n* whitelist on website blocked doesnt work (#1452)\r\n\r\nSince Pi-hole redirects ad domains to itself, accessing the script via de.ign.com is the same as pi.hole in this case. The fix should be as simple as adding a / before admin on this line.\r\n\r\n* Solve piholeLogFlush.sh having to be issued 2 x to clear logs (#1460)\r\n\r\nSimplified the command -v syntax, and added a sleep 3 timer to the first execution of the log rotation. The second execution was being issued while the first was still running, thus it would fail and you would have to issue the \"Flush Logs\" command a second time.\r\n\r\n* Use `echo \"ABC\" | pihole tricorder` to upload to Pi-hole's medical tricorder. Uses SSL if available.\r\n\r\n* Update list.sh\r\n\r\nI believe this has feature parity with `sed /foo/ Id` but also supports busybox, and my alpine docker ;)\r\n\r\n* Document `sed` substitution for user readability\r\n\r\nComment the oneliner with explanations of what each step does.\r\n\r\n* Update Help Output (#1467)\r\n\r\n\r\n\r\n* File consistency\r\n\r\n* Tabs to 2 spaces\r\n* Corrected indenting\r\n* Double braced conditionals\r\n* Quoted variables within conditionals\r\n\r\n* Standardise core help text\r\n\r\n* Added help text for disable command\r\n* Added help text for logging command\r\n\r\n* Clean up\r\n\r\n* Fixed certain new lines and spaces\r\n\r\n* Sync with development branch\r\n\r\n* Formatting consistency\r\n\r\n* Tabs to 2 spaces\r\n* Corrected indenting\r\n* Double braced conditionals\r\n* Quoted variables within conditionals\r\n* Fixed certain newlines and spaces\r\n\r\n* Admin help text\r\n\r\n* Added help text for interface command\r\n\r\n* Sync with development branch\r\n\r\n* Formatting consistency\r\n\r\n* Tabs to 2 spaces\r\n* Fixed some wording\r\n* Fixed certain spaces\r\n\r\n* Formatting consistency\r\n\r\n* Minor wording changes\r\n* Tabs to 2 spaces\r\n* Corrected indenting\r\n* Double braced conditionals\r\n* Quoted variables within conditionals\r\n* Fixed certain newlines and spaces\r\n\r\n* Blacklist help text\r\n\r\n* Formatting consistency\r\n\r\n* Tabs to 2 spaces\r\n* Corrected indenting\r\n\r\n* Cronometer help text\r\n\r\n* Formatting consistency\r\n\r\n* Fixed certain newlines and spaces\r\n* Corrected indenting\r\n\r\n* Checkout warning alteration\r\n\r\n* Add checkout help text\r\n\r\n* Corrected help output\r\n\r\n* Show help for \"pihole -a -i --help\"\r\n\r\n* Fix \"pihole disable --help\" and \"pihole -l --help\"\r\n\r\n* Show help for \"pihole -v -h\" \r\n\r\n* Indent output text\r\n* Minor help text change\r\n\r\n* Show help for \"pihole checkout --help\"\r\n\r\n* Tricorder: Insecure Opt-out\r\n\r\n* Check to see if Tricorder is being called directly\r\n* Provide opt-out for insecure transmission of debug log\r\n* Remove mention of internal function from help menu\r\n\r\n* :taco: is the new :shipit: squirrel\r\n\r\n* Wording changes and bug fix\r\n\r\n* Fix wildcard help text\r\n\r\n* -wild is not a valid option since we're already using -wild\r\n\r\n* Fix logrotation: manual flushing should be done twice, but automated rotation at midnight should only be done *once*!\r\n\r\n* Print echos only when manual flushing is requested\r\n\r\n* Add \"quiet\" mode + update comments in the cron file\r\n\r\n* Confirm Tricorder is online\r\n\r\n* Scan port 9998 to confirm the availability of \"tricorder.pi-hole.net\"\r\n* Exit codes for upload process\r\n\r\n* Formatting consistency\r\n\r\n* Add link to Windows DNS Swapper\r\n\r\nSee #1400\r\n\r\n* Install loopback firewall rules for FTL (#1419)\r\n\r\n* Install loopback firewall rules for FTL\r\n\r\n* FirewallD FTL ports\r\n\r\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>\r\n\r\n* Remove firewallD FTL local rules.\r\n\r\nLocal rules should not be blocked in firewallD, not requred for internal service FTD>\r\n\r\n* Reinstate https rules, and delete FTL rules\r\n\r\nFixes earlier commit.\r\n\r\n* Retrieve local repos on repair (#1481)\r\n\r\n* Retrieve local repos on repair\r\n\r\n* Change conditional to check for repair\r\n* Change wording of Update/Reconfigure message\r\n* Fixed indenting\r\n\r\n* Perform \"git reset --hard\" on reconfigure\r\n\r\n* Change directory before trying to reset repository. Fixes #1489\r\n\r\n* No need to `cd $PWD` as it doesn't affect flow of caller script.\r\n\r\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>\r\n\r\n* Refine output of password status in basic-install.sh:displayFinalMessage(). Fixes #1488 (#1490)\r\n\r\n* Rewrite Chronometer to output more stats\r\n\r\n* Fix output IPv4 addr when removing CIDR notation (#1498)\r\n\r\n* Move wildcards file if blocking is disabled (#1495)\r\n\r\n* Move wildcards file if blocking is diabled\r\n\r\n* Delete newline\r\n\r\n* Roll back merge #1417 (#1494)\r\n\r\n* Update ISSUE_TEMPLATE.md\r\n\r\n* Remove Question option\r\n\r\n* Prefer ULA over GUA addresses [IPv6] (#1508)\r\n\r\n* On installs with GUA and ULA's we should prefer ULA's as it's been demonstrated that GUA's can and often are rotated by ISPs. Fixes #1473\r\n\r\n* Add test for link-local address detection\r\n\r\n* Add ULA-only and GUA-only tests\r\n\r\n* Add test_IPv6_GUA_ULA_test and test_IPv6_ULA_GUA_test\r\n\r\n* Add \"\"\r\n\r\n* Add mock_command_2 command that can mock a command with more than one argument (as \"ip -6 address\") and result multiple lines of results\r\n\r\n* Make mock_command_2 more similar to the original mock_command\r\n\r\n* Correct comments\r\n\r\n* Fixed remaining comments\r\n\r\n* Fixed one last comment...\r\n\r\n* Fixed a comment...\r\n\r\n* Add weekly logrotation of FTL's log (#1509)\r\n\r\n* Update LICENSE of the project to EUPL v1.2\r\n\r\n* Make clear that NO is the default if the user just hits return (#1514)\r\n\r\n* Add tricorderFunc back as usable function (#1515)\r\n\r\nAs per #1464\r\n\r\n* Don't update FTL when there is a core update (as this will update FTL a second time). Fixes #1516\r\n\r\n* Add FTL tests to the test suite (#1510)\r\n\r\n* Add first version of FTL tests\r\n\r\n* Wait one second to allow FTL to start up and analyze our mock log\r\n\r\n* Add test_FTL_telnet_statistics\r\n\r\n* Added test_FTL_telnet_top_clients\r\n\r\n* Add test_FTL_telnet_top_domains\r\n\r\n* Revert \"Add FTL tests to the test suite (#1510)\" (#1519)\r\n\r\nThis reverts commit cf6a1ac9adb4e26570cc5da7c8be628080f37e0f.\r\n\r\n* Trim version output when update is successful (#1527)\r\n\r\n* Change ownership of /etc/pihole to user/group pihole. Fixes #1529 (#1530)\r\n\r\n* Delete temporary files after installing the FTL binary. Fixes #1525\r\n\r\n* Change from admin to approvers teams\r\n\r\n* Introduce new file black.list for blacklist content\r\n\r\n* Add \"pihole -g -b\" to *only* update black.list (saves a bunch of time when adding/changing only blacklisted files - won'tdownload lal lists, but only processes the blacklist and restars dnsmasq)\r\n\r\n* Remove useless cat\r\n\r\n* Improve displayed messages and overall logic\r\n\r\n* Disable black.list on \"pihole disable\"\r\n\r\n* cp + rm === mv (well, almost)",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/ecde2225122904a89543712ec8f2b0fd1da26ff6",
+            "removed_lines": [
+                "-\tdomains_being_blocked_raw=$(grep \"domains_being_blocked\" <<< \"${summary}\" | grep -Eo \"[0-9]+$\")",
+                "-\tdns_queries_today_raw=$(grep \"dns_queries_today\" <<< \"$summary\" | grep -Eo \"[0-9]+$\")",
+                "-\tads_blocked_today_raw=$(grep \"ads_blocked_today\" <<< \"$summary\" | grep -Eo \"[0-9]+$\")",
+                "-\tads_percentage_today_raw=$(grep \"ads_percentage_today\" <<< \"$summary\" | grep -Eo \"[0-9.]+$\")",
+                "-\t\techo \"\u001b[0;1;31;91m|\u001b[0m \u001b[0;1;33;93m_\u001b[0m \u001b[0;1;32;92m(_\u001b[0;1;36;96m)_\u001b[0;1;34;94m__\u001b[0;1;35;95m|\u001b[0m \u001b[0;1;31;91m|_\u001b[0m  \u001b[0;1;32;92m__\u001b[0;1;36;96m_|\u001b[0m \u001b[0;1;34;94m|\u001b[0;1;35;95m__\u001b[0;1;31;91m_\u001b[0m\"",
+                "-\t\techo \"\u001b[0;1;33;93m|\u001b[0m  \u001b[0;1;32;92m_\u001b[0;1;36;96m/\u001b[0m \u001b[0;1;34;94m|_\u001b[0;1;35;95m__\u001b[0;1;31;91m|\u001b[0m \u001b[0;1;33;93m'\u001b[0m \u001b[0;1;32;92m\\/\u001b[0m \u001b[0;1;36;96m_\u001b[0m \u001b[0;1;34;94m\\\u001b[0m \u001b[0;1;35;95m/\u001b[0m \u001b[0;1;31;91m-\u001b[0;1;33;93m_)\u001b[0m\"",
+                "-\t\techo \"\u001b[0;1;32;92m|_\u001b[0;1;36;96m|\u001b[0m \u001b[0;1;34;94m|_\u001b[0;1;35;95m|\u001b[0m   \u001b[0;1;33;93m|_\u001b[0;1;32;92m||\u001b[0;1;36;96m_\\\u001b[0;1;34;94m__\u001b[0;1;35;95m_/\u001b[0;1;31;91m_\\\u001b[0;1;33;93m__\u001b[0;1;32;92m_|\u001b[0m\"",
+                "-\t\tuptime | awk -F'( |,|:)+' '{if ($7==\"min\") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,\"days,\",h+0,\"hours,\",m+0,\"minutes.\"}'"
+            ],
+            "added_lines": [
+                "+  cpu_taskact=$(sed -r \"/(^ 0.)/d\" <<< \"$cpu_raw\" | wc -l)",
+                "+  \techo -e \"\u001b[0;1;31;91m|\u00af\u001b[0;1;33;93m\u00af\u001b[0;1;32;92m\u00af\u001b[0;1;32;92m(\u00af\u001b[0;1;36;96m)_\u001b[0;1;34;94m_\u001b[0;1;35;95m|\u001b[0;1;33;93m\u00af\u001b[0;1;31;91m|_  \u001b[0;1;32;92m__\u001b[0;1;36;96m_|\u001b[0;1;31;91m\u00af\u001b[0;1;34;94m|\u001b[0;1;35;95m__\u001b[0;1;31;91m_\u001b[0m$ph_core_str"
+            ]
+        },
+        {
+            "message": "add faq urls to some functions, added more colors, also use a static url for remote digs",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/ef5a6e7880901ed0c6d9aef4cf658f12fa04aa2c",
+            "removed_lines": [
+                "-  done < <( lsof -i -P -n | awk -F' ' '/LISTEN/ {print $9, $1}' | sort | uniq | cut -d':' -f2 )"
+            ],
+            "added_lines": [
+                "+      if [[ \"${PI_HOLE_VERSION}\" == \"$(pihole -v | awk '/Pi-hole/ {print $6}' | cut -d ')' -f1)\" ]]; then",
+                "+      if [[ \"${WEB_VERSION}\" == \"$(pihole -v | awk '/AdminLTE/ {print $6}' | cut -d ')' -f1)\" ]]; then",
+                "+  done < <( lsof -i -P -n | awk -F' ' '/LISTEN/ {print $9, $1}' | sort -n | uniq | cut -d':' -f2 )"
+            ]
+        },
+        {
+            "message": "upload to tricorder functions",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/cc946ce068b7b153ad4d3761b161f400e21c0b2d",
+            "removed_lines": [
+                "-\techo -e \"${TICK} Finshed debugging!\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "-\t  tricorder=$(cat /var/log/pihole_debug.log | nc tricorder.pi-hole.net 9999)",
+                "-\t\t  [yY][eE][sS]|[yY]) tricorder=$(cat /var/log/pihole_debug.log | nc tricorder.pi-hole.net 9999);;"
+            ],
+            "added_lines": [
+                "+    echo -e \"   ${INFO} Using openssl for transmission.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    tricorder=$(cat /var/log/pihole_debug.log | openssl s_client -quiet -connect tricorder.pi-hole.net:9998 2> /dev/null)",
+                "+    echo -e \"   ${INFO} Using netcat for transmission.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    tricorder=$(cat /var/log/pihole_debug.log | nc tricorder.pi-hole.net 9999)",
+                "+\techo -e \"${TICK} Finshed debugging!\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"   ${INFO} Debug script running in automated mode\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+      echo -e \"   ${INFO} Using openssl for transmission.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+      echo -e \"   ${INFO} Using netcat for transmission.\" 2>&1 | tee -a \"${DEBUG_LOG}\""
+            ]
+        },
+        {
+            "message": "append everything the user sees to the pihole_debug.log file",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/1102fdc44bc4ea1fa67b08b5c8137de674a8345d",
+            "removed_lines": [
+                "-    echo -e \"       ${INFO} ${each_file} ( $(ls -ld ${dir_to_parse}/${each_file} | awk '{print $1, $3, $4}') )\"",
+                "-    echo -e \"   ${INFO} ${GRAVITYFILE} is ${gravity_length} lines long.\" || \\"
+            ],
+            "added_lines": [
+                "+    echo -e \"    ${TICK} ${message}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${CROSS} ${message}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+  echo -e \"${COL_LIGHT_PURPLE}*** [ INITIALIZING ]${COL_NC}\" 2>&1 | tee \"${DEBUG_LOG}\"",
+                "+  echo -e \"    ${INFO} $(date \"+%Y-%m-%d:%H:%M:%S\") debug log has been initiated.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+  echo -e \"\\n${COL_LIGHT_PURPLE}*** [ DIAGNOSING ]:${COL_NC} ${1}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"pihole repo does not exist\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+      echo -e \"${error_msg}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"repo does not exist\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+      echo -e \"${error_msg}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+  echo -e \"    ${INFO} FTL: ${FTL_VERSION}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+  echo -e \"    ${INFO} ${WEB_SERVER}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"       ${CROSS} ${WEB_SERVER} version could not be detected.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"       ${TICK} ${WEB_SERVER_VERSON}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+  echo -e \"    ${INFO} ${RESOLVER}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"       ${CROSS} ${RESOLVER} version could not be detected.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"       ${TICK} ${RESOVLER_VERSON}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+  echo -e \"    ${INFO} PHP\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"       ${CROSS} PHP version could not be detected.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"       ${TICK} ${PHP_VERSION}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+      echo -e \"    ${INFO} ${PRETTY_NAME}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${CROSS} Processor could not be identified.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${INFO} ${PROCESSOR}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${TICK} IPv${protocol} on ${PIHOLE_INTERFACE}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+      echo -e \"       [$i] ${ip_addr_list[$i]}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${CROSS} No IPv${protocol} found on ${PIHOLE_INTERFACE}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"          ${INFO} Trying three pings on IPv${protocol} gateway at ${gateway}...\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+      echo -e \"          ${CROSS} Gateway did not respond.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+      echo -e \"          ${TICK} Gateway responded.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+  echo -n \"     ${INFO} Trying three pings on IPv${protocol} to reach the Internet...\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"          ${CROSS} Cannot reach the Internet\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"          ${TICK} Query responded.\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+  echo -e \"    ${INFO} Ports in use:\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"       [${port_number}] is in use by ${service_name}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    $TICK ${block_page}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    $CROSS X-Header does not match or could not be retrieved\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    $TICK ${dashboard}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    $CROSS X-Header does not match or could not be retrieved\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${TICK} ${random_url} is ${local_dig} via localhost (${local_address})\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${CROSS} Failed to resolve ${random_url} via localhot (${local_address})\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${TICK} ${random_url} is ${pihole_dig} via Pi-hole (${pihole_address})\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${CROSS} Failed to resolve ${random_url} via Pi-hole (${pihole_address})\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${TICK} ${random_url} is ${remote_dig} via a remote, public DNS server (${remote_address})\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${CROSS} Failed to resolve ${remote_url} via a remote, public DNS server (${remote_address})\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    [i] ${i} daemon is ${status_of_process}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"       ${INFO} ${file_lines}\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"    ${INFO} Sourcing ${VARSFILE}...\" 2>&1 | tee -a \"${DEBUG_LOG}\";",
+                "+    echo -e \"       ${INFO} ${each_file} ( $(ls -ld ${dir_to_parse}/${each_file} | awk '{print $1, $3, $4}') )\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+    echo -e \"   ${INFO} ${GRAVITYFILE} is ${gravity_length} lines long.\" 2>&1 | tee -a \"${DEBUG_LOG}\" || \\",
+                "+    echo -e \"   ${CROSS} ${GRAVITYFILE} not found!\" 2>&1 | tee -a \"${DEBUG_LOG}\"",
+                "+\techo -e \"${TICK} Finshed debugging!\" 2>&1 | tee -a \"${DEBUG_LOG}\""
+            ]
+        },
+        {
+            "message": "Let `ip` determine which links are candidates.\n\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/2834f2ccc290b89b043dc0c05d5fd9d95747cf49",
+            "removed_lines": [
+                "-  availableInterfaces=$(ip -o link | grep -v \"state DOWN\\|lo\" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)"
+            ],
+            "added_lines": [
+                "+  availableInterfaces=$(ip --oneline link show up | grep -v \"lo\" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)"
+            ]
+        },
+        {
+            "message": "Fix chronometer interpreting summaryRaw",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/f8944177a046f5aae36e77b44750ef395dffd8d6",
+            "removed_lines": [
+                "-                       sed 's/\\\"\\:\\\"/\\|/g' | \\"
+            ],
+            "added_lines": [
+                "+                       sed 's/\\\"\\:/\\|/g' | \\"
+            ]
+        },
+        {
+            "message": "Remove misplaced start of string expression. Fixes #1191",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/06873fe69e74e52b8cd723ad718d0ea4e9ac13f1",
+            "removed_lines": [
+                "-\tvalidDomain=$(echo \"${domain}\" | perl -lne 'print if /^(?!.*[^a-z0-9-\\.].*)\\b((?=[a-z0-9-]{1,63}\\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\\.)*[a-z]{2,63}\\b/')"
+            ],
+            "added_lines": [
+                "+\tvalidDomain=$(echo \"${domain}\" | perl -lne 'print if /(?!.*[^a-z0-9-\\.].*)\\b((?=[a-z0-9-]{1,63}\\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\\.)*[a-z]{2,63}\\b/')"
+            ]
+        },
+        {
+            "message": "Improved regex: Remove all leading points from domain (.....xyz => .xyz). Return not only a part, but fill validated domain",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/1bf43b04254559896f5e3a59667a18520401cb78",
+            "removed_lines": [
+                "-    echo $* | sed 's/^\\.//' | sed \"s/[]\\\\.|$(){}?+*^]/\\\\\\\\&/g\" | sed \"s/\\\\//\\\\\\\\\\//g\"",
+                "-\tvalidDomain=$(echo \"${domain}\" | perl -lne 'print $1 if /^(?!.*[^a-z0-9-\\.].*)\\b((?=[a-z0-9-]{1,63}\\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,63}\\b/')"
+            ],
+            "added_lines": [
+                "+    echo $* | sed 's/^\\.*//' | sed \"s/[]\\.|$(){}?+*^]/\\\\\\\\&/g\" | sed \"s/\\\\//\\\\\\\\\\//g\"",
+                "+\tvalidDomain=$(echo \"${domain}\" | perl -lne 'print if /^(?!.*[^a-z0-9-\\.].*)\\b((?=[a-z0-9-]{1,63}\\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\\.)*[a-z]{2,63}\\b/')"
+            ]
+        },
+        {
+            "message": "Only ignore DOWN interfaces, `tun` interfaces are UNKNOWN.\n\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/9212eea8bdd647435f1d111cb62ce90b87ab1b8e",
+            "removed_lines": [
+                "-  availableInterfaces=$(ip -o link | grep \"state UP\" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)"
+            ],
+            "added_lines": [
+                "+  availableInterfaces=$(ip -o link | grep -v \"state DOWN\\|lo\" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)"
+            ]
+        },
+        {
+            "message": "Plain grep, escape the special characters.\n\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/8ee2bdec4d8a8ecb923d432395c2559eb1fefe69",
+            "removed_lines": [
+                "-    if iptables -S INPUT | head -n1 | grep -qv 'ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '(^-A\\|^-P).*ACCEPT$'; then"
+            ],
+            "added_lines": [
+                "+    if iptables -S INPUT | head -n1 | grep -qv '^-P.*ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '^-\\(A\\|P\\).*ACCEPT$'; then"
+            ]
+        },
+        {
+            "message": "Regex fun\n\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/45587194e556c252342c36e3c6f156eea1687b58",
+            "removed_lines": [
+                "-    if iptables -S INPUT | head -n1 | grep -qv 'ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '^-A.*ACCEPT$'; then"
+            ],
+            "added_lines": [
+                "+    if iptables -S INPUT | head -n1 | grep -qv 'ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '(^-A\\|^-P).*ACCEPT$'; then"
+            ]
+        },
+        {
+            "message": "Only allow UP interfaces to be selected. (DOWN interfaces would have not given IP addresses anyways.)\n\nSigned-off-by: Dan Schaper <dan.schaper@pi-hole.net>",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/1d608b204a75dd9b59a9fac6789b7b96ef62c27e",
+            "removed_lines": [
+                "-  availableInterfaces=$(ip -o link | awk '{print $2}' | grep -v \"lo\" | cut -d':' -f1 | cut -d'@' -f1)"
+            ],
+            "added_lines": [
+                "+  availableInterfaces=$(ip -o link | grep \"state UP\" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)"
+            ]
+        },
+        {
+            "message": "Look for \"query[\" instead of \"query\" to avoid false-positives, like listed below\n\nroot@raspberrypi:/etc/.pihole# grep 'query' /var/log/pihole.log | grep -v 'query\\['\nDec 22 16:29:50 dnsmasq[30801]: forwarded code.jquery.com to 208.67.222.222\nDec 22 16:29:50 dnsmasq[30801]: reply code.jquery.com is <CNAME>\nDec 22 16:29:50 dnsmasq[30801]: reply code.jquery.netdna-cdn.com is 94.31.29.54\nDec 22 16:29:50 dnsmasq[30801]: reply code.jquery.netdna-cdn.com is 23.111.11.3\nDec 22 16:29:50 dnsmasq[30801]: reply code.jquery.netdna-cdn.com is 198.232.125.113",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/a4f58b0a22ff9e0afdaa08db34c771f3f6d98a4c",
+            "removed_lines": [
+                "-\t\tqueriesToday=$(awk '/query/ {print $6}' < \"${piLog}\" | wc -l)"
+            ],
+            "added_lines": [
+                "+\t\tqueriesToday=$(awk '/query\\[/ {print $6}' < \"${piLog}\" | wc -l)"
+            ]
+        },
+        {
+            "message": "Removed cat where we don't need it",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/bcf8139708c529db7c2b76e88af7e5bcf1b4b42e",
+            "removed_lines": [
+                "-\t\tqueriesToday=$(cat \"${piLog}\" | awk '/query/ {print $6}' | wc -l)",
+                "-\t\tblockedToday=$(cat ${piLog} | awk '/\\/etc\\/pihole\\/gravity.list/ && !/address/ {print $6}' | wc -l)"
+            ],
+            "added_lines": [
+                "+\t\tqueriesToday=$(awk '/query/ {print $6}' < \"${piLog}\" | wc -l)",
+                "+\t\tblockedToday=$(awk '/\\/etc\\/pihole\\/gravity.list/ && !/address/ {print $6}' < \"${piLog}\" | wc -l)"
+            ]
+        },
+        {
+            "message": "Remove grpping for today's log entries, because we flush the log every day",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/e88f58c34ecba8969e458fbcc0e80e1204f0dde5",
+            "removed_lines": [
+                "-\t\tqueriesToday=$(cat \"${piLog}\" | grep \"${today}\" | awk '/query/ {print $6}' | wc -l)"
+            ],
+            "added_lines": [
+                "+\t\tqueriesToday=$(cat \"${piLog}\" | awk '/query/ {print $6}' | wc -l)"
+            ]
+        },
+        {
+            "message": "Revert \"Simplified EscapeRegexp()\"\n\nThis reverts commit 509cfd15f27f07f4e6d99fd431b821024be86280.",
+            "commit_url": "https://github.com/pi-hole/pi-hole/commit/78cb43d0dc014dcf6d470f81bde188e795807491",
+            "removed_lines": [
+                "-    echo $* | sed \"s/[]\\\\.|$(){}?+*^]\\\\//\\\\\\\\&/g\""
+            ],
+            "added_lines": [
+                "+    echo $* | sed \"s/[]\\\\.|$(){}?+*^]/\\\\\\\\&/g\" | sed \"s/\\\\//\\\\\\\\\\//g\""
+            ]
+        }
+    ]
+}

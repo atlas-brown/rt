@@ -1,0 +1,1022 @@
+{
+    "acmesh-official/acme.sh": [
+        {
+            "message": "fix format",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/9b2eae24d21331a42f576d2940503941fdbe6ddf",
+            "removed_lines": [
+                "-    attempted_zone=$(echo \"${domain}\" | cut -d . -f ${strip_counter}-)"
+            ],
+            "added_lines": [
+                "+    attempted_zone=$(echo \"${domain}\" | cut -d . -f \"${strip_counter}\"-)"
+            ]
+        },
+        {
+            "message": "fix format",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/7362e8de4d2d81995f417079e3d4d2cc9bb6d9de",
+            "removed_lines": [
+                "-    h=$(printf \"%s\" \"$domain\" | cut -d . -f $i-100 | sed 's/\\./\\\\./g')"
+            ],
+            "added_lines": [
+                "+    h=$(printf \"%s\" \"$domain\" | cut -d . -f \"$i\"-100 | sed 's/\\./\\\\./g')"
+            ]
+        },
+        {
+            "message": "dns_porkbun: remove stray backslashes",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/7ae0d0caa30a882f320028d4e2943ab060b40897",
+            "removed_lines": [
+                "-    echo \"$response\" | tr -d \" \" | grep '\\\"status\\\":\"SUCCESS\"' >/dev/null"
+            ],
+            "added_lines": [
+                "+    echo \"$response\" | tr -d \" \" | grep '\"status\":\"SUCCESS\"' >/dev/null"
+            ]
+        },
+        {
+            "message": "add timeout for _getRepoHash\nhttps://github.com/acmesh-official/acme.sh/issues/5200",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/d81fc155cb01360e273c15447226a415d90aa950",
+            "removed_lines": [
+                "-  _get $_hash_url | tr -d \"\\r\\n\" | tr '{},' '\\n\\n\\n' | grep '\"sha\":' | cut -d '\"' -f 4"
+            ],
+            "added_lines": [
+                "+  _get \"$_hash_url\" \"\" 30 | tr -d \"\\r\\n\" | tr '{},' '\\n\\n\\n' | grep '\"sha\":' | cut -d '\"' -f 4"
+            ]
+        },
+        {
+            "message": "Fixed a bug where the zone_id was corrupted for domains containing the string 'id' dns_dynv6.sh\n\nThis will now search for `\"id:\"` instead of `id` and therefore will only find the id field and not any other field containing the sub-string 'id'",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/5789e80d741462f36fc2b1949a965550c051444d",
+            "removed_lines": [
+                "-  zone_id=\"$(echo \"$response\" | tr '}' '\\n' | grep \"$selected\" | tr ',' '\\n' | grep id | tr -d '\"')\""
+            ],
+            "added_lines": [
+                "+  zone_id=\"$(echo \"$response\" | tr '}' '\\n' | grep \"$selected\" | tr ',' '\\n' | grep '\"id\":' | tr -d '\"')\""
+            ]
+        },
+        {
+            "message": "fix zone search",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/dc2979926f6da8822dade0e4024d145f2e459d4c",
+            "removed_lines": [
+                "-    _zone=\"$(echo \"$_response\" | _egrep_o \"\\\"name\\\":\\\"$zone\\\".*\\}\")\"",
+                "-      _zone_id=$(printf \"%s\\n\" \"$_zone\" | _egrep_o \"\\\"id\\\":\\\"[a-fA-F0-9\\-]*\\\"\" | _head_n 1 | cut -d : -f 2 | tr -d '\\\"')"
+            ],
+            "added_lines": [
+                "+    _zone_list_items=$(echo \"$_response\" | _egrep_o \"\\\"items\\\":.*\")",
+                "+    _zone_id=$(printf \"%s\\n\" \"$_zone_list_items\" | _egrep_o \"\\\"id\\\":\\\"[a-fA-F0-9\\-]*\\\"\" | _head_n 1 | cut -d : -f 2 | tr -d '\\\"')"
+            ]
+        },
+        {
+            "message": "Quotes recomendations",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/2fcda9a73ae2f4a6d8dc30e12c61d14cfc8bc7ee",
+            "removed_lines": [
+                "-  uuid=$(echo $response |tr \"{\" \"\\n\"|grep $txtvalue|tr \",\" \"\\n\"|grep uuid|cut -d \\\" -f4)"
+            ],
+            "added_lines": [
+                "+  uuid=$(echo \"$response\" |tr \"{\" \"\\n\"|grep \"$txtvalue\"|tr \",\" \"\\n\"|grep uuid|cut -d \\\" -f4)"
+            ]
+        },
+        {
+            "message": "fix(deploy_dsm): ensure grep get the error code\n\nAdded grep -o option to ensure the script won't get other digits as the error code result",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/cd01104de9dace481baf4c48bcca010ee074d1bb",
+            "removed_lines": [
+                "-  error_code=$(echo \"$response\" | grep '\"error\":' | grep '\"code\":[0-9]*' | grep -o '[0-9]*')",
+                "-    error_code=$(echo \"$response\" | grep '\"error\":' | grep '\"code\":[0-9]*' | grep -o '[0-9]*')",
+                "-  error_code=$(echo \"$response\" | grep '\"error\":' | grep '\"code\":[0-9]*' | grep -o '[0-9]*')"
+            ],
+            "added_lines": [
+                "+  error_code=$(echo \"$response\" | grep '\"error\":' | grep -o '\"code\":[0-9]*' | grep -o '[0-9]*')",
+                "+    error_code=$(echo \"$response\" | grep '\"error\":' | grep -o '\"code\":[0-9]*' | grep -o '[0-9]*')",
+                "+  error_code=$(echo \"$response\" | grep '\"error\":' | grep -o '\"code\":[0-9]*' | grep -o '[0-9]*')"
+            ]
+        },
+        {
+            "message": "fix(deploy_dsm): missing gerp -P option on busybox\n\nFixes:  #5105",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/9ff89b570faccafe1388df4217bfa09db210c43e",
+            "removed_lines": [
+                "-  error_code=$(echo \"$response\" | grep '\"error\"' | grep -oP '(?<=\"code\":)\\d+')",
+                "-    error_code=$(echo \"$response\" | grep '\"error\"' | grep -oP '(?<=\"code\":)\\d+')",
+                "-  error_code=$(echo \"$response\" | grep '\"error\"' | grep -oP '(?<=\"code\":)\\d+')"
+            ],
+            "added_lines": [
+                "+  error_code=$(echo \"$response\" | grep '\"error\":' | grep '\"code\":[0-9]*' | grep -o '[0-9]*')",
+                "+    error_code=$(echo \"$response\" | grep '\"error\":' | grep '\"code\":[0-9]*' | grep -o '[0-9]*')",
+                "+  error_code=$(echo \"$response\" | grep '\"error\":' | grep '\"code\":[0-9]*' | grep -o '[0-9]*')"
+            ]
+        },
+        {
+            "message": "Quote echo $data in _porkbun_rest\n\nQuote echo $data in _porkbun_rest to avoid\nbrace expansion under ksh (OpenBSD).",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/92d37f6eaf4f28788e4ccf7201a75a75ee7c3a5c",
+            "removed_lines": [
+                "-  test -z \"$data\" && data=\"{\" || data=\"$(echo $data | cut -d'}' -f1),\""
+            ],
+            "added_lines": [
+                "+  test -z \"$data\" && data=\"{\" || data=\"$(echo \"$data\" | cut -d'}' -f1),\""
+            ]
+        },
+        {
+            "message": "Prevent leaving blank lines in config file after cleared keys.",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/bd3a2b1bb5765fb3bc7da130264883637a486511",
+            "removed_lines": [
+                "-    echo \"$_conf_data\" | sed \"s/^$_sdkey *=.*$//\" >\"$_c_c_f\""
+            ],
+            "added_lines": [
+                "+    echo \"$_conf_data\" | sed \"/^$_sdkey *=.*$/d\" >\"$_c_c_f\""
+            ]
+        },
+        {
+            "message": "Update dns_limacity.sh",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/7b7c834b087bdfa670c7b78736e33d7b91a48ae4",
+            "removed_lines": [
+                "-    response=\"$(echo \"$response\" | tr -d \"\\n\" | tr '{' \"|\" | sed 's/|/&{/g' | tr \"|\" \"\\n\")\"",
+                "-      hostedzone=\"$(echo \"$response\" | _egrep_o \"{.*\\\"domain\\\":\\s*\\\"$h\\\".*}\")\""
+            ],
+            "added_lines": [
+                "+  if [ \"$(echo \"$domains\" | _egrep_o \"^\\{\\\"domains\\\"\")\" ] ; then",
+                "+    response=\"$(echo \"$domains\" | tr -d \"\\n\" | tr '{' \"|\" | sed 's/|/&{/g' | tr \"|\" \"\\n\")\"",
+                "+      hostedzone=\"$(echo \"$response\" | _egrep_o \"{.*\\\"unicode_fqdn\\\":\\s*\\\"$h\\\".*}\")\""
+            ]
+        },
+        {
+            "message": "fix: Synology DSM API path regex\n\nFix the regex for looking up the API path value from the Synology API query.",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/87a7bde61813391e6c8379ae93c921bd68889c53",
+            "removed_lines": [
+                "-  api_path=$(echo \"$response\" | grep \"SYNO.API.Auth\" | sed -n 's/.*\"path\" *: *\"\\([0-9]*\\)\".*/\\1/p')"
+            ],
+            "added_lines": [
+                "+  api_path=$(echo \"$response\" | grep \"SYNO.API.Auth\" | sed -n 's/.*\"path\" *: *\"\\([^\"]*\\)\".*/\\1/p')"
+            ]
+        },
+        {
+            "message": "Fix Variomedia API",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/ae4c186f55b10b26d9bb0528bc90893413bd967e",
+            "removed_lines": [
+                "-  _record_id=\"$(echo \"$response\" | cut -d '[' -f2 | cut -d']' -f1 | sed 's/},[ \\t]*{/\\},\u00a7\\{/g' | tr \u00a7 '\\n' | grep \"$_sub_domain\" | grep \"$txtvalue\" | sed 's/^{//;s/}[,]?$//' | tr , '\\n' | tr -d '\\\"' | grep ^id | cut -d : -f2 | tr -d ' ')\"",
+                "-        _sub_domain=\"$(echo \"$fulldomain\" | sed \"s/\\\\.$h\\$//\")\""
+            ],
+            "added_lines": [
+                "+  _record_id=\"$(echo \"$response\" | sed -E 's/,\"tags\":\\[[^]]*\\]//g' | cut -d '[' -f2 | cut -d']' -f1 | sed 's/},[ \\t]*{/\\},\u00a7\\{/g' | tr \u00a7 '\\n' | grep \"$_sub_domain\" | grep -- \"$txtvalue\" | sed 's/^{//;s/}[,]?$//' | tr , '\\n' | tr -d '\\\"' | grep ^id | cut -d : -f2 | tr -d ' ')\""
+            ]
+        },
+        {
+            "message": "inwx: Be case insensitive while searching for the cookie.\n\nAt least since 2023-08-25 the cookie is set via `set-cookie' instead the\nexpecting `Set-Cookie' string. A month earlier it was working.\n\nIgnore the case while matching the cookie.\n\nFixes: #4763\nSigned-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/9b0b5bce9f79672dff5eb80dbb74a0ec4c88986f",
+            "removed_lines": [
+                "-  INWX_Cookie=$(printf \"Cookie: %s\" \"$(grep \"domrobot=\" \"$HTTP_HEADER\" | grep \"^Set-Cookie:\" | _tail_n 1 | _egrep_o 'domrobot=[^;]*;' | tr -d ';')\")"
+            ],
+            "added_lines": [
+                "+  INWX_Cookie=$(printf \"Cookie: %s\" \"$(grep \"domrobot=\" \"$HTTP_HEADER\" | grep -i \"^Set-Cookie:\" | _tail_n 1 | _egrep_o 'domrobot=[^;]*;' | tr -d ';')\")"
+            ]
+        },
+        {
+            "message": "Change grep to be case-insensitive when looking for Set-Cookie header since INWX change casing to lowercase",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/9143cd1485a4a0220897124fec78eb2ec45f81ec",
+            "removed_lines": [
+                "-  INWX_Cookie=$(printf \"Cookie: %s\" \"$(grep \"domrobot=\" \"$HTTP_HEADER\" | grep \"^Set-Cookie:\" | _tail_n 1 | _egrep_o 'domrobot=[^;]*;' | tr -d ';')\")"
+            ],
+            "added_lines": [
+                "+  INWX_Cookie=$(printf \"Cookie: %s\" \"$(grep \"domrobot=\" \"$HTTP_HEADER\" | grep -i \"^Set-Cookie:\" | _tail_n 1 | _egrep_o 'domrobot=[^;]*;' | tr -d ';')\")"
+            ]
+        },
+        {
+            "message": "Incorporated partial commit to address issue #4198",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/e69a19db5c555c8a23fb31e1be393d0f220341fa",
+            "removed_lines": [
+                "-    status=$(echo \"$1\" | sed 's/^.*\"\\([a-z]*\\)\".*/\\1/g')",
+                "-    message=$(echo \"$1\" | sed 's/^.*<result>\\(.*\\)<\\/result.*/\\1/g')"
+            ],
+            "added_lines": [
+                "+    status=$(echo \"$1\" | tr -d '\\n' | sed 's/^.*\"\\([a-z]*\\)\".*/\\1/g')",
+                "+    message=$(echo \"$1\" | tr -d '\\n' | sed 's/.*\\(<result>\\|<msg>\\|<line>\\)\\([^<]*\\).*/\\2/g')"
+            ]
+        },
+        {
+            "message": "dnsapi: fix OPNsense script to be compatible with upcoming 23.1.8\n\nThe current script is already broken due to Bind 9.16 -> 9.18 changes\ndue to their renaming scheme for primary/secondary so do not rely on the\ncompat layer (which was also broken for other reasons).",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/e6e22a1ca15cd7fc20242e3e8074858d9081d04f",
+            "removed_lines": [
+                "-    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"uuid\\\":\\\"[a-z0-9\\-]*\\\",\\\"enabled\\\":\\\"1\\\",\\\"type\\\":\\\"master\\\",\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 2 | cut -d '\"' -f 2)"
+            ],
+            "added_lines": [
+                "+    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"uuid\\\":\\\"[a-z0-9\\-]*\\\",\\\"enabled\\\":\\\"1\\\",\\\"type\\\":\\\"primary\\\",\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 2 | cut -d '\"' -f 2)"
+            ]
+        },
+        {
+            "message": "fix(cloudns): fix grep when record start with hyphen symbol",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/7ef2533b98ae0566fc5775c32aa5ebfcfb3b724b",
+            "removed_lines": [
+                "-  for i in $(echo \"$response\" | tr '{' \"\\n\" | grep \"$record\"); do"
+            ],
+            "added_lines": [
+                "+  for i in $(echo \"$response\" | tr '{' \"\\n\" | grep -- \"$record\"); do"
+            ]
+        },
+        {
+            "message": "Fix Retry-After handling\n\n- closes #4543",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/70f4cad2ca9ed671c3a3d55a53913d8aed49871b",
+            "removed_lines": [
+                "-      _retryafter=$(echo \"$responseHeaders\" | grep -i \"^Retry-After *:\" | cut -d : -f 2 | tr -d ' ' | tr -d '\\r')"
+            ],
+            "added_lines": [
+                "+      _retryafter=$(echo \"$responseHeaders\" | grep -i \"^Retry-After *: *[0-9]\\+ *\" | cut -d : -f 2 | tr -d ' ' | tr -d '\\r')"
+            ]
+        },
+        {
+            "message": "improve deletion of records",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/dde1bab1a83c17ceb69c453741de1b17e5576969",
+            "removed_lines": [
+                "-  _record_id=\"$(echo \"$response\" | tr -d '\\n\\r' | sed \"s/<item xsi:type=\\\"ns2:Map\\\">/\\n/g\" | grep -i \"$_record_name\" | grep -i \">TXT<\" | sed \"s/<item><key xsi:type=\\\"xsd:string\\\">record_id<\\/key><value xsi:type=\\\"xsd:string\\\">/=>/g\" | sed \"s/<\\/value><\\/item>/\\n/g\" | grep \"=>\" | sed \"s/=>//g\")\""
+            ],
+            "added_lines": [
+                "+  _record_id=\"$(echo \"$response\" | tr -d '\\n\\r' | sed \"s/<item xsi:type=\\\"ns2:Map\\\">/\\n/g\" | grep -i \"$_record_name\" | grep -i \">TXT<\" | sed \"s/<item><key xsi:type=\\\"xsd:string\\\">record_id<\\/key><value xsi:type=\\\"xsd:string\\\">/=>/g\" | grep -i \"$_txtvalue\" | sed \"s/<\\/value><\\/item>/\\n/g\" | grep \"=>\" | sed \"s/=>//g\")\""
+            ]
+        },
+        {
+            "message": "Vultr DNS: fix \"grep: repetition-operator operand invalid\" on FreeBSD",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/d6cf15368a3ee70845cd49b41dda0234bd04e1a8",
+            "removed_lines": [
+                "-  _record_id=\"$(echo \"$response\" | tr '{}' '\\n' | grep '\"TXT\"' | grep -- \"$txtvalue\" | tr ',' '\\n' | grep -i 'id' | cut -d : -f 2)\""
+            ],
+            "added_lines": [
+                "+  _record_id=\"$(echo \"$response\" | tr '{}' '\\n' | grep '\"TXT\"' | grep -- \"$txtvalue\" | tr ',' '\\n' | grep -i 'id' | cut -d : -f 2 | tr -d '\"')\""
+            ]
+        },
+        {
+            "message": "fix for openbsd",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/a2c64e79ff1b597b15d7bf7cb17aa627e7b7eb3f",
+            "removed_lines": [
+                "-  if grep \"BEGIN RSA PRIVATE KEY\" \"$keyfile\" >/dev/null 2>&1 || ${ACME_OPENSSL_BIN:-openssl} rsa -in \"$keyfile\" -noout -text | grep \"^publicExponent:\" >/dev/null 2>&1; then",
+                "-  if grep \"BEGIN EC PRIVATE KEY\" \"$keyfile\" >/dev/null 2>&1 || ${ACME_OPENSSL_BIN:-openssl} ec -in \"$keyfile\" -noout -text 2>/dev/null | grep \"^NIST CURVE:\" >/dev/null 2>&1; then"
+            ],
+            "added_lines": [
+                "+  if grep \"BEGIN RSA PRIVATE KEY\" \"$keyfile\" >/dev/null 2>&1 || ${ACME_OPENSSL_BIN:-openssl} rsa -in \"$keyfile\" -noout -text 2>&1 | grep \"^publicExponent:\" 2>&1 >/dev/null; then",
+                "+  if grep \"BEGIN EC PRIVATE KEY\" \"$keyfile\" >/dev/null 2>&1 || ${ACME_OPENSSL_BIN:-openssl} ec -in \"$keyfile\" -noout -text 2>/dev/null | grep \"^NIST CURVE:\" 2>&1 >/dev/null; then"
+            ]
+        },
+        {
+            "message": "add parked_domans",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/e02f07d3568d411b453b2855072d16bea5e96e82",
+            "removed_lines": [
+                "-    sed -En -e 's/^result\\/data\\/(main_domain|sub_domains\\/-|addon_domains\\/-)=(.*)$/\\2/p'"
+            ],
+            "added_lines": [
+                "+    sed -En -e 's/^result\\/data\\/(main_domain|sub_domains\\/-|addon_domains\\/-|parked_domains\\/-)=(.*)$/\\2/p'"
+            ]
+        },
+        {
+            "message": "Better way to catch success or failure",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/45090fc897d6767873174b336d9b4ead9e09147a",
+            "removed_lines": [
+                "-  if (echo \"$_result\" | grep -q 'newserial'); then return 0; fi"
+            ],
+            "added_lines": [
+                "+  if (echo \"$_result\" | _egrep_o 'data\":\\[[^]]*]' | grep -q '\"newserial\":null'); then return 1; fi"
+            ]
+        },
+        {
+            "message": "add addon_domans",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/c541a2e5de69038d56a899e8b03247409b39a513",
+            "removed_lines": [
+                "-    sed -En -e 's/^result\\/data\\/(main_domain|sub_domains\\/-)=(.*)$/\\2/p'"
+            ],
+            "added_lines": [
+                "+    sed -En -e 's/^result\\/data\\/(main_domain|sub_domains\\/-|addon_domains\\/-)=(.*)$/\\2/p'"
+            ]
+        },
+        {
+            "message": "minor",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/e947870da956b42f6d84abb0088c75886d27dd06",
+            "removed_lines": [
+                "-  echo \"$rrdatas\" | grep -F -v \"\\\"$txtvalue\\\"\" | _dns_gcloud_add_rrs || return $?"
+            ],
+            "added_lines": [
+                "+  echo \"$rrdatas\" | grep -F -v -- \"\\\"$txtvalue\\\"\" | _dns_gcloud_add_rrs || return $?"
+            ]
+        },
+        {
+            "message": "Slightly modify regex to conform to new API response format",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/69aeb70cc3b149597c0525e65117b2bfa9999326",
+            "removed_lines": [
+                "-    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"uuid\\\":\\\"[a-z0-9\\-]*\\\",\\\"enabled\\\":\\\"1\\\",\\\"type\\\":\\\"master\\\",[^.]*,\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 2 | cut -d '\"' -f 2)"
+            ],
+            "added_lines": [
+                "+    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"uuid\\\":\\\"[a-z0-9\\-]*\\\",\\\"enabled\\\":\\\"1\\\",\\\"type\\\":\\\"master\\\",\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 2 | cut -d '\"' -f 2)"
+            ]
+        },
+        {
+            "message": "Fix for multiple TLDs in DNS API",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/5c00afc6febdb831129bc9f276f91bc017d27d21",
+            "removed_lines": [
+                "-  if [ \"$(echo \"$result\" | grep -c '\"name\"')\" -gt \"1\" ]; then",
+                "-    rootZone=$(for zone in $(echo \"$result\" | tr -d '\\n' ' '); do",
+                "-      if [ \"$(echo \"$domain\" | grep \"$zone\")\" != \"\" ]; then",
+                "-    rootZone=$(echo \"$result\" | _egrep_o '\"name\":\"[^\"]*' | cut -d'\"' -f4)",
+                "-  #zoneInfo=$(echo \"$result\" | sed \"s,\\\"zones,\\n&,g\" | grep zones | cut -d'[' -f2 | cut -d']' -f1 | tr '}' '\\n' | grep \"\\\"$rootZone\\\"\")",
+                "-  zoneInfo=$(echo \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"name\":\")([^\"]*)\"(.*)$,\\2,g' | grep \"\\\"$rootZone\\\"\")",
+                "-  subDomainName=\"$(echo \"$domain\" | sed \"s,\\.$rootZone,,g\")\"",
+                "-  subDomainNameClean=\"$(echo \"$domain\" | sed \"s,_acme-challenge.,,g\")\"",
+                "-  rootZoneDomainID=$(echo \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"domain_id\":\")([^\"]*)\"(.*)$,\\2,g')",
+                "-  rootZoneServiceID=$(echo \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"service_id\":\")([^\"]*)\"(.*)$,\\2,g')",
+                "-  recordInfo=\"$(echo \"$result\" | sed -e 's/:{/:{\\n/g' -e 's/},/\\n},\\n/g' | grep \"${txtvalue}\")\"",
+                "-  recordID=\"$(echo \"$recordInfo\" | sed -e 's/:{/:{\\n/g' -e 's/},/\\n},\\n/g' | grep \"${txtvalue}\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"id\":\")([^\"]*)\"(.*)$,\\2,g')\""
+            ],
+            "added_lines": [
+                "+  result2=\"$(printf \"%s\\n\" \"$result\" | tr '[' '\\n' | grep '\"name\"')\"",
+                "+  result3=\"$(printf \"%s\\n\" \"$result2\" | tr '}' '\\n' | grep '\"name\"' | sed \"s,^\\,,,g\" | sed \"s,$,},g\")\"",
+                "+  if [ \"$(printf \"%s\\n\" \"$result\" | tr '}' '\\n' | grep -c '\"name\"')\" -gt \"1\" ]; then",
+                "+    #rootZone=$(for x in $(printf \"%s\" \"${result3}\" | tr ',' '\\n' | sed -n 's/.*\"name\":\"\\(.*\\)\",.*/\\1/p'); do if [ \"$(echo \"$domain\" | grep \"$x\")\" != \"\" ]; then echo \"$x\"; fi; done)",
+                "+    rootZone=$(for x in $(printf \"%s\\n\" \"${result3}\" | tr ',' '\\n' | grep name | cut -d'\"' -f4); do if [ \"$(echo \"$domain\" | grep \"$x\")\" != \"\" ]; then echo \"$x\"; fi; done)",
+                "+    rootZone=$(echo \"$result\" | tr '}' '\\n' | _egrep_o '\"name\":\"[^\"]*' | cut -d'\"' -f4)",
+                "+  useResult=\"$(printf \"%s\\n\" \"${result3}\" tr ',' '\\n' | grep \"$rootZone\")\"",
+                "+  #zoneInfo=$(printf \"%s\\n\" \"$useResult\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"name\":\")([^\"]*)\"(.*)$,\\2,g')",
+                "+  zoneInfo=$(printf \"%s\\n\" \"$useResult\" | tr ',' '\\n' | grep '\"name\"' | cut -d'\"' -f4)",
+                "+  rootZoneDomainID=$(printf \"%s\\n\" \"$useResult\" | tr ',' '\\n' | grep domain_id | cut -d'\"' -f4)",
+                "+  rootZoneServiceID=$(printf \"%s\\n\" \"$useResult\" | tr ',' '\\n' | grep service_id | cut -d'\"' -f4)",
+                "+  #recordInfo=\"$(echo \"$result\" | sed -e 's/:{/:{\\n/g' -e 's/},/\\n},\\n/g' | grep \"${txtvalue}\")\"",
+                "+  #recordID=\"$(echo \"$recordInfo\" | sed -e 's/:{/:{\\n/g' -e 's/},/\\n},\\n/g' | grep \"${txtvalue}\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"id\":\")([^\"]*)\"(.*)$,\\2,g')\"",
+                "+  recordID=\"$(printf \"%s\\n\" \"$result\" | tr '}' '\\n' | grep -- \"$txtvalue\" | tr ',' '\\n' | grep '\"id\"' | cut -d'\"' -f4)\""
+            ]
+        },
+        {
+            "message": "World4You: fix paketnr parsing\n\nSigned-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/5d6d0c6176c1be41c8729478bc7fe5e3fc787823",
+            "removed_lines": [
+                "-  domains=$(echo \"$form\" | grep 'header-paket-domain' | sed 's/<[^>]*>//g' | sed 's/^.*>\\([^>]*\\)$/\\1/')",
+                "-  PAKETNR=$(echo \"$form\" | grep \"data-textfilter=\\\".* $domain \" | _tail_n 1 | sed \"s|.*$WORLD4YOU_API/\\\\([0-9]*\\\\)/.*|\\\\1|\")"
+            ],
+            "added_lines": [
+                "+  domains=$(echo \"$form\" | grep '<ul class=\"nav header-paket-list\">' | sed 's/<li/\\n<li/g' | sed 's/<[^>]*>/ /g' | sed 's/^.*>\\([^>]*\\)$/\\1/')",
+                "+  PAKETNR=$(echo \"$domains\" | grep \"$domain\" | sed 's/^[^,]*, *\\([0-9]*\\).*$/\\1/')"
+            ]
+        },
+        {
+            "message": "Changed lastUsedRidForDomainEntry seperator to space",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/f9320fff8ff71c9bc7a4d228bb8943ed9a1ae7eb",
+            "removed_lines": [
+                "-  lastUsedRidForDomainEntry=$(echo \"$SELFHOSTDNS_MAP_LAST_USED_INTERNAL\" | sed -n -E \"s/.*(;$fulldomain:[[:digit:]]+;).*/\\1/p\")",
+                "-  lastUsedRidForDomain=$(echo \"$lastUsedRidForDomainEntry\" | tr -d \";\" | cut -d: -f2)",
+                "-    SELFHOSTDNS_MAP_LAST_USED_INTERNAL=$(echo \"$SELFHOSTDNS_MAP_LAST_USED_INTERNAL\" | sed -n -E \"s/$lastUsedRidForDomainEntry/;$fulldomain:$rid;/p\")"
+            ],
+            "added_lines": [
+                "+  lastUsedRidForDomainEntry=$(echo \"$SELFHOSTDNS_MAP_LAST_USED_INTERNAL\" | sed -n -E \"s/(^|^.*[[:space:]])($fulldomain:[[:digit:]]+)(.*)/\\2/p\")",
+                "+  lastUsedRidForDomain=$(echo \"$lastUsedRidForDomainEntry\" | cut -d: -f2)",
+                "+    SELFHOSTDNS_MAP_LAST_USED_INTERNAL=$(echo \"$SELFHOSTDNS_MAP_LAST_USED_INTERNAL\" | sed -n -E \"s/$lastUsedRidForDomainEntry/$newLastUsedRidForDomainEntry/p\")"
+            ]
+        },
+        {
+            "message": "Use literal space\n\nReplace [[:space:]] with \" \"",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/864315f6d19b12ec514698094c3dc987c0128d26",
+            "removed_lines": [
+                "-        echo \"$_wget_out\" | sed '/^[^[:space:]][^[:space:]]/d; /^[[:space:]]*$/d; s/^[[:space:]][[:space:]]//g' -"
+            ],
+            "added_lines": [
+                "+        echo \"$_wget_out\" | sed '/^[^ ][^ ]/d; /^ *$/d; s/^  //g' -"
+            ]
+        },
+        {
+            "message": "fix https://github.com/acmesh-official/acme.sh/issues/4232",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/204e5f4418e494e5afe04b500516e3526246b50f",
+            "removed_lines": [
+                "-  _idn_temp=$(printf \"%s\" \"$_is_idn_d\" | tr -d [0-9] | tr -d [a-z] | tr -d [A-Z] | tr -d '*.,-_')",
+                "-    if [ \"$(echo \"$seg\" | tr -d [0-9])\" ]; then"
+            ],
+            "added_lines": [
+                "+  _idn_temp=$(printf \"%s\" \"$_is_idn_d\" | tr -d '[0-9]' | tr -d '[a-z]' | tr -d '[A-Z]' | tr -d '*.,-_')",
+                "+    if [ \"$(echo \"$seg\" | tr -d '[0-9]')\" ]; then"
+            ]
+        },
+        {
+            "message": "fix for solaris",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/328dbd57d426c64ebead7318a22827e958c053bc",
+            "removed_lines": [
+                "-  _idn_temp=$(printf \"%s\" \"$_is_idn_d\" | tr -d '0-9' | tr -d 'a-z' | tr -d 'A-Z' | tr -d '*.,-_')"
+            ],
+            "added_lines": [
+                "+  _idn_temp=$(printf \"%s\" \"$_is_idn_d\" | tr -d [0-9] | tr -d [a-z] | tr -d [A-Z] | tr -d '*.,-_')"
+            ]
+        },
+        {
+            "message": "Multidomain patch suggestion from Sandeep Mittal",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/c485011ed1d714540163013f14418dce937dbac1",
+            "removed_lines": [
+                "-  _domains=$(echo \"$_result\" | sed 's/.*\\(zones.*\\[\\).*/\\1/' | cut -d':' -f2 | sed 's/\"//g' | sed 's/{//g')",
+                "-  _id=$(echo \"$_result\" | sed \"s/.*\\(line.*$fulldomain.*$txtvalue\\).*/\\1/\" | cut -d ':' -f 2 | cut -d ',' -f 1)"
+            ],
+            "added_lines": [
+                "+  _domains=$(echo \"$_result\" | _egrep_o '\"[a-z0-9\\.\\-]*\":\\[\"; cPanel first' | cut -d':' -f1 | sed 's/\"//g' | sed 's/{//g')",
+                "+  _id=$(echo \"$_result\" | sed -e \"s/},{/},\\n{/g\" | grep \"$fulldomain\" | grep \"$txtvalue\" | _egrep_o 'line\":[0-9]+' | cut -d ':' -f 2)"
+            ]
+        },
+        {
+            "message": "Fix: cut for domain uuid with searchDOmain response",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/0b8ae6821303742ebd9ed4423f9c7b64836c9513",
+            "removed_lines": [
+                "-    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"uuid\\\":\\\"[a-z0-9\\-]*\\\",\\\"enabled\\\":\\\"1\\\",\\\"type\\\":\\\"master\\\",[^.]*,\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ],
+            "added_lines": [
+                "+    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"uuid\\\":\\\"[a-z0-9\\-]*\\\",\\\"enabled\\\":\\\"1\\\",\\\"type\\\":\\\"master\\\",[^.]*,\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 2 | cut -d '\"' -f 2)"
+            ]
+        },
+        {
+            "message": "Finaly found a regex wich works for sed and egrep -o and use searchDomain api for easier to parse response",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/0e73128f40f3f898b060c1a159213d0be3dc7e15",
+            "removed_lines": [
+                "-    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"[^\\\"]*\\\":{\\\"enabled\\\":\\\"1\\\",\\\"type\\\":{\\\"master\\\":{\\\"value\\\":\\\"master\\\",\\\"selected\\\":1},\\\"slave\\\":{\\\"value\\\":\\\"slave\\\",\\\"selected\\\":0}},\\\"masterip\\\":{\\\"\\\":{[^}]*}}(,\\\"allownotifyslave\\\":{\\\"\\\":{[^}]*}},|,)\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ],
+            "added_lines": [
+                "+    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"uuid\\\":\\\"[a-z0-9\\-]*\\\",\\\"enabled\\\":\\\"1\\\",\\\"type\\\":\\\"master\\\",[^.]*,\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ]
+        },
+        {
+            "message": "More robust and shortend egrep",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/927c003d22dbc9e14250e6e1f993df028aed91d8",
+            "removed_lines": [
+                "-    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"[^\\\"]*\\\":{\\\"enabled\\\":\\\"1\\\",\\\"type\\\":{\\\"master\\\":{\\\"value\\\":\\\"master\\\",\\\"selected\\\":1},\\\"slave\\\":{\\\"value\\\":\\\"slave\\\",\\\"selected\\\":0}},\\\"masterip\\\":{\\\"[^\\\"]*\\\":{[^}]*}},\\\"transferkeyalgo\\\":{[^{]*{[^{]*{[^{]*{[^{]*{[^{]*{[^{]*{[^{]*{[^}]*}},\\\"transferkey\\\":\\\"[^\\\"]*\\\"(,\\\"allownotifyslave\\\":{\\\"\\\":{[^}]*}},|,)\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ],
+            "added_lines": [
+                "+    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"[^\\\"]*\\\":{\\\"enabled\\\":\\\"1\\\",\\\"type\\\":{\\\"master\\\":{\\\"value\\\":\\\"master\\\",\\\"selected\\\":1},\\\"slave\\\":{\\\"value\\\":\\\"slave\\\",\\\"selected\\\":0}},\\\"masterip\\\":{\\\"\\\":{[^}]*}}(,\\\"allownotifyslave\\\":{\\\"\\\":{[^}]*}},|,)\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ]
+        },
+        {
+            "message": "Updated delete function",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/e4387e4aad97f1296ef49681433afb2ac95a75e8",
+            "removed_lines": [
+                "-  recordInfo=\"$(echo \"$result\" | tr '}' '\\n' | _egrep_o \"\\\"name\\\":\\\"${fulldomain}\" | _egrep_o \"\\\"content\\\":\\\"\" | grep \"${txtvalue}\")\"",
+                "-  recordID=\"$(echo \"$recordInfo\" | tr ',' '\\n' | _egrep_o \"\\\"id\\\":\\\"[0-9]+\\\"\" | cut -d'\"' -f4)\""
+            ],
+            "added_lines": [
+                "+  recordInfo=\"$(echo \"$result\" | sed -e 's/:{/:{\\n/g'  -e  's/},/\\n},\\n/g' | grep \"${txtvalue}\")\"",
+                "+  recordID=\"$(echo \"$recordInfo\" | sed -e 's/:{/:{\\n/g'  -e  's/},/\\n},\\n/g' | grep \"${txtvalue}\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"id\":\")([^\"]*)\"(.*)$,\\2,g')\"",
+                "+  recordDomainID=\"$(echo \"$recordInfo\" | sed -e 's/:{/:{\\n/g'  -e  's/},/\\n},\\n/g' | grep \"${txtvalue}\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"domain_id\":\")([^\"]*)\"(.*)$,\\2,g')\"",
+                "+  recordName=\"$(echo \"$recordInfo\" | sed -e 's/:{/:{\\n/g'  -e  's/},/\\n},\\n/g' | grep \"${txtvalue}\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"name\":\")([^\"]*)\"(.*)$,\\2,g')\""
+            ]
+        },
+        {
+            "message": "Added debug for API result",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/ae71a5abf629b937e23e06410a41ac45a009a575",
+            "removed_lines": [
+                "-  zoneInfo=$(echo -e \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"name\":\")([^\"]*)\"(.*)$,\\2,g')",
+                "-  rootZoneDomainID=$(echo -e \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"domain_id\":\")([^\"]*)\"(.*)$,\\2,g')",
+                "-  rootZoneServiceID=$(echo -e \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"service_id\":\")([^\"]*)\"(.*)$,\\2,g')"
+            ],
+            "added_lines": [
+                "+  zoneInfo=$(echo \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"name\":\")([^\"]*)\"(.*)$,\\2,g' | grep \"\\\"$rootZone\\\"\")",
+                "+  rootZoneDomainID=$(echo \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"domain_id\":\")([^\"]*)\"(.*)$,\\2,g')",
+                "+  rootZoneServiceID=$(echo \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"service_id\":\")([^\"]*)\"(.*)$,\\2,g')"
+            ]
+        },
+        {
+            "message": "Updated API call for OpenBSD sed and tr as newlines does not work there",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/df199c5788972aec58e40a1e9e05e844bfe15f7c",
+            "removed_lines": [
+                "-  zoneInfo=$(echo \"$result\" | sed \"s,\\\"zones,\\n&,g\" | grep zones | cut -d'[' -f2 | cut -d']' -f1 | tr '}' '\\n' | grep \"\\\"$rootZone\\\"\")",
+                "-  rootZoneDomainID=$(echo \"$zoneInfo\" | tr ',' '\\n' | grep domain_id | cut -d'\"' -f4)",
+                "-  rootZoneServiceID=$(echo \"$zoneInfo\" | tr ',' '\\n' | grep service_id | cut -d'\"' -f4)",
+                "-  if [ \"$(echo \"$result\" | grep '\"success\":true')\" = \"\" ]; then",
+                "-  recordInfo=\"$(echo \"$result\" | tr '}' '\\n' | grep \"\\\"name\\\":\\\"${fulldomain}\" | grep \"\\\"content\\\":\\\"\" | grep \"${txtvalue}\")\""
+            ],
+            "added_lines": [
+                "+  #zoneInfo=$(echo \"$result\" | sed \"s,\\\"zones,\\n&,g\" | grep zones | cut -d'[' -f2 | cut -d']' -f1 | tr '}' '\\n' | grep \"\\\"$rootZone\\\"\")",
+                "+  zoneInfo=$(echo -e \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"name\":\")([^\"]*)\"(.*)$,\\2,g')",
+                "+  rootZoneDomainID=$(echo -e \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"domain_id\":\")([^\"]*)\"(.*)$,\\2,g')",
+                "+  rootZoneServiceID=$(echo -e \"$result\" | sed -E 's,.*(zones)(.*),\\1\\2,g' | sed -E 's,^(.*\"service_id\":\")([^\"]*)\"(.*)$,\\2,g')",
+                "+  if [ \"$(echo \"$result\" | _egrep_o \"\\\"success\\\":true\")\" = \"\" ]; then",
+                "+  recordInfo=\"$(echo \"$result\" | tr '}' '\\n' | _egrep_o \"\\\"name\\\":\\\"${fulldomain}\" | _egrep_o \"\\\"content\\\":\\\"\" | grep \"${txtvalue}\")\""
+            ]
+        },
+        {
+            "message": "dns_world4you: Improve error message handling\n\nSigned-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/29f12ddaf4920cebc5444d8c31996a433e4868e3",
+            "removed_lines": [
+                "-      msg=$(echo \"$res\" | grep -A 15 'data-type=\"danger\"' | grep \"<h3[^>]*>[^<]\" | sed 's/<[^>]*>\\|^\\s*//g')",
+                "-      msg=$(echo \"$res\" | grep -A 15 'data-type=\"danger\"' | grep \"<h3[^>]*>[^<]\" | sed 's/<[^>]*>\\|^\\s*//g')"
+            ],
+            "added_lines": [
+                "+      msg=$(echo \"$res\" | grep -A 15 'data-type=\"danger\"' | grep \"<h3[^>]*>[^<]\" | sed 's/<[^>]*>//g' | sed 's/^\\s*//g')",
+                "+      msg=$(echo \"$res\" | grep -A 15 'data-type=\"danger\"' | grep \"<h3[^>]*>[^<]\" | sed 's/<[^>]*>//g' | sed 's/^\\s*//g')"
+            ]
+        },
+        {
+            "message": "dns_world4you: Fix cookie parsing issue\n\nSigned-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/4d8b661d51489d3f9f3ea139cd5844ed1f250ddb",
+            "removed_lines": [
+                "-  sessid=$(grep 'W4YSESSID' <\"$HTTP_HEADER\" | sed 's/^.*W4YSESSID=\\([^;]*\\);.*$/\\1/')",
+                "-    sessid=$(grep 'W4YSESSID' <\"$HTTP_HEADER\" | sed 's/^.*W4YSESSID=\\([^;]*\\);.*$/\\1/')"
+            ],
+            "added_lines": [
+                "+  sessid=$(grep 'W4YSESSID' <\"$HTTP_HEADER\" | _tail_n 1 | sed 's/^.*W4YSESSID=\\([^;]*\\);.*$/\\1/')"
+            ]
+        },
+        {
+            "message": "Fixed removal of TXT record when subdomain is case-sensitive and improved debug logging\n\nPlesk SPI return domain names always lower-case. Therefore the search for domain names in the API response must be case-insensitve. Set debug logging to the values that are reallys used for the spi calls.\n\nadded comment",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/bc7e02b47a7b04c367e08962a84a63170701f890",
+            "removed_lines": [
+                "-      grep \"<host>${fulldomain}.</host>\" |"
+            ],
+            "added_lines": [
+                "+      grep -i \"<host>${fulldomain}.</host>\" |",
+                "+      grep \"<value>${txtvalue}</value>\" |"
+            ]
+        },
+        {
+            "message": "Improved error handling\n\nImproved error handling when result contains data-structure which might contain another status-flag that is related to the status of the related object and not the api call\n\nRevert \"Improved error handling\"\n\nThis reverts commit fa6df1cfab134d38baad19fc1caa0842f00416d5.\n\nRevert \"Revert \"Improved error handling\"\"\n\nThis reverts commit 5a4b78392f063863ee9f56686f5c429e9376af1b.",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/ba3e088b238382c76922fcf4a312819292bc75cb",
+            "removed_lines": [
+                "-  statuslines_count_total=\"$(echo \"$pleskxml_prettyprint_result\" | grep -c '^ *<status>[^<]*</status> *$')\"",
+                "-  statuslines_count_okay=\"$(echo \"$pleskxml_prettyprint_result\" | grep -c '^ *<status>ok</status> *$')\""
+            ],
+            "added_lines": [
+                "+  statuslines_count_total=\"$(echo \"$pleskxml_prettyprint_result\" | sed '/<data>/,/<\\/data>/d' | grep -c '^ *<status>[^<]*</status> *$')\"",
+                "+  statuslines_count_okay=\"$(echo \"$pleskxml_prettyprint_result\" | sed '/<data>/,/<\\/data>/d' | grep -c '^ *<status>ok</status> *$')\""
+            ]
+        },
+        {
+            "message": "Changed 'grep -E' to '_egrep_o' 'removed ()'",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/1b3e1a7abea9ca7b7f8e077d114aad83416f8304",
+            "removed_lines": [
+                "-  recordID=\"$(echo \"$recordInfo\" | tr ',' '\\n' | _egrep_o() \"\\\"id\\\":\\\"[0-9]+\\\"\" | cut -d'\"' -f4)\""
+            ],
+            "added_lines": [
+                "+  recordID=\"$(echo \"$recordInfo\" | tr ',' '\\n' | _egrep_o \"\\\"id\\\":\\\"[0-9]+\\\"\" | cut -d'\"' -f4)\""
+            ]
+        },
+        {
+            "message": "Fixed acmetest for domain acmetestXyzRandomName.github-test.<domain> that was explicitly disallowed as it is not _acme-challenge",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/444b111a62ec8e7f48cd93aaefdc78816d7ff32e",
+            "removed_lines": [
+                "-  if [ \"$(echo \"$fulldomain\" | grep \"_acme-challenge\")\" = \"\" ]; then"
+            ],
+            "added_lines": [
+                "+  if [ \"$(echo \"$fulldomain\" | grep \"_acme-challenge\\|acmetestXyzRandomName.github-test\")\" = \"\" ]; then"
+            ]
+        },
+        {
+            "message": "fix: Challenge not skipped for pre-validated wildcard domain orders\n\nSome CAs auto-validate orders based on account-level rules and do not\nrequire a challenge at all. Sectigo introduced a non-standard challenges\nnamed 'sectigo-dns-01', presumably to work around this issue in certbot.\nThis also works for non-wildcard domains in acme.sh, but wildcard domains\nare rejected because acme.sh hard-codes 'dns-01' as the only allowed\nchallenge for wildcard domains, which is not offered by Sectigo.\n\nThis change simply moves the '\"status\":\"valid\"' check up a bit and ignores\nchallenge type mismatches or missing tokens if no challenge is needed anyway.",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/095697900b94e05f3ba8176c53632d6d3a7769e0",
+            "removed_lines": [
+                "-          if echo \"$response\" | grep '\"status\":\"valid\"' >/dev/null 2>&1; then",
+                "-          _supported_vtypes=\"$(echo \"$response\" | _egrep_o \"\\\"challenges\\\":\\[[^]]*]\" | tr '{' \"\\n\" | grep type | cut -d '\"' -f 4 | tr \"\\n\" ' ')\""
+            ],
+            "added_lines": [
+                "+      if echo \"$response\" | grep '\"status\":\"valid\"' >/dev/null 2>&1; then",
+                "+        _supported_vtypes=\"$(echo \"$response\" | _egrep_o \"\\\"challenges\\\":\\[[^]]*]\" | tr '{' \"\\n\" | grep type | cut -d '\"' -f 4 | tr \"\\n\" ' ')\""
+            ]
+        },
+        {
+            "message": "'+' are being converted to ' ' at some point",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/149310e1ecdec3343757296cab9ebf6975693d5d",
+            "removed_lines": [
+                "-  \"certificates\": \"$(tr '\\n' ':' < \"$_cfullchain\" | sed 's/:/\\\\n/g')\","
+            ],
+            "added_lines": [
+                "+  \"certificates\": \"$(tr '\\n' ':' < \"$_cfullchain\" | sed 's/:/\\\\n/g' -e 's/+/\\+/g')\","
+            ]
+        },
+        {
+            "message": "seems like the escaped new lines aren't remaining escaped new lines with the new version of curl",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/a5d5113be34bace02dc9370bed102187aa52e7fe",
+            "removed_lines": [
+                "-  \"key\": \"$(tr '\\n' ':' < \"$_ckey\" |sed 's/:/\\\\n/g')\","
+            ],
+            "added_lines": [
+                "+  \"key\": \"$(tr '\\n' ':' < \"$_ckey\" |sed 's/:/\\\\\\n/g')\","
+            ]
+        },
+        {
+            "message": "shell check war warning against unnecessary use of cat",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/6d640982885c849172656ddcb68d01c98dbacea5",
+            "removed_lines": [
+                "-  \"certificates\": \"$(cat \"$_cfullchain\"|tr '\\n' ':'|sed 's/:/\\\\n/g')\",",
+                "-  \"key\": \"$(cat \"$_ckey\"|tr '\\n' ':'|sed 's/:/\\\\n/g')\","
+            ],
+            "added_lines": [
+                "+  \"certificates\": \"$(tr '\\n' ':' < \"$_cfullchain\" | sed 's/:/\\\\n/g')\",",
+                "+  \"key\": \"$(tr '\\n' ':' < \"$_ckey\" |sed 's/:/\\\\n/g')\","
+            ]
+        },
+        {
+            "message": "properly quoted variable names",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/4351110082cd3cfc6a11891f4296bf5c32468da5",
+            "removed_lines": [
+                "-  \"certificates\": \"$(cat $_cfullchain|tr '\\n' ':'|sed 's/:/\\\\n/g')\",",
+                "-  \"key\": \"$(cat $_ckey|tr '\\n' ':'|sed 's/:/\\\\n/g')\","
+            ],
+            "added_lines": [
+                "+  \"certificates\": \"$(cat \"$_cfullchain\"|tr '\\n' ':'|sed 's/:/\\\\n/g')\",",
+                "+  \"key\": \"$(cat \"$_ckey\"|tr '\\n' ':'|sed 's/:/\\\\n/g')\","
+            ]
+        },
+        {
+            "message": "fixed compatibility for UltraDNS API v3: https://docs.ultradns.neustar/Content/REST%20API/Content/REST%20API/Zone%20API/Zone%20API.htm; also a minor bugfix for fecthing the domain_id using egrep",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/b5f49d9563e3daab9fdc24af3e2e27edcc42d956",
+            "removed_lines": [
+                "-      _domain_id=$(echo \"$response\" | _egrep_o \"${h}\")",
+                "-  AUTH_TOKEN=$(_post \"grant_type=password&username=${ULTRA_USR}&password=${ULTRA_PWD}\" \"${ULTRA_API}authorization/token\" | cut -d, -f3 | cut -d\\\" -f4)"
+            ],
+            "added_lines": [
+                "+      _domain_id=$(echo \"$response\" | _egrep_o \"${h}\" | head -1)",
+                "+  AUTH_TOKEN=$(_post \"grant_type=password&username=${ULTRA_USR}&password=${ULTRA_PWD}\" \"${ULTRA_AUTH_API}authorization/token\" | cut -d, -f3 | cut -d\\\" -f4)"
+            ]
+        },
+        {
+            "message": "changes due to inkompabilities of some distros",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/d4cf03c9fd0c5dbfaf2292c0f5552382ee4640a0",
+            "removed_lines": [
+                "-  rid=$(echo \"$SELFHOSTDNS_MAP\" | sed -n \"s/\\(^\\|^.*\\s\\)\\($lookupdomain:\\|$fulldomain:\\)\\([0-9][0-9]*\\)\\(.*\\)/\\3/Ip\")"
+            ],
+            "added_lines": [
+                "+  rid=$(echo \"$SELFHOSTDNS_MAP\" | sed -E \"s/(^|^.*[[:space:]])($lookupdomain:|$fulldomain:)([0-9][0-9]*)(.*)/\\3/\")"
+            ]
+        },
+        {
+            "message": "Squash new lines in API response",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/6d5743c506b13edc35cb0b2b2bee35b1d3b783e0",
+            "removed_lines": [
+                "-        hostedzone=\"$(echo \"$response\" | sed 's/<HostedZone>/#&/g' | tr '#' '\\n' | _egrep_o \"<HostedZone><Id>[^<]*<.Id><Name>$h.<.Name>.*<PrivateZone>false<.PrivateZone>.*<.HostedZone>\")\""
+            ],
+            "added_lines": [
+                "+        hostedzone=\"$(echo \"$response\" | tr -d '\\n' | sed 's/<HostedZone>/#&/g' | tr '#' '\\n' | _egrep_o \"<HostedZone><Id>[^<]*<.Id><Name>$h.<.Name>.*<PrivateZone>false<.PrivateZone>.*<.HostedZone>\")\""
+            ]
+        },
+        {
+            "message": "dns_world4you: fix _parse_paket_nr\n\nSigned-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/db83643c1ec04080edc27c136268edc9b537af95",
+            "removed_lines": [
+                "-      msg=$(echo \"$res\" | tr '\\n' '\\t' | sed 's/.*<h3 class=\"mb-5\">[^\\t]*\\t *\\([^\\t]*\\)\\t.*/\\1/')",
+                "-      msg=$(echo \"$res\" | tr '\\n' '\\t' | sed 's/.*<h3 class=\"mb-5\">[^\\t]*\\t *\\([^\\t]*\\)\\t.*/\\1/')",
+                "-  PAKETNR=$(echo \"$form\" | grep \"data-textfilter=\\\".* $domain \" | _head_n 1 | sed 's/^.* \\([0-9]*\\) .*$/\\1/')"
+            ],
+            "added_lines": [
+                "+      msg=$(echo \"$res\" | grep -A 15 'data-type=\"danger\"' | grep \"<h3[^>]*>[^<]\" | sed 's/<[^>]*>\\|^\\s*//g')",
+                "+      msg=$(echo \"$res\" | grep -A 15 'data-type=\"danger\"' | grep \"<h3[^>]*>[^<]\" | sed 's/<[^>]*>\\|^\\s*//g')",
+                "+  PAKETNR=$(echo \"$form\" | grep \"data-textfilter=\\\".* $domain \" | _tail_n 1 | sed \"s|.*$WORLD4YOU_API/\\\\([0-9]*\\\\)/.*|\\\\1|\")"
+            ]
+        },
+        {
+            "message": "Also check for the closing quote so that only exact domain matches are found.",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/481f02de88208c6066426a23cadf0d5cf786d929",
+            "removed_lines": [
+                "-      _domain_id=$(echo \"$response\" | _egrep_o \"\\\"[^\\\"]*\\\",\\\"name\\\":\\\"$h\" | cut -d , -f 1 | tr -d \\\")"
+            ],
+            "added_lines": [
+                "+      _domain_id=$(echo \"$response\" | _egrep_o \"\\\"[^\\\"]*\\\",\\\"name\\\":\\\"$h\\\"\" | cut -d , -f 1 | tr -d \\\")"
+            ]
+        },
+        {
+            "message": "fix: Adjust the sed extraction of certificate ID from JSON response\nPrior to this, an error in the regex didn't match. Resolves #3992 (TrueNAS deploy hook fails to set certificate for FTP or WebDAV)",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/d4a6d9c076e96cbe0571eacedcba9be5a33408d8",
+            "removed_lines": [
+                "-    _webdav_new_cert_id=$(echo \"$_activate_webdav_cert\" | _json_decode | sed -n 's/.*: \\([0-9]\\{1,\\}\\) }$/\\1/p')",
+                "-    _ftp_new_cert_id=$(echo \"$_activate_ftp_cert\" | _json_decode | sed -n 's/.*: \\([0-9]\\{1,\\}\\) }$/\\1/p')"
+            ],
+            "added_lines": [
+                "+    _webdav_new_cert_id=$(echo \"$_activate_webdav_cert\" | _json_decode | grep '\"certssl\":' | sed -n 's/.*: \\([0-9]\\{1,\\}\\),\\{0,1\\}$/\\1/p')",
+                "+    _ftp_new_cert_id=$(echo \"$_activate_ftp_cert\" | _json_decode | grep '\"ssltls_certificate\":' | sed -n 's/.*: \\([0-9]\\{1,\\}\\),\\{0,1\\}$/\\1/p')"
+            ]
+        },
+        {
+            "message": "Corrected use of Plesk API calls to fetch all domain for all Plesk editions\n\nThis implementation of the Plesk API will add support for Plesk web admin edition and will now discover all domains ( of customers & administrative users) managed by the specific plesk instance.\n\nThe previous implementation of the Plesk API uses the customer API. This brings two problems:\n1. The current API call only fetches the domains of resellers/customers and not the domains that are managed by administrative users.\ncompare:\nhttps://docs.plesk.com/en-US/obsidian/api-rpc/about-xml-api/reference/managing-customer-accounts/retrieving-the-list-of-customer%E2%80%99s-domains.75309/\nhttps://docs.plesk.com/en-US/obsidian/api-rpc/about-xml-api/reference/managing-plesk-server/getting-server-information/response-packet-structure-and-samples/list-of-domains.75294/\n\n2. The customer API is only available in the web pro/host editions. The most common license on VPS/Dedicated Servers is nowadays the web admin edition. See: https://www.plesk.com/editions/\n\nThe correct way to get all domains in all Plesk editions is to use the Sites (Domains) API:\nhttps://docs.plesk.com/en-US/obsidian/api-rpc/about-xml-api/reference/managing-sites-domains/getting-information-about-sites.66583/\nThis way is working for all plesk editions the same way.",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/a6b58bc88d390a21baf3cf457f3d3daba314222b",
+            "removed_lines": [
+                "-  output=\"$(_api_response_split \"$pleskxml_prettyprint_result\" 'domain' '<type>domain</type>' | sed 's/<ascii-name>/<name>/g;s/<\\/ascii-name>/<\\/name>/g' | grep '<name>' | grep '<id>')\""
+            ],
+            "added_lines": [
+                "+  output=\"$(_api_response_split \"$pleskxml_prettyprint_result\" 'result' '<status>ok</status>' | sed 's/<ascii-name>/<name>/g;s/<\\/ascii-name>/<\\/name>/g' | grep '<name>' | grep '<id>')\""
+            ]
+        },
+        {
+            "message": "Fix formatting according to Shellcheck 3/3",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/fb457968ecae380bc17914f22d134bcfba93d304",
+            "removed_lines": [
+                "-    \\  | sed 's/{\\*}/'\"$(printf -- '%s' \"$action\" | _lower_case)\"'/')\""
+            ],
+            "added_lines": [
+                "+    \\  | sed 's/{\\*}/'\"$(printf -- '%s' \"$action\" | _lower_case)\"'/'"
+            ]
+        },
+        {
+            "message": "dns_opnsense.sh - Fixed the domain parse regex\n\nExtended the regex to skip the new transferkey and hmac sections of opnsense bind.",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/8752d08ce95e7edd938f5de1262038805424bd78",
+            "removed_lines": [
+                "-    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"[^\\\"]*\\\":{\\\"enabled\\\":\\\"1\\\",\\\"type\\\":{\\\"master\\\":{\\\"value\\\":\\\"master\\\",\\\"selected\\\":1},\\\"slave\\\":{\\\"value\\\":\\\"slave\\\",\\\"selected\\\":0}},\\\"masterip\\\":{\\\"\\\":{[^}]*}}(,\\\"allownotifyslave\\\":{\\\"\\\":{[^}]*}},|,)\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ],
+            "added_lines": [
+                "+    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"[^\\\"]*\\\":{\\\"enabled\\\":\\\"1\\\",\\\"type\\\":{\\\"master\\\":{\\\"value\\\":\\\"master\\\",\\\"selected\\\":1},\\\"slave\\\":{\\\"value\\\":\\\"slave\\\",\\\"selected\\\":0}},\\\"masterip\\\":{\\\"[^\\\"]*\\\":{[^}]*}},\\\"transferkeyalgo\\\":{[^{]*{[^{]*{[^{]*{[^{]*{[^{]*{[^{]*{[^{]*{[^}]*}},\\\"transferkey\\\":\\\"[^\\\"]*\\\"(,\\\"allownotifyslave\\\":{\\\"\\\":{[^}]*}},|,)\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ]
+        },
+        {
+            "message": "more specific delete of records",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/0c9a6da623460b77f025d988573b53ad4666a67f",
+            "removed_lines": [
+                "-  recordid=$(echo \"$response\" | _egrep_o \"{\\\"id\\\":[0-9]+,\\\"name\\\":\\\"$fulldomain\\\"\" | _egrep_o \"id\\\":[0-9]+\" | cut -c 5-)"
+            ],
+            "added_lines": [
+                "+  recordid=$(echo \"$response\" | _egrep_o \"{\\\"id\\\":[0-9]+,\\\"name\\\":\\\"$fulldomain\\\",\\\"type\\\":\\\"TXT\\\",\\\"ttl\\\":60,\\\"priority\\\":0,\\\"data\\\":\\\"..$txtvalue\" | _egrep_o \"id\\\":[0-9]+\" | cut -c 5-)"
+            ]
+        },
+        {
+            "message": "FIX dns_udr api: ttl, xargs, cleanup",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/f3a0a25380dcd2e741f8715cd499f152556bdddf",
+            "removed_lines": [
+                "-  _code=$(echo \"$response\" | _egrep_o \"code = ([0-9]+)\" | _head_n 1 | cut -d = -f 2 | xargs)",
+                "-  _description=$(echo \"$response\" | _egrep_o \"description = .*\" | _head_n 1 | cut -d = -f 2 | xargs)"
+            ],
+            "added_lines": [
+                "+  _code=$(echo \"$response\" | _egrep_o \"code = ([0-9]+)\" | _head_n 1 | cut -d = -f 2 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')",
+                "+  _description=$(echo \"$response\" | _egrep_o \"description = .*\" | _head_n 1 | cut -d = -f 2 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+            ]
+        },
+        {
+            "message": "dns_huaweicloud.sh minor bug fixes\n\n1. Match zone name in response in case multiple items return.\r\n2. Use string '\"id\"' (single quotation marks added) to check if zone/record exist in _get_zoneid() & _get_recordset_id(). Fix domain can't contain string \"id\".\r\n\r\n(Sensitive _debug Access Token Commented out, For CICD Run)",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/e49ece87937aa258f32fa277c9f1a6d46b7484ce",
+            "removed_lines": [
+                "-      _zoneid=$(echo \"${response}\" | _egrep_o \"\\\"id\\\": *\\\"[^\\\"]*\\\"\" | cut -d : -f 2 | tr -d \\\" | tr -d \" \")"
+            ],
+            "added_lines": [
+                "+      zoneidlist=$(echo \"${response}\" | _egrep_o \"\\\"id\\\": *\\\"[^\\\"]*\\\"\" | cut -d : -f 2 | tr -d \\\" | tr -d \" \")",
+                "+      zonenamelist=$(echo \"${response}\" | _egrep_o \"\\\"name\\\": *\\\"[^\\\"]*\\\"\" | cut -d : -f 2 | tr -d \\\" | tr -d \" \")",
+                "+      echo \"${zonenamelist}\" | while read -r zonename; do",
+                "+          _zoneid=$(echo \"${zoneidlist}\" | sed -n \"${zoneidnum}p\")"
+            ]
+        },
+        {
+            "message": "Cannot wait for PR #3673 to be completed\n\nPR #3673 Fix simply.com API seems abandoned by maintainer and I need this fixed asap\r\n\r\nChanges implemented\r\n* Normalize JSON and fix not handling return code correctly\r\n* Add some information to comments\r\n* Fix trailing slash on URIs\r\n* Add 60 second sleep for zone to be written\r\n* Fix parsing record_data and record_type",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/8cdceb83b2422b17ba5c5e6242a46c6cd481c669",
+            "removed_lines": [
+                "-    record_data=$(echo \"$record\" | cut -d \",\" -f 3 | sed 's/\"//g' | grep \"data\" | cut -d \":\" -f 2)",
+                "-    record_type=$(echo \"$record\" | cut -d \",\" -f 4 | sed 's/\"//g' | grep \"type\" | cut -d \":\" -f 2)"
+            ],
+            "added_lines": [
+                "+    record_data=$(echo \"$record\" | sed -n \"s/.*\\\"data\\\":\\\"\\([^\\\"]*\\)\\\".*/\\1/p\")",
+                "+    record_type=$(echo \"$record\" | sed -n \"s/.*\\\"type\\\":\\\"\\([^\\\"]*\\)\\\".*/\\1/p\")",
+                "+  response=\"$(echo \"$response\" | _normalizeJson)\""
+            ]
+        },
+        {
+            "message": "Update dns_opnsense.sh\n\nUpdate for opnsense regards to error in #3735",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/f485f3fdb5327218978f83ec2d4ef957d9774f19",
+            "removed_lines": [
+                "-    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"[^\\\"]*\\\":{\\\"enabled\\\":\\\"1\\\",\\\"type\\\":{\\\"master\\\":{\\\"value\\\":\\\"master\\\",\\\"selected\\\":1},\\\"slave\\\":{\\\"value\\\":\\\"slave\\\",\\\"selected\\\":0}},\\\"masterip\\\":\\\"[^\\\"]*\\\"(,\\\"allownotifyslave\\\":{\\\"\\\":{[^}]*}},|,)\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ],
+            "added_lines": [
+                "+    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"[^\\\"]*\\\":{\\\"enabled\\\":\\\"1\\\",\\\"type\\\":{\\\"master\\\":{\\\"value\\\":\\\"master\\\",\\\"selected\\\":1},\\\"slave\\\":{\\\"value\\\":\\\"slave\\\",\\\"selected\\\":0}},\\\"masterip\\\":{.*}(,\\\"allownotifyslave\\\":{\\\"\\\":{[^}]*}},|,)\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ]
+        },
+        {
+            "message": "fix https://github.com/acmesh-official/acme.sh/issues/3806",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/18e4d270d991b772ecd24d4751304372810e7eb3",
+            "removed_lines": [
+                "-  echo \"$_str\" | grep \"^$_sub\" >/dev/null 2>&1"
+            ],
+            "added_lines": [
+                "+  echo \"$_str\" | grep -- \"^$_sub\" >/dev/null 2>&1"
+            ]
+        },
+        {
+            "message": "dns_gcloud: allowrecord-sets list output to be separated by 'semicolon'\n\ngcloud dns record-sets list used to separate records by comma, with\nversion 353.0.0 the tool uses semicolons instead.",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/401fd37e35c4b9e56b2fea333772530149d96281",
+            "removed_lines": [
+                "-  rrdatas=$(echo \"$rrdatas\" | cut -f2 | sed 's/\",\"/\"\\n\"/g')"
+            ],
+            "added_lines": [
+                "+  rrdatas=$(echo \"$rrdatas\" | cut -f2 | sed 's/\"[,;]\"/\"\\n\"/g')"
+            ]
+        },
+        {
+            "message": "dns_world4you: fix for freeBSD sed\n\nSigned-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/6e7ce1eec132cd0b5e7e975ecdd03fea68c87cbe",
+            "removed_lines": [
+                "-  domains=$(echo \"$form\" | grep '^ *[A-Za-z0-9_\\.-]*\\.[A-Za-z0-9_-]*$' | sed 's/^\\s*\\(\\S*\\)$/\\1/')"
+            ],
+            "added_lines": [
+                "+  domains=$(echo \"$form\" | grep '^ *[A-Za-z0-9_\\.-]*\\.[A-Za-z0-9_-]*$' | sed 's/^ *\\(.*\\)$/\\1/')"
+            ]
+        },
+        {
+            "message": "Update dns_opnsense.sh\n\nUpdate for opnsense regards to error in #3735",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/21ef3b0ecf622d8209b2ac04c6c9e137f952b679",
+            "removed_lines": [
+                "-    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"[^\\\"]*\\\":{\\\"enabled\\\":\\\"1\\\",\\\"type\\\":{\\\"master\\\":{\\\"value\\\":\\\"master\\\",\\\"selected\\\":1},\\\"slave\\\":{\\\"value\\\":\\\"slave\\\",\\\"selected\\\":0}},\\\"masterip\\\":\\\"[^\\\"]*\\\"(,\\\"allownotifyslave\\\":{\\\"\\\":{[^}]*}},|,)\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ],
+            "added_lines": [
+                "+    id=$(echo \"$_domain_response\" | _egrep_o \"\\\"[^\\\"]*\\\":{\\\"enabled\\\":\\\"1\\\",\\\"type\\\":{\\\"master\\\":{\\\"value\\\":\\\"master\\\",\\\"selected\\\":1},\\\"slave\\\":{\\\"value\\\":\\\"slave\\\",\\\"selected\\\":0}},\\\"masterip\\\":{.*}(,\\\"allownotifyslave\\\":{\\\"\\\":{[^}]*}},|,)\\\"domainname\\\":\\\"${h}\\\"\" | cut -d ':' -f 1 | cut -d '\"' -f 2)"
+            ]
+        },
+        {
+            "message": "Added txtvalue to dns lookup",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/a95e83ab6ef4b626a504cdb8f2d7d278932bd9ef",
+            "removed_lines": [
+                "-  _id=$(echo \"$_result\" | sed \"s/.*\\(line.*$fulldomain\\).*/\\1/\" | cut -d ':' -f 2 | cut -d ',' -f 1)"
+            ],
+            "added_lines": [
+                "+  _id=$(echo \"$_result\" | sed \"s/.*\\(line.*$fulldomain.*$txtvalue\\).*/\\1/\" | cut -d ':' -f 2 | cut -d ',' -f 1)"
+            ]
+        },
+        {
+            "message": "First jq rework - 10. redo",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/f3cfef4021d82271938be9eeea72bd196ac23d10",
+            "removed_lines": [
+                "-  _domains=$(echo \"$_result\" | cut -d ':' -f9 | sed 's/\"//g' | sed 's/{//g')"
+            ],
+            "added_lines": [
+                "+  _domains=$(echo \"$_result\" | sed 's/.*\\(zones.*\\[\\).*/\\1/' | cut -d':' -f2 | sed 's/\"//g' | sed 's/{//g')"
+            ]
+        },
+        {
+            "message": "First jq rework - 8. redo",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/9264737985c8d35b970a1a33df98e5d7001369b1",
+            "removed_lines": [
+                "-  _domains=$(echo \"$_result\" | cut -d ':' -f11 | sed 's/\"//g' | sed 's/{//g')"
+            ],
+            "added_lines": [
+                "+  _domains=$(echo \"$_result\" | cut -d ':' -f10 | sed 's/\"//g' | sed 's/{//g')"
+            ]
+        },
+        {
+            "message": "First jq rework - 7. redo",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/fda6502f33acf2deee09f62c0d0e422bf3fdd5d3",
+            "removed_lines": [
+                "-  _domains=$(echo \"$_result\" | cut -d ':' -f10 | sed 's/\"//g' | sed 's/{//g')"
+            ],
+            "added_lines": [
+                "+  _domains=$(echo \"$_result\" | cut -d ':' -f11 | sed 's/\"//g' | sed 's/{//g')"
+            ]
+        },
+        {
+            "message": "First jq rework - 6. redo",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/0fdac82b935117b8e689c61703eac0940247e494",
+            "removed_lines": [
+                "-  _domains=$(echo \"$_result\" | cut -d ':' -f9 | sed 's/\"//g' | sed 's/{//g')"
+            ],
+            "added_lines": [
+                "+  _domains=$(echo \"$_result\" | cut -d ':' -f10 | sed 's/\"//g' | sed 's/{//g')"
+            ]
+        },
+        {
+            "message": "Rackspace changed their API response, fixed the sed matching",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/8d3ad3a8c17adc419dd25de6cbcf920888ae58f7",
+            "removed_lines": [
+                "-      _domain_id=$(echo \"$response\" | sed -n \"s/^.*\\\"id\\\":\\([^,]*\\),\\\"name\\\":\\\"$h\\\",.*/\\1/p\")"
+            ],
+            "added_lines": [
+                "+      _domain_id=$(echo \"$response\" | sed -n \"s/^.*\\\"id\\\":\\\"\\([^,]*\\)\\\",\\\"accountId\\\":\\\"[0-9]*\\\",\\\"name\\\":\\\"$h\\\",.*/\\1/p\")"
+            ]
+        },
+        {
+            "message": "get TXT entry based on $txtvalue",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/4e553f34ba6958931e0a29bb97a629319dd3f95a",
+            "removed_lines": [
+                "-  entry_id=\"$(echo \"$_response\" | _egrep_o 'entry_[0-9]+' | sed 's/entry_//' | _head_n 1)\""
+            ],
+            "added_lines": [
+                "+  entry_id=\"$(echo \"$_response\" | grep \"$txtvalue\" | _egrep_o 'entry_[0-9]+' | sed 's/entry_//')\""
+            ]
+        },
+        {
+            "message": "pick first entry if more than one TXT entry exists",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/b910726c4356383b69601ce3b52a101e0f55353d",
+            "removed_lines": [
+                "-  entry_id=\"$(echo \"$_response\" | _egrep_o 'entry_[0-9]+' | sed 's/entry_//')\""
+            ],
+            "added_lines": [
+                "+  entry_id=\"$(echo \"$_response\" | _egrep_o 'entry_[0-9]+' | sed 's/entry_//' | _head_n 1)\""
+            ]
+        },
+        {
+            "message": "fix email filtering",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/f3196396a2cfb836df25af196017fb9cb7394ea1",
+            "removed_lines": [
+                "-  _zone_id=\"$(echo \"$_response\" | _egrep_o 'zone\\/[0-9]+')\"",
+                "-  _response=$(_get \"$1\" | grep \"$2\" | _head_n 1)"
+            ],
+            "added_lines": [
+                "+  _zone_id=\"$(echo \"$_response\" | _egrep_o 'zone\\/[0-9]+' | _head_n 1)\""
+            ]
+        },
+        {
+            "message": "remove -o option from grep and use _egrep_o instead",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/ced7110a78ba8faa6163bbe1f8a786f00ad5c6a9",
+            "removed_lines": [
+                "-    One984HOSTING_SESSIONID_COOKIE=\"$(grep -io 'sessionid=[^;]*;' \"$HTTP_HEADER\"  | tr -d ';')\"",
+                "-    One984HOSTING_CSRFTOKEN_COOKIE=\"$(grep -io 'csrftoken=[^;]*;' \"$HTTP_HEADER\"  | tr -d ';')\""
+            ],
+            "added_lines": [
+                "+    One984HOSTING_SESSIONID_COOKIE=\"$(grep -i '^set-cookie:' \"$HTTP_HEADER\" | _egrep_o 'sessionid=[^;]*;' | tr -d ';')\"",
+                "+    One984HOSTING_CSRFTOKEN_COOKIE=\"$(grep -i '^set-cookie:' \"$HTTP_HEADER\" | _egrep_o 'csrftoken=[^;]*;' | tr -d ';')\""
+            ]
+        },
+        {
+            "message": "simplify One984HOSTING_COOKIE grep",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/1312ef7e504c8bbac7c95c1acb0fd29032d36b5e",
+            "removed_lines": [
+                "-    One984HOSTING_COOKIE=\"$(grep -i '^set-cookie:' \"$HTTP_HEADER\" | _head_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')\""
+            ],
+            "added_lines": [
+                "+    One984HOSTING_COOKIE=\"$(grep -io 'sessionid=[^;]*;' \"$HTTP_HEADER\"  | tr -d ';')\""
+            ]
+        },
+        {
+            "message": "use head instead of tail so that the sessionid cookie gets set correctly",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/d317b49940adc07fc33f0d2cf0f011e4f1da0e03",
+            "removed_lines": [
+                "-    One984HOSTING_COOKIE=\"$(grep -i '^set-cookie:' \"$HTTP_HEADER\" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')\""
+            ],
+            "added_lines": [
+                "+    One984HOSTING_COOKIE=\"$(grep -i '^set-cookie:' \"$HTTP_HEADER\" | _head_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')\""
+            ]
+        },
+        {
+            "message": "treat variable contents as text, don't process switches",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/83cb89e4f741b0d160cd9776e625d6d17e3b5af6",
+            "removed_lines": [
+                "-  _record_id=\"$(echo \"$response\" | tr -d \"#\" | sed \"s/<tr/#<tr/g\" | tr -d \"\\n\" | tr \"#\" \"\\n\" | grep \"$_full_domain\" | grep '\"dns_tr\"' | grep \"$_txt_value\" | cut -d '\"' -f 4)\""
+            ],
+            "added_lines": [
+                "+  _record_id=\"$(echo \"$response\" | tr -d \"#\" | sed \"s/<tr/#<tr/g\" | tr -d \"\\n\" | tr \"#\" \"\\n\" | grep \"$_full_domain\" | grep '\"dns_tr\"' | grep -- \"$_txt_value\" | cut -d '\"' -f 4)\""
+            ]
+        },
+        {
+            "message": "fix nginx mode\nhttps://github.com/acmesh-official/acme.sh/issues/3648#issuecomment-894045613",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/5a44e63caddd9fe7b6b039b80a2a78f0d0a39dd9",
+            "removed_lines": [
+                "-    if cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include +.*;\" >/dev/null; then",
+                "-      for included in $(cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include +.*;\" | sed \"s/include //\" | tr -d \" ;\"); do"
+            ],
+            "added_lines": [
+                "+    if cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include *.*;\" >/dev/null; then",
+                "+      for included in $(cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include *.*;\" | sed \"s/include //\" | tr -d \" ;\"); do"
+            ]
+        },
+        {
+            "message": "fix https://github.com/acmesh-official/acme.sh/issues/1914#issuecomment-893188476",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/06580bf0e457fafb63fdd2e7aa8fad36dfb86d35",
+            "removed_lines": [
+                "-    if cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include *;\" >/dev/null; then",
+                "-      for included in $(cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include *;\" | sed \"s/include //\" | tr -d \" ;\"); do"
+            ],
+            "added_lines": [
+                "+    if cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include +.*;\" >/dev/null; then",
+                "+      for included in $(cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include +.*;\" | sed \"s/include //\" | tr -d \" ;\"); do"
+            ]
+        },
+        {
+            "message": "fix nginx mode",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/2b5e2d4760d7c3ec36f5af33dfa95d9077cd5966",
+            "removed_lines": [
+                "-    if cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include *.*;\" >/dev/null; then",
+                "-      for included in $(cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include *.*;\" | sed \"s/include //\" | tr -d \" ;\"); do"
+            ],
+            "added_lines": [
+                "+    if cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include *;\" >/dev/null; then",
+                "+      for included in $(cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include *;\" | sed \"s/include //\" | tr -d \" ;\"); do"
+            ]
+        },
+        {
+            "message": "fix https://github.com/acmesh-official/acme.sh/issues/3624#issuecomment-887689325",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/5cc1d9521cb33619d244d13dd2e646ee41e0410a",
+            "removed_lines": [
+                "-        netprc=\"$(echo \"$_netprc\" | grep \"$LOCAL_ANY_ADDRESS\")\""
+            ],
+            "added_lines": [
+                "+        netprc=\"$(echo \"$_netprc\" | grep \"$LOCAL_ANY_ADDRESS:$_checkport\")\""
+            ]
+        },
+        {
+            "message": "Fix Infoblox_View handling + some cleanup\n\nURL is now constructed after possible fallback value for Infoblox_View is being set\r\nInfoblox_View is URLencoded to deal with e.g. spaces\r\nSome cleanup, clearer log messages etc.",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/d519873fa434705b94b38f8e7975b62a2a426fd9",
+            "removed_lines": [
+                "-  if [ \"$(echo \"$result\" | _egrep_o \"record:txt/.*:.*/$Infoblox_View\")\" ]; then",
+                "-  if [ \"$(echo \"$result\" | _egrep_o \"record:txt/.*:.*/$Infoblox_View\")\" ]; then",
+                "-    if [ \"$(echo \"$rmResult\" | _egrep_o \"record:txt/.*:.*/$Infoblox_View\")\" ]; then"
+            ],
+            "added_lines": [
+                "+  if [ \"$(echo \"$result\" | _egrep_o \"record:txt/.*:.*/${Infoblox_ViewEncoded}\")\" ]; then",
+                "+  if [ \"$(echo \"$result\" | _egrep_o \"record:txt/.*:.*/${Infoblox_ViewEncoded}\")\" ]; then",
+                "+    if [ \"$(echo \"$rmResult\" | _egrep_o \"record:txt/.*:.*/${Infoblox_ViewEncoded}\")\" ]; then"
+            ]
+        },
+        {
+            "message": "sync (#3580)\n\nsync",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/518e1df257511f1a0f0c8e285f78c4a6320b5511",
+            "removed_lines": [
+                "-      _eab_id=\"$(echo \"$_eabresp\" | tr ',}' '\\n' | grep '\"eab_kid\"' | cut -d : -f 2 | tr -d '\"')\"",
+                "-  entries=\"$(echo \"$response\" | tr '][' '==' | _egrep_o \"challenges\\\": *=[^=]*=\" | tr '}{' '\\n' | grep \"\\\"status\\\": *\\\"valid\\\"\")\"",
+                "-  _get $_hash_url | tr -d \"\\r\\n\" | tr '{},' '\\n' | grep '\"sha\":' | cut -d '\"' -f 4"
+            ],
+            "added_lines": [
+                "+      _eab_id=\"$(echo \"$_eabresp\" | tr ',}' '\\n\\n' | grep '\"eab_kid\"' | cut -d : -f 2 | tr -d '\"')\"",
+                "+  entries=\"$(echo \"$response\" | tr '][' '==' | _egrep_o \"challenges\\\": *=[^=]*=\" | tr '}{' '\\n\\n' | grep \"\\\"status\\\": *\\\"valid\\\"\")\"",
+                "+  _get $_hash_url | tr -d \"\\r\\n\" | tr '{},' '\\n\\n\\n' | grep '\"sha\":' | cut -d '\"' -f 4"
+            ]
+        },
+        {
+            "message": "fix for compatiblity",
+            "commit_url": "https://github.com/acmesh-official/acme.sh/commit/e0def66959cc435d8320b6ce33ef86807a0b3479",
+            "removed_lines": [
+                "-      _eab_id=\"$(echo \"$_eabresp\" | tr ',}' '\\n' | grep '\"eab_kid\"' | cut -d : -f 2 | tr -d '\"')\"",
+                "-  entries=\"$(echo \"$response\" | tr '][' '==' | _egrep_o \"challenges\\\": *=[^=]*=\" | tr '}{' '\\n' | grep \"\\\"status\\\": *\\\"valid\\\"\")\"",
+                "-  _get $_hash_url | tr -d \"\\r\\n\" | tr '{},' '\\n' | grep '\"sha\":' | cut -d '\"' -f 4"
+            ],
+            "added_lines": [
+                "+      _eab_id=\"$(echo \"$_eabresp\" | tr ',}' '\\n\\n' | grep '\"eab_kid\"' | cut -d : -f 2 | tr -d '\"')\"",
+                "+  entries=\"$(echo \"$response\" | tr '][' '==' | _egrep_o \"challenges\\\": *=[^=]*=\" | tr '}{' '\\n\\n' | grep \"\\\"status\\\": *\\\"valid\\\"\")\"",
+                "+  _get $_hash_url | tr -d \"\\r\\n\" | tr '{},' '\\n\\n\\n' | grep '\"sha\":' | cut -d '\"' -f 4"
+            ]
+        }
+    ]
+}

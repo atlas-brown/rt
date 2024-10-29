@@ -7,12 +7,14 @@ import requests
 from requests.exceptions import RequestException
 from openai import OpenAI
 
+
+UPDATE = False
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 pipeline_pattern = re.compile(r'(\bgrep\b|\bawk\b|\bsed\b|\bcut\b|\bsort\b|\buniq\b|\btr\b|\bxargs\b|\becho\b|\bcat\b).*\|\s*')
 debug_commit_hash = "6f994715d6e86297d1c9851666221cd2eb09ac3c"
 
-def get_popular_repos(language="Shell", max_size_kb=5000, top_n=50, min_results=15):
+def get_popular_repos(language="Shell", max_size_kb=15000, top_n=50, min_results=15):
     if not GITHUB_TOKEN:
         raise ValueError("GITHUB_TOKEN environment variable not set.")
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
@@ -53,13 +55,14 @@ def analyze_commit_with_openai(commit_data):
 
     client = OpenAI(api_key=OPENAI_API_KEY, base_url="https://api.deepseek.com")
 
-    system_prompt = """Analyze each commit to determine if it modifies at least one pipeline by adding, removing, or changing flags, options, or arguments. Ignore changes irrelevant to the pipeline or changes to the commands themselves. Respond with 'T' if the commit meets the criteria; otherwise, respond with 'F'.
+    system_prompt = """Analyze each commit to determine if it modifies any shell pipeline by adjusting flags, options, or arguments to fix a bug. Ignore commits with changes only irrelevant to the pipeline, unrelated command modifications, or non-bug-related purposes. Respond with "T" if the commit meets these criteria; otherwise, respond with "F".
 
     Examples:
-    - `grep -oE [0-9]+ | sort` to `grep -oE [0-9]+ | sort -n` → 'T' (flag added)
-    - `grep -oE [0-9]+ | sort` to `grep -oE [0-9]+ | uniq` → 'F' (command changed)
-    - `grep -oE [0-9A-Z]+ | sort -n` to `grep -oE [0-9A-Z]+` → 'F' (command dropped)
-    - `grep -oE [0-9]+ | sort` to `grep -oE [0-9]+ | sort | uniq` → 'F' (command added)"""
+    - `grep -oE [0-9]+ | sort` → `grep -oE [0-9]+ | sort -n`: 'T' (flag added)
+    - `grep -oE [0-9]+ | sort` → `grep -oE [0-9]+ | uniq`: 'F' (only the command changed)
+    - `grep -oE [0-9A-Z]+ | sort -n` to `grep -oE [0-9A-Z]+`: 'F' (only the command dropped)
+    - `grep -oE [0-9]+ | sort` → `grep -oE [0-9]+ | sort | uniq`: 'F' (only the command added)
+    - `command grep -e '^v' | cut -c2-` → `command grep -e '^v' | command cut -c2-`: 'F' (only the command changed)"""
 
 
     user_prompt = f"Commit message: {commit_data['message']}\n\nRemoved lines:\n{commit_data['removed_lines']}\n\n Added lines:\n{commit_data['added_lines']}"
@@ -92,8 +95,11 @@ def find_pipeline_commits(repo: git.Repo, github_url: str):
                 if diff.b_path and diff.b_path.endswith(('.sh', '.bash', '.zsh')):
                     diff_text = diff.diff.decode('utf-8', errors='ignore')
                     
-                    removed_lines = [line for line in diff_text.splitlines() if line.startswith('-') and pipeline_pattern.search(line)]
-                    added_lines = [line for line in diff_text.splitlines() if line.startswith('+') and pipeline_pattern.search(line)]
+                    matched_lines = [line for line in diff_text.splitlines() if pipeline_pattern.search(line)]
+                    added_lines = [line for line in matched_lines if line.startswith('-')]
+                    added_lines = list(map(lambda x: '+' + x[1:], added_lines))
+                    removed_lines = [line for line in matched_lines if line.startswith('+')]
+                    removed_lines = list(map(lambda x: '-' + x[1:], removed_lines))
 
                     if removed_lines and added_lines:
                         if debug_commit_hash and commit.hexsha == debug_commit_hash:
@@ -103,8 +109,6 @@ def find_pipeline_commits(repo: git.Repo, github_url: str):
                             print("="*60)
 
                         pipeline_commits.append({
-                            "commit_hash": commit.hexsha,
-                            "author": commit.author.name,
                             "message": commit.message.strip(),
                             "commit_url": f"{github_url}/commit/{commit.hexsha}",
                             "removed_lines": removed_lines,
@@ -119,14 +123,14 @@ def find_pipeline_commits(repo: git.Repo, github_url: str):
 def filter_commits_with_openai_analysis(commits, repo_name, save_path):
     if OPENAI_API_KEY:
         filtered_commits = []
-        with tqdm(total=len(commits[:200]), desc="OpenAI Analysis Progress") as pbar:
+        with tqdm(total=len(commits[:200]), desc="LLM Analysis Progress") as pbar:
             for commit in commits[:200]:
                 if analyze_commit_with_openai(commit):
                     filtered_commits.append(commit)
                 pbar.update(1)
                 pbar.set_postfix(found=len(filtered_commits))
     else:
-        print(f"Skipping OpenAI analysis for {repo_name} (no API key provided).")
+        print(f"Skipping LLM analysis for {repo_name} (no API key provided).")
         filtered_commits = commits
 
     with open(save_path, "w", encoding="utf-8") as f:
@@ -136,16 +140,21 @@ def filter_commits_with_openai_analysis(commits, repo_name, save_path):
 def main():
     repos = get_popular_repos()
     base_path = "./benchmark_fetcher/repos"
-    if not os.path.exists(base_path):
-        os.makedirs(base_path)
-    results = {}
+    results_path = "./benchmark_fetcher/results"
+    os.makedirs(base_path, exist_ok=True)
+    os.makedirs(results_path, exist_ok=True)
 
     for repo_info in repos:
         repo_name = repo_info["full_name"]
         repo_url = repo_info["html_url"]
         local_path = os.path.join(base_path, repo_name.replace("/", "_"))
-        save_path = f"./benchmark_fetcher/results/{repo_name.replace('/', '_')}_pipeline_commits.json"
-        openai_save_path = f"./benchmark_fetcher/results/{repo_name.replace('/', '_')}_filtered_commits.json"
+        save_path = os.path.join(results_path, f"{repo_name.replace('/', '_')}_pipeline_commits.json")
+        openai_save_path = os.path.join(results_path, f"{repo_name.replace('/', '_')}_filtered_commits.json")
+
+        # Check if results already exist
+        if os.path.exists(save_path) and not UPDATE:
+            print(f"Skipping {repo_name}, results already exist.")
+            continue
 
         print(f"\nProcessing repository: {repo_name}...")
 
@@ -155,18 +164,14 @@ def main():
         commits = find_pipeline_commits(repo, repo_url)
 
         if commits:
-            results[repo_name] = commits
             print(f"Found {len(commits)} commits with pipeline changes in {repo_name}.")
-
             filter_commits_with_openai_analysis(commits, repo_name, openai_save_path)
             
+            with open(save_path, "w", encoding="utf-8") as f:
+                json.dump({repo_name: commits}, f, ensure_ascii=False, indent=4)
+            print(f"\nResults saved to {save_path}.")
         else:
             print(f"No pipeline changes found in {repo_name}.")
-
-        os.makedirs(os.path.dirname(save_path), exist_ok=True)
-        with open(save_path, "w", encoding="utf-8") as f:
-            json.dump({repo_name: commits}, f, ensure_ascii=False, indent=4)
-        print(f"\nResults saved to {save_path}.")
 
 if __name__ == "__main__":
     main()

@@ -1,16 +1,3 @@
 {
-    "dockur/windows": [
-        {
-            "commit_hash": "0616eb344780587398f2ba29de171d70ec9dcd95",
-            "author": "Kroese",
-            "message": "feat: Improved installation (#453)",
-            "commit_url": "https://github.com/dockur/windows/commit/0616eb344780587398f2ba29de171d70ec9dcd95",
-            "removed_lines": [
-                "-    iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')\""
-            ],
-            "added_lines": [
-                "+    iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]' | head -c 512)\""
-            ]
-        }
-    ]
+    "dockur/windows": []
 }

@@ -1,199 +1,165 @@
 {
     "Nyr/openvpn-install": [
         {
-            "commit_hash": "d28c8e74e76021705ec5241348a3ee309f275564",
-            "author": "Nyr",
             "message": "Fix resolv.conf detection\n\nSome systems have other DNS servers along with 127.0.0.53 in /etc/resolv.conf",
             "commit_url": "https://github.com/Nyr/openvpn-install/commit/d28c8e74e76021705ec5241348a3ee309f275564",
             "removed_lines": [
-                "-\t\t\tif grep '^nameserver' \"/etc/resolv.conf\" | grep -qv '127.0.0.53' ; then",
-                "-\t\t\tgrep -v '^#\\|^;' \"$resolv_conf\" | grep '^nameserver' | grep -v '127.0.0.53' | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | while read line; do"
+                "-\t\t\tgrep -v '^#\\|^;' \"$resolv_conf\" | grep '^nameserver' | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | while read line; do"
+            ],
+            "added_lines": [
+                "+\t\t\tif grep '^nameserver' \"/etc/resolv.conf\" | grep -qv '127.0.0.53' ; then",
+                "+\t\t\tgrep -v '^#\\|^;' \"$resolv_conf\" | grep '^nameserver' | grep -v '127.0.0.53' | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | while read line; do"
+            ]
+        },
+        {
+            "message": "Add support for AlmaLinux and Rocky Linux\n\nAn unrelated fix to avoid one harmless warning during removal is also included.",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/94c94bbbc9cd650bbe74e806ca02ec7399a5369a",
+            "removed_lines": [
+                "-\tos_version=$(grep -oE '[0-9]+' /etc/centos-release | head -1)"
+            ],
+            "added_lines": [
+                "+\tos_version=$(grep -shoE '[0-9]+' /etc/almalinux-release /etc/rocky-release /etc/centos-release | head -1)"
+            ]
+        },
+        {
+            "message": "resolv.conf parsing optimizations",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/13f8b2e00cb3f6e2f670ffdba5f43787cacb3727",
+            "removed_lines": [
+                "-\t\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | while read line; do"
             ],
             "added_lines": [
                 "+\t\t\tgrep -v '^#\\|^;' \"$resolv_conf\" | grep '^nameserver' | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | while read line; do"
             ]
         },
         {
-            "commit_hash": "94c94bbbc9cd650bbe74e806ca02ec7399a5369a",
-            "author": "Nyr",
-            "message": "Add support for AlmaLinux and Rocky Linux\n\nAn unrelated fix to avoid one harmless warning during removal is also included.",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/94c94bbbc9cd650bbe74e806ca02ec7399a5369a",
+            "message": "egrep IP regex optimizations",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/ae7e6d7ae5aa8d87af6c9e0ced0472445b020c87",
             "removed_lines": [
-                "-\tos_version=$(grep -shoE '[0-9]+' /etc/almalinux-release /etc/rocky-release /etc/centos-release | head -1)"
+                "-\tif [[ $(ip -4 addr | grep inet | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}') -eq 1 ]]; then",
+                "-\t\tip=$(ip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
+                "-\t\tnumber_of_ip=$(ip -4 addr | grep inet | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
+                "-\t\tip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | nl -s ') '",
+                "-\t\tip=$(ip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | sed -n \"$ip_number\"p)",
+                "-\t\tget_public_ip=$(grep -m 1 -oE '^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$' <<< \"$(wget -T 10 -t 1 -4qO- \"http://ip1.dynupdate.no-ip.com/\" || curl -m 10 -4Ls \"http://ip1.dynupdate.no-ip.com/\")\")",
+                "-\t\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
             ],
             "added_lines": [
-                "+\tos_version=$(grep -oE '[0-9]+' /etc/centos-release | head -1)"
-            ]
-        },
-        {
-            "commit_hash": "13f8b2e00cb3f6e2f670ffdba5f43787cacb3727",
-            "author": "Nyr",
-            "message": "resolv.conf parsing optimizations",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/13f8b2e00cb3f6e2f670ffdba5f43787cacb3727",
-            "removed_lines": [
-                "-\t\t\tgrep -v '^#\\|^;' \"$resolv_conf\" | grep '^nameserver' | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | while read line; do"
-            ],
-            "added_lines": [
+                "+\tif [[ $(ip -4 addr | grep inet | grep -vEc '127(\\.[0-9]{1,3}){3}') -eq 1 ]]; then",
+                "+\t\tip=$(ip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}')",
+                "+\t\tnumber_of_ip=$(ip -4 addr | grep inet | grep -vEc '127(\\.[0-9]{1,3}){3}')",
+                "+\t\tip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | nl -s ') '",
+                "+\t\tip=$(ip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | sed -n \"$ip_number\"p)",
+                "+\t\tget_public_ip=$(grep -m 1 -oE '^[0-9]{1,3}(\\.[0-9]{1,3}){3}$' <<< \"$(wget -T 10 -t 1 -4qO- \"http://ip1.dynupdate.no-ip.com/\" || curl -m 10 -4Ls \"http://ip1.dynupdate.no-ip.com/\")\")",
                 "+\t\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | while read line; do"
             ]
         },
         {
-            "commit_hash": "ae7e6d7ae5aa8d87af6c9e0ced0472445b020c87",
-            "author": "Orcun",
-            "message": "egrep IP regex optimizations",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/ae7e6d7ae5aa8d87af6c9e0ced0472445b020c87",
-            "removed_lines": [
-                "-\tif [[ $(ip -4 addr | grep inet | grep -vEc '127(\\.[0-9]{1,3}){3}') -eq 1 ]]; then",
-                "-\t\tip=$(ip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}')",
-                "-\t\tnumber_of_ip=$(ip -4 addr | grep inet | grep -vEc '127(\\.[0-9]{1,3}){3}')",
-                "-\t\tip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | nl -s ') '",
-                "-\t\tip=$(ip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | sed -n \"$ip_number\"p)",
-                "-\t\tget_public_ip=$(grep -m 1 -oE '^[0-9]{1,3}(\\.[0-9]{1,3}){3}$' <<< \"$(wget -T 10 -t 1 -4qO- \"http://ip1.dynupdate.no-ip.com/\" || curl -m 10 -4Ls \"http://ip1.dynupdate.no-ip.com/\")\")",
-                "-\t\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | while read line; do"
-            ],
-            "added_lines": [
-                "+\tif [[ $(ip -4 addr | grep inet | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}') -eq 1 ]]; then",
-                "+\t\tip=$(ip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
-                "+\t\tnumber_of_ip=$(ip -4 addr | grep inet | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
-                "+\t\tip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | nl -s ') '",
-                "+\t\tip=$(ip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | sed -n \"$ip_number\"p)",
-                "+\t\tget_public_ip=$(grep -m 1 -oE '^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$' <<< \"$(wget -T 10 -t 1 -4qO- \"http://ip1.dynupdate.no-ip.com/\" || curl -m 10 -4Ls \"http://ip1.dynupdate.no-ip.com/\")\")",
-                "+\t\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
-            ]
-        },
-        {
-            "commit_hash": "f659724a6f222bfbd03f5399426f2dbe97ec5f6b",
-            "author": "Nyr",
             "message": "Addresses #694\n\n- Use a checkip service which works fine over HTTP to avoid issues in systems\nwhere ca-certificates is not available\n- Increase timeout to 10 seconds, because the new service is a bit slower from\nsome locations\n- Improve grep sanitization",
             "commit_url": "https://github.com/Nyr/openvpn-install/commit/f659724a6f222bfbd03f5399426f2dbe97ec5f6b",
             "removed_lines": [
-                "-\t\tget_public_ip=$(grep -m 1 -oE '^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$' <<< \"$(wget -T 10 -t 1 -4qO- \"http://ip1.dynupdate.no-ip.com/\" || curl -m 10 -4Ls \"http://ip1.dynupdate.no-ip.com/\")\")"
+                "-\t\tget_public_ip=$(grep -oE '^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$' <<< \"$(wget -T 5 -t 1 -4qO- \"https://checkip.amazonaws.com/\" || curl -m 5 -4Ls \"https://checkip.amazonaws.com/\")\")"
             ],
             "added_lines": [
-                "+\t\tget_public_ip=$(grep -oE '^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$' <<< \"$(wget -T 5 -t 1 -4qO- \"https://checkip.amazonaws.com/\" || curl -m 5 -4Ls \"https://checkip.amazonaws.com/\")\")"
+                "+\t\tget_public_ip=$(grep -m 1 -oE '^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$' <<< \"$(wget -T 10 -t 1 -4qO- \"http://ip1.dynupdate.no-ip.com/\" || curl -m 10 -4Ls \"http://ip1.dynupdate.no-ip.com/\")\")"
             ]
         },
         {
-            "commit_hash": "6f9daf49f54c7f564f00a771b2f9b5fd9ac38fb0",
-            "author": "Nyr",
             "message": "Small style improvements",
             "commit_url": "https://github.com/Nyr/openvpn-install/commit/6f9daf49f54c7f564f00a771b2f9b5fd9ac38fb0",
             "removed_lines": [
-                "-\t\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do",
                 "-\t\t\ttail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | nl -s ') '",
                 "-\t\t\tclient=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$client_number\"p)",
                 "-\t\t\t\tport=$(grep '^port ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
                 "-\t\t\t\tprotocol=$(grep '^proto ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
                 "-\t\t\t\t\tip=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24' | grep -oE '[^ ]+$')",
                 "-\t\t\t\t\t\tip6=$(firewall-cmd --direct --get-rules ipv6 nat POSTROUTING | grep '\\-s fddd:1194:1194:1194::/64 '\"'\"'!'\"'\"' -d fddd:1194:1194:1194::/64' | grep -oE '[^ ]+$')",
-                "-\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then"
+                "-\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then",
+                "-\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
             ],
             "added_lines": [
+                "+\t\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do",
                 "+\t\t\ttail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | nl -s ') '",
                 "+\t\t\tclient=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$client_number\"p)",
                 "+\t\t\t\tport=$(grep '^port ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
                 "+\t\t\t\tprotocol=$(grep '^proto ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
                 "+\t\t\t\t\tip=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24' | grep -oE '[^ ]+$')",
                 "+\t\t\t\t\t\tip6=$(firewall-cmd --direct --get-rules ipv6 nat POSTROUTING | grep '\\-s fddd:1194:1194:1194::/64 '\"'\"'!'\"'\"' -d fddd:1194:1194:1194::/64' | grep -oE '[^ ]+$')",
-                "+\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then",
-                "+\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
+                "+\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then"
             ]
         },
         {
-            "commit_hash": "5229459f99c5204f59697f880508f05cbb6d3999",
-            "author": "Nyr",
             "message": "IPv6 support\n\nClients will be provided with IPv6 connectivity if the server has it.\n\nOther very small and unimportant improvements are also included in this commit.",
             "commit_url": "https://github.com/Nyr/openvpn-install/commit/5229459f99c5204f59697f880508f05cbb6d3999",
             "removed_lines": [
-                "-\t\t\t\t\tip=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24' | grep -oE '[^ ]+$')",
-                "-\t\t\t\t\t\tip6=$(firewall-cmd --direct --get-rules ipv6 nat POSTROUTING | grep '\\-s fddd:1194:1194:1194::/64 '\"'\"'!'\"'\"' -d fddd:1194:1194:1194::/64' | grep -oE '[^ ]+$')",
-                "-\tif [[ $(ip -4 addr | grep inet | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}') -eq 1 ]]; then",
-                "-\t\tip=$(ip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
-                "-\t\tnumber_of_ip=$(ip -4 addr | grep inet | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
-                "-\t\tip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | nl -s ') '",
-                "-\t\tip=$(ip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | sed -n \"$ip_number\"p)",
-                "-\t\tip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}')",
-                "-\t\tip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | nl -s ') '",
-                "-\t\tip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | sed -n \"$ip6_number\"p)"
-            ],
-            "added_lines": [
-                "+\t\t\t\t\tip=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 10)",
-                "+\tif [[ $(ip addr | grep inet | grep -v inet6 | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}') -eq 1 ]]; then",
-                "+\t\tip=$(ip addr | grep inet | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
-                "+\t\tnumber_of_ips=$(ip addr | grep inet | grep -v inet6 | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
-                "+\t\tip addr | grep inet | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | nl -s ') '",
-                "+\t\tip=$(ip addr | grep inet | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | sed -n \"$ip_number\"p)"
-            ]
-        },
-        {
-            "commit_hash": "6a29a6babdb6e2d813c6c585800debc1558ead2d",
-            "author": "Nyr",
-            "message": "Miscellaneous improvements\n\nThis commit contains lots changes which are not very significant on its own but\nprovide important usability improvements and future proofing.\n\nIt also includes changes which required OpenVPN v2.4+ and were pending until\nthat version became widely available.\n\n- General cleanup\n- Improved IP address and NAT configuration\n- Added input validation and sanitization\n- Fix #603\n- Remove \"sndbuf\" and \"recvbuf\" parameters\n- Add server-side \"explicit-exit-notify\"\n- Switch from \"setenv opt\" to \"ignore-unknown-option\"\n- Switch from \"tls-auth\" to \"tls-crypt\"\n- Other minor bugfixes and optimizations",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/6a29a6babdb6e2d813c6c585800debc1558ead2d",
-            "removed_lines": [
-                "-\t\t\tclient=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$client_number\"p)",
-                "-\t\t\t\tport=$(grep '^port ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
-                "-\t\t\t\tprotocol=$(grep '^proto ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
                 "-\t\t\t\t\tip=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 10)",
-                "-\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then",
                 "-\tif [[ $(ip addr | grep inet | grep -v inet6 | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}') -eq 1 ]]; then",
                 "-\t\tip=$(ip addr | grep inet | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
                 "-\t\tnumber_of_ips=$(ip addr | grep inet | grep -v inet6 | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
                 "-\t\tip addr | grep inet | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | nl -s ') '",
-                "-\t\tip=$(ip addr | grep inet | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | sed -n \"$ip_number\"p)",
-                "-\tif echo \"$ip\" | grep -qE '^(10\\.|172\\.1[6789]\\.|172\\.2[0-9]\\.|172\\.3[01]\\.|192\\.168)'; then",
-                "-\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do",
-                "-\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then"
+                "-\t\tip=$(ip addr | grep inet | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | sed -n \"$ip_number\"p)"
             ],
             "added_lines": [
-                "+\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)",
-                "+\t\t\t\tPORT=$(grep '^port ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
-                "+\t\t\t\tPROTOCOL=$(grep '^proto ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
-                "+\t\t\t\t\tIP=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 10)",
-                "+\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$PORT\" != '1194' ]]; then",
-                "+\tIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | head -1)",
-                "+\tif echo \"$IP\" | grep -qE '^(10\\.|172\\.1[6789]\\.|172\\.2[0-9]\\.|172\\.3[01]\\.|192\\.168)'; then",
-                "+\t\tgrep -v '#' $RESOLVCONF | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do",
-                "+\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$PORT\" != '1194' ]]; then"
+                "+\t\t\t\t\tip=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24' | grep -oE '[^ ]+$')",
+                "+\t\t\t\t\t\tip6=$(firewall-cmd --direct --get-rules ipv6 nat POSTROUTING | grep '\\-s fddd:1194:1194:1194::/64 '\"'\"'!'\"'\"' -d fddd:1194:1194:1194::/64' | grep -oE '[^ ]+$')",
+                "+\tif [[ $(ip -4 addr | grep inet | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}') -eq 1 ]]; then",
+                "+\t\tip=$(ip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
+                "+\t\tnumber_of_ip=$(ip -4 addr | grep inet | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
+                "+\t\tip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | nl -s ') '",
+                "+\t\tip=$(ip -4 addr | grep inet | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | sed -n \"$ip_number\"p)",
+                "+\t\tip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}')",
+                "+\t\tip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | nl -s ') '",
+                "+\t\tip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | sed -n \"$ip6_number\"p)"
             ]
         },
         {
-            "commit_hash": "a46a23d84a4b007dc8f6e964219331f876a21602",
-            "author": "Nyr",
+            "message": "Miscellaneous improvements\n\nThis commit contains lots changes which are not very significant on its own but\nprovide important usability improvements and future proofing.\n\nIt also includes changes which required OpenVPN v2.4+ and were pending until\nthat version became widely available.\n\n- General cleanup\n- Improved IP address and NAT configuration\n- Added input validation and sanitization\n- Fix #603\n- Remove \"sndbuf\" and \"recvbuf\" parameters\n- Add server-side \"explicit-exit-notify\"\n- Switch from \"setenv opt\" to \"ignore-unknown-option\"\n- Switch from \"tls-auth\" to \"tls-crypt\"\n- Other minor bugfixes and optimizations",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/6a29a6babdb6e2d813c6c585800debc1558ead2d",
+            "removed_lines": [
+                "-\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)",
+                "-\t\t\t\tPORT=$(grep '^port ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
+                "-\t\t\t\tPROTOCOL=$(grep '^proto ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
+                "-\t\t\t\t\tIP=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 10)",
+                "-\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$PORT\" != '1194' ]]; then",
+                "-\tIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | head -1)",
+                "-\tif echo \"$IP\" | grep -qE '^(10\\.|172\\.1[6789]\\.|172\\.2[0-9]\\.|172\\.3[01]\\.|192\\.168)'; then",
+                "-\t\tgrep -v '#' $RESOLVCONF | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do",
+                "-\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$PORT\" != '1194' ]]; then"
+            ],
+            "added_lines": [
+                "+\t\t\tclient=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$client_number\"p)",
+                "+\t\t\t\tport=$(grep '^port ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
+                "+\t\t\t\tprotocol=$(grep '^proto ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
+                "+\t\t\t\t\tip=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 10)",
+                "+\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then",
+                "+\tif [[ $(ip addr | grep inet | grep -v inet6 | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}') -eq 1 ]]; then",
+                "+\t\tip=$(ip addr | grep inet | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
+                "+\t\tnumber_of_ips=$(ip addr | grep inet | grep -v inet6 | grep -vEc '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}')",
+                "+\t\tip addr | grep inet | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | nl -s ') '",
+                "+\t\tip=$(ip addr | grep inet | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | sed -n \"$ip_number\"p)",
+                "+\tif echo \"$ip\" | grep -qE '^(10\\.|172\\.1[6789]\\.|172\\.2[0-9]\\.|172\\.3[01]\\.|192\\.168)'; then",
+                "+\t\tgrep -v '#' \"$resolv_conf\" | grep nameserver | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do",
+                "+\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then"
+            ]
+        },
+        {
             "message": "Migrate to the new systemd service\n\nOpenVPN 2.4 packages provide a new systemd service unit which uses a different\ndirectory structure. This commit drops support for Ubuntu 16.04 which has v2.3\npackages.",
             "commit_url": "https://github.com/Nyr/openvpn-install/commit/a46a23d84a4b007dc8f6e964219331f876a21602",
             "removed_lines": [
-                "-\t\t\ttail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | nl -s ') '",
-                "-\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)",
-                "-\t\t\t\tPORT=$(grep '^port ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
-                "-\t\t\t\tPROTOCOL=$(grep '^proto ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)"
+                "-\t\t\ttail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | nl -s ') '",
+                "-\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)",
+                "-\t\t\t\tPORT=$(grep '^port ' /etc/openvpn/server.conf | cut -d \" \" -f 2)",
+                "-\t\t\t\tPROTOCOL=$(grep '^proto ' /etc/openvpn/server.conf | cut -d \" \" -f 2)"
             ],
             "added_lines": [
-                "+\t\t\ttail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | nl -s ') '",
-                "+\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)",
-                "+\t\t\t\tPORT=$(grep '^port ' /etc/openvpn/server.conf | cut -d \" \" -f 2)",
-                "+\t\t\t\tPROTOCOL=$(grep '^proto ' /etc/openvpn/server.conf | cut -d \" \" -f 2)"
+                "+\t\t\ttail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | nl -s ') '",
+                "+\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)",
+                "+\t\t\t\tPORT=$(grep '^port ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
+                "+\t\t\t\tPROTOCOL=$(grep '^proto ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)"
             ]
         },
         {
-            "commit_hash": "cc81838501aef2c896c656059b45b0d8f89465a6",
-            "author": "Nyr",
             "message": "Revert \"Improve iptables configuration\"\n\nThis reverts commit fdc2bfbdace91a8e456f9623c0d9215978f7d888.",
             "commit_url": "https://github.com/Nyr/openvpn-install/commit/cc81838501aef2c896c656059b45b0d8f89465a6",
-            "removed_lines": [
-                "-\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 14)"
-            ],
-            "added_lines": [
-                "+\t\t\t\t\tIP=$(grep 'iptables -t nat -C POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' /etc/openvpn/iptables-init | cut -d \" \" -f 14)",
-                "+echo \"iptables -t nat -C POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to $IP || iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to $IP\" >> /etc/openvpn/iptables-init",
-                "+\t\t\techo \"iptables -C INPUT -p $PROTOCOL --dport $PORT -j ACCEPT || iptables -I INPUT -p $PROTOCOL --dport $PORT -j ACCEPT"
-            ]
-        },
-        {
-            "commit_hash": "fdc2bfbdace91a8e456f9623c0d9215978f7d888",
-            "author": "Nyr",
-            "message": "Improve iptables configuration\n\nSee #464.",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/fdc2bfbdace91a8e456f9623c0d9215978f7d888",
             "removed_lines": [
                 "-\t\t\t\t\tIP=$(grep 'iptables -t nat -C POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' /etc/openvpn/iptables-init | cut -d \" \" -f 14)",
                 "-echo \"iptables -t nat -C POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to $IP || iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to $IP\" >> /etc/openvpn/iptables-init",
@@ -204,13 +170,114 @@
             ]
         },
         {
-            "commit_hash": "d7173537692df686afa26e74c456aede8bc569f3",
-            "author": "Nyr",
+            "message": "Improve iptables configuration\n\nSee #464.",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/fdc2bfbdace91a8e456f9623c0d9215978f7d888",
+            "removed_lines": [
+                "-\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 14)"
+            ],
+            "added_lines": [
+                "+\t\t\t\t\tIP=$(grep 'iptables -t nat -C POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' /etc/openvpn/iptables-init | cut -d \" \" -f 14)",
+                "+echo \"iptables -t nat -C POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to $IP || iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to $IP\" >> /etc/openvpn/iptables-init",
+                "+\t\t\techo \"iptables -C INPUT -p $PROTOCOL --dport $PORT -j ACCEPT || iptables -I INPUT -p $PROTOCOL --dport $PORT -j ACCEPT"
+            ]
+        },
+        {
             "message": "Cleanup\n\n- SELinux in CentOS already has rules for both udp/1194 and tcp/1194,\nso the protocol check was not needed.\n- Remove unneeded arguments from some grep and rm commands.",
             "commit_url": "https://github.com/Nyr/openvpn-install/commit/d7173537692df686afa26e74c456aede8bc569f3",
             "removed_lines": [
-                "-\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$PORT\" != '1194' ]]; then",
-                "-\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$PORT\" != '1194' ]]; then"
+                "-\t\t\t\t\tif sestatus | grep \"Current mode\" | grep -qs \"enforcing\"; then",
+                "-\t\tif sestatus | grep \"Current mode\" | grep -qs \"enforcing\"; then"
+            ],
+            "added_lines": [
+                "+\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$PORT\" != '1194' ]]; then",
+                "+\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$PORT\" != '1194' ]]; then"
+            ]
+        },
+        {
+            "message": "Remove IP address detection fallback\n\nIt was never used, the one-liner is enough.",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/2726a148ee8d34bf75ff3592a5cb0faa661b8fa7",
+            "removed_lines": [
+                "-IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | head -1)"
+            ],
+            "added_lines": [
+                "+\tIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | head -1)"
+            ]
+        },
+        {
+            "message": "Fix system resolvers option for environments running systemd-resolved",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/33452242a1a8e2955eb1b0416c9d614062792843",
+            "removed_lines": [
+                "-\t\tgrep -v '#' /etc/resolv.conf | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
+            ],
+            "added_lines": [
+                "+\t\tgrep -v '#' $RESOLVCONF | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
+            ]
+        },
+        {
+            "message": "Debian 9 compatibility and small bug fixes\n\n- Removed Debian 9 compatibility warning\n- openvpn-blacklist is no longer uninstalled on removal\n- Improvement: removal of /usr/share/doc/openvpn* hasn't been needed\nfor years\n- Fixed: live iptables removal was failing for Debian since\n6d51476047d6d7a610f292f9bbd6da75d2d8f96e",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/b2d8c73e1b4d8ce9c3e254717ecc9602eb4394b6",
+            "removed_lines": [
+                "-\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)"
+            ],
+            "added_lines": [
+                "+\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 14)"
+            ]
+        },
+        {
+            "message": "Enable internal networking\n\nSee #299.",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/6d51476047d6d7a610f292f9bbd6da75d2d8f96e",
+            "removed_lines": [
+                "-\t\t\t\t\tIP=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 7)",
+                "-\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)"
+            ],
+            "added_lines": [
+                "+\t\t\t\t\tIP=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 10)",
+                "+\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)"
+            ]
+        },
+        {
+            "message": "Multiple firewall bug fixes\n\n- When FirewallD is detected, NAT is now applied via FirewallD instead\nof iptables (fixes #267).\n- iptables REJECT/DROP/ACCEPT rules where not being properly detected.\n- iptables rules were applied even when FirewallD was detected and the\nsame rules were being applied via firewall-cmd.",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/c94bc5e3b44c19342e95a3bdef651b53334a6686",
+            "removed_lines": [
+                "-\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)",
+                "-\t\t\t\tif iptables -L -n | grep -qE 'REJECT|DROP|ACCEPT'; then",
+                "-\tif iptables -L -n | grep -qE 'REJECT|DROP'; then"
+            ],
+            "added_lines": [
+                "+\t\t\t\t\tIP=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 7)",
+                "+\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)",
+                "+\t\tif iptables -L -n | grep -qE '^(REJECT|DROP)'; then"
+            ]
+        },
+        {
+            "message": "Improved iptables management\n\nRules are now instantly removed when uninstalling.",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/971474e531341bbac3ed204ab49cff4d9afe9193",
+            "removed_lines": [
+                "-\t\t\t\tif iptables -L -n | grep -qE 'REJECT|DROP'; then"
+            ],
+            "added_lines": [
+                "+\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)",
+                "+\t\t\t\tif iptables -L -n | grep -qE 'REJECT|DROP|ACCEPT'; then"
+            ]
+        },
+        {
+            "message": "Changed iptables to not lookup hosts\n\nShould be faster lookup on iptables if firewall rules contain lots\nof host IP addresses (no need for a DNS lookup on each one!)",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/56f079289e8f5236ec9dc08a5331d90835b3fd0c",
+            "removed_lines": [
+                "-\t\t\t\tif iptables -L | grep -qE 'REJECT|DROP'; then",
+                "-\tif iptables -L | grep -qE 'REJECT|DROP'; then"
+            ],
+            "added_lines": [
+                "+\t\t\t\tif iptables -L -n | grep -qE 'REJECT|DROP'; then",
+                "+\tif iptables -L -n | grep -qE 'REJECT|DROP'; then"
+            ]
+        },
+        {
+            "message": "Avoid error message if sestatus isn't available\n\nJust a cosmetic change.",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/e8958b969e61c371cfe4f937192f0c5876437b25",
+            "removed_lines": [
+                "-\t\t\t\tif sestatus | grep \"Current mode\" | grep -qs \"enforcing\"; then",
+                "-\tif sestatus | grep \"Current mode\" | grep -qs \"enforcing\"; then"
             ],
             "added_lines": [
                 "+\t\t\t\t\tif sestatus | grep \"Current mode\" | grep -qs \"enforcing\"; then",
@@ -218,192 +285,14 @@
             ]
         },
         {
-            "commit_hash": "2726a148ee8d34bf75ff3592a5cb0faa661b8fa7",
-            "author": "Nyr",
-            "message": "Remove IP address detection fallback\n\nIt was never used, the one-liner is enough.",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/2726a148ee8d34bf75ff3592a5cb0faa661b8fa7",
-            "removed_lines": [
-                "-\tIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | head -1)"
-            ],
-            "added_lines": [
-                "+IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | head -1)"
-            ]
-        },
-        {
-            "commit_hash": "33452242a1a8e2955eb1b0416c9d614062792843",
-            "author": "Nyr",
-            "message": "Fix system resolvers option for environments running systemd-resolved",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/33452242a1a8e2955eb1b0416c9d614062792843",
-            "removed_lines": [
-                "-\t\tgrep -v '#' $RESOLVCONF | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
-            ],
-            "added_lines": [
-                "+\t\tgrep -v '#' /etc/resolv.conf | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
-            ]
-        },
-        {
-            "commit_hash": "b2d8c73e1b4d8ce9c3e254717ecc9602eb4394b6",
-            "author": "Nyr",
-            "message": "Debian 9 compatibility and small bug fixes\n\n- Removed Debian 9 compatibility warning\n- openvpn-blacklist is no longer uninstalled on removal\n- Improvement: removal of /usr/share/doc/openvpn* hasn't been needed\nfor years\n- Fixed: live iptables removal was failing for Debian since\n6d51476047d6d7a610f292f9bbd6da75d2d8f96e",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/b2d8c73e1b4d8ce9c3e254717ecc9602eb4394b6",
-            "removed_lines": [
-                "-\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 14)"
-            ],
-            "added_lines": [
-                "+\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)"
-            ]
-        },
-        {
-            "commit_hash": "6d51476047d6d7a610f292f9bbd6da75d2d8f96e",
-            "author": "Nyr",
-            "message": "Enable internal networking\n\nSee #299.",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/6d51476047d6d7a610f292f9bbd6da75d2d8f96e",
-            "removed_lines": [
-                "-\t\t\t\t\tIP=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 10)",
-                "-\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 ! -d 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)"
-            ],
-            "added_lines": [
-                "+\t\t\t\t\tIP=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 7)",
-                "+\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)"
-            ]
-        },
-        {
-            "commit_hash": "c94bc5e3b44c19342e95a3bdef651b53334a6686",
-            "author": "Nyr",
-            "message": "Multiple firewall bug fixes\n\n- When FirewallD is detected, NAT is now applied via FirewallD instead\nof iptables (fixes #267).\n- iptables REJECT/DROP/ACCEPT rules where not being properly detected.\n- iptables rules were applied even when FirewallD was detected and the\nsame rules were being applied via firewall-cmd.",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/c94bc5e3b44c19342e95a3bdef651b53334a6686",
-            "removed_lines": [
-                "-\t\t\t\t\tIP=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 -j SNAT --to ' | cut -d \" \" -f 7)",
-                "-\t\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)",
-                "-\t\tif iptables -L -n | grep -qE '^(REJECT|DROP)'; then"
-            ],
-            "added_lines": [
-                "+\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)",
-                "+\t\t\t\tif iptables -L -n | grep -qE 'REJECT|DROP|ACCEPT'; then",
-                "+\tif iptables -L -n | grep -qE 'REJECT|DROP'; then"
-            ]
-        },
-        {
-            "commit_hash": "971474e531341bbac3ed204ab49cff4d9afe9193",
-            "author": "Nyr",
-            "message": "Improved iptables management\n\nRules are now instantly removed when uninstalling.",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/971474e531341bbac3ed204ab49cff4d9afe9193",
-            "removed_lines": [
-                "-\t\t\t\tIP=$(grep 'iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to ' $RCLOCAL | cut -d \" \" -f 11)",
-                "-\t\t\t\tif iptables -L -n | grep -qE 'REJECT|DROP|ACCEPT'; then"
-            ],
-            "added_lines": [
-                "+\t\t\t\tif iptables -L -n | grep -qE 'REJECT|DROP'; then"
-            ]
-        },
-        {
-            "commit_hash": "56f079289e8f5236ec9dc08a5331d90835b3fd0c",
-            "author": "Michael",
-            "message": "Changed iptables to not lookup hosts\n\nShould be faster lookup on iptables if firewall rules contain lots\nof host IP addresses (no need for a DNS lookup on each one!)",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/56f079289e8f5236ec9dc08a5331d90835b3fd0c",
-            "removed_lines": [
-                "-\t\t\t\tif iptables -L -n | grep -qE 'REJECT|DROP'; then",
-                "-\tif iptables -L -n | grep -qE 'REJECT|DROP'; then"
-            ],
-            "added_lines": [
-                "+\t\t\t\tif iptables -L | grep -qE 'REJECT|DROP'; then",
-                "+\tif iptables -L | grep -qE 'REJECT|DROP'; then"
-            ]
-        },
-        {
-            "commit_hash": "e8958b969e61c371cfe4f937192f0c5876437b25",
-            "author": "Nyr",
-            "message": "Avoid error message if sestatus isn't available\n\nJust a cosmetic change.",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/e8958b969e61c371cfe4f937192f0c5876437b25",
-            "removed_lines": [
-                "-\t\t\t\t\tif sestatus | grep \"Current mode\" | grep -qs \"enforcing\"; then",
-                "-\t\tif sestatus | grep \"Current mode\" | grep -qs \"enforcing\"; then"
-            ],
-            "added_lines": [
-                "+\t\t\t\tif sestatus | grep \"Current mode\" | grep -qs \"enforcing\"; then",
-                "+\tif sestatus | grep \"Current mode\" | grep -qs \"enforcing\"; then"
-            ]
-        },
-        {
-            "commit_hash": "eb8d8257a01d0247535f848c3ac370b992e0d4a3",
-            "author": "Nyr",
             "message": "The BIG commit\n\n- Upgrade to easy-rsa 3.0.0\n- Firewall support: rules are added for both FirewallD and iptables if\nneeded.\n- Creation of our own configuration files for both the server and\nclients.\n- Using subnet topology instead of the deprecated net30.\n- Removed port 53 question during install: user can just choose that\nport during setup.\n- Removed internal networking option: this is a road warrior installer\nafter all.\n- Bugfix: the default easy-rsa directory was not correctly deleted if\none was already there.",
             "commit_url": "https://github.com/Nyr/openvpn-install/commit/eb8d8257a01d0247535f848c3ac370b992e0d4a3",
             "removed_lines": [
-                "-\t\t\ttail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | nl -s ') '",
-                "-\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)",
-                "-\t\t\t\tPORT=$(grep '^port ' /etc/openvpn/server.conf | cut -d \" \" -f 2)"
-            ],
-            "added_lines": [
-                "+\t\t\ttail -n +2 /etc/openvpn/easy-rsa/2.0/keys/index.txt | grep \"^V\" | cut -d '/' -f 7 | cut -d '=' -f 2 | nl -s ') '",
-                "+\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/easy-rsa/2.0/keys/index.txt | grep \"^V\" | cut -d '/' -f 7 | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)",
-                "+\tsed -i 's|dh dh1024.pem|dh dh2048.pem|' server.conf",
-                "+\tsed -i 's|;push \"redirect-gateway def1 bypass-dhcp\"|push \"redirect-gateway def1 bypass-dhcp\"|' server.conf",
-                "+\tsed -i \"s|port 1194|port $PORT|\" server.conf",
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 208.67.222.222\"|' server.conf",
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 208.67.220.220\"|' server.conf",
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 4.2.2.2\"|' server.conf",
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 4.2.2.4\"|' server.conf",
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 129.250.35.250\"|' server.conf",
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 129.250.35.251\"|' server.conf",
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 74.82.42.42\"|' server.conf",
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 8.8.8.8\"|' server.conf",
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 8.8.4.4\"|' server.conf",
-                "+\tsed -i \"s|remote my-server-1 1194|remote $IP $PORT|\" /usr/share/doc/openvpn*/*ample*/sample-config-files/client.conf"
-            ]
-        },
-        {
-            "commit_hash": "b46a0541dde51df152d1ea8ef90f2d008e26f59a",
-            "author": "Nyr",
-            "message": "Replaced Yandex DNS with Google\n\nYandex DNS is not stable enough, Google was previously missing.",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/b46a0541dde51df152d1ea8ef90f2d008e26f59a",
-            "removed_lines": [
-                "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 8.8.8.8\"|' server.conf",
-                "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 8.8.4.4\"|' server.conf"
-            ],
-            "added_lines": [
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 77.88.8.8\"|' server.conf",
-                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 77.88.8.1\"|' server.conf"
-            ]
-        },
-        {
-            "commit_hash": "7d467d966681f87e6fac449cab38ab328bf8bf2d",
-            "author": "Nyr",
-            "message": "Multiple improvements\n\n- Better UX for client certificate revocation: a list of the current\nclient names is shown to the user\n- easy-rsa 2.2.2 now used by default: it’s easier for me to maintain a\nsingle version",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/7d467d966681f87e6fac449cab38ab328bf8bf2d",
-            "removed_lines": [
-                "-\t\t\tNUMBEROFCLIENTS=$(tail -n +2 /etc/openvpn/easy-rsa/2.0/keys/index.txt | grep \"^V\" | wc -l)",
                 "-\t\t\ttail -n +2 /etc/openvpn/easy-rsa/2.0/keys/index.txt | grep \"^V\" | cut -d '/' -f 7 | cut -d '=' -f 2 | nl -s ') '",
-                "-\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/easy-rsa/2.0/keys/index.txt | grep \"^V\" | cut -d '/' -f 7 | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)"
-            ],
-            "added_lines": [
-                "+\tsed -i 's|export KEY_SIZE=1024|export KEY_SIZE=2048|' /etc/openvpn/easy-rsa/2.0/vars"
-            ]
-        },
-        {
-            "commit_hash": "fad088013c20b27a8f26c29798e7e66f17fae588",
-            "author": "Nyr",
-            "message": "CentOS support and other improvements",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/fad088013c20b27a8f26c29798e7e66f17fae588",
-            "removed_lines": [
-                "-IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | head -1)",
-                "-\t\tsed -i 's|#net.ipv4.ip_forward=1|net.ipv4.ip_forward=1|' /etc/sysctl.conf",
-                "-\t\tsed -i 's|net.ipv4.ip_forward = 0|net.ipv4.ip_forward = 1|' /etc/sysctl.conf",
-                "-\tsed -i \"s|remote my-server-1 1194|remote $IP $PORT|\" /usr/share/doc/openvpn*/*ample*/sample-config-files/client.conf"
-            ],
-            "added_lines": [
-                "+IP=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}' | head -1)",
-                "+\tsed -i 's|#net.ipv4.ip_forward=1|net.ipv4.ip_forward=1|' /etc/sysctl.conf",
-                "+\tsed -i \"s|remote my-server-1 1194|remote $IP $PORT|\" /usr/share/doc/openvpn/examples/sample-config-files/client.conf"
-            ]
-        },
-        {
-            "commit_hash": "215140b6823000196340392dfed61536a8c0a5e9",
-            "author": "Nyr",
-            "message": "Options for custom DNS and intra-VPN connectivity",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/215140b6823000196340392dfed61536a8c0a5e9",
-            "removed_lines": [
-                "-\t\tgrep -v '#' /etc/resolv.conf | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do",
+                "-\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/easy-rsa/2.0/keys/index.txt | grep \"^V\" | cut -d '/' -f 7 | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)",
+                "-\tsed -i 's|dh dh1024.pem|dh dh2048.pem|' server.conf",
+                "-\tsed -i 's|;push \"redirect-gateway def1 bypass-dhcp\"|push \"redirect-gateway def1 bypass-dhcp\"|' server.conf",
+                "-\tsed -i \"s|port 1194|port $PORT|\" server.conf",
                 "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 208.67.222.222\"|' server.conf",
                 "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 208.67.220.220\"|' server.conf",
                 "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 4.2.2.2\"|' server.conf",
@@ -411,86 +300,147 @@
                 "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 129.250.35.250\"|' server.conf",
                 "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 129.250.35.251\"|' server.conf",
                 "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 74.82.42.42\"|' server.conf",
+                "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 8.8.8.8\"|' server.conf",
+                "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 8.8.4.4\"|' server.conf",
+                "-\tsed -i \"s|remote my-server-1 1194|remote $IP $PORT|\" /usr/share/doc/openvpn*/*ample*/sample-config-files/client.conf"
+            ],
+            "added_lines": [
+                "+\t\t\ttail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | nl -s ') '",
+                "+\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)",
+                "+\t\t\t\tPORT=$(grep '^port ' /etc/openvpn/server.conf | cut -d \" \" -f 2)"
+            ]
+        },
+        {
+            "message": "Replaced Yandex DNS with Google\n\nYandex DNS is not stable enough, Google was previously missing.",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/b46a0541dde51df152d1ea8ef90f2d008e26f59a",
+            "removed_lines": [
                 "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 77.88.8.8\"|' server.conf",
                 "-\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 77.88.8.1\"|' server.conf"
+            ],
+            "added_lines": [
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 8.8.8.8\"|' server.conf",
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 8.8.4.4\"|' server.conf"
+            ]
+        },
+        {
+            "message": "Multiple improvements\n\n- Better UX for client certificate revocation: a list of the current\nclient names is shown to the user\n- easy-rsa 2.2.2 now used by default: it\u2019s easier for me to maintain a\nsingle version",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/7d467d966681f87e6fac449cab38ab328bf8bf2d",
+            "removed_lines": [
+                "-\tsed -i 's|export KEY_SIZE=1024|export KEY_SIZE=2048|' /etc/openvpn/easy-rsa/2.0/vars"
+            ],
+            "added_lines": [
+                "+\t\t\tNUMBEROFCLIENTS=$(tail -n +2 /etc/openvpn/easy-rsa/2.0/keys/index.txt | grep \"^V\" | wc -l)",
+                "+\t\t\ttail -n +2 /etc/openvpn/easy-rsa/2.0/keys/index.txt | grep \"^V\" | cut -d '/' -f 7 | cut -d '=' -f 2 | nl -s ') '",
+                "+\t\t\tCLIENT=$(tail -n +2 /etc/openvpn/easy-rsa/2.0/keys/index.txt | grep \"^V\" | cut -d '/' -f 7 | cut -d '=' -f 2 | sed -n \"$CLIENTNUMBER\"p)"
+            ]
+        },
+        {
+            "message": "CentOS support and other improvements",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/fad088013c20b27a8f26c29798e7e66f17fae588",
+            "removed_lines": [
+                "-IP=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}' | head -1)",
+                "-\tsed -i 's|#net.ipv4.ip_forward=1|net.ipv4.ip_forward=1|' /etc/sysctl.conf",
+                "-\tsed -i \"s|remote my-server-1 1194|remote $IP $PORT|\" /usr/share/doc/openvpn/examples/sample-config-files/client.conf"
+            ],
+            "added_lines": [
+                "+IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | head -1)",
+                "+\t\tsed -i 's|#net.ipv4.ip_forward=1|net.ipv4.ip_forward=1|' /etc/sysctl.conf",
+                "+\t\tsed -i 's|net.ipv4.ip_forward = 0|net.ipv4.ip_forward = 1|' /etc/sysctl.conf",
+                "+\tsed -i \"s|remote my-server-1 1194|remote $IP $PORT|\" /usr/share/doc/openvpn*/*ample*/sample-config-files/client.conf"
+            ]
+        },
+        {
+            "message": "Options for custom DNS and intra-VPN connectivity",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/215140b6823000196340392dfed61536a8c0a5e9",
+            "removed_lines": [
+                "-\tgrep -v '#' /etc/resolv.conf | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
+            ],
+            "added_lines": [
+                "+\t\tgrep -v '#' /etc/resolv.conf | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do",
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 208.67.222.222\"|' server.conf",
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 208.67.220.220\"|' server.conf",
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 4.2.2.2\"|' server.conf",
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 4.2.2.4\"|' server.conf",
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 129.250.35.250\"|' server.conf",
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 129.250.35.251\"|' server.conf",
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 74.82.42.42\"|' server.conf",
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 77.88.8.8\"|' server.conf",
+                "+\t\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 77.88.8.1\"|' server.conf"
+            ]
+        },
+        {
+            "message": "Cleanup",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/091e487472e674bbf737055e85815fac829e7de2",
+            "removed_lines": [
+                "-\t\t\tsed -i \"s|cert client.crt|cert $CLIENT.crt|\" $CLIENT.conf",
+                "-\t\t\tsed -i \"s|key client.key|key $CLIENT.key|\" $CLIENT.conf",
+                "-\tsed -i \"s|cert client.crt|cert $CLIENT.crt|\" $CLIENT.conf",
+                "-\tsed -i \"s|key client.key|key $CLIENT.key|\" $CLIENT.conf"
+            ],
+            "added_lines": [
+                "+\tsed -i \"s|cert client.crt|cert $1.crt|\" $1.conf",
+                "+\tsed -i \"s|key client.key|key $1.key|\" $1.conf"
+            ]
+        },
+        {
+            "message": "Removed useless cat",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/936a8b8ff0d5140ba559d916e905ab219ed4cd32",
+            "removed_lines": [
+                "-\tcat /etc/resolv.conf | grep -v '#' | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
             ],
             "added_lines": [
                 "+\tgrep -v '#' /etc/resolv.conf | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
             ]
         },
         {
-            "commit_hash": "091e487472e674bbf737055e85815fac829e7de2",
-            "author": "Nyr",
-            "message": "Cleanup",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/091e487472e674bbf737055e85815fac829e7de2",
+            "message": "Now using resolvers from resolv.conf\n\nThis will help with some ISPs restricting access to third party DNS\nservers like it happens with LowEndSpirit and Torqhost.",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/afb30c44da277684955ebb08e680be2defe28ad4",
             "removed_lines": [
-                "-\tsed -i \"s|cert client.crt|cert $1.crt|\" $1.conf",
-                "-\tsed -i \"s|key client.key|key $1.key|\" $1.conf"
-            ],
-            "added_lines": [
-                "+\t\t\tsed -i \"s|cert client.crt|cert $CLIENT.crt|\" $CLIENT.conf",
-                "+\t\t\tsed -i \"s|key client.key|key $CLIENT.key|\" $CLIENT.conf",
-                "+\tsed -i \"s|cert client.crt|cert $CLIENT.crt|\" $CLIENT.conf",
-                "+\tsed -i \"s|key client.key|key $CLIENT.key|\" $CLIENT.conf"
-            ]
-        },
-        {
-            "commit_hash": "936a8b8ff0d5140ba559d916e905ab219ed4cd32",
-            "author": "Nyr",
-            "message": "Removed useless cat",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/936a8b8ff0d5140ba559d916e905ab219ed4cd32",
-            "removed_lines": [
-                "-\tgrep -v '#' /etc/resolv.conf | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
+                "-\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 129.250.35.250\"|' server.conf",
+                "-\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 74.82.42.42\"|' server.conf"
             ],
             "added_lines": [
                 "+\tcat /etc/resolv.conf | grep -v '#' | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
             ]
         },
         {
-            "commit_hash": "afb30c44da277684955ebb08e680be2defe28ad4",
-            "author": "Nyr",
-            "message": "Now using resolvers from resolv.conf\n\nThis will help with some ISPs restricting access to third party DNS\nservers like it happens with LowEndSpirit and Torqhost.",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/afb30c44da277684955ebb08e680be2defe28ad4",
-            "removed_lines": [
-                "-\tcat /etc/resolv.conf | grep -v '#' | grep 'nameserver' | grep -E -o '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | while read line; do"
-            ],
-            "added_lines": [
-                "+\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 129.250.35.250\"|' server.conf",
-                "+\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 74.82.42.42\"|' server.conf"
-            ]
-        },
-        {
-            "commit_hash": "6d89279940037b550ad6dfd6a476e0152bb8ed03",
-            "author": "Nyr",
             "message": "Bugfix for systems with multiple IPv4 addresses available",
             "commit_url": "https://github.com/Nyr/openvpn-install/commit/6d89279940037b550ad6dfd6a476e0152bb8ed03",
             "removed_lines": [
-                "-IP=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}' | head -1)"
+                "-IP=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}')"
+            ],
+            "added_lines": [
+                "+IP=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}' | head -1)"
+            ]
+        },
+        {
+            "message": "2048 bit keys by default and Debian Jessie compatibility",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/31040f475ad7f35f416085444db0b0ea1972825a",
+            "removed_lines": [
+                "-\tsed -i 's|;push \"redirect-gateway def1 bypass-dhcp\"|push \"redirect-gateway def1 bypass-dhcp\"|' server.conf"
+            ],
+            "added_lines": [
+                "+\tsed -i 's|export KEY_SIZE=1024|export KEY_SIZE=2048|' /etc/openvpn/easy-rsa/2.0/vars",
+                "+\tsed -i 's|dh dh1024.pem|dh dh2048.pem|' server.conf"
+            ]
+        },
+        {
+            "message": "Various bugfixes and improvements\n\n- Assisted configuration for servers behind a NAT\n- Better IP autodetection\n- Fix certificate revocation",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/730691c8a168c9dc80fc0a05a06a1d371dc0e2be",
+            "removed_lines": [
+                "-echo \"$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}' | grep -q '.' | head -1)\"",
+                "-\tIP=$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}' | grep '.' | head -1)"
             ],
             "added_lines": [
                 "+IP=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}')"
             ]
         },
         {
-            "commit_hash": "31040f475ad7f35f416085444db0b0ea1972825a",
-            "author": "Nyr",
-            "message": "2048 bit keys by default and Debian Jessie compatibility",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/31040f475ad7f35f416085444db0b0ea1972825a",
+            "message": "Bugfix: better IPv4 autodetection on some IPv6 enabled servers",
+            "commit_url": "https://github.com/Nyr/openvpn-install/commit/ce8077f0482154ee8cff9203078ff51eb80dfdbe",
             "removed_lines": [
-                "-\tsed -i 's|export KEY_SIZE=1024|export KEY_SIZE=2048|' /etc/openvpn/easy-rsa/2.0/vars",
-                "-\tsed -i 's|dh dh1024.pem|dh dh2048.pem|' server.conf"
-            ],
-            "added_lines": [
-                "+\tsed -i 's|;push \"redirect-gateway def1 bypass-dhcp\"|push \"redirect-gateway def1 bypass-dhcp\"|' server.conf"
-            ]
-        },
-        {
-            "commit_hash": "730691c8a168c9dc80fc0a05a06a1d371dc0e2be",
-            "author": "Nyr",
-            "message": "Various bugfixes and improvements\n\n- Assisted configuration for servers behind a NAT\n- Better IP autodetection\n- Fix certificate revocation",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/730691c8a168c9dc80fc0a05a06a1d371dc0e2be",
-            "removed_lines": [
-                "-IP=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}')"
+                "-echo \"$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}')\" | grep -q '.'",
+                "-\tIP=$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}')"
             ],
             "added_lines": [
                 "+echo \"$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}' | grep -q '.' | head -1)\"",
@@ -498,64 +448,48 @@
             ]
         },
         {
-            "commit_hash": "ce8077f0482154ee8cff9203078ff51eb80dfdbe",
-            "author": "Nyr",
-            "message": "Bugfix: better IPv4 autodetection on some IPv6 enabled servers",
-            "commit_url": "https://github.com/Nyr/openvpn-install/commit/ce8077f0482154ee8cff9203078ff51eb80dfdbe",
-            "removed_lines": [
-                "-echo \"$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}' | grep -q '.' | head -1)\"",
-                "-\tIP=$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}' | grep '.' | head -1)"
-            ],
-            "added_lines": [
-                "+echo \"$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}')\" | grep -q '.'",
-                "+\tIP=$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}')"
-            ]
-        },
-        {
-            "commit_hash": "e95049a76a946790e6aa3ea647efa30ab668f49a",
-            "author": "Nyr",
             "message": "First commit",
             "commit_url": "https://github.com/Nyr/openvpn-install/commit/e95049a76a946790e6aa3ea647efa30ab668f49a",
             "removed_lines": [
-                "-echo \"$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}')\" | grep -q '.'",
-                "-\tIP=$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}')",
-                "-\t\t\tsed -i \"s|cert client.crt|cert $CLIENT.crt|\" $CLIENT.conf",
-                "-\t\t\tsed -i \"s|key client.key|key $CLIENT.key|\" $CLIENT.conf",
-                "-\tsed -i 's|;push \"redirect-gateway def1 bypass-dhcp\"|push \"redirect-gateway def1 bypass-dhcp\"|' server.conf",
-                "-\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 129.250.35.250\"|' server.conf",
-                "-\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 74.82.42.42\"|' server.conf",
-                "-\tsed -i \"s|port 1194|port $PORT|\" server.conf",
-                "-\tsed -i 's|#net.ipv4.ip_forward=1|net.ipv4.ip_forward=1|' /etc/sysctl.conf",
-                "-\tsed -i \"s|remote my-server-1 1194|remote $IP $PORT|\" /usr/share/doc/openvpn/examples/sample-config-files/client.conf",
-                "-\tsed -i \"s|cert client.crt|cert $CLIENT.crt|\" $CLIENT.conf",
-                "-\tsed -i \"s|key client.key|key $CLIENT.key|\" $CLIENT.conf"
+                "-\tos_version=$(grep 'VERSION_ID' /etc/os-release | cut -d '\"' -f 2 | tr -d '.')",
+                "-\tos_version=$(grep -oE '[0-9]+' /etc/debian_version | head -1)",
+                "-\tos_version=$(grep -shoE '[0-9]+' /etc/almalinux-release /etc/rocky-release /etc/centos-release | head -1)",
+                "-\tos_version=$(grep -oE '[0-9]+' /etc/fedora-release | head -1)",
+                "-\tos_name=$(sed 's/ release.*//' /etc/almalinux-release /etc/rocky-release /etc/centos-release 2>/dev/null | head -1)",
+                "-\tif [[ $(ip -4 addr | grep inet | grep -vEc '127(\\.[0-9]{1,3}){3}') -eq 1 ]]; then",
+                "-\t\tip=$(ip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}')",
+                "-\t\tnumber_of_ip=$(ip -4 addr | grep inet | grep -vEc '127(\\.[0-9]{1,3}){3}')",
+                "-\t\tip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | nl -s ') '",
+                "-\t\tip=$(ip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | sed -n \"$ip_number\"p)",
+                "-\tif echo \"$ip\" | grep -qE '^(10\\.|172\\.1[6789]\\.|172\\.2[0-9]\\.|172\\.3[01]\\.|192\\.168)'; then",
+                "-\t\tget_public_ip=$(grep -m 1 -oE '^[0-9]{1,3}(\\.[0-9]{1,3}){3}$' <<< \"$(wget -T 10 -t 1 -4qO- \"http://ip1.dynupdate.no-ip.com/\" || curl -m 10 -4Ls \"http://ip1.dynupdate.no-ip.com/\")\")",
+                "-\t\tip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}')",
+                "-\t\tip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | nl -s ') '",
+                "-\t\tip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | sed -n \"$ip6_number\"p)",
+                "-\t\t\tif grep '^nameserver' \"/etc/resolv.conf\" | grep -qv '127.0.0.53' ; then",
+                "-\t\t\tgrep -v '^#\\|^;' \"$resolv_conf\" | grep '^nameserver' | grep -v '127.0.0.53' | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | while read line; do",
+                "-\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then",
+                "-\t\t\ttail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | nl -s ') '",
+                "-\t\t\tclient=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$client_number\"p)",
+                "-\t\t\t\tport=$(grep '^port ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
+                "-\t\t\t\tprotocol=$(grep '^proto ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
+                "-\t\t\t\t\tip=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24' | grep -oE '[^ ]+$')",
+                "-\t\t\t\t\t\tip6=$(firewall-cmd --direct --get-rules ipv6 nat POSTROUTING | grep '\\-s fddd:1194:1194:1194::/64 '\"'\"'!'\"'\"' -d fddd:1194:1194:1194::/64' | grep -oE '[^ ]+$')",
+                "-\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then"
             ],
             "added_lines": [
-                "+\tos_version=$(grep 'VERSION_ID' /etc/os-release | cut -d '\"' -f 2 | tr -d '.')",
-                "+\tos_version=$(grep -oE '[0-9]+' /etc/debian_version | head -1)",
-                "+\tos_version=$(grep -shoE '[0-9]+' /etc/almalinux-release /etc/rocky-release /etc/centos-release | head -1)",
-                "+\tos_version=$(grep -oE '[0-9]+' /etc/fedora-release | head -1)",
-                "+\tos_name=$(sed 's/ release.*//' /etc/almalinux-release /etc/rocky-release /etc/centos-release 2>/dev/null | head -1)",
-                "+\tif [[ $(ip -4 addr | grep inet | grep -vEc '127(\\.[0-9]{1,3}){3}') -eq 1 ]]; then",
-                "+\t\tip=$(ip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}')",
-                "+\t\tnumber_of_ip=$(ip -4 addr | grep inet | grep -vEc '127(\\.[0-9]{1,3}){3}')",
-                "+\t\tip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | nl -s ') '",
-                "+\t\tip=$(ip -4 addr | grep inet | grep -vE '127(\\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | sed -n \"$ip_number\"p)",
-                "+\tif echo \"$ip\" | grep -qE '^(10\\.|172\\.1[6789]\\.|172\\.2[0-9]\\.|172\\.3[01]\\.|192\\.168)'; then",
-                "+\t\tget_public_ip=$(grep -m 1 -oE '^[0-9]{1,3}(\\.[0-9]{1,3}){3}$' <<< \"$(wget -T 10 -t 1 -4qO- \"http://ip1.dynupdate.no-ip.com/\" || curl -m 10 -4Ls \"http://ip1.dynupdate.no-ip.com/\")\")",
-                "+\t\tip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}')",
-                "+\t\tip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | nl -s ') '",
-                "+\t\tip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | sed -n \"$ip6_number\"p)",
-                "+\t\t\tif grep '^nameserver' \"/etc/resolv.conf\" | grep -qv '127.0.0.53' ; then",
-                "+\t\t\tgrep -v '^#\\|^;' \"$resolv_conf\" | grep '^nameserver' | grep -v '127.0.0.53' | grep -oE '[0-9]{1,3}(\\.[0-9]{1,3}){3}' | while read line; do",
-                "+\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then",
-                "+\t\t\ttail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | nl -s ') '",
-                "+\t\t\tclient=$(tail -n +2 /etc/openvpn/server/easy-rsa/pki/index.txt | grep \"^V\" | cut -d '=' -f 2 | sed -n \"$client_number\"p)",
-                "+\t\t\t\tport=$(grep '^port ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
-                "+\t\t\t\tprotocol=$(grep '^proto ' /etc/openvpn/server/server.conf | cut -d \" \" -f 2)",
-                "+\t\t\t\t\tip=$(firewall-cmd --direct --get-rules ipv4 nat POSTROUTING | grep '\\-s 10.8.0.0/24 '\"'\"'!'\"'\"' -d 10.8.0.0/24' | grep -oE '[^ ]+$')",
-                "+\t\t\t\t\t\tip6=$(firewall-cmd --direct --get-rules ipv6 nat POSTROUTING | grep '\\-s fddd:1194:1194:1194::/64 '\"'\"'!'\"'\"' -d fddd:1194:1194:1194::/64' | grep -oE '[^ ]+$')",
-                "+\t\t\t\tif sestatus 2>/dev/null | grep \"Current mode\" | grep -q \"enforcing\" && [[ \"$port\" != 1194 ]]; then"
+                "+echo \"$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}')\" | grep -q '.'",
+                "+\tIP=$(grep address /etc/network/interfaces | grep -v 127.0.0.1  | awk '{print $2}')",
+                "+\t\t\tsed -i \"s|cert client.crt|cert $CLIENT.crt|\" $CLIENT.conf",
+                "+\t\t\tsed -i \"s|key client.key|key $CLIENT.key|\" $CLIENT.conf",
+                "+\tsed -i 's|;push \"redirect-gateway def1 bypass-dhcp\"|push \"redirect-gateway def1 bypass-dhcp\"|' server.conf",
+                "+\tsed -i 's|;push \"dhcp-option DNS 208.67.222.222\"|push \"dhcp-option DNS 129.250.35.250\"|' server.conf",
+                "+\tsed -i 's|;push \"dhcp-option DNS 208.67.220.220\"|push \"dhcp-option DNS 74.82.42.42\"|' server.conf",
+                "+\tsed -i \"s|port 1194|port $PORT|\" server.conf",
+                "+\tsed -i 's|#net.ipv4.ip_forward=1|net.ipv4.ip_forward=1|' /etc/sysctl.conf",
+                "+\tsed -i \"s|remote my-server-1 1194|remote $IP $PORT|\" /usr/share/doc/openvpn/examples/sample-config-files/client.conf",
+                "+\tsed -i \"s|cert client.crt|cert $CLIENT.crt|\" $CLIENT.conf",
+                "+\tsed -i \"s|key client.key|key $CLIENT.key|\" $CLIENT.conf"
             ]
         }
     ]

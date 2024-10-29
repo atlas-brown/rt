@@ -1,53 +1,47 @@
 {
     "dockur/windows": [
         {
-            "commit_hash": "a2a8ad8243935118877df966c5c06cc1f954b837",
-            "author": "Kroese",
             "message": "fix: Update download mirrors (#729)",
             "commit_url": "https://github.com/dockur/windows/commit/a2a8ad8243935118877df966c5c06cc1f954b837",
             "removed_lines": [
-                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_${b11}_20dd43f1.iso\" ;;",
-                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_${b10}_71319f58.iso\" ;;"
+                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_${b11}_b52351ad.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_${b10}_3ceed34b.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2016_vl_x64_dvd_11636725.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2012_r2_vl_with_update_x64_dvd_6052838.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2008_r2_with_sp1_vl_build_x64_dvd_617416.iso\" ;;"
             ],
             "added_lines": [
+                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_${b11}_20dd43f1.iso\" ;;",
+                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_${b10}_71319f58.iso\" ;;"
+            ]
+        },
+        {
+            "message": "build: Update VirtIO drivers to v0.1.262 (#697)",
+            "commit_url": "https://github.com/dockur/windows/commit/fd1fe6f5c8adb3a6400685de4e70baec3a61dfa5",
+            "removed_lines": [
+                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_11_consumer_editions_version_23h2_updated_april_2024_x64_dvd_d986680b.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_11_business_editions_version_23h2_updated_april_2024_x64_dvd_26e6c580.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_10_consumer_editions_version_22h2_updated_april_2024_x64_dvd_9a92dc89.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_10_business_editions_version_22h2_updated_april_2024_x64_dvd_7703a6c4.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_server_2022_updated_april_2024_x64_dvd_164349f3.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2019_x64_dvd_475b2d44.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2016_x64_dvd_9327769.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2012_r2_with_update_x64_dvd_6052778.iso\" ;;",
+                "-        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2008_r2_with_sp1_x64_dvd_617390.iso\" ;;"
+            ],
+            "added_lines": [
+                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_${c11}.iso\" ;;",
                 "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_${b11}_b52351ad.iso\" ;;",
+                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_${c10}.iso\" ;;",
                 "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_${b10}_3ceed34b.iso\" ;;",
+                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_${s22}.iso\" ;;",
+                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_server_2019_x64_dvd_b51af600.iso\" ;;",
                 "+        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2016_vl_x64_dvd_11636725.iso\" ;;",
                 "+        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2012_r2_vl_with_update_x64_dvd_6052838.iso\" ;;",
                 "+        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2008_r2_with_sp1_vl_build_x64_dvd_617416.iso\" ;;"
             ]
         },
         {
-            "commit_hash": "fd1fe6f5c8adb3a6400685de4e70baec3a61dfa5",
-            "author": "Kroese",
-            "message": "build: Update VirtIO drivers to v0.1.262 (#697)",
-            "commit_url": "https://github.com/dockur/windows/commit/fd1fe6f5c8adb3a6400685de4e70baec3a61dfa5",
-            "removed_lines": [
-                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_${c11}.iso\" ;;",
-                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_${b11}_b52351ad.iso\" ;;",
-                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_${c10}.iso\" ;;",
-                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_${b10}_3ceed34b.iso\" ;;",
-                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_${s22}.iso\" ;;",
-                "-        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_server_2019_x64_dvd_b51af600.iso\" ;;",
-                "-        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2016_vl_x64_dvd_11636725.iso\" ;;",
-                "-        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2012_r2_vl_with_update_x64_dvd_6052838.iso\" ;;",
-                "-        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2008_r2_with_sp1_vl_build_x64_dvd_617416.iso\" ;;"
-            ],
-            "added_lines": [
-                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_11_consumer_editions_version_23h2_updated_april_2024_x64_dvd_d986680b.iso\" ;;",
-                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_11_business_editions_version_23h2_updated_april_2024_x64_dvd_26e6c580.iso\" ;;",
-                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_10_consumer_editions_version_22h2_updated_april_2024_x64_dvd_9a92dc89.iso\" ;;",
-                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_10_business_editions_version_22h2_updated_april_2024_x64_dvd_7703a6c4.iso\" ;;",
-                "+        \"tr\" | \"tr-\"* ) url=\"tr-tr_windows_server_2022_updated_april_2024_x64_dvd_164349f3.iso\" ;;",
-                "+        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2019_x64_dvd_475b2d44.iso\" ;;",
-                "+        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2016_x64_dvd_9327769.iso\" ;;",
-                "+        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2012_r2_with_update_x64_dvd_6052778.iso\" ;;",
-                "+        \"tr\" | \"tr-\"* ) url=\"tr_windows_server_2008_r2_with_sp1_x64_dvd_617390.iso\" ;;"
-            ]
-        },
-        {
-            "commit_hash": "beaeddac0b5d7c9decbf82251bcd34cb7d0a435d",
-            "author": "Kroese",
             "message": "feat: Added support for Windows Server 2003 (#547)",
             "commit_url": "https://github.com/dockur/windows/commit/beaeddac0b5d7c9decbf82251bcd34cb7d0a435d",
             "removed_lines": [
@@ -60,36 +54,32 @@
             ]
         },
         {
-            "commit_hash": "fd83861e7dbdb39817bbe172ba03b3365d687064",
-            "author": "Kroese",
             "message": "feat: Improved installation (#545)",
             "commit_url": "https://github.com/dockur/windows/commit/fd83861e7dbdb39817bbe172ba03b3365d687064",
             "removed_lines": [
-                "-  session_id=$(cat /proc/sys/kernel/random/uuid 2> /dev/null || uuidgen --random)",
-                "-  product_edition_id=$(echo \"$iso_download_page_html\" | grep -Eo '<option value=\"[0-9]+\">Windows' | cut -d '\"' -f 2 | head -n 1 | tr -cd '0-9' | head -c 16)",
-                "-  sku_id=$(echo \"$language_skuid_table_html\" | grep -m 1 \">${language}<\" | sed 's/&quot;//g' | cut -d ',' -f 1  | cut -d ':' -f 2 | tr -cd '[:alnum:]-' | head -c 16)",
-                "-  iso_download_link=$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')",
-                "-  iso_download_links=$(echo \"$iso_download_page_html\" | grep -io \"$filter\") || {",
-                "-      iso_download_link=$(echo \"$iso_download_links\" | head -n 2 | tail -n 1)",
-                "-        iso_download_link=$(echo \"$iso_download_links\" | head -n 1)",
-                "-        iso_download_link=$(echo \"$iso_download_links\" | head -n 2 | tail -n 1)",
-                "-      iso_download_link=$(echo \"$iso_download_links\" | head -n 4 | tail -n 1)",
-                "-      iso_download_link=$(echo \"$iso_download_links\" | head -n 1)"
+                "-  session_id=\"$(cat /proc/sys/kernel/random/uuid 2> /dev/null || uuidgen --random)\"",
+                "-  product_edition_id=\"$(echo \"$iso_download_page_html\" | grep -Eo '<option value=\"[0-9]+\">Windows' | cut -d '\"' -f 2 | head -n 1 | tr -cd '0-9' | head -c 16)\"",
+                "-  sku_id=\"$(echo \"$language_skuid_table_html\" | grep -m 1 \">${language}<\" | sed 's/&quot;//g' | cut -d ',' -f 1  | cut -d ':' -f 2 | tr -cd '[:alnum:]-' | head -c 16)\"",
+                "-  iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')\"",
+                "-  iso_download_links=\"$(echo \"$iso_download_page_html\" | grep -o \"https://go.microsoft.com/fwlink/p/?LinkID=[0-9]\\+&clcid=0x[0-9a-z]\\+&culture=${culture,,}&country=${country^^}\")\" || {",
+                "-  iso_download_links=\"$(echo \"$iso_download_links\" | head -c 1024)\"",
+                "-    \"enterprise\") iso_download_link=$(echo \"$iso_download_links\" | head -n 2 | tail -n 1) ;;",
+                "-    \"ltsc\") iso_download_link=$(echo \"$iso_download_links\" | head -n 4 | tail -n 1) ;;"
             ],
             "added_lines": [
-                "+  session_id=\"$(cat /proc/sys/kernel/random/uuid 2> /dev/null || uuidgen --random)\"",
-                "+  product_edition_id=\"$(echo \"$iso_download_page_html\" | grep -Eo '<option value=\"[0-9]+\">Windows' | cut -d '\"' -f 2 | head -n 1 | tr -cd '0-9' | head -c 16)\"",
-                "+  sku_id=\"$(echo \"$language_skuid_table_html\" | grep -m 1 \">${language}<\" | sed 's/&quot;//g' | cut -d ',' -f 1  | cut -d ':' -f 2 | tr -cd '[:alnum:]-' | head -c 16)\"",
-                "+  iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')\"",
-                "+  iso_download_links=\"$(echo \"$iso_download_page_html\" | grep -o \"https://go.microsoft.com/fwlink/p/?LinkID=[0-9]\\+&clcid=0x[0-9a-z]\\+&culture=${culture,,}&country=${country^^}\")\" || {",
-                "+  iso_download_links=\"$(echo \"$iso_download_links\" | head -c 1024)\"",
-                "+    \"enterprise\") iso_download_link=$(echo \"$iso_download_links\" | head -n 2 | tail -n 1) ;;",
-                "+    \"ltsc\") iso_download_link=$(echo \"$iso_download_links\" | head -n 4 | tail -n 1) ;;"
+                "+  session_id=$(cat /proc/sys/kernel/random/uuid 2> /dev/null || uuidgen --random)",
+                "+  product_edition_id=$(echo \"$iso_download_page_html\" | grep -Eo '<option value=\"[0-9]+\">Windows' | cut -d '\"' -f 2 | head -n 1 | tr -cd '0-9' | head -c 16)",
+                "+  sku_id=$(echo \"$language_skuid_table_html\" | grep -m 1 \">${language}<\" | sed 's/&quot;//g' | cut -d ',' -f 1  | cut -d ':' -f 2 | tr -cd '[:alnum:]-' | head -c 16)",
+                "+  iso_download_link=$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')",
+                "+  iso_download_links=$(echo \"$iso_download_page_html\" | grep -io \"$filter\") || {",
+                "+      iso_download_link=$(echo \"$iso_download_links\" | head -n 2 | tail -n 1)",
+                "+        iso_download_link=$(echo \"$iso_download_links\" | head -n 1)",
+                "+        iso_download_link=$(echo \"$iso_download_links\" | head -n 2 | tail -n 1)",
+                "+      iso_download_link=$(echo \"$iso_download_links\" | head -n 4 | tail -n 1)",
+                "+      iso_download_link=$(echo \"$iso_download_links\" | head -n 1)"
             ]
         },
         {
-            "commit_hash": "553bbab3db70d126fc521c94ab9162ee7d6daa73",
-            "author": "Kroese",
             "message": "feat: Increase default screen resolution (#521)",
             "commit_url": "https://github.com/dockur/windows/commit/553bbab3db70d126fc521c94ab9162ee7d6daa73",
             "removed_lines": [
@@ -102,136 +92,118 @@
             ]
         },
         {
-            "commit_hash": "2c8549b594cdcaa21683c9efd59fe1dffac86f0e",
-            "author": "Kroese",
             "message": "feat: Multi-language support (#514)",
             "commit_url": "https://github.com/dockur/windows/commit/2c8549b594cdcaa21683c9efd59fe1dffac86f0e",
             "removed_lines": [
-                "-  session_id=\"$(cat /proc/sys/kernel/random/uuid 2> /dev/null || uuidgen --random)\"",
-                "-  product_edition_id=\"$(echo \"$iso_download_page_html\" | grep -Eo '<option value=\"[0-9]+\">Windows' | cut -d '\"' -f 2 | head -n 1 | tr -cd '0-9' | head -c 16)\"",
-                "-  sku_id=\"$(echo \"$language_skuid_table_html\" | grep -m 1 \">${language}<\" | sed 's/&quot;//g' | cut -d ',' -f 1  | cut -d ':' -f 2 | tr -cd '[:alnum:]-' | head -c 16)\"",
-                "-  if echo \"$iso_download_link_html\" | grep -q \"We are unable to complete your request at this time.\"; then",
-                "-  iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')\"",
-                "-  iso_download_links=\"$(echo \"$iso_download_page_html\" | grep -o \"https://go.microsoft.com/fwlink/p/?LinkID=[0-9]\\+&clcid=0x[0-9a-z]\\+&culture=${culture,,}&country=${country^^}\")\" || {",
-                "-  iso_download_links=\"$(echo \"$iso_download_links\" | head -c 1024)\"",
-                "-    \"enterprise\") iso_download_link=$(echo \"$iso_download_links\" | head -n 2 | tail -n 1) ;;",
-                "-    \"ltsc\") iso_download_link=$(echo \"$iso_download_links\" | head -n 4 | tail -n 1) ;;",
-                "-  domain=$(echo \"$url\" | awk -F/ '{print $3}')",
-                "-  dots=$(echo \"$domain\" | tr -cd '.' | wc -c)"
+                "-    echo \"All the downloads provided here are the most up-to-date releases that Microsoft provides. This is ensured by programmatically checking Microsoft's official download pages to get the latest download link. In other cases, the Windows version in question is no longer supported by Microsoft meaning a direct download link (stored in Mido) will always point to the most up-to-date release.\" | format",
+                "-    echo \"Newer consumer versions of Windows including win81x64, win10x64, and win11x64 are downloaded through Microsoft's gated download web interface. Do not overuse this interface. Microsoft may be quick to do ~24 hour IP address bans after only a few download requests (especially if they are done in quick succession). Being temporarily banned from one of these downloads (e.g. win11x64) doesn't cause you to be banned from any of the other downloads provided through this interface.\" | format",
+                "-    echo \"The aforementioned Microsoft gated download web interface is currently blocking Tor (and similar technologies). They say this is to prevent people in restricted regions from downloading certain Windows media they shouldn't have access to. This is fine by most standards because Tor is too slow for large downloads anyway and we have checksum verification for security.\" | format",
+                "-    echo \"All the downloads provided here are for English (United States). This helps to great simplify maintenance and minimize the user's fingerprint. If another language is desired then that can easily be configured in Windows once it's installed.\" | format",
+                "-    echo \"All the downloads provided here are for x86-64 (x64). This is the only architecture Microsoft ships Windows Server in.$([ -d /run/qubes ] && echo ' Also, the only architecture Qubes OS supports.')\" | format",
+                "-    session_id=\"$(cat /proc/sys/kernel/random/uuid 2> /dev/null || uuidgen --random)\"",
+                "-    product_edition_id=\"$(echo \"$iso_download_page_html\" | grep -Eo '<option value=\"[0-9]+\">Windows' | cut -d '\"' -f 2 | head -n 1 | tr -cd '0-9' | head -c 16)\"",
+                "-    sku_id=\"$(echo \"$language_skuid_table_html\" | grep \"English (United States)\" | sed 's/&quot;//g' | cut -d ',' -f 1  | cut -d ':' -f 2 | tr -cd '[:alnum:]-' | head -c 16)\"",
+                "-    if echo \"$iso_download_link_html\" | grep -q \"We are unable to complete your request at this time.\"; then",
+                "-    iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')\"",
+                "-    iso_download_links=\"$(echo \"$iso_download_page_html\" | grep -o \"https://go.microsoft.com/fwlink/p/?LinkID=[0-9]\\+&clcid=0x[0-9a-z]\\+&culture=en-us&country=US\")\" || {",
+                "-    iso_download_links=\"$(echo \"$iso_download_links\" | head -c 1024)\"",
+                "-        \"enterprise\") iso_download_link=$(echo \"$iso_download_links\" | head -n 2 | tail -n 1) ;;",
+                "-        \"ltsc\") iso_download_link=$(echo \"$iso_download_links\" | head -n 4 | tail -n 1) ;;",
+                "-    iso_download_link=\"$(echo \"$iso_download_link\" | head -c 1024)\""
             ],
             "added_lines": [
-                "+    echo \"All the downloads provided here are the most up-to-date releases that Microsoft provides. This is ensured by programmatically checking Microsoft's official download pages to get the latest download link. In other cases, the Windows version in question is no longer supported by Microsoft meaning a direct download link (stored in Mido) will always point to the most up-to-date release.\" | format",
-                "+    echo \"Newer consumer versions of Windows including win81x64, win10x64, and win11x64 are downloaded through Microsoft's gated download web interface. Do not overuse this interface. Microsoft may be quick to do ~24 hour IP address bans after only a few download requests (especially if they are done in quick succession). Being temporarily banned from one of these downloads (e.g. win11x64) doesn't cause you to be banned from any of the other downloads provided through this interface.\" | format",
-                "+    echo \"The aforementioned Microsoft gated download web interface is currently blocking Tor (and similar technologies). They say this is to prevent people in restricted regions from downloading certain Windows media they shouldn't have access to. This is fine by most standards because Tor is too slow for large downloads anyway and we have checksum verification for security.\" | format",
-                "+    echo \"All the downloads provided here are for English (United States). This helps to great simplify maintenance and minimize the user's fingerprint. If another language is desired then that can easily be configured in Windows once it's installed.\" | format",
-                "+    echo \"All the downloads provided here are for x86-64 (x64). This is the only architecture Microsoft ships Windows Server in.$([ -d /run/qubes ] && echo ' Also, the only architecture Qubes OS supports.')\" | format",
-                "+    session_id=\"$(cat /proc/sys/kernel/random/uuid 2> /dev/null || uuidgen --random)\"",
-                "+    product_edition_id=\"$(echo \"$iso_download_page_html\" | grep -Eo '<option value=\"[0-9]+\">Windows' | cut -d '\"' -f 2 | head -n 1 | tr -cd '0-9' | head -c 16)\"",
-                "+    sku_id=\"$(echo \"$language_skuid_table_html\" | grep \"English (United States)\" | sed 's/&quot;//g' | cut -d ',' -f 1  | cut -d ':' -f 2 | tr -cd '[:alnum:]-' | head -c 16)\"",
-                "+    if echo \"$iso_download_link_html\" | grep -q \"We are unable to complete your request at this time.\"; then",
-                "+    iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')\"",
-                "+    iso_download_links=\"$(echo \"$iso_download_page_html\" | grep -o \"https://go.microsoft.com/fwlink/p/?LinkID=[0-9]\\+&clcid=0x[0-9a-z]\\+&culture=en-us&country=US\")\" || {",
-                "+    iso_download_links=\"$(echo \"$iso_download_links\" | head -c 1024)\"",
-                "+        \"enterprise\") iso_download_link=$(echo \"$iso_download_links\" | head -n 2 | tail -n 1) ;;",
-                "+        \"ltsc\") iso_download_link=$(echo \"$iso_download_links\" | head -n 4 | tail -n 1) ;;",
-                "+    iso_download_link=\"$(echo \"$iso_download_link\" | head -c 1024)\""
+                "+  session_id=\"$(cat /proc/sys/kernel/random/uuid 2> /dev/null || uuidgen --random)\"",
+                "+  product_edition_id=\"$(echo \"$iso_download_page_html\" | grep -Eo '<option value=\"[0-9]+\">Windows' | cut -d '\"' -f 2 | head -n 1 | tr -cd '0-9' | head -c 16)\"",
+                "+  sku_id=\"$(echo \"$language_skuid_table_html\" | grep -m 1 \">${language}<\" | sed 's/&quot;//g' | cut -d ',' -f 1  | cut -d ':' -f 2 | tr -cd '[:alnum:]-' | head -c 16)\"",
+                "+  if echo \"$iso_download_link_html\" | grep -q \"We are unable to complete your request at this time.\"; then",
+                "+  iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')\"",
+                "+  iso_download_links=\"$(echo \"$iso_download_page_html\" | grep -o \"https://go.microsoft.com/fwlink/p/?LinkID=[0-9]\\+&clcid=0x[0-9a-z]\\+&culture=${culture,,}&country=${country^^}\")\" || {",
+                "+  iso_download_links=\"$(echo \"$iso_download_links\" | head -c 1024)\"",
+                "+    \"enterprise\") iso_download_link=$(echo \"$iso_download_links\" | head -n 2 | tail -n 1) ;;",
+                "+    \"ltsc\") iso_download_link=$(echo \"$iso_download_links\" | head -n 4 | tail -n 1) ;;",
+                "+  domain=$(echo \"$url\" | awk -F/ '{print $3}')",
+                "+  dots=$(echo \"$domain\" | tr -cd '.' | wc -c)"
             ]
         },
         {
-            "commit_hash": "f7986f57ce4e746f4e2fd1be22a2ec0b1bff7ee4",
-            "author": "Kroese",
             "message": "feat: Improved installation (#483)",
             "commit_url": "https://github.com/dockur/windows/commit/f7986f57ce4e746f4e2fd1be22a2ec0b1bff7ee4",
             "removed_lines": [
-                "-    imageEdition=$(wimlib-imagex info \"$iso\" ${imageIndex} | grep '^Description:' | sed 's/Description:[ \\t]*//')"
+                "-    imageEdition=$(wimlib-imagex info \"${iso}\" ${imageIndex} | grep '^Description:' | sed 's/Description:[ \\t]*//')"
             ],
             "added_lines": [
-                "+    imageEdition=$(wimlib-imagex info \"${iso}\" ${imageIndex} | grep '^Description:' | sed 's/Description:[ \\t]*//')"
+                "+    imageEdition=$(wimlib-imagex info \"$iso\" ${imageIndex} | grep '^Description:' | sed 's/Description:[ \\t]*//')"
             ]
         },
         {
-            "commit_hash": "4b23877eaa3856136049b4c3ac3a15c7d46723d7",
-            "author": "Kroese",
             "message": "feat: Improved installation (#459)",
             "commit_url": "https://github.com/dockur/windows/commit/4b23877eaa3856136049b4c3ac3a15c7d46723d7",
             "removed_lines": [
-                "-      file=$(echo \"$file\" | sed -e 's/[^A-Za-z0-9._-]/_/g')"
+                "-      BASE=$(echo \"$BASE\" | sed -e 's/[^A-Za-z0-9._-]/_/g')"
             ],
             "added_lines": [
-                "+      BASE=$(echo \"$BASE\" | sed -e 's/[^A-Za-z0-9._-]/_/g')"
+                "+      file=$(echo \"$file\" | sed -e 's/[^A-Za-z0-9._-]/_/g')"
             ]
         },
         {
-            "commit_hash": "0616eb344780587398f2ba29de171d70ec9dcd95",
-            "author": "Kroese",
             "message": "feat: Improved installation (#453)",
             "commit_url": "https://github.com/dockur/windows/commit/0616eb344780587398f2ba29de171d70ec9dcd95",
             "removed_lines": [
-                "-    iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')\""
+                "-    iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]' | head -c 512)\""
             ],
             "added_lines": [
-                "+    iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]' | head -c 512)\""
+                "+    iso_download_link=\"$(echo \"$iso_download_link_html\" | grep -o \"https://software.download.prss.microsoft.com.*IsoX64\" | cut -d '\"' -f 1 | sed 's/&amp;/\\&/g' | tr -cd '[:alnum:][:punct:]')\""
             ]
         },
         {
-            "commit_hash": "8be14ec466a414e6e8ab39d985d7eb86bd3e5b5e",
-            "author": "Kroese",
             "message": "feat: Added editions and mirrors (#439)",
             "commit_url": "https://github.com/dockur/windows/commit/8be14ec466a414e6e8ab39d985d7eb86bd3e5b5e",
             "removed_lines": [
-                "-  domain=$(echo \"$url\" | awk -F/ '{print $3}')"
+                "-  len=$(isoinfo -d -i \"$iso\" | grep \"Nsect \" | grep -o \"[^ ]*$\")",
+                "-  offset=$(isoinfo -d -i \"$iso\" | grep \"Bootoff \" | grep -o \"[^ ]*$\")"
             ],
             "added_lines": [
-                "+  len=$(isoinfo -d -i \"$iso\" | grep \"Nsect \" | grep -o \"[^ ]*$\")",
-                "+  offset=$(isoinfo -d -i \"$iso\" | grep \"Bootoff \" | grep -o \"[^ ]*$\")"
+                "+  domain=$(echo \"$url\" | awk -F/ '{print $3}')"
             ]
         },
         {
-            "commit_hash": "4e9ac3ef379bf6be27676f6c5355a9bd8fd5fa36",
-            "author": "Kroese",
             "message": "feat: Add shared network folder (#157)",
             "commit_url": "https://github.com/dockur/windows/commit/4e9ac3ef379bf6be27676f6c5355a9bd8fd5fa36",
             "removed_lines": [
-                "-    last=$(grep \"^Booting.*\" \"$QEMU_PTY\" | tail -1)"
+                "-    last=$(grep \"^B.*\" \"$QEMU_PTY\" | tail -1)"
             ],
             "added_lines": [
-                "+    last=$(grep \"^B.*\" \"$QEMU_PTY\" | tail -1)"
+                "+    last=$(grep \"^Booting.*\" \"$QEMU_PTY\" | tail -1)"
             ]
         },
         {
-            "commit_hash": "d3a91d8dfccaf3d1c3a9eb4ada2596ca758f90d8",
-            "author": "Kroese",
             "message": "feat: Remove ISO after installation (#83)",
             "commit_url": "https://github.com/dockur/windows/commit/d3a91d8dfccaf3d1c3a9eb4ada2596ca758f90d8",
             "removed_lines": [
-                "-cat \"$QEMU_TERM\" 2> /dev/null | tee \"$QEMU_PTY\" &"
+                "-cat \"$QEMU_TERM\" 2>/dev/null & wait $! || :"
             ],
             "added_lines": [
-                "+cat \"$QEMU_TERM\" 2>/dev/null & wait $! || :"
+                "+cat \"$QEMU_TERM\" 2> /dev/null | tee \"$QEMU_PTY\" &"
             ]
         },
         {
-            "commit_hash": "a5348e49ff81da70f26f3a191338e9cb2e08d961",
-            "author": "Kroese",
             "message": "feat: Improved custom ISO support (#68)",
             "commit_url": "https://github.com/dockur/windows/commit/a5348e49ff81da70f26f3a191338e9cb2e08d961",
-            "removed_lines": [
-                "-    BASE=$(echo \"$BASE\" | sed -e 's/[^A-Za-z0-9._-]/_/g')"
-            ],
-            "added_lines": [
-                "+  BASE=$(echo \"$BASE\" | sed -e 's/[^A-Za-z0-9._-]/_/g')"
-            ]
-        },
-        {
-            "commit_hash": "f381f9ebbfcfa64cc320f112ad1c65d77077055b",
-            "author": "Kroese",
-            "message": "feat: Improved installation (#63)",
-            "commit_url": "https://github.com/dockur/windows/commit/f381f9ebbfcfa64cc320f112ad1c65d77077055b",
             "removed_lines": [
                 "-  BASE=$(echo \"$BASE\" | sed -e 's/[^A-Za-z0-9._-]/_/g')"
             ],
             "added_lines": [
                 "+    BASE=$(echo \"$BASE\" | sed -e 's/[^A-Za-z0-9._-]/_/g')"
+            ]
+        },
+        {
+            "message": "feat: Improved installation (#63)",
+            "commit_url": "https://github.com/dockur/windows/commit/f381f9ebbfcfa64cc320f112ad1c65d77077055b",
+            "removed_lines": [
+                "-    BASE=$(echo \"$BASE\" | sed -e 's/[^A-Za-z0-9._-]/_/g')"
+            ],
+            "added_lines": [
+                "+  BASE=$(echo \"$BASE\" | sed -e 's/[^A-Za-z0-9._-]/_/g')"
             ]
         }
     ]

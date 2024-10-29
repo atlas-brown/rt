@@ -1,0 +1,44 @@
+[
+    {
+        "message": "Only filter the package npm, not any package name contains 'npm'",
+        "commit_url": "https://github.com/nvm-sh/nvm/commit/bf7bd3e793adfac2069f2f4bc5225765d347fa25",
+        "removed_lines": [
+            "-        INSTALLS=$(nvm deactivate > /dev/null && npm list -g --depth=0 | command tail -n +2 | command grep -o -e ' [^@]*' | command cut -c 2- | command grep -v npm | command xargs)",
+            "-        INSTALLS=$(nvm use \"$VERSION\" > /dev/null && npm list -g --depth=0 | command tail -n +2 | command grep -o -e ' [^@]*' | command cut -c 2- | command grep -v npm | command xargs)"
+        ],
+        "added_lines": [
+            "+        INSTALLS=$(nvm deactivate > /dev/null && npm list -g --depth=0 | command tail -n +2 | command grep -o -e ' [^@]*' | command cut -c 2- | command grep -vx npm | command xargs)",
+            "+        INSTALLS=$(nvm use \"$VERSION\" > /dev/null && npm list -g --depth=0 | command tail -n +2 | command grep -o -e ' [^@]*' | command cut -c 2- | command grep -vx npm | command xargs)"
+        ]
+    },
+    {
+        "message": "Fixed incorrect sorting of versions",
+        "commit_url": "https://github.com/nvm-sh/nvm/commit/6f994715d6e86297d1c9851666221cd2eb09ac3c",
+        "removed_lines": [
+            "-        VERSION=`(cd $NVM_DIR; \\ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 2,1n -k 2,2n -k 3,3n | tail -n1`"
+        ],
+        "added_lines": [
+            "+        VERSION=`(cd $NVM_DIR; \\ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 1.2,1n -k 2,2n -k 3,3n | tail -n1`"
+        ]
+    },
+    {
+        "message": "tests: Fix grep syntax\n\nIn basic regular expressions | is not a special character that spearates\nbranches, so use an extended regular expression.",
+        "commit_url": "https://github.com/zsh-users/zsh-syntax-highlighting/commit/bb8d325c0cbdc830ed638a1220c723f82c029b00",
+        "removed_lines": [
+            "-  run_test \"$data_file\" | tee >($results_filter | ${0:A:h}/tap-colorizer.zsh) | grep -v '^not ok.*# TODO' | grep -q '^not ok\\|^ok.*# TODO' && (( something_failed=1 ))"
+        ],
+        "added_lines": [
+            "+  run_test \"$data_file\" | tee >($results_filter | ${0:A:h}/tap-colorizer.zsh) | grep -v '^not ok.*# TODO' | grep -Eq '^not ok|^ok.*# TODO' && (( something_failed=1 ))"
+        ]
+    },
+    {
+        "message": "Fix bad ps syntax in ssh-agent plugin",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/dd4f57010cdfaba8c3240b21e138c5b3f8a3607d",
+        "removed_lines": [
+            "-  ps -x | grep ${SSH_AGENT_PID} | grep ssh-agent > /dev/null || {"
+        ],
+        "added_lines": [
+            "+  ps x | grep ${SSH_AGENT_PID} | grep ssh-agent > /dev/null || {"
+        ]
+    }
+]

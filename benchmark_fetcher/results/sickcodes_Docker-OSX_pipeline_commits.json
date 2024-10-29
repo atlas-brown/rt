@@ -1,0 +1,14 @@
+{
+    "sickcodes/Docker-OSX": [
+        {
+            "message": "Build all versions based on shortname, fix shebang, tag catalina latest",
+            "commit_url": "https://github.com/sickcodes/Docker-OSX/commit/71e4fa60cd00c42c6af3c45e8149d8c0cd29f6e0",
+            "removed_lines": [
+                "-; docker -v | grep '\\ 20\\.\\|\\ 19\\.' || install_docker \\"
+            ],
+            "added_lines": [
+                "+docker -v | grep '\\ 20\\.\\|\\ 19\\.' || install_docker"
+            ]
+        }
+    ]
+}
