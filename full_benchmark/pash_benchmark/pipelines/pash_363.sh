@@ -1,0 +1,4 @@
+# Source: /home/infinite/Workspace/Brown/Systems transforming systems/stream/full_benchmark/pash_benchmark/benchmarks/teraseq/Akron5Seq/hash_result.sh
+# Line: 26
+
+cat "$g" | cut -d' ' -f5- | sha256sum

@@ -13,6 +13,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 pipeline_pattern = re.compile(r'(\bgrep\b|\bawk\b|\bsed\b|\bcut\b|\bsort\b|\buniq\b|\btr\b|\bxargs\b|\becho\b|\bcat\b).*\|\s*')
 debug_commit_hash = "6f994715d6e86297d1c9851666221cd2eb09ac3c"
+client = OpenAI(api_key=OPENAI_API_KEY, base_url="https://api.deepseek.com")
 
 def get_popular_repos(language="Shell", max_size_kb=15000, top_n=50, min_results=15):
     if not GITHUB_TOKEN:
@@ -52,8 +53,6 @@ def clone_repo(github_url: str, local_path: str):
 def analyze_commit_with_openai(commit_data):
     if not OPENAI_API_KEY:
         return True
-
-    client = OpenAI(api_key=OPENAI_API_KEY, base_url="https://api.deepseek.com")
 
     system_prompt = """Analyze each commit to determine if it modifies any shell pipeline by adjusting flags, options, or arguments to fix a bug. Ignore commits with changes only irrelevant to the pipeline, unrelated command modifications, or non-bug-related purposes. Respond with "T" if the commit meets these criteria; otherwise, respond with "F".
 
@@ -139,8 +138,8 @@ def filter_commits_with_openai_analysis(commits, repo_name, save_path):
 
 def main():
     repos = get_popular_repos()
-    base_path = "./benchmark_fetcher/repos"
-    results_path = "./benchmark_fetcher/results"
+    base_path = os.path.dirname(os.path.abspath(__file__)) + "/repos"
+    results_path = os.path.dirname(os.path.abspath(__file__)) + "/results"
     os.makedirs(base_path, exist_ok=True)
     os.makedirs(results_path, exist_ok=True)
 

@@ -18,4 +18,5 @@ logic.log
 **/results.log
 **/localtest.py
 **/rebase.sh
-benchmark_fetcher/repos
+full_benchmark/github_repos_commits/repos
+full_benchmark/pash_benchmark/benchmarks
