@@ -31,11 +31,27 @@ class CommandSignature:
             return True
         return False
     
+    def determine_output_type(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> RegularType:
+        # if user annotation is available, use it
+        # otherwise, use inference
+        if len(parsed_command_node.operand_list) > 0 and parsed_command_node.operand_list[-1].name.startswith("#"):
+            annotated_output_type = parsed_command_node.operand_list[-1].name[1:]
+            return RegularType(annotated_output_type)
+        else:
+            return self.inference_output_type(previous_output_type, parsed_command_node)
+
+
     def get_operands(self, parsed_command_node: CommandInvocationInitial) -> List[str]:
         assert isinstance(parsed_command_node, CommandInvocationInitial)
+        operand_list = parsed_command_node.operand_list.copy()
+        if len(operand_list) == 0:
+            return []
+        if operand_list[-1].name.startswith("#"):
+            # ignore the user annotation
+            operand_list.pop()
         if parsed_command_node.cmd_name == "xargs":
-            return [operand.name for operand in parsed_command_node.operand_list[1:]]
-        return [operand.name for operand in parsed_command_node.operand_list]
+            return [operand.name for operand in operand_list[1:]]
+        return [operand.name for operand in operand_list]
 
     def inference_output_type(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> RegularType:
         assert isinstance(previous_output_type, RegularType)
