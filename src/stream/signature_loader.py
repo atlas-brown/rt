@@ -5,11 +5,16 @@ from stream.command_signature import CommandSignature
 
 from special_signatures.xargs_stat import XargsStatSignature
 from special_signatures.sed import SedSignature
+from special_signatures.cut import CutSignature
 
 class SignatureLoader:
     def __init__(self, signature_dir : str = "./src/stream/signatures") -> None:
         self.signature_dir = signature_dir
-        self.special_signatures: Dict[str, CommandSignature] = {"xargs_stat": XargsStatSignature, "sed": SedSignature}
+        self.special_signatures: Dict[str, CommandSignature] = {
+            "xargs_stat": XargsStatSignature, 
+            "sed": SedSignature,
+            "cut": CutSignature
+        }
         self.signatures = self.load_all_signatures()
 
     def load_signature(self, command_name: str) -> CommandSignature:
