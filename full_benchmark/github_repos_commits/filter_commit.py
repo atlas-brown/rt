@@ -54,7 +54,7 @@ def analyze_commit_with_openai(commit_data):
     if not OPENAI_API_KEY:
         return True
 
-    system_prompt = """Analyze each commit to determine if it modifies any shell pipeline by adjusting flags, options, or arguments to fix a bug. Ignore commits with changes only irrelevant to the pipeline, unrelated command modifications, or non-bug-related purposes. Respond with "T" if the commit meets these criteria; otherwise, respond with "F".
+    system_prompt = """Analyze each commit to determine if it modifies any shell pipeline by adjusting flags, options, or arguments to fix a command composition error. Ignore commits with changes only irrelevant to the pipeline, unrelated command modifications, or non-bug-related purposes. Respond with "T" if the commit meets these criteria; otherwise, respond with "F".
 
     Examples:
     - `grep -oE [0-9]+ | sort` → `grep -oE [0-9]+ | sort -n`: 'T' (flag added)
