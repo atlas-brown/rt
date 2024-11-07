@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/storybookjs/storybook.git",
+  "relative_path": "storybook/scripts/clean-merged-branches.sh",
+  "short_name": "clean-merged-branches",
+  "timestamp": "10/22/2024",
+  "identifier": "storybook_wBluQU/0",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

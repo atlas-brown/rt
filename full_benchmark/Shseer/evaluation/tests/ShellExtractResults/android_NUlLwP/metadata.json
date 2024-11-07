@@ -1,0 +1,111 @@
+[
+ {
+  "repo": "https://github.com/kickstarter/android-oss.git",
+  "relative_path": "android-oss/script/bootstrap_configs",
+  "short_name": "bootstrap_configs",
+  "timestamp": "10/22/2024",
+  "identifier": "android_NUlLwP/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kickstarter/android-oss.git",
+  "relative_path": "android-oss/script/emulator/reboot_emulator.sh",
+  "short_name": "reboot_emulator",
+  "timestamp": "10/22/2024",
+  "identifier": "android_NUlLwP/1",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/kickstarter/android-oss.git",
+  "relative_path": "android-oss/script/emulator/wait_for_emulator.sh",
+  "short_name": "wait_for_emulator",
+  "timestamp": "10/22/2024",
+  "identifier": "android_NUlLwP/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/kickstarter/android-oss.git",
+  "relative_path": "android-oss/script/emulator/disable_animations.sh",
+  "short_name": "disable_animations",
+  "timestamp": "10/22/2024",
+  "identifier": "android_NUlLwP/3",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/kickstarter/android-oss.git",
+  "relative_path": "android-oss/script/emulator/configure_dpi.sh",
+  "short_name": "configure_dpi",
+  "timestamp": "10/22/2024",
+  "identifier": "android_NUlLwP/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/kickstarter/android-oss.git",
+  "relative_path": "android-oss/script/emulator/stop_emulator.sh",
+  "short_name": "stop_emulator",
+  "timestamp": "10/22/2024",
+  "identifier": "android_NUlLwP/5",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/kickstarter/android-oss.git",
+  "relative_path": "android-oss/script/emulator/screenshot_config_emulator.sh",
+  "short_name": "screenshot_config_emulator",
+  "timestamp": "10/22/2024",
+  "identifier": "android_NUlLwP/6",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/kickstarter/android-oss.git",
+  "relative_path": "android-oss/script/emulator/start_emulator.sh",
+  "short_name": "start_emulator",
+  "timestamp": "10/22/2024",
+  "identifier": "android_NUlLwP/7",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/kickstarter/android-oss.git",
+  "relative_path": "android-oss/script/emulator/create_emulator.sh",
+  "short_name": "create_emulator",
+  "timestamp": "10/22/2024",
+  "identifier": "android_NUlLwP/8",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

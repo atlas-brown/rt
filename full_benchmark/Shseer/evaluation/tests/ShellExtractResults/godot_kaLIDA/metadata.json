@@ -1,0 +1,91 @@
+[
+ {
+  "repo": "https://github.com/godotengine/godot.git",
+  "relative_path": "godot/misc/scripts/install_vulkan_sdk_macos.sh",
+  "short_name": "install_vulkan_sdk_macos",
+  "timestamp": "10/22/2024",
+  "identifier": "godot_kaLIDA/0",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/godotengine/godot.git",
+  "relative_path": "godot/misc/scripts/gitignore_check.sh",
+  "short_name": "gitignore_check",
+  "timestamp": "10/22/2024",
+  "identifier": "godot_kaLIDA/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/godotengine/godot.git",
+  "relative_path": "godot/misc/scripts/make_icons.sh",
+  "short_name": "make_icons",
+  "timestamp": "10/22/2024",
+  "identifier": "godot_kaLIDA/2",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/godotengine/godot.git",
+  "relative_path": "godot/misc/scripts/make_tarball.sh",
+  "short_name": "make_tarball",
+  "timestamp": "10/22/2024",
+  "identifier": "godot_kaLIDA/3",
+  "posix_compliant": true,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/godotengine/godot.git",
+  "relative_path": "godot/misc/scripts/validate_extension_api.sh",
+  "short_name": "validate_extension_api",
+  "timestamp": "10/22/2024",
+  "identifier": "godot_kaLIDA/4",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/godotengine/godot.git",
+  "relative_path": "godot/thirdparty/thorvg/update-thorvg.sh",
+  "short_name": "update-thorvg",
+  "timestamp": "10/22/2024",
+  "identifier": "godot_kaLIDA/5",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/vitejs/vite.git",
+  "relative_path": "vite/scripts/docs-check.sh",
+  "short_name": "docs-check",
+  "timestamp": "10/22/2024",
+  "identifier": "vite_wCWKcv/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/abi/screenshot-to-code.git",
+  "relative_path": "screenshot-to-code/backend/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "screenshot_szLvFq/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

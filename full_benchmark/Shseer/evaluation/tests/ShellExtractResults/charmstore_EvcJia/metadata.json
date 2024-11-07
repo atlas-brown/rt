@@ -1,0 +1,237 @@
+[
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/dummy/hooks/install",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/terms1/hooks/install",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/self-relation-changed",
+  "short_name": "self-relation-changed",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/2",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/upgrade-charm",
+  "short_name": "upgrade-charm",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/3",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/config-changed",
+  "short_name": "config-changed",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/4",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/install",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/5",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/bar-relation-joined",
+  "short_name": "bar-relation-joined",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/6",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/foo-relation-changed",
+  "short_name": "foo-relation-changed",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/7",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/bar-relation-departed",
+  "short_name": "bar-relation-departed",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/8",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/self-relation-broken",
+  "short_name": "self-relation-broken",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/9",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/foo-relation-departed",
+  "short_name": "foo-relation-departed",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/10",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/collect-metrics",
+  "short_name": "collect-metrics",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/11",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/foo-relation-joined",
+  "short_name": "foo-relation-joined",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/12",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/start",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/13",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/stop",
+  "short_name": "stop",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/14",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/self-relation-departed",
+  "short_name": "self-relation-departed",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/15",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/meter-status-changed",
+  "short_name": "meter-status-changed",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/16",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/self-relation-joined",
+  "short_name": "self-relation-joined",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/17",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/foo-relation-broken",
+  "short_name": "foo-relation-broken",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/18",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/bar-relation-changed",
+  "short_name": "bar-relation-changed",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/19",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/all-hooks/hooks/bar-relation-broken",
+  "short_name": "bar-relation-broken",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/20",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/internal/entitytesting/repo/quantal/terms2/hooks/install",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/21",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/juju/charmstore-client.git",
+  "relative_path": "charmstore-client/scripts/generate-all-manpages.sh",
+  "short_name": "generate-all-manpages",
+  "timestamp": "10/22/2024",
+  "identifier": "charmstore_EvcJia/22",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

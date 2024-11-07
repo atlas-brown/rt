@@ -1,0 +1,171 @@
+[
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/contrib/atomicconv/feat/convert_ligand_sdf_to_pdb.sh",
+  "short_name": "convert_ligand_sdf_to_pdb",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/contrib/atomicconv/acnn/core/get_acnn_core.sh",
+  "short_name": "get_acnn_core",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/contrib/atomicconv/acnn/refined/get_acnn_refined.sh",
+  "short_name": "get_acnn_refined",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/contrib/mol2vec/train_mol2vec.sh",
+  "short_name": "train_mol2vec",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/3",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/examples/kaggle/get_kaggle.sh",
+  "short_name": "get_kaggle",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/examples/pdbbind/get_featurized_pdbbind.sh",
+  "short_name": "get_featurized_pdbbind",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/5",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/examples/pdbbind/get_pdbbind.sh",
+  "short_name": "get_pdbbind",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/6",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/examples/qm7/get_qm7.sh",
+  "short_name": "get_qm7",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/7",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/examples/qm9/get_qm9.sh",
+  "short_name": "get_qm9",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/8",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/examples/hopv/get_hopv.sh",
+  "short_name": "get_hopv",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/9",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/examples/qm8/get_qm8.sh",
+  "short_name": "get_qm8",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/10",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/scripts/install_deepchem_conda.sh",
+  "short_name": "install_deepchem_conda",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/11",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/scripts/light/install_deepchem.sh",
+  "short_name": "install_deepchem",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/12",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepchem/deepchem.git",
+  "relative_path": "deepchem/scripts/flake8_for_ci.sh",
+  "short_name": "flake8_for_ci",
+  "timestamp": "10/22/2024",
+  "identifier": "deepchem_PakFlz/13",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

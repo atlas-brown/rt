@@ -1,0 +1,35 @@
+[
+ {
+  "repo": "https://github.com/vuejs/vetur.git",
+  "relative_path": "vetur/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "vetur_jgdJCe/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/vuejs/vetur.git",
+  "relative_path": "vetur/build/update-docs.sh",
+  "short_name": "update-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "vetur_jgdJCe/1",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vuejs/vetur.git",
+  "relative_path": "vetur/build/release-cleanup.sh",
+  "short_name": "release-cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "vetur_jgdJCe/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ }
+]

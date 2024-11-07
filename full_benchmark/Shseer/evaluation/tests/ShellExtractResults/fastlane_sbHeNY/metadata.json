@@ -1,0 +1,81 @@
+[
+ {
+  "repo": "https://github.com/fastlane/fastlane.git",
+  "relative_path": "fastlane/fastlane/lib/assets/completions/completion.bash",
+  "short_name": "completion.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "fastlane_sbHeNY/0",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/fastlane/fastlane.git",
+  "relative_path": "fastlane/fastlane/lib/assets/completions/completion.sh",
+  "short_name": "completion",
+  "timestamp": "10/22/2024",
+  "identifier": "fastlane_sbHeNY/1",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/fastlane/fastlane.git",
+  "relative_path": "fastlane/gym/examples/cocoapods/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh",
+  "short_name": "Pods-Example-resources",
+  "timestamp": "10/22/2024",
+  "identifier": "fastlane_sbHeNY/2",
+  "posix_compliant": true,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/fastlane/fastlane.git",
+  "relative_path": "fastlane/gym/lib/assets/wrap_xcodebuild/xcbuild-safe.sh",
+  "short_name": "xcbuild-safe",
+  "timestamp": "10/22/2024",
+  "identifier": "fastlane_sbHeNY/3",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/fastlane/fastlane.git",
+  "relative_path": "fastlane/test_modules/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "fastlane_sbHeNY/4",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/fastlane/fastlane.git",
+  "relative_path": "fastlane/sigh/lib/assets/resign.sh",
+  "short_name": "resign",
+  "timestamp": "10/22/2024",
+  "identifier": "fastlane_sbHeNY/5",
+  "posix_compliant": false,
+  "line_count": 589,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

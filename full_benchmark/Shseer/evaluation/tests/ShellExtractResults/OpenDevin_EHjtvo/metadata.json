@@ -1,0 +1,507 @@
+[
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/frontend/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/0",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/.devcontainer/on_create.sh",
+  "short_name": "on_create",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/1",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/gorilla/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/3",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/EDA/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/4",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/humanevalfix/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/5",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/mint/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/6",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/integration_tests/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/7",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/aider_bench/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/8",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/utils/version_control.sh",
+  "short_name": "version_control",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/9",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/agent_bench/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/10",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/swe_bench/scripts/eval_infer_remote.sh",
+  "short_name": "eval_infer_remote",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/11",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/swe_bench/scripts/docker/pull_all_eval_docker.sh",
+  "short_name": "pull_all_eval_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/12",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/swe_bench/scripts/docker/push_eval_docker.sh",
+  "short_name": "push_eval_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/13",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/swe_bench/scripts/setup/prepare_swe_utils.sh",
+  "short_name": "prepare_swe_utils",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/14",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/swe_bench/scripts/setup/instance_swe_entry.sh",
+  "short_name": "instance_swe_entry",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/15",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/swe_bench/scripts/setup/swe_entry.sh",
+  "short_name": "swe_entry",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/16",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/swe_bench/scripts/eval_infer.sh",
+  "short_name": "eval_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/17",
+  "posix_compliant": false,
+  "line_count": 97,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/swe_bench/scripts/cleanup_remote_runtime.sh",
+  "short_name": "cleanup_remote_runtime",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/18",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/swe_bench/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/19",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/gaia/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/20",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/bird/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/21",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/ml_bench/scripts/run_analysis.sh",
+  "short_name": "run_analysis",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/22",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/ml_bench/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/23",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/ml_bench/scripts/cleanup.sh",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/24",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/miniwob/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/25",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/webarena/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/26",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/browsing_delegation/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/27",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/regression/cases/hello-name/start/hello_world.sh",
+  "short_name": "hello_world",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/28",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/gpqa/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/29",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/logic_reasoning/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/30",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/toolqa/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/31",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/evaluation/biocoder/scripts/run_infer.sh",
+  "short_name": "run_infer",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/32",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/containers/app/config.sh",
+  "short_name": "config",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/33",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/containers/app/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/34",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/containers/runtime/config.sh",
+  "short_name": "config",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/35",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/containers/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/36",
+  "posix_compliant": false,
+  "line_count": 119,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenDevin/OpenDevin.git",
+  "relative_path": "OpenDevin/containers/dev/dev.sh",
+  "short_name": "dev",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenDevin_EHjtvo/37",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

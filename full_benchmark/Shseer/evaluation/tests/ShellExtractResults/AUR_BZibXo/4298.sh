@@ -1,0 +1,39 @@
+#!/bin/bash
+
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+pkgver=2.5.0.0
+modprobe -n rt3572sta 2> /dev/null && exit 
+stat_busy "Building rt3572sta module"
+SRC_DIR='/usr/share/rt3572sta'
+TMP_DIR="/tmp/rt3572-$(date +%d%m%y%M%S)"
+mkdir $TMP_DIR
+
+tar -xf $SRC_DIR/2011_0427_RT3572_Linux_STA_v2.5.0.0.DPO.bz2 -C $TMP_DIR
+cp $SRC_DIR/*.patch $TMP_DIR
+
+cd $TMP_DIR/2011_0427_RT3572_Linux_STA_v2.5.0.0.DPO
+patch -s -Np0 -i ../rt3572sta-${pkgver}-config.patch
+[ "$CARCH" == "x86_64" ] && patch -s -Np0 -i ../rt3572sta-${pkgver}-gcc-warnings-x86_64.patch
+patch -s -Np0 -i ../rt3572sta-${pkgver}-WPA-mixed.patch
+patch -s -Np0 -i ../rt3572sta-${pkgver}-convert-devicename-to-wlanX.patch
+patch -s -Np0 -i ../rt3572sta-${pkgver}-remove-potential-conflicts-with-rt2870sta.patch
+patch -s -Np0 -i ../rt3572sta-${pkgver}-extra_devices.patch
+patch -s -Np0 -i ../rt3572sta-${pkgver}-reduce_debug_output.patch
+patch -s -Np0 -i ../rt3572sta-${pkgver}-remove_date_time.patch
+
+export EXTRA_CFLAGS="-DVERSION=$pkgver"
+make &> "$TMP_DIR/build.log" 
+
+gzip -9 os/linux/rt3572sta.ko
+install -D -m 644 os/linux/rt3572sta.ko.gz /usr/lib/modules/$(uname -r)/kernel/drivers/net/wireless/rt3572sta.ko.gz
+
+if [ $? -gt 0 ]; then
+      stat_fail
+      exit 1;		
+fi
+
+depmod -a
+modprobe rt3572sta
+stat_done

@@ -1,0 +1,90 @@
+[
+ {
+  "repo": "https://github.com/janthiemen/nisi.git",
+  "relative_path": "nisi/application/tools/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "nisi_puMfMv/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/janthiemen/nisi.git",
+  "relative_path": "nisi/application/enyo/minify/minify.sh",
+  "short_name": "minify",
+  "timestamp": "10/22/2024",
+  "identifier": "nisi_puMfMv/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/janthiemen/nisi.git",
+  "relative_path": "nisi/application/enyo/tools/minifier/node_modules/.bin/uglifyjs",
+  "short_name": "uglifyjs",
+  "timestamp": "10/22/2024",
+  "identifier": "nisi_puMfMv/2",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/janthiemen/nisi.git",
+  "relative_path": "nisi/application/enyo/tools/minifier/node_modules/.bin/lessc",
+  "short_name": "lessc",
+  "timestamp": "10/22/2024",
+  "identifier": "nisi_puMfMv/3",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/janthiemen/nisi.git",
+  "relative_path": "nisi/application/enyo/tools/minifier/node_modules/less/node_modules/.bin/ycssmin",
+  "short_name": "ycssmin",
+  "timestamp": "10/22/2024",
+  "identifier": "nisi_puMfMv/4",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/janthiemen/nisi.git",
+  "relative_path": "nisi/application/enyo/tools/minify.sh",
+  "short_name": "minify",
+  "timestamp": "10/22/2024",
+  "identifier": "nisi_puMfMv/5",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/janthiemen/nisi.git",
+  "relative_path": "nisi/application/enyo/tools/lessc.sh",
+  "short_name": "lessc",
+  "timestamp": "10/22/2024",
+  "identifier": "nisi_puMfMv/6",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

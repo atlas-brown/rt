@@ -1,0 +1,33 @@
+[
+ {
+  "repo": "https://github.com/futurice/pepperoni-app-kit.git",
+  "relative_path": "pepperoni-app-kit/support/version-ios.sh",
+  "short_name": "version-ios",
+  "timestamp": "10/22/2024",
+  "identifier": "pepperoni_TowpCC/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/futurice/pepperoni-app-kit.git",
+  "relative_path": "pepperoni-app-kit/support/rename.sh",
+  "short_name": "rename",
+  "timestamp": "10/22/2024",
+  "identifier": "pepperoni_TowpCC/1",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

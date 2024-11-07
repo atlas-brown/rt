@@ -1,0 +1,202 @@
+[
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/.husky/commit-msg",
+  "short_name": "commit-msg",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/databases/redis.sh",
+  "short_name": "redis",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/1",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/databases/mysql.sh",
+  "short_name": "mysql",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/2",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/databases/mongodb.sh",
+  "short_name": "mongodb",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/3",
+  "posix_compliant": false,
+  "line_count": 123,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/nginx.sh",
+  "short_name": "nginx",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/4",
+  "posix_compliant": false,
+  "line_count": 109,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/heroku.sh",
+  "short_name": "heroku",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/5",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/drush.sh",
+  "short_name": "drush",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/6",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/ubuntu.sh",
+  "short_name": "ubuntu",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/7",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/git.sh",
+  "short_name": "git",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/8",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/curl.sh",
+  "short_name": "curl",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/9",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/macos.sh",
+  "short_name": "macos",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/10",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/pm2.sh",
+  "short_name": "pm2",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/11",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/docker.sh",
+  "short_name": "docker",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/12",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/aws.sh",
+  "short_name": "aws",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/13",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/tools/nanobox_cli.sh",
+  "short_name": "nanobox_cli",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/14",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+  "relative_path": "awesome-cheatsheets/languages/bash.sh",
+  "short_name": "bash",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_znrzKc/15",
+  "posix_compliant": false,
+  "line_count": 392,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

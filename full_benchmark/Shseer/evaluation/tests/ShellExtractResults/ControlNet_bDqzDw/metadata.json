@@ -1,0 +1,138 @@
+[
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/zoe/zoedepth/models/base_models/midas_repo/ros/additions/install_ros_noetic_ubuntu_20.sh",
+  "short_name": "install_ros_noetic_ubuntu_20",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/0",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/zoe/zoedepth/models/base_models/midas_repo/ros/additions/do_catkin_make.sh",
+  "short_name": "do_catkin_make",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/1",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/zoe/zoedepth/models/base_models/midas_repo/ros/additions/install_ros_melodic_ubuntu_17_18.sh",
+  "short_name": "install_ros_melodic_ubuntu_17_18",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/2",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/zoe/zoedepth/models/base_models/midas_repo/ros/additions/make_package_cpp.sh",
+  "short_name": "make_package_cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/3",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/zoe/zoedepth/models/base_models/midas_repo/ros/additions/downloads.sh",
+  "short_name": "downloads",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/zoe/zoedepth/models/base_models/midas_repo/ros/run_talker_listener_test.sh",
+  "short_name": "run_talker_listener_test",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/5",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/zoe/zoedepth/models/base_models/midas_repo/ros/launch_midas_cpp.sh",
+  "short_name": "launch_midas_cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/6",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/zoe/zoedepth/models/base_models/midas_repo/mobile/ios/RunScripts/download_models.sh",
+  "short_name": "download_models",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/7",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/uniformer/exp/upernet_global_small/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/8",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/uniformer/exp/upernet_global_small/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/9",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet-v1-1-nightly.git",
+  "relative_path": "ControlNet-v1-1-nightly/annotator/oneformer/oneformer/modeling/pixel_decoder/ops/make.sh",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_bDqzDw/10",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

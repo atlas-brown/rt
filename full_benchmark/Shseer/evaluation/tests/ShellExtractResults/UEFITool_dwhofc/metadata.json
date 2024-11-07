@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/LongSoft/UEFITool.git",
+  "relative_path": "UEFITool/kaitai_regenerate.sh",
+  "short_name": "kaitai_regenerate",
+  "timestamp": "10/22/2024",
+  "identifier": "UEFITool_dwhofc/0",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

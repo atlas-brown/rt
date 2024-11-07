@@ -1,0 +1,429 @@
+#!/bin/bash  
+
+# Enable translation capabilities
+. gettext.sh
+export TEXTDOMAIN="netflix-desktop";
+export TEXTDOMAINDIR="/usr/share/locale";
+
+# Static environment variables
+INSTDIR="/usr/share/netflix-desktop";
+HOMEDIR=$HOME/.netflix-desktop
+PKG_DIR="/usr/share/wine-silverlight";
+GLOBAL_SUMS="${INSTDIR}/sha256sums";
+WINE="/usr/bin/wine";
+WINEARCH="win32"
+SHOWDEBUG="0";
+RELAYLOG="0";
+if [ -e /opt/wine-silverlight/bin/wine ];then
+    WINE="/opt/wine-silverlight/bin/wine";
+fi
+
+# Overridable environment variables
+if [ "${PACKAGE}" = "" ]; then
+	PACKAGE="wine-browser-installer";
+fi
+if [ "${WINEPREFIX}" = "" ]; then
+	WINEPREFIX="${HOME}/.netflix-desktop";
+fi
+if [ "${URL}" = "" ]; then
+	URL="http://www.compholio.com/wine-browser/";
+fi
+if [ "${SERVICE}" = "" ]; then
+	SERVICE=$(gettext "On Demand Wine Browser");
+fi
+if [ "${DEPENDENCIES}" = "" ]; then
+	# Automatically select a Silverlight version if no dependencies are given
+	DEPENDENCIES=$(ls "${INSTDIR}/sha256sums" | sed 's|.*/\(.*\)\..*|\1|g' | head -n 1);
+fi
+export WINEPREFIX;
+export WINEARCH;
+
+# Derived environment variables
+SERVICE_SUMS="${INSTDIR}/wine-browser-installer.sha256sums";
+LOCAL_SUMS="${WINEPREFIX}/wine-browser-installer.sha256sums";
+#GLOBAL_SUMS="${INSTDIR}/wine-browser-installer.sha256sums";
+SHOWDEBUG="0";
+RELAYLOG="0";
+${PKG_DIR}/hw-accel-default; HW_ACCELERATION_DISABLED=$?;
+HW_ACCELERATION_DISABLED=1;
+HW_ACCELERATION_FORCED="0";
+ALLOW_ADDONS="0";
+USE_PIPELIGHT="0";
+WINDOW_MODE="fullscreen";
+SUDO=$(which gksudo 2>/dev/null);
+if [ "${SUDO}" = "" ]; then
+	SUDO=$(which kdesudo 2>/dev/null);
+fi
+if [ "${SUDO}" = "" ]; then
+	SUDO=$(which beesu 2>/dev/null);
+fi
+# If the patched Wine is unavailable then use the system installed version
+test -x "${WINE}" || WINE=$(which wine);
+export WINE;
+
+# Reformat the dependency list so it is easy to loop over
+DEPENDENCIES=$(echo "${DEPENDENCIES}" | sed -e 's|,| |g' -e 's|([^)]*)||' -e 's| \+| |g');
+# Append Firefox to the list of necessary dependencies
+DEPENDENCIES="wine-browser-installer ${DEPENDENCIES}";
+
+# Import gizmos so that this package can be supported
+. "${PKG_DIR}/gizmos"
+
+# General strings that are translatable
+gettext_download_missing=$(eval_gettext "Not all of the components required by \$SERVICE were downloaded, would you like to download them now? (requires an Internet connection)");
+gettext_fonts_needed=$(gettext "MS true type fonts are not properly installed, would you like to download and install them now? (requires an Internet connection)");
+gettext_fonts_still_needed=$(eval_gettext "It appears that you still have not installed the MS true type fonts. You need to accept the license agreement and install these fonts for \$SERVICE to work properly.");
+gettext_compositing_error=$(eval_gettext "Compositing is not available, please enable compositing support and relaunch \$SERVICE.");
+
+# Version comparison
+vercomp () {
+	if [ "$1" = "$2" ]; then
+		RET="0";
+	elif [ "$1" = "$(printf "$1\n$2" | sort -V | head -n1)" ]; then
+		RET="1";
+	else
+		RET="-1";
+	fi
+	echo "${RET}";
+}
+
+# Compare the different checksum files to see whether an upgrade/install is needed
+compare_checksums () {
+	for DEP in $DEPENDENCIES; do
+		LOCAL_SUM="${WINEPREFIX}/${DEP}.sha256sums";
+		GLOBAL_SUM="${PKG_DIR}/${DEP}.sha256sums";
+		SUM_CMP=$(cmp "${LOCAL_SUM}" "${GLOBAL_SUM}" 1>/dev/null 2>/dev/null; echo $?);
+		if [ "${SUM_CMP}" -ne "0" ]; then
+			echo "0";
+			return;
+		fi
+	done
+	echo "1";
+}
+
+first_run () {
+	if [ -f ${WINEPREFIX}/run ]; then
+                echo 0
+        else
+                echo 1
+        fi	
+}
+
+# Process any command-line arguments
+for arg in "$@"; do
+	case "$arg" in
+		--showdebug)
+			SHOWDEBUG="1";
+			;;
+		--relaylog)
+			SHOWDEBUG="1";
+			RELAYLOG="1";
+			;;
+		--allowaddons)
+			ALLOW_ADDONS="1";
+			;;
+		--no-pipelight)
+			USE_PIPELIGHT="0";
+			;;
+		--enable-hw-acceleration)
+			HW_ACCELERATION_DISABLED="0";
+			;;
+		--disable-hw-acceleration)
+			HW_ACCELERATION_DISABLED="1";
+			;;
+		--force-hw-acceleration)
+			HW_ACCELERATION_FORCED="1";
+			;;
+		-w|--window|--windowed)
+			WINDOW_MODE="normal";
+			;;
+		*)
+			eval_gettext "Unrecognized command-line argument '\$arg', usage:"; echo;
+			progname=`basename $0`;
+			echo -n "$progname "; gettext "[options]"; echo;
+			echo;
+			gettext "Options:"; echo;
+			printf "\t--showdebug\t"; gettext "Show Wine debug output."; echo;
+			printf "\t--relaylog\t"; gettext "Collect a Wine '+relay' log."; echo;
+			printf "\t--allowaddons\t"; gettext "Allow Wine Gecko and Wine Mono within the prefix."; echo;
+			printf "\t--windowed\t"; gettext "Launch in windowed mode (disable fullscreen mode)."; echo;
+			printf "\t--no-pipelight\t"; gettext "Disable running with Pipelight (when available)."; echo;
+			printf "\t--enable-hw-acceleration\t"; gettext "Enable automatic GPU-based acceleration."; echo;
+			printf "\t--disable-hw-acceleration\t"; gettext "Disable automatic GPU-based acceleration."; echo;
+			printf "\t--force-hw-acceleration\t"; gettext "Force GPU-based acceleration on all sites."; echo;
+			exit;
+			;;
+	esac;
+done
+
+# Make sure the prefix folder exists before testing its attributes
+if [ ! -d "${WINEPREFIX}" ]; then
+        ${WINE} wineboot -i > /dev/null;
+fi
+
+# Make sure that all the necessary files are installed.
+files_missing=1;
+while [ "$files_missing" -eq "1" ]; do
+	files_missing=0;
+	SUMS="/tmp/wine-browser.$$.sha256sums";
+	cat "${SERVICE_SUMS}" > "${SUMS}";
+#	for DEP in $DEPENDENCIES; do
+#		GLOBAL_SUM="${PKG_DIR}/${DEP}.sha256sums";
+#		if [ -f "${GLOBAL_SUM}" ]; then
+#			cat "${GLOBAL_SUM}" >> "${SUMS}";
+#		fi
+#	done
+	while read desired_checksum filename permissions url; do
+		if [ ! -f "${HOMEDIR}/${filename}" ]; then
+			files_missing=1;
+		fi
+	done < "${SUMS}";
+	rm "${SUMS}";
+	if [ "$files_missing" -eq "1" ]; then
+		zenity --question --title="${SERVICE}" --text="${gettext_download_missing}" --ok-label="Yes" --cancel-label="No";
+		RET=$?;
+		if [ "$RET" -eq "1" ]; then
+			exit;
+		fi
+		# Use a separate script to download the file (graphical sudo takes forever to exit each time)
+		"${INSTDIR}/download-missing-files" ${PACKAGE} "${SERVICE}" "${DEPENDENCIES}";
+	fi
+done
+
+# Make sure that the filesystem supports extended file attributes
+"${INSTDIR}/test-xattr" "${WINEPREFIX}";
+XATTR="$?";
+if [ "${XATTR}" -ne "0" ]; then
+	if [ "${XATTR}" -eq "1" ]; then
+		MESSAGE=$(eval_gettext "Unable to test extended attributes at location '\${WINEPREFIX}'.");
+	elif [ "${XATTR}" -eq "2" ]; then
+		MESSAGE=$(gettext "It appears that you do not have extended file system attributes enabled. Please enable the user_xattr option for your filesystem and try again.");
+	else
+		MESSAGE=$(gettext "An unexpected error code was returned when testing for extended file system attributes.");
+	fi
+	zenity --warning --title="${SERVICE}" --text "${MESSAGE}";
+	exit;
+fi
+
+# Make sure that compositing is available
+GLX_EXT=$(glxinfo | grep GLX_EXT_texture_from_pixmap);
+if [ -z "${GLX_EXT}" ]; then
+	zenity --warning --title="${SERVICE}" --text "${gettext_compositing_error}";
+	exit;
+fi
+
+# Make sure that the MS core true type fonts are installed
+#COREFONTS=$(fc-list | grep "msttcore");
+#if [ "${COREFONTS}" = "" ]; then
+#	# if fontconfig is unavailable then see if debconf can find it
+#	COREFONTS=$(debconf-show ttf-mscorefonts-installer 2>/dev/null | grep "msttcorefonts/accepted-mscorefonts-eula: true");
+#fi
+#if [ "${COREFONTS}" = "" ]; then
+#	zenity --question --title="${SERVICE}" --text="${gettext_fonts_needed}" --ok-label="Yes" --cancel-label="No";
+#	RET=$?;
+#	if [ "$RET" -eq "1" ]; then
+#		exit;
+#	fi
+#	${SUDO} ${PKG_DIR}/install-fonts;
+#	COREFONTS=`debconf-show ttf-mscorefonts-installer 2>/dev/null | grep "msttcorefonts/accepted-mscorefonts-eula: true"`;
+#	if [ "${COREFONTS}" = "" ]; then
+#		zenity --warning --title="${SERVICE}" --text "${gettext_fonts_still_needed}";
+#		exit;
+#	fi
+#	${SUDO} -- apt-get install --yes --reinstall ttf-mscorefonts-installer;
+#fi
+
+# Transition over old profiles (from before version 0.6.0)
+if [ -f "${HOME}/.netflix-desktop/netflix-desktop.sha256sums" ]; then
+	mv "${HOME}/.netflix-desktop" "${WINEPREFIX}";
+	mv "${WINEPREFIX}/drive_c/netflix-profile" "${BROWSER_PROFILE}";
+	mv "${WINEPREFIX}/netflix-desktop.sha256sums" "${LOCAL_SUMS}";
+	cp -a "${PKG_DIR}/browser-profile/extensions" "${BROWSER_PROFILE}/";
+fi
+# Transition over old profiles (from before version 0.8.1)
+if [ -f "${WINEPREFIX}/wine-browser.sha256sums" ]; then
+	mv "${WINEPREFIX}/wine-browser.sha256sums" "${LOCAL_SUMS}";
+fi
+
+# Copy over the specially configured user profile if installation has never been performed previously
+if [ ! -f "${LOCAL_SUMS}" ]; then
+	mkdir -p "${WINEPREFIX}/drive_c";
+	cp -a "${INSTDIR}/browser-profile" "${BROWSER_PROFILE}";
+fi
+
+# Disable installing Mono and Gecko
+if [ "${ALLOW_ADDONS}" -eq "1" ]; then
+	export WINEDLLOVERRIDES="mscoree,mshtml=";
+fi
+
+# Some portions of this script depend on the Wine version
+WINEVERSION=$(${WINE} --version | sed -e 's/wine-//');
+
+CLIENT_SIDE_GRAPHICS_WORKAROUND=0;
+BROWSER_USER_AGENT_WORKAROUND=0;
+BROWSER_SECURITY_WORKAROUND=0;
+BROWSER_KATSOMO_WORKAROUND=0;
+CHECKSUMS_MATCH=$(first_run);
+if [ "${CHECKSUMS_MATCH}" -eq "1" ]; then
+	# If no previous installation has been performed (or new installation packages are available) then install the software we need to the local prefix
+	UPGRADE=0;
+	TASK=$(gettext "Performing local installation...");
+	if [ -f "${LOCAL_SUMS}" ]; then
+		UPGRADE=1;
+		TASK=$(gettext "Performing profile upgrade...");
+	fi
+	(
+		echo "1";
+#		${WINE} wineboot -i > /dev/null;
+		"${PKG_DIR}/install-dependency" wine-silverlight4-installer;
+		SILVERLIGHT_VERSION="4.1.10329.0"
+		# Configure the plugin registry key for the Windows Firefox version
+		tmpfile="/tmp/wine-browser.$$.reg";
+		cat >"${tmpfile}" <<-EOF
+			REGEDIT4
+
+			[HKEY_LOCAL_MACHINE\\Software\\MozillaPlugins\\@Microsoft.com/NpCtrl,version=1.0]
+			"Path"="C:\\\\Program Files\\\\Silverlight\\\\${SILVERLIGHT_VERSION}\\\\npctrl.dll"
+		EOF
+		${WINE} regedit ${tmpfile};
+		echo "100";
+	) | zenity --progress --pulsate --no-cancel --auto-close --text="${TASK}";
+	touch ${WINEPREFIX}/run
+else
+	# If a previous installation exists then confirm that the profile is up-to-date
+	EXTENSION_INSTALLED=0;
+	if [ -f "${WINEPREFIX}/profile-settings" ]; then
+		. "${WINEPREFIX}/profile-settings";
+	fi
+	OLDVERSION=`cat "${WINEPREFIX}/wine-version" 2> /dev/null`;
+	NEWWINE=`vercomp "1.5.19" "${WINEVERSION}"`;
+	OLDPROFILE=`vercomp "${OLDVERSION}" "1.5.19"`;
+	# Wipe the DRM folder if we're upgrading to Wine 1.5.19 or newer (new extended attribute format)
+	if [ "${NEWWINE}" -ge "0" ] && [ "${OLDPROFILE}" -ge "0" ]; then
+		rm -Rf "${WINEPREFIX}/drive_c/users/Public/Application Data/Microsoft/PlayReady/"*;
+	fi
+	# Install the new window closing extension
+	if [ "${EXTENSION_INSTALLED}" -ne "1" ]; then
+		cp -a "${PKG_DIR}/browser-profile/extensions" "${BROWSER_PROFILE}/";
+	fi
+fi
+# Install the workaround for Wine Bug #31812
+NEWWINE=$(vercomp "1.6" "${WINEVERSION}");
+if [ "${CLIENT_SIDE_GRAPHICS_WORKAROUND}" -ne "1" ] && [ "${NEWWINE}" -lt "0" ]; then
+	# Disable client side graphics (Wine < 1.6)
+	conf_reg_setting "HKCU\\Software\\Wine\\X11 Driver\\ClientSideGraphics" "\"N\"";
+	CLIENT_SIDE_GRAPHICS_WORKAROUND=1;
+elif [ "${CLIENT_SIDE_GRAPHICS_WORKAROUND}" -ne "0" ] && [ "${NEWWINE}" -ge "0" ]; then
+	# Enable client side graphics (Wine >= 1.6)
+	conf_reg_setting "HKCU\\Software\\Wine\\X11 Driver\\ClientSideGraphics" "\"Y\"";
+	CLIENT_SIDE_GRAPHICS_WORKAROUND=0;
+fi
+# Install the workaround for Netflix expecting a specific Firefox version (without requiring a Silverlight upgrade)
+if [ "${BROWSER_USER_AGENT_WORKAROUND}" -ne "1" ]; then
+	conf_ff_setting "general.useragent.override" "\"Mozilla/5.0 (Windows NT 5.1; rv:18.0) Gecko/20100101 Firefox/18.0\"";
+fi
+# Install the workaround for Katsomo locking up on exit
+if [ "${BROWSER_KATSOMO_WORKAROUND}" -ne "1" ]; then
+	conf_ff_setting "dom.ipc.plugins.processLaunchTimeoutSecs" "1";
+	conf_ff_setting "dom.ipc.plugins.timeoutSecs" "2";
+fi
+# Install the workaround for the Silverlight 5.0 plugin being labeled a security risk
+if [ "${BROWSER_SECURITY_WORKAROUND}" -ne "1" ]; then
+	conf_ff_setting "extensions.blocklist.enabled" "false";
+fi
+# Enable/disable Silverlight using GPU-accelerated graphics
+conf_reg_setting "HKCU\\Software\\Microsoft\\Silverlight\\DisableGPUAcceleration" "dword:0000000${HW_ACCELERATION_DISABLED}";
+# Force Silverlight to use GPU-accelerated graphics
+conf_reg_setting "HKCU\\Software\\Microsoft\\Silverlight\\ForceGPUAcceleration" "dword:0000000${HW_ACCELERATION_FORCED}";
+echo "${WINEVERSION}" > "${WINEPREFIX}/wine-version";
+echo "# Wine Browser profile settings (do not edit)
+EXTENSION_INSTALLED=1;
+CLIENT_SIDE_GRAPHICS_WORKAROUND=${CLIENT_SIDE_GRAPHICS_WORKAROUND};
+BROWSER_USER_AGENT_WORKAROUND=1;
+BROWSER_KATSOMO_WORKAROUND=1;
+BROWSER_SECURITY_WORKAROUND=1;
+" > "${WINEPREFIX}/profile-settings";
+
+# Handle fullscreen/windowed display
+PREFERENCES=$(cat "${BROWSER_PROFILE}/localstore.rdf");
+PREFERENCES=$(echo "${PREFERENCES}" | sed -n '1h;1!H;${;g; s|'\
+'\(<RDF:Description RDF:about="chrome://browser/content/browser.xul#main-window"'\
+'[^<]*sizemode="\)[^"]*\("\)'\
+'|\1'"${WINDOW_MODE}"'\2|g;p;}');
+echo "${PREFERENCES}" > "${BROWSER_PROFILE}/localstore.rdf";
+
+# Setup our specially prepared profile
+if [ "${RELAYLOG}" -eq "1" ]; then
+	OUTPUT="${HOME}/wine-browser.log";
+	rm "${OUTPUT}" 2>/dev/null;
+	DBGTMP="";
+	if [ "${WINEDEBUG}" != "" ]; then
+		DBGTMP=",${WINEDEBUG}";
+	fi
+	export WINEDEBUG="+relay${DBGTMP}";
+elif [ "${SHOWDEBUG}" -eq "1" ]; then
+	OUTPUT="/dev/fd/2";
+else
+	OUTPUT="/dev/null";
+fi
+if [ "${SHOWDEBUG}" -eq "1" ]; then
+	# The "--showdebug" flag does several things:
+	# 1) It outputs additional driver information to the console to help find the source of OpenGL issues
+	# 2) It enables verbose libgl debugging and outputs this information to the console
+	# 3) It allows Wine debug messages to be written to the console
+	echo "################################################################################" 1>>${OUTPUT};
+	echo "# OpenGL Diagnostics                                                           #" 1>>${OUTPUT};
+	echo "################################################################################" 1>>${OUTPUT};
+	GLXINFO=$(glxinfo);
+	DRENDER=$(get_drender);
+	OGL_VENDOR=$(get_ogl_vendor "${GLXINFO}");
+	OGL_VERSION=$(get_ogl_version "${GLXINFO}");
+	OGL_RENDERER=$(get_ogl_renderer "${GLXINFO}");
+	GLX_VERSION=$(get_glx_version "${GLXINFO}");
+	echo "Direct Rendering: ${DRENDER}" 1>>${OUTPUT};
+	echo "OpenGL Vendor: ${OGL_VENDOR}" 1>>${OUTPUT};
+	echo "OpenGL Renderer: ${OGL_RENDERER}" 1>>${OUTPUT};
+	echo "OpenGL Version: ${OGL_VERSION}" 1>>${OUTPUT};
+	echo "GLX Version: ${GLX_VERSION}" 1>>${OUTPUT};
+	DRIVERVER="";
+	if [ "${GLVENDOR}" = "NVIDIA Corporation" ]; then
+		DRIVERVER=`nvidia-settings --version | grep version | sed 's/.*version \([^ ]*\) .*/\1/'`;
+	fi
+	if [ "${DRIVERVER}" != "" ]; then
+		echo "Driver Version: ${DRIVERVER}";
+	fi
+	echo "################################################################################" 1>>${OUTPUT};
+	echo "# Firefox                                                                      #" 1>>${OUTPUT};
+	echo "################################################################################" 1>>${OUTPUT};
+	export LIBGL_DEBUG="verbose";
+fi
+# Run any dependency-specific configuration
+for DEP in $DEPENDENCIES; do
+    if [ -f "${PKG_DIR}/${DEP}.config-script" ]; then
+    	. "${PKG_DIR}/${DEP}.config-script";
+    fi
+done
+# Determine whether we should use Pipelight or if we should run the entire browser in Wine
+# Note: We prefer to use pipelight, but the user can override this choice with "--no-pipelight"
+PIPELIGHT_INSTALLED="0";
+if [ -f "/usr/lib/mozilla/plugins/libpipelight.so" ]; then
+	PIPELIGHT_INSTALLED="1";
+fi
+if [ "${PIPELIGHT_INSTALLED}" -eq "1" ] && [ "${USE_PIPELIGHT}" -eq "1" ]; then
+	FIREFOX="$(which firefox)";
+	FIREFOX_PROFILE="${BROWSER_PROFILE}";
+	export PIPELIGHT_CONFIG="${WINEPREFIX}/pipelight-config";
+	rm "${BROWSER_PROFILE}/pluginreg.dat"; # reset the plugin registry on every load
+else
+	${WINE} "${WINEPREFIX}/FirefoxSetup.exe" /INI=Z:\\usr\\share\\netflix-desktop\\browser-settings.ini 2>>${OUTPUT}; 
+	FIREFOX="${WINE} \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\"";
+	FIREFOX_PROFILE="C:\\browser-profile";
+fi
+# Launch Firefox with our special profile
+eval ${FIREFOX} -no-remote -profile "${FIREFOX_PROFILE}" "${URL}" 2>>${OUTPUT} &
+PID=$!;
+# Suspend the screensaver and suspend operations for the user while Firefox is running
+while $(kill -s 0 ${PID} 2>/dev/null); do
+	dbus-send --session --dest=org.gnome.ScreenSaver --type=method_call /org/gnome/ScreenSaver org.gnome.ScreenSaver.SimulateUserActivity;
+	sleep 30;
+done

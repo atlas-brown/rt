@@ -1,0 +1,132 @@
+[
+ {
+  "repo": "https://github.com/cloudflare/redoctober.git",
+  "relative_path": "redoctober/testdata/ro-ssh-agent-demo.sh",
+  "short_name": "ro-ssh-agent-demo",
+  "timestamp": "10/22/2024",
+  "identifier": "redoctober_EEfJFE/0",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cloudflare/redoctober.git",
+  "relative_path": "redoctober/scripts/validate-html-generation",
+  "short_name": "validate-html-generation",
+  "timestamp": "10/22/2024",
+  "identifier": "redoctober_EEfJFE/1",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cloudflare/redoctober.git",
+  "relative_path": "redoctober/scripts/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "redoctober_EEfJFE/2",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/cloudflare/redoctober.git",
+  "relative_path": "redoctober/scripts/.validate",
+  "short_name": ".validate",
+  "timestamp": "10/22/2024",
+  "identifier": "redoctober_EEfJFE/3",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cloudflare/redoctober.git",
+  "relative_path": "redoctober/vendor/golang.org/x/crypto/curve25519/internal/field/sync.sh",
+  "short_name": "sync",
+  "timestamp": "10/22/2024",
+  "identifier": "redoctober_EEfJFE/4",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cloudflare/redoctober.git",
+  "relative_path": "redoctober/vendor/golang.org/x/sys/unix/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "redoctober_EEfJFE/5",
+  "posix_compliant": false,
+  "line_count": 196,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cloudflare/redoctober.git",
+  "relative_path": "redoctober/vendor/golang.org/x/sys/unix/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "redoctober_EEfJFE/6",
+  "posix_compliant": false,
+  "line_count": 365,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cloudflare/redoctober.git",
+  "relative_path": "redoctober/vendor/golang.org/x/sys/windows/mkknownfolderids.bash",
+  "short_name": "mkknownfolderids.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "redoctober_EEfJFE/7",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/cloudflare/redoctober.git",
+  "relative_path": "redoctober/vendor/golang.org/x/sys/windows/mkerrors.bash",
+  "short_name": "mkerrors.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "redoctober_EEfJFE/8",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,85 @@
+[
+ {
+  "repo": "https://github.com/mzenzie/320MusicLessonPlanner.git",
+  "relative_path": "320MusicLessonPlanner/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "320MusicLessonPlanner_VfdzKn/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mzenzie/320MusicLessonPlanner.git",
+  "relative_path": "320MusicLessonPlanner/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/test/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "320MusicLessonPlanner_VfdzKn/1",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mzenzie/320MusicLessonPlanner.git",
+  "relative_path": "320MusicLessonPlanner/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/test/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "320MusicLessonPlanner_VfdzKn/2",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mzenzie/320MusicLessonPlanner.git",
+  "relative_path": "320MusicLessonPlanner/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/node-uuid/benchmark/bench.sh",
+  "short_name": "bench",
+  "timestamp": "10/22/2024",
+  "identifier": "320MusicLessonPlanner_VfdzKn/3",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mzenzie/320MusicLessonPlanner.git",
+  "relative_path": "320MusicLessonPlanner/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "320MusicLessonPlanner_VfdzKn/4",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mzenzie/320MusicLessonPlanner.git",
+  "relative_path": "320MusicLessonPlanner/node_modules/collections/node_modules/weak-map/sync",
+  "short_name": "sync",
+  "timestamp": "10/22/2024",
+  "identifier": "320MusicLessonPlanner_VfdzKn/5",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

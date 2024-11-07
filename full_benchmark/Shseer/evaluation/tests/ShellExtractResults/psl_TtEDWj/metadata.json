@@ -1,0 +1,98 @@
+[
+ {
+  "repo": "https://github.com/PowerShell/psl-omi-provider.git",
+  "relative_path": "psl-omi-provider/test/installpowershell.sh",
+  "short_name": "installpowershell",
+  "timestamp": "10/22/2024",
+  "identifier": "psl_TtEDWj/0",
+  "posix_compliant": false,
+  "line_count": 103,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/psl-omi-provider.git",
+  "relative_path": "psl-omi-provider/test/enableNTLM.sh",
+  "short_name": "enableNTLM",
+  "timestamp": "10/22/2024",
+  "identifier": "psl_TtEDWj/1",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/psl-omi-provider.git",
+  "relative_path": "psl-omi-provider/test/installPSRP.sh",
+  "short_name": "installPSRP",
+  "timestamp": "10/22/2024",
+  "identifier": "psl_TtEDWj/2",
+  "posix_compliant": false,
+  "line_count": 182,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/psl-omi-provider.git",
+  "relative_path": "psl-omi-provider/test/uninstallPSRP.sh",
+  "short_name": "uninstallPSRP",
+  "timestamp": "10/22/2024",
+  "identifier": "psl_TtEDWj/3",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/psl-omi-provider.git",
+  "relative_path": "psl-omi-provider/test/setPSRPTest.sh",
+  "short_name": "setPSRPTest",
+  "timestamp": "10/22/2024",
+  "identifier": "psl_TtEDWj/4",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/psl-omi-provider.git",
+  "relative_path": "psl-omi-provider/installbuilder/buildNuget.sh",
+  "short_name": "buildNuget",
+  "timestamp": "10/22/2024",
+  "identifier": "psl_TtEDWj/5",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/psl-omi-provider.git",
+  "relative_path": "psl-omi-provider/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "psl_TtEDWj/6",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

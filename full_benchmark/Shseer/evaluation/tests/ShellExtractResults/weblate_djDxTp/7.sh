@@ -1,0 +1,92 @@
+#!/bin/sh
+
+# Copyright © Michal Čihař <michal@weblate.org>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Migrations test executor
+
+. ci/lib.sh
+
+if [ -n "$1" ]; then
+    TAG="weblate-$1"
+else
+    echo "Missing version to migrate from!"
+    exit 1
+fi
+
+HEAD_COMMIT=$(git rev-parse HEAD)
+
+print_step "Testing migration from $TAG on $CI_DATABASE..."
+cleanup_database
+check
+if ! git fetch --depth 1 origin tag "$TAG"; then
+    git remote add upstream https://github.com/WeblateOrg/weblate.git
+    git fetch --depth 1 upstream tag "$TAG"
+fi
+check
+git checkout "$TAG"
+check
+# Use clean virtualenv for each version, this avoids problems when trying to downgrade from current versions
+uv venv --python python3.11 ".venv-$TAG"
+check
+# shellcheck source=/dev/null
+. ".venv-$TAG/bin/activate"
+# Need to keep "ci" as Weblate 5.8 and older have the dependency separately
+uv pip install -e ".[all,ci,mysql]"
+check
+echo "DATABASES['default']['HOST'] = '$CI_DB_HOST'" >> weblate/settings_test.py
+check
+if [ -n "$CI_DB_PASSWORD" ]; then
+    echo "DATABASES['default']['PASSWORD'] = '$CI_DB_PASSWORD'" >> weblate/settings_test.py
+    check
+fi
+if [ -n "$CI_DB_PORT" ]; then
+    echo "DATABASES['default']['PORT'] = '$CI_DB_PORT'" >> weblate/settings_test.py
+    check
+fi
+./manage.py migrate
+check
+
+# Delete automatically created languages to be able to load fixture
+./manage.py shell -c 'from weblate.lang.models import Language; Language.objects.all().delete()'
+check
+
+# Load basic project fixture from the older version
+./manage.py loaddata simple-project.json
+check
+
+# Force creating project groups
+./manage.py shell -c 'from weblate.trans.models import Project; [project.save() for project in Project.objects.iterator()]'
+check
+# Enable suggestion voting
+./manage.py shell -c 'from weblate.trans.models import Component; Component.objects.all().update(suggestion_voting=True, suggestion_autoaccept=2)'
+check
+# Add suggestions
+./manage.py add_suggestions test test cs weblate/trans/tests/data/cs.po
+check
+# Add vote for suggestion
+./manage.py shell -c 'from weblate.trans.models import Vote, Suggestion; s = Suggestion.objects.all()[0]; vote = Vote(suggestion=s, user=s.user); vote.value = 1; vote.positive = True; vote.save()'
+check
+# Add a global metric
+./manage.py shell -c 'from weblate.metrics.models import METRIC_ORDER, Metric; Metric.objects.create(scope=Metric.SCOPE_GLOBAL, data=[1] * len(METRIC_ORDER), relation=0, changes=1)'
+check
+# Load translation memory
+./manage.py import_memory ./weblate/trans/tests/data/memory.json
+check
+# Create huge translation memory entry
+./manage.py shell -c 'from weblate.memory.models import Memory; from weblate.lang.models import Language; Memory.objects.create(source_language=Language.objects.get(code="en"), target_language=Language.objects.get(code="cs"), source="source"*1000, target="target"*1000, origin="origin"*1000)'
+check
+
+git reset --hard
+check
+git checkout "$HEAD_COMMIT"
+check
+# Use CI environment
+deactivate
+check
+run_coverage ./manage.py migrate
+check
+# Check migrated vote exists
+./manage.py shell -c 'from weblate.trans.models import Vote; Vote.objects.get(value=1)'
+check

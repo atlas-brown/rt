@@ -1,0 +1,264 @@
+[
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/bench/bundle/run-bench.sh",
+  "short_name": "run-bench",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/bench/hot-module-reloading/css-stress-test/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/1",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/bench/sqlite/src/download.sh",
+  "short_name": "download",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/2",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/test/js/web/streams/bun-streams-test-fifo.sh",
+  "short_name": "bun-streams-test-fifo",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/test/js/bun/shell/fixtures/positionals2.bun.sh",
+  "short_name": "positionals2.bun",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/4",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/test/js/bun/shell/fixtures/positionals.bun.sh",
+  "short_name": "positionals.bun",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/5",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/test/js/bun/spawn/bash-echo.sh",
+  "short_name": "bash-echo",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/6",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/test/js/node/test/fixtures/keys/selfsigned-no-keycertsign/https_renew_cert.sh",
+  "short_name": "https_renew_cert",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/7",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/test/bundler/run-single-bundler-test.sh",
+  "short_name": "run-single-bundler-test",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/8",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/test/bundler/scripts/acorn.sh",
+  "short_name": "acorn",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/9",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/scripts/write-versions.sh",
+  "short_name": "write-versions",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/10",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/packages/bun-usockets/misc/gen_test_certs.sh",
+  "short_name": "gen_test_certs",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/11",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/misctools/find-unused-zig.sh",
+  "short_name": "find-unused-zig",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/12",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/misctools/generate-tests-file.sh",
+  "short_name": "generate-tests-file",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/13",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/.buildkite/scripts/prepare-build.sh",
+  "short_name": "prepare-build",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/14",
+  "posix_compliant": false,
+  "line_count": 85,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/.buildkite/scripts/upload-release.sh",
+  "short_name": "upload-release",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/15",
+  "posix_compliant": false,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/dockerhub/alpine/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/16",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/dockerhub/debian/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/17",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/dockerhub/debian-slim/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/18",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/oven-sh/bun.git",
+  "relative_path": "bun/src/cli/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "bun_YNMysD/19",
+  "posix_compliant": false,
+  "line_count": 228,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

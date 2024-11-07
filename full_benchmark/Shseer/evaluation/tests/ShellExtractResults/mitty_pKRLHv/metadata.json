@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/tcdowney/mitty.git",
+  "relative_path": "mitty/bin/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mitty_pKRLHv/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

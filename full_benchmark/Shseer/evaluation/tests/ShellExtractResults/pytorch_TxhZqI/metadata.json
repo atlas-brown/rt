@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/huggingface/pytorch-image-models.git",
+  "relative_path": "pytorch-image-models/distributed_train.sh",
+  "short_name": "distributed_train",
+  "timestamp": "10/22/2024",
+  "identifier": "pytorch_TxhZqI/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

@@ -1,0 +1,230 @@
+#!/bin/bash
+
+set -e
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+source "${ROOT}/script/lib/ui.sh"
+
+usage() {
+  cat <<USAGE >&2
+usage: $0 [options] DIR
+
+Generate backups from historically versioned clusters into DIR.
+
+OPTIONS:
+  -h, --help    Show this message
+  -f, --force   Create the backups even if they exist
+USAGE
+}
+
+main() {
+  local force=false
+
+  while true; do
+    case "$1" in
+      -h | --help)
+        usage
+        exit 0
+        ;;
+      -f | --force)
+        force=true
+        shift
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  if [[ $# -ne 1 ]]; then
+    usage
+    exit 1
+  fi
+
+  local dir=$1
+  mkdir -p "${dir}"
+
+  local tmp="$(mktemp --directory)"
+  trap "rm -rf ${tmp}" EXIT
+
+  local src="${tmp}/src"
+  clone_app "${src}"
+
+  export FLYNNRC="${tmp}/flynnrc"
+  local app="nodejs"
+
+  local versions=(
+    "v20160309.0"
+    "v20160423.0"
+    "v20160624.1"
+    "v20160721.2"
+    "v20160814.0"
+    "v20161114.0p1"
+    "v20170719.0"
+  )
+  for version in ${versions[@]}; do
+    local name="${version}-nodejs-redis.tar"
+    local out="${dir}/${name}"
+
+    info "generating ${name}"
+    if [[ -e "${out}" ]] && ! $force; then
+      info "backup ${name} already exists"
+      continue
+    fi
+
+    bootstrap_cluster "${version}"
+    git_deploy_app
+    add_redis_resource
+    backup_cluster "${out}"
+  done
+
+  backup_mysql_cluster
+
+  backup_mongodb_cluster
+
+  backup_docker_cluster
+}
+
+clone_app() {
+  local path=$1
+
+  info "cloning Node.js example app"
+  git clone "https://github.com/flynn-examples/nodejs-flynn-example.git" "${path}"
+}
+
+backup_mysql_cluster() {
+  local version="v20160814.0"
+  local name="${version}-nodejs-mysql.tar"
+  local out="${dir}/${name}"
+
+  info "generating ${name}"
+  if [[ -e "${out}" ]] && ! $force; then
+    info "backup ${name} already exists"
+    return
+  fi
+
+  bootstrap_cluster "${version}"
+  git_deploy_app
+  add_mysql_resource
+  backup_cluster "${out}"
+}
+
+backup_mongodb_cluster() {
+  local version="v20160814.0"
+  local name="${version}-nodejs-mongodb.tar"
+  local out="${dir}/${name}"
+
+  info "generating ${name}"
+  if [[ -e "${out}" ]] && ! $force; then
+    info "backup ${name} already exists"
+    return
+  fi
+
+  bootstrap_cluster "${version}"
+  git_deploy_app
+  add_mongodb_resource
+  backup_cluster "${out}"
+}
+
+backup_docker_cluster() {
+  local version="v20170719.0"
+  local name="${version}-nodejs-docker.tar"
+  local out="${dir}/${name}"
+
+  info "generating ${name}"
+  if [[ -e "${out}" ]] && ! $force; then
+    info "backup ${name} already exists"
+    return
+  fi
+
+  bootstrap_cluster "${version}"
+  docker_deploy_app
+  backup_cluster "${out}"
+}
+
+bootstrap_cluster() {
+  local version=$1
+
+  local out="${tmp}/bootstrap-${version}.txt"
+
+  info "bootstrapping ${version} cluster"
+  export CLUSTER_DOMAIN="$(openssl rand -hex 16).local"
+  echo "192.0.2.200 ${CLUSTER_DOMAIN} controller.${CLUSTER_DOMAIN} git.${CLUSTER_DOMAIN} docker.${CLUSTER_DOMAIN} images.${CLUSTER_DOMAIN}" | sudo tee -a /etc/hosts
+  "${ROOT}/script/kill-flynn"
+  local cluster_add=$("${ROOT}/script/bootstrap-flynn" --version "${version}" &> >(tee "${out}") | tail -3 | head -1)
+
+  if [[ "${cluster_add:0:17}" != "flynn cluster add" ]]; then
+    warn "bootstrap failed:"
+    cat "${out}"
+    fail "bootstrap failed"
+  fi
+
+  flynn cluster remove default
+
+  if [[ "${version:1:8}" -ge "20160609" ]] && [[ "${version:1:8}" -le "20180809" ]]; then
+    "${ROOT}/script/configure-docker" "${CLUSTER_DOMAIN}"
+    flynn cluster add --docker ${cluster_add:18}
+  else
+    flynn cluster add ${cluster_add:18}
+  fi
+}
+
+git_deploy_app() {
+  info "deploying app using 'git push'"
+
+  pushd "${src}" >/dev/null
+
+  flynn create --yes "${app}"
+
+  local out="${tmp}/git-push-${version}.txt"
+  if ! git push flynn master &> "${out}"; then
+    warn "git push failed:"
+    cat "${out}"
+    fail "git push failed"
+  fi
+
+  popd >/dev/null
+}
+
+docker_deploy_app() {
+  info "deploying app using 'flynn docker push'"
+
+  docker build -t "${app}" "${src}"
+
+  flynn create --remote "" --yes "${app}"
+
+  local out="${tmp}/docker-push-${version}.txt"
+  if ! flynn -a "${app}" docker push "${app}" &> "${out}"; then
+    warn "docker push failed:"
+    cat "${out}"
+    fail "docker push failed"
+  fi
+
+  flynn -a "${app}" scale app=1
+}
+
+add_redis_resource() {
+  info "adding Redis resource"
+  flynn -a "${app}" resource add redis
+}
+
+add_mysql_resource() {
+  info "adding MySQL resource"
+  flynn -a "${app}" resource add mysql
+  flynn -a "${app}" mysql console -- -e "CREATE TABLE foos (data TEXT); INSERT INTO foos (data) VALUES ('foobar')"
+}
+
+add_mongodb_resource() {
+  info "adding MongoDB resource"
+  flynn -a "${app}" resource add mongodb
+  flynn -a "${app}" mongodb mongo -- --eval 'db.foos.insert({data: "foobar"})'
+}
+
+backup_cluster() {
+  local file=$1
+
+  info "backing up cluster to ${file}"
+  flynn cluster backup --file "${file}"
+}
+
+main $@

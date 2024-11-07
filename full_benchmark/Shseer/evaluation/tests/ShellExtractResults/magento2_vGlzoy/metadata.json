@@ -1,0 +1,45 @@
+[
+ {
+  "repo": "https://github.com/paliarush/magento2-vagrant-for-developers-packer.git",
+  "relative_path": "magento2-vagrant-for-developers-packer/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "magento2_vGlzoy/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/paliarush/magento2-vagrant-for-developers-packer.git",
+  "relative_path": "magento2-vagrant-for-developers-packer/scripts/vagrant/install_magento_environment.sh",
+  "short_name": "install_magento_environment",
+  "timestamp": "10/22/2024",
+  "identifier": "magento2_vGlzoy/1",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/paliarush/magento2-vagrant-for-developers-packer.git",
+  "relative_path": "magento2-vagrant-for-developers-packer/scripts/packer/vagrant.sh",
+  "short_name": "vagrant",
+  "timestamp": "10/22/2024",
+  "identifier": "magento2_vGlzoy/2",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

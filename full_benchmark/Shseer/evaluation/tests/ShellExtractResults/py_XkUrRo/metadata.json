@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/markelg/py_interp.git",
+  "relative_path": "py_interp/make_executable.sh",
+  "short_name": "make_executable",
+  "timestamp": "10/22/2024",
+  "identifier": "py_XkUrRo/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

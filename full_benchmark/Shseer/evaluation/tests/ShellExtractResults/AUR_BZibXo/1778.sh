@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# source application-specific settings
+#[ -f /etc/conf.d/iptables ] && . /etc/conf.d/iptables
+
+IPTABLES='/usr/bin/ip6tables'
+FINA='/usr/bin/fina6'
+
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+case "$1" in
+	start)
+		stat_busy "Starting fina firewall"
+		$FINA -l 2>&1
+		if [ $? -gt 0 ]; then
+			stat_fail
+		else
+			add_daemon fina
+			stat_done
+		fi
+		;;
+	stop)
+		stat_busy "Stopping fina firewall"
+    /usr/bin/flush-ip6tables
+    stat_done
+		;;
+	restart)
+		$0 stop
+		sleep 2
+		$0 start
+		;;
+	*)
+		echo "usage: $0 {start|stop|restart}"
+esac
+
+exit 0

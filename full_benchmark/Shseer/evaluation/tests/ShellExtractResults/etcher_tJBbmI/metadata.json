@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/balena-io/etcher.git",
+  "relative_path": "etcher/after-install.tpl",
+  "short_name": "after-install.tpl",
+  "timestamp": "10/22/2024",
+  "identifier": "etcher_tJBbmI/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ }
+]

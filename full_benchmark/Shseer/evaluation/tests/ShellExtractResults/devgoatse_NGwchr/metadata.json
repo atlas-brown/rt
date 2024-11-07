@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/rbino/devgoatse.git",
+  "relative_path": "devgoatse/goatse_register.sh",
+  "short_name": "goatse_register",
+  "timestamp": "10/22/2024",
+  "identifier": "devgoatse_NGwchr/0",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ }
+]

@@ -1,0 +1,57 @@
+[
+ {
+  "repo": "https://github.com/docker-library/golang.git",
+  "relative_path": "golang/versions.sh",
+  "short_name": "versions",
+  "timestamp": "10/22/2024",
+  "identifier": "golang_aXKzHq/0",
+  "posix_compliant": false,
+  "line_count": 168,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/docker-library/golang.git",
+  "relative_path": "golang/apply-templates.sh",
+  "short_name": "apply-templates",
+  "timestamp": "10/22/2024",
+  "identifier": "golang_aXKzHq/1",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/docker-library/golang.git",
+  "relative_path": "golang/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "golang_aXKzHq/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/docker-library/golang.git",
+  "relative_path": "golang/generate-stackbrew-library.sh",
+  "short_name": "generate-stackbrew-library",
+  "timestamp": "10/22/2024",
+  "identifier": "golang_aXKzHq/3",
+  "posix_compliant": false,
+  "line_count": 158,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

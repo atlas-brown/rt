@@ -1,0 +1,38 @@
+[
+ {
+  "repo": "https://github.com/matter-labs/zksync-web-era-docs.git",
+  "relative_path": "zksync-web-era-docs/.husky/commit-msg",
+  "short_name": "commit-msg",
+  "timestamp": "10/22/2024",
+  "identifier": "zksync_ArqTrg/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/matter-labs/zksync-web-era-docs.git",
+  "relative_path": "zksync-web-era-docs/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "zksync_ArqTrg/1",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/matter-labs/zksync-web-era-docs.git",
+  "relative_path": "zksync-web-era-docs/cli-dev.sh",
+  "short_name": "cli-dev",
+  "timestamp": "10/22/2024",
+  "identifier": "zksync_ArqTrg/2",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

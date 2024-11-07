@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/mikaelvesavuori/figmagic.git",
+  "relative_path": "figmagic/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "figmagic_NeNPsg/0",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mikaelvesavuori/figmagic.git",
+  "relative_path": "figmagic/generate-keys.sh",
+  "short_name": "generate-keys",
+  "timestamp": "10/22/2024",
+  "identifier": "figmagic_NeNPsg/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ }
+]

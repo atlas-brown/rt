@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/dustin/mc-hammer.git",
+  "relative_path": "mc-hammer/config/autorun.sh",
+  "short_name": "autorun",
+  "timestamp": "10/22/2024",
+  "identifier": "mc_yIJBQv/0",
+  "posix_compliant": true,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

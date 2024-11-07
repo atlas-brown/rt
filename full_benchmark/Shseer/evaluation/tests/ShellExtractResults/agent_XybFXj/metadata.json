@@ -1,0 +1,808 @@
+[
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/docker/ubuntu-18.04/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/docker/alpine/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/1",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/docker/ubuntu-22.04/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/2",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/docker/ubuntu-20.04/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/3",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/docker/alpine-k8s/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/4",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/github/linux/hooks/post-command.sample",
+  "short_name": "post-command.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/5",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/github/linux/hooks/pre-exit.sample",
+  "short_name": "pre-exit.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/6",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/github/linux/hooks/pre-checkout.sample",
+  "short_name": "pre-checkout.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/7",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/github/linux/hooks/pre-artifact.sample",
+  "short_name": "pre-artifact.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/8",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/github/linux/hooks/post-artifact.sample",
+  "short_name": "post-artifact.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/9",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/github/linux/hooks/pre-command.sample",
+  "short_name": "pre-command.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/10",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/github/linux/hooks/command.sample",
+  "short_name": "command.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/11",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/github/linux/hooks/post-checkout.sample",
+  "short_name": "post-checkout.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/12",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/github/linux/hooks/environment.sample",
+  "short_name": "environment.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/13",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/github/linux/hooks/checkout.sample",
+  "short_name": "checkout.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/14",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/scripts/before-remove.sh",
+  "short_name": "before-remove",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/15",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/scripts/before-install.sh",
+  "short_name": "before-install",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/16",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/scripts/after-install-and-upgrade.sh",
+  "short_name": "after-install-and-upgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/17",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/scripts/after-remove.sh",
+  "short_name": "after-remove",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/18",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/scripts/before-upgrade.sh",
+  "short_name": "before-upgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/19",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/lsb/buildkite-agent.sh",
+  "short_name": "buildkite-agent",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/20",
+  "posix_compliant": true,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/21",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/hooks/post-command.sample",
+  "short_name": "post-command.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/22",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/hooks/pre-exit.sample",
+  "short_name": "pre-exit.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/23",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/hooks/pre-checkout.sample",
+  "short_name": "pre-checkout.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/24",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/hooks/pre-artifact.sample",
+  "short_name": "pre-artifact.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/25",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/hooks/post-artifact.sample",
+  "short_name": "post-artifact.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/26",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/hooks/pre-command.sample",
+  "short_name": "pre-command.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/27",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/hooks/command.sample",
+  "short_name": "command.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/28",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/hooks/post-checkout.sample",
+  "short_name": "post-checkout.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/29",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/hooks/environment.sample",
+  "short_name": "environment.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/30",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/packaging/linux/root/usr/share/buildkite-agent/hooks/checkout.sample",
+  "short_name": "checkout.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/31",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/test/fixtures/hook/un-shebanged.sh",
+  "short_name": "un-shebanged",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/32",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/test/fixtures/hook/shebanged.sh",
+  "short_name": "shebanged",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/33",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/34",
+  "posix_compliant": false,
+  "line_count": 166,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/scripts/build-github-release.sh",
+  "short_name": "build-github-release",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/35",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/scripts/ruby-env",
+  "short_name": "ruby-env",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/36",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/scripts/check-upstart-conf.sh",
+  "short_name": "check-upstart-conf",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/37",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/scripts/generate-acknowledgements.sh",
+  "short_name": "generate-acknowledgements",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/38",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/scripts/build-binary.sh",
+  "short_name": "build-binary",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/39",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/scripts/build-rpm-package.sh",
+  "short_name": "build-rpm-package",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/40",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/scripts/publish-debian-package.sh",
+  "short_name": "publish-debian-package",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/41",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/scripts/build-debian-package.sh",
+  "short_name": "build-debian-package",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/42",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/scripts/generate-test-binaries.sh",
+  "short_name": "generate-test-binaries",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/43",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/test-docker-image.sh",
+  "short_name": "test-docker-image",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/44",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/build-docker-image.sh",
+  "short_name": "build-docker-image",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/45",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/upload-release-steps.sh",
+  "short_name": "upload-release-steps",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/46",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/build-github-release.sh",
+  "short_name": "build-github-release",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/47",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/publish-docker-images.sh",
+  "short_name": "publish-docker-images",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/48",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/build-binary.sh",
+  "short_name": "build-binary",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/49",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/extract-agent-version-metadata.sh",
+  "short_name": "extract-agent-version-metadata",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/50",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/tests.sh",
+  "short_name": "tests",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/51",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/publish-docker-image.sh",
+  "short_name": "publish-docker-image",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/52",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/test-bk.sh",
+  "short_name": "test-bk",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/53",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/release-homebrew.sh",
+  "short_name": "release-homebrew",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/54",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/publish-rpm-package.sh",
+  "short_name": "publish-rpm-package",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/55",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/publish-debian-package.sh",
+  "short_name": "publish-debian-package",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/56",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/github-release.sh",
+  "short_name": "github-release",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/57",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/check-version-string.sh",
+  "short_name": "check-version-string",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/58",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/build-debian-packages.sh",
+  "short_name": "build-debian-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/59",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/build-rpm-packages.sh",
+  "short_name": "build-rpm-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/60",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/check-changelog.sh",
+  "short_name": "check-changelog",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/61",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/check-code-committed.sh",
+  "short_name": "check-code-committed",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/62",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/buildkite/agent.git",
+  "relative_path": "agent/.buildkite/steps/publish-to-s3.sh",
+  "short_name": "publish-to-s3",
+  "timestamp": "10/22/2024",
+  "identifier": "agent_XybFXj/63",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

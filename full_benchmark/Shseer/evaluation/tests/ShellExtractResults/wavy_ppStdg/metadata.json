@@ -1,0 +1,37 @@
+[
+ {
+  "repo": "https://github.com/dpizetta/wavy.git",
+  "relative_path": "wavy/scripts/build_dist_egg_wheel_linux.sh",
+  "short_name": "build_dist_egg_wheel_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "wavy_ppStdg/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dpizetta/wavy.git",
+  "relative_path": "wavy/scripts/run_uic_rcc.sh",
+  "short_name": "run_uic_rcc",
+  "timestamp": "10/22/2024",
+  "identifier": "wavy_ppStdg/1",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dpizetta/wavy.git",
+  "relative_path": "wavy/scripts/run_pyinstaller_linux.sh",
+  "short_name": "run_pyinstaller_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "wavy_ppStdg/2",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

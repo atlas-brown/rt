@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/jsx/JSX.git",
+  "relative_path": "JSX/tool/git-hooks-pre-push",
+  "short_name": "git-hooks-pre-push",
+  "timestamp": "10/22/2024",
+  "identifier": "JSX_QZJqdV/0",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

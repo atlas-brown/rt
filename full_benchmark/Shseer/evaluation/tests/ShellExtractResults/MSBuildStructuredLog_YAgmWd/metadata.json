@@ -1,0 +1,27 @@
+[
+ {
+  "repo": "https://github.com/KirillOsenkov/MSBuildStructuredLog.git",
+  "relative_path": "MSBuildStructuredLog/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "MSBuildStructuredLog_YAgmWd/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/KirillOsenkov/MSBuildStructuredLog.git",
+  "relative_path": "MSBuildStructuredLog/PublishNativeAOT.sh",
+  "short_name": "PublishNativeAOT",
+  "timestamp": "10/22/2024",
+  "identifier": "MSBuildStructuredLog_YAgmWd/1",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

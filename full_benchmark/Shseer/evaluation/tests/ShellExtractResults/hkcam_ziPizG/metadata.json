@@ -1,0 +1,24 @@
+[
+ {
+  "repo": "https://github.com/brutella/hkcam.git",
+  "relative_path": "hkcam/ansible/roles/runit/templates/runsvdir-start.j2",
+  "short_name": "runsvdir-start.j2",
+  "timestamp": "10/22/2024",
+  "identifier": "hkcam_ziPizG/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/brutella/hkcam.git",
+  "relative_path": "hkcam/ansible/roles/runit/templates/log-run.j2",
+  "short_name": "log-run.j2",
+  "timestamp": "10/22/2024",
+  "identifier": "hkcam_ziPizG/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ }
+]

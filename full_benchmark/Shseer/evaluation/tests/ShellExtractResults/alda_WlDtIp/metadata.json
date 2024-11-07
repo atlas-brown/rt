@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/alda-lang/alda.git",
+  "relative_path": "alda/scripts/install-fluidr3",
+  "short_name": "install-fluidr3",
+  "timestamp": "10/22/2024",
+  "identifier": "alda_WlDtIp/0",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

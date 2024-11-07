@@ -1,0 +1,29 @@
+[
+ {
+  "repo": "https://github.com/stefan-hoeck/idris2-pack.git",
+  "relative_path": "idris2-pack/restore.sh",
+  "short_name": "restore",
+  "timestamp": "10/22/2024",
+  "identifier": "idris2_pTxYbV/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/stefan-hoeck/idris2-pack.git",
+  "relative_path": "idris2-pack/version.sh",
+  "short_name": "version",
+  "timestamp": "10/22/2024",
+  "identifier": "idris2_pTxYbV/1",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,278 @@
+[
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/prepare_release.sh",
+  "short_name": "prepare_release",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/0",
+  "posix_compliant": true,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/delete-all-rpaths.sh",
+  "short_name": "delete-all-rpaths",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/1",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/tsan/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/2",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/excise_stdlib.sh",
+  "short_name": "excise_stdlib",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/3",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/fixup-rpath.sh",
+  "short_name": "fixup-rpath",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/4",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/5",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/new-stdlib.sh",
+  "short_name": "new-stdlib",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/6",
+  "posix_compliant": true,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/mac/app/renotarize_dmg.sh",
+  "short_name": "renotarize_dmg",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/7",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/mac/app/notarize_check.sh",
+  "short_name": "notarize_check",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/8",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/asan/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/9",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/asan/check.jl",
+  "short_name": "check.jl",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/10",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/fixup-libgfortran.sh",
+  "short_name": "fixup-libgfortran",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/11",
+  "posix_compliant": true,
+  "line_count": 107,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/commit-name.sh",
+  "short_name": "commit-name",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/12",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/download_cmake.sh",
+  "short_name": "download_cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/13",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/contrib/fixup-libstdc++.sh",
+  "short_name": "fixup-libstdc++",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/14",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/deps/tools/jldownload",
+  "short_name": "jldownload",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/15",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/deps/tools/jlchecksum",
+  "short_name": "jlchecksum",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/16",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/base/version_git.sh",
+  "short_name": "version_git",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/17",
+  "posix_compliant": true,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/JuliaLang/julia.git",
+  "relative_path": "julia/src/flisp/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "julia_YYuiyM/18",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ }
+]

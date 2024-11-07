@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# Usage:
+#
+#   source <(curl https://raw.githubusercontent.com/k1LoW/tbls/main/use)
+#
+# Reference:
+#   https://github.com/goreleaser/get
+
+TBLS_GOOS=linux
+TBLS_EXT=tar.gz
+TBLS_ARCH=amd64
+if test $(uname -s) = "Darwin"
+then
+  TBLS_GOOS=darwin
+  TBLS_EXT=zip
+fi
+TBLS_ARCHIVE="/tmp/tbls.${TBLS_EXT}"
+
+TBLS_RELEASES_URL="https://github.com/k1LoW/tbls/releases"
+test -z "${TBLS_TMPDIR:-}" && TBLS_TMPDIR="$(mktemp -d)"
+
+last_version() {
+  curl -sL -o /dev/null -w %{url_effective} "$TBLS_RELEASES_URL/latest" |
+    rev |
+    cut -f1 -d'/'|
+    rev
+}
+
+download() {
+  test -z "${TBLS_VERSION:-}" && TBLS_VERSION="$(last_version)"
+  test -z "${TBLS_VERSION:-}" && {
+    echo "Unable to get tbls version." >&2
+    exit 1
+  }
+  # Skip downloading if the newest file was downloaded before
+  curl `if [ -f "$TBLS_ARCHIVE" ]; then echo -z "$TBLS_ARCHIVE"; fi` \
+    -s -L -o "$TBLS_ARCHIVE" \
+    "${TBLS_RELEASES_URL}/download/${TBLS_VERSION}/tbls_${TBLS_VERSION}_${TBLS_GOOS}_${TBLS_ARCH}.${TBLS_EXT}"
+}
+
+download
+if test ${TBLS_EXT} = "tar.gz"
+then
+  tar -xf "$TBLS_ARCHIVE" -C "$TBLS_TMPDIR"
+elif test ${TBLS_EXT} = "zip"
+then
+  unzip -qo "$TBLS_ARCHIVE" -d "$TBLS_TMPDIR"
+fi
+export PATH=${TBLS_TMPDIR}:$PATH
+printf '\e[36mYou can use `tbls` command in this session.\e[m\n'

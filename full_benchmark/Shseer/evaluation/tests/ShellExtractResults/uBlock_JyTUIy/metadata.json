@@ -1,0 +1,193 @@
+[
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-firefox.sh",
+  "short_name": "make-firefox",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/0",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-dig.sh",
+  "short_name": "make-dig",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/1",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-assets.sh",
+  "short_name": "make-assets",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/2",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-clean.sh",
+  "short_name": "make-clean",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/3",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/copy-common-files.sh",
+  "short_name": "copy-common-files",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/4",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-npm.sh",
+  "short_name": "make-npm",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/5",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-nodejs.sh",
+  "short_name": "make-nodejs",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/6",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-opera.sh",
+  "short_name": "make-opera",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/7",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/pull-assets.sh",
+  "short_name": "pull-assets",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/8",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-mv3.sh",
+  "short_name": "make-mv3",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/9",
+  "posix_compliant": false,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/import-crowdin.sh",
+  "short_name": "import-crowdin",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/10",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-chromium.sh",
+  "short_name": "make-chromium",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/11",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-thunderbird.sh",
+  "short_name": "make-thunderbird",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/12",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gorhill/uBlock.git",
+  "relative_path": "uBlock/tools/make-browser.sh",
+  "short_name": "make-browser",
+  "timestamp": "10/22/2024",
+  "identifier": "uBlock_JyTUIy/13",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

@@ -1,0 +1,709 @@
+[
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/s2/source_cacti.sh",
+  "short_name": "source_cacti",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/0",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/s2/.svn/text-base/source_cacti.sh.svn-base",
+  "short_name": "source_cacti.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/1",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/s2/.svn/text-base/debug.sh.svn-base",
+  "short_name": "debug.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/2",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/s2/.svn/text-base/build.sh.svn-base",
+  "short_name": "build.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/3",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/s2/.svn/text-base/acinit.sh.svn-base",
+  "short_name": "acinit.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/4",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/s2/.svn/text-base/source_stats.sh.svn-base",
+  "short_name": "source_stats.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/5",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/s2/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/6",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/s2/acinit.sh",
+  "short_name": "acinit",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/7",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/s2/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/8",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/s2/source_stats.sh",
+  "short_name": "source_stats",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/9",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/boxocide [11-20-04]/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/10",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/boxocide [11-20-04]/acinit.sh",
+  "short_name": "acinit",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/11",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/boxocide [11-20-04]/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/12",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney/source_cacti.sh",
+  "short_name": "source_cacti",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/13",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/14",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney/acinit.sh",
+  "short_name": "acinit",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/15",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/16",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney/source_stats.sh",
+  "short_name": "source_stats",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/17",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/beispiel/EOF_0x01/EOF_0x01/contents/binsrc/SkyOut/FlvRip/flvrip.sh",
+  "short_name": "flvrip",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/18",
+  "posix_compliant": true,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot-SkYKr3w/phatbot-SkYKr3w/phatbot-SkYKr3w/.svn/text-base/debug.sh.svn-base",
+  "short_name": "debug.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/19",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot-SkYKr3w/phatbot-SkYKr3w/phatbot-SkYKr3w/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/20",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney1/source_cacti.sh",
+  "short_name": "source_cacti",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/21",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney1/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/22",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney1/acinit.sh",
+  "short_name": "acinit",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/23",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney1/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/24",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney1/source_stats.sh",
+  "short_name": "source_stats",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/25",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney14/source_cacti.sh",
+  "short_name": "source_cacti",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/26",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney14/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/27",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney14/acinit.sh",
+  "short_name": "acinit",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/28",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney14/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/29",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-stoney14/source_stats.sh",
+  "short_name": "source_stats",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/30",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/yP1.02src/yP/ZIPLIB/asmsrc/enter.sh",
+  "short_name": "enter",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/31",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/yP1.02src/yP/ZIPLIB/asmsrc/lzo1x_d.sh",
+  "short_name": "lzo1x_d",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/32",
+  "posix_compliant": false,
+  "line_count": 283,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/yP1.02src/yP/ZIPLIB/asmsrc/leave.sh",
+  "short_name": "leave",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/33",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_ghetto.v.0.55/source_cacti.sh",
+  "short_name": "source_cacti",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/34",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_ghetto.v.0.55/.svn/text-base/source_cacti.sh.svn-base",
+  "short_name": "source_cacti.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/35",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_ghetto.v.0.55/.svn/text-base/debug.sh.svn-base",
+  "short_name": "debug.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/36",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_ghetto.v.0.55/.svn/text-base/build.sh.svn-base",
+  "short_name": "build.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/37",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_ghetto.v.0.55/.svn/text-base/acinit.sh.svn-base",
+  "short_name": "acinit.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/38",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_ghetto.v.0.55/.svn/text-base/source_stats.sh.svn-base",
+  "short_name": "source_stats.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/39",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_ghetto.v.0.55/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/40",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_ghetto.v.0.55/acinit.sh",
+  "short_name": "acinit",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/41",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_ghetto.v.0.55/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/42",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_ghetto.v.0.55/source_stats.sh",
+  "short_name": "source_stats",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/43",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/ago4/.svn/text-base/debug.sh.svn-base",
+  "short_name": "debug.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/44",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/ago4/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/45",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-gh3tt0Bot/source_cacti.sh",
+  "short_name": "source_cacti",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/46",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-gh3tt0Bot/.svn/text-base/source_cacti.sh.svn-base",
+  "short_name": "source_cacti.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/47",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-gh3tt0Bot/.svn/text-base/debug.sh.svn-base",
+  "short_name": "debug.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/48",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-gh3tt0Bot/.svn/text-base/build.sh.svn-base",
+  "short_name": "build.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/49",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-gh3tt0Bot/.svn/text-base/acinit.sh.svn-base",
+  "short_name": "acinit.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/50",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-gh3tt0Bot/.svn/text-base/source_stats.sh.svn-base",
+  "short_name": "source_stats.svn-base",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/51",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-gh3tt0Bot/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/52",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-gh3tt0Bot/acinit.sh",
+  "short_name": "acinit",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/53",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-gh3tt0Bot/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/54",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/Phatbot-gh3tt0Bot/source_stats.sh",
+  "short_name": "source_stats",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/55",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_fixed_rls/source_cacti.sh",
+  "short_name": "source_cacti",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/56",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_fixed_rls/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/57",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_fixed_rls/acinit.sh",
+  "short_name": "acinit",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/58",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_fixed_rls/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/59",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/maestron/botnets.git",
+  "relative_path": "botnets/VirusPack/phatbot_fixed_rls/source_stats.sh",
+  "short_name": "source_stats",
+  "timestamp": "10/22/2024",
+  "identifier": "botnets_TdQdNS/60",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

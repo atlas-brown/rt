@@ -1,0 +1,190 @@
+[
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/cmd/helm/testdata/helmhome/helm/plugins/fullenv/fullenv.sh",
+  "short_name": "fullenv",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/0",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/cmd/helm/testdata/helmhome/helm/plugins/exitwith/exitwith.sh",
+  "short_name": "exitwith",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/cmd/helm/testdata/helmhome/helm/plugins/args/args.sh",
+  "short_name": "args",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/2",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/cmd/helm/testdata/helm home with space/helm/plugins/fullenv/fullenv.sh",
+  "short_name": "fullenv",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/3",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/testdata/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/4",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/scripts/release-notes.sh",
+  "short_name": "release-notes",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/5",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/scripts/sync-repo.sh",
+  "short_name": "sync-repo",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/6",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/scripts/validate-license.sh",
+  "short_name": "validate-license",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/7",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/scripts/util.sh",
+  "short_name": "util",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/8",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/scripts/coverage.sh",
+  "short_name": "coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/9",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/pkg/chartutil/testdata/genfrob.sh",
+  "short_name": "genfrob",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/10",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/pkg/getter/testdata/plugins/testgetter/get.sh",
+  "short_name": "get",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/11",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/pkg/getter/testdata/plugins/testgetter2/get.sh",
+  "short_name": "get",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/12",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/pkg/chart/loader/testdata/genfrob.sh",
+  "short_name": "genfrob",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/13",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/pkg/plugin/testdata/plugdir/good/hello/hello.sh",
+  "short_name": "hello",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/14",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/helm/helm.git",
+  "relative_path": "helm/pkg/provenance/testdata/regen-hashtest.sh",
+  "short_name": "regen-hashtest",
+  "timestamp": "10/22/2024",
+  "identifier": "helm_wbGQRq/15",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ }
+]

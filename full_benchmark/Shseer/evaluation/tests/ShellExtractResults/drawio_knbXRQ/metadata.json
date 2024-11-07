@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/jgraph/drawio-desktop.git",
+  "relative_path": "drawio-desktop/build/create_macos_icon.sh",
+  "short_name": "create_macos_icon",
+  "timestamp": "10/22/2024",
+  "identifier": "drawio_knbXRQ/0",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

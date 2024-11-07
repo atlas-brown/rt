@@ -1,0 +1,31 @@
+[
+ {
+  "repo": "https://github.com/mybatis/spring-boot-starter.git",
+  "relative_path": "spring-boot-starter/mybatis-spring-boot-samples/run_fatjars.sh",
+  "short_name": "run_fatjars",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_IgHALv/0",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mybatis/spring-boot-starter.git",
+  "relative_path": "spring-boot-starter/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_IgHALv/1",
+  "posix_compliant": true,
+  "line_count": 238,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

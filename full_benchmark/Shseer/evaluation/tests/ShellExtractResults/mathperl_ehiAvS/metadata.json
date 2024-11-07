@@ -1,0 +1,63 @@
+[
+ {
+  "repo": "https://github.com/wbraswell/mathperl.git",
+  "relative_path": "mathperl/rperl_gcc_seidel.sh",
+  "short_name": "rperl_gcc_seidel",
+  "timestamp": "10/22/2024",
+  "identifier": "mathperl_ehiAvS/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/wbraswell/mathperl.git",
+  "relative_path": "mathperl/script/demo/unlink_pi_digits.sh",
+  "short_name": "unlink_pi_digits",
+  "timestamp": "10/22/2024",
+  "identifier": "mathperl_ehiAvS/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/wbraswell/mathperl.git",
+  "relative_path": "mathperl/script/development/vector_all_enable.sh",
+  "short_name": "vector_all_enable",
+  "timestamp": "10/22/2024",
+  "identifier": "mathperl_ehiAvS/2",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/wbraswell/mathperl.git",
+  "relative_path": "mathperl/script/development/vector_all_disable.sh",
+  "short_name": "vector_all_disable",
+  "timestamp": "10/22/2024",
+  "identifier": "mathperl_ehiAvS/3",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/wbraswell/mathperl.git",
+  "relative_path": "mathperl/rperl_polycc_openmp_gcc_seidel.sh",
+  "short_name": "rperl_polycc_openmp_gcc_seidel",
+  "timestamp": "10/22/2024",
+  "identifier": "mathperl_ehiAvS/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

@@ -1,0 +1,29 @@
+[
+ {
+  "repo": "https://github.com/supabase/supabase.git",
+  "relative_path": "supabase/examples/user-management/swift-user-management/scripts/dotenv.sh",
+  "short_name": "dotenv",
+  "timestamp": "10/22/2024",
+  "identifier": "supabase_tNShKc/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/supabase/supabase.git",
+  "relative_path": "supabase/apps/studio/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "supabase_tNShKc/1",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

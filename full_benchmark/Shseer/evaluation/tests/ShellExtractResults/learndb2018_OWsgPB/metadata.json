@@ -1,0 +1,115 @@
+[
+ {
+  "repo": "https://github.com/neodon/learndb2018.git",
+  "relative_path": "learndb2018/scripts/delete",
+  "short_name": "delete",
+  "timestamp": "10/22/2024",
+  "identifier": "learndb2018_OWsgPB/0",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/neodon/learndb2018.git",
+  "relative_path": "learndb2018/scripts/fe",
+  "short_name": "fe",
+  "timestamp": "10/22/2024",
+  "identifier": "learndb2018_OWsgPB/1",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/neodon/learndb2018.git",
+  "relative_path": "learndb2018/scripts/assign",
+  "short_name": "assign",
+  "timestamp": "10/22/2024",
+  "identifier": "learndb2018_OWsgPB/2",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/neodon/learndb2018.git",
+  "relative_path": "learndb2018/scripts/rename",
+  "short_name": "rename",
+  "timestamp": "10/22/2024",
+  "identifier": "learndb2018_OWsgPB/3",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/neodon/learndb2018.git",
+  "relative_path": "learndb2018/scripts/branches",
+  "short_name": "branches",
+  "timestamp": "10/22/2024",
+  "identifier": "learndb2018_OWsgPB/4",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/neodon/learndb2018.git",
+  "relative_path": "learndb2018/scripts/export",
+  "short_name": "export",
+  "timestamp": "10/22/2024",
+  "identifier": "learndb2018_OWsgPB/5",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/neodon/learndb2018.git",
+  "relative_path": "learndb2018/scripts/force",
+  "short_name": "force",
+  "timestamp": "10/22/2024",
+  "identifier": "learndb2018_OWsgPB/6",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/neodon/learndb2018.git",
+  "relative_path": "learndb2018/scripts/rebase",
+  "short_name": "rebase",
+  "timestamp": "10/22/2024",
+  "identifier": "learndb2018_OWsgPB/7",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ }
+]

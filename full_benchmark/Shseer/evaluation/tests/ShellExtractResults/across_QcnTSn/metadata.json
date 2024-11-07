@@ -1,0 +1,489 @@
+[
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/kms",
+  "short_name": "kms",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/0",
+  "posix_compliant": false,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/bench.sh",
+  "short_name": "bench",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/1",
+  "posix_compliant": false,
+  "line_count": 394,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/ftp_upload.sh",
+  "short_name": "ftp_upload",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/2",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/v2ray/v2ray.sh",
+  "short_name": "v2ray",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/3",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/v2ray/build_v2ray.sh",
+  "short_name": "build_v2ray",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/4",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/hysteria/hysteria.sh",
+  "short_name": "hysteria",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/5",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/hysteria/build_hysteria.sh",
+  "short_name": "build_hysteria",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/6",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/brook/brook.sh",
+  "short_name": "brook",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/7",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/brook/build_brook.sh",
+  "short_name": "build_brook",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/8",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/l2tp/l2tp.sh",
+  "short_name": "l2tp",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/9",
+  "posix_compliant": true,
+  "line_count": 207,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/l2tp/ipsec",
+  "short_name": "ipsec",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/10",
+  "posix_compliant": true,
+  "line_count": 213,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/l2tp/l2tpctl.sh",
+  "short_name": "l2tpctl",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/11",
+  "posix_compliant": true,
+  "line_count": 119,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/caddy/caddy.sh",
+  "short_name": "caddy",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/12",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/caddy/build_caddy_forwardproxy_v1.sh",
+  "short_name": "build_caddy_forwardproxy_v1",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/13",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/trojan-go/build_trojan-go.sh",
+  "short_name": "build_trojan-go",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/14",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/trojan-go/trojan-go.sh",
+  "short_name": "trojan-go",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/15",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/trojan-go/build_trojan-go-dev.sh",
+  "short_name": "build_trojan-go-dev",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/16",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/trojan-go/build_trojan-go-fork.sh",
+  "short_name": "build_trojan-go-fork",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/17",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/xray/xray.sh",
+  "short_name": "xray",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/18",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/docker/xray/build_xray.sh",
+  "short_name": "build_xray",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/19",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/bbr.sh",
+  "short_name": "bbr",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/20",
+  "posix_compliant": false,
+  "line_count": 325,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/kms-debian",
+  "short_name": "kms-debian",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/21",
+  "posix_compliant": false,
+  "line_count": 85,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/kms.sh",
+  "short_name": "kms",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/22",
+  "posix_compliant": false,
+  "line_count": 195,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/unixbench.sh",
+  "short_name": "unixbench",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/23",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/l2tp.sh",
+  "short_name": "l2tp",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/24",
+  "posix_compliant": false,
+  "line_count": 704,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/backup.sh",
+  "short_name": "backup",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/25",
+  "posix_compliant": false,
+  "line_count": 249,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/InstallNET.sh",
+  "short_name": "InstallNET",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/26",
+  "posix_compliant": false,
+  "line_count": 718,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/wireguard.sh",
+  "short_name": "wireguard",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/27",
+  "posix_compliant": false,
+  "line_count": 830,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/deb/xray-plugin/checkout.sh",
+  "short_name": "checkout",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/28",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/deb/xray/checkout.sh",
+  "short_name": "checkout",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/29",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/teddysun/across.git",
+  "relative_path": "across/pptp.sh",
+  "short_name": "pptp",
+  "timestamp": "10/22/2024",
+  "identifier": "across_QcnTSn/30",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

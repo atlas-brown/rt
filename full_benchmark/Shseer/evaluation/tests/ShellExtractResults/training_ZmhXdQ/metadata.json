@@ -1,0 +1,48 @@
+[
+ {
+  "repo": "https://github.com/github/training-kit.git",
+  "relative_path": "training-kit/script/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "training_ZmhXdQ/0",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/training-kit.git",
+  "relative_path": "training-kit/script/server",
+  "short_name": "server",
+  "timestamp": "10/22/2024",
+  "identifier": "training_ZmhXdQ/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/github/training-kit.git",
+  "relative_path": "training-kit/script/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "training_ZmhXdQ/2",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/github/training-kit.git",
+  "relative_path": "training-kit/script/package",
+  "short_name": "package",
+  "timestamp": "10/22/2024",
+  "identifier": "training_ZmhXdQ/3",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ }
+]

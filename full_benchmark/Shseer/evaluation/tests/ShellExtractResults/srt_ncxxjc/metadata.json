@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/opsdisk/srt_fw.git",
+  "relative_path": "srt_fw/srt_fw.sh",
+  "short_name": "srt_fw",
+  "timestamp": "10/22/2024",
+  "identifier": "srt_ncxxjc/0",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

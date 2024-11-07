@@ -1,0 +1,412 @@
+[
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.language.javascript.eslint/packager/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.language.javascript.tern/util/condense.sh",
+  "short_name": "condense",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/1",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/node_modules/ace/demo/kitchen-sink/docs/sh.sh",
+  "short_name": "sh",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/2",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/node_modules/ace/tool/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/3",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.fs/mock/test_broken.sh",
+  "short_name": "test_broken",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/4",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.fs/mock/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/5",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.plugins/templates/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/6",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.terminal/install-tmux.sh",
+  "short_name": "install-tmux",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/7",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.installer/install/node.sh",
+  "short_name": "node",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/8",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.installer/install/check-deps.sh",
+  "short_name": "check-deps",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/9",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.installer/install/tmux.sh",
+  "short_name": "tmux",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/10",
+  "posix_compliant": false,
+  "line_count": 103,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.installer/commands/tar.gz.sh",
+  "short_name": "tar.gz",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/11",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.installer/commands/zip.sh",
+  "short_name": "zip",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/12",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.installer/commands/darwin.sh",
+  "short_name": "darwin",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/13",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.language.javascript.infer/test/run_all.sh",
+  "short_name": "run_all",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/14",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.scm/mock/.init.sh",
+  "short_name": ".init",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/15",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.language.codeintel/server/launch_command.sh",
+  "short_name": "launch_command",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/16",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.language.codeintel/server/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/17",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/plugins/c9.ide.language.python/server/launch_command.sh",
+  "short_name": "launch_command",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/18",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/user-plugins/scripts/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/19",
+  "posix_compliant": false,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/node_modules/smith/test-all.sh",
+  "short_name": "test-all",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/20",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/scripts/makelocal.sh",
+  "short_name": "makelocal",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/21",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/scripts/create-cert.sh",
+  "short_name": "create-cert",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/22",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/scripts/makestandalone.sh",
+  "short_name": "makestandalone",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/23",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/scripts/install-sdk.sh",
+  "short_name": "install-sdk",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/24",
+  "posix_compliant": false,
+  "line_count": 91,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/scripts/setup-local-dev.sh",
+  "short_name": "setup-local-dev",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/25",
+  "posix_compliant": false,
+  "line_count": 130,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/scripts/uninstall-c9.sh",
+  "short_name": "uninstall-c9",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/26",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/scripts/update-npm.sh",
+  "short_name": "update-npm",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/27",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/build/build-standalone.sh",
+  "short_name": "build-standalone",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/28",
+  "posix_compliant": false,
+  "line_count": 113,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/c9/core.git",
+  "relative_path": "core/build/build-local.sh",
+  "short_name": "build-local",
+  "timestamp": "10/22/2024",
+  "identifier": "core_KodQxT/29",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

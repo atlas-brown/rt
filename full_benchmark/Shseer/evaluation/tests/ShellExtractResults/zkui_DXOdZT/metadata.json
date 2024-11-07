@@ -1,0 +1,41 @@
+[
+ {
+  "repo": "https://github.com/DeemOpen/zkui.git",
+  "relative_path": "zkui/docker/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "zkui_DXOdZT/0",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/DeemOpen/zkui.git",
+  "relative_path": "zkui/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "zkui_DXOdZT/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/DeemOpen/zkui.git",
+  "relative_path": "zkui/zkui.sh",
+  "short_name": "zkui",
+  "timestamp": "10/22/2024",
+  "identifier": "zkui_DXOdZT/2",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

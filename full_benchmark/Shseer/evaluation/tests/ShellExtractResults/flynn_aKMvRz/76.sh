@@ -1,0 +1,252 @@
+#!/bin/bash
+#
+# A script to do a nightly release of Flynn.
+#
+# PREREQUISITES:
+#
+# - A recent version of jq (which has the --exit-status flag)
+#   sudo curl -sLo /usr/local/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
+#   sudo chmod +x /usr/local/bin/jq
+
+set -eo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+source "${ROOT}/script/lib/ui.sh"
+source "${ROOT}/script/lib/aws.sh"
+source "${ROOT}/script/lib/release.sh"
+source "${ROOT}/script/lib/tuf.sh"
+
+usage() {
+  cat <<USAGE >&2
+usage: $0 [options]
+
+OPTIONS:
+  -h, --help              Show this message
+  -c, --commit COMMIT     The git commit to build (takes precedence over the --branch flag)
+  -b, --branch BRANCH     The git branch to build [default: master]
+  -v, --version VERSION   Version to use [default: vYYYYMMDD.N]
+  -b, --bucket BUCKET     The S3 bucket to upload packages to [default: flynn]
+  -d, --domain DOMAIN     The CloudFront domain [default: dl.flynn.io]
+  -t, --tuf-dir DIR       Path to the local TUF repository [default: /etc/flynn/tuf]
+  --force                 Force the release even if the commit has already been released
+  --nightly               Force release to the nightly channel
+  --resume DIR            Resume the release using DIR
+
+Requires AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and GITHUB_TOKEN to be set.
+USAGE
+}
+
+main() {
+  local commit=""
+  local branch="master"
+  local version=""
+  local bucket="flynn"
+  local domain="dl.flynn.io"
+  local tuf_dir="/etc/flynn/tuf"
+  local nightly=false
+  local force=false
+  local dir=""
+
+  while true; do
+    case "$1" in
+      -h | --help)
+        usage
+        exit 0
+        ;;
+      -c | --commit)
+        if [[ -z "$2" ]]; then
+          fail "$1 requires an argument"
+        fi
+        commit="$2"
+        shift 2
+        ;;
+      -b | --branch)
+        if [[ -z "$2" ]]; then
+          fail "$1 requires an argument"
+        fi
+        branch="$2"
+        shift 2
+        ;;
+      -v | --version)
+        if [[ -z "$2" ]]; then
+          fail "$1 requires an argument"
+        fi
+        version="$2"
+        shift 2
+        ;;
+      -k | --bucket)
+        if [[ -z "$2" ]]; then
+          fail "$1 requires an argument"
+        fi
+        bucket="$2"
+        shift 2
+        ;;
+      -d | --domain)
+        if [[ -z "$2" ]]; then
+          fail "$1 requires an argument"
+        fi
+        domain="$2"
+        shift 2
+        ;;
+      -t | --tuf-dir)
+        if [[ -z "$2" ]]; then
+          fail "$1 requires an argument"
+        elif [[ ! -d "$2" ]]; then
+          fail "No such directory: $2"
+        fi
+        tuf_dir="$2"
+        shift 2
+        ;;
+      --resume)
+        if [[ -z "$2" ]]; then
+          fail "$1 requires an argument"
+        elif [[ ! -d "$2" ]]; then
+          fail "No such directory: $2"
+        fi
+        dir="$2"
+        shift 2
+        ;;
+      --nightly)
+        nightly=true
+        shift 1
+        ;;
+      --force)
+        force=true
+        shift 1
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  if [[ $# -ne 0 ]]; then
+    usage
+    exit 1
+  fi
+
+  if [[ -z "${commit}" ]] && [[ "${branch}" = "master" ]]; then
+    nightly=true
+  fi
+
+  check_aws_keys
+  check_github_token
+
+  dir="${dir:-$(mktemp --directory)}"
+
+  if [[ -z "${commit}" ]]; then
+    info "determining commit of ${branch} branch"
+    commit="$(curl --fail --silent "https://api.github.com/repos/flynn/flynn/git/refs/heads/${branch}" | jq --raw-output .object.sha)"
+    if [[ -z "${commit}" ]]; then
+      fail "could not determine commit"
+    fi
+    info "using commit ${commit}"
+  fi
+
+  info "checking script is from commit being released"
+  local src_commit="$(git rev-parse HEAD)"
+  if [[ "${src_commit}" != "${commit}" ]]; then
+    info "re-executing using scripts from commit ${commit}"
+
+    export GOPATH="$(mktemp --directory)"
+    trap "rm -rf ${GOPATH}" EXIT
+    local src="${GOPATH}/src/github.com/flynn/flynn"
+
+    info "cloning Flynn source"
+    git clone --quiet https://github.com/flynn/flynn "${src}"
+    cd "${src}"
+    git checkout --force --quiet "${commit}"
+    info "building flynn-release binary"
+    go build -o util/release/flynn-release ./util/release
+
+    local args=(
+      "--commit"  "${commit}"
+      "--bucket"  "${bucket}"
+      "--domain"  "${domain}"
+      "--tuf-dir" "${tuf_dir}"
+      "--resume"  "${dir}"
+    )
+    if [[ -n "${version}" ]]; then
+      args+=("--version" "${version}")
+    fi
+    if $nightly; then
+      args+=("--nightly")
+    fi
+    if $force; then
+      args+=("--force")
+    fi
+    exec "${src}/script/release-flynn" ${args[@]}
+  fi
+
+  if [[ -n "${version}" ]]; then
+    info "verifying that version ${version} does not already exist"
+    if release_exists "${tuf_dir}" "${version}"; then
+      fail "version ${version} already exists"
+    fi
+  fi
+
+  git fetch --tags
+  local tag="$(git tag --points-at "${commit}")"
+  if [[ -n "${tag}" ]] && ! $force; then
+    info "commit ${commit} already released as ${tag}, nothing to do"
+    exit
+  fi
+
+  info "starting release of commit ${commit}"
+
+  if [[ -z "${version}" ]]; then
+    info "getting previous release tag"
+    local previous=$(git tag --list "v*" --sort "v:refname" | tail -n 1)
+
+    info "determining version"
+    version="$(next_release_version ${previous})"
+  fi
+  info "using version ${version}"
+
+  info "tagging release"
+  tag_release "${commit}" "${version}"
+
+  local flags=(
+    "--bucket"  "${bucket}"
+    "--tuf-dir" "${tuf_dir}"
+    "--resume"  "${dir}"
+    "--keep"
+  )
+  if $nightly; then
+    flags+=("--channel" "nightly")
+  fi
+  info "releasing components"
+  "${ROOT}/script/release-components" ${flags[@]} "${commit}" "${version}"
+
+  info "successfully released Flynn version ${version}"
+
+  info "removing locally built files"
+  sudo rm -rf "${dir}"
+
+  info "done!"
+}
+
+check_github_token() {
+  if [[ -z "${GITHUB_TOKEN}" ]]; then
+    fail "GITHUB_TOKEN must be set"
+  fi
+}
+
+# tag_release tags a release by posting to the following Github API endpoint:
+# https://developer.github.com/v3/git/refs/#create-a-reference
+tag_release() {
+  local commit=$1
+  local version=$2
+
+  curl \
+    --fail \
+    --header "Content-Type: application/json" \
+    --header "Authorization: token ${GITHUB_TOKEN}" \
+    --data "{\"ref\":\"refs/tags/${version}\",\"sha\":\"${commit}\"}" \
+    "https://api.github.com/repos/flynn/flynn/git/refs"
+
+  # create the tag locally
+  git tag --force "${version}" "${commit}"
+}
+
+main $@

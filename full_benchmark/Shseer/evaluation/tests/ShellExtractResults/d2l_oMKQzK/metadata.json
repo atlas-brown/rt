@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/dsgiitr/d2l-pytorch.git",
+  "relative_path": "d2l-pytorch/img/convert.sh",
+  "short_name": "convert",
+  "timestamp": "10/22/2024",
+  "identifier": "d2l_oMKQzK/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ }
+]

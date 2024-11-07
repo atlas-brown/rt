@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/Cosmo/Clippy.git",
+  "relative_path": "Clippy/agent-convert.sh",
+  "short_name": "agent-convert",
+  "timestamp": "10/22/2024",
+  "identifier": "Clippy_Xjqrtr/0",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

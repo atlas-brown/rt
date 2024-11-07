@@ -1,0 +1,38 @@
+[
+ {
+  "repo": "https://github.com/CIDARLAB/cello.git",
+  "relative_path": "cello/resources/library/install_local_jars.sh",
+  "short_name": "install_local_jars",
+  "timestamp": "10/22/2024",
+  "identifier": "cello_WvtuBe/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CIDARLAB/cello.git",
+  "relative_path": "cello/resources/library/install_local_jars_linux.sh",
+  "short_name": "install_local_jars_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "cello_WvtuBe/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CIDARLAB/cello.git",
+  "relative_path": "cello/resources/scripts/multiplot.sh",
+  "short_name": "multiplot",
+  "timestamp": "10/22/2024",
+  "identifier": "cello_WvtuBe/2",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

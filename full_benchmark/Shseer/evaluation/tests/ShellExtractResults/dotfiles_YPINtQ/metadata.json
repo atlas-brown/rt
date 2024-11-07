@@ -1,0 +1,204 @@
+[
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/install/homebrew.sh",
+  "short_name": "homebrew",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/0",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/docker",
+  "short_name": "docker",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/osx",
+  "short_name": "osx",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/2",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/fn-sshec2",
+  "short_name": "fn-sshec2",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/3",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/composer",
+  "short_name": "composer",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/4",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/homebrew",
+  "short_name": "homebrew",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/5",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/nvm",
+  "short_name": "nvm",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/6",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/env",
+  "short_name": "env",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/7",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/android",
+  "short_name": "android",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/8",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/fn-resize",
+  "short_name": "fn-resize",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/9",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/subl",
+  "short_name": "subl",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/10",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/virtualenv",
+  "short_name": "virtualenv",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/11",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/helpers",
+  "short_name": "helpers",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/12",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/npm",
+  "short_name": "npm",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/13",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/fn-extract",
+  "short_name": "fn-extract",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/14",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/ruby",
+  "short_name": "ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/15",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/yeojz/dotfiles.git",
+  "relative_path": "dotfiles/config/git",
+  "short_name": "git",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_YPINtQ/16",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,92 @@
+#!/bin/bash
+#
+# A script to export Flynn components to a TUF repository.
+#
+# PREREQUISITES:
+#
+# - Set the TUF passphrases
+#   export TUF_TARGETS_PASSPHRASE=xxxxxx
+#   export TUF_SNAPSHOT_PASSPHRASE=xxxxxx
+#   export TUF_TIMESTAMP_PASSPHRASE=xxxxxx
+
+set -eo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+source "${ROOT}/script/lib/ui.sh"
+
+usage() {
+  cat <<USAGE >&2
+usage: $0 [options] TUF_DIR
+
+Export Flynn binaries, manifests & images to a TUF repository.
+
+OPTIONS:
+  -h, --help      Show this message
+  --host=HOST     Host to run the export on
+USAGE
+}
+
+main() {
+  local host=""
+
+  while true; do
+    case "$1" in
+      -h | --help)
+        usage
+        exit 0
+        ;;
+      --host)
+        if [[ -z "$2" ]]; then
+          fail "--host flag requires an argument"
+        fi
+        host="$2"
+        shift 2
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  if [[ $# -ne 1 ]]; then
+    usage
+    exit 1
+  fi
+
+  local tuf_dir=$1
+  if [[ ! -d "${tuf_dir}" ]]; then
+    fail "No such directory: ${tuf_dir}"
+  fi
+
+  for role in TARGETS SNAPSHOT TIMESTAMP; do
+    eval local val="\${TUF_${role}_PASSPHRASE}"
+    if [[ -z "${val}" ]]; then
+      fail "missing TUF_${role}_PASSPHRASE"
+    fi
+  done
+
+  info "running flynn-builder export"
+  export DISCOVERD="${DISCOVERD:-"1.localflynn.com:1111"}"
+  "${ROOT}/build/bin/flynn-host" run \
+    --host    "${host}" \
+    --bind    "${ROOT}:${ROOT},${tuf_dir}:${tuf_dir},/var/lib/flynn/layer-cache:/var/lib/flynn/layer-cache" \
+    --limits  "memory=2G,temp_disk=1G" \
+    --workdir "${ROOT}" \
+    "${ROOT}/build/image/builder.json" \
+    /usr/bin/env \
+    TUF_TARGETS_PASSPHRASE="${TUF_TARGETS_PASSPHRASE}" \
+    TUF_SNAPSHOT_PASSPHRASE="${TUF_SNAPSHOT_PASSPHRASE}" \
+    TUF_TIMESTAMP_PASSPHRASE="${TUF_TIMESTAMP_PASSPHRASE}" \
+    /bin/flynn-builder export "${tuf_dir}"
+
+  sudo chown -R "$(id --user):$(id --group)" "${tuf_dir}"
+
+  info "compiling install-script"
+  local flynn_host_sha="$(jq --raw-output '.signed.targets["/flynn-host.gz"].hashes["sha512"]' "${tuf_dir}/repository/targets.json")"
+  if [[ -z "${flynn_host_sha}" ]]; then
+    fail "unable to determine flynn-host sha"
+  fi
+  sed "s|{{FLYNN-HOST-CHECKSUM}}|${flynn_host_sha}|g" "${ROOT}/script/install-flynn.tmpl" > "${ROOT}/script/install-flynn"
+}
+
+main $@

@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/gimli-rs/gimli.git",
+  "relative_path": "gimli/releases/friends.sh",
+  "short_name": "friends",
+  "timestamp": "10/22/2024",
+  "identifier": "gimli_cLeExP/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

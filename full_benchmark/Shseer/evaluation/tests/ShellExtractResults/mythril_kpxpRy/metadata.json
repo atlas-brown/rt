@@ -1,0 +1,84 @@
+[
+ {
+  "repo": "https://github.com/Consensys/mythril.git",
+  "relative_path": "mythril/docker/sync-svm-solc-versions-with-solcx.sh",
+  "short_name": "sync-svm-solc-versions-with-solcx",
+  "timestamp": "10/22/2024",
+  "identifier": "mythril_kpxpRy/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Consensys/mythril.git",
+  "relative_path": "mythril/docker/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "mythril_kpxpRy/1",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Consensys/mythril.git",
+  "relative_path": "mythril/all_tests.sh",
+  "short_name": "all_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "mythril_kpxpRy/2",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Consensys/mythril.git",
+  "relative_path": "mythril/tests/pre-commit-hooks/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "mythril_kpxpRy/3",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Consensys/mythril.git",
+  "relative_path": "mythril/coverage_report.sh",
+  "short_name": "coverage_report",
+  "timestamp": "10/22/2024",
+  "identifier": "mythril_kpxpRy/4",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Consensys/mythril.git",
+  "relative_path": "mythril/docker_build_and_deploy.sh",
+  "short_name": "docker_build_and_deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "mythril_kpxpRy/5",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

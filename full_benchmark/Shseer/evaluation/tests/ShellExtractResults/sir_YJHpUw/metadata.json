@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/madebymany/sir-trevor-js.git",
+  "relative_path": "sir-trevor-js/used_underscore_functions.sh",
+  "short_name": "used_underscore_functions",
+  "timestamp": "10/22/2024",
+  "identifier": "sir_YJHpUw/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/madebymany/sir-trevor-js.git",
+  "relative_path": "sir-trevor-js/release",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "sir_YJHpUw/1",
+  "posix_compliant": false,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

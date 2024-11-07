@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/RasaHQ/rasa_core.git",
+  "relative_path": "rasa_core/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "rasa_KnJMpH/0",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

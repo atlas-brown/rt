@@ -1,0 +1,1374 @@
+[
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/packaging/docker/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/0",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/packaging/docker/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/1",
+  "posix_compliant": true,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/packaging/docker/push_to_docker_hub.sh",
+  "short_name": "push_to_docker_hub",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/2",
+  "posix_compliant": true,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/packaging/rpm/control/postinst",
+  "short_name": "postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/3",
+  "posix_compliant": true,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/packaging/rpm/control/posttrans",
+  "short_name": "posttrans",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/4",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/5",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/create_docker_compose.sh",
+  "short_name": "create_docker_compose",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/6",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/7",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/mssql_arm64/build/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/8",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/auth/jwt_proxy/docker-build-keycloak-m1-image.sh",
+  "short_name": "docker-build-keycloak-m1-image",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/9",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/influxdb/setup_influxql.sh",
+  "short_name": "setup_influxql",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/10",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/smtp/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/11",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/mqtt/build/gen_certs.sh",
+  "short_name": "gen_certs",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/12",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/mssql_tls/build/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/13",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/mssql_tls/build/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/14",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/mssql/build/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/15",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/mssql/build/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/16",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/caddy_tls/build/gen_certs.sh",
+  "short_name": "gen_certs",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/17",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/blocks/collectd/start_container",
+  "short_name": "start_container",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/18",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/debtest/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/19",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/rpmtest/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/20",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/loadtest/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/21",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/buildcontainer/run_circle.sh",
+  "short_name": "run_circle",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/22",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/buildcontainer/build_circle.sh",
+  "short_name": "build_circle",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/23",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/buildcontainer/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/24",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/docker/ha_test/alerts.sh",
+  "short_name": "alerts",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/25",
+  "posix_compliant": false,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/devenv/bulk-folders/bulk-folders.sh",
+  "short_name": "bulk-folders",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/26",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/grafana-mixin/scripts/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/27",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/grafana-mixin/scripts/lint.sh",
+  "short_name": "lint",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/28",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/grafana-mixin/scripts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/29",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/grafana-mixin/scripts/format.sh",
+  "short_name": "format",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/30",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/hack/update-codegen.sh",
+  "short_name": "update-codegen",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/31",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/hack/make-aggregator-pki.sh",
+  "short_name": "make-aggregator-pki",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/32",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/hack/openapi-codegen.sh",
+  "short_name": "openapi-codegen",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/33",
+  "posix_compliant": false,
+  "line_count": 124,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/docs/make-docs",
+  "short_name": "make-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/34",
+  "posix_compliant": true,
+  "line_count": 520,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/go-workspace/golangci-lint-includes.sh",
+  "short_name": "golangci-lint-includes",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/35",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/go-workspace/validate-dockerfile.sh",
+  "short_name": "validate-dockerfile",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/36",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/go-workspace/test-includes.sh",
+  "short_name": "test-includes",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/37",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/go-workspace/update-workspace.sh",
+  "short_name": "update-workspace",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/38",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/verify-repo-update/verify-repos.sh",
+  "short_name": "verify-repos",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/39",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/ci-job-failed.sh",
+  "short_name": "ci-job-failed",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/40",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/ci-job-succeeded.sh",
+  "short_name": "ci-job-succeeded",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/41",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/check-breaking-changes.sh",
+  "short_name": "check-breaking-changes",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/42",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/list-release-artifacts.sh",
+  "short_name": "list-release-artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/43",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/circle-test-cache-servers.sh",
+  "short_name": "circle-test-cache-servers",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/44",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/grafana-server/wait-for-grafana",
+  "short_name": "wait-for-grafana",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/45",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/grafana-server/variables",
+  "short_name": "variables",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/46",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/grafana-server/start-server",
+  "short_name": "start-server",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/47",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/grafana-server/kill-server",
+  "short_name": "kill-server",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/48",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/circle-test-mysql.sh",
+  "short_name": "circle-test-mysql",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/49",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/trigger_docker_build.sh",
+  "short_name": "trigger_docker_build",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/50",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/clean-git-or-error.sh",
+  "short_name": "clean-git-or-error",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/51",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/mixin-check.sh",
+  "short_name": "mixin-check",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/52",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/circle-test-frontend.sh",
+  "short_name": "circle-test-frontend",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/53",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/trigger_windows_build.sh",
+  "short_name": "trigger_windows_build",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/54",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/cleanup-husky.sh",
+  "short_name": "cleanup-husky",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/55",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/circle-test-backend.sh",
+  "short_name": "circle-test-backend",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/56",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/drone/verify-grafanacom.sh",
+  "short_name": "verify-grafanacom",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/57",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/drone/env-var-check.sh",
+  "short_name": "env-var-check",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/58",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/generate-a11y-report.sh",
+  "short_name": "generate-a11y-report",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/59",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/benchmark-access-control.sh",
+  "short_name": "benchmark-access-control",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/60",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/circle-test-postgres.sh",
+  "short_name": "circle-test-postgres",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/61",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/ci-job-started.sh",
+  "short_name": "ci-job-started",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/62",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/protobuf-check.sh",
+  "short_name": "protobuf-check",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/63",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/tag_release.sh",
+  "short_name": "tag_release",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/64",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/trigger_grafana_packer.sh",
+  "short_name": "trigger_grafana_packer",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/65",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/ci-deploy/build-deploy.sh",
+  "short_name": "build-deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/66",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/store-npm-packages.sh",
+  "short_name": "store-npm-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/67",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/verify_signed_packages.sh",
+  "short_name": "verify_signed_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/68",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/69",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/sign_packages.sh",
+  "short_name": "sign_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/70",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/71",
+  "posix_compliant": false,
+  "line_count": 127,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/gpg-test-vars.sh",
+  "short_name": "gpg-test-vars",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/72",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/retrieve-npm-packages.sh",
+  "short_name": "retrieve-npm-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/73",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/unlock-gpg-key.sh",
+  "short_name": "unlock-gpg-key",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/74",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/test-update-rpm-repo.sh",
+  "short_name": "test-update-rpm-repo",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/75",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/init-deb-repo.sh",
+  "short_name": "init-deb-repo",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/76",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/test-update-deb-repo.sh",
+  "short_name": "test-update-deb-repo",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/77",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/update-rpm.sh",
+  "short_name": "update-rpm",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/78",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/publish-deb.sh",
+  "short_name": "publish-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/79",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/sign-rpm-repo.sh",
+  "short_name": "sign-rpm-repo",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/80",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/load-signing-key.sh",
+  "short_name": "load-signing-key",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/81",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/test-publish-rpm-repo.sh",
+  "short_name": "test-publish-rpm-repo",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/82",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/update-deb.sh",
+  "short_name": "update-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/83",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/publish-rpm.sh",
+  "short_name": "publish-rpm",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/84",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/update_repo/test-publish-deb-repo.sh",
+  "short_name": "test-publish-deb-repo",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/85",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/prepare_signing_key.sh",
+  "short_name": "prepare_signing_key",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/86",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/ci-msi-build/testbuild.sh",
+  "short_name": "testbuild",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/87",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/ci-msi-build/ci-msi-build-oss.sh",
+  "short_name": "ci-msi-build-oss",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/88",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/ci-msi-build/ci-msi-build-ee.sh",
+  "short_name": "ci-msi-build-ee",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/89",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/ci-msi-build/msigenerator/ci-wrapper.sh",
+  "short_name": "ci-wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/90",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/build/ci-msi-build/msigenerator/wrapper.sh",
+  "short_name": "wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/91",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/ci-frontend-metrics.sh",
+  "short_name": "ci-frontend-metrics",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/92",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/helpers/exit-if-fail.sh",
+  "short_name": "exit-if-fail",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/93",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/validate-npm-packages.sh",
+  "short_name": "validate-npm-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/94",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/publish-npm-packages.sh",
+  "short_name": "publish-npm-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/95",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/import_many_dashboards.sh",
+  "short_name": "import_many_dashboards",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/96",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/scripts/stripnulls.sh",
+  "short_name": "stripnulls",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/97",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/e2e/plugin-e2e/start-and-run-suite",
+  "short_name": "start-and-run-suite",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/98",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/e2e/start-and-run-suite",
+  "short_name": "start-and-run-suite",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/99",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/e2e/verify-release",
+  "short_name": "verify-release",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/100",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/pkg/build/wire/internal/runtests.sh",
+  "short_name": "runtests",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/101",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/pkg/build/wire/internal/listdeps.sh",
+  "short_name": "listdeps",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/102",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/pkg/build/wire/internal/check_api_change.sh",
+  "short_name": "check_api_change",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/103",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grafana/grafana.git",
+  "relative_path": "grafana/pkg/services/ngalert/api/tooling/definitions/prom_bench.sh",
+  "short_name": "prom_bench",
+  "timestamp": "10/22/2024",
+  "identifier": "grafana_IWihzQ/104",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

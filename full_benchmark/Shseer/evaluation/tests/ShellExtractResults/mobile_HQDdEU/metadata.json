@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/mcasimir/mobile-angular-ui.git",
+  "relative_path": "mobile-angular-ui/ci.sh",
+  "short_name": "ci",
+  "timestamp": "10/22/2024",
+  "identifier": "mobile_HQDdEU/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ }
+]

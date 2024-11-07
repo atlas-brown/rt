@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -n "$RELEASE_TYPE" ];
+then
+  echo "release in progress, skipping license check and linting for precommit"
+  exit 0;
+fi
+
+. "$(dirname "$0")/_/husky.sh"
+
+yarn run lint-staged --concurrent true
+

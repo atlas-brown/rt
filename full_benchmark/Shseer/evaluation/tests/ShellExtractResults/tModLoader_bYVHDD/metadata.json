@@ -1,0 +1,232 @@
+[
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/start-tModLoaderServer.sh",
+  "short_name": "start-tModLoaderServer",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/0",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/tModPorter/tModPorter.sh",
+  "short_name": "tModPorter",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/1",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/LaunchUtils/ScriptCaller.sh",
+  "short_name": "ScriptCaller",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/2",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/LaunchUtils/DotNetVersion.sh",
+  "short_name": "DotNetVersion",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/3",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/LaunchUtils/InstallDotNet.sh",
+  "short_name": "InstallDotNet",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/4",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/LaunchUtils/BashUtils.sh",
+  "short_name": "BashUtils",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/5",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/LaunchUtils/EnvironmentFix.sh",
+  "short_name": "EnvironmentFix",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/6",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/LaunchUtils/Remove13_64Bit.sh",
+  "short_name": "Remove13_64Bit",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/7",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/start-tModLoader-FamilyShare.sh",
+  "short_name": "start-tModLoader-FamilyShare",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/8",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/DedicatedServerUtils/manage-tModLoaderServer.sh",
+  "short_name": "manage-tModLoaderServer",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/9",
+  "posix_compliant": false,
+  "line_count": 332,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/release_extras/start-tModLoader.sh",
+  "short_name": "start-tModLoader",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/10",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/patches/tModLoader/Terraria/ModLoader/Core/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/11",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/solutions/documentation/generateAndPublishDocumentation.sh",
+  "short_name": "generateAndPublishDocumentation",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/12",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/solutions/Legacy Files/LegacyFrameWork/tModLoader-kick",
+  "short_name": "tModLoader-kick",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/13",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/solutions/Legacy Files/LegacyFrameWork/tModLoader-mono",
+  "short_name": "tModLoader-mono",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/14",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tModLoader/tModLoader.git",
+  "relative_path": "tModLoader/setup-cli.sh",
+  "short_name": "setup-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "tModLoader_bYVHDD/15",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

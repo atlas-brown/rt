@@ -1,0 +1,84 @@
+[
+ {
+  "repo": "https://github.com/madhuakula/kubernetes-goat.git",
+  "relative_path": "kubernetes-goat/platforms/aws-setup/aws-kind-ec2-cdk/user_data.sh",
+  "short_name": "user_data",
+  "timestamp": "10/22/2024",
+  "identifier": "kubernetes_Hqwfvu/0",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/madhuakula/kubernetes-goat.git",
+  "relative_path": "kubernetes-goat/platforms/kind-setup/setup-kind-cluster-and-goat.sh",
+  "short_name": "setup-kind-cluster-and-goat",
+  "timestamp": "10/22/2024",
+  "identifier": "kubernetes_Hqwfvu/1",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/madhuakula/kubernetes-goat.git",
+  "relative_path": "kubernetes-goat/platforms/kind-setup/teardown-cluster.sh",
+  "short_name": "teardown-cluster",
+  "timestamp": "10/22/2024",
+  "identifier": "kubernetes_Hqwfvu/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/madhuakula/kubernetes-goat.git",
+  "relative_path": "kubernetes-goat/access-kubernetes-goat.sh",
+  "short_name": "access-kubernetes-goat",
+  "timestamp": "10/22/2024",
+  "identifier": "kubernetes_Hqwfvu/3",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/madhuakula/kubernetes-goat.git",
+  "relative_path": "kubernetes-goat/teardown-kubernetes-goat.sh",
+  "short_name": "teardown-kubernetes-goat",
+  "timestamp": "10/22/2024",
+  "identifier": "kubernetes_Hqwfvu/4",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/madhuakula/kubernetes-goat.git",
+  "relative_path": "kubernetes-goat/setup-kubernetes-goat.sh",
+  "short_name": "setup-kubernetes-goat",
+  "timestamp": "10/22/2024",
+  "identifier": "kubernetes_Hqwfvu/5",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/madhuakula/kubernetes-goat.git",
+  "relative_path": "kubernetes-goat/infrastructure/cache-store/start-redis.sh",
+  "short_name": "start-redis",
+  "timestamp": "10/22/2024",
+  "identifier": "kubernetes_Hqwfvu/6",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ }
+]

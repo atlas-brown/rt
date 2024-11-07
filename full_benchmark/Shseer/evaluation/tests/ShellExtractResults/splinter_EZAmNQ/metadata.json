@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/cobrateam/splinter.git",
+  "relative_path": "splinter/run_tests_within_Xephyr.sh",
+  "short_name": "run_tests_within_Xephyr",
+  "timestamp": "10/22/2024",
+  "identifier": "splinter_EZAmNQ/0",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ }
+]

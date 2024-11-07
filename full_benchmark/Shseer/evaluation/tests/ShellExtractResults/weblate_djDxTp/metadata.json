@@ -1,0 +1,387 @@
+[
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/weblate/examples/git-merge-gettext-po",
+  "short_name": "git-merge-gettext-po",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/0",
+  "posix_compliant": false,
+  "line_count": 121,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/weblate/examples/celery",
+  "short_name": "celery",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/1",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/weblate/trans/tests/data/ssh-keyscan",
+  "short_name": "ssh-keyscan",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/2",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/weblate/trans/tests/data/lab",
+  "short_name": "lab",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/3",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/run-docs",
+  "short_name": "run-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/4",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/print-versions",
+  "short_name": "print-versions",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/5",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/run-wsgi",
+  "short_name": "run-wsgi",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/6",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/run-migrate",
+  "short_name": "run-migrate",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/7",
+  "posix_compliant": true,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/run-checkmigrate",
+  "short_name": "run-checkmigrate",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/8",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/run-test",
+  "short_name": "run-test",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/9",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/services-down",
+  "short_name": "services-down",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/10",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/lib.sh",
+  "short_name": "lib",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/11",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/apt-install",
+  "short_name": "apt-install",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/12",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/services-up",
+  "short_name": "services-up",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/13",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/prepare-database",
+  "short_name": "prepare-database",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/14",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/ci/pip-install",
+  "short_name": "pip-install",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/15",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/yarn-update",
+  "short_name": "yarn-update",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/16",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/create-release",
+  "short_name": "create-release",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/17",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/generate-locales",
+  "short_name": "generate-locales",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/18",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/reuse-annotate",
+  "short_name": "reuse-annotate",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/19",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/optimize-svg",
+  "short_name": "optimize-svg",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/20",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/pack-test-data",
+  "short_name": "pack-test-data",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/21",
+  "posix_compliant": true,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/update-graphics",
+  "short_name": "update-graphics",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/22",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/test-database.sh",
+  "short_name": "test-database",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/23",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/update-locales",
+  "short_name": "update-locales",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/24",
+  "posix_compliant": true,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/add-lang",
+  "short_name": "add-lang",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/25",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/26",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/scripts/prepare-release",
+  "short_name": "prepare-release",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/27",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/WeblateOrg/weblate.git",
+  "relative_path": "weblate/rundev.sh",
+  "short_name": "rundev",
+  "timestamp": "10/22/2024",
+  "identifier": "weblate_djDxTp/28",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

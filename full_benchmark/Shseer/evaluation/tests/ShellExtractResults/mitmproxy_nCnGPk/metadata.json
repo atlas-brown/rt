@@ -1,0 +1,165 @@
+[
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/test/bench/run-mitmdump",
+  "short_name": "run-mitmdump",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/test/bench/run-mitmproxy",
+  "short_name": "run-mitmproxy",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/test/mitmproxy/net/data/clientcert/make",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/2",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/test/mitmproxy/data/clientcert/make",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/3",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/test/helper_tools/bench.sh",
+  "short_name": "bench",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/4",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/mitmproxy/contrib/kaitaistruct/make.sh",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/5",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/web/gen/all",
+  "short_name": "all",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/6",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/release/docker/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/7",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/release/specs/.mitmproxy-wrapper",
+  "short_name": ".mitmproxy-wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/8",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/docs/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/9",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/docs/upload-stable.sh",
+  "short_name": "upload-stable",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/10",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/docs/scripts/clirecording/generate_recordings.sh",
+  "short_name": "generate_recordings",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/11",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mitmproxy/mitmproxy.git",
+  "relative_path": "mitmproxy/docs/upload-archive.sh",
+  "short_name": "upload-archive",
+  "timestamp": "10/22/2024",
+  "identifier": "mitmproxy_nCnGPk/12",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

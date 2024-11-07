@@ -1,0 +1,53 @@
+#!/bin/sh
+ 
+usage()
+{	
+	echo "**************build stream from rtsp demo******************"
+	echo "1. build 32bit program ./Buildit rtsp i386 [target in i386]"	
+	echo "2. build 64bit program ./Buildit rtsp x64 [target in x64]"	
+	echo "3. build arm program for arm ./Buildit rtsp arm [target in arm]"
+	echo "4. clean up ./Buildit rtsp clean"
+	echo "-----------------------------------------------------------"
+	echo "**************build stream from file demo******************"
+	echo "5. build 32bit program ./Buildit file i386 [target in i386]"	
+	echo "6. build 64bit program ./Buildit file x64 [target in x64]"	
+	echo "7. build arm program for arm ./Buildit file arm [target in arm]"
+	echo "8. clean up ./Buildit file clean"
+	echo "-----------------------------------------------------------"
+	echo "**************build stream from sdk demo*******************"
+	echo "9. build 32bit program ./Buildit sdk i386 [target in i386]"	
+	echo "10. build arm program for arm ./Buildit sdk arm [target in arm]"
+	echo "11. clean up ./Buildit sdk clean"
+	echo "-----------------------------------------------------------"
+}
+
+build()
+{		
+	if [ "$1" = "clean" ] ; then
+		make -f nbproject/Makefile-arm.mk QMAKE= SUBPROJECTS= .clean-conf	
+		make -f nbproject/Makefile-i386.mk QMAKE= SUBPROJECTS= .clean-conf		
+		make -f nbproject/Makefile-x64.mk QMAKE= SUBPROJECTS= .clean-conf
+		make -f nbproject/Makefile-Debug.mk QMAKE= SUBPROJECTS= .clean-conf
+	elif [ "$1" = "arm" ] ; then
+		make -f nbproject/Makefile-arm.mk QMAKE= SUBPROJECTS= .build-conf	
+	elif [ "$1" = "x64" ] ; then
+		make -f nbproject/Makefile-x64.mk QMAKE= SUBPROJECTS= .build-conf
+	elif [ "$1" = "i386" ] ; then
+		make -f nbproject/Makefile-i386.mk QMAKE= SUBPROJECTS= .build-conf
+	else 		
+		usage;
+	fi
+}
+
+if [ "$1" = "rtsp" ] ; then
+	cd EasyPusher_RTSP	
+	build $2;
+elif [ "$1" = "file" ] ; then
+	cd EasyPusher_File
+	build $2;
+elif [ "$1" = "sdk" ] ; then
+	cd EasyPusher_SDK
+	build $2;
+else
+	usage;
+fi

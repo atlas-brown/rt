@@ -1,0 +1,74 @@
+[
+ {
+  "repo": "https://github.com/skinny-framework/skinny-scaldi-example.git",
+  "relative_path": "skinny-scaldi-example/.sbtconfig",
+  "short_name": ".sbtconfig",
+  "timestamp": "10/22/2024",
+  "identifier": "skinny_JcaoAe/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/skinny-framework/skinny-scaldi-example.git",
+  "relative_path": "skinny-scaldi-example/skinny",
+  "short_name": "skinny",
+  "timestamp": "10/22/2024",
+  "identifier": "skinny_JcaoAe/1",
+  "posix_compliant": false,
+  "line_count": 263,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/skinny-framework/skinny-scaldi-example.git",
+  "relative_path": "skinny-scaldi-example/create_local_ivy2",
+  "short_name": "create_local_ivy2",
+  "timestamp": "10/22/2024",
+  "identifier": "skinny_JcaoAe/2",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/skinny-framework/skinny-scaldi-example.git",
+  "relative_path": "skinny-scaldi-example/sbt-debug",
+  "short_name": "sbt-debug",
+  "timestamp": "10/22/2024",
+  "identifier": "skinny_JcaoAe/3",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/skinny-framework/skinny-scaldi-example.git",
+  "relative_path": "skinny-scaldi-example/sbt",
+  "short_name": "sbt",
+  "timestamp": "10/22/2024",
+  "identifier": "skinny_JcaoAe/4",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

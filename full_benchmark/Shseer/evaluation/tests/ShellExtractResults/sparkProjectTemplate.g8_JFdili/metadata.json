@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/holdenk/sparkProjectTemplate.g8.git",
+  "relative_path": "sparkProjectTemplate.g8/build/sbt",
+  "short_name": "sbt",
+  "timestamp": "10/22/2024",
+  "identifier": "sparkProjectTemplate.g8_JFdili/0",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

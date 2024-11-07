@@ -1,0 +1,46 @@
+[
+ {
+  "repo": "https://github.com/nvie/gitflow.git",
+  "relative_path": "gitflow/contrib/gitflow-installer.sh",
+  "short_name": "gitflow-installer",
+  "timestamp": "10/22/2024",
+  "identifier": "gitflow_izXXlA/0",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvie/gitflow.git",
+  "relative_path": "gitflow/git-flow",
+  "short_name": "git-flow",
+  "timestamp": "10/22/2024",
+  "identifier": "gitflow_izXXlA/1",
+  "posix_compliant": true,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvie/gitflow.git",
+  "relative_path": "gitflow/bump-version",
+  "short_name": "bump-version",
+  "timestamp": "10/22/2024",
+  "identifier": "gitflow_izXXlA/2",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

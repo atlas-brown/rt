@@ -1,0 +1,260 @@
+[
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/website/scripts/should-build.sh",
+  "short_name": "should-build",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/website/scripts/website-start.sh",
+  "short_name": "website-start",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/1",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/website/scripts/website-build.sh",
+  "short_name": "website-build",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/2",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/internal/backend/remote-state/http/testdata/gencerts.sh",
+  "short_name": "gencerts",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/3",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/internal/command/e2etest/make-archive.sh",
+  "short_name": "make-archive",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/4",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/internal/builtin/provisioners/remote-exec/testdata/script1.sh",
+  "short_name": "script1",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/5",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/scripts/gogetcookie.sh",
+  "short_name": "gogetcookie",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/6",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/scripts/exhaustive.sh",
+  "short_name": "exhaustive",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/7",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/scripts/staticcheck.sh",
+  "short_name": "staticcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/8",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/scripts/changelog-links.sh",
+  "short_name": "changelog-links",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/9",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/scripts/syncdeps.sh",
+  "short_name": "syncdeps",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/10",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/scripts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/11",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/scripts/gofmtcheck.sh",
+  "short_name": "gofmtcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/12",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/scripts/copyright.sh",
+  "short_name": "copyright",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/13",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/scripts/goimportscheck.sh",
+  "short_name": "goimportscheck",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/14",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/.github/scripts/equivalence-test.sh",
+  "short_name": "equivalence-test",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/15",
+  "posix_compliant": false,
+  "line_count": 121,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/.github/scripts/e2e_test_linux_darwin.sh",
+  "short_name": "e2e_test_linux_darwin",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/16",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/.github/scripts/verify_docker",
+  "short_name": "verify_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/17",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/hashicorp/terraform.git",
+  "relative_path": "terraform/.github/scripts/get_product_version.sh",
+  "short_name": "get_product_version",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_RUnZSx/18",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

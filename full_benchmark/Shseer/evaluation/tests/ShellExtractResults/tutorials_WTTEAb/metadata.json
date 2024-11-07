@@ -1,0 +1,1636 @@
+[
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-microservice/car-app/npmw",
+  "short_name": "npmw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/0",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-microservice/car-app/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/1",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-microservice/car-app/src/main/docker/jib/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/2",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-microservice/gateway-app/npmw",
+  "short_name": "npmw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/3",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-microservice/gateway-app/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/4",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-microservice/gateway-app/src/main/docker/jib/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/5",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-microservice/dealer-app/npmw",
+  "short_name": "npmw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/6",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-microservice/dealer-app/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/7",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-microservice/dealer-app/src/main/docker/jib/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/8",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-monolithic/npmw",
+  "short_name": "npmw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/9",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-monolithic/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/10",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-8-modules/jhipster-8-monolithic/src/main/docker/jib/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/11",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-boot-modules/spring-boot-cli/bash/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/12",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-boot-modules/spring-boot-cli/bash/groovy.sh",
+  "short_name": "groovy",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/13",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-boot-modules/spring-boot-runtime/docker/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/14",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-boot-modules/spring-boot-keycloak/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/15",
+  "posix_compliant": true,
+  "line_count": 184,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-boot-modules/spring-boot-gradle-2/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/16",
+  "posix_compliant": true,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-boot-modules/spring-boot-testing-spock/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/17",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/quarkus-modules/quarkus-langchain4j/run_on_docker.sh",
+  "short_name": "run_on_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/18",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/quarkus-modules/quarkus-vs-springboot/spring-project/start_jvm.sh",
+  "short_name": "start_jvm",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/19",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/quarkus-modules/quarkus-vs-springboot/spring-project/start_app.sh",
+  "short_name": "start_app",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/20",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/quarkus-modules/quarkus-vs-springboot/spring-project/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/21",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/quarkus-modules/quarkus-vs-springboot/quarkus-project/start_jvm.sh",
+  "short_name": "start_jvm",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/22",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/quarkus-modules/quarkus-vs-springboot/quarkus-project/start_app.sh",
+  "short_name": "start_app",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/23",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/quarkus-modules/quarkus-vs-springboot/quarkus-project/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/24",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/quarkus-modules/quarkus-vs-springboot/jmeter/run_test_jmeter.sh",
+  "short_name": "run_test_jmeter",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/25",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/quarkus-modules/quarkus-vs-springboot/hyperfoil/docker_run.sh",
+  "short_name": "docker_run",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/26",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/quarkus-modules/quarkus-vs-springboot/wrk/run_test_wrk.sh",
+  "short_name": "run_test_wrk",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/27",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-reactive-modules/spring-reactive-client-2/src/main/resources/streamlargefile/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/28",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-reactive-modules/spring-reactive-client-2/src/main/resources/streamlargefile/generate-sample-files.sh",
+  "short_name": "generate-sample-files",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/29",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/maven-modules/versions-maven-plugin/run-the-demo.sh",
+  "short_name": "run-the-demo",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/30",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/gradle-modules/gradle-7/gradle-proxy-configuration/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/31",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/gradle-modules/gradle-7/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/32",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/gradle-modules/gradle-8/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/33",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/gradle-modules/gradle-customization/gradle-avro/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/34",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/gradle-modules/gradle-customization/gradle-protobuf/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/35",
+  "posix_compliant": true,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/gradle-modules/gradle/maven-to-gradle/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/36",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/gradle-modules/gradle/gradle-wrapper/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/37",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/gradle-modules/gradle/gradle-dependency-management/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/38",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/gradle-modules/gradle-core/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/39",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/hilla/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/40",
+  "posix_compliant": true,
+  "line_count": 184,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-swagger-codegen-modules/spring-openapi-generator-api-client/git_push.sh",
+  "short_name": "git_push",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/41",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-swagger-codegen-modules/openapi-custom-generator/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/42",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-swagger-codegen-modules/spring-swagger-codegen-api-client/git_push.sh",
+  "short_name": "git_push",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/43",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/patterns-modules/axon/start_axon_server.sh",
+  "short_name": "start_axon_server",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/44",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/patterns-modules/axon/start_mongo.sh",
+  "short_name": "start_mongo",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/45",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-6/bookstore-monolith/src/main/docker/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/46",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-6/bookstore-monolith/src/main/jib/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/47",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-perf/src/main/resources/jmxshell/jmxclient.sh",
+  "short_name": "jmxclient",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/48",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-perf/src/main/resources/jmxshell/jmxterm.sh",
+  "short_name": "jmxterm",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/49",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-perf/src/main/resources/jmxshell/jmx-invoker.sh",
+  "short_name": "jmx-invoker",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/50",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-17/src/main/resources/compile_c.sh",
+  "short_name": "compile_c",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/51",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/java-native/src/main/go/compile-linux.sh",
+  "short_name": "compile-linux",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/52",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/java-native/src/main/go/compile-macos.sh",
+  "short_name": "compile-macos",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/53",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/java-native/src/main/cpp/generateNativeLibMac.sh",
+  "short_name": "generateNativeLibMac",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/54",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/java-native/src/main/cpp/generateNativeLib.sh",
+  "short_name": "generateNativeLib",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/55",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/java-native/src/main/cpp/unsatisfiedlink/generateNativeLib.sh",
+  "short_name": "generateNativeLib",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/56",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-new-features/compile-aot.sh",
+  "short_name": "compile-aot",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/57",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-new-features/compile-modules.sh",
+  "short_name": "compile-modules",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/58",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-new-features/logging.sh",
+  "short_name": "logging",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/59",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-new-features/run-aot.sh",
+  "short_name": "run-aot",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/60",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/compile-library-core-with-tests.sh",
+  "short_name": "compile-library-core-with-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/61",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/run-library-test-module-path.sh",
+  "short_name": "run-library-test-module-path",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/62",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/run-student-client.sh",
+  "short_name": "run-student-client",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/63",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/run-library-core-module-with-patch.sh",
+  "short_name": "run-library-core-module-with-patch",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/64",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/run-library-test-class-path.sh",
+  "short_name": "run-library-test-class-path",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/65",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/compile-library-core-tests.sh",
+  "short_name": "compile-library-core-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/66",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/run-simple-module-app.sh",
+  "short_name": "run-simple-module-app",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/67",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/run-library-core-module.sh",
+  "short_name": "run-library-core-module",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/68",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/compile-library-core-module.sh",
+  "short_name": "compile-library-core-module",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/69",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/compile-simple-modules.sh",
+  "short_name": "compile-simple-modules",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/70",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/compile-library-test-module.sh",
+  "short_name": "compile-library-test-module",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/71",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/download-junit-dependencies.sh",
+  "short_name": "download-junit-dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/72",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/compile-library-core.sh",
+  "short_name": "compile-library-core",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/73",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/B05-runtime-baeldung-reflecting-unnamed-using-add-opens.sh",
+  "short_name": "B05-runtime-baeldung-reflecting-unnamed-using-add-opens",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/74",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/A04-compile-and-package-baeldung-reflecting-named.sh",
+  "short_name": "A04-compile-and-package-baeldung-reflecting-named",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/75",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/A05-compile-and-package-baeldung-reflecting-unnamed.sh",
+  "short_name": "A05-compile-and-package-baeldung-reflecting-unnamed",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/76",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/B02-runtime-baeldung-reflecting-named-using-forward-opens.sh",
+  "short_name": "B02-runtime-baeldung-reflecting-named-using-forward-opens",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/77",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/A02-compile-and-package-baeldung-reflected.sh",
+  "short_name": "A02-compile-and-package-baeldung-reflected",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/78",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/B03-runtime-baeldung-reflecting-named-using-java-agent.sh",
+  "short_name": "B03-runtime-baeldung-reflecting-named-using-java-agent",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/79",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/C01-clean.sh",
+  "short_name": "C01-clean",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/80",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/A01-compile-and-package-baeldung-agent.sh",
+  "short_name": "A01-compile-and-package-baeldung-agent",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/81",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/A03-compile-and-package-baeldung-intermedium.sh",
+  "short_name": "A03-compile-and-package-baeldung-intermedium",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/82",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/B04-runtime-baeldung-reflecting-unnamed-with-warning.sh",
+  "short_name": "B04-runtime-baeldung-reflecting-unnamed-with-warning",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/83",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/B01-runtime-baeldung-reflecting-named-using-add-opens.sh",
+  "short_name": "B01-runtime-baeldung-reflecting-named-using-add-opens",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/84",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/core-java-modules/core-java-9-jigsaw/src/modules/com.baeldung.reflective.access/B06-runtime-baeldung-reflecting-unnamed-using-java-agent.sh",
+  "short_name": "B06-runtime-baeldung-reflecting-unnamed-using-java-agent",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/85",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-kubernetes/kubernetes-guide/deployment-travel-client.sh",
+  "short_name": "deployment-travel-client",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/86",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-vault/vault-env.sh",
+  "short_name": "vault-env",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/87",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-vault/vault-start.sh",
+  "short_name": "vault-start",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/88",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-vault/vault-unseal.sh",
+  "short_name": "vault-unseal",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/89",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-stream-starters/twitter/twitter.sh",
+  "short_name": "twitter",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/90",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-stream-starters/bash/hadoop.sh",
+  "short_name": "hadoop",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/91",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-stream-starters/hdfs/hdfs.sh",
+  "short_name": "hdfs",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/92",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-cli/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/93",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-cli/groovy.sh",
+  "short_name": "groovy",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/94",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-cli/encrypt.sh",
+  "short_name": "encrypt",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/95",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-cli/spring-cli-cmds.sh",
+  "short_name": "spring-cli-cmds",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/96",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-cloud-modules/spring-cloud-cli/decrypt.sh",
+  "short_name": "decrypt",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/97",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/linux-bash-modules/linux-bash-read/src/main/bash/read_inputs.sh",
+  "short_name": "read_inputs",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/98",
+  "posix_compliant": false,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/linux-bash-modules/command-line-arguments/src/main/bash/users-loop.sh",
+  "short_name": "users-loop",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/99",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/linux-bash-modules/command-line-arguments/src/main/bash/users-shift-operator.sh",
+  "short_name": "users-shift-operator",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/100",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/linux-bash-modules/command-line-arguments/src/main/bash/userReg-flags.sh",
+  "short_name": "userReg-flags",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/101",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/linux-bash-modules/command-line-arguments/src/main/bash/userReg-positional-parameter.sh",
+  "short_name": "userReg-positional-parameter",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/102",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/linux-bash-modules/functions/src/main/bash/functions.sh",
+  "short_name": "functions",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/103",
+  "posix_compliant": false,
+  "line_count": 180,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/linux-bash-modules/linux-bash-json/src/main/bash/jq.sh",
+  "short_name": "jq",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/104",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/linux-bash-modules/linux-bash-loops/src/main/bash/find_directories.sh",
+  "short_name": "find_directories",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/105",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/linux-bash-modules/linux-bash-loops/src/main/bash/loop_directories.sh",
+  "short_name": "loop_directories",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/106",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-security-modules/spring-security-oauth2-bff/backend/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/107",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/spring-security-modules/spring-security-oauth2-bff/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/108",
+  "posix_compliant": true,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-modules/jhipster-uaa/quotes/src/main/docker/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/109",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-modules/jhipster-uaa/quotes/src/main/jib/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/110",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-modules/jhipster-uaa/uaa/src/main/docker/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/111",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-modules/jhipster-uaa/uaa/src/main/jib/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/112",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-modules/jhipster-uaa/gateway/src/main/docker/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/113",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/jhipster-modules/jhipster-uaa/gateway/src/main/jib/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/114",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/hibernate-libraries/create-database.sh",
+  "short_name": "create-database",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/115",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/spring-data-mongodb/src/live-test/resources/live-test.sh",
+  "short_name": "live-test",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/116",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/spring-data-mongodb/src/live-test/resources/live-test-teardown.sh",
+  "short_name": "live-test-teardown",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/117",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/spring-data-mongodb/src/live-test/resources/live-test-setup.sh",
+  "short_name": "live-test-setup",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/118",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/spring-data-arangodb/src/live-test/resources/live-test.sh",
+  "short_name": "live-test",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/119",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/spring-data-arangodb/src/live-test/resources/live-test-teardown.sh",
+  "short_name": "live-test-teardown",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/120",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/spring-data-arangodb/src/live-test/resources/live-test-setup.sh",
+  "short_name": "live-test-setup",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/121",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/spring-data-couchbase-2/src/test/docker/dockerbuild.sh",
+  "short_name": "dockerbuild",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/122",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/spring-data-couchbase-2/src/test/docker/configure.sh",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/123",
+  "posix_compliant": false,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/spring-boot-mysql/start_app.sh",
+  "short_name": "start_app",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/124",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/persistence-modules/spring-boot-mysql/mysql-server/convertcerts.sh",
+  "short_name": "convertcerts",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/125",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/intelliJ-modules/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/126",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/security-modules/cas/cas-server/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/127",
+  "posix_compliant": true,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eugenp/tutorials.git",
+  "relative_path": "tutorials/security-modules/cas/cas-server/src/main/jib/docker/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tutorials_WTTEAb/128",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/mainmatter/100-exercises-to-learn-rust.git",
+  "relative_path": "100-exercises-to-learn-rust/helpers/json2redirects.sh",
+  "short_name": "json2redirects",
+  "timestamp": "10/22/2024",
+  "identifier": "100_YIYZjf/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

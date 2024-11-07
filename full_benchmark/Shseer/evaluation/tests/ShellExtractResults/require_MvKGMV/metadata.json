@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/SlexAxton/require-handlebars-plugin.git",
+  "relative_path": "require-handlebars-plugin/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "require_MvKGMV/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

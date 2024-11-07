@@ -1,0 +1,769 @@
+[
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/decom.sh",
+  "short_name": "decom",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/0",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/1",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/resource-managers/kubernetes/integration-tests/scripts/setup-integration-test-env.sh",
+  "short_name": "setup-integration-test-env",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/2",
+  "posix_compliant": false,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/resource-managers/kubernetes/integration-tests/dev/dev-run-integration-tests.sh",
+  "short_name": "dev-run-integration-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/3",
+  "posix_compliant": false,
+  "line_count": 178,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/bin/load-spark-env.sh",
+  "short_name": "load-spark-env",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/4",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/bin/docker-image-tool.sh",
+  "short_name": "docker-image-tool",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/5",
+  "posix_compliant": false,
+  "line_count": 257,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/start-history-server.sh",
+  "short_name": "start-history-server",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/6",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/stop-workers.sh",
+  "short_name": "stop-workers",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/7",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/spark-daemon.sh",
+  "short_name": "spark-daemon",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/8",
+  "posix_compliant": false,
+  "line_count": 179,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/decommission-worker.sh",
+  "short_name": "decommission-worker",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/9",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/start-all.sh",
+  "short_name": "start-all",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/10",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/stop-worker.sh",
+  "short_name": "stop-worker",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/11",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/stop-history-server.sh",
+  "short_name": "stop-history-server",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/12",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/start-worker.sh",
+  "short_name": "start-worker",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/13",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/workers.sh",
+  "short_name": "workers",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/14",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/start-thriftserver.sh",
+  "short_name": "start-thriftserver",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/15",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/stop-connect-server.sh",
+  "short_name": "stop-connect-server",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/16",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/stop-master.sh",
+  "short_name": "stop-master",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/17",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/stop-thriftserver.sh",
+  "short_name": "stop-thriftserver",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/18",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/start-workers.sh",
+  "short_name": "start-workers",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/19",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/start-master.sh",
+  "short_name": "start-master",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/20",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/spark-daemons.sh",
+  "short_name": "spark-daemons",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/21",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/start-connect-server.sh",
+  "short_name": "start-connect-server",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/22",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/spark-config.sh",
+  "short_name": "spark-config",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/23",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sbin/stop-all.sh",
+  "short_name": "stop-all",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/24",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/R/check-cran.sh",
+  "short_name": "check-cran",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/25",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/R/run-tests.sh",
+  "short_name": "run-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/26",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/R/find-r.sh",
+  "short_name": "find-r",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/27",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/R/install-source-package.sh",
+  "short_name": "install-source-package",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/28",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/R/create-docs.sh",
+  "short_name": "create-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/29",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/R/install-dev.sh",
+  "short_name": "install-dev",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/30",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/R/create-rd.sh",
+  "short_name": "create-rd",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/31",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/examples/src/main/scripts/submit_pi.sh",
+  "short_name": "submit_pi",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/32",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/examples/src/main/scripts/getGpusResources.sh",
+  "short_name": "getGpusResources",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/33",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/connector/docker-integration-tests/src/test/resources/mariadb_krb_setup.sh",
+  "short_name": "mariadb_krb_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/34",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/connector/docker-integration-tests/src/test/resources/mariadb_docker_entrypoint.sh",
+  "short_name": "mariadb_docker_entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/35",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/connector/docker-integration-tests/src/test/resources/postgres_krb_setup.sh",
+  "short_name": "postgres_krb_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/36",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/connector/docker-integration-tests/src/test/resources/db2_krb_setup.sh",
+  "short_name": "db2_krb_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/37",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/create-release/release-tag.sh",
+  "short_name": "release-tag",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/38",
+  "posix_compliant": false,
+  "line_count": 85,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/create-release/do-release-docker.sh",
+  "short_name": "do-release-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/39",
+  "posix_compliant": false,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/create-release/do-release.sh",
+  "short_name": "do-release",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/40",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/create-release/release-build.sh",
+  "short_name": "release-build",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/41",
+  "posix_compliant": false,
+  "line_count": 403,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/create-release/release-util.sh",
+  "short_name": "release-util",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/42",
+  "posix_compliant": false,
+  "line_count": 169,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/change-scala-version.sh",
+  "short_name": "change-scala-version",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/43",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/test-dependencies.sh",
+  "short_name": "test-dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/44",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/tests/pr_merge_ability.sh",
+  "short_name": "pr_merge_ability",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/45",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/tests/pr_public_classes.sh",
+  "short_name": "pr_public_classes",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/46",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/protobuf-breaking-changes-check.sh",
+  "short_name": "protobuf-breaking-changes-check",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/47",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/connect-gen-protos.sh",
+  "short_name": "connect-gen-protos",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/48",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/dev/make-distribution.sh",
+  "short_name": "make-distribution",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/49",
+  "posix_compliant": false,
+  "line_count": 215,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/build/util.sh",
+  "short_name": "util",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/50",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sql/core/src/test/scripts/gen-thrift.sh",
+  "short_name": "gen-thrift",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/51",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sql/core/src/test/scripts/gen-avro.sh",
+  "short_name": "gen-avro",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/52",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sql/create-docs.sh",
+  "short_name": "create-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/53",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/spark.git",
+  "relative_path": "spark/sql/hive/src/test/resources/test_script.sh",
+  "short_name": "test_script",
+  "timestamp": "10/22/2024",
+  "identifier": "spark_vrhtuF/54",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ }
+]

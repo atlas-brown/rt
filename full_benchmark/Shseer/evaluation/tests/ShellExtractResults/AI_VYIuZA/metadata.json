@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/microsoft/AI-For-Beginners.git",
+  "relative_path": "AI-For-Beginners/binder/postBuild.sh",
+  "short_name": "postBuild",
+  "timestamp": "10/22/2024",
+  "identifier": "AI_VYIuZA/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/AI-For-Beginners.git",
+  "relative_path": "AI-For-Beginners/.devcontainer/add-notice.sh",
+  "short_name": "add-notice",
+  "timestamp": "10/22/2024",
+  "identifier": "AI_VYIuZA/1",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

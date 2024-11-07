@@ -1,0 +1,31 @@
+[
+ {
+  "repo": "https://github.com/ming1016/study.git",
+  "relative_path": "study/QuickJS/quickjs-2020-11-08-forxcode/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "study_CvkrcB/0",
+  "posix_compliant": true,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ming1016/study.git",
+  "relative_path": "study/QuickJS/quickjs-2020-11-08-forxcode/unicode_download.sh",
+  "short_name": "unicode_download",
+  "timestamp": "10/22/2024",
+  "identifier": "study_CvkrcB/1",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

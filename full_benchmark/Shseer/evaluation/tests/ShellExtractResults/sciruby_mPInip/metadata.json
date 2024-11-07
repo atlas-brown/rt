@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/SciRuby/sciruby.git",
+  "relative_path": "sciruby/scripts/deploy",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "sciruby_mPInip/0",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

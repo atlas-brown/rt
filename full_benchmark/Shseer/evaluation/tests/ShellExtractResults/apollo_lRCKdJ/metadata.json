@@ -1,0 +1,160 @@
+[
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/apollo-buildtools/src/main/scripts/deploy_jenkins.sh",
+  "short_name": "deploy_jenkins",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/0",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/apollo-portal/src/main/scripts/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/1",
+  "posix_compliant": false,
+  "line_count": 156,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/apollo-portal/src/main/scripts/shutdown.sh",
+  "short_name": "shutdown",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/2",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/apollo-configservice/src/main/scripts/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/3",
+  "posix_compliant": false,
+  "line_count": 156,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/apollo-configservice/src/main/scripts/shutdown.sh",
+  "short_name": "shutdown",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/4",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/apollo-adminservice/src/main/scripts/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/5",
+  "posix_compliant": false,
+  "line_count": 156,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/apollo-adminservice/src/main/scripts/shutdown.sh",
+  "short_name": "shutdown",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/6",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/scripts/openapi/bash/openapi.sh",
+  "short_name": "openapi",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/7",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/scripts/openapi/bash/openapi-usage-example.sh",
+  "short_name": "openapi-usage-example",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/8",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/scripts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/9",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/apolloconfig/apollo.git",
+  "relative_path": "apollo/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "apollo_lRCKdJ/10",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

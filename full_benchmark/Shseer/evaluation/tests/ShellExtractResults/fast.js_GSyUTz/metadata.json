@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/codemix/fast.js.git",
+  "relative_path": "fast.js/ci/environments/v8/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "fast.js_GSyUTz/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ }
+]

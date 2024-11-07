@@ -1,0 +1,29 @@
+[
+ {
+  "repo": "https://github.com/brendandburns/designing-distributed-systems.git",
+  "relative_path": "designing-distributed-systems/event-driven-batch/kafka-topics.sh",
+  "short_name": "kafka-topics",
+  "timestamp": "10/22/2024",
+  "identifier": "designing_MEWUrQ/0",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/brendandburns/designing-distributed-systems.git",
+  "relative_path": "designing-distributed-systems/sidecars/bash-paas.sh",
+  "short_name": "bash-paas",
+  "timestamp": "10/22/2024",
+  "identifier": "designing_MEWUrQ/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

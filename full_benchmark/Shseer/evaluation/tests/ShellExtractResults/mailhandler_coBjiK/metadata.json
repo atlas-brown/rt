@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/mbovan/mailhandler.git",
+  "relative_path": "mailhandler/.travis-before-script.sh",
+  "short_name": ".travis-before-script",
+  "timestamp": "10/22/2024",
+  "identifier": "mailhandler_coBjiK/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

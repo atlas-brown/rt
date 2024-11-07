@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/outline/outline.git",
+  "relative_path": "outline/.circleci/run-build-locally.sh",
+  "short_name": "run-build-locally",
+  "timestamp": "10/22/2024",
+  "identifier": "outline_MoZWVy/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,884 @@
+[
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/tools/mdicts.sh",
+  "short_name": "mdicts",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/tools/bypass-firewalls-by-DNS-history.sh",
+  "short_name": "bypass-firewalls-by-DNS-history",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/1",
+  "posix_compliant": false,
+  "line_count": 239,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/tools/h2csmuggler/configs/generate-certificates.sh",
+  "short_name": "generate-certificates",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/2",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/config/initEs.sh",
+  "short_name": "initEs",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/3",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/config/CreateEs.sh",
+  "short_name": "CreateEs",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/4",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/config/autoyaml.sh",
+  "short_name": "autoyaml",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/5",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/config/doPy3log4j.sh",
+  "short_name": "doPy3log4j",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/6",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/config/doNmapScan.sh",
+  "short_name": "doNmapScan",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/7",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/config/51pwn/doLog4j_VMWare.sh",
+  "short_name": "doLog4j_VMWare",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/8",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/scripts/fixMod.sh",
+  "short_name": "fixMod",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/9",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/scripts/br.sh",
+  "short_name": "br",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/10",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/scripts/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/11",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/scripts/upMod.sh",
+  "short_name": "upMod",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/12",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/scripts/upNuclei.sh",
+  "short_name": "upNuclei",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/13",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/scripts/testLeak.sh",
+  "short_name": "testLeak",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/14",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/scripts/upSelf.sh",
+  "short_name": "upSelf",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/15",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/scripts/testbd.sh",
+  "short_name": "testbd",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/16",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/.github/workflows/upx.sh",
+  "short_name": "upx",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/17",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/.github/up.sh",
+  "short_name": "up",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/18",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/gopkg.in/djherbis/times.v1/js.cover.sh",
+  "short_name": "js.cover",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/19",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/gopkg.in/djherbis/times.v1/.travis.sh",
+  "short_name": ".travis",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/20",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/google.golang.org/appengine/internal/regen.sh",
+  "short_name": "regen",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/21",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/golang.org/x/crypto/curve25519/internal/field/sync.sh",
+  "short_name": "sync",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/22",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/golang.org/x/sys/plan9/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/23",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/golang.org/x/sys/plan9/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/24",
+  "posix_compliant": false,
+  "line_count": 180,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/golang.org/x/sys/plan9/mksysnum_plan9.sh",
+  "short_name": "mksysnum_plan9",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/25",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/golang.org/x/sys/unix/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/26",
+  "posix_compliant": false,
+  "line_count": 212,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/golang.org/x/sys/unix/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/27",
+  "posix_compliant": false,
+  "line_count": 373,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/golang.org/x/sys/windows/mkknownfolderids.bash",
+  "short_name": "mkknownfolderids.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/28",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/golang.org/x/sys/windows/mkerrors.bash",
+  "short_name": "mkerrors.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/29",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/pelletier/go-toml/v2/ci.sh",
+  "short_name": "ci",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/30",
+  "posix_compliant": false,
+  "line_count": 207,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/klauspost/compress/gen.sh",
+  "short_name": "gen",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/31",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/klauspost/cpuid/v2/test-architectures.sh",
+  "short_name": "test-architectures",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/32",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/cespare/xxhash/v2/testall.sh",
+  "short_name": "testall",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/33",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/ChrisTrenkamp/goxpath/coverage.sh",
+  "short_name": "coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/34",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/dgraph-io/badger/pb/gen.sh",
+  "short_name": "gen",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/35",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/dgraph-io/badger/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/36",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/json-iterator/go/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/37",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/json-iterator/go/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/38",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/google/cel-go/parser/gen/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/39",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/google/gopacket/layers/gen_linted.sh",
+  "short_name": "gen_linted",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/40",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/google/gopacket/.travis.install.sh",
+  "short_name": ".travis.install",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/41",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/google/gopacket/.travis.gofmt.sh",
+  "short_name": ".travis.gofmt",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/42",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/google/gopacket/.travis.golint.sh",
+  "short_name": ".travis.golint",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/43",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/google/gopacket/.travis.govet.sh",
+  "short_name": ".travis.govet",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/44",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/google/gopacket/gc",
+  "short_name": "gc",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/45",
+  "posix_compliant": false,
+  "line_count": 209,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/google/gopacket/.travis.script.sh",
+  "short_name": ".travis.script",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/46",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/quic-go/quic-go/oss-fuzz.sh",
+  "short_name": "oss-fuzz",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/47",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/zmap/zcrypto/x509/extended_key_usage_schema.sh",
+  "short_name": "extended_key_usage_schema",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/48",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/codegangsta/inject/update_readme.sh",
+  "short_name": "update_readme",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/49",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/modern-go/concurrent/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/50",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/charmbracelet/glamour/examples.sh",
+  "short_name": "examples",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/51",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/charmbracelet/glamour/gallery.sh",
+  "short_name": "gallery",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/52",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/ulikunitz/xz/make-docs",
+  "short_name": "make-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/53",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/gosnmp/gosnmp/local_tests.sh",
+  "short_name": "local_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/54",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/gosnmp/gosnmp/goimports2_all",
+  "short_name": "goimports2_all",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/55",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/gosnmp/gosnmp/goimports2",
+  "short_name": "goimports2",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/56",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/gosnmp/gosnmp/build_tests.sh",
+  "short_name": "build_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/57",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/gosnmp/gosnmp/snmp_users.sh",
+  "short_name": "snmp_users",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/58",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/mattn/go-isatty/go.test.sh",
+  "short_name": "go.test",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/59",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/mattn/go-colorable/go.test.sh",
+  "short_name": "go.test",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/60",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/pion/stun/internal/hmac/vendor.sh",
+  "short_name": "vendor",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/61",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/dsnet/compress/zfuzz.sh",
+  "short_name": "zfuzz",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/62",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/dsnet/compress/zbench.sh",
+  "short_name": "zbench",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/63",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/dsnet/compress/ztest.sh",
+  "short_name": "ztest",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/64",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/vendor/github.com/dsnet/compress/zprof.sh",
+  "short_name": "zprof",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/65",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/GhostTroops/scan4all.git",
+  "relative_path": "scan4all/upSubMod.sh",
+  "short_name": "upSubMod",
+  "timestamp": "10/22/2024",
+  "identifier": "scan4all_KfvalH/66",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ }
+]

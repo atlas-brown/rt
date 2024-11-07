@@ -1,0 +1,24 @@
+[
+ {
+  "repo": "https://github.com/ycm-core/YouCompleteMe.git",
+  "relative_path": "YouCompleteMe/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "YouCompleteMe_UkZFzd/0",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ycm-core/YouCompleteMe.git",
+  "relative_path": "YouCompleteMe/print_todos.sh",
+  "short_name": "print_todos",
+  "timestamp": "10/22/2024",
+  "identifier": "YouCompleteMe_UkZFzd/1",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ }
+]

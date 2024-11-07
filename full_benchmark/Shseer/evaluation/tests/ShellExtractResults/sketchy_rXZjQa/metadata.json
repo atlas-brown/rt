@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/Netflix-Skunkworks/sketchy.git",
+  "relative_path": "sketchy/ubuntu_install.sh",
+  "short_name": "ubuntu_install",
+  "timestamp": "10/22/2024",
+  "identifier": "sketchy_rXZjQa/0",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

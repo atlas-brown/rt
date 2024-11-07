@@ -1,0 +1,32 @@
+[
+ {
+  "repo": "https://github.com/QuivrHQ/quivr.git",
+  "relative_path": "quivr/core/scripts/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "quivr_GLgOdr/0",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/QuivrHQ/quivr.git",
+  "relative_path": "quivr/core/scripts/run_tests_buildx.sh",
+  "short_name": "run_tests_buildx",
+  "timestamp": "10/22/2024",
+  "identifier": "quivr_GLgOdr/1",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

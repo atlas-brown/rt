@@ -1,0 +1,237 @@
+[
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/ext/snmp/tests/bigtest",
+  "short_name": "bigtest",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/0",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/ext/dba/install_cdb.sh",
+  "short_name": "install_cdb",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/1",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/ext/fileinfo/generate_patch.sh",
+  "short_name": "generate_patch",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/2",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/ext/session/mod_files.sh",
+  "short_name": "mod_files",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/3",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/buildconf",
+  "short_name": "buildconf",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/4",
+  "posix_compliant": true,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/scripts/phpize.in",
+  "short_name": "phpize.in",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/5",
+  "posix_compliant": true,
+  "line_count": 162,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/scripts/dev/makedist",
+  "short_name": "makedist",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/6",
+  "posix_compliant": true,
+  "line_count": 157,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/scripts/dev/genfiles",
+  "short_name": "genfiles",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/7",
+  "posix_compliant": true,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/scripts/dev/gen_verify_stub",
+  "short_name": "gen_verify_stub",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/8",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/scripts/dev/credits",
+  "short_name": "credits",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/9",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/.github/scripts/setup-slapd.sh",
+  "short_name": "setup-slapd",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/10",
+  "posix_compliant": true,
+  "line_count": 122,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/build/shtool",
+  "short_name": "shtool",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/11",
+  "posix_compliant": true,
+  "line_count": 1473,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/build/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/12",
+  "posix_compliant": false,
+  "line_count": 5415,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/build/config-stubs",
+  "short_name": "config-stubs",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/13",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/build/genif.sh",
+  "short_name": "genif",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/14",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/php/php-src.git",
+  "relative_path": "php-src/win32/build/mkico.sh",
+  "short_name": "mkico",
+  "timestamp": "10/22/2024",
+  "identifier": "php_qNjYzF/15",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ }
+]

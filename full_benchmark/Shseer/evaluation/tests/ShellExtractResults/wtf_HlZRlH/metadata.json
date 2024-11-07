@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/dlenski/wtf.git",
+  "relative_path": "wtf/pre-commit.careful",
+  "short_name": "pre-commit.careful",
+  "timestamp": "10/22/2024",
+  "identifier": "wtf_HlZRlH/0",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

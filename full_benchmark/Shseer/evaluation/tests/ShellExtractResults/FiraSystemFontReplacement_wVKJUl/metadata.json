@@ -1,0 +1,42 @@
+[
+ {
+  "repo": "https://github.com/jenskutilek/FiraSystemFontReplacement.git",
+  "relative_path": "FiraSystemFontReplacement/dist/make_dist.sh",
+  "short_name": "make_dist",
+  "timestamp": "10/22/2024",
+  "identifier": "FiraSystemFontReplacement_wVKJUl/0",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/jenskutilek/FiraSystemFontReplacement.git",
+  "relative_path": "FiraSystemFontReplacement/dist/scripts/preinstall",
+  "short_name": "preinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "FiraSystemFontReplacement_wVKJUl/1",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jenskutilek/FiraSystemFontReplacement.git",
+  "relative_path": "FiraSystemFontReplacement/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "FiraSystemFontReplacement_wVKJUl/2",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

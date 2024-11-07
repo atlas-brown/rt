@@ -1,0 +1,45 @@
+[
+ {
+  "repo": "https://github.com/restic/restic.git",
+  "relative_path": "restic/docker/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "restic_nkEjXh/0",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/restic/restic.git",
+  "relative_path": "restic/doc/bash-completion.sh",
+  "short_name": "bash-completion",
+  "timestamp": "10/22/2024",
+  "identifier": "restic_nkEjXh/1",
+  "posix_compliant": false,
+  "line_count": 3617,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/restic/restic.git",
+  "relative_path": "restic/helpers/verify-release-binaries.sh",
+  "short_name": "verify-release-binaries",
+  "timestamp": "10/22/2024",
+  "identifier": "restic_nkEjXh/2",
+  "posix_compliant": false,
+  "line_count": 97,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

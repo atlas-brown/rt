@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/pengchujin/v2rayDocker.git",
+  "relative_path": "v2rayDocker/caddy.sh",
+  "short_name": "caddy",
+  "timestamp": "10/22/2024",
+  "identifier": "v2rayDocker_nhOgPg/0",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

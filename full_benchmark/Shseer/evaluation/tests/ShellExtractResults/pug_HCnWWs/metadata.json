@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/Ventto/pug.git",
+  "relative_path": "pug/src/pug.sh",
+  "short_name": "pug",
+  "timestamp": "10/22/2024",
+  "identifier": "pug_HCnWWs/0",
+  "posix_compliant": true,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

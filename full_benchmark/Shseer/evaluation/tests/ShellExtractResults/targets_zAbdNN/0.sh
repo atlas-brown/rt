@@ -1,0 +1,10 @@
+#!/bin/bash
+#$ -cwd
+#$ -j y
+#$ -o <%= log.file %>
+#$ -V
+#$ -N <%= job.name %>
+#$ -pe smp <%= if (is.null(resources$slots)) 1 else resources$slots %>
+module load R/4.3.2
+Rscript -e 'batchtools::doJobCollection("<%= uri %>")'
+exit 0

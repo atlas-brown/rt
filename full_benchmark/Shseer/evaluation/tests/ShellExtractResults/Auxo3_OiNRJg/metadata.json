@@ -1,0 +1,93 @@
+[
+ {
+  "repo": "https://github.com/kpwn/Auxo3.git",
+  "relative_path": "Auxo3/theos/bin/deb_build_num.sh",
+  "short_name": "deb_build_num",
+  "timestamp": "10/22/2024",
+  "identifier": "Auxo3_OiNRJg/0",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kpwn/Auxo3.git",
+  "relative_path": "Auxo3/theos/bin/install.mergeDir",
+  "short_name": "install.mergeDir",
+  "timestamp": "10/22/2024",
+  "identifier": "Auxo3_OiNRJg/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/kpwn/Auxo3.git",
+  "relative_path": "Auxo3/theos/bin/fakeroot.sh",
+  "short_name": "fakeroot",
+  "timestamp": "10/22/2024",
+  "identifier": "Auxo3_OiNRJg/2",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kpwn/Auxo3.git",
+  "relative_path": "Auxo3/theos/bin/install.copyFile",
+  "short_name": "install.copyFile",
+  "timestamp": "10/22/2024",
+  "identifier": "Auxo3_OiNRJg/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kpwn/Auxo3.git",
+  "relative_path": "Auxo3/theos/bin/package_version.sh",
+  "short_name": "package_version",
+  "timestamp": "10/22/2024",
+  "identifier": "Auxo3_OiNRJg/4",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kpwn/Auxo3.git",
+  "relative_path": "Auxo3/theos/bin/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "Auxo3_OiNRJg/5",
+  "posix_compliant": false,
+  "line_count": 143,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kpwn/Auxo3.git",
+  "relative_path": "Auxo3/theos/bin/install.exec",
+  "short_name": "install.exec",
+  "timestamp": "10/22/2024",
+  "identifier": "Auxo3_OiNRJg/6",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

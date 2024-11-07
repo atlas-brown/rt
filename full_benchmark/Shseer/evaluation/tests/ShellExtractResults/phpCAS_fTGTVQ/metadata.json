@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/apereo/phpCAS.git",
+  "relative_path": "phpCAS/utils/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "phpCAS_fTGTVQ/0",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

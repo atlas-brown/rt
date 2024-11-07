@@ -1,0 +1,64 @@
+[
+ {
+  "repo": "https://github.com/prevwong/craft.js.git",
+  "relative_path": "craft.js/scripts/dev.sh",
+  "short_name": "dev",
+  "timestamp": "10/22/2024",
+  "identifier": "craft.js_GXZsFE/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/prevwong/craft.js.git",
+  "relative_path": "craft.js/scripts/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "craft.js_GXZsFE/1",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/prevwong/craft.js.git",
+  "relative_path": "craft.js/scripts/yalc.sh",
+  "short_name": "yalc",
+  "timestamp": "10/22/2024",
+  "identifier": "craft.js_GXZsFE/2",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/prevwong/craft.js.git",
+  "relative_path": "craft.js/scripts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "craft.js_GXZsFE/3",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/prevwong/craft.js.git",
+  "relative_path": "craft.js/scripts/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "craft.js_GXZsFE/4",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "io"
+  ]
+ }
+]

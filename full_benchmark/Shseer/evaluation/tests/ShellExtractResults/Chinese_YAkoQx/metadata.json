@@ -1,0 +1,203 @@
+[
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/tools/download_llama.sh",
+  "short_name": "download_llama",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/0",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/tools/Vicuna.cpp/chat.sh",
+  "short_name": "chat",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/tools/Vicuna.cpp/quantize.sh",
+  "short_name": "quantize",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/tools/prepare_llama_cpp.sh",
+  "short_name": "prepare_llama_cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/generate_4bit.sh",
+  "short_name": "generate_4bit",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/4",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/finetune_fp16.sh",
+  "short_name": "finetune_fp16",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/5",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/finetune_others_continue.sh",
+  "short_name": "finetune_others_continue",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/6",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/finetune_continue.sh",
+  "short_name": "finetune_continue",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/7",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/finetune.sh",
+  "short_name": "finetune",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/8",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/finetune_chat.sh",
+  "short_name": "finetune_chat",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/9",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/chat_7B.sh",
+  "short_name": "chat_7B",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/10",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/finetune_chat_continue.sh",
+  "short_name": "finetune_chat_continue",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/11",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/interaction.sh",
+  "short_name": "interaction",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/12",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/13",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/finetune_4bit.sh",
+  "short_name": "finetune_4bit",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/14",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Facico/Chinese-Vicuna.git",
+  "relative_path": "Chinese-Vicuna/scripts/finetune_chat_single.sh",
+  "short_name": "finetune_chat_single",
+  "timestamp": "10/22/2024",
+  "identifier": "Chinese_YAkoQx/15",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

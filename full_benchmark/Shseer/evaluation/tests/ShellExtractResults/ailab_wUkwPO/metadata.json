@@ -1,0 +1,54 @@
+[
+ {
+  "repo": "https://github.com/microsoft/ailab.git",
+  "relative_path": "ailab/Snip-Insights/build.mac.sh",
+  "short_name": "build.mac",
+  "timestamp": "10/22/2024",
+  "identifier": "ailab_wUkwPO/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/ailab.git",
+  "relative_path": "ailab/Snip-Insights/build.linux.sh",
+  "short_name": "build.linux",
+  "timestamp": "10/22/2024",
+  "identifier": "ailab_wUkwPO/1",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/ailab.git",
+  "relative_path": "ailab/Snip-Insights/Installers/Mac/GeneratePackage.sh",
+  "short_name": "GeneratePackage",
+  "timestamp": "10/22/2024",
+  "identifier": "ailab_wUkwPO/2",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/ailab.git",
+  "relative_path": "ailab/Snip-Insights/Installers/Linux/GeneratePackage.sh",
+  "short_name": "GeneratePackage",
+  "timestamp": "10/22/2024",
+  "identifier": "ailab_wUkwPO/3",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

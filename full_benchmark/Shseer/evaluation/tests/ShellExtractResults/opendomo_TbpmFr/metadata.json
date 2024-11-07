@@ -1,0 +1,169 @@
+[
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/daemons/odvision.sh",
+  "short_name": "odvision",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/0",
+  "posix_compliant": true,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/bin/configureOpenCVODOS.sh",
+  "short_name": "configureOpenCVODOS",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/1",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/bindings/foscam.sh",
+  "short_name": "foscam",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/2",
+  "posix_compliant": true,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/bindings/axis.sh",
+  "short_name": "axis",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/3",
+  "posix_compliant": true,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/services/syscript/removeFilterToCamera.sh",
+  "short_name": "removeFilterToCamera",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/4",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/services/syscript/stopRecording.sh",
+  "short_name": "stopRecording",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/5",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/services/syscript/addFilterToCamera.sh",
+  "short_name": "addFilterToCamera",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/6",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/services/syscript/configureFilter.sh",
+  "short_name": "configureFilter",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/7",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/services/syscript/startRecording.sh",
+  "short_name": "startRecording",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/8",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/services/config/manageCameras.sh",
+  "short_name": "manageCameras",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/9",
+  "posix_compliant": true,
+  "line_count": 169,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/usr/local/opendomo/services/control/viewCameras.sh",
+  "short_name": "viewCameras",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/10",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jmirasb/opendomo-vision.git",
+  "relative_path": "opendomo-vision/mkpkg.sh",
+  "short_name": "mkpkg",
+  "timestamp": "10/22/2024",
+  "identifier": "opendomo_TbpmFr/11",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

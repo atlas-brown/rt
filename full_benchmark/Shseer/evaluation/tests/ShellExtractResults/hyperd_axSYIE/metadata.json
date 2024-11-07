@@ -1,0 +1,497 @@
+[
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/mac_installer/dist/opt/hyper/bin/uninstall-hyper.sh",
+  "short_name": "uninstall-hyper",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/0",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/mac_installer/scripts/postinstall",
+  "short_name": "postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/1",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/mac_installer/scripts/preinstall",
+  "short_name": "preinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/2",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/test-cmd.sh",
+  "short_name": "test-cmd",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/3",
+  "posix_compliant": false,
+  "line_count": 170,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/verify-gofmt.sh",
+  "short_name": "verify-gofmt",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/4",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/verify-generated-proto.sh",
+  "short_name": "verify-generated-proto",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/5",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/lib/hyperstart.sh",
+  "short_name": "hyperstart",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/6",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/lib/init.sh",
+  "short_name": "init",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/7",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/lib/logging.sh",
+  "short_name": "logging",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/8",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/lib/version.sh",
+  "short_name": "version",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/9",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/lib/util.sh",
+  "short_name": "util",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/10",
+  "posix_compliant": false,
+  "line_count": 126,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/lib/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/11",
+  "posix_compliant": false,
+  "line_count": 228,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/update-runv.sh",
+  "short_name": "update-runv",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/12",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/update-generated-proto.sh",
+  "short_name": "update-generated-proto",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/13",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/build-protoc-gen-gogo.sh",
+  "short_name": "build-protoc-gen-gogo",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/14",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/update-govendor.sh",
+  "short_name": "update-govendor",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/15",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/install-grpc.sh",
+  "short_name": "install-grpc",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/16",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/hack/format.sh",
+  "short_name": "format",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/17",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/package/debian/hyperstart/make-hyperstart-deb.sh",
+  "short_name": "make-hyperstart-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/18",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/package/debian/make-deb.sh",
+  "short_name": "make-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/19",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/package/debian/hypercontainer/make-hypercontainer-deb.sh",
+  "short_name": "make-hypercontainer-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/20",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/package/centos/rpm/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/21",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/package/fedora/rpm/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/22",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/package/ubuntu/hyperstart/make-hyperstart-deb.sh",
+  "short_name": "make-hyperstart-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/23",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/package/ubuntu/make-deb.sh",
+  "short_name": "make-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/24",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/package/ubuntu/hypercontainer/make-hypercontainer-deb.sh",
+  "short_name": "make-hypercontainer-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/25",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/vendor/google.golang.org/grpc/codegen.sh",
+  "short_name": "codegen",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/26",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/vendor/google.golang.org/grpc/coverage.sh",
+  "short_name": "coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/27",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/vendor/golang.org/x/sys/unix/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/28",
+  "posix_compliant": false,
+  "line_count": 203,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/vendor/golang.org/x/sys/unix/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/29",
+  "posix_compliant": false,
+  "line_count": 233,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/vendor/github.com/docker/libnetwork/wrapmake.sh",
+  "short_name": "wrapmake",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/30",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/vendor/github.com/docker/distribution/coverpkg.sh",
+  "short_name": "coverpkg",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/31",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/vendor/github.com/ugorji/go/codec/prebuild.sh",
+  "short_name": "prebuild",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/32",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/vendor/github.com/ugorji/go/codec/tests.sh",
+  "short_name": "tests",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/33",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/vendor/github.com/jessevdk/go-flags/check_crosscompile.sh",
+  "short_name": "check_crosscompile",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/34",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hyperhq/hyperd.git",
+  "relative_path": "hyperd/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "hyperd_axSYIE/35",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

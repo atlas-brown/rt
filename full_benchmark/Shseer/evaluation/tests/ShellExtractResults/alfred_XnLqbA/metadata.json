@@ -1,0 +1,19 @@
+[
+ {
+  "repo": "https://github.com/vitorgalvao/alfred-workflows.git",
+  "relative_path": "alfred-workflows/ProcessControl/source/_sharedresources",
+  "short_name": "_sharedresources",
+  "timestamp": "10/22/2024",
+  "identifier": "alfred_XnLqbA/0",
+  "posix_compliant": false,
+  "line_count": 174,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/FuelLabs/fuels-rs.git",
+  "relative_path": "fuels-rs/ci_checks.sh",
+  "short_name": "ci_checks",
+  "timestamp": "10/22/2024",
+  "identifier": "fuels_lkehbp/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/FuelLabs/fuels-rs.git",
+  "relative_path": "fuels-rs/.github/workflows/scripts/verify_tag.sh",
+  "short_name": "verify_tag",
+  "timestamp": "10/22/2024",
+  "identifier": "fuels_lkehbp/1",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

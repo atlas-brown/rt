@@ -1,0 +1,151 @@
+[
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/scripts/check-promise-version.sh",
+  "short_name": "check-promise-version",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/0",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/scripts/check-circular-imports.sh",
+  "short_name": "check-circular-imports",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/1",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/scripts/lint-composite-action-inputs.sh",
+  "short_name": "lint-composite-action-inputs",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/2",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/scripts/local-version-check.sh",
+  "short_name": "local-version-check",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/3",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/scripts/check-modified-files.sh",
+  "short_name": "check-modified-files",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/4",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/scripts/web-checks-should-run.sh",
+  "short_name": "web-checks-should-run",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/5",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/scripts/prettier.sh",
+  "short_name": "prettier",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/6",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/scripts/turbo-changed.sh",
+  "short_name": "turbo-changed",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/7",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/apps/mobile/ios/sourcemaps-datadog.sh",
+  "short_name": "sourcemaps-datadog",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/8",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/apps/mobile/scripts/podinstall.sh",
+  "short_name": "podinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/9",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Uniswap/interface.git",
+  "relative_path": "interface/apps/mobile/scripts/checkDepsUsage.sh",
+  "short_name": "checkDepsUsage",
+  "timestamp": "10/22/2024",
+  "identifier": "interface_cCiGyY/10",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

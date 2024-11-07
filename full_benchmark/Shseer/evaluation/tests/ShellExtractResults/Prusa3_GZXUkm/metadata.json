@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/josefprusa/Prusa3.git",
+  "relative_path": "Prusa3/box_frame/update-samples.sh",
+  "short_name": "update-samples",
+  "timestamp": "10/22/2024",
+  "identifier": "Prusa3_GZXUkm/0",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

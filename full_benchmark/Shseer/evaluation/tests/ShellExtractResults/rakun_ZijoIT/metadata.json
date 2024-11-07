@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/SkBlaz/rakun.git",
+  "relative_path": "rakun/clean_repo.sh",
+  "short_name": "clean_repo",
+  "timestamp": "10/22/2024",
+  "identifier": "rakun_ZijoIT/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ }
+]

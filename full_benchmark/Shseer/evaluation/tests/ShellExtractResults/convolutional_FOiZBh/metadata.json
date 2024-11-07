@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/autonomousvision/convolutional_occupancy_networks.git",
+  "relative_path": "convolutional_occupancy_networks/scripts/download_data.sh",
+  "short_name": "download_data",
+  "timestamp": "10/22/2024",
+  "identifier": "convolutional_FOiZBh/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/autonomousvision/convolutional_occupancy_networks.git",
+  "relative_path": "convolutional_occupancy_networks/scripts/download_demo_data.sh",
+  "short_name": "download_demo_data",
+  "timestamp": "10/22/2024",
+  "identifier": "convolutional_FOiZBh/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

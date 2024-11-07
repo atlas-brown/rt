@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/TeamVanced/Vanced.git",
+  "relative_path": "Vanced/base_apk_generator.sh",
+  "short_name": "base_apk_generator",
+  "timestamp": "10/22/2024",
+  "identifier": "Vanced_YQABnj/0",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ }
+]

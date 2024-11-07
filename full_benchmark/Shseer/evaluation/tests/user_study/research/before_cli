@@ -1,0 +1,235 @@
+#!/bin/bash
+
+# Docroot.
+cd /var/www/html/;
+
+# Trap.
+if [[ $# -eq 0 ]]; then
+  exit 1
+fi
+
+COMMAND=$1
+OPTION=$2
+NFS=$3
+EXIT_VALUE=0
+
+if [ -z "${OPTION-}" ]; then
+  OPTION='standard'
+fi
+
+##
+# SCRIPT COMMANDS
+##
+
+# drupal_init
+#
+# Configure the initial Drupal f.s.
+#
+drupal_init() {
+  header Configure the initial Drupal f.s.
+
+  # Set the default settings.php
+  chmod 777 /var/www/html/sites/default
+
+  if [ -f /var/www/html/sites/default/settings.php ]; then
+    chmod 777 /var/www/html/sites/default/settings.php
+    rm /var/www/html/sites/default/settings.php
+  fi
+
+  if [ -f /var/www/html/sites/default/default.settings.php ]; then
+    chmod 777 /var/www/html/sites/default/default.settings.php
+    rm /var/www/html/sites/default/default.settings.php
+  fi
+
+  cp /var/www/docker/conf/drupal/default.settings.php /var/www/html/sites/default/default.settings.php
+}
+
+# drupal_install
+#
+# Installs Drupal distribution.
+#
+drupal_install() {
+  header Install Drupal distribution
+
+  time drush si "${OPTION}" \
+    --sites-subdir=default \
+    --db-url=mysql://root:root@db:3306/"${OPTION}" \
+    --account-name=admin \
+    --account-pass=Drupal@2019 \
+    --site-mail=admin@example.com \
+    --site-name="Drupal Install Profile (${OPTION})" \
+    install_configure_form.update_status_module='array(FALSE,FALSE)' \
+    --yes
+}
+
+# drupal_export
+#
+# Exports Drupal site.
+#
+drupal_export() {
+  header Exports Drupal site
+
+  DATABASE_BACKUP=$1
+
+  cd /db
+  tar -xzvf "${DATABASE_BACKUP}"
+  export sql=$(ls -t *.sql | head -1)
+  cd /var/www/html/sites/default
+  drush sql-cli < "/db/${sql}"
+  rm "/db/${sql}" "/db/${DATABASE_BACKUP}"
+  echo "SHOW TABLES LIKE 'cache%'" | drush sql-cli | tail -n +2 | xargs -n1 -I% echo "TRUNCATE TABLE %;" | drush sql-cli
+  drush cr
+  drush updatedb
+  drush cr
+}
+
+# drupal_import
+#
+# Imports Drupal site.
+#
+drupal_import() {
+  header Import Drupal site
+
+  DATABASE_BACKUP=$1
+
+  cd /db
+  tar -xzvf "${DATABASE_BACKUP}"
+  export sql=$(ls -t *.sql | head -1)
+  cd /var/www/html/sites/default
+  drush sql-cli < "/db/${sql}"
+  rm "/db/${sql}" "/db/${DATABASE_BACKUP}"
+  echo "SHOW TABLES LIKE 'cache%'" | drush sql-cli | tail -n +2 | xargs -n1 -I% echo "TRUNCATE TABLE %;" | drush sql-cli
+  drush cr
+  drush updatedb
+  drush cr
+}
+
+# drupal_migrate
+#
+# Initialize migrate + default content.
+#
+drupal_migrate() {
+  header Initialize migrate and default content
+
+  cd /var/www/html/sites/default
+  drush migrate:import --group wxt --tag 'Core'
+  drush migrate:import --group gcweb --tag 'Core'
+  drush migrate:import --group gcweb --tag 'Menu'
+}
+
+# drupal_perm
+#
+# Configure the settings.php and files directory permissions.
+#
+drupal_perm() {
+  header Configure the settings.php and files directory permissions
+
+  if [[ $NFS != "nfs" ]]; then
+    chown -R -f www-data:www-data /var/www/html/
+    sleep 5
+  fi
+
+  php -r 'opcache_reset();';
+  sleep 5
+
+  chmod 444 sites/default/settings.php
+
+  # Create private files directory.
+  if [ ! -d /var/www/files_private ]; then
+    mkdir /var/www/files_private;
+  fi
+
+  chmod 777 -R /var/www/files_private;
+  chmod 777 -R sites/default/files
+}
+
+# drupal_updatedb
+#
+# Update Drupal with database updates.
+#
+drupal_updatedb() {
+  header Update Drupal with database updates.
+
+  drush -y updatedb
+}
+
+##
+# UTILITY FUNCTIONS:
+##
+
+# Prints a message about the section of the script.
+header() {
+  set +xv
+  echo
+  echo "** $@"
+  echo
+  set -xv
+}
+
+# Sets the exit level to error.
+set_error() {
+  EXIT_VALUE=1
+}
+
+# Runs a command and sets an error if it fails.
+run_test() {
+  if ! $@; then
+    set_error
+  fi
+}
+
+# Runs a command showing all the lines executed
+run_command() {
+  set -xv
+  $@
+  set +xv
+}
+
+##
+# SCRIPT MAIN:
+##
+
+# Capture all errors and set our overall exit value.
+trap 'set_error' ERR
+
+case $COMMAND in
+  drupal-first-run)
+    run_command drupal_init
+    run_command drupal_install
+    run_command drupal_perm
+    ;;
+
+  drupal-init)
+    run_command drupal_init
+    ;;
+
+  drupal-export)
+    run_command drupal_export "$3"
+    ;;
+
+  drupal-import)
+    run_command drupal_import "$3"
+    ;;
+
+  drupal-install)
+    run_command drupal_install
+    ;;
+
+  drupal-migrate)
+    run_command drupal_migrate
+    ;;
+
+  drupal-perm)
+    run_command drupal_perm
+    ;;
+
+  drupal-updatedb)
+    run_command drupal_updatedb
+    ;;
+
+  run-test)
+    run_command run_test
+    ;;
+esac
+
+exit $EXIT_VALUE

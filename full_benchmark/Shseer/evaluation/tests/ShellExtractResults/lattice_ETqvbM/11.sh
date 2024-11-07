@@ -1,0 +1,89 @@
+#!/bin/bash
+
+set -e
+
+if [[ -z $1 ]] && [[ -t 1 ]]; then
+    >&2 echo "Usage:"
+    >&2 echo -e "\t$0 /path/to/lattice.tgz [lattice tgz version]"
+    >&2 echo -e "\t$0 [lattice tgz version] > /path/to/lattice.tgz"
+    exit 1
+fi
+
+if [[ -t 1 ]]; then
+  lattice_tgz=$1
+  lattice_tgz_version=$2
+else
+  lattice_tgz="-"
+  lattice_tgz_version=$1
+fi
+
+lattice_release_dir=$(cd `dirname $0` && cd .. && pwd)
+diego_release_dir=$lattice_release_dir/diego-release
+ltc_dir=$lattice_release_dir/src/github.com/cloudfoundry-incubator/ltc
+receptor_dir=$lattice_release_dir/src/github.com/cloudfoundry-incubator/receptor
+
+lattice_release_version=$(git -C "$lattice_release_dir" rev-parse HEAD)
+diego_release_version=$(git -C "$diego_release_dir" describe --tags --always)
+ltc_version=$(git -C "$ltc_dir" describe --tags --always)
+receptor_version=$(git -C "$receptor_dir" describe --tags --always)
+
+tmp_dir=$(mktemp -d /tmp/lattice.XXXXXX)
+
+cp -a $lattice_release_dir/release/install $tmp_dir/
+
+export GOPATH=$lattice_release_dir:$diego_release_dir
+export GOOS=linux
+export GOARCH=amd64
+
+# Brain
+
+cp -a $lattice_release_dir/release/brain $tmp_dir/
+
+brain_bin_dir=$tmp_dir/brain/usr/local/bin
+brain_lighttpd_dir=$tmp_dir/brain/var/lattice/lighttpd
+brain_artifacts_dir=$tmp_dir/brain/var/lattice/artifacts
+brain_cell_helper_dir=$tmp_dir/brain/var/vcap/jobs/file_server/packages/cell-helpers
+brain_versions_dir=$tmp_dir/brain/var/lattice/versions
+mkdir -p $brain_lighttpd_dir $brain_artifacts_dir $brain_bin_dir $brain_cell_helper_dir $brain_versions_dir
+
+(
+  export GOPATH=$lattice_release_dir/src/github.com/docker/docker/vendor:$GOPATH
+  flags="-X github.com/cloudfoundry-incubator/ltc/setup_cli.latticeVersion=$lattice_release_version
+         -X github.com/cloudfoundry-incubator/ltc/setup_cli.diegoVersion=$diego_release_version"
+
+  go build -a -ldflags "$flags" -o $brain_artifacts_dir/linux/ltc github.com/cloudfoundry-incubator/ltc
+  GOOS=darwin go build -a -ldflags "$flags" -o $brain_artifacts_dir/osx/ltc github.com/cloudfoundry-incubator/ltc
+  GOOS=windows go build -a -ldflags "$flags" -o $brain_artifacts_dir/windows/ltc.exe github.com/cloudfoundry-incubator/ltc
+)
+
+go build -a -o $brain_bin_dir/receptor github.com/cloudfoundry-incubator/receptor/cmd/receptor
+
+pushd $brain_cell_helper_dir >/dev/null
+  go build -a github.com/cloudfoundry-incubator/ltc/cell-helpers/davtool
+  go build -a github.com/cloudfoundry-incubator/ltc/cell-helpers/s3tool
+  tar czf cell-helpers.tgz davtool s3tool
+  rm -f davtool s3tool
+popd >/dev/null
+
+echo $ltc_version > $brain_versions_dir/LTC
+echo $lattice_release_version > $brain_versions_dir/LATTICE_RELEASE
+echo $receptor_version > $brain_versions_dir/RECEPTOR
+echo $lattice_tgz_version > $brain_versions_dir/LATTICE_TGZ
+
+# Cell
+
+cell_bin_dir=$tmp_dir/cell/usr/local/bin
+cell_versions_dir=$tmp_dir/cell/var/lattice/versions
+mkdir -p $cell_bin_dir $cell_versions_dir
+
+go build -a -o $cell_bin_dir/tee2metron github.com/cloudfoundry-incubator/ltc/cell-helpers/tee2metron
+
+echo $ltc_version > $cell_versions_dir/LTC
+echo $lattice_release_version > $cell_versions_dir/LATTICE_RELEASE
+echo $lattice_tgz_version > $cell_versions_dir/LATTICE_TGZ
+
+# Output
+
+tar -czf "$lattice_tgz" -C "$tmp_dir" brain cell install
+
+rm -rf "$tmp_dir"

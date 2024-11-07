@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/dimforge/ncollide.git",
+  "relative_path": "ncollide/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "ncollide_wOAlKf/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ }
+]

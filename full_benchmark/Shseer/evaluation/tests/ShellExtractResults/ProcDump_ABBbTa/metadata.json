@@ -1,0 +1,634 @@
+[
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/makePackages.sh",
+  "short_name": "makePackages",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/0",
+  "posix_compliant": true,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/helpers.sh",
+  "short_name": "helpers",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/1",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/2",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/runProcDumpAndValidate.sh",
+  "short_name": "runProcDumpAndValidate",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/3",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_1exceptionDump2Thrown_dump.sh",
+  "short_name": "dotnet_1exceptionDump2Thrown_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/4",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_wildcardexception_notdump.sh",
+  "short_name": "dotnet_wildcardexception_notdump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/5",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_cpu.sh",
+  "short_name": "high_cpu",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/6",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_1WildcardFilterExceptionMsgDump1Thrown_dump.sh",
+  "short_name": "dotnet_1WildcardFilterExceptionMsgDump1Thrown_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/7",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_sigint_procdump.sh",
+  "short_name": "dotnet_sigint_procdump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/8",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/low_mem_trigger_cpu_memory.sh",
+  "short_name": "low_mem_trigger_cpu_memory",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/9",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_gen_2_thresholds_3_dumps.sh",
+  "short_name": "dotnet_gen_2_thresholds_3_dumps",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/10",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_1exceptionDump1Thrown_dump.sh",
+  "short_name": "dotnet_1exceptionDump1Thrown_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/11",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_fd_by_name.sh",
+  "short_name": "high_fd_by_name",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/12",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/low_cpu_notdump.sh",
+  "short_name": "low_cpu_notdump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/13",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/low_mem_notdump.sh",
+  "short_name": "low_mem_notdump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/14",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/low_cpu.sh",
+  "short_name": "low_cpu",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/15",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_1WildcardExceptionDump1Thrown_dump.sh",
+  "short_name": "dotnet_1WildcardExceptionDump1Thrown_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/16",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_0ExceptionDump1Thrown_dump.sh",
+  "short_name": "dotnet_0ExceptionDump1Thrown_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/17",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_cpu_by_name.sh",
+  "short_name": "high_cpu_by_name",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/18",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_2WildcardExceptionDump2Thrown_dump.sh",
+  "short_name": "dotnet_2WildcardExceptionDump2Thrown_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/19",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_tc_notdump.sh",
+  "short_name": "high_tc_notdump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/20",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_LOH_thresholds_3_dumps.sh",
+  "short_name": "dotnet_LOH_thresholds_3_dumps",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/21",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_cpu_trigger_cpu_memory.sh",
+  "short_name": "high_cpu_trigger_cpu_memory",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/22",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_mem_trigger_cpu_memory.sh",
+  "short_name": "high_mem_trigger_cpu_memory",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/23",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/low_cpu_by_name.sh",
+  "short_name": "low_cpu_by_name",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/24",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_fd_notdump.sh",
+  "short_name": "high_fd_notdump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/25",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_mem_notdump.sh",
+  "short_name": "high_mem_notdump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/26",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_cpu_notdump.sh",
+  "short_name": "high_cpu_notdump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/27",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_POH_thresholds_3_dumps.sh",
+  "short_name": "dotnet_POH_thresholds_3_dumps",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/28",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/low_mem.sh",
+  "short_name": "low_mem",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/29",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_tc_by_name.sh",
+  "short_name": "high_tc_by_name",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/30",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_cpu_nonexisting_output_directory.sh",
+  "short_name": "high_cpu_nonexisting_output_directory",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/31",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_MemMultipleDumps.sh",
+  "short_name": "dotnet_MemMultipleDumps",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/32",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_1_gc_gen_1_dump.sh",
+  "short_name": "dotnet_1_gc_gen_1_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/33",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_1_gc_threshold_1_dump.sh",
+  "short_name": "dotnet_1_gc_threshold_1_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/34",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/low_cpu_trigger_cpu_memory.sh",
+  "short_name": "low_cpu_trigger_cpu_memory",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/35",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_cpu_custom_core_file_name.sh",
+  "short_name": "high_cpu_custom_core_file_name",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/36",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_1FilterExceptionMsgDump1Thrown_dump.sh",
+  "short_name": "dotnet_1FilterExceptionMsgDump1Thrown_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/37",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_exception_notdump.sh",
+  "short_name": "dotnet_exception_notdump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/38",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/high_mem.sh",
+  "short_name": "high_mem",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/39",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_0WildcardExceptionDump1Thrown_dump.sh",
+  "short_name": "dotnet_0WildcardExceptionDump1Thrown_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/40",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_3_gc_thresholds_3_dumps.sh",
+  "short_name": "dotnet_3_gc_thresholds_3_dumps",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/41",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/dotnet_2exceptionDump2Thrown_dump.sh",
+  "short_name": "dotnet_2exceptionDump2Thrown_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/42",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/tests/integration/scenarios/ondemand.sh",
+  "short_name": "ondemand",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/43",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/.devcontainer/install-rocky-dependencies.sh",
+  "short_name": "install-rocky-dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/44",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/.devcontainer/install-ubuntu-dependencies.sh",
+  "short_name": "install-ubuntu-dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/45",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Sysinternals/ProcDump-for-Linux.git",
+  "relative_path": "ProcDump-for-Linux/.devcontainer/install-azurelinux.dependencies.sh",
+  "short_name": "install-azurelinux.dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "ProcDump_ABBbTa/46",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "permissions",
+   "difficult"
+  ]
+ }
+]

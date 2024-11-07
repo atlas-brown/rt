@@ -1,0 +1,133 @@
+#!/bin/bash
+
+get_fingerprint() {
+  local keyfile="$1"
+  dropbearkey -y -f "${keyfile}" | sed -n '/^Fingerprint:/ {s/Fingerprint: *//; p}'
+}
+
+display_fingerprints() {
+  local keyfile
+
+  for keyfile in "/etc/dropbear/dropbear_dss_host_key" "/etc/dropbear/dropbear_rsa_host_key" "/etc/dropbear/dropbear_ecdsa_host_key" ; do
+    if [ ! -r "${keyfile}" ] ; then
+      return 1
+    fi
+    echo "$(basename "${keyfile}") : $(get_fingerprint "${keyfile}")"
+  done
+}
+
+copy_openssh_keys() {
+  local osshrsa="/etc/ssh/ssh_host_rsa_key"
+  local osshdsa="/etc/ssh/ssh_host_dsa_key"
+  local osshecdsa="/etc/ssh/ssh_host_ecdsa_key"
+
+  local dbpre="/etc/dropbear/dropbear_"
+
+  [ -f "$osshrsa" ] && [ -f "$osshdsa" ] || return 1
+
+  dropbearconvert openssh dropbear $osshrsa ${dbpre}rsa_host_key
+  dropbearconvert openssh dropbear $osshdsa ${dbpre}dss_host_key
+  dropbearconvert openssh dropbear $osshecdsa ${dbpre}ecdsa_host_key
+}
+
+generate_keys() {
+  local keyfile keytype
+  for keytype in dss rsa ecdsa ; do
+    keyfile="/etc/dropbear/dropbear_${keytype}_host_key"
+    echo "Generating ${keytype} host key for dropbear ..."
+    dropbearkey -t "${keytype}" -f "${keyfile}"
+  done
+}
+
+make_etc_passwd() {
+  echo 'root:x:0:0:root:/:/bin/cryptsetup_shell' > "${TMPDIR}"/passwd
+}
+
+build ()
+{
+  #
+  # Begin real processing
+  #
+
+  # Are we even needed?
+  if [ ! -e "/etc/dropbear/root_key" ]; then
+    echo "There is no root key in /etc/dropbear/root_key existent; exit"
+    return 0
+  fi
+
+  # if TMPDIR is set leave it alone otherwise set
+  [ -z $TMPDIR ] && TMPDIR='/tmp/dropbear_initrd_encrypt'
+
+  # check if TMPDIR exsists if not make it
+  [ -d $TMPDIR ] || mkdir -p $TMPDIR
+
+  umask 0022
+
+  [ -d /etc/dropbear ] && mkdir -p /etc/dropbear
+
+  display_fingerprints || copy_openssh_keys || generate_keys
+
+  [ -e "${TMPDIR}/passwd" ] && ( grep -q -e '^root:' "${TMPDIR}/passwd" ) || make_etc_passwd
+
+  add_checked_modules "/drivers/net/"
+  add_binary "rm"
+  add_binary "dropbear"
+  add_binary "killall"
+
+  cat <<SCRIPTEOF > ${TMPDIR}/cryptsetup_shell
+#!/bin/sh
+if [ -c "/dev/mapper/control" ]; then
+  if eval /sbin/cryptsetup luksOpen \`cat /.cryptdev\` \`cat /.cryptname\` \`cat /.cryptargs\` ; then
+    echo > /.done
+    killall cryptsetup
+  fi
+else
+  echo "encryption bootup not succeeded. please wait!"
+fi
+SCRIPTEOF
+
+  chmod a+x ${TMPDIR}/cryptsetup_shell
+
+  add_file "${TMPDIR}/cryptsetup_shell" "/bin/cryptsetup_shell"
+
+  echo '/bin/cryptsetup_shell' > "${TMPDIR}"/shells
+  add_file "${TMPDIR}/shells" "/etc/shells"
+
+  cat /etc/dropbear/root_key > "${TMPDIR}"/authorized_keys
+
+  add_dir "/.ssh"
+  add_file "${TMPDIR}/authorized_keys" "/.ssh/authorized_keys"
+  add_file "${TMPDIR}/passwd" "/etc/passwd"
+  add_dir "/etc/dropbear"
+  add_file "/etc/dropbear/dropbear_rsa_host_key"
+  add_file "/etc/dropbear/dropbear_dss_host_key"
+  add_file "/etc/dropbear/dropbear_ecdsa_host_key"
+  add_file "/lib/libnss_files.so.2"
+  add_binary "ip" "/sbin/ip"
+  add_dir "/var/run"
+
+  touch "${TMPDIR}"/lastlog
+  add_dir "/var/log"
+  add_file "${TMPDIR}/lastlog" "/var/log/lastlog"
+  add_binary "/usr/lib/initcpio/ipconfig" "/bin/ipconfig"
+
+  # cleanup
+  rm "${TMPDIR}/cryptsetup_shell"
+  rm "${TMPDIR}/shells"
+  rm "${TMPDIR}/authorized_keys"
+  rm "${TMPDIR}/passwd"
+  rm "${TMPDIR}/lastlog"
+
+  add_runscript
+  
+}
+
+help ()
+{
+    cat<<HELPEOF
+This hook should always be used in combination with the "encrypthssh" hook. 
+Add this hook before the "encryptssh", though. Together they allow to enter 
+a password for a LUKS encrypted root device either via SSH or locally. 
+HELPEOF
+}
+

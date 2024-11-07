@@ -1,0 +1,40 @@
+[
+ {
+  "repo": "https://github.com/lukevella/rallly.git",
+  "relative_path": "rallly/scripts/create-release.sh",
+  "short_name": "create-release",
+  "timestamp": "10/22/2024",
+  "identifier": "rallly_DfBgnL/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/lukevella/rallly.git",
+  "relative_path": "rallly/scripts/vercel.sh",
+  "short_name": "vercel",
+  "timestamp": "10/22/2024",
+  "identifier": "rallly_DfBgnL/1",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/lukevella/rallly.git",
+  "relative_path": "rallly/scripts/docker-start.sh",
+  "short_name": "docker-start",
+  "timestamp": "10/22/2024",
+  "identifier": "rallly_DfBgnL/2",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

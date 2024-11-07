@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/MartinCazares/Android_Studio_Debugger_Macro.git",
+  "relative_path": "Android_Studio_Debugger_Macro/MacroDebug/app/debugger_script.sh",
+  "short_name": "debugger_script",
+  "timestamp": "10/22/2024",
+  "identifier": "Android_xLnNPx/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

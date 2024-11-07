@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/xhzengAIB/PopMenu.git",
+  "relative_path": "PopMenu/PopMenuExample/Pods/Target Support Files/Pods-PopMenuExample/Pods-PopMenuExample-resources.sh",
+  "short_name": "Pods-PopMenuExample-resources",
+  "timestamp": "10/22/2024",
+  "identifier": "PopMenu_ubJwCd/0",
+  "posix_compliant": true,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

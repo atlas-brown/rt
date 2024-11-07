@@ -1,0 +1,36 @@
+#!/bin/bash
+pushd "/pkg/src/metronome"
+rm -rf bin/metronome.bat README.md share/ logs/
+cp -an * "$PKG_PATH/"
+cp -f /pkg/extra/logback.xml "$PKG_PATH/conf/"
+
+metronome_service="$PKG_PATH/dcos.target.wants_master/dcos-metronome.service"
+mkdir -p $(dirname "$metronome_service")
+
+cat <<EOF > "$metronome_service"
+[Unit]
+Description=DC/OS Jobs (Metronome): job orchestration
+
+[Service]
+User=dcos_metronome
+Restart=always
+StartLimitInterval=0
+RestartSec=15
+LimitNOFILE=16384
+PermissionsStartOnly=True
+EnvironmentFile=/opt/mesosphere/etc/check_time.env
+EnvironmentFile=/opt/mesosphere/environment
+EnvironmentFile=/opt/mesosphere/etc/metronome
+EnvironmentFile=-/opt/mesosphere/etc/metronome-extras
+EnvironmentFile=-/run/dcos/etc/metronome/service.env
+EnvironmentFile=-/run/dcos/etc/metronome/tls.env
+# The env file in /var/lib/dcos is for post-install configuration via environment variables, and persists with upgrades.
+EnvironmentFile=-/var/lib/dcos/metronome/environment
+ExecStartPre=/opt/mesosphere/bin/check-time
+ExecStartPre=/bin/ping -c1 leader.mesos
+ExecStartPre=/opt/mesosphere/bin/bootstrap dcos-metronome
+ExecStartPre=/bin/bash -c 'mkdir -p /run/dcos/etc/metronome'
+ExecStartPre=/bin/bash -c 'echo "METRONOME_LEADER_ELECTION_HOSTNAME=\$(\$MESOS_IP_DISCOVERY_COMMAND)" > /run/dcos/etc/metronome/service.env'
+ExecStartPre=/bin/bash -c 'echo "LIBPROCESS_IP=\$(\$MESOS_IP_DISCOVERY_COMMAND)" >> /run/dcos/etc/metronome/service.env'
+ExecStart=/opt/mesosphere/bin/metronome -Djava.security.properties=/opt/mesosphere/etc/java.security
+EOF

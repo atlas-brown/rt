@@ -1,0 +1,31 @@
+[
+ {
+  "repo": "https://github.com/m-i-n-a-r/birday.git",
+  "relative_path": "birday/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "birday_wSvvEG/0",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/m-i-n-a-r/birday.git",
+  "relative_path": "birday/scripts/check_translate_missing_strings.sh",
+  "short_name": "check_translate_missing_strings",
+  "timestamp": "10/22/2024",
+  "identifier": "birday_wSvvEG/1",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

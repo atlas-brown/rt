@@ -1,0 +1,66 @@
+#!/bin/bash
+
+set -e
+info_year=$( date "+%Y" )
+# PyInstaller v6.x rearranges folder configuration causing broken builds, This re-enables old onedir layout.
+pyinstaller_args+="--contents-directory . "
+
+# We need to use the precompiled bootloader linked with graphical Mac OS X
+# libraries if we develop a GUI application for Mac:
+if [ "$BUILD" = "osx" -o "$BUILD" = "windows" ]; then
+    pyinstaller_args+="--windowed "
+fi
+
+# output useful debugging info that helps us trace library dependency issues
+pyinstaller_args+="--log-level DEBUG "
+
+# This adds bundle identifier in reverse DSN format for macos
+if [ "$BUILD" = "osx" ]; then
+    pyinstaller_args+="--osx-bundle-identifier org.inkstitch.app "
+    pyinstaller_args+="-i images/inkstitch/mac/inkstitch.icns "
+    if [[ -z ${GITHUB_REF} ]]; then
+        echo "Dev or Local Build"
+    else
+        bash bin/import-macos-keys
+    fi
+fi
+
+if [ "$BUILD" = "linux" ]; then
+    pyinstaller_args+="--hidden-import gi.repository.Gtk "
+fi
+
+
+if [ "$BUILD" = "windows" ]; then
+	if [[ "$VERSION" =~ ^v[0-9][.0-9]+$ ]]; then
+		# setting the file and product version for release
+		# Code to remove the periods in the version number
+		ENT=.
+		SAL=${VERSION#v}$ENT
+		INFO_VERSION=()
+		while [[ $SAL ]]; do
+			INFO_VERSION+=( "${SAL%%"$ENT"*}" );
+			SAL=${SAL#*"$ENT"};
+		done;
+		sed -i'' 's/3, 2, 1,/'"${INFO_VERSION[0]}, ${INFO_VERSION[1]}, ${INFO_VERSION[2]},"'/' installer_scripts/file_version_info.txt
+	fi
+		# set year and version in version_info
+	sed -i'' 's/1.1.1/'"${VERSION#v}"'/' installer_scripts/file_version_info.txt
+	sed -i'' 's/1234/'"${info_year}"'/' installer_scripts/file_version_info.txt
+  	# sets icon to inkstitch.exe
+  pyinstaller_args+="-i images/inkstitch/win/inkstitch.ico "
+	pyinstaller_args+="--version-file  installer_scripts/file_version_info.txt "
+    python -m PyInstaller $pyinstaller_args inkstitch.py
+elif [ "$BUILD" = "osx" ]; then
+    python -m PyInstaller $pyinstaller_args inkstitch.py;
+else
+    python -m PyInstaller $pyinstaller_args --strip inkstitch.py;
+fi
+
+# pyinstaller put a whole mess of libraries under dist/inkstitch.  We'd like
+# to put some more user-accessible stuff like examples and palettes in
+# folders under inkstitch/ (see ../Makefile) so let's move the pyinstaller
+# stuff into its own dir.
+shopt -s dotglob
+mkdir dist/bin
+mv dist/inkstitch/* dist/bin
+mv dist/bin dist/inkstitch

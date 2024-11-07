@@ -1,0 +1,29 @@
+[
+ {
+  "repo": "https://github.com/angular-translate/angular-translate.git",
+  "relative_path": "angular-translate/build_tools/generate_site.sh",
+  "short_name": "generate_site",
+  "timestamp": "10/22/2024",
+  "identifier": "angular_ceatwy/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/angular-translate/angular-translate.git",
+  "relative_path": "angular-translate/build_tools/generate_site_by_language.sh",
+  "short_name": "generate_site_by_language",
+  "timestamp": "10/22/2024",
+  "identifier": "angular_ceatwy/1",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

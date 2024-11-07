@@ -1,0 +1,72 @@
+#!/bin/bash -
+#===============================================================================
+#
+#          FILE: safeshutdown
+#
+#         USAGE: ./safeshutdown
+#
+#   DESCRIPTION:
+#
+#       OPTIONS: ---
+#  REQUIREMENTS: ---
+#          BUGS: ---
+#         NOTES: ---
+#        AUTHOR: Andreas Böttger (aboettger), andreas.boettger@gmx.de
+#  ORGANIZATION:
+#       CREATED: 12.04.2014 23:53
+#      REVISION:  ---
+#===============================================================================
+
+#set -o nounset                              # Treat unset variables as an error
+#set -o errexit
+
+#red="\e[0;31m"
+green="\e[0;32m"
+yellow="\e[0;33m"
+TOA="\e[0m" # No Color
+
+minUptime=3600000
+uptime=$(awk '{OFMT = "%.0f"; printf $1*1000}' /proc/uptime)
+uptimeHuman=$(uptime -p)
+
+pidwget=$(ps -C wget -o pid=)
+pidrsync=$(ps -C rsync -o pid=)
+pidaria2c=$(ps -C aria2c -o pid=)
+
+secUp=$(awk '{OFMT = "%.0f"; printf $1 * 1000}' /proc/uptime)
+userLen=$(last -w | grep "still logged in" | sed "/^(unknown)/d" | wc -l )
+
+echo "secUp: $secUp"
+# ck-history --last | grep "still logged in"
+
+echo
+echo -e "PID [${green}wget${TOA}]: ${yellow}$pidwget${TOA}"
+echo -e "PID [${green}rsync${TOA}]: ${yellow}$pidrsync${TOA}"
+echo -e "PID [${green}aria2c${TOA}]: ${yellow}$pidaria2c${TOA}"
+echo
+echo -e "Users: \c"; if [ "$userLen" -eq 0 ]; then echo -e "${green}$userLen${TOA}"; else echo -e "${yellow}$userLen${TOA}"; fi
+echo -e "${yellow}$(last -w | grep "still logged in" | sed "/^(unknown)/d")${TOA}"
+echo
+echo -e "Uptime (ms) [${green}$minUptime${TOA}]: \c";
+
+if [ "$secUp" -gt $minUptime ]; then
+  echo -e "${green}$uptime ($uptimeHuman)${TOA}"
+else
+  echo -e "${yellow}$uptime ($uptimeHuman)${TOA}"
+fi
+
+echo
+
+my_pids=$(find "/home/aboettger/running" -type f -name '*.pid' | wc -l)
+echo -e "PIDs in \"/home/aboettger/running\": \c"; if [ "$my_pids" -eq 0 ]; then echo -e "${green}$my_pids${TOA}"; else echo -e "${yellow}$my_pids${TOA}"; fi
+echo
+
+# mehr als eine Stunde uptime
+if [ "$secUp" -gt $minUptime ] && [ "$pidrsync" == "" ] && [ "$pidaria2c" == "" ] && [ "$pidwget" == "" ] && [ "$my_pids" -eq 0 ] && [ "$userLen" -eq 0 ]; then
+  /sbin/shutdown -P now
+  echo -e "${green}shutdown${TOA}"
+else
+  echo -e "${yellow}no shutdown${TOA}"
+fi
+echo
+exit 0

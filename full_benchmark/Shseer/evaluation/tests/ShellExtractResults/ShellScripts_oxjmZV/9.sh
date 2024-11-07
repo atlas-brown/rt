@@ -1,0 +1,154 @@
+#!/bin/bash
+#===============================================================================
+#
+#          FILE: gmb_on_track_change
+#
+#         USAGE: ./gmb_on_track_change  album_folder  [history_file]  [expired_hours]
+#                   album_folder  ... Start folder for pcard
+#                   history_file  ...
+#                   expired_hours ... Hours, after which the entry is expired
+#
+# I use this script together with the programs "gmusicbrowser" and "picard".
+# With each song change this script is called and decided whether the program
+# "picard" should be started or not.
+#
+#       OPTIONS: ---
+#  REQUIREMENTS: picard
+#          BUGS: ---
+#         NOTES: ---
+#        AUTHOR: Andreas Böttger (aboettger), andreas.boettger@gmx.de
+#  ORGANIZATION:
+#       CREATED: Fr 25 Apr 2014 17:17:43 CEST
+#      REVISION:  ---
+#===============================================================================
+#
+
+command -v xdotool >/dev/null 2>&1 || { notify-send -i error "$(basename "$0")" "\"xdotool\" required, but not installed."; echo "\"xdotool\" required, but not installed."; exit 1; }
+command -v wmctrl >/dev/null 2>&1 || { notify-send -i error "$(basename "$0")" "\"wmctrl\" required, but not installed."; echo "\"wmctrl\" required, but not installed."; exit 1; }
+command -v picard >/dev/null 2>&1 || { notify-send -i error "$(basename "$0")" "\"picard\" required, but not installed."; echo "\"picard\" required, but not installed."; exit 1; }
+
+
+function okfail () {
+  if [ $? -gt 0 ]; then
+    return 1
+  else
+    return 0
+  fi
+}
+
+if [ "$1" == "" ]
+then
+  echo "The supplied folder name is empty."
+  exit 1
+fi
+
+dir=$(dirname "$1")
+
+if [ "$(ls -A "$dir")" == "" ]; then
+  echo "The supplied folder '$dir' is empty."
+  exit 1
+fi
+
+# http://musicbrainz.org/ws/2/release/011ae209-eb8d-33c2-8d87-7999f1a97ab0?inc=recordings&fmt=json
+# releaseId=""
+# for filename in *.mp3; do
+#   nextReleaseId=$(eyeD3 "$filename" | grep -A 1 'UserTextFrame.*\[Description: MusicBrainz Album Id\]' | tail -1)
+#   if [[ $releaseId != $nextReleaseId ]]; then
+#     echo "http://musicbrainz.org/ws/2/release/$nextReleaseId?inc=recordings&fmt=json"
+#     curl "http://musicbrainz.org/ws/2/release/$nextReleaseId?inc=recordings&fmt=json" > "$nextReleaseId".json
+#     releaseId="$nextReleaseId"
+#   fi
+# done
+
+pathNameHistory=""
+if [ "$2" == "" ]
+then
+  pathNameHistory="~/gmb_call_picard_history"
+else
+  pathNameHistory="$2"
+fi
+
+if [ "$3" == "" ]
+then
+  deleteAfterHours="24"
+else
+  deleteAfterHours="$3"
+fi
+
+if [[ $4 == "" ]]; then
+  picardWindowsMax="10"
+else
+  picardWindowsMax="$4"
+fi
+
+
+lineFound="1"
+while [ "$lineFound" == "1" ]
+do
+  lineFound="0"
+  compareDate=$(date -d "-$deleteAfterHours hours" +%s)
+  while read line
+  do
+    lineDate=$(gawk -F ":" '{print $1}' <<< "$line")
+    lineNumber=$(awk "/$lineDate/{print NR}" "$pathNameHistory")
+    if [ "$lineDate" -lt "$compareDate" ]
+    then
+      printf '%s\n' "$lineNumber",d w | ed -s "$pathNameHistory"
+      okfail; [ $? -gt 0 ] && exit 1
+      echo "***** Line $lineNumber removed from $pathNameHistory (expiration date was: $lineDate)"
+      lineFound="1"
+      break
+    fi
+  done  < "$pathNameHistory"
+done
+
+matchedValue=""
+
+if [ ! -f "$pathNameHistory" ]
+then
+  echo "File \"$pathNameHistory\" doesn't exists, I will create the file."
+  touch "$pathNameHistory"
+else
+  dirEscaped=${dir//\[/\\[}
+  dirEscaped=${dirEscaped//\]/\\]}
+  dirEscaped=${dirEscaped//\^/\\^}
+  dirEscaped=${dirEscaped//\$/\\\$}
+
+  matchedValue=$(grep "$dirEscaped" "$pathNameHistory")
+fi
+
+# Don't call picard, if the album '$dir' is already in the list of recently played albums.
+if [ "$matchedValue" != "" ]
+then
+  echo "----- Don't call picard, the album '$dir' is already in the list of recently played albums: '$pathNameHistory'"
+else
+  picardWindows=$(wmctrl -l | grep -c "MusicBrainz Picard")
+  if [[ ! $picardWindows -lt  $picardWindowsMax ]]; then
+    echo "----- Don't call picard, to many open instances ($picardWindows/$picardWindowsMax)"
+    notify-send -i info --hint int:transient:1 "$(basename "$0")" "Don't call picard, to many open instances ($picardWindows/$picardWindowsMax)"
+  else
+    echo "+++++ Call picard, the album '$dir' is not in the list of recently played albums: '$pathNameHistory'"
+    echo "$(date +%s):$dir" >> "$pathNameHistory"
+    picard "$dir" &
+    pid=$!
+    okfail; [ $? -gt 0 ] && exit 1
+
+    picardWindowId=""
+    kill_time=$(date -d "+10 seconds" +%s)
+
+    while [ "$picardWindowId" == "" ]
+    do
+      current_time=$(date "+%s")
+      
+      if [ "$current_time" -gt "$kill_time" ]; then
+        echo "timeout, can't start picard"
+        exit 1
+      fi
+      
+      picardWindowId=$(wmctrl -lp | grep "$pid" | awk '{print $1}')
+    done
+    xdotool windowminimize "$picardWindowId"
+  fi
+fi
+
+exit 0

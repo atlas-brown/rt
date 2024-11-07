@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/redguardtoo/emacs.d.git",
+  "relative_path": "emacs.d/githooks/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "emacs.d_mmKren/0",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ }
+]

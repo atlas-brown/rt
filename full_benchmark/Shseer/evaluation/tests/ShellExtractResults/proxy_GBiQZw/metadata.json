@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/Redsmin/proxy.git",
+  "relative_path": "proxy/test/acceptance/can_handshake.sh",
+  "short_name": "can_handshake",
+  "timestamp": "10/22/2024",
+  "identifier": "proxy_GBiQZw/0",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

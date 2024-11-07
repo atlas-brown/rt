@@ -1,0 +1,94 @@
+[
+ {
+  "repo": "https://github.com/machzqcq/docker-for-all.git",
+  "relative_path": "docker-for-all/developer/web_app/wait-for-it.sh",
+  "short_name": "wait-for-it",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_tlSGiB/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/machzqcq/docker-for-all.git",
+  "relative_path": "docker-for-all/devops/ci-cd-ct-stack/sonar5/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_tlSGiB/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/machzqcq/docker-for-all.git",
+  "relative_path": "docker-for-all/devops/ci-cd-ct-stack/jenkins2/copy_certs_default.sh",
+  "short_name": "copy_certs_default",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_tlSGiB/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/machzqcq/docker-for-all.git",
+  "relative_path": "docker-for-all/devops/kubernetes/01-install/kubeadm/ubuntu1604-xenial/Vagrant.bootstrap.sh",
+  "short_name": "Vagrant.bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_tlSGiB/3",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/machzqcq/docker-for-all.git",
+  "relative_path": "docker-for-all/devops/kubernetes/01-install/kubeadm/create_node.sh",
+  "short_name": "create_node",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_tlSGiB/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/machzqcq/docker-for-all.git",
+  "relative_path": "docker-for-all/devops/kubernetes/01-install/kubeadm/create_master.sh",
+  "short_name": "create_master",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_tlSGiB/5",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/machzqcq/docker-for-all.git",
+  "relative_path": "docker-for-all/devops/kubernetes/01-install/kubeadm/centos75/Vagrant.bootstrap.sh",
+  "short_name": "Vagrant.bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_tlSGiB/6",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

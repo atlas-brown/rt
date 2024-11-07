@@ -1,0 +1,86 @@
+[
+ {
+  "repo": "https://github.com/pandas-dev/pandas.git",
+  "relative_path": "pandas/ci/code_checks.sh",
+  "short_name": "code_checks",
+  "timestamp": "10/22/2024",
+  "identifier": "pandas_UrGQDL/0",
+  "posix_compliant": false,
+  "line_count": 312,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/pandas-dev/pandas.git",
+  "relative_path": "pandas/ci/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "pandas_UrGQDL/1",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/pandas-dev/pandas.git",
+  "relative_path": "pandas/ci/upload_wheels.sh",
+  "short_name": "upload_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "pandas_UrGQDL/2",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/pandas-dev/pandas.git",
+  "relative_path": "pandas/gitpod/workspace_config",
+  "short_name": "workspace_config",
+  "timestamp": "10/22/2024",
+  "identifier": "pandas_UrGQDL/3",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pandas-dev/pandas.git",
+  "relative_path": "pandas/scripts/download_wheels.sh",
+  "short_name": "download_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "pandas_UrGQDL/4",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pandas-dev/pandas.git",
+  "relative_path": "pandas/scripts/cibw_before_build.sh",
+  "short_name": "cibw_before_build",
+  "timestamp": "10/22/2024",
+  "identifier": "pandas_UrGQDL/5",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

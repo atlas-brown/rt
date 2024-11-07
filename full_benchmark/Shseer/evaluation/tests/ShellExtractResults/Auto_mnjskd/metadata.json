@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/Significant-Gravitas/Auto-GPT-Plugins.git",
+  "relative_path": "Auto-GPT-Plugins/helpers.sh",
+  "short_name": "helpers",
+  "timestamp": "10/22/2024",
+  "identifier": "Auto_mnjskd/0",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

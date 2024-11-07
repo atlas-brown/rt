@@ -1,0 +1,88 @@
+[
+ {
+  "repo": "https://github.com/liquibase/liquibase.git",
+  "relative_path": "liquibase/liquibase-dist/src/main/archive/lib/liquibase_autocomplete.sh",
+  "short_name": "liquibase_autocomplete",
+  "timestamp": "10/22/2024",
+  "identifier": "liquibase_LLrcIV/0",
+  "posix_compliant": false,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/liquibase/liquibase.git",
+  "relative_path": "liquibase/liquibase-dist/src/main/deb/liquibase-env.sh",
+  "short_name": "liquibase-env",
+  "timestamp": "10/22/2024",
+  "identifier": "liquibase_LLrcIV/1",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/liquibase/liquibase.git",
+  "relative_path": "liquibase/.github/util/re-version.sh",
+  "short_name": "re-version",
+  "timestamp": "10/22/2024",
+  "identifier": "liquibase_LLrcIV/2",
+  "posix_compliant": false,
+  "line_count": 128,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/liquibase/liquibase.git",
+  "relative_path": "liquibase/.github/util/sign-artifacts.sh",
+  "short_name": "sign-artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "liquibase_LLrcIV/3",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/liquibase/liquibase.git",
+  "relative_path": "liquibase/.github/util/package-install4j.sh",
+  "short_name": "package-install4j",
+  "timestamp": "10/22/2024",
+  "identifier": "liquibase_LLrcIV/4",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/liquibase/liquibase.git",
+  "relative_path": "liquibase/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "liquibase_LLrcIV/5",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

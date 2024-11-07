@@ -1,0 +1,324 @@
+[
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/stapel/gcc-before-configure.sh",
+  "short_name": "gcc-before-configure",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/stapel/version-check.sh",
+  "short_name": "version-check",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/1",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/stapel/update_certs/ssl/misc/c_hash",
+  "short_name": "c_hash",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/2",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/stapel/update_certs/ssl/misc/CA.sh",
+  "short_name": "CA",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/3",
+  "posix_compliant": true,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/stapel/update_certs/ssl/misc/c_info",
+  "short_name": "c_info",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/4",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/stapel/update_certs/ssl/misc/c_issuer",
+  "short_name": "c_issuer",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/5",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/stapel/update_certs/ssl/misc/c_name",
+  "short_name": "c_name",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/6",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/test/e2e/build/_fixtures/complex/state1/script.sh",
+  "short_name": "script",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/7",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/test/e2e/build/_fixtures/complex/state0/script.sh",
+  "short_name": "script",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/8",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/test/perf/build/dockerfile/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/9",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/integration/suites/helm/secret/_fixtures/file/editor.sh",
+  "short_name": "editor",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/10",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/integration/suites/helm/secret/_fixtures/values/script.sh",
+  "short_name": "script",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/11",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/integration/suites/helm/secret/_fixtures/values/editor.sh",
+  "short_name": "editor",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/12",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/stapel/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/13",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/stapel/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/14",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/ci/integration_tests_registries_cleaner.sh",
+  "short_name": "integration_tests_registries_cleaner",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/15",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/ci/integration_tests_registries_login.sh",
+  "short_name": "integration_tests_registries_login",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/16",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/ci/integration_k8s_tests_before_hook.sh",
+  "short_name": "integration_k8s_tests_before_hook",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/17",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/tests/openstack/run",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/18",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/update_kubernetes.sh",
+  "short_name": "update_kubernetes",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/19",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/docs/regen.sh",
+  "short_name": "regen",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/20",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/docs/check_broken_links.sh",
+  "short_name": "check_broken_links",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/21",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/verify-dist-binaries.sh",
+  "short_name": "verify-dist-binaries",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/22",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/werf/werf.git",
+  "relative_path": "werf/scripts/werf-in-image/build-and-publish.sh",
+  "short_name": "build-and-publish",
+  "timestamp": "10/22/2024",
+  "identifier": "werf_lNiWzq/23",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

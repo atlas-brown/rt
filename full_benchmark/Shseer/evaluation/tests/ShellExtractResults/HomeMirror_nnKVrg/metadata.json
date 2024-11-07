@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/HannahMitt/HomeMirror.git",
+  "relative_path": "HomeMirror/design/install_assets.sh",
+  "short_name": "install_assets",
+  "timestamp": "10/22/2024",
+  "identifier": "HomeMirror_nnKVrg/0",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

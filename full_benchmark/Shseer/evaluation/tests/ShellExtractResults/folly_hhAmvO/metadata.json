@@ -1,0 +1,126 @@
+[
+ {
+  "repo": "https://github.com/facebook/folly.git",
+  "relative_path": "folly/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "folly_hhAmvO/0",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/folly.git",
+  "relative_path": "folly/.github/scripts/buck_build_and_test.sh",
+  "short_name": "buck_build_and_test",
+  "timestamp": "10/22/2024",
+  "identifier": "folly_hhAmvO/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/folly.git",
+  "relative_path": "folly/build/buck2/install_deps/install_deps.sh",
+  "short_name": "install_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "folly_hhAmvO/2",
+  "posix_compliant": true,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/folly.git",
+  "relative_path": "folly/folly/debugging/symbolizer/test/gnu_debuglink_test.sh",
+  "short_name": "gnu_debuglink_test",
+  "timestamp": "10/22/2024",
+  "identifier": "folly_hhAmvO/3",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/folly.git",
+  "relative_path": "folly/folly/debugging/symbolizer/test/compare-addr2line.sh",
+  "short_name": "compare-addr2line",
+  "timestamp": "10/22/2024",
+  "identifier": "folly_hhAmvO/4",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/folly.git",
+  "relative_path": "folly/folly/debugging/symbolizer/test/symbolizer_dwp_compability.sh",
+  "short_name": "symbolizer_dwp_compability",
+  "timestamp": "10/22/2024",
+  "identifier": "folly_hhAmvO/5",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/folly.git",
+  "relative_path": "folly/folly/io/async/test/certs/generate_certs.sh",
+  "short_name": "generate_certs",
+  "timestamp": "10/22/2024",
+  "identifier": "folly_hhAmvO/6",
+  "posix_compliant": false,
+  "line_count": 109,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/folly.git",
+  "relative_path": "folly/folly/build/build-debs-ubuntu-18.04.sh",
+  "short_name": "build-debs-ubuntu-18.04",
+  "timestamp": "10/22/2024",
+  "identifier": "folly_hhAmvO/7",
+  "posix_compliant": false,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/folly.git",
+  "relative_path": "folly/folly/build/bootstrap-osx-homebrew.sh",
+  "short_name": "bootstrap-osx-homebrew",
+  "timestamp": "10/22/2024",
+  "identifier": "folly_hhAmvO/8",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

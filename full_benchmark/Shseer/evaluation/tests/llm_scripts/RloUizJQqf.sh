@@ -1,0 +1,7 @@
+
+#!/bin/sh
+
+for dir in "$@"
+do
+    ls $dir
+done

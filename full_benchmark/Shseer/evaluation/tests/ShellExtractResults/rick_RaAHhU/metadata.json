@@ -1,0 +1,27 @@
+[
+ {
+  "repo": "https://github.com/ben174/rick-roulette.git",
+  "relative_path": "rick-roulette/deploy-web.sh",
+  "short_name": "deploy-web",
+  "timestamp": "10/22/2024",
+  "identifier": "rick_RaAHhU/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ben174/rick-roulette.git",
+  "relative_path": "rick-roulette/deploy-extension.sh",
+  "short_name": "deploy-extension",
+  "timestamp": "10/22/2024",
+  "identifier": "rick_RaAHhU/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ }
+]

@@ -1,0 +1,78 @@
+#!/bin/bash -e
+# written by Shotaro Fujimoto (https://github.com/ssh0)
+#=#=#=
+# ```
+# NAME
+#       texmath - compile latex to png with dvipng (and create texmath file)
+#
+# USAGE
+#       texmath [-e FILE | FILE] [-h]
+#
+# ARGUMENTS
+#       -e FILE: Open and edit FILE.
+#                Or create it when FILE doesn't exist, 
+#
+#       FILE:    If you provide only file name, this script compiles the file with
+#                latexmk and then creates png file by dvipng.
+#
+#       --help:  Display this help and exit
+# ```
+#=#=
+
+latexmkrc="$HOME/.latexmkrc_dvipng"
+
+f="$0"
+usage() {
+  sed -n '/^#=#=#=/,/^#=#=/p' $f | sed -e '1d;$d' | cut -b3- | grep -v "\`\`\`"
+  exit 1
+}
+
+texmathtemplate="$(cat <<EOF
+% vim: ft=texmath
+\documentclass[43pt]{jsarticle}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ascmac}
+\pagestyle{empty}
+
+% '\vector{a}' でベクトル
+\def\vector#1{\mbox{\boldmath \(#1\)}}
+
+\begin{document}
+\begin{eqnarray*}
+
+\end{eqnarray*}
+\newpage
+\end{document}
+EOF
+)"
+
+if [ "$1" = "-h" ]; then
+  usage
+elif [ "$1" = "-e" ]; then
+  if [ -f "$2" ]; then
+    texfile="$2"
+  elif [ ! "$2" = "" ]; then
+    texfile="$2"
+    echo "$texmathtemplate" > "$texfile"
+  else
+    echo "Option '-e' needs a file name to edit."
+    echo "Aborted."
+    exit 1
+  fi
+  vim "$texfile"
+elif [ ! -f "$1" ]; then
+  echo "'$1' doesn't exist."
+  echo "Aborted."
+  exit 1
+elif [ -f "$1" ]; then
+  texfile="$1"
+  latexmk -r "$latexmkrc" "${texfile}" \
+  && latexmk -c "${texfile}" \
+  && dvipng -T tight -bd 1000 "${texfile%.tex}.dvi" \
+  && rm *.fls
+else
+  usage
+fi
+

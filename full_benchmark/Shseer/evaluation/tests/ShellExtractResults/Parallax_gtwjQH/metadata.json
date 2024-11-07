@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/AdevintaSpain/Parallax-Layer-Layout.git",
+  "relative_path": "Parallax-Layer-Layout/install_codestyle.sh",
+  "short_name": "install_codestyle",
+  "timestamp": "10/22/2024",
+  "identifier": "Parallax_gtwjQH/0",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AdevintaSpain/Parallax-Layer-Layout.git",
+  "relative_path": "Parallax-Layer-Layout/scripts/bintrayUpload.sh",
+  "short_name": "bintrayUpload",
+  "timestamp": "10/22/2024",
+  "identifier": "Parallax_gtwjQH/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

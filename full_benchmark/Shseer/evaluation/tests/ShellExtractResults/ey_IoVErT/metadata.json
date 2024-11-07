@@ -1,0 +1,224 @@
+[
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/flume/files/default/flume-stop.sh",
+  "short_name": "flume-stop",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/sidekiq/templates/default/sidekiq.erb",
+  "short_name": "sidekiq.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/1",
+  "posix_compliant": true,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/delayed_job4/templates/default/dj.erb",
+  "short_name": "dj.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/2",
+  "posix_compliant": true,
+  "line_count": 162,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/env_motd/templates/default/motd.erb",
+  "short_name": "motd.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/3",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/mongodb/files/default/mms.sh",
+  "short_name": "mms",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/4",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/solr/templates/default/solr.erb",
+  "short_name": "solr.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/5",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/resque-scheduler/files/default/resque-scheduler",
+  "short_name": "resque-scheduler",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/6",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/env_vars/templates/default/ruby_wrapper.erb",
+  "short_name": "ruby_wrapper.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/7",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/redis-sentinel/templates/default/redis-sentinel.erb",
+  "short_name": "redis-sentinel.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/8",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/varnish_frontend/templates/default/varnishd_wrapper.erb",
+  "short_name": "varnishd_wrapper.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/9",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/datadog/files/default/setup_agent.sh",
+  "short_name": "setup_agent",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/10",
+  "posix_compliant": true,
+  "line_count": 302,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/datadog/files/default/datadog_wrapper.sh",
+  "short_name": "datadog_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/11",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/jenkins/templates/default/swarm-init.sh.erb",
+  "short_name": "swarm-init.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/12",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/passenger_monitor/files/default/passenger_monitor4",
+  "short_name": "passenger_monitor4",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/13",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/db_restore/templates/default/download_backup.sh.erb",
+  "short_name": "download_backup.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/14",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/engineyard/ey-cloud-recipes.git",
+  "relative_path": "ey-cloud-recipes/cookbooks/delayed_job/templates/default/dj.erb",
+  "short_name": "dj.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ey_IoVErT/15",
+  "posix_compliant": true,
+  "line_count": 158,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

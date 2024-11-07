@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/nickhutchinson/vim-cmake-syntax.git",
+  "relative_path": "vim-cmake-syntax/extract_keywords.sh",
+  "short_name": "extract_keywords",
+  "timestamp": "10/22/2024",
+  "identifier": "vim_inEMeP/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

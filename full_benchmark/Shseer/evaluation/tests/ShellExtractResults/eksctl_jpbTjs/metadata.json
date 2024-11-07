@@ -1,0 +1,281 @@
+[
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/integration/scripts/ginkgo-parallel-procs.sh",
+  "short_name": "ginkgo-parallel-procs",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/0",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/integration/scripts/download-previous-release.sh",
+  "short_name": "download-previous-release",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/1",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/build/updates/dump-coredns-manifests.sh",
+  "short_name": "dump-coredns-manifests",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/2",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/build/updates/dump-default-addons.sh",
+  "short_name": "dump-default-addons",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/3",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/build/scripts/tag-release-candidate.sh",
+  "short_name": "tag-release-candidate",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/4",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/build/scripts/tag-common.sh",
+  "short_name": "tag-common",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/5",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/build/scripts/install-build-deps.sh",
+  "short_name": "install-build-deps",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/6",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/build/scripts/update-codegen.sh",
+  "short_name": "update-codegen",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/7",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/build/scripts/build-image-manifest.sh",
+  "short_name": "build-image-manifest",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/8",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/build/scripts/generate-aws-interfaces.sh",
+  "short_name": "generate-aws-interfaces",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/9",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/build/scripts/publish-docs.sh",
+  "short_name": "publish-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/10",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/build/scripts/tag-release.sh",
+  "short_name": "tag-release",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/11",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/pkg/addons/default/scripts/update_aws_node.sh",
+  "short_name": "update_aws_node",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/12",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/pkg/addons/assets/scripts/update_nvidia_device_plugin.sh",
+  "short_name": "update_nvidia_device_plugin",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/13",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/pkg/nodebootstrap/assets/scripts/bootstrap.ubuntu.sh",
+  "short_name": "bootstrap.ubuntu",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/14",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/pkg/nodebootstrap/assets/scripts/bootstrap.al2.sh",
+  "short_name": "bootstrap.al2",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/15",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/pkg/nodebootstrap/assets/scripts/efa.al2023.sh",
+  "short_name": "efa.al2023",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/16",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/pkg/nodebootstrap/assets/scripts/bootstrap.helper.sh",
+  "short_name": "bootstrap.helper",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/17",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/pkg/nodebootstrap/assets/scripts/efa.al2.sh",
+  "short_name": "efa.al2",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/18",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/pkg/nodebootstrap/assets/scripts/al2023-xtables.lock.sh",
+  "short_name": "al2023-xtables.lock",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/19",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eksctl-io/eksctl.git",
+  "relative_path": "eksctl/pkg/nodebootstrap/assets/scripts/install-ssm.al2.sh",
+  "short_name": "install-ssm.al2",
+  "timestamp": "10/22/2024",
+  "identifier": "eksctl_jpbTjs/20",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ }
+]

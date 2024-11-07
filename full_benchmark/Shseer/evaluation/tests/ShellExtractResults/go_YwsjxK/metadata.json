@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/thangchung/go-coffeeshop.git",
+  "relative_path": "go-coffeeshop/.devcontainer/core-libs.sh",
+  "short_name": "core-libs",
+  "timestamp": "10/22/2024",
+  "identifier": "go_YwsjxK/0",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/thangchung/go-coffeeshop.git",
+  "relative_path": "go-coffeeshop/build/local/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "go_YwsjxK/1",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

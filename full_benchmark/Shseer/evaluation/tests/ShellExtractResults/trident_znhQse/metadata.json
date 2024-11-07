@@ -1,0 +1,32 @@
+[
+ {
+  "repo": "https://github.com/NetApp/trident.git",
+  "relative_path": "trident/hooks/golangci-lint.sh",
+  "short_name": "golangci-lint",
+  "timestamp": "10/22/2024",
+  "identifier": "trident_znhQse/0",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/NetApp/trident.git",
+  "relative_path": "trident/chwrap/make-tarball.sh",
+  "short_name": "make-tarball",
+  "timestamp": "10/22/2024",
+  "identifier": "trident_znhQse/1",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

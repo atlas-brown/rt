@@ -1,0 +1,24 @@
+[
+ {
+  "repo": "https://github.com/layumi/Person_reID_baseline_pytorch.git",
+  "relative_path": "Person_reID_baseline_pytorch/GPU-Re-Ranking/extension/make.sh",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "Person_EeewfD/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/layumi/Person_reID_baseline_pytorch.git",
+  "relative_path": "Person_reID_baseline_pytorch/DDP.sh",
+  "short_name": "DDP",
+  "timestamp": "10/22/2024",
+  "identifier": "Person_EeewfD/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

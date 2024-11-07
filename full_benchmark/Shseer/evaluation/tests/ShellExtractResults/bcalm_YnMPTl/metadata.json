@@ -1,0 +1,82 @@
+[
+ {
+  "repo": "https://github.com/GATB/bcalm.git",
+  "relative_path": "bcalm/test/simple_test.sh",
+  "short_name": "simple_test",
+  "timestamp": "10/22/2024",
+  "identifier": "bcalm_YnMPTl/0",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GATB/bcalm.git",
+  "relative_path": "bcalm/example/circular_unitigs_unittests/CMD",
+  "short_name": "CMD",
+  "timestamp": "10/22/2024",
+  "identifier": "bcalm_YnMPTl/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GATB/bcalm.git",
+  "relative_path": "bcalm/example/run-tiny.sh",
+  "short_name": "run-tiny",
+  "timestamp": "10/22/2024",
+  "identifier": "bcalm_YnMPTl/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/GATB/bcalm.git",
+  "relative_path": "bcalm/example/pufferize/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "bcalm_YnMPTl/3",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/GATB/bcalm.git",
+  "relative_path": "bcalm/scripts/memused",
+  "short_name": "memused",
+  "timestamp": "10/22/2024",
+  "identifier": "bcalm_YnMPTl/4",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/GATB/bcalm.git",
+  "relative_path": "bcalm/scripts/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "bcalm_YnMPTl/5",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

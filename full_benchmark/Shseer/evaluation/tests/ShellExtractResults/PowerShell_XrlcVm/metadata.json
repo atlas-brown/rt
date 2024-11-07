@@ -1,0 +1,230 @@
+[
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/install-powershell.sh",
+  "short_name": "install-powershell",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/1",
+  "posix_compliant": false,
+  "line_count": 133,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/installpsh-debian.sh",
+  "short_name": "installpsh-debian",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/2",
+  "posix_compliant": false,
+  "line_count": 187,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/installpsh-osx.sh",
+  "short_name": "installpsh-osx",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/3",
+  "posix_compliant": false,
+  "line_count": 125,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/installpsh-gentoo.sh",
+  "short_name": "installpsh-gentoo",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/4",
+  "posix_compliant": false,
+  "line_count": 147,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/installpsh-suse.sh",
+  "short_name": "installpsh-suse",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/5",
+  "posix_compliant": false,
+  "line_count": 160,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/releaseBuild/macOS/createPowerShell.sh",
+  "short_name": "createPowerShell",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/6",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/releaseBuild/macOS/PowerShellPackageVsts.sh",
+  "short_name": "PowerShellPackageVsts",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/7",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/releaseBuild/vstsbuild.sh",
+  "short_name": "vstsbuild",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/8",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/releaseBuild/setReleaseTag.sh",
+  "short_name": "setReleaseTag",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/9",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/generate-icns.sh",
+  "short_name": "generate-icns",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/10",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/installpsh-amazonlinux.sh",
+  "short_name": "installpsh-amazonlinux",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/11",
+  "posix_compliant": false,
+  "line_count": 141,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/download.sh",
+  "short_name": "download",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/12",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/installpsh-mariner.sh",
+  "short_name": "installpsh-mariner",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/13",
+  "posix_compliant": false,
+  "line_count": 142,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/tools/installpsh-redhat.sh",
+  "short_name": "installpsh-redhat",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/14",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PowerShell/PowerShell.git",
+  "relative_path": "PowerShell/docker/InstallTarballPackage.sh",
+  "short_name": "InstallTarballPackage",
+  "timestamp": "10/22/2024",
+  "identifier": "PowerShell_XrlcVm/15",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

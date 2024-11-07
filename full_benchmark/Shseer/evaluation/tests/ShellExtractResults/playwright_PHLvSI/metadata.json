@@ -1,0 +1,505 @@
+[
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/browser_patches/firefox/UPSTREAM_CONFIG.sh",
+  "short_name": "UPSTREAM_CONFIG",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/browser_patches/webkit/UPSTREAM_CONFIG.sh",
+  "short_name": "UPSTREAM_CONFIG",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/browser_patches/webkit/pw_run.sh",
+  "short_name": "pw_run",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/2",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/browser_patches/roll_from_upstream.sh",
+  "short_name": "roll_from_upstream",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/3",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/browser_patches/winldd/archive.sh",
+  "short_name": "archive",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/4",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/browser_patches/winldd/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/5",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/browser_patches/winldd/clean.sh",
+  "short_name": "clean",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/6",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/tests/assets/modernizr/roll.sh",
+  "short_name": "roll",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/7",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/avd_install.sh",
+  "short_name": "avd_install",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/8",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/linux-browser-dependencies/inside_docker/process.sh",
+  "short_name": "process",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/9",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/linux-browser-dependencies/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/10",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/docker/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/11",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/docker/publish_docker.sh",
+  "short_name": "publish_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/12",
+  "posix_compliant": false,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/build_android_driver.sh",
+  "short_name": "build_android_driver",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/13",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/publish_all_packages.sh",
+  "short_name": "publish_all_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/14",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/avd_recreate.sh",
+  "short_name": "avd_recreate",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/15",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/draft_release_notes.sh",
+  "short_name": "draft_release_notes",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/16",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/list_closed_issues.sh",
+  "short_name": "list_closed_issues",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/17",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/limits.sh",
+  "short_name": "limits",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/18",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/avd_start.sh",
+  "short_name": "avd_start",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/19",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/build/deploy-trace-viewer.sh",
+  "short_name": "deploy-trace-viewer",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/20",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/build/build-playwright-driver.sh",
+  "short_name": "build-playwright-driver",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/21",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/build/upload-playwright-driver.sh",
+  "short_name": "upload-playwright-driver",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/22",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/upload_flakiness_dashboard.sh",
+  "short_name": "upload_flakiness_dashboard",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/23",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/utils/avd_stop.sh",
+  "short_name": "avd_stop",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/24",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/bin/reinstall_msedge_beta_linux.sh",
+  "short_name": "reinstall_msedge_beta_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/25",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/bin/reinstall_chrome_beta_linux.sh",
+  "short_name": "reinstall_chrome_beta_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/26",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/bin/reinstall_msedge_beta_mac.sh",
+  "short_name": "reinstall_msedge_beta_mac",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/27",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/bin/reinstall_msedge_stable_mac.sh",
+  "short_name": "reinstall_msedge_stable_mac",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/28",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/bin/reinstall_chrome_stable_mac.sh",
+  "short_name": "reinstall_chrome_stable_mac",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/29",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/bin/reinstall_msedge_stable_linux.sh",
+  "short_name": "reinstall_msedge_stable_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/30",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/bin/reinstall_chrome_beta_mac.sh",
+  "short_name": "reinstall_chrome_beta_mac",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/31",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/bin/reinstall_msedge_dev_linux.sh",
+  "short_name": "reinstall_msedge_dev_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/32",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/bin/reinstall_chrome_stable_linux.sh",
+  "short_name": "reinstall_chrome_stable_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/33",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/bin/reinstall_msedge_dev_mac.sh",
+  "short_name": "reinstall_msedge_dev_mac",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/34",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/playwright.git",
+  "relative_path": "playwright/packages/playwright-core/src/server/android/driver/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "playwright_PHLvSI/35",
+  "posix_compliant": true,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

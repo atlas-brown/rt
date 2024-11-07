@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/onsi/ginkgo.git",
+  "relative_path": "ginkgo/ginkgo/outline/_testdata/create_result.sh",
+  "short_name": "create_result",
+  "timestamp": "10/22/2024",
+  "identifier": "ginkgo_DJrbgE/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

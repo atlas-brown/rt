@@ -1,0 +1,8 @@
+**/hsa.*
+**/mmu.*
+
+!samples/hsa.*
+!samples/mmu.*
+
+*.dockerignore
+Dockerfile*

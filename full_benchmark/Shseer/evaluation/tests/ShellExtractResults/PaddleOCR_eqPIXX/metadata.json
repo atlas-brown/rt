@@ -1,0 +1,557 @@
+[
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/run_benchmark_det.sh",
+  "short_name": "run_benchmark_det",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/0",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/run_det.sh",
+  "short_name": "run_det",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/1",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/PaddleOCR_DBNet/eval.sh",
+  "short_name": "eval",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/2",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/PaddleOCR_DBNet/singlel_gpu_train.sh",
+  "short_name": "singlel_gpu_train",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/PaddleOCR_DBNet/multi_gpu_train.sh",
+  "short_name": "multi_gpu_train",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/PaddleOCR_DBNet/test_tipc/common_func.sh",
+  "short_name": "common_func",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/5",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/PaddleOCR_DBNet/test_tipc/benchmark_train.sh",
+  "short_name": "benchmark_train",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/6",
+  "posix_compliant": false,
+  "line_count": 231,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/PaddleOCR_DBNet/test_tipc/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/7",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/PaddleOCR_DBNet/test_tipc/test_train_inference_python.sh",
+  "short_name": "test_train_inference_python",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/8",
+  "posix_compliant": false,
+  "line_count": 301,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/PaddleOCR_DBNet/predict.sh",
+  "short_name": "predict",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/9",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/benchmark/PaddleOCR_DBNet/generate_lists.sh",
+  "short_name": "generate_lists",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/10",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/train.sh",
+  "short_name": "train",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/11",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/deploy/cpp_infer/tools/build_opencv.sh",
+  "short_name": "build_opencv",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/12",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/deploy/cpp_infer/tools/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/13",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/deploy/avh/run_demo.sh",
+  "short_name": "run_demo",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/14",
+  "posix_compliant": false,
+  "line_count": 135,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/deploy/avh/configure_avh.sh",
+  "short_name": "configure_avh",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/15",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/deploy/lite/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/16",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/deploy/slim/auto_compression/test_ocr_rec.sh",
+  "short_name": "test_ocr_rec",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/17",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/deploy/slim/auto_compression/test_ocr_det.sh",
+  "short_name": "test_ocr_det",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/18",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/.clang_format.hook",
+  "short_name": ".clang_format.hook",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/19",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_ptq_inference_python.sh",
+  "short_name": "test_ptq_inference_python",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/20",
+  "posix_compliant": false,
+  "line_count": 138,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/build_server.sh",
+  "short_name": "build_server",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/21",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_serving_infer_cpp.sh",
+  "short_name": "test_serving_infer_cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/22",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/prepare_js.sh",
+  "short_name": "prepare_js",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/23",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_inference_js.sh",
+  "short_name": "test_inference_js",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/24",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_paddle2onnx.sh",
+  "short_name": "test_paddle2onnx",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/25",
+  "posix_compliant": false,
+  "line_count": 149,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_train_inference_python_xpu.sh",
+  "short_name": "test_train_inference_python_xpu",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/26",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/common_func.sh",
+  "short_name": "common_func",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/27",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_inference_python.sh",
+  "short_name": "test_inference_python",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/28",
+  "posix_compliant": false,
+  "line_count": 147,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/benchmark_train.sh",
+  "short_name": "benchmark_train",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/29",
+  "posix_compliant": false,
+  "line_count": 239,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/supplementary/train.sh",
+  "short_name": "train",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/30",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/supplementary/test_tipc/common_func.sh",
+  "short_name": "common_func",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/31",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/supplementary/test_tipc/test_train_python.sh",
+  "short_name": "test_train_python",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/32",
+  "posix_compliant": false,
+  "line_count": 96,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/33",
+  "posix_compliant": false,
+  "line_count": 875,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_lite_arm_cpp.sh",
+  "short_name": "test_lite_arm_cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/34",
+  "posix_compliant": false,
+  "line_count": 130,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_serving_infer_python.sh",
+  "short_name": "test_serving_infer_python",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/35",
+  "posix_compliant": false,
+  "line_count": 206,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_train_inference_python.sh",
+  "short_name": "test_train_inference_python",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/36",
+  "posix_compliant": false,
+  "line_count": 301,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_train_inference_python_npu.sh",
+  "short_name": "test_train_inference_python_npu",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/37",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/prepare_lite_cpp.sh",
+  "short_name": "prepare_lite_cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/38",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/PaddleOCR.git",
+  "relative_path": "PaddleOCR/test_tipc/test_inference_cpp.sh",
+  "short_name": "test_inference_cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "PaddleOCR_eqPIXX/39",
+  "posix_compliant": false,
+  "line_count": 212,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

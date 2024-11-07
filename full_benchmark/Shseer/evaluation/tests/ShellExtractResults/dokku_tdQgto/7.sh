@@ -1,0 +1,18 @@
+#!/bin/bash
+set -eo pipefail
+[[ $TRACE ]] && set -x
+
+if [[ -e /usr/share/debconf/confmodule ]]; then
+  . /usr/share/debconf/confmodule
+fi
+
+readonly ACTION="${1:-configure}"
+readonly VERSION="${2:-dev}"
+
+db_input "high" "dokku/nginx_enable" || true
+db_input "high" "dokku/hostname" || true
+db_input "high" "dokku/vhost_enable" || true
+if [ "$ACTION" != "reconfigure" ]; then
+  db_input "high" "dokku/key_file" || true
+fi
+db_go || true

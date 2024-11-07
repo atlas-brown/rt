@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/zpoint/CPython-Internals.git",
+  "relative_path": "CPython-Internals/Interpreter/compile/gen/example_grammar.sh",
+  "short_name": "example_grammar",
+  "timestamp": "10/22/2024",
+  "identifier": "CPython_QhbEvT/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

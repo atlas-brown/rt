@@ -1,0 +1,103 @@
+[
+ {
+  "repo": "https://github.com/oobabooga/text-generation-webui.git",
+  "relative_path": "text-generation-webui/cmd_macos.sh",
+  "short_name": "cmd_macos",
+  "timestamp": "10/22/2024",
+  "identifier": "text_EWvUxC/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/oobabooga/text-generation-webui.git",
+  "relative_path": "text-generation-webui/update_wizard_macos.sh",
+  "short_name": "update_wizard_macos",
+  "timestamp": "10/22/2024",
+  "identifier": "text_EWvUxC/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/oobabooga/text-generation-webui.git",
+  "relative_path": "text-generation-webui/start_macos.sh",
+  "short_name": "start_macos",
+  "timestamp": "10/22/2024",
+  "identifier": "text_EWvUxC/2",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/oobabooga/text-generation-webui.git",
+  "relative_path": "text-generation-webui/start_linux.sh",
+  "short_name": "start_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "text_EWvUxC/3",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/oobabooga/text-generation-webui.git",
+  "relative_path": "text-generation-webui/update_wizard_linux.sh",
+  "short_name": "update_wizard_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "text_EWvUxC/4",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/oobabooga/text-generation-webui.git",
+  "relative_path": "text-generation-webui/wsl.sh",
+  "short_name": "wsl",
+  "timestamp": "10/22/2024",
+  "identifier": "text_EWvUxC/5",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/oobabooga/text-generation-webui.git",
+  "relative_path": "text-generation-webui/cmd_linux.sh",
+  "short_name": "cmd_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "text_EWvUxC/6",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

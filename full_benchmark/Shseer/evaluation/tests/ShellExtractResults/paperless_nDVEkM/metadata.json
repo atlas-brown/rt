@@ -1,0 +1,141 @@
+[
+ {
+  "repo": "https://github.com/jonaswinkler/paperless-ng.git",
+  "relative_path": "paperless-ng/docker/docker-prepare.sh",
+  "short_name": "docker-prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "paperless_nDVEkM/0",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jonaswinkler/paperless-ng.git",
+  "relative_path": "paperless-ng/docker/install_management_commands.sh",
+  "short_name": "install_management_commands",
+  "timestamp": "10/22/2024",
+  "identifier": "paperless_nDVEkM/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/jonaswinkler/paperless-ng.git",
+  "relative_path": "paperless-ng/docker/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "paperless_nDVEkM/2",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jonaswinkler/paperless-ng.git",
+  "relative_path": "paperless-ng/docker/management_script.sh",
+  "short_name": "management_script",
+  "timestamp": "10/22/2024",
+  "identifier": "paperless_nDVEkM/3",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jonaswinkler/paperless-ng.git",
+  "relative_path": "paperless-ng/compile-frontend.sh",
+  "short_name": "compile-frontend",
+  "timestamp": "10/22/2024",
+  "identifier": "paperless_nDVEkM/4",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/jonaswinkler/paperless-ng.git",
+  "relative_path": "paperless-ng/install-paperless-ng.sh",
+  "short_name": "install-paperless-ng",
+  "timestamp": "10/22/2024",
+  "identifier": "paperless_nDVEkM/5",
+  "posix_compliant": false,
+  "line_count": 252,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jonaswinkler/paperless-ng.git",
+  "relative_path": "paperless-ng/scripts/post-consumption-example.sh",
+  "short_name": "post-consumption-example",
+  "timestamp": "10/22/2024",
+  "identifier": "paperless_nDVEkM/6",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/jonaswinkler/paperless-ng.git",
+  "relative_path": "paperless-ng/scripts/start_services.sh",
+  "short_name": "start_services",
+  "timestamp": "10/22/2024",
+  "identifier": "paperless_nDVEkM/7",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jonaswinkler/paperless-ng.git",
+  "relative_path": "paperless-ng/.github/workflow-scripts/check-trailing-whitespace",
+  "short_name": "check-trailing-whitespace",
+  "timestamp": "10/22/2024",
+  "identifier": "paperless_nDVEkM/8",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jonaswinkler/paperless-ng.git",
+  "relative_path": "paperless-ng/.github/workflow-scripts/check-trailing-newline",
+  "short_name": "check-trailing-newline",
+  "timestamp": "10/22/2024",
+  "identifier": "paperless_nDVEkM/9",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

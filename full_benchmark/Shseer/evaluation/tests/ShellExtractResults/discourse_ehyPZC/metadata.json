@@ -1,0 +1,496 @@
+[
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/notify_file_change",
+  "short_name": "notify_file_change",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/0",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/shell",
+  "short_name": "shell",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/reset_db",
+  "short_name": "reset_db",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/2",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/rake",
+  "short_name": "rake",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/bundle",
+  "short_name": "bundle",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/psql",
+  "short_name": "psql",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/5",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/ember-cli",
+  "short_name": "ember-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/6",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/cleanup",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/7",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/migrate",
+  "short_name": "migrate",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/8",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/exec",
+  "short_name": "exec",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/9",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/shutdown_dev",
+  "short_name": "shutdown_dev",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/10",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/discourse",
+  "short_name": "discourse",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/11",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/mailhog",
+  "short_name": "mailhog",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/12",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/rspec",
+  "short_name": "rspec",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/13",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/unicorn",
+  "short_name": "unicorn",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/14",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/boot_dev",
+  "short_name": "boot_dev",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/15",
+  "posix_compliant": false,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/shell_root",
+  "short_name": "shell_root",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/16",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/docker/rails",
+  "short_name": "rails",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/17",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/system_rspec",
+  "short_name": "system_rspec",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/18",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/bin/dev",
+  "short_name": "dev",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/19",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/config/unicorn_launcher",
+  "short_name": "unicorn_launcher",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/20",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/spec/regenerate_swagger_docs",
+  "short_name": "regenerate_swagger_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/21",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/script/silence_successful_output",
+  "short_name": "silence_successful_output",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/22",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/script/copyright-deposit",
+  "short_name": "copyright-deposit",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/23",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/script/switch_container_ruby",
+  "short_name": "switch_container_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/24",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/shell",
+  "short_name": "shell",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/25",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/reset_db",
+  "short_name": "reset_db",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/26",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/rake",
+  "short_name": "rake",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/27",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/bundle",
+  "short_name": "bundle",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/28",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/psql",
+  "short_name": "psql",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/29",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/ember-cli",
+  "short_name": "ember-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/30",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/cleanup",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/31",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/migrate",
+  "short_name": "migrate",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/32",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/exec",
+  "short_name": "exec",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/33",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/shutdown_dev",
+  "short_name": "shutdown_dev",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/34",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/discourse",
+  "short_name": "discourse",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/35",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/mailhog",
+  "short_name": "mailhog",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/36",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/rspec",
+  "short_name": "rspec",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/37",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/unicorn",
+  "short_name": "unicorn",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/38",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/boot_dev",
+  "short_name": "boot_dev",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/39",
+  "posix_compliant": false,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/shell_root",
+  "short_name": "shell_root",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/40",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/discourse/discourse.git",
+  "relative_path": "discourse/d/rails",
+  "short_name": "rails",
+  "timestamp": "10/22/2024",
+  "identifier": "discourse_ehyPZC/41",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

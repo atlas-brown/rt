@@ -1,0 +1,759 @@
+[
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/build_cloudflare.sh",
+  "short_name": "build_cloudflare",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/python-uv-sync/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/dotenv/.setup.sh",
+  "short_name": ".setup",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/2",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/dotenv/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/unversioned-devenv-nix/.patch.sh",
+  "short_name": ".patch",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/unversioned-devenv-nix/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/5",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/postgresql-customdbuser/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/6",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/postgresql-localhost/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/7",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/javascript-pnpm/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/8",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/python-directory/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/9",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/postgres-pghost/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/10",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/python-native-libs/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/11",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/cli/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/12",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/redis-socket/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/13",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/mysql/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/14",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/python-native-libs-uv/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/15",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/javascript-directory/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/16",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/sqld/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/17",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/python-native-libs-poetry/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/18",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/gitignore/.setup.sh",
+  "short_name": ".setup",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/19",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/tests/gitignore/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/20",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/devcontainer/nix-entrypoint.sh",
+  "short_name": "nix-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/21",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/rust-wasm-cross/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/22",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/opentelemetry-collector/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/23",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/temporal/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/24",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/terraform/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/25",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/clickhouse/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/26",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/postgres-timescale/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/27",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/python-poetry/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/28",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/gleam/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/29",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/python/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/30",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/shell/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/31",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/trafficserver/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/32",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/rust/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/33",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/phoenix/.setup.sh",
+  "short_name": ".setup",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/34",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/phoenix/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/35",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/simple-remote/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/36",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/javascript-yarn/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/37",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/rabbitmq/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/38",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/mailpit/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/39",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/imports/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/40",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/minio/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/41",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/elasticmq/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/42",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/varnish/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/43",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/mongodb/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/44",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/solidity/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/45",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/javascript-bun/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/46",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/influxdb/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/47",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/dynamodb-local/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/48",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/postgres/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/49",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/python-venv/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/50",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/jsonnet/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/51",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/android/.patch.sh",
+  "short_name": ".patch",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/52",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/mysql/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/53",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/rubyonrails/.setup.sh",
+  "short_name": ".setup",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/54",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/rubyonrails/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/55",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/javascript/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/56",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/lean4/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/57",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/fly.io/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/58",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/ruby/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/59",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/texlive/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/60",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/httpbin/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/61",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/vault/.test.sh",
+  "short_name": ".test",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/62",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/examples/supported-languages/.patch.sh",
+  "short_name": ".patch",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/63",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/cachix/devenv.git",
+  "relative_path": "devenv/src/modules/services/trafficserver/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "devenv_KdCndU/64",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ }
+]

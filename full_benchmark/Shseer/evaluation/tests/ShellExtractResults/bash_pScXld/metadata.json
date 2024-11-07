@@ -1,0 +1,543 @@
+[
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/bash_completion.sh",
+  "short_name": "bash_completion",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/0",
+  "posix_compliant": false,
+  "line_count": 261,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/test/bash-spec.sh",
+  "short_name": "bash-spec",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/1",
+  "posix_compliant": false,
+  "line_count": 139,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/test/shared-spec.sh",
+  "short_name": "shared-spec",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/2",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/test/stack-spec.sh",
+  "short_name": "stack-spec",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/3",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/test/stub.sh",
+  "short_name": "stub",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/4",
+  "posix_compliant": false,
+  "line_count": 159,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/test/exercise-functions.sh",
+  "short_name": "exercise-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/5",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/scripts/build-docs",
+  "short_name": "build-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/6",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/scripts/extract-docs",
+  "short_name": "extract-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/7",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/scripts/build-completions",
+  "short_name": "build-completions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/8",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/scripts/localstack.sh",
+  "short_name": "localstack",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/9",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/scripts/localstack-stack-create.sh",
+  "short_name": "localstack-stack-create",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/10",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/keypair-functions",
+  "short_name": "keypair-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/11",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/kms-functions",
+  "short_name": "kms-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/12",
+  "posix_compliant": false,
+  "line_count": 127,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/asg-functions",
+  "short_name": "asg-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/13",
+  "posix_compliant": false,
+  "line_count": 212,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/cert-functions",
+  "short_name": "cert-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/14",
+  "posix_compliant": false,
+  "line_count": 122,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/lambda-functions",
+  "short_name": "lambda-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/15",
+  "posix_compliant": false,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/elbv2-functions",
+  "short_name": "elbv2-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/16",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/backup-functions",
+  "short_name": "backup-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/17",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/instance-functions",
+  "short_name": "instance-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/18",
+  "posix_compliant": false,
+  "line_count": 532,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/region-functions",
+  "short_name": "region-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/19",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/iam-functions",
+  "short_name": "iam-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/20",
+  "posix_compliant": false,
+  "line_count": 100,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/ecr-functions",
+  "short_name": "ecr-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/21",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/stack-functions",
+  "short_name": "stack-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/22",
+  "posix_compliant": false,
+  "line_count": 583,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/aws-account-functions",
+  "short_name": "aws-account-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/23",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/cloudtrail-functions",
+  "short_name": "cloudtrail-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/24",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/shared-functions",
+  "short_name": "shared-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/25",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/sts-functions",
+  "short_name": "sts-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/26",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/azure-functions",
+  "short_name": "azure-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/27",
+  "posix_compliant": false,
+  "line_count": 908,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/route53-functions",
+  "short_name": "route53-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/28",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/s3-functions",
+  "short_name": "s3-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/29",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/image-functions",
+  "short_name": "image-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/30",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/cloudwatch-functions",
+  "short_name": "cloudwatch-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/31",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/rds-functions",
+  "short_name": "rds-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/32",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/vpc-functions",
+  "short_name": "vpc-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/33",
+  "posix_compliant": false,
+  "line_count": 287,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/target-group-functions",
+  "short_name": "target-group-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/34",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/secretsmanager-functions",
+  "short_name": "secretsmanager-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/35",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/cloudfront-functions",
+  "short_name": "cloudfront-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/36",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/elb-functions",
+  "short_name": "elb-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/37",
+  "posix_compliant": false,
+  "line_count": 112,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/tag-functions",
+  "short_name": "tag-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/38",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bash-my-aws/bash-my-aws.git",
+  "relative_path": "bash-my-aws/lib/log-functions",
+  "short_name": "log-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_pScXld/39",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

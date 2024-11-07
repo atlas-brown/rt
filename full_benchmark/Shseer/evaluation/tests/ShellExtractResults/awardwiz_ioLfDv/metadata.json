@@ -1,0 +1,41 @@
+[
+ {
+  "repo": "https://github.com/lg/awardwiz.git",
+  "relative_path": "awardwiz/awardwiz-scrapers/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "awardwiz_ioLfDv/0",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/lg/awardwiz.git",
+  "relative_path": "awardwiz/.devcontainer/feature-novnc/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "awardwiz_ioLfDv/1",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/lg/awardwiz.git",
+  "relative_path": "awardwiz/.devcontainer/feature-playwright/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "awardwiz_ioLfDv/2",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": []
+ }
+]

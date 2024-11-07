@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/halfrost/LeetCode-Go.git",
+  "relative_path": "LeetCode-Go/gotest.sh",
+  "short_name": "gotest",
+  "timestamp": "10/22/2024",
+  "identifier": "LeetCode_ObrEZC/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

@@ -1,0 +1,58 @@
+[
+ {
+  "repo": "https://github.com/sockeqwe/mosby.git",
+  "relative_path": "mosby/.buildscript/deploy_snapshot.sh",
+  "short_name": "deploy_snapshot",
+  "timestamp": "10/22/2024",
+  "identifier": "mosby_QRxEIR/0",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/sockeqwe/mosby.git",
+  "relative_path": "mosby/.buildscript/swarmer/swarmer_start.sh",
+  "short_name": "swarmer_start",
+  "timestamp": "10/22/2024",
+  "identifier": "mosby_QRxEIR/1",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/sockeqwe/mosby.git",
+  "relative_path": "mosby/.buildscript/swarmer/swarmer_stop.sh",
+  "short_name": "swarmer_stop",
+  "timestamp": "10/22/2024",
+  "identifier": "mosby_QRxEIR/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/sockeqwe/mosby.git",
+  "relative_path": "mosby/deploy_javadoc.sh",
+  "short_name": "deploy_javadoc",
+  "timestamp": "10/22/2024",
+  "identifier": "mosby_QRxEIR/3",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,53 @@
+#!/bin/bash
+
+module="$1"
+if [ -z "$module" ]; then
+  echo "Missing required parameter module, e.g. octodns/octodns-powerdns"
+  exit 1
+fi
+
+set -e
+
+TMP_DIR=$(mktemp -d -t ci-XXXXXXXXXX)
+
+echo "## venv ########################################################################"
+VENV_PYTHON=$(command -v python3)
+VENV_NAME="${TMP_DIR}/env"
+"$VENV_PYTHON" -m venv "$VENV_NAME"
+. "${VENV_NAME}/bin/activate"
+pip install build setuptools
+echo "## environment & versions ######################################################"
+python --version
+pip --version
+echo "## install octodns from pwd ####################################################"
+VERSION="$(grep "^__version__" "./octodns/__init__.py" | sed -e "s/.* = '//" -e "s/'$//")"
+python -m build --sdist --wheel
+pip install dist/*$VERSION*.whl
+echo "## checkout provider module ####################################################"
+cd $TMP_DIR
+git clone "https://github.com/${module}.git"
+cd $(basename $module)
+echo "## install module dev requirements #############################################"
+if [ -e setup.py ]; then
+  pip install -e .[dev] pytest-network
+elif [ -f pyproject.toml ]; then
+  # install poetry
+  pip install poetry
+  # make sure that poetry doesn't blow away our locally installed octodns
+  sed -i'.bak' '/^octodns =/d' pyproject.toml
+  # now install all the deps
+  poetry install --no-root -v
+else
+  echo "Unrecognized module management. Supports setup.py and poetry"
+  exit 1
+fi
+echo "## installed modules ###########################################################"
+pip freeze
+echo "## run module tests ############################################################"
+export PYTHONPATH=.:$PYTHONPATH
+if [ -e setup.py ]; then
+  pytest --disable-network
+elif [ -f poetry.toml ]; then
+  poetry run pytest []
+fi
+echo "## complete ####################################################################"

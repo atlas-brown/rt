@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/kenh/keychain-pkcs11.git",
+  "relative_path": "keychain-pkcs11/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "keychain_gjNIOc/0",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

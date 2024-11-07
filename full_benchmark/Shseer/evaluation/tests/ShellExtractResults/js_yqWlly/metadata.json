@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/ocsigen/js_of_ocaml.git",
+  "relative_path": "js_of_ocaml/tools/format-js.sh",
+  "short_name": "format-js",
+  "timestamp": "10/22/2024",
+  "identifier": "js_yqWlly/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ }
+]

@@ -1,0 +1,57 @@
+[
+ {
+  "repo": "https://github.com/walidshaari/Kubernetes-Certified-Administrator.git",
+  "relative_path": "Kubernetes-Certified-Administrator/labs/kubeadm-cluster/scripts/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "Kubernetes_pBwmeE/0",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/walidshaari/Kubernetes-Certified-Administrator.git",
+  "relative_path": "Kubernetes-Certified-Administrator/labs/kubeadm-cluster/scripts/node.sh",
+  "short_name": "node",
+  "timestamp": "10/22/2024",
+  "identifier": "Kubernetes_pBwmeE/1",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/walidshaari/Kubernetes-Certified-Administrator.git",
+  "relative_path": "Kubernetes-Certified-Administrator/labs/kubeadm-cluster/scripts/etcd-prep.sh",
+  "short_name": "etcd-prep",
+  "timestamp": "10/22/2024",
+  "identifier": "Kubernetes_pBwmeE/2",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/walidshaari/Kubernetes-Certified-Administrator.git",
+  "relative_path": "Kubernetes-Certified-Administrator/labs/kubeadm-cluster/scripts/cp.sh",
+  "short_name": "cp",
+  "timestamp": "10/22/2024",
+  "identifier": "Kubernetes_pBwmeE/3",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

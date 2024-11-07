@@ -1,0 +1,86 @@
+[
+ {
+  "repo": "https://github.com/Wyliodrin/libwyliodrin.git",
+  "relative_path": "libwyliodrin/debian/raspberry/preinst",
+  "short_name": "preinst",
+  "timestamp": "10/22/2024",
+  "identifier": "libwyliodrin_vCrDOX/0",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Wyliodrin/libwyliodrin.git",
+  "relative_path": "libwyliodrin/scripts/say",
+  "short_name": "say",
+  "timestamp": "10/22/2024",
+  "identifier": "libwyliodrin_vCrDOX/1",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Wyliodrin/libwyliodrin.git",
+  "relative_path": "libwyliodrin/scripts/beaglebone/BeagleboneUSBNetwork",
+  "short_name": "BeagleboneUSBNetwork",
+  "timestamp": "10/22/2024",
+  "identifier": "libwyliodrin_vCrDOX/2",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Wyliodrin/libwyliodrin.git",
+  "relative_path": "libwyliodrin/scripts/beaglebone/SetDate",
+  "short_name": "SetDate",
+  "timestamp": "10/22/2024",
+  "identifier": "libwyliodrin_vCrDOX/3",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Wyliodrin/libwyliodrin.git",
+  "relative_path": "libwyliodrin/scripts/beaglebone/StartUSBNetwork",
+  "short_name": "StartUSBNetwork",
+  "timestamp": "10/22/2024",
+  "identifier": "libwyliodrin_vCrDOX/4",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Wyliodrin/libwyliodrin.git",
+  "relative_path": "libwyliodrin/scripts/clean.sh",
+  "short_name": "clean",
+  "timestamp": "10/22/2024",
+  "identifier": "libwyliodrin_vCrDOX/5",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Wyliodrin/libwyliodrin.git",
+  "relative_path": "libwyliodrin/scripts/install_social",
+  "short_name": "install_social",
+  "timestamp": "10/22/2024",
+  "identifier": "libwyliodrin_vCrDOX/6",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ }
+]

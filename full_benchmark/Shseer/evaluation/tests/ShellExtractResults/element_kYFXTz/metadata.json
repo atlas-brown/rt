@@ -1,0 +1,59 @@
+[
+ {
+  "repo": "https://github.com/ElemeFE/element.git",
+  "relative_path": "element/build/git-release.sh",
+  "short_name": "git-release",
+  "timestamp": "10/22/2024",
+  "identifier": "element_kYFXTz/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ElemeFE/element.git",
+  "relative_path": "element/build/deploy-ci.sh",
+  "short_name": "deploy-ci",
+  "timestamp": "10/22/2024",
+  "identifier": "element_kYFXTz/1",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ElemeFE/element.git",
+  "relative_path": "element/build/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "element_kYFXTz/2",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ElemeFE/element.git",
+  "relative_path": "element/build/deploy-faas.sh",
+  "short_name": "deploy-faas",
+  "timestamp": "10/22/2024",
+  "identifier": "element_kYFXTz/3",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

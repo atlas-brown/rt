@@ -1,0 +1,1504 @@
+[
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/osx-productsign.sh",
+  "short_name": "osx-productsign",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/license-builder.sh",
+  "short_name": "license-builder",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/1",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/markupsafe/get_markupsafe.sh",
+  "short_name": "get_markupsafe",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/2",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/make-v8.sh",
+  "short_name": "make-v8",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/3",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/jinja2/get_jinja2.sh",
+  "short_name": "get_jinja2",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/4",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/update-eslint.sh",
+  "short_name": "update-eslint",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/5",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/create_expfile.sh",
+  "short_name": "create_expfile",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/6",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/lint-pr-commit-message.sh",
+  "short_name": "lint-pr-commit-message",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/7",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/macos-firewall.sh",
+  "short_name": "macos-firewall",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/8",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/osx-codesign.sh",
+  "short_name": "osx-codesign",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/9",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/gyp/tools/emacs/run-unit-tests.sh",
+  "short_name": "run-unit-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/10",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/gyp/gyp",
+  "short_name": "gyp",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/11",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/12",
+  "posix_compliant": false,
+  "line_count": 143,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/macos-installer/pkgbuild/npm/scripts/postinstall",
+  "short_name": "postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/13",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/macos-installer/pkgbuild/npm/scripts/preinstall",
+  "short_name": "preinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/14",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/create_android_makefiles",
+  "short_name": "create_android_makefiles",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/15",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/osx-pkg-postinstall.sh",
+  "short_name": "osx-pkg-postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/16",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/rpm/rpmbuild.sh",
+  "short_name": "rpmbuild",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/17",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/tools/update-babel-eslint.sh",
+  "short_name": "update-babel-eslint",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/18",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/configure",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/19",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/android-configure",
+  "short_name": "android-configure",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/20",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/draw_instruction_graph.sh",
+  "short_name": "draw_instruction_graph",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/21",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/android-sync.sh",
+  "short_name": "android-sync",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/22",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/mac-nm",
+  "short_name": "mac-nm",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/23",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/bash-completion.sh",
+  "short_name": "bash-completion",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/24",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/eval_gc_time.sh",
+  "short_name": "eval_gc_time",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/25",
+  "posix_compliant": false,
+  "line_count": 146,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/check-static-initializers.sh",
+  "short_name": "check-static-initializers",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/26",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/run-llprof.sh",
+  "short_name": "run-llprof",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/27",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/android-ll-prof.sh",
+  "short_name": "android-ll-prof",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/28",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/run-perf.sh",
+  "short_name": "run-perf",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/29",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/android-build.sh",
+  "short_name": "android-build",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/30",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/cross_build_gcc.sh",
+  "short_name": "cross_build_gcc",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/31",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/plot-timer-events",
+  "short_name": "plot-timer-events",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/32",
+  "posix_compliant": true,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/wasm/update-wasm-fuzzers.sh",
+  "short_name": "update-wasm-fuzzers",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/33",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/wasm/update-wasm-spec-tests.sh",
+  "short_name": "update-wasm-spec-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/34",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/mac-tick-processor",
+  "short_name": "mac-tick-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/35",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/linux-tick-processor",
+  "short_name": "linux-tick-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/36",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/jsfunfuzz/fuzz-harness.sh",
+  "short_name": "fuzz-harness",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/37",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/check-unused-bailouts.sh",
+  "short_name": "check-unused-bailouts",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/38",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/ic-processor",
+  "short_name": "ic-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/39",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/check-inline-includes.sh",
+  "short_name": "check-inline-includes",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/40",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/cpu.sh",
+  "short_name": "cpu",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/41",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/map-processor",
+  "short_name": "map-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/42",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/parse-processor",
+  "short_name": "parse-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/43",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/gcmole/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/44",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/fuzz-harness.sh",
+  "short_name": "fuzz-harness",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/45",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/turbolizer/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/46",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/freebsd-tick-processor",
+  "short_name": "freebsd-tick-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/47",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/tools/collect_deprecation_stats.sh",
+  "short_name": "collect_deprecation_stats",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/48",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/test/test262/prune-local-tests.sh",
+  "short_name": "prune-local-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/49",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/test/test262/upstream-local-tests.sh",
+  "short_name": "upstream-local-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/50",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/third_party/markupsafe/get_markupsafe.sh",
+  "short_name": "get_markupsafe",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/51",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/third_party/jinja2/get_jinja2.sh",
+  "short_name": "get_jinja2",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/52",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/v8/gypfiles/sysroot_ld_flags.sh",
+  "short_name": "sysroot_ld_flags",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/53",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/zlib/configure",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/54",
+  "posix_compliant": true,
+  "line_count": 777,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/zlib/os400/make.sh",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/55",
+  "posix_compliant": true,
+  "line_count": 206,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/uv/android-configure-x86",
+  "short_name": "android-configure-x86",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/56",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/uv/android-configure-arm64",
+  "short_name": "android-configure-arm64",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/57",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/uv/android-configure-x86_64",
+  "short_name": "android-configure-x86_64",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/58",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/uv/android-configure-arm",
+  "short_name": "android-configure-arm",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/59",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/uv/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/60",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/tools/XPlatInstall/install_ch.sh",
+  "short_name": "install_ch",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/61",
+  "posix_compliant": false,
+  "line_count": 138,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/tools/RecyclerChecker/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/62",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/tools/android_toolchain.sh",
+  "short_name": "android_toolchain",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/63",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/tools/create_package.sh",
+  "short_name": "create_package",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/64",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/tools/compile_clang.sh",
+  "short_name": "compile_clang",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/65",
+  "posix_compliant": false,
+  "line_count": 154,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/test/native-tests/test_native.sh",
+  "short_name": "test_native",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/66",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/test/runtests.sh",
+  "short_name": "runtests",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/67",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/68",
+  "posix_compliant": false,
+  "line_count": 616,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/jenkins/check_file_eol.sh",
+  "short_name": "check_file_eol",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/69",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/jenkins/check_eol.sh",
+  "short_name": "check_eol",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/70",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/jenkins/check_copyright.sh",
+  "short_name": "check_copyright",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/71",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/jenkins/get_system_info.sh",
+  "short_name": "get_system_info",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/72",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/jenkins/check_tabs.sh",
+  "short_name": "check_tabs",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/73",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/chakrashim/core/jenkins/check_ascii.sh",
+  "short_name": "check_ascii",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/74",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/test/smime-certs/mksmime-certs.sh",
+  "short_name": "mksmime-certs",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/75",
+  "posix_compliant": true,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/test/certs/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/76",
+  "posix_compliant": false,
+  "line_count": 235,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/test/certs/mkcert.sh",
+  "short_name": "mkcert",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/77",
+  "posix_compliant": false,
+  "line_count": 200,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/util/point.sh",
+  "short_name": "point",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/78",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/util/shlib_wrap.sh.in",
+  "short_name": "shlib_wrap.in",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/79",
+  "posix_compliant": true,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/util/mkcerts.sh",
+  "short_name": "mkcerts",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/80",
+  "posix_compliant": true,
+  "line_count": 155,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/util/openssl-format-source",
+  "short_name": "openssl-format-source",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/81",
+  "posix_compliant": true,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/util/opensslwrap.sh",
+  "short_name": "opensslwrap",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/82",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/config",
+  "short_name": "config",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/83",
+  "posix_compliant": true,
+  "line_count": 723,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/.travis-create-release.sh",
+  "short_name": ".travis-create-release",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/84",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/demos/certs/mkcerts.sh",
+  "short_name": "mkcerts",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/85",
+  "posix_compliant": true,
+  "line_count": 54,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/demos/certs/ocspquery.sh",
+  "short_name": "ocspquery",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/86",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/demos/certs/ocsprun.sh",
+  "short_name": "ocsprun",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/87",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/demos/certs/apps/mkacerts.sh",
+  "short_name": "mkacerts",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/88",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/openssl/openssl/demos/certs/apps/mkxcerts.sh",
+  "short_name": "mkxcerts",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/89",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/bin/npx",
+  "short_name": "npx",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/90",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/bin/npm",
+  "short_name": "npm",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/91",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/configure",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/92",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/node_modules/lockfile/gen-changelog.sh",
+  "short_name": "gen-changelog",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/93",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/node_modules/node-gyp/test/docker.sh",
+  "short_name": "docker",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/94",
+  "posix_compliant": false,
+  "line_count": 113,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/node_modules/node-gyp/gyp/tools/emacs/run-unit-tests.sh",
+  "short_name": "run-unit-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/95",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/node_modules/node-gyp/gyp/gyp",
+  "short_name": "gyp",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/96",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/node_modules/dashdash/etc/dashdash.bash_completion.in",
+  "short_name": "dashdash.bash_completion.in",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/97",
+  "posix_compliant": false,
+  "line_count": 226,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/scripts/update-authors.sh",
+  "short_name": "update-authors",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/98",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/scripts/dep-update",
+  "short_name": "dep-update",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/99",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/scripts/dev-dep-update",
+  "short_name": "dev-dep-update",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/100",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/scripts/doc-build.sh",
+  "short_name": "doc-build",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/101",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/scripts/relocate.sh",
+  "short_name": "relocate",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/102",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/scripts/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/103",
+  "posix_compliant": true,
+  "line_count": 180,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/scripts/gen-changelog",
+  "short_name": "gen-changelog",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/104",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/scripts/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/105",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/scripts/clean-old.sh",
+  "short_name": "clean-old",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/106",
+  "posix_compliant": false,
+  "line_count": 125,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node-chakracore.git",
+  "relative_path": "node-chakracore/deps/npm/lib/utils/completion.sh",
+  "short_name": "completion",
+  "timestamp": "10/22/2024",
+  "identifier": "node_brIesB/107",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

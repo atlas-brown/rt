@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/DarthSim/hivemind.git",
+  "relative_path": "hivemind/build-all.sh",
+  "short_name": "build-all",
+  "timestamp": "10/22/2024",
+  "identifier": "hivemind_iiTROb/0",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

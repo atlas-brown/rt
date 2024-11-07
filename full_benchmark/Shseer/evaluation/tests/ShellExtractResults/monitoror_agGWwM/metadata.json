@@ -1,0 +1,189 @@
+[
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/bump-version.sh",
+  "short_name": "bump-version",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/0",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/test/unit.sh",
+  "short_name": "unit",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/test/lint.sh",
+  "short_name": "lint",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/test/coverage-html.sh",
+  "short_name": "coverage-html",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/test/coverage.sh",
+  "short_name": "coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/4",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/5",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/install-tools.sh",
+  "short_name": "install-tools",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/6",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/mocks.sh",
+  "short_name": "mocks",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/7",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/8",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/9",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/setup-variables.sh",
+  "short_name": "setup-variables",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/10",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/proxy.sh",
+  "short_name": "proxy",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/11",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/package/default-config.sh",
+  "short_name": "default-config",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/12",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/package/front.sh",
+  "short_name": "front",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/13",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/monitoror/monitoror.git",
+  "relative_path": "monitoror/scripts/package/docker.sh",
+  "short_name": "docker",
+  "timestamp": "10/22/2024",
+  "identifier": "monitoror_agGWwM/14",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ }
+]

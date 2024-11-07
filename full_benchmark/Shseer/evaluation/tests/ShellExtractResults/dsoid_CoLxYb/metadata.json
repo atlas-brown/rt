@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/qphe/dsoid.git",
+  "relative_path": "dsoid/jni/metaspu/SoundTouch/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dsoid_CoLxYb/0",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

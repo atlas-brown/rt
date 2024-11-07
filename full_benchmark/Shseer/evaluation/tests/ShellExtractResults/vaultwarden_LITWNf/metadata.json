@@ -1,0 +1,69 @@
+[
+ {
+  "repo": "https://github.com/dani-garcia/vaultwarden.git",
+  "relative_path": "vaultwarden/docker/bake.sh",
+  "short_name": "bake",
+  "timestamp": "10/22/2024",
+  "identifier": "vaultwarden_LITWNf/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dani-garcia/vaultwarden.git",
+  "relative_path": "vaultwarden/docker/podman-bake.sh",
+  "short_name": "podman-bake",
+  "timestamp": "10/22/2024",
+  "identifier": "vaultwarden_LITWNf/1",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dani-garcia/vaultwarden.git",
+  "relative_path": "vaultwarden/docker/bake_env.sh",
+  "short_name": "bake_env",
+  "timestamp": "10/22/2024",
+  "identifier": "vaultwarden_LITWNf/2",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dani-garcia/vaultwarden.git",
+  "relative_path": "vaultwarden/docker/healthcheck.sh",
+  "short_name": "healthcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "vaultwarden_LITWNf/3",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dani-garcia/vaultwarden.git",
+  "relative_path": "vaultwarden/docker/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "vaultwarden_LITWNf/4",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

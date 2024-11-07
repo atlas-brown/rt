@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/stephenswat/cocosnoot.git",
+  "relative_path": "cocosnoot/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "cocosnoot_bHWktR/0",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

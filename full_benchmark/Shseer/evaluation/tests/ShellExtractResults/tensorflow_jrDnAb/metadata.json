@@ -1,0 +1,3424 @@
+[
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tools/tf_env_collect.sh",
+  "short_name": "tf_env_collect",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/0",
+  "posix_compliant": false,
+  "line_count": 130,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/libtensorflow.sh",
+  "short_name": "libtensorflow",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/code_check_full.sh",
+  "short_name": "code_check_full",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/pycpp.sh",
+  "short_name": "pycpp",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/3",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/any.sh",
+  "short_name": "any",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/4",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/wheel.sh",
+  "short_name": "wheel",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/5",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/installer_wheel.sh",
+  "short_name": "installer_wheel",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/6",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/utilities/cleanup_docker.sh",
+  "short_name": "cleanup_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/7",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/utilities/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/8",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/utilities/setup_docker.sh",
+  "short_name": "setup_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/9",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/utilities/generate_index_html.sh",
+  "short_name": "generate_index_html",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/10",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/utilities/windows.sh",
+  "short_name": "windows",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/11",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/utilities/cleanup_summary.sh",
+  "short_name": "cleanup_summary",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/12",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/utilities/rename_and_verify_wheels.sh",
+  "short_name": "rename_and_verify_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/13",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/utilities/repack_libtensorflow.sh",
+  "short_name": "repack_libtensorflow",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/14",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/utilities/get_versions.sh",
+  "short_name": "get_versions",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/15",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/utilities/setup_macos.sh",
+  "short_name": "setup_macos",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/16",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/upload.sh",
+  "short_name": "upload",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/17",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/debug_tfci.sh",
+  "short_name": "debug_tfci",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/18",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/bisect.sh",
+  "short_name": "bisect",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/19",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/setup.sources.sh",
+  "short_name": "setup.sources",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/20",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/setup.python.sh",
+  "short_name": "setup.python",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/21",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/devel.usertools/get_test_list.sh",
+  "short_name": "get_test_list",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/22",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/devel.usertools/rename_and_verify_wheels.sh",
+  "short_name": "rename_and_verify_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/23",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/devel.usertools/repack_libtensorflow.sh",
+  "short_name": "repack_libtensorflow",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/24",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/devel.usertools/setup_venv_test.sh",
+  "short_name": "setup_venv_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/25",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/builder.devtoolset/fixlinks_aarch64.sh",
+  "short_name": "fixlinks_aarch64",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/26",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/builder.devtoolset/build_devtoolset.sh",
+  "short_name": "build_devtoolset",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/27",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/builder.devtoolset/rpm-patch.sh",
+  "short_name": "rpm-patch",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/28",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/29",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/setup.packages.sh",
+  "short_name": "setup.packages",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/30",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/linux_arm64/builder.patchelf/build_patchelf.sh",
+  "short_name": "build_patchelf",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/31",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/ml_build/setup.sources.sh",
+  "short_name": "setup.sources",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/32",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/ml_build/setup.python.sh",
+  "short_name": "setup.python",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/33",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/ml_build/builder.devtoolset/fixlinks.sh",
+  "short_name": "fixlinks",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/34",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/ml_build/builder.devtoolset/build_devtoolset.sh",
+  "short_name": "build_devtoolset",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/35",
+  "posix_compliant": false,
+  "line_count": 132,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/ml_build/builder.devtoolset/rpm-patch.sh",
+  "short_name": "rpm-patch",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/36",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/containers/ml_build/setup.packages.sh",
+  "short_name": "setup.packages",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/37",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/ci/official/code_check_changed_files.sh",
+  "short_name": "code_check_changed_files",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/38",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/xla/mlir_hlo/build_tools/build_mlir.sh",
+  "short_name": "build_mlir",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/39",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/tools/ci_build/gpu_build/parallel_gpu_execute.sh",
+  "short_name": "parallel_gpu_execute",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/40",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/tools/toolchains/cross_compile/cc/cc_wrapper.sh",
+  "short_name": "cc_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/41",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/third_party/tsl/tools/toolchains/cross_compile/cc/cc_wrapper.sh",
+  "short_name": "cc_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/42",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/build_tools/sycl/install_bazel.sh",
+  "short_name": "install_bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/43",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/build_tools/sycl/install_oneapi.sh",
+  "short_name": "install_oneapi",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/44",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/build_tools/sycl/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/45",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/build_tools/sycl/build_xla.sh",
+  "short_name": "build_xla",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/46",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/build_tools/sycl/clean.sh",
+  "short_name": "clean",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/47",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/build_tools/rocm/run_xla_multi_gpu.sh",
+  "short_name": "run_xla_multi_gpu",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/48",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/build_tools/rocm/run_xla.sh",
+  "short_name": "run_xla",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/49",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/.kokoro/macos/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/50",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/.kokoro/generate_index_html.sh",
+  "short_name": "generate_index_html",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/51",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/.kokoro/linux/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/52",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/.kokoro/windows/windows_build.sh",
+  "short_name": "windows_build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/53",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/xla/.kokoro/jax/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/54",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/third_party/llvm/run_lit.sh",
+  "short_name": "run_lit",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/55",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/benchmark/run_models.sh",
+  "short_name": "run_models",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/56",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/benchmark/onednn_benchmark_config.sh",
+  "short_name": "onednn_benchmark_config",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/57",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/benchmark/run_onednn_benchmarks.sh",
+  "short_name": "run_onednn_benchmarks",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/58",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/benchmark/download_models.sh",
+  "short_name": "download_models",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/59",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/build_rbe.sh",
+  "short_name": "build_rbe",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/60",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_latest_clang.sh",
+  "short_name": "install_latest_clang",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/61",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_bootstrap_deb_packages.sh",
+  "short_name": "install_bootstrap_deb_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/62",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_pip_packages_by_version.sh",
+  "short_name": "install_pip_packages_by_version",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/63",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_golang_ppc64le.sh",
+  "short_name": "install_golang_ppc64le",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/64",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_pip_packages_remote.sh",
+  "short_name": "install_pip_packages_remote",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/65",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_yum_packages.sh",
+  "short_name": "install_yum_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/66",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/build_and_install_python.sh",
+  "short_name": "build_and_install_python",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/67",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_bazel.sh",
+  "short_name": "install_bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/68",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_centos_pip_packages.sh",
+  "short_name": "install_centos_pip_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/69",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_pip_packages.sh",
+  "short_name": "install_pip_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/70",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_auditwheel.sh",
+  "short_name": "install_auditwheel",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/71",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_clang.sh",
+  "short_name": "install_clang",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/72",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_pi_toolchain.sh",
+  "short_name": "install_pi_toolchain",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/73",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_python37.sh",
+  "short_name": "install_python37",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/74",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_buildifier.sh",
+  "short_name": "install_buildifier",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/75",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_mpi.sh",
+  "short_name": "install_mpi",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/76",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_deb_packages.sh",
+  "short_name": "install_deb_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/77",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_golang.sh",
+  "short_name": "install_golang",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/78",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_clang_17.sh",
+  "short_name": "install_clang_17",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/79",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_buildifier_from_source.sh",
+  "short_name": "install_buildifier_from_source",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/80",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_golang_centos.sh",
+  "short_name": "install_golang_centos",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/81",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_proto3.sh",
+  "short_name": "install_proto3",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/82",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_openblas_ppc64le.sh",
+  "short_name": "install_openblas_ppc64le",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/83",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_cmake.sh",
+  "short_name": "install_cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/84",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_centos_python36.sh",
+  "short_name": "install_centos_python36",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/85",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_gcc6.sh",
+  "short_name": "install_gcc6",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/86",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_bazel_from_source.sh",
+  "short_name": "install_bazel_from_source",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/87",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_python3.6_pip_packages.sh",
+  "short_name": "install_python3.6_pip_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/88",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_clang_18.sh",
+  "short_name": "install_clang_18",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/89",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_pi_python3.9_toolchain.sh",
+  "short_name": "install_pi_python3.9_toolchain",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/90",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_pi_python3x_toolchain.sh",
+  "short_name": "install_pi_python3x_toolchain",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/91",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/install/install_patchelf.sh",
+  "short_name": "install_patchelf",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/92",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/osx/libtensorflow_rocm.sh",
+  "short_name": "libtensorflow_rocm",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/93",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/osx/cpu/run_py2_cc_core.sh",
+  "short_name": "run_py2_cc_core",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/94",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/osx/cpu/run_contrib.sh",
+  "short_name": "run_contrib",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/95",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/osx/cpu/run_py3_cc_core.sh",
+  "short_name": "run_py3_cc_core",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/96",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/osx/libtensorflow_cpu.sh",
+  "short_name": "libtensorflow_cpu",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/97",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/osx/libtensorflow_gpu.sh",
+  "short_name": "libtensorflow_gpu",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/98",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/ctpu/ctpu.sh",
+  "short_name": "ctpu",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/99",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/devtoolset/fixlinks.sh",
+  "short_name": "fixlinks",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/100",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/devtoolset/build_devtoolset.sh",
+  "short_name": "build_devtoolset",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/101",
+  "posix_compliant": false,
+  "line_count": 126,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/devtoolset/rpm-patch.sh",
+  "short_name": "rpm-patch",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/102",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/103",
+  "posix_compliant": false,
+  "line_count": 296,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/ubuntu_16/custom_op/nightly.sh",
+  "short_name": "nightly",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/104",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/ubuntu_16/custom_op/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/105",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/windows/cpu_py39_full/release_pip_rename.sh",
+  "short_name": "release_pip_rename",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/106",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/windows/cpu_py38_full/release_pip_rename.sh",
+  "short_name": "release_pip_rename",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/107",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/windows/gpu_py37_full/release_pip_rename.sh",
+  "short_name": "release_pip_rename",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/108",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/windows/gpu_py310_full/release_pip_rename.sh",
+  "short_name": "release_pip_rename",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/109",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/windows/gpu_py36_full/release_pip_rename.sh",
+  "short_name": "release_pip_rename",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/110",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/windows/gpu_py39_full/release_pip_rename.sh",
+  "short_name": "release_pip_rename",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/111",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/windows/cpu_py310_full/release_pip_rename.sh",
+  "short_name": "release_pip_rename",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/112",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/windows/gpu_py38_full/release_pip_rename.sh",
+  "short_name": "release_pip_rename",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/113",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/release/windows/cpu_py37_full/release_pip_rename.sh",
+  "short_name": "release_pip_rename",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/114",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/integration_tests.sh",
+  "short_name": "integration_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/115",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/test_tutorials.sh",
+  "short_name": "test_tutorials",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/116",
+  "posix_compliant": false,
+  "line_count": 164,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/docker_test.sh",
+  "short_name": "docker_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/117",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/android.sh",
+  "short_name": "android",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/118",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/libtensorflow.sh",
+  "short_name": "libtensorflow",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/119",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/print_build_info.sh",
+  "short_name": "print_build_info",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/120",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/builds_common.sh",
+  "short_name": "builds_common",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/121",
+  "posix_compliant": false,
+  "line_count": 154,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/run_pip_tests.sh",
+  "short_name": "run_pip_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/122",
+  "posix_compliant": false,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/py_test_delegate.sh",
+  "short_name": "py_test_delegate",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/123",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/docker_cpu_pip.sh",
+  "short_name": "docker_cpu_pip",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/124",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/pip_new.sh",
+  "short_name": "pip_new",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/125",
+  "posix_compliant": false,
+  "line_count": 470,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/nightly_release_smoke_test.sh",
+  "short_name": "nightly_release_smoke_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/126",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/benchmark.sh",
+  "short_name": "benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/127",
+  "posix_compliant": false,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/test_user_ops.sh",
+  "short_name": "test_user_ops",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/128",
+  "posix_compliant": false,
+  "line_count": 160,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/cmake.sh",
+  "short_name": "cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/129",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/android_full.sh",
+  "short_name": "android_full",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/130",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/builds/libtensorflow_nightly_symlink.sh",
+  "short_name": "libtensorflow_nightly_symlink",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/131",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/pi/build_raspberry_pi.sh",
+  "short_name": "build_raspberry_pi",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/132",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/build_scripts/ARM_SKIP_TESTS_EXTENDED.sh",
+  "short_name": "ARM_SKIP_TESTS_EXTENDED",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/133",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/build_scripts/DEFAULT_TEST_TARGETS.sh",
+  "short_name": "DEFAULT_TEST_TARGETS",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/134",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/build_scripts/ARM_SKIP_TESTS.sh",
+  "short_name": "ARM_SKIP_TESTS",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/135",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/rel/ubuntu/gpu_libtensorflow.sh",
+  "short_name": "gpu_libtensorflow",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/136",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/rel/ubuntu/cpu_arm64_test_cpp.sh",
+  "short_name": "cpu_arm64_test_cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/137",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/rel/ubuntu/cpu_arm64_test.sh",
+  "short_name": "cpu_arm64_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/138",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/rel/ubuntu/cpu_libtensorflow.sh",
+  "short_name": "cpu_libtensorflow",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/139",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/rel/ubuntu/cpu_arm64_test_build.sh",
+  "short_name": "cpu_arm64_test_build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/140",
+  "posix_compliant": false,
+  "line_count": 114,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/presubmit/ubuntu_16/cpu_py39_full/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/141",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/presubmit/ubuntu_16/gpu_py39_full/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/142",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/presubmit/ubuntu_16/android/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/143",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/libtensorflow.sh",
+  "short_name": "libtensorflow",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/144",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/gpu/run_py3_core.sh",
+  "short_name": "run_py3_core",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/145",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/gpu/run_mkl.sh",
+  "short_name": "run_mkl",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/146",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/gpu/run_cc_core.sh",
+  "short_name": "run_cc_core",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/147",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/cmake/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/148",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/libtensorflow_rocm.sh",
+  "short_name": "libtensorflow_rocm",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/149",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/ppc64le/gpu/run_py3.sh",
+  "short_name": "run_py3",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/150",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/ppc64le/gpu/run_py2.sh",
+  "short_name": "run_py2",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/151",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/ppc64le/cpu/run_py3.sh",
+  "short_name": "run_py3",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/152",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/ppc64le/cpu/run_py2.sh",
+  "short_name": "run_py2",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/153",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/cpu/run_py2_core.sh",
+  "short_name": "run_py2_core",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/154",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/cpu/run_py3_core.sh",
+  "short_name": "run_py3_core",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/155",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/cpu/run_mkl.sh",
+  "short_name": "run_mkl",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/156",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/cpu/run_cc_core.sh",
+  "short_name": "run_cc_core",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/157",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/cpu/run_py3_contrib.sh",
+  "short_name": "run_py3_contrib",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/158",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/libtensorflow_cpu.sh",
+  "short_name": "libtensorflow_cpu",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/159",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/mkl/basic-mkl-gpu-test.sh",
+  "short_name": "basic-mkl-gpu-test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/160",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/mkl/basic-mkl-test.sh",
+  "short_name": "basic-mkl-test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/161",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/mkl/build-dev-container.sh",
+  "short_name": "build-dev-container",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/162",
+  "posix_compliant": false,
+  "line_count": 280,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/mkl/install_openmpi_horovod.sh",
+  "short_name": "install_openmpi_horovod",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/163",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/rocm/rocm_py38_pip.sh",
+  "short_name": "rocm_py38_pip",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/164",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/rocm/rocm_py36_pip.sh",
+  "short_name": "rocm_py36_pip",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/165",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/rocm/rocm_py310_pip.sh",
+  "short_name": "rocm_py310_pip",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/166",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/rocm/run_cpu.sh",
+  "short_name": "run_cpu",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/167",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/rocm/rocm_py39_pip.sh",
+  "short_name": "rocm_py39_pip",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/168",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/rocm/run_gpu_multi.sh",
+  "short_name": "run_gpu_multi",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/169",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/rocm/run_gpu_single.sh",
+  "short_name": "run_gpu_single",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/170",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/rocm/rocm_py37_pip.sh",
+  "short_name": "rocm_py37_pip",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/171",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/libtensorflow_gpu.sh",
+  "short_name": "libtensorflow_gpu",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/172",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/linux/libtensorflow_docker.sh",
+  "short_name": "libtensorflow_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/173",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/ci_build.sh",
+  "short_name": "ci_build",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/174",
+  "posix_compliant": false,
+  "line_count": 100,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/a100/nightly.sh",
+  "short_name": "nightly",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/175",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/windows/cpu/pip/build_tf_windows.sh",
+  "short_name": "build_tf_windows",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/176",
+  "posix_compliant": false,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/windows/cpu/pip/build_tf_windows_clang-cl.sh",
+  "short_name": "build_tf_windows_clang-cl",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/177",
+  "posix_compliant": false,
+  "line_count": 100,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/windows/cpu/bazel/run_cc_test_windows.sh",
+  "short_name": "run_cc_test_windows",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/178",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/windows/libtensorflow_cpu.sh",
+  "short_name": "libtensorflow_cpu",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/179",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/windows/bazel/cpu_win_test.sh",
+  "short_name": "cpu_win_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/180",
+  "posix_compliant": false,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/windows/bazel/common_env.sh",
+  "short_name": "common_env",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/181",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/windows/bazel/bazel_test_lib.sh",
+  "short_name": "bazel_test_lib",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/182",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/gpu_build/parallel_gpu_execute.sh",
+  "short_name": "parallel_gpu_execute",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/183",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/protobuf/protobuf_optimized_pip.sh",
+  "short_name": "protobuf_optimized_pip",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/184",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/ci_build/code_link_check.sh",
+  "short_name": "code_link_check",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/185",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/pip_package/xla_build/pip_test/run_xla_aot_test.sh",
+  "short_name": "run_xla_aot_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/186",
+  "posix_compliant": false,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/lib_package/concat_licenses.sh",
+  "short_name": "concat_licenses",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/187",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/lib_package/libtensorflow_test.sh",
+  "short_name": "libtensorflow_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/188",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/lib_package/libtensorflow_java_test.sh",
+  "short_name": "libtensorflow_java_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/189",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/tf_sig_build_dockerfiles/setup.sources.sh",
+  "short_name": "setup.sources",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/190",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/tf_sig_build_dockerfiles/setup.python.sh",
+  "short_name": "setup.python",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/191",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/tf_sig_build_dockerfiles/devel.usertools/get_test_list.sh",
+  "short_name": "get_test_list",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/192",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/tf_sig_build_dockerfiles/devel.usertools/rename_and_verify_wheels.sh",
+  "short_name": "rename_and_verify_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/193",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/tf_sig_build_dockerfiles/devel.usertools/repack_libtensorflow.sh",
+  "short_name": "repack_libtensorflow",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/194",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/tf_sig_build_dockerfiles/builder.devtoolset/fixlinks.sh",
+  "short_name": "fixlinks",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/195",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/tf_sig_build_dockerfiles/builder.devtoolset/build_devtoolset.sh",
+  "short_name": "build_devtoolset",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/196",
+  "posix_compliant": false,
+  "line_count": 132,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/tf_sig_build_dockerfiles/builder.devtoolset/rpm-patch.sh",
+  "short_name": "rpm-patch",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/197",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/tf_sig_build_dockerfiles/setup.cuda.sh",
+  "short_name": "setup.cuda",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/198",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/tf_sig_build_dockerfiles/setup.packages.sh",
+  "short_name": "setup.packages",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/199",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/gcs_test/gcs_smoke.sh",
+  "short_name": "gcs_smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/200",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/gcs_test/gcs_smoke_wrapper.sh",
+  "short_name": "gcs_smoke_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/201",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/tools/toolchains/cross_compile/cc/cc_wrapper.sh",
+  "short_name": "cc_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/202",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/go/genop/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/203",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/go/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/204",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/core/kernels/mlir_generated/build_test.sh",
+  "short_name": "build_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/205",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/core/api_def/update_api_def.sh",
+  "short_name": "update_api_def",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/206",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/autograph/pyct/inspect_utils_test.sh",
+  "short_name": "inspect_utils_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/207",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/tools/skip_test.sh",
+  "short_name": "skip_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/208",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/tools/xla_multithread_symbols_test.sh",
+  "short_name": "xla_multithread_symbols_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/209",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/tools/no_xla_multithread_symbols_test.sh",
+  "short_name": "no_xla_multithread_symbols_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/210",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/tpu/profiler/pip_package/build_pip_package.sh",
+  "short_name": "build_pip_package",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/211",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/tpu/client/pip_package/build_pip_package.sh",
+  "short_name": "build_pip_package",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/212",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/debug/examples/v1/examples_v1_debug_fibonacci_test.sh",
+  "short_name": "examples_v1_debug_fibonacci_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/213",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/debug/examples/v1/examples_v1_debug_mnist_test.sh",
+  "short_name": "examples_v1_debug_mnist_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/214",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/debug/examples/v1/examples_v1_debug_keras_test.sh",
+  "short_name": "examples_v1_debug_keras_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/215",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/debug/examples/v1/examples_v1_debug_errors_test.sh",
+  "short_name": "examples_v1_debug_errors_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/216",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/debug/examples/v1/examples_v1_offline_analyzer_test.sh",
+  "short_name": "examples_v1_offline_analyzer_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/217",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/debug/examples/v1/examples_v1_test.sh",
+  "short_name": "examples_v1_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/218",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/python/debug/examples/v2/examples_v2_test.sh",
+  "short_name": "examples_v2_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/219",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/acceleration/configuration/prev_is_different_than_current_test.sh",
+  "short_name": "prev_is_different_than_current_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/220",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/generate-pc.sh",
+  "short_name": "generate-pc",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/221",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/tools/benchmark/ios/build_benchmark_framework.sh",
+  "short_name": "build_benchmark_framework",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/222",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/tools/build_aar.sh",
+  "short_name": "build_aar",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/223",
+  "posix_compliant": false,
+  "line_count": 175,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/tools/cmake/download_toolchains.sh",
+  "short_name": "download_toolchains",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/224",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/tools/pip_package/update_sources.sh",
+  "short_name": "update_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/225",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/tools/pip_package/build_pip_package_with_cmake.sh",
+  "short_name": "build_pip_package_with_cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/226",
+  "posix_compliant": false,
+  "line_count": 183,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/tools/pip_package/build_pip_package_with_bazel.sh",
+  "short_name": "build_pip_package_with_bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/227",
+  "posix_compliant": false,
+  "line_count": 138,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/tools/build_aar_with_docker.sh",
+  "short_name": "build_aar_with_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/228",
+  "posix_compliant": false,
+  "line_count": 110,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/tools/evaluation/tasks/ios/build_evaluation_framework.sh",
+  "short_name": "build_evaluation_framework",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/229",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/python/convert_file_to_c_source_test.sh",
+  "short_name": "convert_file_to_c_source_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/230",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/lib_package/concat_licenses.sh",
+  "short_name": "concat_licenses",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/231",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/java/build_aar_for_release.sh",
+  "short_name": "build_aar_for_release",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/232",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/ios/hide_symbols_with_allowlist.sh",
+  "short_name": "hide_symbols_with_allowlist",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/233",
+  "posix_compliant": false,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/ios/build_frameworks.sh",
+  "short_name": "build_frameworks",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/234",
+  "posix_compliant": false,
+  "line_count": 156,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/ios/hide_xcframework_symbols_with_allowlist.sh",
+  "short_name": "hide_xcframework_symbols_with_allowlist",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/235",
+  "posix_compliant": false,
+  "line_count": 88,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/swift/docsgen/TensorFlowLiteSwift/scripts/download_frameworks.sh",
+  "short_name": "download_frameworks",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/236",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/examples/ios/download_models.sh",
+  "short_name": "download_models",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/237",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/delegates/gpu/cl/testing/run_delegate_testing.sh",
+  "short_name": "run_delegate_testing",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/238",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/delegates/gpu/cl/testing/run_performance_profiling.sh",
+  "short_name": "run_performance_profiling",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/239",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/delegates/gpu/cl/testing/run_internal_api_samples.sh",
+  "short_name": "run_internal_api_samples",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/240",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/delegates/gpu/cl/testing/run_memory_sharing_sample.sh",
+  "short_name": "run_memory_sharing_sample",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/241",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/delegates/gpu/cl/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/242",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/delegates/utils/dummy_delegate/external_delegate_test.sh",
+  "short_name": "external_delegate_test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/243",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/lite/delegates/hexagon/builders/tests/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/244",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/c/experimental/ops/update_cpp_ops.sh",
+  "short_name": "update_cpp_ops",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/245",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/c/generate-pc.sh",
+  "short_name": "generate-pc",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/246",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tensorflow/tensorflow.git",
+  "relative_path": "tensorflow/tensorflow/compiler/mlir/tensorflow/tests/reducer/unsupported-op-test.sh",
+  "short_name": "unsupported-op-test",
+  "timestamp": "10/22/2024",
+  "identifier": "tensorflow_jrDnAb/247",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ }
+]

@@ -1,0 +1,68 @@
+#!/bin/bash -e
+#
+# S2I run script for the 'seldon-core-s2i-java' image.
+# The run script executes the server that runs your application.
+#
+# For more information see the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+
+#check environment vars
+if [[ -z "$API_TYPE" || -z "$SERVICE_TYPE" ]]; then
+
+    echo "Failed to find required env vars API_TYPE, SERVICE_TYPE"
+    exit 1
+
+else
+    if [[ "$API_TYPE" = "REST" ]]; then
+        if [[ -z "$PREDICTIVE_UNIT_SERVICE_PORT" ]]; then
+            REST_PORT=5000
+        else
+            REST_PORT=$PREDICTIVE_UNIT_SERVICE_PORT
+        fi
+        if [[ -z "$SECONDARY_SERVICE_PORT" ]]; then
+            # We use 61934 as random port
+            GRPC_PORT=61934
+        else
+            GRPC_PORT=$SECONDARY_SERVICE_PORT
+        fi
+    fi
+    if [[ "$API_TYPE" = "GRPC" ]]; then
+        if [[ -z "$PREDICTIVE_UNIT_SERVICE_PORT" ]]; then
+            GRPC_PORT=5000
+        else
+            GRPC_PORT=$PREDICTIVE_UNIT_SERVICE_PORT
+        fi
+        if [[ -z "$SECONDARY_SERVICE_PORT" ]]; then
+            # We use 61934 as random port
+            REST_PORT=61934
+        else
+            REST_PORT=$SECONDARY_SERVICE_PORT
+        fi
+    fi
+    if [[ "$SERVICE_TYPE" = "MODEL" ]]; then	
+	MODEL_ACTIVE=true
+    else
+	MODEL_ACTIVE=false
+    fi
+    if [[ "$SERVICE_TYPE" = "ROUTER" ]]; then	
+	ROUTER_ACTIVE=true
+    else
+	ROUTER_ACTIVE=false
+    fi
+    if [[ "$SERVICE_TYPE" = "TRANSFORMER" ]]; then	
+	TRANSFORMER_ACTIVE=true
+    else
+	TRANSFORMER_ACTIVE=false
+    fi
+    if [[ "$SERVICE_TYPE" = "COMBINER" ]]; then	
+	COMBINER_ACTIVE=true
+    else
+	COMBINER_ACTIVE=false
+    fi
+
+    cd /microservice
+    echo "starting microservice"
+    exec java -Djava.security.egd=file:/dev/./urandom $JAVA_OPTS -jar app.jar --seldon.api.model.enabled=${MODEL_ACTIVE} --seldon.api.router.enabled=${ROUTER_ACTIVE} --seldon.api.transformer.enabled=${TRANSFORMER_ACTIVE} --seldon.api.combiner.enabled=${COMBINER_ACTIVE} --grpc.port=${GRPC_PORT} --server.port=${REST_PORT}  $SPRING_OPTS 
+fi
+

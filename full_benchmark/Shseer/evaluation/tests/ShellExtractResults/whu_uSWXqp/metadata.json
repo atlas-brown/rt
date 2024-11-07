@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/whutug/whu-thesis.git",
+  "relative_path": "whu-thesis/scripts/clear.sh",
+  "short_name": "clear",
+  "timestamp": "10/22/2024",
+  "identifier": "whu_uSWXqp/0",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/whutug/whu-thesis.git",
+  "relative_path": "whu-thesis/scripts/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "whu_uSWXqp/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "io"
+  ]
+ }
+]

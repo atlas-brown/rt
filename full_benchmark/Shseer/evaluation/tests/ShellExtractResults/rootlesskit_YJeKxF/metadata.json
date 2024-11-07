@@ -1,0 +1,210 @@
+[
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/benchmark-iperf3-port-udp.sh",
+  "short_name": "benchmark-iperf3-port-udp",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/0",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/integration-net.sh",
+  "short_name": "integration-net",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/1",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/integration-evacuate-cgroup2.sh",
+  "short_name": "integration-evacuate-cgroup2",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/2",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/common.inc.sh",
+  "short_name": "common.inc",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/3",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/integration-port.sh",
+  "short_name": "integration-port",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/4",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/integration-systemd-socket.sh",
+  "short_name": "integration-systemd-socket",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/5",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/make-cross.sh",
+  "short_name": "make-cross",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/6",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/integration-propagation.sh",
+  "short_name": "integration-propagation",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/7",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/integration-ipv6.sh",
+  "short_name": "integration-ipv6",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/8",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/benchmark-iperf3-port.sh",
+  "short_name": "benchmark-iperf3-port",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/9",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/integration-restart.sh",
+  "short_name": "integration-restart",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/10",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/integration-docker.sh",
+  "short_name": "integration-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/11",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/benchmark-iperf3-net.sh",
+  "short_name": "benchmark-iperf3-net",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/12",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/integration-exit-code.sh",
+  "short_name": "integration-exit-code",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/13",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rootless-containers/rootlesskit.git",
+  "relative_path": "rootlesskit/hack/integration-systemd-socket-check-env.sh",
+  "short_name": "integration-systemd-socket-check-env",
+  "timestamp": "10/22/2024",
+  "identifier": "rootlesskit_YJeKxF/14",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

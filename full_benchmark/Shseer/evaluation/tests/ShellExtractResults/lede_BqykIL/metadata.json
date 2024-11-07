@@ -1,0 +1,7230 @@
+[
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/tools/ccache/files/ccache_cc",
+  "short_name": "ccache_cc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/0",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/tools/ccache/files/ccache_cxx",
+  "short_name": "ccache_cxx",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/tools/pkgconf/files/pkg-config",
+  "short_name": "pkg-config",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/2",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/tools/bison/scripts/yacc",
+  "short_name": "yacc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/3",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/config/check-uname.sh",
+  "short_name": "check-uname",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/realtek/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/5",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/imx/cortexa9/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/6",
+  "posix_compliant": false,
+  "line_count": 125,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/imx/cortexa9/base-files/lib/imx.sh",
+  "short_name": "imx",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/7",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/imx/cortexa7/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/8",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/pistachio/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/9",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/qualcommax/base-files/lib/upgrade/mmc.sh",
+  "short_name": "mmc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/10",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/qualcommax/ipq807x/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/11",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/qualcommax/ipq807x/base-files/etc/hotplug.d/firmware/11-ath11k-caldata",
+  "short_name": "11-ath11k-caldata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/12",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/qualcommax/ipq807x/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/13",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/qualcommax/ipq807x/base-files/lib/upgrade/buffalo.sh",
+  "short_name": "buffalo",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/14",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/qualcommax/ipq60xx/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/15",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/qualcommax/ipq60xx/base-files/etc/hotplug.d/firmware/11-ath11k-caldata",
+  "short_name": "11-ath11k-caldata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/16",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/qualcommax/ipq60xx/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/17",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bmips/generic/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/18",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bmips/nand/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/19",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm53xx/base-files/etc/diag.sh",
+  "short_name": "diag",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/20",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm53xx/base-files/etc/init.d/clear_partialboot",
+  "short_name": "clear_partialboot",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/21",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm53xx/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/22",
+  "posix_compliant": false,
+  "line_count": 375,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/kirkwood/base-files/etc/init.d/hwmon_fancontrol",
+  "short_name": "hwmon_fancontrol",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/23",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/kirkwood/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/24",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/kirkwood/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/25",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/kirkwood/base-files/lib/upgrade/linksys.sh",
+  "short_name": "linksys",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/26",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/oxnas/base-files/etc/init.d/set-irq-affinity",
+  "short_name": "set-irq-affinity",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/27",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/oxnas/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/28",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/gemini/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/29",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/gemini/image/dns313_gen_hdd_img.sh",
+  "short_name": "dns313_gen_hdd_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/30",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/amlogic/image/gen_aml_emmc_img.sh",
+  "short_name": "gen_aml_emmc_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/31",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/amlogic/image/gen_amlogic_image.sh",
+  "short_name": "gen_amlogic_image",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/32",
+  "posix_compliant": true,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/amlogic/mesongx/base-files/usr/sbin/install-to-emmc.sh",
+  "short_name": "install-to-emmc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/33",
+  "posix_compliant": true,
+  "line_count": 127,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/amlogic/mesongx/base-files/etc/uci-defaults/12_enable-netifd-smp-tune",
+  "short_name": "12_enable-netifd-smp-tune",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/34",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/amlogic/mesongx/base-files/etc/board.d/02_network",
+  "short_name": "02_network",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/35",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/amlogic/mesongx/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/36",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/amlogic/meson8b/base-files/root/resize.sh",
+  "short_name": "resize",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/37",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/amlogic/meson8b/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/38",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/amlogic/meson8b/base-files/lib/preinit/79_move_config",
+  "short_name": "79_move_config",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/39",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mpc85xx/base-files/etc/hotplug.d/firmware/10-ath9k-eeprom",
+  "short_name": "10-ath9k-eeprom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/40",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mpc85xx/base-files/etc/hotplug.d/ieee80211/05-wifi-migrate",
+  "short_name": "05-wifi-migrate",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/41",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mpc85xx/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/42",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm47xx/base-files/etc/diag.sh",
+  "short_name": "diag",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/43",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm47xx/base-files/etc/init.d/wmacfixup",
+  "short_name": "wmacfixup",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/44",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm47xx/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/45",
+  "posix_compliant": false,
+  "line_count": 211,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm4908/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/46",
+  "posix_compliant": false,
+  "line_count": 154,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/sifiveu/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/47",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/sifiveu/image/gen_sifiveu_sdcard_img.sh",
+  "short_name": "gen_sifiveu_sdcard_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/48",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq40xx/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/49",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq40xx/base-files/etc/hotplug.d/firmware/11-ath10k-caldata",
+  "short_name": "11-ath10k-caldata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/50",
+  "posix_compliant": true,
+  "line_count": 246,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq40xx/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/51",
+  "posix_compliant": false,
+  "line_count": 275,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq40xx/base-files/lib/upgrade/linksys.sh",
+  "short_name": "linksys",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/52",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq40xx/base-files/lib/upgrade/netgear.sh",
+  "short_name": "netgear",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/53",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq40xx/base-files/lib/upgrade/dualboot_datachk.sh",
+  "short_name": "dualboot_datachk",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/54",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq40xx/base-files/lib/preinit/05_set_iface_mac_ipq40xx.sh",
+  "short_name": "05_set_iface_mac_ipq40xx",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/55",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq40xx/base-files/lib/preinit/06_set_preinit_iface_ipq40xx.sh",
+  "short_name": "06_set_preinit_iface_ipq40xx",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/56",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/rockchip/armv8/base-files/etc/uci-defaults/12_enable-netifd-smp-tune",
+  "short_name": "12_enable-netifd-smp-tune",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/57",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/rockchip/armv8/base-files/etc/init.d/fanctrl",
+  "short_name": "fanctrl",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/58",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/rockchip/armv8/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/59",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/rockchip/armv8/base-files/etc/board.d/01_leds",
+  "short_name": "01_leds",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/60",
+  "posix_compliant": true,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/rockchip/armv8/base-files/etc/board.d/02_network",
+  "short_name": "02_network",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/61",
+  "posix_compliant": true,
+  "line_count": 150,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity",
+  "short_name": "40-net-smp-affinity",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/62",
+  "posix_compliant": true,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/rockchip/armv8/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/63",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/loongarch64/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/64",
+  "posix_compliant": false,
+  "line_count": 115,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mediatek/base-files/etc/uci-defaults/99_fwenv-store-ethaddr.sh",
+  "short_name": "99_fwenv-store-ethaddr",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/65",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mediatek/mt7629/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/66",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mediatek/image/gen_scatterfile.sh",
+  "short_name": "gen_scatterfile",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/67",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mediatek/mt7622/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/68",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mediatek/mt7622/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/69",
+  "posix_compliant": false,
+  "line_count": 91,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mediatek/mt7622/base-files/lib/upgrade/buffalo.sh",
+  "short_name": "buffalo",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/70",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mediatek/mt7623/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/71",
+  "posix_compliant": false,
+  "line_count": 137,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mediatek/filogic/base-files/etc/hotplug.d/firmware/11-mt76-caldata",
+  "short_name": "11-mt76-caldata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/72",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mediatek/filogic/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/73",
+  "posix_compliant": false,
+  "line_count": 107,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mediatek/filogic/base-files/lib/preinit/10_fix_eth_mac.sh",
+  "short_name": "10_fix_eth_mac",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/74",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/zynq/image/gen_zynq_sdcard_img.sh",
+  "short_name": "gen_zynq_sdcard_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/75",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/tegra/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/76",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/base-files/etc/hotplug.d/ieee80211/00-wifi-migration",
+  "short_name": "00-wifi-migration",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/77",
+  "posix_compliant": true,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/mikrotik/base-files/etc/hotplug.d/firmware/11-ath10k-caldata",
+  "short_name": "11-ath10k-caldata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/78",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/mikrotik/base-files/etc/hotplug.d/firmware/10-ath9k-eeprom",
+  "short_name": "10-ath9k-eeprom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/79",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/mikrotik/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/80",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/tiny/base-files/etc/hotplug.d/firmware/10-ath9k-eeprom",
+  "short_name": "10-ath9k-eeprom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/81",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/tiny/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/82",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/tiny/base-files/lib/upgrade/failsafe_datachk.sh",
+  "short_name": "failsafe_datachk",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/83",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/generic/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/84",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/generic/base-files/etc/hotplug.d/firmware/11-ath10k-caldata",
+  "short_name": "11-ath10k-caldata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/85",
+  "posix_compliant": true,
+  "line_count": 276,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/generic/base-files/etc/hotplug.d/firmware/10-ath9k-eeprom",
+  "short_name": "10-ath9k-eeprom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/86",
+  "posix_compliant": true,
+  "line_count": 183,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/generic/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/87",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/generic/base-files/lib/upgrade/failsafe_datachk.sh",
+  "short_name": "failsafe_datachk",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/88",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/generic/base-files/lib/upgrade/dualboot_datachk.sh",
+  "short_name": "dualboot_datachk",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/89",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/generic/base-files/lib/upgrade/openmesh.sh",
+  "short_name": "openmesh",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/90",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/generic/base-files/lib/preinit/10_fix_eth_mac.sh",
+  "short_name": "10_fix_eth_mac",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/91",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/generic/base-files/lib/functions/k2t.sh",
+  "short_name": "k2t",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/92",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/nand/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/93",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/nand/base-files/etc/hotplug.d/firmware/11-ath10k-caldata",
+  "short_name": "11-ath10k-caldata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/94",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/nand/base-files/etc/hotplug.d/firmware/10-ath9k-eeprom",
+  "short_name": "10-ath9k-eeprom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/95",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/nand/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/96",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/nand/base-files/lib/upgrade/glinet.sh",
+  "short_name": "glinet",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/97",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath79/nand/base-files/lib/preinit/10_fix_eth_mac.sh",
+  "short_name": "10_fix_eth_mac",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/98",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/archs38/image/gen_axs10x_sdcard_img.sh",
+  "short_name": "gen_axs10x_sdcard_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/99",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/layerscape/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/100",
+  "posix_compliant": false,
+  "line_count": 134,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/layerscape/image/mkits-multiple-config.sh",
+  "short_name": "mkits-multiple-config",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/101",
+  "posix_compliant": false,
+  "line_count": 440,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/layerscape/image/gen_sdcard_head_img.sh",
+  "short_name": "gen_sdcard_head_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/102",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ath25/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/103",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/sbin/asrock_g10_back_to_factory",
+  "short_name": "asrock_g10_back_to_factory",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/104",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/etc/init.d/cpu_freq",
+  "short_name": "cpu_freq",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/105",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/106",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/etc/hotplug.d/firmware/11-ath10k-caldata",
+  "short_name": "11-ath10k-caldata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/107",
+  "posix_compliant": true,
+  "line_count": 97,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/108",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/lib/upgrade/buffalo.sh",
+  "short_name": "buffalo",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/109",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/lib/upgrade/asrock.sh",
+  "short_name": "asrock",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/110",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/lib/upgrade/linksys.sh",
+  "short_name": "linksys",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/111",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/lib/upgrade/zyxel.sh",
+  "short_name": "zyxel",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/112",
+  "posix_compliant": false,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/lib/upgrade/ruijie.sh",
+  "short_name": "ruijie",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/113",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ipq806x/base-files/lib/preinit/05_set_iface_mac_ipq806x.sh",
+  "short_name": "05_set_iface_mac_ipq806x",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/114",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/sunxi/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/115",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/sunxi/image/gen_sunxi_sdcard_img.sh",
+  "short_name": "gen_sunxi_sdcard_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/116",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/lantiq/xway/base-files/etc/hotplug.d/firmware/12-ath9k-eeprom",
+  "short_name": "12-ath9k-eeprom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/117",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/lantiq/xway/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/118",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/lantiq/ase/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/119",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/lantiq/xway_legacy/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/120",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/lantiq/base-files/lib/functions/lantiq.sh",
+  "short_name": "lantiq",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/121",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/lantiq/xrx200/base-files/etc/hotplug.d/firmware/12-ath9k-eeprom",
+  "short_name": "12-ath9k-eeprom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/122",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/lantiq/xrx200/base-files/etc/hotplug.d/firmware/11-ath10k-caldata",
+  "short_name": "11-ath10k-caldata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/123",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/lantiq/xrx200/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/124",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/lantiq/falcon/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/125",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt76x8/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/126",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt76x8/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/127",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7621/base-files/sbin/fixup-mac-address",
+  "short_name": "fixup-mac-address",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/128",
+  "posix_compliant": true,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7621/base-files/etc/init.d/modem-enable",
+  "short_name": "modem-enable",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/129",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7621/base-files/etc/init.d/set-irq-affinity",
+  "short_name": "set-irq-affinity",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/130",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7621/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/131",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7621/base-files/lib/upgrade/hatlab.sh",
+  "short_name": "hatlab",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/132",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7621/base-files/lib/upgrade/ubnt.sh",
+  "short_name": "ubnt",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/133",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7621/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/134",
+  "posix_compliant": false,
+  "line_count": 138,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7621/base-files/lib/upgrade/iodata.sh",
+  "short_name": "iodata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/135",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7620/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/136",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7620/base-files/etc/hotplug.d/firmware/10-rt2x00-eeprom",
+  "short_name": "10-rt2x00-eeprom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/137",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/mt7620/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/138",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/rt305x/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/139",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/rt3883/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/140",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/ramips/rt288x/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/141",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mvebu/cortexa72/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/142",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mvebu/cortexa72/base-files/lib/upgrade/emmc-puzzle.sh",
+  "short_name": "emmc-puzzle",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/143",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mvebu/image/gen_mvebu_sdcard_img.sh",
+  "short_name": "gen_mvebu_sdcard_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/144",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mvebu/cortexa9/base-files/sbin/fan_ctrl.sh",
+  "short_name": "fan_ctrl",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/145",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mvebu/cortexa9/base-files/etc/init.d/bootcount",
+  "short_name": "bootcount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/146",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mvebu/cortexa9/base-files/etc/hotplug.d/ieee80211/00-wifi-config-migrate",
+  "short_name": "00-wifi-config-migrate",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/147",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mvebu/cortexa9/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/148",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mvebu/cortexa9/base-files/lib/upgrade/linksys.sh",
+  "short_name": "linksys",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/149",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mvebu/cortexa53/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/150",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mvebu/cortexa53/base-files/lib/upgrade/uDPU.sh",
+  "short_name": "uDPU",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/151",
+  "posix_compliant": false,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/x86/base-files/etc/diag.sh",
+  "short_name": "diag",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/152",
+  "posix_compliant": true,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/x86/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/153",
+  "posix_compliant": false,
+  "line_count": 97,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/siflower/sf19a2890/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/154",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/generic/other-files/init",
+  "short_name": "init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/155",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/arc770/image/gen_axs10x_sdcard_img.sh",
+  "short_name": "gen_axs10x_sdcard_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/156",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/octeon/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/157",
+  "posix_compliant": false,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mxs/base-files/etc/diag.sh",
+  "short_name": "diag",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/158",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mxs/image/gen_sdcard_ext4_ext4.sh",
+  "short_name": "gen_sdcard_ext4_ext4",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/159",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/mxs/image/gen_sdcard_vfat_ext4.sh",
+  "short_name": "gen_sdcard_vfat_ext4",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/160",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/armvirt/base-files/etc/board.d/02_network",
+  "short_name": "02_network",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/161",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/armvirt/base-files/etc/board.d/03_gpio_switches",
+  "short_name": "03_gpio_switches",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/162",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/armvirt/base-files/etc/board.d/01_led",
+  "short_name": "01_led",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/163",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/armvirt/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/164",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/at91/image/gen_at91_sdcard_img.sh",
+  "short_name": "gen_at91_sdcard_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/165",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/phytium/base-files/etc/board.d/02_network",
+  "short_name": "02_network",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/166",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/phytium/base-files/etc/board.d/03_gpio_switches",
+  "short_name": "03_gpio_switches",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/167",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/phytium/base-files/etc/board.d/01_led",
+  "short_name": "01_led",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/168",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/phytium/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/169",
+  "posix_compliant": false,
+  "line_count": 113,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/phytium/e2000/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/170",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/phytium/phytiumpi/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/171",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/omap/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/172",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/omap/image/gen_omap_sdcard_img.sh",
+  "short_name": "gen_omap_sdcard_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/173",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm63xx/base-files/etc/hotplug.d/firmware/10-rt2x00-eeprom",
+  "short_name": "10-rt2x00-eeprom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/174",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm63xx/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/175",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm27xx/base-files/etc/diag.sh",
+  "short_name": "diag",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/176",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm27xx/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/177",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/bcm27xx/image/gen_rpi_sdcard_img.sh",
+  "short_name": "gen_rpi_sdcard_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/178",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/apm821xx/base-files/etc/hotplug.d/firmware/10-ath9k-eeprom",
+  "short_name": "10-ath9k-eeprom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/179",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/apm821xx/base-files/lib/upgrade/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/180",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/apm821xx/base-files/lib/upgrade/wdbook.sh",
+  "short_name": "wdbook",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/181",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/linux/apm821xx/image/mbl_gen_hdd_img.sh",
+  "short_name": "mbl_gen_hdd_img",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/182",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/target/toolchain/files/wrapper.sh",
+  "short_name": "wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/183",
+  "posix_compliant": true,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/m68k",
+  "short_name": "m68k",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/184",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/aarch64_be",
+  "short_name": "aarch64_be",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/185",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/riscv64",
+  "short_name": "riscv64",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/186",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/i486",
+  "short_name": "i486",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/187",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/powerpc",
+  "short_name": "powerpc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/188",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/armeb",
+  "short_name": "armeb",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/189",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/i386",
+  "short_name": "i386",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/190",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/loongarch64",
+  "short_name": "loongarch64",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/191",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/mipsel",
+  "short_name": "mipsel",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/192",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/mips",
+  "short_name": "mips",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/193",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/i686",
+  "short_name": "i686",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/194",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/mips64",
+  "short_name": "mips64",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/195",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/powerpc64",
+  "short_name": "powerpc64",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/196",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/arm",
+  "short_name": "arm",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/197",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/mips64el",
+  "short_name": "mips64el",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/198",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/arc",
+  "short_name": "arc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/199",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/aarch64",
+  "short_name": "aarch64",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/200",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/sparc",
+  "short_name": "sparc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/201",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/site/x86_64",
+  "short_name": "x86_64",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/202",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/include/shell.sh",
+  "short_name": "shell",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/203",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/md5sum",
+  "short_name": "md5sum",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/204",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/ubinize-image.sh",
+  "short_name": "ubinize-image",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/205",
+  "posix_compliant": true,
+  "line_count": 136,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/sercomm-kernel.sh",
+  "short_name": "sercomm-kernel",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/206",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/command_all.sh",
+  "short_name": "command_all",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/207",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/combined-ext-image.sh",
+  "short_name": "combined-ext-image",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/208",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/rstrip.sh",
+  "short_name": "rstrip",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/209",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/arm-magic.sh",
+  "short_name": "arm-magic",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/210",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/get_source_date_epoch.sh",
+  "short_name": "get_source_date_epoch",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/211",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/combined-image.sh",
+  "short_name": "combined-image",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/212",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/om-fwupgradecfg-gen.sh",
+  "short_name": "om-fwupgradecfg-gen",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/213",
+  "posix_compliant": true,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/strip-kmod.sh",
+  "short_name": "strip-kmod",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/214",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/noop.sh",
+  "short_name": "noop",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/215",
+  "posix_compliant": true,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/check-toolchain-clean.sh",
+  "short_name": "check-toolchain-clean",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/216",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/config/qconf-cfg.sh",
+  "short_name": "qconf-cfg",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/217",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/config/mconf-cfg.sh",
+  "short_name": "mconf-cfg",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/218",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/config/nconf-cfg.sh",
+  "short_name": "nconf-cfg",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/219",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/gen-dependencies.sh",
+  "short_name": "gen-dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/220",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/make-ipkg-dir.sh",
+  "short_name": "make-ipkg-dir",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/221",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/mkits-qsdk-ipq-image.sh",
+  "short_name": "mkits-qsdk-ipq-image",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/222",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/flashing/flash.sh",
+  "short_name": "flash",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/223",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/relink-lib.sh",
+  "short_name": "relink-lib",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/224",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/bundle-libraries.sh",
+  "short_name": "bundle-libraries",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/225",
+  "posix_compliant": false,
+  "line_count": 149,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/symlink-tree.sh",
+  "short_name": "symlink-tree",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/226",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/sysupgrade-tar.sh",
+  "short_name": "sysupgrade-tar",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/227",
+  "posix_compliant": true,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/portable_date.sh",
+  "short_name": "portable_date",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/228",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/sign_images.sh",
+  "short_name": "sign_images",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/229",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/size_compare.sh",
+  "short_name": "size_compare",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/230",
+  "posix_compliant": false,
+  "line_count": 112,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/mkits-zyxel-fit.sh",
+  "short_name": "mkits-zyxel-fit",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/231",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/ipkg-make-index.sh",
+  "short_name": "ipkg-make-index",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/232",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/patch-specs.sh",
+  "short_name": "patch-specs",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/233",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/functions.sh",
+  "short_name": "functions",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/234",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/gen-rddependencies.sh",
+  "short_name": "gen-rddependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/235",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/getver.sh",
+  "short_name": "getver",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/236",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/patch-kernel.sh",
+  "short_name": "patch-kernel",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/237",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/deptest.sh",
+  "short_name": "deptest",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/238",
+  "posix_compliant": false,
+  "line_count": 183,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/ext-toolchain.sh",
+  "short_name": "ext-toolchain",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/239",
+  "posix_compliant": false,
+  "line_count": 492,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/ext-tools.sh",
+  "short_name": "ext-tools",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/240",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/mkits.sh",
+  "short_name": "mkits",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/241",
+  "posix_compliant": true,
+  "line_count": 205,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/linksys-image.sh",
+  "short_name": "linksys-image",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/242",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/diffconfig.sh",
+  "short_name": "diffconfig",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/243",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/clean-package.sh",
+  "short_name": "clean-package",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/244",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/gen_image_generic.sh",
+  "short_name": "gen_image_generic",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/245",
+  "posix_compliant": true,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/scripts/ipkg-build",
+  "short_name": "ipkg-build",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/246",
+  "posix_compliant": true,
+  "line_count": 147,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/firmware/quantenna/files/qtn-utils.init",
+  "short_name": "qtn-utils.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/247",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/firmware/quantenna/files/lib/wifi/quantenna.sh",
+  "short_name": "quantenna",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/248",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/firmware/quantenna/files/lib/netifd/quantenna.sh",
+  "short_name": "quantenna",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/249",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/firmware/quantenna/files/lib/netifd/wireless/quantenna.sh",
+  "short_name": "quantenna",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/250",
+  "posix_compliant": true,
+  "line_count": 248,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/cpufreq/files/cpufreq.init",
+  "short_name": "cpufreq.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/251",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/cpufreq/files/cpufreq.uci",
+  "short_name": "cpufreq.uci",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/252",
+  "posix_compliant": true,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/dsmboot/files/dsmboot",
+  "short_name": "dsmboot",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/253",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/mtkiappd/files/mtkiappd.defaults",
+  "short_name": "mtkiappd.defaults",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/254",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/mtkiappd/files/mtkiappd.sh",
+  "short_name": "mtkiappd",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/255",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/files/etc/uci-defaults/10_mt7615_dbdc",
+  "short_name": "10_mt7615_dbdc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/256",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/files/lib/wifi/mt_dbdc.sh",
+  "short_name": "mt_dbdc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/257",
+  "posix_compliant": true,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/files/lib/netifd/wireless/mt_dbdc.sh",
+  "short_name": "mt_dbdc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/258",
+  "posix_compliant": true,
+  "line_count": 814,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/src/mt_wifi/embedded/tools/mt7662e_sta.sh",
+  "short_name": "mt7662e_sta",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/259",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/src/mt_wifi/embedded/tools/i.sh",
+  "short_name": "i",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/260",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/src/mt_wifi/embedded/tools/check_build_script.sh",
+  "short_name": "check_build_script",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/261",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/src/mt_wifi/embedded/tools/build-check-jedi.sh",
+  "short_name": "build-check-jedi",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/262",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/src/mt_wifi/embedded/tools/auto_build_kernel_4_4.sh",
+  "short_name": "auto_build_kernel_4_4",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/263",
+  "posix_compliant": false,
+  "line_count": 146,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/src/mt_wifi/embedded/tools/mt7662e_ap.sh",
+  "short_name": "mt7662e_ap",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/264",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/src/mt_wifi/embedded/tools/r.sh",
+  "short_name": "r",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/265",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/src/mt_wifi/embedded/Pack_Release.sh",
+  "short_name": "Pack_Release",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/266",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7615d/src/mt_wifi/embedded/Release.sh",
+  "short_name": "Release",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/267",
+  "posix_compliant": false,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt_wifi/files/91_load_wifi.sh",
+  "short_name": "91_load_wifi",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/268",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt_wifi/files/firmware.sh",
+  "short_name": "firmware",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/269",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7603e/src/mt7603_wifi/tools/mt7662e_sta.sh",
+  "short_name": "mt7662e_sta",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/270",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7603e/src/mt7603_wifi/tools/i.sh",
+  "short_name": "i",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/271",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7603e/src/mt7603_wifi/tools/mt7662e_ap.sh",
+  "short_name": "mt7662e_ap",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/272",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7603e/src/mt7603_wifi/tools/r.sh",
+  "short_name": "r",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/273",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7603e/src/mt7603_wifi/os/linux/load",
+  "short_name": "load",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/274",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7612e/src/mt76x2/tools/mt7662e_sta.sh",
+  "short_name": "mt7662e_sta",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/275",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/mt/drivers/mt7612e/src/mt76x2/tools/mt7662e_ap.sh",
+  "short_name": "mt7662e_ap",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/276",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/pcat-manager/files/pcat-manager.init",
+  "short_name": "pcat-manager.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/277",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/ipv6-helper/files/root/etc/hotplug.d/iface/60-6in4",
+  "short_name": "60-6in4",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/278",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/srelay/files/srelay.init",
+  "short_name": "srelay.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/279",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/leigod-acc/files/leigod-helper.sh",
+  "short_name": "leigod-helper",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/280",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/leigod-acc/files/leigod_uninstall.sh",
+  "short_name": "leigod_uninstall",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/281",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/leigod-acc/files/plugin_common.sh",
+  "short_name": "plugin_common",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/282",
+  "posix_compliant": false,
+  "line_count": 404,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/ps3netsrv/files/ps3netsrv.init",
+  "short_name": "ps3netsrv.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/283",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/default-settings/files/zzz-default-settings",
+  "short_name": "zzz-default-settings",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/284",
+  "posix_compliant": true,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/autocore/files/x86/sbin/ethinfo",
+  "short_name": "ethinfo",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/285",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/autocore/files/x86/sbin/getcpu",
+  "short_name": "getcpu",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/286",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/autocore/files/x86/sbin/cpuinfo",
+  "short_name": "cpuinfo",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/287",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/autocore/files/x86/autocore",
+  "short_name": "autocore",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/288",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/autocore/files/arm/090-cover-index_htm",
+  "short_name": "090-cover-index_htm",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/289",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/autocore/files/arm/sbin/tempinfo",
+  "short_name": "tempinfo",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/290",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/autocore/files/arm/sbin/usage",
+  "short_name": "usage",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/291",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/autocore/files/arm/sbin/cpuinfo",
+  "short_name": "cpuinfo",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/292",
+  "posix_compliant": true,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/autocore/files/60-autocore-reload-rpcd",
+  "short_name": "60-autocore-reload-rpcd",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/293",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/ddns-scripts_aliyun/update_aliyun_com.sh",
+  "short_name": "update_aliyun_com",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/294",
+  "posix_compliant": true,
+  "line_count": 183,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/luci-app-leigod-acc/root/etc/uci-defaults/99-accelerator-config",
+  "short_name": "99-accelerator-config",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/295",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/luci-app-leigod-acc/root/etc/init.d/acc",
+  "short_name": "acc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/296",
+  "posix_compliant": false,
+  "line_count": 114,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/k3screenctrl/files/k3screenctrl.init",
+  "short_name": "k3screenctrl.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/297",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/adbyby/files/adbyby.sh",
+  "short_name": "adbyby",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/298",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/ntfs3-mount/files/mount.ntfs",
+  "short_name": "mount.ntfs",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/299",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/autosamba/files/20-smb",
+  "short_name": "20-smb",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/300",
+  "posix_compliant": true,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/vsftpd-alt/files/vsftpd-uci.init",
+  "short_name": "vsftpd-uci.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/301",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/vsftpd-alt/files/vsftpd.init",
+  "short_name": "vsftpd.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/302",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/vsftpd-alt/files/vsftpd_prepare",
+  "short_name": "vsftpd_prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/303",
+  "posix_compliant": true,
+  "line_count": 197,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/vsftpd-alt/files/vsftpd_wrapper",
+  "short_name": "vsftpd_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/304",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/automount/files/zzz-move-automount",
+  "short_name": "zzz-move-automount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/305",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/automount/files/15-automount",
+  "short_name": "15-automount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/306",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/ddns-scripts_dnspod/update_dnspod_com.sh",
+  "short_name": "update_dnspod_com",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/307",
+  "posix_compliant": true,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/lean/ddns-scripts_dnspod/update_dnspod_cn.sh",
+  "short_name": "update_dnspod_cn",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/308",
+  "posix_compliant": true,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qat/firmware/quickassist-c2xxx/files/qat_watchdog.init",
+  "short_name": "qat_watchdog.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/309",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qat/firmware/quickassist-c2xxx/files/qat.init",
+  "short_name": "qat.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/310",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qat/firmware/quickassist-c3xxx/files/qat.init",
+  "short_name": "qat.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/311",
+  "posix_compliant": false,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qat/firmware/quickassist-c3xxx/files/hotplug.d/usdm_drv/01-usdm",
+  "short_name": "01-usdm",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/312",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qat/firmware/quickassist-c3xxx/files/hotplug.d/module/01-usdm",
+  "short_name": "01-usdm",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/313",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qat/firmware/quickassist-c3xxx/files/hotplug.d/qat_dev_processes/01-qat_dev_processes",
+  "short_name": "01-qat_dev_processes",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/314",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qat/firmware/quickassist-c3xxx/files/hotplug.d/uio/01-uio",
+  "short_name": "01-uio",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/315",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qat/firmware/quickassist-c3xxx/files/hotplug.d/qat_adf_ctl/01-qat_adf_ctl",
+  "short_name": "01-qat_adf_ctl",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/316",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/boot/uboot-envtools/files/fw_setsys",
+  "short_name": "fw_setsys",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/317",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/boot/uboot-envtools/files/fw_printsys",
+  "short_name": "fw_printsys",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/318",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/boot/uboot-envtools/files/uboot-envtools.sh",
+  "short_name": "uboot-envtools",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/319",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/boot/kexec-tools/files/kdump.defaults",
+  "short_name": "kdump.defaults",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/320",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/boot/kexec-tools/files/kdump.init",
+  "short_name": "kdump.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/321",
+  "posix_compliant": false,
+  "line_count": 148,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/usr/libexec/login.sh",
+  "short_name": "login",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/322",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/usr/libexec/validate_firmware_image",
+  "short_name": "validate_firmware_image",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/323",
+  "posix_compliant": true,
+  "line_count": 46,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/bin/board_detect",
+  "short_name": "board_detect",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/324",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/bin/config_generate",
+  "short_name": "config_generate",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/325",
+  "posix_compliant": true,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/bin/ipcalc.sh",
+  "short_name": "ipcalc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/326",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/sbin/wifi",
+  "short_name": "wifi",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/327",
+  "posix_compliant": true,
+  "line_count": 229,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/sbin/hotplug-call",
+  "short_name": "hotplug-call",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/328",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/sbin/sysupgrade",
+  "short_name": "sysupgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/329",
+  "posix_compliant": true,
+  "line_count": 315,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/sbin/firstboot",
+  "short_name": "firstboot",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/330",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/sbin/led.sh",
+  "short_name": "led",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/331",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/sbin/pkg_check",
+  "short_name": "pkg_check",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/332",
+  "posix_compliant": true,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/rc.common",
+  "short_name": "rc.common",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/333",
+  "posix_compliant": true,
+  "line_count": 156,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/rc.button/power",
+  "short_name": "power",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/334",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/rc.button/reboot",
+  "short_name": "reboot",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/335",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/rc.button/reset",
+  "short_name": "reset",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/336",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/rc.button/rfkill",
+  "short_name": "rfkill",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/337",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/rc.button/failsafe",
+  "short_name": "failsafe",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/338",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/diag.sh",
+  "short_name": "diag",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/339",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/init.d/boot",
+  "short_name": "boot",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/340",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/init.d/led",
+  "short_name": "led",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/341",
+  "posix_compliant": false,
+  "line_count": 117,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/init.d/sysfixtime",
+  "short_name": "sysfixtime",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/342",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/init.d/sysctl",
+  "short_name": "sysctl",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/343",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/init.d/umount",
+  "short_name": "umount",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/344",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/init.d/system",
+  "short_name": "system",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/345",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/init.d/done",
+  "short_name": "done",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/346",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/init.d/gpio_switch",
+  "short_name": "gpio_switch",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/347",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/preinit",
+  "short_name": "preinit",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/348",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/etc/hotplug.d/net/00-sysctl",
+  "short_name": "00-sysctl",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/349",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/upgrade/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/350",
+  "posix_compliant": false,
+  "line_count": 282,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/upgrade/emmc.sh",
+  "short_name": "emmc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/351",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/upgrade/nand.sh",
+  "short_name": "nand",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/352",
+  "posix_compliant": false,
+  "line_count": 373,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/upgrade/legacy-sdcard.sh",
+  "short_name": "legacy-sdcard",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/353",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/upgrade/stage2",
+  "short_name": "stage2",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/354",
+  "posix_compliant": true,
+  "line_count": 130,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/upgrade/do_stage2",
+  "short_name": "do_stage2",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/355",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/upgrade/fwtool.sh",
+  "short_name": "fwtool",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/356",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/functions.sh",
+  "short_name": "functions",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/357",
+  "posix_compliant": false,
+  "line_count": 354,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/functions/migrations.sh",
+  "short_name": "migrations",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/358",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/functions/network.sh",
+  "short_name": "network",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/359",
+  "posix_compliant": false,
+  "line_count": 177,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/functions/leds.sh",
+  "short_name": "leds",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/360",
+  "posix_compliant": false,
+  "line_count": 96,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/functions/service.sh",
+  "short_name": "service",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/361",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/functions/system.sh",
+  "short_name": "system",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/362",
+  "posix_compliant": false,
+  "line_count": 241,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/functions/uci-defaults.sh",
+  "short_name": "uci-defaults",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/363",
+  "posix_compliant": false,
+  "line_count": 523,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/functions/preinit.sh",
+  "short_name": "preinit",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/364",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/files/lib/functions/caldata.sh",
+  "short_name": "caldata",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/365",
+  "posix_compliant": false,
+  "line_count": 140,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/luci2/bin/config_generate",
+  "short_name": "config_generate",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/366",
+  "posix_compliant": true,
+  "line_count": 458,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/base-files/luci2/lib/functions/uci-defaults.sh",
+  "short_name": "uci-defaults",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/367",
+  "posix_compliant": false,
+  "line_count": 530,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/qos-scripts/files/usr/bin/qos-stop",
+  "short_name": "qos-stop",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/368",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/qos-scripts/files/usr/bin/qos-stat",
+  "short_name": "qos-stat",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/369",
+  "posix_compliant": true,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/qos-scripts/files/usr/bin/qos-start",
+  "short_name": "qos-start",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/370",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/qos-scripts/files/usr/lib/qos/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/371",
+  "posix_compliant": true,
+  "line_count": 500,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/qos-scripts/files/etc/init.d/qos",
+  "short_name": "qos",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/372",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/qos-scripts/files/etc/hotplug.d/iface/10-qos",
+  "short_name": "10-qos",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/373",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/ltq-adsl-app/files/10_atm.sh",
+  "short_name": "10_atm",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/374",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/ltq-adsl-app/files/dsl_control",
+  "short_name": "dsl_control",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/375",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/ltq-adsl-app/files/10_ptm.sh",
+  "short_name": "10_ptm",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/376",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/vti/files/vti.sh",
+  "short_name": "vti",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/377",
+  "posix_compliant": true,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/ipip/files/ipip.sh",
+  "short_name": "ipip",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/378",
+  "posix_compliant": true,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/gre/files/gre.sh",
+  "short_name": "gre",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/379",
+  "posix_compliant": true,
+  "line_count": 235,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/vxlan/files/vxlan.sh",
+  "short_name": "vxlan",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/380",
+  "posix_compliant": true,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/soloscli/files/etc/hotplug.d/atm/15-solos-init",
+  "short_name": "15-solos-init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/381",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/soloscli/files/solos-log-stats",
+  "short_name": "solos-log-stats",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/382",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/firewall/files/firewall.init",
+  "short_name": "firewall.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/383",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/firewall/files/firewall.hotplug",
+  "short_name": "firewall.hotplug",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/384",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/xfrm/files/xfrm.sh",
+  "short_name": "xfrm",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/385",
+  "posix_compliant": true,
+  "line_count": 52,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/qosify/files/qosify-status",
+  "short_name": "qosify-status",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/386",
+  "posix_compliant": true,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/qosify/files/qosify.hotplug",
+  "short_name": "qosify.hotplug",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/387",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/qosify/files/qosify.init",
+  "short_name": "qosify.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/388",
+  "posix_compliant": false,
+  "line_count": 130,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/swconfig/files/switch.sh",
+  "short_name": "switch",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/389",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/ltq-vdsl-app/files/dsl_cpe_pipe.sh",
+  "short_name": "dsl_cpe_pipe",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/390",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/ltq-vdsl-app/files/10_atm.sh",
+  "short_name": "10_atm",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/391",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/ltq-vdsl-app/files/dsl_control",
+  "short_name": "dsl_control",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/392",
+  "posix_compliant": false,
+  "line_count": 177,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/ltq-vdsl-app/files/10_ptm.sh",
+  "short_name": "10_ptm",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/393",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/netifd/files/usr/share/udhcpc/default.script",
+  "short_name": "default.script",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/394",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/netifd/files/sbin/ifdown",
+  "short_name": "ifdown",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/395",
+  "posix_compliant": true,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/netifd/files/sbin/ifstatus",
+  "short_name": "ifstatus",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/396",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/netifd/files/sbin/ifup",
+  "short_name": "ifup",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/397",
+  "posix_compliant": true,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/netifd/files/sbin/devstatus",
+  "short_name": "devstatus",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/398",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/netifd/files/etc/init.d/network",
+  "short_name": "network",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/399",
+  "posix_compliant": false,
+  "line_count": 124,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/netifd/files/etc/hotplug.d/net/20-smp-packet-steering",
+  "short_name": "20-smp-packet-steering",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/400",
+  "posix_compliant": true,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/netifd/files/lib/network/config.sh",
+  "short_name": "config",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/401",
+  "posix_compliant": true,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/netifd/files/lib/netifd/proto/dhcp.sh",
+  "short_name": "dhcp",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/402",
+  "posix_compliant": true,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/config/netifd/files/lib/netifd/dhcp.script",
+  "short_name": "dhcp.script",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/403",
+  "posix_compliant": true,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/uqmi/files/lib/netifd/proto/qmi.sh",
+  "short_name": "qmi",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/404",
+  "posix_compliant": true,
+  "line_count": 398,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/ltq-dsl-base/files/sbin/dsl_notify.sh",
+  "short_name": "dsl_notify",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/405",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/ltq-dsl-base/files/etc/hotplug.d/dsl/pppoa.sh",
+  "short_name": "pppoa",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/406",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/ltq-dsl-base/files/etc/hotplug.d/dsl/led_dsl.sh",
+  "short_name": "led_dsl",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/407",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/comgt/files/3g.usb",
+  "short_name": "3g.usb",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/408",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/comgt/files/3g.sh",
+  "short_name": "3g",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/409",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/comgt/files/directip.sh",
+  "short_name": "directip",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/410",
+  "posix_compliant": true,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/comgt/files/ncm.sh",
+  "short_name": "ncm",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/411",
+  "posix_compliant": true,
+  "line_count": 215,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/rssileds/files/rssileds.init",
+  "short_name": "rssileds.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/412",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/rssileds/files/rssi",
+  "short_name": "rssi",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/413",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/umbim/files/lib/netifd/proto/mbim.sh",
+  "short_name": "mbim",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/414",
+  "posix_compliant": true,
+  "line_count": 278,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/linux-atm/files/br2684-up",
+  "short_name": "br2684-up",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/415",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/linux-atm/files/br2684ctl",
+  "short_name": "br2684ctl",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/416",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/linux-atm/files/br2684ctl_wrap",
+  "short_name": "br2684ctl_wrap",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/417",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/adb-enablemodem/files/adb-enablemodem",
+  "short_name": "adb-enablemodem",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/418",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/wireguard-tools/files/wireguard.sh",
+  "short_name": "wireguard",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/419",
+  "posix_compliant": true,
+  "line_count": 161,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/wireguard-tools/files/wireguard_watchdog",
+  "short_name": "wireguard_watchdog",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/420",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/wwan/files/wwan.sh",
+  "short_name": "wwan",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/421",
+  "posix_compliant": true,
+  "line_count": 124,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/wwan/files/wwan.usbmisc",
+  "short_name": "wwan.usbmisc",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/422",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/utils/wwan/files/wwan.usb",
+  "short_name": "wwan.usb",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/423",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/ipv6/6to4/files/6to4.sh",
+  "short_name": "6to4",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/424",
+  "posix_compliant": true,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/ipv6/6in4/files/6in4.sh",
+  "short_name": "6in4",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/425",
+  "posix_compliant": true,
+  "line_count": 128,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/ipv6/ds-lite/files/dslite.sh",
+  "short_name": "dslite",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/426",
+  "posix_compliant": true,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/ipv6/odhcp6c/files/dhcpv6.script",
+  "short_name": "dhcpv6.script",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/427",
+  "posix_compliant": true,
+  "line_count": 205,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/ipv6/odhcp6c/files/dhcpv6.sh",
+  "short_name": "dhcpv6",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/428",
+  "posix_compliant": true,
+  "line_count": 103,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/ipv6/map/files/map.sh",
+  "short_name": "map",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/429",
+  "posix_compliant": true,
+  "line_count": 198,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/ipv6/6rd/files/6rd.sh",
+  "short_name": "6rd",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/430",
+  "posix_compliant": true,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/ipv6/464xlat/files/464xlat.sh",
+  "short_name": "464xlat",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/431",
+  "posix_compliant": true,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/ipv6/ipip6/files/ipip6.sh",
+  "short_name": "ipip6",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/432",
+  "posix_compliant": true,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/ead/src/tinysrp/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/433",
+  "posix_compliant": true,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/lldpd/files/lldpd.init",
+  "short_name": "lldpd.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/434",
+  "posix_compliant": false,
+  "line_count": 97,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/hostapd/files/wpad.init",
+  "short_name": "wpad.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/435",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/hostapd/files/wps-hotplug.sh",
+  "short_name": "wps-hotplug",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/436",
+  "posix_compliant": true,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/hostapd/files/hostapd.sh",
+  "short_name": "hostapd",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/437",
+  "posix_compliant": false,
+  "line_count": 1357,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/hostapd/files/dhcp-get-server.sh",
+  "short_name": "dhcp-get-server",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/438",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/e2guardian/files/e2guardian.init",
+  "short_name": "e2guardian.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/439",
+  "posix_compliant": false,
+  "line_count": 193,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/ipset-dns/files/ipset-dns.init",
+  "short_name": "ipset-dns.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/440",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/ppp/files/ppp.sh",
+  "short_name": "ppp",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/441",
+  "posix_compliant": true,
+  "line_count": 286,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/ppp/files/lib/netifd/ppp6-up",
+  "short_name": "ppp6-up",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/442",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/ppp/files/lib/netifd/ppp-down",
+  "short_name": "ppp-down",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/443",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/ppp/files/lib/netifd/ppp-up",
+  "short_name": "ppp-up",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/444",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/uhttpd/files/uhttpd.init",
+  "short_name": "uhttpd.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/445",
+  "posix_compliant": false,
+  "line_count": 190,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/uhttpd/files/ubus.default",
+  "short_name": "ubus.default",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/446",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/bridger/files/bridger.init",
+  "short_name": "bridger.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/447",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/unetd/files/unet-dht.init",
+  "short_name": "unet-dht.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/448",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/unetd/files/unetd.init",
+  "short_name": "unetd.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/449",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/unetd/files/unetd.sh",
+  "short_name": "unetd",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/450",
+  "posix_compliant": true,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/dropbear/files/dropbear.init",
+  "short_name": "dropbear.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/451",
+  "posix_compliant": false,
+  "line_count": 218,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/dropbear/files/dropbear.failsafe",
+  "short_name": "dropbear.failsafe",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/452",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/omcproxy/files/omcproxy.init",
+  "short_name": "omcproxy.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/453",
+  "posix_compliant": false,
+  "line_count": 122,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/odhcpd/files/odhcpd.init",
+  "short_name": "odhcpd.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/454",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/odhcpd/files/odhcpd.defaults",
+  "short_name": "odhcpd.defaults",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/455",
+  "posix_compliant": true,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/odhcpd/files/odhcpd-update",
+  "short_name": "odhcpd-update",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/456",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/relayd/files/relay.init",
+  "short_name": "relay.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/457",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/samba36/files/uci_defaults_samba",
+  "short_name": "uci_defaults_samba",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/458",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/samba36/files/samba.init",
+  "short_name": "samba.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/459",
+  "posix_compliant": false,
+  "line_count": 88,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/samba36/files/smb.auto",
+  "short_name": "smb.auto",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/460",
+  "posix_compliant": true,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/umdns/files/umdns.init",
+  "short_name": "umdns.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/461",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/dnsmasq/files/dnsmasq.init",
+  "short_name": "dnsmasq.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/462",
+  "posix_compliant": false,
+  "line_count": 964,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/dnsmasq/files/50-dnsmasq-migrate-ipset.sh",
+  "short_name": "50-dnsmasq-migrate-ipset",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/463",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/dnsmasq/files/dhcp-script.sh",
+  "short_name": "dhcp-script",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/464",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/network/services/dnsmasq/files/50-dnsmasq-migrate-resolv-conf-auto.sh",
+  "short_name": "50-dnsmasq-migrate-resolv-conf-auto",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/465",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/ct-bugcheck/src/bugcheck.sh",
+  "short_name": "bugcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/466",
+  "posix_compliant": true,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/ct-bugcheck/src/bugchecker.sh",
+  "short_name": "bugchecker",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/467",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/ct-bugcheck/src/bugcheck.initd",
+  "short_name": "bugcheck.initd",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/468",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/usbmode/files/usbmode.init",
+  "short_name": "usbmode.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/469",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/busybox/files/sysntpd",
+  "short_name": "sysntpd",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/470",
+  "posix_compliant": false,
+  "line_count": 103,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/busybox/files/ntpd-hotplug",
+  "short_name": "ntpd-hotplug",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/471",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/busybox/files/cron",
+  "short_name": "cron",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/472",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/ugps/files/ugps.init",
+  "short_name": "ugps.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/473",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/e2fsprogs/files/e2fsck.sh",
+  "short_name": "e2fsck",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/474",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/nvram/files/nvram-bcm47xx.init",
+  "short_name": "nvram-bcm47xx.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/475",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/nvram/files/nvram-bcm53xx.init",
+  "short_name": "nvram-bcm53xx.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/476",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/utils/mdadm/files/mdadm.init",
+  "short_name": "mdadm.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/477",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/libs/sysfsutils/files/sysfsutils",
+  "short_name": "sysfsutils",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/478",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/libs/openssl/files/openssl.init",
+  "short_name": "openssl.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/479",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/zram-swap/files/zram.init",
+  "short_name": "zram.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/480",
+  "posix_compliant": false,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/procd/files/procd.sh",
+  "short_name": "procd",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/481",
+  "posix_compliant": false,
+  "line_count": 520,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/procd/files/reload_config",
+  "short_name": "reload_config",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/482",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/procd/files/uxc.init",
+  "short_name": "uxc.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/483",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/procd/files/service",
+  "short_name": "service",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/484",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/fstools/files/blockd.init",
+  "short_name": "blockd.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/485",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/fstools/files/snapshot",
+  "short_name": "snapshot",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/486",
+  "posix_compliant": true,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/fstools/files/fstab.init",
+  "short_name": "fstab.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/487",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/ubox/files/log.init",
+  "short_name": "log.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/488",
+  "posix_compliant": false,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/opkg/files/opkg-key",
+  "short_name": "opkg-key",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/489",
+  "posix_compliant": true,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/opkg/files/20_migrate-feeds",
+  "short_name": "20_migrate-feeds",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/490",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/urngd/files/urngd.init",
+  "short_name": "urngd.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/491",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/rpcd/files/50-migrate-rpcd-ubus-sock.sh",
+  "short_name": "50-migrate-rpcd-ubus-sock",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/492",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/rpcd/files/rpcd.init",
+  "short_name": "rpcd.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/493",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/uci/files/lib/config/uci.sh",
+  "short_name": "uci",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/494",
+  "posix_compliant": false,
+  "line_count": 117,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/urandom-seed/files/sbin/urandom_seed",
+  "short_name": "urandom_seed",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/495",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/system/urandom-seed/files/etc/init.d/urandom_seed",
+  "short_name": "urandom_seed",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/496",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-clients/files/qca-nss-ipsec",
+  "short_name": "qca-nss-ipsec",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/497",
+  "posix_compliant": false,
+  "line_count": 174,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-clients/files/qca-nss-ovpn.init",
+  "short_name": "qca-nss-ovpn.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/498",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-clients/files/qca-nss-mirred.init",
+  "short_name": "qca-nss-mirred.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/499",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-clients/files/qca-nss-netlink.init",
+  "short_name": "qca-nss-netlink.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/500",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-ecm/files/qca-nss-ecm.init",
+  "short_name": "qca-nss-ecm.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/501",
+  "posix_compliant": false,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-ecm/files/qca-nss-ecm.defaults",
+  "short_name": "qca-nss-ecm.defaults",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/502",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-ecm/files/disable_offloads.hotplug",
+  "short_name": "disable_offloads.hotplug",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/503",
+  "posix_compliant": true,
+  "line_count": 130,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-ecm/files/disable_offloads.sh",
+  "short_name": "disable_offloads",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/504",
+  "posix_compliant": true,
+  "line_count": 124,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-ecm/files/ecm_dump.sh",
+  "short_name": "ecm_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/505",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-ecm/files/on-demand-down",
+  "short_name": "on-demand-down",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/506",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-ecm/files/qca-nss-ecm.firewall",
+  "short_name": "qca-nss-ecm.firewall",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/507",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-drv/files/qca-nss-drv.hotplug",
+  "short_name": "qca-nss-drv.hotplug",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/508",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-drv/files/qca-nss-drv.debug",
+  "short_name": "qca-nss-drv.debug",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/509",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/qca-nss-drv/files/qca-nss-drv.init",
+  "short_name": "qca-nss-drv.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/510",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/shortcut-fe/shortcut-fe/files/usr/bin/sfe_dump",
+  "short_name": "sfe_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/511",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/qca/shortcut-fe/shortcut-fe/files/etc/init.d/shortcut-fe",
+  "short_name": "shortcut-fe",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/512",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/luci-app-gobinetmodem/root/etc/uci-defaults/luci-gobinetmodem",
+  "short_name": "luci-gobinetmodem",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/513",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/luci-app-gobinetmodem/root/etc/init.d/gobinetmodem",
+  "short_name": "gobinetmodem",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/514",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/luci-app-spdmodem/root/etc/uci-defaults/luci-spdmodem",
+  "short_name": "luci-spdmodem",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/515",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/luci-app-spdmodem/root/etc/init.d/spdmodem",
+  "short_name": "spdmodem",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/516",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/quectel_cm_5G/files/rmnet6.script",
+  "short_name": "rmnet6.script",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/517",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/quectel_cm_5G/files/rmnet.sh",
+  "short_name": "rmnet",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/518",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/quectel_cm_5G/files/rmnet6.sh",
+  "short_name": "rmnet6",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/519",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/quectel_cm_5G/files/rmnet.script",
+  "short_name": "rmnet.script",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/520",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/quectel_cm_5G/files/rmnet_init.sh",
+  "short_name": "rmnet_init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/521",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/quectel_cm_5G/src/default.script_ip",
+  "short_name": "default.script_ip",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/522",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/quectel_cm_5G/src/default.script",
+  "short_name": "default.script",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/523",
+  "posix_compliant": true,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/luci-app-usbmodem/root/etc/uci-defaults/luci-usbmodem",
+  "short_name": "luci-usbmodem",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/524",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/luci-app-usbmodem/root/etc/init.d/usbmodem",
+  "short_name": "usbmodem",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/525",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/luci-app-pcimodem/root/etc/uci-defaults/luci-pcimodem",
+  "short_name": "luci-pcimodem",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/526",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/luci-app-pcimodem/root/etc/init.d/pcimodem",
+  "short_name": "pcimodem",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/527",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/wwan/app/fibocom-dial/src/default.script",
+  "short_name": "default.script",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/528",
+  "posix_compliant": true,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/trelay/files/trelay.init",
+  "short_name": "trelay.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/529",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/broadcom-wl/files/etc/init.d/wlunbind",
+  "short_name": "wlunbind",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/530",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/broadcom-wl/files/etc/hotplug.d/net/00-broadcom-wifi-detect",
+  "short_name": "00-broadcom-wifi-detect",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/531",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/broadcom-wl/files/lib/wifi/broadcom.sh",
+  "short_name": "broadcom",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/532",
+  "posix_compliant": false,
+  "line_count": 413,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/lantiq/ltq-vmmc/files/vmmc.init",
+  "short_name": "vmmc.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/533",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/lantiq/ltq-vdsl-fw/src/vdsl_fw_install.sh",
+  "short_name": "vdsl_fw_install",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/534",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/linux/files/hotplug-sched-teql.sh",
+  "short_name": "hotplug-sched-teql",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/535",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/om-watchdog/files/om-watchdog.init",
+  "short_name": "om-watchdog.init",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/536",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/om-watchdog/files/om-watchdog",
+  "short_name": "om-watchdog",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/537",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/mac80211/scripts/import-backports.sh",
+  "short_name": "import-backports",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/538",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/mac80211/files/mac80211.hotplug",
+  "short_name": "mac80211.hotplug",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/539",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/mac80211/files/lib/wifi/mac80211.sh",
+  "short_name": "mac80211",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/540",
+  "posix_compliant": true,
+  "line_count": 155,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/package/kernel/mac80211/files/lib/netifd/wireless/mac80211.sh",
+  "short_name": "mac80211",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/541",
+  "posix_compliant": true,
+  "line_count": 1047,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/coolsnowwolf/lede.git",
+  "relative_path": "lede/toolchain/gcc/files/alternate-arch-cc.in",
+  "short_name": "alternate-arch-cc.in",
+  "timestamp": "10/22/2024",
+  "identifier": "lede_BqykIL/542",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ }
+]

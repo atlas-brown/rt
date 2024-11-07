@@ -1,0 +1,89 @@
+#!/bin/sh
+# written by Shotaro Fujimoto (https://github.com/ssh0)
+#
+#=#=#=
+# I often use this script with vim-quickrun to compile latex files.
+#
+# If the executed file is in named "source" directory,
+# this script automatically look the upper directory and search the file named
+# "main.tex" to compile.  
+# (You can change the source code if you'd like to use different name.)
+#
+# >[TeXをもっと便利に使う!(自動コンパイル・部分コンパイル・分割ファイルから親ファイルのコンパイル)【Vim + vim-quickrun + latexmk】 - Qiita](http://qiita.com/ssh0/items/e6d7540cd46fac580bc2)
+#
+#=#=
+
+if [ "$1" = '-h' ]; then
+  usage_all "$0"; exit 0
+fi
+
+
+# If there is a file named below in the same directory,
+# this script automatically detect that the file is root tex file,
+# and compile this file even if you choose different one.
+rootfile='main.tex'
+
+# If the choosed file is in $sourcedir, default outputdir is setted to one
+# level upper directory.
+sourcedir='source'
+
+# If the directory named below exists,
+# save the output file to that directory.
+savedir='doc'
+
+notification=true
+notification_icon='/usr/share/icons/gnome/scalable/actions/document-send-symbolic.svg'
+
+message() {
+  echo "There is$1 '$rootfile' in the directory '$2'," >&2
+  echo "so this script compiles this file." >&2
+  echo "" >&2
+}
+
+search_rootfile() {
+  if [ -f "$1"/"$rootfile" ]; then
+    texfile="$1"/"$rootfile"
+    message "" "$1"
+    return 0
+  else
+    texfile="$1"/"$name"
+    return 1
+  fi
+}
+
+dir="$(cd "$(dirname "$1")"; pwd)"
+name="$(basename "$1")"
+
+if [ ! -f "$dir/$name" ]; then
+  echo "$dir/$name doesn't exist." >&2
+  exit 1
+fi
+
+currentdir="$(basename "$dir")"
+dir_up="$(dirname "$dir")"
+
+if [ "${currentdir}" = $sourcedir ]; then
+  echo "This file is in '$sourcedir', so search '$rootfile' recursively." >&2
+  outdir="${dir_up}"
+  search_rootfile "${dir_up}" || search_rootfile "$dir" || message " not" "$dir"
+else
+  outdir="$dir"
+  search_rootfile "$dir" || message " not" "$dir"
+fi
+
+if [ -d "${outdir}/${savedir}" ]; then
+  outdir="${outdir}/${savedir}"
+fi
+
+notificationcmd="notify-send 'LaTeX build done!' '$outdir\n <- $texfile'
+                 -i ${notification_icon}"
+
+echo "Run latexmk..."
+echo "=============="
+echo ""
+shift 1
+
+latexmk -pdfdvi -output-directory="$outdir" "$@" "$texfile" \
+&& latexmk -output-directory="$outdir" -c "$texfile" \
+&& $notification \
+&& eval $notificationcmd

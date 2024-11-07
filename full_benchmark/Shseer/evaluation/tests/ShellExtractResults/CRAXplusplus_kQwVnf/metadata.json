@@ -1,0 +1,214 @@
+[
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/0",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/examples/CVE-2017-14493-dnsmasq/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/1",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/examples/CVE-2004-2093-rsync/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/2",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/examples/BID-8901-iwconfig/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/3",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/examples/CVE-2017-14493-dnsmasq-aslr-nx/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/4",
+  "posix_compliant": false,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/scripts/mount-s2e-image.sh",
+  "short_name": "mount-s2e-image",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/5",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/scripts/set-target.sh",
+  "short_name": "set-target",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/6",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/scripts/run-s2e-qemu.sh",
+  "short_name": "run-s2e-qemu",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/7",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/scripts/launch-crax.sh",
+  "short_name": "launch-crax",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/8",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/proxies/sym_socket/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/9",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/proxies/sym_arg/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/10",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/proxies/sym_stdin/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/11",
+  "posix_compliant": false,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/proxies/sym_file/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/12",
+  "posix_compliant": false,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/SQLab/CRAXplusplus.git",
+  "relative_path": "CRAXplusplus/proxies/sym_env/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "CRAXplusplus_kQwVnf/13",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

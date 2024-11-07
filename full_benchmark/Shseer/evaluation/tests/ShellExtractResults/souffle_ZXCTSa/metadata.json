@@ -1,0 +1,194 @@
+[
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/tests/msvc-interface-functor-test.sh",
+  "short_name": "msvc-interface-functor-test",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/tests/create-msvc-build-dir.sh",
+  "short_name": "create-msvc-build-dir",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/1",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/tests/check-test-completion.sh",
+  "short_name": "check-test-completion",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/tests/msvc-interface-test.sh",
+  "short_name": "msvc-interface-test",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/3",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/sh/checkStyle.sh",
+  "short_name": "checkStyle",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/4",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/sh/run_test_format.sh",
+  "short_name": "run_test_format",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/5",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/sh/setup/install_macos_deps.sh",
+  "short_name": "install_macos_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/6",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/sh/setup/install_macos_arm_deps.sh",
+  "short_name": "install_macos_arm_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/7",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/sh/setup/install_ubuntu_deps.sh",
+  "short_name": "install_ubuntu_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/8",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/sh/check_os.sh",
+  "short_name": "check_os",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/9",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/utilities/git/hooks/pre-commit.sh",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/10",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/.github/images/arch-linux/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/11",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/.github/images/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/12",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/.github/scripts/config_gpg.sh",
+  "short_name": "config_gpg",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/13",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/souffle-lang/souffle.git",
+  "relative_path": "souffle/.github/scripts/updatePPA.sh",
+  "short_name": "updatePPA",
+  "timestamp": "10/22/2024",
+  "identifier": "souffle_ZXCTSa/14",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

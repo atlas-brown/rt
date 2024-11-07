@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/doujiang24/durap.git",
+  "relative_path": "durap/new_application.sh",
+  "short_name": "new_application",
+  "timestamp": "10/22/2024",
+  "identifier": "durap_rCIXLk/0",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

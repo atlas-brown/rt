@@ -1,0 +1,327 @@
+[
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/images/png_to_sql.sh",
+  "short_name": "png_to_sql",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/0",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/images/png_to_xml.sh",
+  "short_name": "png_to_xml",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/1",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/images/svg_to_png.sh",
+  "short_name": "svg_to_png",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/2",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/init.d/debian/zabbix-server",
+  "short_name": "zabbix-server",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/3",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/init.d/debian/zabbix-agent",
+  "short_name": "zabbix-agent",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/4",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/init.d/fedora/core/zabbix_agentd",
+  "short_name": "zabbix_agentd",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/5",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/init.d/fedora/core/zabbix_server",
+  "short_name": "zabbix_server",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/6",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/init.d/fedora/core5/zabbix_agentd",
+  "short_name": "zabbix_agentd",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/7",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/init.d/fedora/core5/zabbix_server",
+  "short_name": "zabbix_server",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/8",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/init.d/freebsd/zabbix_agentd",
+  "short_name": "zabbix_agentd",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/9",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/init.d/freebsd/zabbix_server",
+  "short_name": "zabbix_server",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/10",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/init.d/aix/zabbix_agentd",
+  "short_name": "zabbix_agentd",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/11",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/misc/snmptrap/snmptrap.sh",
+  "short_name": "snmptrap",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/12",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/ui/locale/update_po.sh",
+  "short_name": "update_po",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/13",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/ui/locale/make_mo.sh",
+  "short_name": "make_mo",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/14",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/ui/locale/add_new_language.sh",
+  "short_name": "add_new_language",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/15",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/tests/libs/grep_dependencies.sh",
+  "short_name": "grep_dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/16",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/17",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/create/bin/export_data.sh",
+  "short_name": "export_data",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/18",
+  "posix_compliant": false,
+  "line_count": 119,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/src/zabbix_java/settings.sh",
+  "short_name": "settings",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/19",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/src/zabbix_java/tests/com/zabbix/gateway/jmx_test_beans/k_tools/generate_cert.sh",
+  "short_name": "generate_cert",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/20",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/src/zabbix_java/tests/com/zabbix/gateway/jmx_test_beans/run_target_jmx_app_manually.sh",
+  "short_name": "run_target_jmx_app_manually",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/21",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/src/zabbix_java/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/22",
+  "posix_compliant": true,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zabbix/zabbix.git",
+  "relative_path": "zabbix/src/zabbix_java/shutdown.sh",
+  "short_name": "shutdown",
+  "timestamp": "10/22/2024",
+  "identifier": "zabbix_nRLUrr/23",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

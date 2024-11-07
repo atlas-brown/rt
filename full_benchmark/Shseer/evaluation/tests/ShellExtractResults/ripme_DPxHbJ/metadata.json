@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/4pr0n/ripme.git",
+  "relative_path": "ripme/utils/style.sh",
+  "short_name": "style",
+  "timestamp": "10/22/2024",
+  "identifier": "ripme_DPxHbJ/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/4pr0n/ripme.git",
+  "relative_path": "ripme/utils/stylefix.sh",
+  "short_name": "stylefix",
+  "timestamp": "10/22/2024",
+  "identifier": "ripme_DPxHbJ/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ }
+]

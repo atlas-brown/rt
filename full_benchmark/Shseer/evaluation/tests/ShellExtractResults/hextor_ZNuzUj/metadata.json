@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/digitalw0lf/hextor.git",
+  "relative_path": "hextor/Installer/MakeIncludes.sh",
+  "short_name": "MakeIncludes",
+  "timestamp": "10/22/2024",
+  "identifier": "hextor_ZNuzUj/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

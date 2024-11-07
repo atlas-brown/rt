@@ -1,0 +1,19 @@
+[
+ {
+  "repo": "https://github.com/rmtsrc/raspberry-pi-network-speaker.git",
+  "relative_path": "raspberry-pi-network-speaker/provision.sh",
+  "short_name": "provision",
+  "timestamp": "10/22/2024",
+  "identifier": "raspberry_ezQoQJ/0",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

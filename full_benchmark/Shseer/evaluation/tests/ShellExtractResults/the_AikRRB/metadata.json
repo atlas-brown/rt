@@ -1,0 +1,37 @@
+[
+ {
+  "repo": "https://github.com/unknwon/the-way-to-go_ZH_CN.git",
+  "relative_path": "the-way-to-go_ZH_CN/eBook/examples/chapter_13/xtime",
+  "short_name": "xtime",
+  "timestamp": "10/22/2024",
+  "identifier": "the_AikRRB/0",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/unknwon/the-way-to-go_ZH_CN.git",
+  "relative_path": "the-way-to-go_ZH_CN/eBook/examples/chapter_3/gocomp",
+  "short_name": "gocomp",
+  "timestamp": "10/22/2024",
+  "identifier": "the_AikRRB/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/unknwon/the-way-to-go_ZH_CN.git",
+  "relative_path": "the-way-to-go_ZH_CN/eBook/examples/chapter_19/goto_v5/demo.sh",
+  "short_name": "demo",
+  "timestamp": "10/22/2024",
+  "identifier": "the_AikRRB/2",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

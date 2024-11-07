@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/asido/VIM.git",
+  "relative_path": "VIM/snippets/sh.snippets",
+  "short_name": "sh.snippets",
+  "timestamp": "10/22/2024",
+  "identifier": "VIM_BlcTZQ/0",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

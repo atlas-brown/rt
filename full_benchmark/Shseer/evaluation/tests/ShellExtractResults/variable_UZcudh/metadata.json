@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/LucianoPAlmeida/variable-injector.git",
+  "relative_path": "variable-injector/scripts/build-and-install.sh",
+  "short_name": "build-and-install",
+  "timestamp": "10/22/2024",
+  "identifier": "variable_UZcudh/0",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

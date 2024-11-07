@@ -1,0 +1,83 @@
+[
+ {
+  "repo": "https://github.com/argosopentech/argos-translate.git",
+  "relative_path": "argos-translate/p2p/Argos-Translate-LibreTranslate-2022-04-30.migrate-from-zip-torrent.sh",
+  "short_name": "Argos-Translate-LibreTranslate-2022-04-30.migrate-from-zip-torrent",
+  "timestamp": "10/22/2024",
+  "identifier": "argos_wdbLhX/0",
+  "posix_compliant": false,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/argosopentech/argos-translate.git",
+  "relative_path": "argos-translate/scripts/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "argos_wdbLhX/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/argosopentech/argos-translate.git",
+  "relative_path": "argos-translate/scripts/uninstall.sh",
+  "short_name": "uninstall",
+  "timestamp": "10/22/2024",
+  "identifier": "argos_wdbLhX/2",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/argosopentech/argos-translate.git",
+  "relative_path": "argos-translate/scripts/type_check.sh",
+  "short_name": "type_check",
+  "timestamp": "10/22/2024",
+  "identifier": "argos_wdbLhX/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/argosopentech/argos-translate.git",
+  "relative_path": "argos-translate/scripts/update_to_pypi.sh",
+  "short_name": "update_to_pypi",
+  "timestamp": "10/22/2024",
+  "identifier": "argos_wdbLhX/4",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/argosopentech/argos-translate.git",
+  "relative_path": "argos-translate/scripts/build_and_upload_snap.sh",
+  "short_name": "build_and_upload_snap",
+  "timestamp": "10/22/2024",
+  "identifier": "argos_wdbLhX/5",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/argosopentech/argos-translate.git",
+  "relative_path": "argos-translate/scripts/format.sh",
+  "short_name": "format",
+  "timestamp": "10/22/2024",
+  "identifier": "argos_wdbLhX/6",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ }
+]

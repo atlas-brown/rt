@@ -1,0 +1,58 @@
+#!/bin/bash
+set -o errexit -o nounset -o pipefail
+
+# Zookeeper
+
+mkdir -p "$PKG_PATH/usr"
+cp -rp "/pkg/src/zookeeper" "$PKG_PATH/usr"
+rm -rf "$PKG_PATH/usr/zookeeper/"{src,docs,contrib}
+
+mkdir -p "$PKG_PATH/bin"
+ln -s "$PKG_PATH/usr/zookeeper/bin/zkCli.sh" "$PKG_PATH/bin/zkCli.sh"
+# zkCli.sh expects zkEnv.sh to be in the same directory.
+ln -s "$PKG_PATH/usr/zookeeper/bin/zkEnv.sh" "$PKG_PATH/bin/zkEnv.sh"
+
+cp -p "/pkg/extra/dcos_zk_backup.py" "$PKG_PATH/bin/dcos-zk"
+chmod +x "$PKG_PATH/bin/dcos-zk"
+
+# Explicitly set JAVA_HOME to our java package
+export JAVA_HOME="$(find /opt/mesosphere/packages -type d -name java--*)/usr/java"
+
+# Exhibitor
+
+# Generate the build artifacts and store in the local cache, to be used later
+# during the Maven packaging step.
+cd /pkg/src/exhibitor
+./gradlew install
+./gradlew -b exhibitor-standalone/src/main/resources/buildscripts/standalone/gradle/build.gradle shadowJar
+
+exhibitor_path="$PKG_PATH"/usr/exhibitor
+mkdir -p "$exhibitor_path"
+pushd "$exhibitor_path"
+cp /pkg/src/exhibitor/exhibitor-standalone/src/main/resources/buildscripts/standalone/gradle/build/libs/exhibitor-1.5.6-SNAPSHOT-all.jar exhibitor.jar
+popd
+
+exhibitor_service="$PKG_PATH/dcos.target.wants_master/dcos-exhibitor.service"
+mkdir -p $(dirname "$exhibitor_service")
+envsubst '$PKG_PATH' < /pkg/extra/dcos-exhibitor.service > "$exhibitor_service"
+
+exhibitor_start_wrapper="$PKG_PATH/usr/exhibitor/start_exhibitor.py"
+envsubst '$PKG_PATH' < /pkg/extra/start_exhibitor.py > "$exhibitor_start_wrapper"
+chmod +x "$exhibitor_start_wrapper"
+
+exhibitor_artifact_permission_setter="$PKG_PATH/bin/set_exhibitor_file_permissions.py"
+envsubst '$PKG_PATH' < /pkg/extra/set_exhibitor_file_permissions.py > "$exhibitor_artifact_permission_setter"
+chmod +x "$exhibitor_artifact_permission_setter"
+
+exhibitor_tls_bootsrapper="$PKG_PATH/bin/bootstrap_exhibitor_tls.py"
+envsubst '$PKG_PATH' < /pkg/extra/bootstrap_exhibitor_tls.py > "$exhibitor_tls_bootsrapper"
+chmod +x "$exhibitor_tls_bootsrapper"
+
+
+mkdir -p "$PKG_PATH/usr/zookeeper/build/lib/"
+cp /pkg/src/log4j/log4j-systemd-journal-appender-1.3.2.jar "$PKG_PATH/usr/zookeeper/lib/"
+# DCOS-308: Renaming "jna-4.2.2" to "log4j-jna-4.2.2.jar" will
+# make sure that Exhibitor will include JNA library to cleanupInstance ZK
+# subprocess.
+# see: https://github.com/mesosphere/exhibitor/blob/master/exhibitor-core/src/main/java/com/netflix/exhibitor/core/processes/StandardProcessOperations.java#L65
+cp /pkg/src/jna/jna-4.2.2.jar "$PKG_PATH/usr/zookeeper/lib/log4j-jna-4.2.2.jar"

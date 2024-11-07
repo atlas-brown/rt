@@ -1,0 +1,198 @@
+[
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/logo.sh",
+  "short_name": "logo",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/0",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/replaceVersion.sh",
+  "short_name": "replaceVersion",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/1",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/push_dev.sh",
+  "short_name": "push_dev",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/2",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/check_dependency_updates.sh",
+  "short_name": "check_dependency_updates",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/sync.sh",
+  "short_name": "sync",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/5",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/update_version.sh",
+  "short_name": "update_version",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/6",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/package.sh",
+  "short_name": "package",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/7",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/fast_install.sh",
+  "short_name": "fast_install",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/8",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/javadoc.sh",
+  "short_name": "javadoc",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/9",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/simple_install.sh",
+  "short_name": "simple_install",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/10",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/push_master.sh",
+  "short_name": "push_master",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/11",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/12",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/13",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/cobertura.sh",
+  "short_name": "cobertura",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/14",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/bin/commit.sh",
+  "short_name": "commit",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/15",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dromara/hutool.git",
+  "relative_path": "hutool/hutool.sh",
+  "short_name": "hutool",
+  "timestamp": "10/22/2024",
+  "identifier": "hutool_drrApf/16",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

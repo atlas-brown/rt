@@ -1,0 +1,51 @@
+#!/bin/bash
+# This script configures, builds and runs tests.
+# It's meant for automatic cross-distro testing.
+
+die() { echo "$*" >&2; exit 1; }
+
+[ -e "ShellCheck.cabal" ] ||
+  die "ShellCheck.cabal not in current dir"
+command -v cabal ||
+  die "cabal is missing"
+
+cabal update ||
+  die "can't update"
+
+if [ -e /etc/arch-release ]
+then
+  # Arch has an unconventional packaging setup
+  flags=(--disable-library-vanilla --enable-shared --enable-executable-dynamic --ghc-options=-dynamic)
+else
+  flags=()
+fi
+
+cabal install --dependencies-only --enable-tests "${flags[@]}" ||
+  cabal install --dependencies-only "${flags[@]}" ||
+    cabal install --dependencies-only --max-backjumps -1 "${flags[@]}" ||
+      die "can't install dependencies"
+cabal configure --enable-tests "${flags[@]}" ||
+  die "configure failed"
+cabal build ||
+  die "build failed"
+cabal test ||
+  die "test failed"
+cabal haddock ||
+  die "haddock failed"
+
+sc="$(find . -name shellcheck -type f -perm -111)"
+[ -x "$sc" ] || die "Can't find executable"
+
+"$sc" - << 'EOF' || die "execution failed"
+#!/bin/sh
+echo "Hello World"
+EOF
+
+"$sc" - << 'EOF' && die "negative execution failed"
+#!/bin/sh
+echo $1
+EOF
+
+
+echo "Success"
+exit 0

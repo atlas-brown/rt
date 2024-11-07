@@ -1,0 +1,68 @@
+#!/bin/bash
+
+bma_path="$(cd "$(dirname "$0")/.." && pwd)"
+
+cat <<EOF
+# DO NOT MANUALLY MODIFY THIS FILE.
+# Use 'scripts/build' to regenerate if required.
+
+bma_path="\${BMA_HOME:-\$HOME/.bash-my-aws}"
+EOF
+
+# load in all the completions from scripts/completions
+available_completions=($(
+  find "$bma_path/scripts/completions" -type f -exec basename {} ';' |
+  grep -v bma-completion                                             |
+  grep -v cachews-completion                                         |
+  sed 's/-completion//g'                                             |
+  LC_ALL=C sort
+))
+
+# load in all the completion
+for type in "${available_completions[@]}"; do
+  cat "${bma_path}/scripts/completions/${type}-completion"
+done
+
+cat "${bma_path}/scripts/completions/bma-completion"
+cat "${bma_path}/scripts/completions/cachews-completion"
+
+# dont add auto_completions for these functions
+funcs_no_completion=(
+  asg-desired-size-set
+  asg-max-size-set
+  asg-min-size-set
+  aws-account-alias
+  aws-account-each
+  aws-account-id
+  keypair-create
+  region-each
+  regions
+  stack-create
+  stack-tag
+  stack-tag-apply
+  stack-tag-delete
+  stack-validate
+  vpc-default-delete
+  vpc-dhcp-options-ntp
+  vpc-endpoint-services
+)
+
+# add completion for certain functions
+bma_funcs=$(
+  grep -v '^__bma' "${bma_path}/functions"                    |
+  grep -vE "$(echo "${funcs_no_completion[*]}" | tr " " "|")"
+)
+
+# maps the available completions to the bma functions
+for type in "${available_completions[@]}"; do
+  functions=$(echo "${bma_funcs}" | grep -E "^${type}([s-]|$)")
+  for function in ${functions}; do
+    echo "complete -F _bma_${type}s_completion ${function}"
+  done
+done
+
+# exception to the mapping of completions
+cat <<EOF
+complete -f stack-validate
+complete -F _bma_completion bma
+EOF

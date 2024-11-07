@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+[ -e '/app/.env' ] && { echo 'Existing .env detected. Please rename it temporarily before running the test container.' >&2; exit 1; }
+
+/scripts/setup_env
+source /app/.env
+
+export RAILS_ENV=test
+unset no_proxy
+
+bundle config set --local path vendor/bundle
+bundle config set --local without 'test development'
+bundle install -j 4
+bundle exec rake db:create db:migrate
+bundle exec "$@"

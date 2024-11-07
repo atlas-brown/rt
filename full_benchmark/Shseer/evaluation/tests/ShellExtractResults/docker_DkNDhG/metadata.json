@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/dylanlindgren/docker-laravel-nginx.git",
+  "relative_path": "docker-laravel-nginx/config/nginx-start.sh",
+  "short_name": "nginx-start",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_DkNDhG/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ }
+]

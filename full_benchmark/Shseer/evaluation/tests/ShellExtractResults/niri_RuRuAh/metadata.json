@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/YaLTeR/niri.git",
+  "relative_path": "niri/resources/niri-session",
+  "short_name": "niri-session",
+  "timestamp": "10/22/2024",
+  "identifier": "niri_RuRuAh/0",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

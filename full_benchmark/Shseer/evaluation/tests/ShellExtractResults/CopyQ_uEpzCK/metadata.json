@@ -1,0 +1,549 @@
+[
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/sign_released_files.sh",
+  "short_name": "sign_released_files",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/linux_make_icons.sh",
+  "short_name": "linux_make_icons",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/1",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/bump_version.sh",
+  "short_name": "bump_version",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/2",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/gitlab/test_gui-script.sh",
+  "short_name": "test_gui-script",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/3",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/gitlab/test_gui-before_script.sh",
+  "short_name": "test_gui-before_script",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/4",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/gitlab/build-before_script.sh",
+  "short_name": "build-before_script",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/5",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/gitlab/test-script.sh",
+  "short_name": "test-script",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/6",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/gitlab/test-before_script.sh",
+  "short_name": "test-before_script",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/7",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/gitlab/build-script.sh",
+  "short_name": "build-script",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/8",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/create_source_package.sh",
+  "short_name": "create_source_package",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/9",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/debian/create_source_packages.sh",
+  "short_name": "create_source_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/10",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/debian/update_changelog.sh",
+  "short_name": "update_changelog",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/11",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/view_windows_screenshots.sh",
+  "short_name": "view_windows_screenshots",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/12",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/lupdate.sh",
+  "short_name": "lupdate",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/13",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/windows_copyq_update.sh",
+  "short_name": "windows_copyq_update",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/14",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/fedora/build_sprm.sh",
+  "short_name": "build_sprm",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/15",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/sanitize.sh",
+  "short_name": "sanitize",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/16",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/test_window_build.sh",
+  "short_name": "test_window_build",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/17",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/copy_files.sh",
+  "short_name": "copy_files",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/18",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/make_ico.sh",
+  "short_name": "make_ico",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/19",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/launchpad/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/20",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/launchpad/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/21",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/launchpad/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/22",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/download_window_builds.sh",
+  "short_name": "download_window_builds",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/23",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/github/install-macos.sh",
+  "short_name": "install-macos",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/24",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/github/coverage-linux.sh",
+  "short_name": "coverage-linux",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/25",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/github/bundle-macos.sh",
+  "short_name": "bundle-macos",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/26",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/github/test-linux.sh",
+  "short_name": "test-linux",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/27",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/github/install-linux.sh",
+  "short_name": "install-linux",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/28",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/appveyor/before_build.sh",
+  "short_name": "before_build",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/29",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/appveyor/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/30",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/appveyor/after_build.sh",
+  "short_name": "after_build",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/31",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/appveyor/kf_build.sh",
+  "short_name": "kf_build",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/32",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/appveyor/trigger_build.sh",
+  "short_name": "trigger_build",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/33",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/appveyor/env.sh",
+  "short_name": "env",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/34",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/appveyor/build_script.sh",
+  "short_name": "build_script",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/35",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/appveyor/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/36",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/appveyor/test_screenshots.sh",
+  "short_name": "test_screenshots",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/37",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/download_obs_packages.sh",
+  "short_name": "download_obs_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/38",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/utils/make_icns.sh",
+  "short_name": "make_icns",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/39",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hluk/CopyQ.git",
+  "relative_path": "CopyQ/docs/autobuild.sh",
+  "short_name": "autobuild",
+  "timestamp": "10/22/2024",
+  "identifier": "CopyQ_uEpzCK/40",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/async-labs/saas.git",
+  "relative_path": "saas/book/10-end-functional/lambda/symlink",
+  "short_name": "symlink",
+  "timestamp": "10/22/2024",
+  "identifier": "saas_KQqntW/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/async-labs/saas.git",
+  "relative_path": "saas/saas/lambda/symlink",
+  "short_name": "symlink",
+  "timestamp": "10/22/2024",
+  "identifier": "saas_KQqntW/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ }
+]

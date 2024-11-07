@@ -1,0 +1,31 @@
+[
+ {
+  "repo": "https://github.com/ReactiveCocoa/ReactiveViewModel.git",
+  "relative_path": "ReactiveViewModel/script/cibuild",
+  "short_name": "cibuild",
+  "timestamp": "10/22/2024",
+  "identifier": "ReactiveViewModel_hAkXXM/0",
+  "posix_compliant": false,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ReactiveCocoa/ReactiveViewModel.git",
+  "relative_path": "ReactiveViewModel/script/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "ReactiveViewModel_hAkXXM/1",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

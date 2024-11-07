@@ -1,0 +1,149 @@
+#!/bin/sh
+
+###########################
+# General config
+#   	these are the default settings
+#	the setting are only used, if not defined in the payload itself
+###########################
+
+# USB setup
+# ---------------------------
+# Make sure to change USB_PID if you enable different USB functionality in order
+# to force Windows to enumerate the device again
+USB_VID="0x1d6b"        # Vendor ID
+USB_PID="0x0137"        # Product ID
+
+USE_ECM=true            # if true CDC ECM will be enabled
+USE_RNDIS=true          # if true RNDIS will be enabled
+USE_HID=false            # if true HID (keyboard) will be enabled
+USE_HID_MOUSE=true            # if true HID mouse will be enabled
+USE_RAWHID=false         # if true a raw HID device will be enabled
+USE_UMS=false           # if true USB Mass Storage will be enabled
+
+# ===========================================
+# Network and DHCP options USB over Ethernet
+# ===========================================
+
+# We choose an IP with a very small subnet (see comments in README.rst)
+IF_IP="172.16.0.1" # IP used by P4wnP1
+IF_MASK="255.255.255.252"
+IF_DHCP_RANGE="172.16.0.2,172.16.0.2" # DHCP Server IP Range
+
+ROUTE_SPOOF=false # set two static routes on target to cover whole IPv4 range
+WPAD_ENTRY=false # provide a WPAD entry via DHCP pointing to responder
+
+# ============================
+# WiFi options (only Pi Zero W)
+# ============================
+WIFI_NEXMON=false # Experimental: enables the use of Nexmon driver + firmware to add monitor mode capability
+WIFI_NEXMON_BRING_UP_MONITOR_FIRST=true # if this option is set to true, the additional monitor interface is brought up before hostapd is started (and thus not available to hostapd)
+
+WIFI_REG=US # WiFi regulatory domain (if not set accordingly, WiFi channels are missing)
+
+# Access Point Settings
+# ---------------------
+
+WIFI_ACCESSPOINT=true
+WIFI_ACCESSPOINT_NAME="P4wnP1"
+WIFI_ACCESSPOINT_AUTH=true # Use WPA2_PSK if true, no authentication if false
+WIFI_ACCESSPOINT_CHANNEL=6
+WIFI_ACCESSPOINT_PSK="MaMe82-P4wnP1"
+WIFI_ACCESSPOINT_IP="172.24.0.1" # IP used by P4wnP1
+WIFI_ACCESSPOINT_NETMASK="255.255.255.0"
+WIFI_ACCESSPOINT_DHCP_RANGE="172.24.0.2,172.24.0.100" # DHCP Server IP Range
+WIFI_ACCESSPOINT_HIDE_SSID=false # use to hide SSID of WLAN (you have to manually connect to the name given by WIFI_ACCESSPOINT_NAME)
+
+WIFI_ACCESSPOINT_DHCP_BE_GATEWAY=false # propagate P4wnP1 as router if true (only makes sense when an upstream is available
+WIFI_ACCESSPOINT_DHCP_BE_DNS=false # propagate P4wnP1 as nameserver if true (only makes sense when an upstream is available
+WIFI_ACCESSPOINT_DNS_FORWARD=false # if true, P4wnP1 listens with a DNS forwader on UPD port 53 of the WiFi interface (traffic is forwaded to P4wnP1's system DNS)
+
+WIFI_ACCESSPOINT_KARMA=false # enables Karma attack with modified nexmon firmware, requires WIFI_NEXMON=true
+WIFI_ACCESSPOINT_KARMA_LOUD=false # if true beacons for SSIDs spotted in probe requests are broadcasted (maximum 20)
+
+# WiFi Client Settings
+# --------------------
+
+WIFI_CLIENT=false 	# enables connecting to existing WiFi (currently only WPA2 PSK)
+			# example payload: wifi_connect.txt
+			# Warning: could slow down boot, because:
+			#	- scan for target network is issued upfront
+			#	- DHCP client is started and waits for a lease on WiFi adapter
+			# Note: if WIFI_ACCESSPOINT is enabled, too:
+			#	- P4wnP1 tries to connect to the given WiFi
+			# 	- if connection fails, the AccessPoint is started instead
+WIFI_CLIENT_SSID="Accespoint Name" # name of target network
+WIFI_CLIENT_PSK="AccessPoint password" # passphrase for target network
+WIFI_CLIENT_STORE_NETWORK=false # unused right now, should be used to store known networks, but priority has to be given if multiple known networks are present
+WIFI_CLIENT_OVERWRITE_PSK=true # unused right now, in case the network WIFI_CLIENT_STORE_NETWORK is set an existing PSK gets overwritten
+
+# ==================================
+# Keyboard settings for HID keyboard
+# ==================================
+lang="us" # Keyboard language for outhid and duckhid commands
+HID_KEYBOARD_TEST=true # if enabled 'onKeyboardUp' is fired as soon as the host initializes the keyboard
+
+# ===============================================
+# Settings for reachback connections with AutoSSH
+# ===============================================
+AUTOSSH_ENABLED=false # if enabled P4wnP1 will continuously try to bring up a SSH connection tunneling out its internal SSH server to a remote SSH Server
+AUTOSSH_REMOTE_HOST=YourSSH-server.com # host address of the remote SSH server
+AUTOSSH_REMOTE_USER=root # valid user of the remote SSH server (passwordless login has to be possible with the key given by AUTOSSH_PRIVATE_KEY)
+AUTOSSH_PRIVATE_KEY="$wdir/ssh/keys/P4wnP1_id" # private key used to login to the remote server (has to be present in ~/.ssh/authorized_keys file of AUTOSSH_REMOTE_USER)
+AUTOSSH_PUBLIC_KEY="$wdir/ssh/keys/P4wnP1_id.pub" # this key has to be present in ~/.ssh/authorized_keys file of AUTOSSH_REMOTE_USER, (use ./ssh/pushkey.sh to assist)
+AUTOSSH_REMOTE_PORT=8765 # P4wnP1's SSH shell will be reachable at this port on the remote SSH server (the port is bound to localhost and thus not exposed to public facing IP)
+
+
+# =============================
+# Settings for Bluetooth PAN (Pi Zero W only)
+# =============================
+# Note: Connecting Bluetooth Network Access Point (NAP) with a mobile device
+#       requires to disable other networks with internet access on this device in most cases
+#       (like WiFi).
+#       NAP provided by P4wnP1 doesn't necessarily provide Internet access, but is used to
+#       grant network access on P4wnP1 via bluetooth. The alternative would be to establish
+#       a "Group Network (GN)" instead of NAP, which unfortunately didn't work in most test cases,
+#       when it cames to connection of a mobile device.
+#       So if Internet should be provided from P4wnP1 via NAP (which isn't the purpose of P4wnP1),
+#       P4wnP1 itself has to be connected to Internet (for example using RNDIS + ICS on windows or
+#       using the WiFi client mode). Additionally iptables rules have to be deployed to enable MASQUERADING
+#       on the respective outbound interface.
+#
+#		To summerize: P4wnP1 provides NAP as access option to SSH via bluetooth, not to serve Internet,
+#       although this could be achieved.
+
+BLUETOOTH_NAP=false # Enable Bluetooth NAP to SSH in via Bluetooth
+BLUETOOTH_NAP_PIN=1337 # unused, PIN authentication currently not working (custom agent for bluez 5 needed)
+BLUETOOTH_NAP_IP="172.26.0.1" # IP used by P4wnP1
+BLUETOOTH_NAP_NETMASK="255.255.255.0"
+BLUETOOTH_NAP_DHCP_RANGE="172.26.0.2,172.26.0.100" # DHCP Server IP Range
+
+BLUETOOTH_PAN_AUTO=false 	# Overides BLUETOOTH_NAP !! Instead of providing a NAP P4wnP1 tries to use an existing bluetooth NAP as soon as a device providing one has paired 
+				# AND CONNECTED (not the common behavior for a device providing bluetooth tethering, but possible)
+				# Important: P4wnP1 doesn't try to pair or connect a device on its own, but is discoverable (although no bluetooth services are provided)
+
+# =============================
+# Settings for USB Mass Storage
+# =============================
+
+
+
+# =====================
+# Payload selection
+# =====================
+
+PAYLOAD=network_only.txt
+#PAYLOAD=wifi_covert_channel/hid_only_delivery64.txt # WiFi covert channel (HID only delivery), insert P4wnP1 to target, press NUMLOCK rapidly to infect ... remove P4wnP1 and provided it with Power, lock in via WiFi and use the C2 server for the covert channel
+#PAYLOAD=wifi_covert_channel/hid_only_delivery32.txt # 32bit version untested
+#PAYLOAD=wifi_covert_channel/hid_only_delivery64_bt_only.txt # WiFi covert channel version which use Bluetooth instead of a WiFi AP to provide C2 server access (no visible P4wnP1 WiFi, at all)
+#PAYLOAD=nexmon/karma.txt # Experimental Rogue AP in Karma mode using Nexmon (seemoo-lab) firmware for Monitor/Injection (+ MaMe82 KARMA firmware mod) and Responder
+#PAYLOAD=nexmon/karma_bt_upstream.txt
+#PAYLOAD=hid_mouse.txt # HID mouse demo: Shows different ways of positioning the mouse pointer, using P4wnP1's MouseScript languag
+#PAYLOAD=hid_backdoor_remote.txt # AutoSSH "reachback" version of hid_backdoor (see payload comments for details)
+#PAYLOAD=wifi_connect.txt
+#PAYLOAD=stickykey/trigger.txt # Backdoor Windows LockScreen with SYSTEM shell, triggered by NUMLOCK, trigger SCROLLLOCK to revert the changes
+#PAYLOAD=hakin9_tutorial/payload.txt # steals stored plain credentials of Internet Explorer or Edge and saves them to USB flash drive (for hakin9 tutorial)
+#PAYLOAD=Win10_LockPicker.txt # Steals NetNTLMv2 hash from locked Window machine, attempts to crack the hash and enters the plain password to unlock the machin on success
+#PAYLOAD=hid_backdoor.txt # under (heavy) development
+#PAYLOAD=hid_frontdoor.txt # HID covert channel demo: Triggers P4wnP1 covert channel console by pressing NUMLOCK 5 times on target (Windows)
+#PAYLOAD=hid_keyboard.txt # HID keyboard demo: Waits till target installed keyboard driver and writes "Keyboard is running" to notepad
+#PAYLOAD=hid_keyboard2.txt # HID keyboard demo: triggered by CAPS-, NUM- or SCROLL-LOCK interaction on target

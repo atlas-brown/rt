@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/dokuwiki/dokuwiki.git",
+  "relative_path": "dokuwiki/lib/scripts/jquery/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "dokuwiki_TCUwoe/0",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

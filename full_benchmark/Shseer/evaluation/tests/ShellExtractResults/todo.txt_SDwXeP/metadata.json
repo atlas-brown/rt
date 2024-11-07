@@ -1,0 +1,725 @@
+[
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/todo.sh",
+  "short_name": "todo",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/0",
+  "posix_compliant": false,
+  "line_count": 1204,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t6030-completion-tasks.sh",
+  "short_name": "t6030-completion-tasks",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/1",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t8000-actions.sh",
+  "short_name": "t8000-actions",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/2",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t0001-null.sh",
+  "short_name": "t0001-null",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/3",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1250-listpri.sh",
+  "short_name": "t1250-listpri",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/4",
+  "posix_compliant": false,
+  "line_count": 129,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t2120-shorthelp.sh",
+  "short_name": "t2120-shorthelp",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/5",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t8020-actions-help.sh",
+  "short_name": "t8020-actions-help",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/6",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/testshell.sh",
+  "short_name": "testshell",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/7",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1030-addto-date.sh",
+  "short_name": "t1030-addto-date",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/8",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1380-ls-date-number-metadata-highlighting.sh",
+  "short_name": "t1380-ls-date-number-metadata-highlighting",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/9",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t6000-completion.sh",
+  "short_name": "t6000-completion",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/10",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1910-deduplicate.sh",
+  "short_name": "t1910-deduplicate",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/11",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1340-listescapes.sh",
+  "short_name": "t1340-listescapes",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/12",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1900-archive.sh",
+  "short_name": "t1900-archive",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/13",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t0000-config.sh",
+  "short_name": "t0000-config",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/14",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t2200-no-done-report-files.sh",
+  "short_name": "t2200-no-done-report-files",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/15",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1350-listall.sh",
+  "short_name": "t1350-listall",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/16",
+  "posix_compliant": false,
+  "line_count": 132,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1700-depri.sh",
+  "short_name": "t1700-depri",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/17",
+  "posix_compliant": false,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1850-move.sh",
+  "short_name": "t1850-move",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/18",
+  "posix_compliant": false,
+  "line_count": 85,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1020-addtolistfile.sh",
+  "short_name": "t1020-addtolistfile",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/19",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/test-lib.sh",
+  "short_name": "test-lib",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/20",
+  "posix_compliant": false,
+  "line_count": 533,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t9999-testsuite_example.sh",
+  "short_name": "t9999-testsuite_example",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/21",
+  "posix_compliant": false,
+  "line_count": 139,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t2000-multiline.sh",
+  "short_name": "t2000-multiline",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/22",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1400-prepend.sh",
+  "short_name": "t1400-prepend",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/23",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t0100-code-nobacktick.sh",
+  "short_name": "t0100-code-nobacktick",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/24",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1330-ls-highlighting.sh",
+  "short_name": "t1330-ls-highlighting",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/25",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t6080-completion-path.sh",
+  "short_name": "t6080-completion-path",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/26",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t6090-completion-aliases.sh",
+  "short_name": "t6090-completion-aliases",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/27",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t6040-completion-files.sh",
+  "short_name": "t6040-completion-files",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/28",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/actions-test-lib.sh",
+  "short_name": "actions-test-lib",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/29",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1200-pri.sh",
+  "short_name": "t1200-pri",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/30",
+  "posix_compliant": false,
+  "line_count": 119,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t8010-listaddons.sh",
+  "short_name": "t8010-listaddons",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/31",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1600-append.sh",
+  "short_name": "t1600-append",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/32",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1800-del.sh",
+  "short_name": "t1800-del",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/33",
+  "posix_compliant": false,
+  "line_count": 169,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1500-do.sh",
+  "short_name": "t1500-do",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/34",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t6020-completion-projects.sh",
+  "short_name": "t6020-completion-projects",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/35",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t6100-completion-help.sh",
+  "short_name": "t6100-completion-help",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/36",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1000-addlist.sh",
+  "short_name": "t1000-addlist",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/37",
+  "posix_compliant": false,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/aggregate-results.sh",
+  "short_name": "aggregate-results",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/38",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1010-add-date.sh",
+  "short_name": "t1010-add-date",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/39",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t2100-help.sh",
+  "short_name": "t2100-help",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/40",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1360-ls-project-context-highlighting.sh",
+  "short_name": "t1360-ls-project-context-highlighting",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/41",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t2110-help-action.sh",
+  "short_name": "t2110-help-action",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/42",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t6050-completion-addons.sh",
+  "short_name": "t6050-completion-addons",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/43",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1310-listcon.sh",
+  "short_name": "t1310-listcon",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/44",
+  "posix_compliant": false,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1300-ls.sh",
+  "short_name": "t1300-ls",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/45",
+  "posix_compliant": false,
+  "line_count": 645,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t6060-completion-addon-files.sh",
+  "short_name": "t6060-completion-addon-files",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/46",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t6010-completion-contexts.sh",
+  "short_name": "t6010-completion-contexts",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/47",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1320-listproj.sh",
+  "short_name": "t1320-listproj",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/48",
+  "posix_compliant": false,
+  "line_count": 133,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1100-replace.sh",
+  "short_name": "t1100-replace",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/49",
+  "posix_compliant": false,
+  "line_count": 177,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1040-add-priority.sh",
+  "short_name": "t1040-add-priority",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/50",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t1950-report.sh",
+  "short_name": "t1950-report",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/51",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/tests/t0002-actions.sh",
+  "short_name": "t0002-actions",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/52",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/todotxt/todo.txt-cli.git",
+  "relative_path": "todo.txt-cli/GEN-VERSION-FILE",
+  "short_name": "GEN-VERSION-FILE",
+  "timestamp": "10/22/2024",
+  "identifier": "todo.txt_SDwXeP/53",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

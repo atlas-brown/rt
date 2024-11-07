@@ -1,0 +1,81 @@
+[
+ {
+  "repo": "https://github.com/danr/jbokorp.git",
+  "relative_path": "jbokorp/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "jbokorp_SyAxss/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/danr/jbokorp.git",
+  "relative_path": "jbokorp/corpus_import/tiki/slicer.sh",
+  "short_name": "slicer",
+  "timestamp": "10/22/2024",
+  "identifier": "jbokorp_SyAxss/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/danr/jbokorp.git",
+  "relative_path": "jbokorp/corpus_import/mriste/original/rename.sh",
+  "short_name": "rename",
+  "timestamp": "10/22/2024",
+  "identifier": "jbokorp_SyAxss/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/danr/jbokorp.git",
+  "relative_path": "jbokorp/corpus_import/mriste/original/chunk.sh",
+  "short_name": "chunk",
+  "timestamp": "10/22/2024",
+  "identifier": "jbokorp_SyAxss/3",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/danr/jbokorp.git",
+  "relative_path": "jbokorp/corpus_import/mriste/download/download.sh",
+  "short_name": "download",
+  "timestamp": "10/22/2024",
+  "identifier": "jbokorp_SyAxss/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/danr/jbokorp.git",
+  "relative_path": "jbokorp/corpus_import/irclogs/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "jbokorp_SyAxss/5",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

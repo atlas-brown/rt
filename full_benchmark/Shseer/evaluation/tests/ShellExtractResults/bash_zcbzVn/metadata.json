@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/wangdoc/bash-tutorial.git",
+  "relative_path": "bash-tutorial/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "bash_zcbzVn/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "permissions"
+  ]
+ }
+]

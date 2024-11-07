@@ -1,0 +1,48 @@
+[
+ {
+  "repo": "https://github.com/RainLoop/rainloop-webmail.git",
+  "relative_path": "rainloop-webmail/.docker/mail/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "rainloop_KJnzzh/0",
+  "posix_compliant": false,
+  "line_count": 201,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/RainLoop/rainloop-webmail.git",
+  "relative_path": "rainloop-webmail/.docker/nginx/ssl.sh",
+  "short_name": "ssl",
+  "timestamp": "10/22/2024",
+  "identifier": "rainloop_KJnzzh/1",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/RainLoop/rainloop-webmail.git",
+  "relative_path": "rainloop-webmail/makedeb.sh",
+  "short_name": "makedeb",
+  "timestamp": "10/22/2024",
+  "identifier": "rainloop_KJnzzh/2",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,43 @@
+[
+ {
+  "repo": "https://github.com/edgexfoundry/edgex-ui-go.git",
+  "relative_path": "edgex-ui-go/bin/edgex-ui-go-launch.sh",
+  "short_name": "edgex-ui-go-launch",
+  "timestamp": "10/22/2024",
+  "identifier": "edgex_Dlqjpw/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/edgexfoundry/edgex-ui-go.git",
+  "relative_path": "edgex-ui-go/bin/test-attribution-txt.sh",
+  "short_name": "test-attribution-txt",
+  "timestamp": "10/22/2024",
+  "identifier": "edgex_Dlqjpw/1",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/edgexfoundry/edgex-ui-go.git",
+  "relative_path": "edgex-ui-go/redeploy.sh",
+  "short_name": "redeploy",
+  "timestamp": "10/22/2024",
+  "identifier": "edgex_Dlqjpw/2",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,29 @@
+[
+ {
+  "repo": "https://github.com/tmetsch/docker_compose_mesos.git",
+  "relative_path": "docker_compose_mesos/docky",
+  "short_name": "docky",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_OYeSsw/0",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tmetsch/docker_compose_mesos.git",
+  "relative_path": "docker_compose_mesos/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_OYeSsw/1",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

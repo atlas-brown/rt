@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/DerSchultze/Peristaltic-Controller.git",
+  "relative_path": "Peristaltic-Controller/code/nbproject/Package-default.bash",
+  "short_name": "Package-default.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "Peristaltic_GdqhnY/0",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ }
+]

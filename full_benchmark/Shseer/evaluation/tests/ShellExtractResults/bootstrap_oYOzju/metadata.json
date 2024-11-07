@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/jasny/bootstrap.git",
+  "relative_path": "bootstrap/test-infra/uncached-npm-install.sh",
+  "short_name": "uncached-npm-install",
+  "timestamp": "10/22/2024",
+  "identifier": "bootstrap_oYOzju/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ }
+]

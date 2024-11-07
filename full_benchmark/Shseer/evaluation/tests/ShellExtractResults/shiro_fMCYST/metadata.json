@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/apache/shiro.git",
+  "relative_path": "shiro/integration-tests/support/src/main/resources/createKeyStore.sh",
+  "short_name": "createKeyStore",
+  "timestamp": "10/22/2024",
+  "identifier": "shiro_fMCYST/0",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

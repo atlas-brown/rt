@@ -1,0 +1,55 @@
+[
+ {
+  "repo": "https://github.com/abo-abo/cedet.git",
+  "relative_path": "cedet/tests/cit-test.sh",
+  "short_name": "cit-test",
+  "timestamp": "10/22/2024",
+  "identifier": "cedet_VPURDE/0",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/abo-abo/cedet.git",
+  "relative_path": "cedet/etc/semantic/semanticdb.sh",
+  "short_name": "semanticdb",
+  "timestamp": "10/22/2024",
+  "identifier": "cedet_VPURDE/1",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/abo-abo/cedet.git",
+  "relative_path": "cedet/gettodos.sh",
+  "short_name": "gettodos",
+  "timestamp": "10/22/2024",
+  "identifier": "cedet_VPURDE/2",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/abo-abo/cedet.git",
+  "relative_path": "cedet/testdist.sh",
+  "short_name": "testdist",
+  "timestamp": "10/22/2024",
+  "identifier": "cedet_VPURDE/3",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

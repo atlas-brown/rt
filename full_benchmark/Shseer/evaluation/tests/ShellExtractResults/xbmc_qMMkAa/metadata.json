@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/Sandmann79/xbmc.git",
+  "relative_path": "xbmc/plugin.program.browser.launcher/script.sh",
+  "short_name": "script",
+  "timestamp": "10/22/2024",
+  "identifier": "xbmc_qMMkAa/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ }
+]

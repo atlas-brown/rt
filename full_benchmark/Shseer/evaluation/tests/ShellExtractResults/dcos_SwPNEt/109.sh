@@ -1,0 +1,20 @@
+#!/bin/bash
+set -o errexit -o nounset -o pipefail
+
+systemd_slave=$PKG_PATH/dcos.target.wants_slave/dcos-rexray.service
+mkdir -p $(dirname $systemd_slave)
+sed -e "s@__PKG_PATH__@$PKG_PATH@g" < /pkg/extra/dcos-rexray.service > "$systemd_slave"
+
+systemd_slave_public=$PKG_PATH/dcos.target.wants_slave_public/dcos-rexray.service
+mkdir -p $(dirname $systemd_slave_public)
+cp "$systemd_slave" "$systemd_slave_public"
+
+srcdir=$GOPATH/src/github.com/rexray/rexray
+mkdir -p $(dirname $srcdir)
+ln -s /pkg/src/rexray $srcdir
+cd $srcdir
+
+DGOOS=linux make
+
+mkdir -p $PKG_PATH/bin
+mv ./rexray $PKG_PATH/bin

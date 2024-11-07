@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/ordinals/ord.git",
+  "relative_path": "ord/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "ord_NKcIYx/0",
+  "posix_compliant": false,
+  "line_count": 110,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ordinals/ord.git",
+  "relative_path": "ord/hooks/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "ord_NKcIYx/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ }
+]

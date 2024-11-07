@@ -1,0 +1,74 @@
+#!/bin/sh
+
+# Copyright © Michal Čihař <michal@weblate.org>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Wrapper around yarn to update our javascript dependencies
+set -e
+
+cd scripts/yarn/
+
+yarn install --check-files
+
+# Autosize
+cp node_modules/autosize/dist/autosize.js ../../weblate/static/vendor/
+
+# Mousetrap
+cp node_modules/mousetrap/mousetrap.js ../../weblate/static/vendor/
+
+# Mousetrap global bind
+cp node_modules/mousetrap-global-bind/mousetrap-global-bind.js ../../weblate/static/vendor/
+
+# Prismjs
+cp node_modules/prismjs/components/prism-core.js ../../weblate/static/vendor/prism/
+cp node_modules/prismjs/components/prism-markup.js ../../weblate/static/vendor/prism/
+cp node_modules/prismjs/components/prism-rest.js ../../weblate/static/vendor/prism/
+cp node_modules/prismjs/components/prism-markdown.js ../../weblate/static/vendor/prism/
+cp node_modules/prismjs/components/prism-icu-message-format.js ../../weblate/static/vendor/prism/
+
+# autocomplete
+cp node_modules/@tarekraafat/autocomplete.js/dist/autoComplete.js ../../weblate/static/vendor/
+
+# multi.js
+cp node_modules/multi.js/src/multi.js ../../weblate/static/vendor/
+cp node_modules/multi.js/src/multi.css ../../weblate/static/vendor/
+
+# Slugify
+cp node_modules/slugify/slugify.js ../../weblate/static/vendor/slugify.js
+
+# Date Range Picker
+cp node_modules/daterangepicker/daterangepicker.js ../../weblate/static/vendor/
+# Skip the copying of the default CSS file to avoid the Weblate style customization being overwritten
+# cp node_modules/daterangepicker/daterangepicker.css ../../weblate/static/vendor/
+
+# Moment.js
+cp node_modules/moment/moment.js ../../weblate/static/vendor/
+
+# Source Sans/Code Pro fonts
+sed '/font-family/ a font-display: swap;' < node_modules/source-sans/source-sans-3.css > ../../weblate/static/vendor/font-source/source-sans-3.css
+sed '/font-family/ a font-display: swap;' < node_modules/source-code-pro/source-code-pro.css > ../../weblate/static/vendor/font-source/source-code-pro.css
+find node_modules/source-sans/WOFF node_modules/source-sans/WOFF2 node_modules/source-sans/TTF node_modules/source-code-pro/ \
+    -name 'SourceSans3-ExtraLight.*' \
+    -o -name 'SourceSans3-Light.*' \
+    -o -name 'SourceSans3-Semibold.*' \
+    -o -name 'SourceSans3-Black.*' \
+    -o -name 'SourceSans3-Bold.*' \
+    -o -name 'SourceSans3-Regular.*' \
+    -o -name 'SourceSans3-It.*' \
+    -o -name 'SourceSans3-BoldIt.*' \
+    -o -name 'SourceCodePro-Medium.*' \
+    -o -name 'SourceCodePro-Regular.*' \
+    -o -name 'SourceCodePro-Bold.*' \
+    -o -name 'SourceCodePro-Semibold.*' | while read -r name; do
+    target=$(echo "$name" | sed 's@node_modules/source-\(sans\|code-pro\)/@../../weblate/static/vendor/font-source/@')
+    dir=$(dirname "$target")
+    if [ ! -d "$dir" ]; then
+        mkdir -p "$dir"
+    fi
+    cp "$name" "$target"
+done
+
+# Not updated:
+# Bootstrap, use online customizer
+# bootstrap-rtl as the version in yarn is outdated

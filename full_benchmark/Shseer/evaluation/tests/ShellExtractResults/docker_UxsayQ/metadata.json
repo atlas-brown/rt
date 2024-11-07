@@ -1,0 +1,85 @@
+[
+ {
+  "repo": "https://github.com/hopsoft/docker-graphite-statsd.git",
+  "relative_path": "docker-graphite-statsd/conf/etc/my_init.d/01_conf_init.sh",
+  "short_name": "01_conf_init",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_UxsayQ/0",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/hopsoft/docker-graphite-statsd.git",
+  "relative_path": "docker-graphite-statsd/conf/etc/service/carbon/run",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_UxsayQ/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hopsoft/docker-graphite-statsd.git",
+  "relative_path": "docker-graphite-statsd/conf/etc/service/grafana/run",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_UxsayQ/2",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/hopsoft/docker-graphite-statsd.git",
+  "relative_path": "docker-graphite-statsd/conf/etc/service/statsd/run",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_UxsayQ/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/hopsoft/docker-graphite-statsd.git",
+  "relative_path": "docker-graphite-statsd/conf/etc/service/nginx/run",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_UxsayQ/4",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hopsoft/docker-graphite-statsd.git",
+  "relative_path": "docker-graphite-statsd/conf/etc/service/carbon-aggregator/run",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_UxsayQ/5",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/hopsoft/docker-graphite-statsd.git",
+  "relative_path": "docker-graphite-statsd/conf/etc/service/graphite/run",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_UxsayQ/6",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

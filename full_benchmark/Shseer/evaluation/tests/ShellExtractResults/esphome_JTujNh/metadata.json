@@ -1,0 +1,29 @@
+[
+ {
+  "repo": "https://github.com/AlexMekkering/esphome-config.git",
+  "relative_path": "esphome-config/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "esphome_JTujNh/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/AlexMekkering/esphome-config.git",
+  "relative_path": "esphome-config/cleanup.sh",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "esphome_JTujNh/1",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

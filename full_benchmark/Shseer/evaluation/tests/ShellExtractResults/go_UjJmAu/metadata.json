@@ -1,0 +1,129 @@
+[
+ {
+  "repo": "https://github.com/ethereum/go-ethereum.git",
+  "relative_path": "go-ethereum/metrics/validate.sh",
+  "short_name": "validate",
+  "timestamp": "10/22/2024",
+  "identifier": "go_UjJmAu/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ethereum/go-ethereum.git",
+  "relative_path": "go-ethereum/cmd/devp2p/internal/ethtest/mkchain.sh",
+  "short_name": "mkchain",
+  "timestamp": "10/22/2024",
+  "identifier": "go_UjJmAu/1",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ethereum/go-ethereum.git",
+  "relative_path": "go-ethereum/cmd/clef/docs/qubes/qubes.Clefsign",
+  "short_name": "qubes.Clefsign",
+  "timestamp": "10/22/2024",
+  "identifier": "go_UjJmAu/2",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ethereum/go-ethereum.git",
+  "relative_path": "go-ethereum/cmd/evm/transition-test.sh",
+  "short_name": "transition-test",
+  "timestamp": "10/22/2024",
+  "identifier": "go_UjJmAu/3",
+  "posix_compliant": false,
+  "line_count": 400,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ethereum/go-ethereum.git",
+  "relative_path": "go-ethereum/crypto/secp256k1/libsecp256k1/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "go_UjJmAu/4",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ethereum/go-ethereum.git",
+  "relative_path": "go-ethereum/oss-fuzz.sh",
+  "short_name": "oss-fuzz",
+  "timestamp": "10/22/2024",
+  "identifier": "go_UjJmAu/5",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/ethereum/go-ethereum.git",
+  "relative_path": "go-ethereum/build/travis_keepalive.sh",
+  "short_name": "travis_keepalive",
+  "timestamp": "10/22/2024",
+  "identifier": "go_UjJmAu/6",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ethereum/go-ethereum.git",
+  "relative_path": "go-ethereum/build/goimports.sh",
+  "short_name": "goimports",
+  "timestamp": "10/22/2024",
+  "identifier": "go_UjJmAu/7",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ethereum/go-ethereum.git",
+  "relative_path": "go-ethereum/build/bot/macos-build.sh",
+  "short_name": "macos-build",
+  "timestamp": "10/22/2024",
+  "identifier": "go_UjJmAu/8",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ethereum/go-ethereum.git",
+  "relative_path": "go-ethereum/build/bot/ppa-build.sh",
+  "short_name": "ppa-build",
+  "timestamp": "10/22/2024",
+  "identifier": "go_UjJmAu/9",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ }
+]

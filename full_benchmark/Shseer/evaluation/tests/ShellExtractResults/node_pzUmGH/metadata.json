@@ -1,0 +1,1974 @@
+[
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/benchmark/cpu.sh",
+  "short_name": "cpu",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/0",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/osx-productsign.sh",
+  "short_name": "osx-productsign",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/1",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/license-builder.sh",
+  "short_name": "license-builder",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/2",
+  "posix_compliant": true,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/make-v8.sh",
+  "short_name": "make-v8",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/3",
+  "posix_compliant": true,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/inspector_protocol/markupsafe/get_markupsafe.sh",
+  "short_name": "get_markupsafe",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/4",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/inspector_protocol/jinja2/get_jinja2.sh",
+  "short_name": "get_jinja2",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/5",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/create_expfile.sh",
+  "short_name": "create_expfile",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/6",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/macos-firewall.sh",
+  "short_name": "macos-firewall",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/7",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/zos/modifysidedeck.sh",
+  "short_name": "modifysidedeck",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/8",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/osx-codesign.sh",
+  "short_name": "osx-codesign",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/9",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/gyp/tools/emacs/run-unit-tests.sh",
+  "short_name": "run-unit-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/10",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/gyp/gyp",
+  "short_name": "gyp",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/11",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/utils.sh",
+  "short_name": "utils",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/12",
+  "posix_compliant": true,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-gyp-next.sh",
+  "short_name": "update-gyp-next",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/13",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-simdjson.sh",
+  "short_name": "update-simdjson",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/14",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-acorn-walk.sh",
+  "short_name": "update-acorn-walk",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/15",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-cjs-module-lexer.sh",
+  "short_name": "update-cjs-module-lexer",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/16",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-v8-patch.sh",
+  "short_name": "update-v8-patch",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/17",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-uvwasi.sh",
+  "short_name": "update-uvwasi",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/18",
+  "posix_compliant": true,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-histogram.sh",
+  "short_name": "update-histogram",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/19",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-postject.sh",
+  "short_name": "update-postject",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/20",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-simdutf.sh",
+  "short_name": "update-simdutf",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/21",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-googletest.sh",
+  "short_name": "update-googletest",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/22",
+  "posix_compliant": true,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-undici.sh",
+  "short_name": "update-undici",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/23",
+  "posix_compliant": true,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-ngtcp2.sh",
+  "short_name": "update-ngtcp2",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/24",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-sqlite.sh",
+  "short_name": "update-sqlite",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/25",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-github-reporter.sh",
+  "short_name": "update-github-reporter",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/26",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-nbytes.sh",
+  "short_name": "update-nbytes",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/27",
+  "posix_compliant": true,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-libuv.sh",
+  "short_name": "update-libuv",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/28",
+  "posix_compliant": true,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-ada.sh",
+  "short_name": "update-ada",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/29",
+  "posix_compliant": true,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-openssl.sh",
+  "short_name": "update-openssl",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/30",
+  "posix_compliant": true,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-zlib.sh",
+  "short_name": "update-zlib",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/31",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-c-ares.sh",
+  "short_name": "update-c-ares",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/32",
+  "posix_compliant": true,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-brotli.sh",
+  "short_name": "update-brotli",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/33",
+  "posix_compliant": true,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-icu.sh",
+  "short_name": "update-icu",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/34",
+  "posix_compliant": true,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-llhttp.sh",
+  "short_name": "update-llhttp",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/35",
+  "posix_compliant": true,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-acorn.sh",
+  "short_name": "update-acorn",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/36",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-amaro.sh",
+  "short_name": "update-amaro",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/37",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-nghttp2.sh",
+  "short_name": "update-nghttp2",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/38",
+  "posix_compliant": true,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-minimatch.sh",
+  "short_name": "update-minimatch",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/39",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-npm.sh",
+  "short_name": "update-npm",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/40",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/dep_updaters/update-nghttp3.sh",
+  "short_name": "update-nghttp3",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/41",
+  "posix_compliant": true,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/actions/start-ci.sh",
+  "short_name": "start-ci",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/42",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/actions/merge.sh",
+  "short_name": "merge",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/43",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/actions/commit-queue.sh",
+  "short_name": "commit-queue",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/44",
+  "posix_compliant": true,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/actions/rebase.sh",
+  "short_name": "rebase",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/45",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/46",
+  "posix_compliant": true,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/macos-installer/pkgbuild/npm/scripts/postinstall",
+  "short_name": "postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/47",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/macos-installer/pkgbuild/npm/scripts/preinstall",
+  "short_name": "preinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/48",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/create_android_makefiles",
+  "short_name": "create_android_makefiles",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/49",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/osx-pkg-postinstall.sh",
+  "short_name": "osx-pkg-postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/50",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/tools/osx-notarize.sh",
+  "short_name": "osx-notarize",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/51",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/test/fixtures/run-script/node_modules/.bin/ada",
+  "short_name": "ada",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/52",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/test/fixtures/run-script/node_modules/.bin/custom-env",
+  "short_name": "custom-env",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/53",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/test/fixtures/run-script/node_modules/.bin/path-env",
+  "short_name": "path-env",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/54",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/test/fixtures/run-script/node_modules/.bin/positional-args",
+  "short_name": "positional-args",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/55",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/test/fixtures/run-script/node_modules/.bin/special-env-variables",
+  "short_name": "special-env-variables",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/56",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/test/fixtures/wpt/resources/webidl2/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/57",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/test/fixtures/keys/selfsigned-no-keycertsign/https_renew_cert.sh",
+  "short_name": "https_renew_cert",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/58",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/configure",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/59",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/android-configure",
+  "short_name": "android-configure",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/60",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/draw_instruction_graph.sh",
+  "short_name": "draw_instruction_graph",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/61",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/android-sync.sh",
+  "short_name": "android-sync",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/62",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/mac-nm",
+  "short_name": "mac-nm",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/63",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/bash-completion.sh",
+  "short_name": "bash-completion",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/64",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/eval_gc_time.sh",
+  "short_name": "eval_gc_time",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/65",
+  "posix_compliant": false,
+  "line_count": 145,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/find-builtin",
+  "short_name": "find-builtin",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/66",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/check-static-initializers.sh",
+  "short_name": "check-static-initializers",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/67",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/android-build.sh",
+  "short_name": "android-build",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/68",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/cross_build_gcc.sh",
+  "short_name": "cross_build_gcc",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/69",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/wasm/update-wasm-fuzzers.sh",
+  "short_name": "update-wasm-fuzzers",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/70",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/wasm/update-wasm-spec-tests.sh",
+  "short_name": "update-wasm-spec-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/71",
+  "posix_compliant": false,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/system-analyzer/local-server.sh",
+  "short_name": "local-server",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/72",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/callstats-from-telemetry.sh",
+  "short_name": "callstats-from-telemetry",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/73",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/check-unused-symbols.sh",
+  "short_name": "check-unused-symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/74",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/clusterfuzz/js_fuzzer/package.sh",
+  "short_name": "package",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/75",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/clusterfuzz/js_fuzzer/gen_exceptions.sh",
+  "short_name": "gen_exceptions",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/76",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/mac-tick-processor",
+  "short_name": "mac-tick-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/77",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/linux-tick-processor",
+  "short_name": "linux-tick-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/78",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/profiling/run-llprof.sh",
+  "short_name": "run-llprof",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/79",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/profiling/android-ll-prof.sh",
+  "short_name": "android-ll-prof",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/80",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/profiling/linux-perf-chrome-renderer-cmd.sh",
+  "short_name": "linux-perf-chrome-renderer-cmd",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/81",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/jsfunfuzz/fuzz-harness.sh",
+  "short_name": "fuzz-harness",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/82",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/check-unused-bailouts.sh",
+  "short_name": "check-unused-bailouts",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/83",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/ic-processor",
+  "short_name": "ic-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/84",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/dev/update-vscode.sh",
+  "short_name": "update-vscode",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/85",
+  "posix_compliant": false,
+  "line_count": 133,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/check-inline-includes.sh",
+  "short_name": "check-inline-includes",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/86",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/cpu.sh",
+  "short_name": "cpu",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/87",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/parse-processor",
+  "short_name": "parse-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/88",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/gcmole/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/89",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/gcmole/package.sh",
+  "short_name": "package",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/90",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/fuzz-harness.sh",
+  "short_name": "fuzz-harness",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/91",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/turbolizer/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/92",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/cppgc/export_to_github.sh",
+  "short_name": "export_to_github",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/93",
+  "posix_compliant": true,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/cppgc/test_cmake.sh",
+  "short_name": "test_cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/94",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/freebsd-tick-processor",
+  "short_name": "freebsd-tick-processor",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/95",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/tools/collect_deprecation_stats.sh",
+  "short_name": "collect_deprecation_stats",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/96",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/test/test262/prune-local-tests.sh",
+  "short_name": "prune-local-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/97",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/test/test262/upstream-local-tests.sh",
+  "short_name": "upstream-local-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/98",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/third_party/markupsafe/get_markupsafe.sh",
+  "short_name": "get_markupsafe",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/99",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/v8/third_party/abseil-cpp/CMake/install_test_project/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/100",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/nbytes/tools/run-clang-format.sh",
+  "short_name": "run-clang-format",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/101",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/zlib/google/test/data/create_test_zip.sh",
+  "short_name": "create_test_zip",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/102",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/zlib/contrib/bench/check.sh",
+  "short_name": "check",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/103",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/uv/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/104",
+  "posix_compliant": true,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/cares/config/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/105",
+  "posix_compliant": true,
+  "line_count": 352,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/cares/config/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/106",
+  "posix_compliant": false,
+  "line_count": 8038,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/cares/buildconf",
+  "short_name": "buildconf",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/107",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/yarnpkg",
+  "short_name": "yarnpkg",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/108",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/pnpm",
+  "short_name": "pnpm",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/109",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/pnpx",
+  "short_name": "pnpx",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/110",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/yarn",
+  "short_name": "yarn",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/111",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/corepack",
+  "short_name": "corepack",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/112",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/npx",
+  "short_name": "npx",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/113",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/nodewin/yarnpkg",
+  "short_name": "yarnpkg",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/114",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/nodewin/pnpm",
+  "short_name": "pnpm",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/115",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/nodewin/pnpx",
+  "short_name": "pnpx",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/116",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/nodewin/yarn",
+  "short_name": "yarn",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/117",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/nodewin/corepack",
+  "short_name": "corepack",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/118",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/nodewin/npx",
+  "short_name": "npx",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/119",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/nodewin/npm",
+  "short_name": "npm",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/120",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/corepack/shims/npm",
+  "short_name": "npm",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/121",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/test/smime-certs/mksmime-certs.sh",
+  "short_name": "mksmime-certs",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/122",
+  "posix_compliant": true,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/test/certs/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/123",
+  "posix_compliant": false,
+  "line_count": 293,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/test/certs/mkcert.sh",
+  "short_name": "mkcert",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/124",
+  "posix_compliant": false,
+  "line_count": 333,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/test/recipes/95-test_external_pyca_data/cryptography.sh",
+  "short_name": "cryptography",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/125",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/test/recipes/25-test_eai_data/kdc.sh",
+  "short_name": "kdc",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/126",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/test/recipes/95-test_external_gost_engine_data/gost_engine.sh",
+  "short_name": "gost_engine",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/127",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/test/recipes/95-test_external_krb5_data/krb5.sh",
+  "short_name": "krb5",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/128",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/util/fips-checksums.sh",
+  "short_name": "fips-checksums",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/129",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/util/check-format-commit.sh",
+  "short_name": "check-format-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/130",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/util/shlib_wrap.sh.in",
+  "short_name": "shlib_wrap.in",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/131",
+  "posix_compliant": true,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/util/fix-includes",
+  "short_name": "fix-includes",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/132",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/util/opensslwrap.sh",
+  "short_name": "opensslwrap",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/133",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/demos/certs/mkcerts.sh",
+  "short_name": "mkcerts",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/134",
+  "posix_compliant": true,
+  "line_count": 54,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/demos/certs/ocspquery.sh",
+  "short_name": "ocspquery",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/135",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/demos/certs/ocsprun.sh",
+  "short_name": "ocsprun",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/136",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/demos/certs/apps/mkacerts.sh",
+  "short_name": "mkacerts",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/137",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/openssl/openssl/demos/certs/apps/mkxcerts.sh",
+  "short_name": "mkxcerts",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/138",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/npm/node_modules/node-gyp/macOS_Catalina_acid_test.sh",
+  "short_name": "macOS_Catalina_acid_test",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/139",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/npm/node_modules/node-gyp/gyp/gyp",
+  "short_name": "gyp",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/140",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodejs/node.git",
+  "relative_path": "node/deps/npm/lib/utils/completion.sh",
+  "short_name": "completion",
+  "timestamp": "10/22/2024",
+  "identifier": "node_pzUmGH/141",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

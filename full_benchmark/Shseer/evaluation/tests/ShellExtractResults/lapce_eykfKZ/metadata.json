@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/lapce/lapce.git",
+  "relative_path": "lapce/extra/proxy.sh",
+  "short_name": "proxy",
+  "timestamp": "10/22/2024",
+  "identifier": "lapce_eykfKZ/0",
+  "posix_compliant": true,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

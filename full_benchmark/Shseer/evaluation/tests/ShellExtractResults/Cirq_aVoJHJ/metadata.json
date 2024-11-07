@@ -1,0 +1,113 @@
+[
+ {
+  "repo": "https://github.com/quantumlib/Cirq.git",
+  "relative_path": "Cirq/dev_tools/packaging/produce-package.sh",
+  "short_name": "produce-package",
+  "timestamp": "10/22/2024",
+  "identifier": "Cirq_aVoJHJ/0",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/quantumlib/Cirq.git",
+  "relative_path": "Cirq/dev_tools/packaging/verify-published-package.sh",
+  "short_name": "verify-published-package",
+  "timestamp": "10/22/2024",
+  "identifier": "Cirq_aVoJHJ/1",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/quantumlib/Cirq.git",
+  "relative_path": "Cirq/dev_tools/packaging/packaging_test.sh",
+  "short_name": "packaging_test",
+  "timestamp": "10/22/2024",
+  "identifier": "Cirq_aVoJHJ/2",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/quantumlib/Cirq.git",
+  "relative_path": "Cirq/dev_tools/packaging/generate-dev-version-id.sh",
+  "short_name": "generate-dev-version-id",
+  "timestamp": "10/22/2024",
+  "identifier": "Cirq_aVoJHJ/3",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/quantumlib/Cirq.git",
+  "relative_path": "Cirq/dev_tools/packaging/publish-dev-package.sh",
+  "short_name": "publish-dev-package",
+  "timestamp": "10/22/2024",
+  "identifier": "Cirq_aVoJHJ/4",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/quantumlib/Cirq.git",
+  "relative_path": "Cirq/dev_tools/pr_monitor.sh",
+  "short_name": "pr_monitor",
+  "timestamp": "10/22/2024",
+  "identifier": "Cirq_aVoJHJ/5",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/quantumlib/Cirq.git",
+  "relative_path": "Cirq/dev_tools/build-protos.sh",
+  "short_name": "build-protos",
+  "timestamp": "10/22/2024",
+  "identifier": "Cirq_aVoJHJ/6",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/quantumlib/Cirq.git",
+  "relative_path": "Cirq/dev_tools/conf/pip-install-minimal-for-pytest-changed-files.sh",
+  "short_name": "pip-install-minimal-for-pytest-changed-files",
+  "timestamp": "10/22/2024",
+  "identifier": "Cirq_aVoJHJ/7",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ }
+]

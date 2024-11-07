@@ -1,0 +1,35 @@
+#!/bin/sh
+if [ -z "$1" ]; then
+	echo "Usage: release <new_version>"
+	exit 1
+fi
+VERSION=$1
+
+set -e
+
+# Push version in gipsyversion.h
+cat xpc/gipsyversion.h | sed -e "s/\".*\"/\"$VERSION\"/" > xpc/gipsyversion.h.new
+mv xpc/gipsyversion.h.new xpc/gipsyversion.h
+
+# Push version in install.rdf and update.rdf
+cat extension/install.rdf | sed -e "s/\(em:version=\"\).*\"/\\1$VERSION\"/" > extension/install.rdf.new
+mv extension/install.rdf.new extension/install.rdf
+
+#cat html/update.rdf | sed -e "s/\(em:version>\).*</\\1$VERSION</"  > html/update.rdf.new
+#mv html/update.rdf.new html/update.rdf
+
+# Modify about dialog
+cat extension/chrome/content/about.xul | sed -e "s/version .*</version $VERSION</" > a.new
+mv a.new extension/chrome/content/about.xul
+
+git commit -a -m "Commit for release $VERSION"
+# Make tag
+git tag release_$VERSION
+
+# Publish
+make clean
+find extension -name "*~" | xargs rm
+make
+echo "Upload gipsy.xpi"
+git push
+git push --tags

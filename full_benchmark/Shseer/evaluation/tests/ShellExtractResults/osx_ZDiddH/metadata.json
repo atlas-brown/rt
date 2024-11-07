@@ -1,0 +1,32 @@
+[
+ {
+  "repo": "https://github.com/lavoiesl/osx-cpu-temp.git",
+  "relative_path": "osx-cpu-temp/bin/lint.sh",
+  "short_name": "lint",
+  "timestamp": "10/22/2024",
+  "identifier": "osx_ZDiddH/0",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/lavoiesl/osx-cpu-temp.git",
+  "relative_path": "osx-cpu-temp/bin/lint-fix.sh",
+  "short_name": "lint-fix",
+  "timestamp": "10/22/2024",
+  "identifier": "osx_ZDiddH/1",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

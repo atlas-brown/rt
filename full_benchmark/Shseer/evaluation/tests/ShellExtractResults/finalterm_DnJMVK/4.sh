@@ -1,0 +1,120 @@
+#!/bin/bash
+
+# Include default startup file so that user's settings are respected
+[[ -r ~/.bashrc ]] && source ~/.bashrc
+
+
+
+# Final Term's customizations start here
+
+source @PKGDATADIR@/Startup/preexec.bash
+
+
+# NOTE: xterm properly ignores sequences of this type as unknown,
+#       while some other terminals (such as GNOME Terminal) print them
+function final_term_control_sequence() {
+	control_sequence="\e]133;"
+	for argument in "$@"; do
+		control_sequence="$control_sequence$argument;"
+	done
+	# TODO: Remove last semicolon
+	control_sequence="$control_sequence\a"
+
+	# TODO: Should "-ne" be added here?
+	echo "$control_sequence"
+}
+export -f final_term_control_sequence
+
+function send_control_sequence() {
+	echo -ne "$1"
+}
+export -f send_control_sequence
+
+
+# Logic for prompt and command detection
+
+precmd() {
+	# Send sequence containing the return code of the last command
+	send_control_sequence "$(final_term_control_sequence 'D' "$?")"
+	# Send sequence marking a command prompt
+	send_control_sequence "$(final_term_control_sequence 'A')"
+}
+
+preexec() {
+	# Send sequence containing the command to be executed
+	send_control_sequence "$(final_term_control_sequence 'C' "$1")"
+}
+
+preexec_install
+
+# Send sequence marking the start of a command
+PS1=$PS1$(final_term_control_sequence 'B')
+
+
+# Logic for terminal commands
+
+function trim() {
+	local text=$1
+	text="${text#"${text%%[![:space:]]*}"}"   # remove leading whitespace characters
+	text="${text%"${text##*[![:space:]]}"}"   # remove trailing whitespace characters
+	echo -n "$text"
+}
+
+function send_commands() {
+	send_control_sequence "$(final_term_control_sequence 'H' "$1" '#' "${@:2}")"
+}
+
+pushd "@PKGDATADIR@/TerminalCommands" > /dev/null
+while IFS= read -r line; do
+	stripped_line=$(trim "$line")
+
+	if [ -n "$stripped_line" ]; then
+		# Non-empty line
+		if [ "${stripped_line:0:1}" != "#" ]; then
+			# Non-comment line
+			# Split on "=" character and escape double quotes used for command arguments
+			name=$(trim "${stripped_line%%=*}")
+			cmds=$(trim "${stripped_line#*=}")
+			cmds=${cmds//\"/\\\"}
+			alias ",$name"="send_commands \"${cmds}\""
+		fi
+	fi
+done <*.ftcommands
+popd > /dev/null
+
+
+# Termlet-related logic
+
+function text_menu_start() {
+	# NOTE: Nested double quotes look strange, but are both valid and necessary;
+	#       see http://stackoverflow.com/questions/4031007
+	echo "$(final_term_control_sequence 'E' "$1")"
+}
+export -f text_menu_start
+
+function text_menu_end() {
+	echo "$(final_term_control_sequence 'F' "$1")"
+}
+export -f text_menu_end
+
+function send_progress() {
+	send_control_sequence "$(final_term_control_sequence 'G' "$1" "$2")"
+}
+export -f send_progress
+
+function run_termlet() {
+	if [ -t 1 ]; then
+		"@PKGDATADIR@/Termlets/$@"
+	else
+		"$@"
+	fi
+}
+
+# Set up termlet aliases
+pushd "@PKGDATADIR@/Termlets" > /dev/null
+for filename in *; do
+	alias $filename="run_termlet '$filename'"
+done
+popd > /dev/null
+
+cd ~

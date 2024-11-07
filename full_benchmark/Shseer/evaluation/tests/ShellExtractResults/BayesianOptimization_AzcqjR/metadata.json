@@ -1,0 +1,34 @@
+[
+ {
+  "repo": "https://github.com/bayesian-optimization/BayesianOptimization.git",
+  "relative_path": "BayesianOptimization/scripts/check_precommit.sh",
+  "short_name": "check_precommit",
+  "timestamp": "10/22/2024",
+  "identifier": "BayesianOptimization_AzcqjR/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bayesian-optimization/BayesianOptimization.git",
+  "relative_path": "BayesianOptimization/scripts/check.sh",
+  "short_name": "check",
+  "timestamp": "10/22/2024",
+  "identifier": "BayesianOptimization_AzcqjR/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/bayesian-optimization/BayesianOptimization.git",
+  "relative_path": "BayesianOptimization/scripts/format.sh",
+  "short_name": "format",
+  "timestamp": "10/22/2024",
+  "identifier": "BayesianOptimization_AzcqjR/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ }
+]

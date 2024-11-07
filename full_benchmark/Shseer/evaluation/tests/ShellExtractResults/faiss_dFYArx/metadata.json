@@ -1,0 +1,178 @@
+[
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss-gpu/test_cpu_dispatch.sh",
+  "short_name": "test_cpu_dispatch",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/0",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss-gpu/build-pkg.sh",
+  "short_name": "build-pkg",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/1",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss-gpu/build-lib.sh",
+  "short_name": "build-lib",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/2",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss-gpu-raft/test_cpu_dispatch.sh",
+  "short_name": "test_cpu_dispatch",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/3",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss-gpu-raft/build-pkg.sh",
+  "short_name": "build-pkg",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/4",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss-gpu-raft/build-lib.sh",
+  "short_name": "build-lib",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/5",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss/build-pkg-osx.sh",
+  "short_name": "build-pkg-osx",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/6",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss/build-lib-osx.sh",
+  "short_name": "build-lib-osx",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/7",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss/test_cpu_dispatch.sh",
+  "short_name": "test_cpu_dispatch",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/8",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss/build-pkg.sh",
+  "short_name": "build-pkg",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/9",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss/build-pkg-arm64.sh",
+  "short_name": "build-pkg-arm64",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/10",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss/build-lib-arm64.sh",
+  "short_name": "build-lib-arm64",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/11",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/conda/faiss/build-lib.sh",
+  "short_name": "build-lib",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/12",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/faiss.git",
+  "relative_path": "faiss/faiss/gpu/hipify.sh",
+  "short_name": "hipify",
+  "timestamp": "10/22/2024",
+  "identifier": "faiss_dFYArx/13",
+  "posix_compliant": false,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

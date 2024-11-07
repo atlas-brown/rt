@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/pcottle/learnGitBranching.git",
+  "relative_path": "learnGitBranching/checkgit.sh",
+  "short_name": "checkgit",
+  "timestamp": "10/22/2024",
+  "identifier": "learnGitBranching_zzIFOc/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,342 @@
+[
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/scripts/update-examples-dep.sh",
+  "short_name": "update-examples-dep",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/0",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/packages/turbo-repository/scripts/bump-version.sh",
+  "short_name": "bump-version",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/1",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/packages/turbo-repository/scripts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/2",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/packages/turbo-exe-stub/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/3",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/buildcontainer/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/4",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/integration/tests/inference/nested_workspaces_setup.sh",
+  "short_name": "nested_workspaces_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/5",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/integration/tests/inference/no_workspaces_setup.sh",
+  "short_name": "no_workspaces_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/6",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/integration/tests/lockfile-aware-caching/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/7",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/integration/tests/find-turbo/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/8",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/integration/tests/find-turbo/set_link.sh",
+  "short_name": "set_link",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/9",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/integration/tests/find-turbo/set_version.sh",
+  "short_name": "set_version",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/10",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/integration/fixtures/strict_env_vars/apps/my-app/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/11",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/run_summary.sh",
+  "short_name": "run_summary",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/12",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/13",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/find_global_hash.sh",
+  "short_name": "find_global_hash",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/14",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/setup_example_test.sh",
+  "short_name": "setup_example_test",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/15",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/mock_existing_login.sh",
+  "short_name": "mock_existing_login",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/16",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/copy_fixture.sh",
+  "short_name": "copy_fixture",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/17",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/mock_telemetry_config.sh",
+  "short_name": "mock_telemetry_config",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/18",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/replace_turbo_json.sh",
+  "short_name": "replace_turbo_json",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/19",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/setup_integration_test.sh",
+  "short_name": "setup_integration_test",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/20",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/install_deps.sh",
+  "short_name": "install_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/21",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/setup_git.sh",
+  "short_name": "setup_git",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/22",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/setup_package_manager.sh",
+  "short_name": "setup_package_manager",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/23",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vercel/turborepo.git",
+  "relative_path": "turborepo/turborepo-tests/helpers/mock_turbo_config.sh",
+  "short_name": "mock_turbo_config",
+  "timestamp": "10/22/2024",
+  "identifier": "turborepo_pTMXVe/24",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

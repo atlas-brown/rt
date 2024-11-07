@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/jorgebastida/glue.git",
+  "relative_path": "glue/coverage.sh",
+  "short_name": "coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "glue_hPxSWP/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

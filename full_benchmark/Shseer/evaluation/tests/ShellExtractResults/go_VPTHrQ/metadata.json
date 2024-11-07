@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/uber-archive/go-torch.git",
+  "relative_path": "go-torch/.test-cover.sh",
+  "short_name": ".test-cover",
+  "timestamp": "10/22/2024",
+  "identifier": "go_VPTHrQ/0",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

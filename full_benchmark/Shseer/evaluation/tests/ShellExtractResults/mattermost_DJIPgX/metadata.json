@@ -1,0 +1,458 @@
+[
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/diff-config.sh",
+  "short_name": "diff-config",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/0",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/jq-dep-check.sh",
+  "short_name": "jq-dep-check",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/1",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/replica-lag-set.sh",
+  "short_name": "replica-lag-set",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/mirror-docker-images.sh",
+  "short_name": "mirror-docker-images",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/3",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/prereq-check-enterprise.sh",
+  "short_name": "prereq-check-enterprise",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/4",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/diff-email-templates.sh",
+  "short_name": "diff-email-templates",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/5",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/get_latest_release.sh",
+  "short_name": "get_latest_release",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/6",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/ldap-check.sh",
+  "short_name": "ldap-check",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/7",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/wait-for-system-start.sh",
+  "short_name": "wait-for-system-start",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/8",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/psql-migration-test.sh",
+  "short_name": "psql-migration-test",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/9",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/replica-mysql-config.sh",
+  "short_name": "replica-mysql-config",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/10",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/mysql-migration-test.sh",
+  "short_name": "mysql-migration-test",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/11",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/scripts/vet-api-check.sh",
+  "short_name": "vet-api-check",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/12",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/build/docker/keycloak/kc-healthcheck.sh",
+  "short_name": "kc-healthcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/13",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/build/docker-preview/docker-entry.sh",
+  "short_name": "docker-entry",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/14",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/build/local-test-env.sh",
+  "short_name": "local-test-env",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/15",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/server/build/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/16",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/report.publish.sh",
+  "short_name": "report.publish",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/17",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/server.start.sh",
+  "short_name": "server.start",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/18",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/dashboard.entrypoint.sh",
+  "short_name": "dashboard.entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/19",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/dashboard.generate_test_cycle.sh",
+  "short_name": "dashboard.generate_test_cycle",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/20",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/server.generate.sh",
+  "short_name": "server.generate",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/21",
+  "posix_compliant": false,
+  "line_count": 382,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/dashboard.start.sh",
+  "short_name": "dashboard.start",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/22",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/server.cloud_teardown.sh",
+  "short_name": "server.cloud_teardown",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/23",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/server.stop.sh",
+  "short_name": "server.stop",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/24",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/server.cloud_init.sh",
+  "short_name": "server.cloud_init",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/25",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/report.collect.sh",
+  "short_name": "report.collect",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/26",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/server.run_playwright.sh",
+  "short_name": "server.run_playwright",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/27",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/server.prepare.sh",
+  "short_name": "server.prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/28",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/server.run_cypress.sh",
+  "short_name": "server.run_cypress",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/29",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/dashboard.stop.sh",
+  "short_name": "dashboard.stop",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/30",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/.ci/server.run_test.sh",
+  "short_name": "server.run_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/31",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mattermost/mattermost.git",
+  "relative_path": "mattermost/e2e-tests/playwright/script/post_install.sh",
+  "short_name": "post_install",
+  "timestamp": "10/22/2024",
+  "identifier": "mattermost_DJIPgX/32",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

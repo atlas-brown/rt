@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/sidkshatriya/rd.git",
+  "relative_path": "rd/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "rd_csgktp/0",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/ceph/ceph-cookbook.git",
+  "relative_path": "ceph-cookbook/templates/default/s3gw.fcgi.erb",
+  "short_name": "s3gw.fcgi.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ceph_zibsXb/0",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

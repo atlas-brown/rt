@@ -1,0 +1,41 @@
+[
+ {
+  "repo": "https://github.com/gnebbia/kb.git",
+  "relative_path": "kb/misc/rofi-kb-mode.sh",
+  "short_name": "rofi-kb-mode",
+  "timestamp": "10/22/2024",
+  "identifier": "kb_rELeoK/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/gnebbia/kb.git",
+  "relative_path": "kb/.travis/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "kb_rELeoK/1",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/gnebbia/kb.git",
+  "relative_path": "kb/.travis/build_binaries.sh",
+  "short_name": "build_binaries",
+  "timestamp": "10/22/2024",
+  "identifier": "kb_rELeoK/2",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# Simple helper script to build wheels and install pkgpanda, dcos-image inside
+# of CI
+#
+# Expects that it is being run inside of a virtual environment.
+
+set -o errexit -o nounset -o pipefail
+
+: ${VIRTUAL_ENV?"Must be run in a python virtual environment"}
+
+# NOTE: If the directory already exists that is indeed a hard error. Should be
+# cleaned up between builds to guarantee we get the artifacts we expect.
+mkdir wheelhouse || (echo wheelhouse folder must be deleted before prep_teamcity is rerun && exit 1)
+
+# Make a clean copy of pkgpanda so the python artifacts build fast
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+pushd $DIR
+if [ -d ext/dcos-image ]
+then
+  rm -rf ext/dcos-image
+fi
+
+git clone "file://$DIR" ext/dcos-image
+git -C ext/dcos-image checkout -qf `git rev-parse --verify HEAD^{commit}`
+popd
+
+# Install the latest version of pip
+pip install -U pip
+
+# We have wheel as a dependency since we use it to build the wheels
+pip install wheel
+
+# Download distro independent artifacts
+pip download -d wheelhouse $DIR/ext/dcos-image
+
+# Make the wheels, they will be output into the folder `wheelhouse` by default.
+pip wheel --wheel-dir=wheelhouse --no-index --find-links=wheelhouse $DIR/ext/dcos-image
+
+# Install the wheels
+pip install --no-index --find-links=wheelhouse dcos-image
+
+# Cleanup the checkout
+rm -rf $DIR/ext/dcos-image

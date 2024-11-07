@@ -1,0 +1,861 @@
+[
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/kateway/play.sh",
+  "short_name": "play",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/0",
+  "posix_compliant": true,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/ehaproxy/command/templates/init.ehaproxy",
+  "short_name": "init.ehaproxy",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/1",
+  "posix_compliant": true,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/zk/bin/zkCli.sh",
+  "short_name": "zkCli",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/2",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/zk/bin/zkServer.sh",
+  "short_name": "zkServer",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/3",
+  "posix_compliant": false,
+  "line_count": 138,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/zk/bin/zkCleanup.sh",
+  "short_name": "zkCleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/4",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/zk/bin/zkEnv.sh",
+  "short_name": "zkEnv",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/5",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/bin/kafka-preferred-replica-election.sh",
+  "short_name": "kafka-preferred-replica-election",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/6",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/bin/setenv.sh",
+  "short_name": "setenv",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/7",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/bin/kafka-reassign-partitions.sh",
+  "short_name": "kafka-reassign-partitions",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/8",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/bin/kafka-topics.sh",
+  "short_name": "kafka-topics",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/9",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/bin/kafka-run-class.sh",
+  "short_name": "kafka-run-class",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/10",
+  "posix_compliant": false,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/bin/kafka-server-start.sh",
+  "short_name": "kafka-server-start",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/11",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/zkcopy.sh",
+  "short_name": "zkcopy",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/12",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/zkgrep.sh",
+  "short_name": "zkgrep",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/13",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/zk-log-csv-formatter.sh",
+  "short_name": "zk-log-csv-formatter",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/14",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/JmxDumper.sh",
+  "short_name": "JmxDumper",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/15",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/start-helix-participant.sh",
+  "short_name": "start-helix-participant",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/16",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/quickstart.sh",
+  "short_name": "quickstart",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/17",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/test-util.sh",
+  "short_name": "test-util",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/18",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/zk-log-parser.sh",
+  "short_name": "zk-log-parser",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/19",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/start-standalone-zookeeper.sh",
+  "short_name": "start-standalone-zookeeper",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/20",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/yaml-cluster-setup.sh",
+  "short_name": "yaml-cluster-setup",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/21",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/helix-admin.sh",
+  "short_name": "helix-admin",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/22",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/run-helix-controller.sh",
+  "short_name": "run-helix-controller",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/23",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/helix-core-0.6.7/bin/zk-dumper.sh",
+  "short_name": "zk-dumper",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/24",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/init.d/gkagent",
+  "short_name": "gkagent",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/25",
+  "posix_compliant": true,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/init.d/zookeeper",
+  "short_name": "zookeeper",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/26",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/init.d/kafka",
+  "short_name": "kafka",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/27",
+  "posix_compliant": true,
+  "line_count": 97,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.1.1/bin/kafka-preferred-replica-election.sh",
+  "short_name": "kafka-preferred-replica-election",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/28",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.1.1/bin/kafka-server-stop.sh",
+  "short_name": "kafka-server-stop",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/29",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.1.1/bin/kafka-reassign-partitions.sh",
+  "short_name": "kafka-reassign-partitions",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/30",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.1.1/bin/kafka-replay-log-producer.sh",
+  "short_name": "kafka-replay-log-producer",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/31",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.1.1/bin/kafka-topics.sh",
+  "short_name": "kafka-topics",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/32",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.1.1/bin/kafka-run-class.sh",
+  "short_name": "kafka-run-class",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/33",
+  "posix_compliant": false,
+  "line_count": 103,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.1.1/bin/kafka-server-start.sh",
+  "short_name": "kafka-server-start",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/34",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.2.2/bin/kafka-preferred-replica-election.sh",
+  "short_name": "kafka-preferred-replica-election",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/35",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.2.2/bin/kafka-server-stop.sh",
+  "short_name": "kafka-server-stop",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/36",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.2.2/bin/kafka-reassign-partitions.sh",
+  "short_name": "kafka-reassign-partitions",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/37",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.2.2/bin/kafka-replay-log-producer.sh",
+  "short_name": "kafka-replay-log-producer",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/38",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.2.2/bin/kafka-topics.sh",
+  "short_name": "kafka-topics",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/39",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.2.2/bin/kafka-run-class.sh",
+  "short_name": "kafka-run-class",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/40",
+  "posix_compliant": false,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.2.2/bin/kafka-replica-verification.sh",
+  "short_name": "kafka-replica-verification",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/41",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.2.2/bin/kafka-server-start.sh",
+  "short_name": "kafka-server-start",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/42",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.8.2.2/bin/kafka-mirror-maker.sh",
+  "short_name": "kafka-mirror-maker",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/43",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-preferred-replica-election.sh",
+  "short_name": "kafka-preferred-replica-election",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/44",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-console-consumer.sh",
+  "short_name": "kafka-console-consumer",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/45",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-consumer-perf-test.sh",
+  "short_name": "kafka-consumer-perf-test",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/46",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/zookeeper-server-stop.sh",
+  "short_name": "zookeeper-server-stop",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/47",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-verifiable-consumer.sh",
+  "short_name": "kafka-verifiable-consumer",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/48",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-acls.sh",
+  "short_name": "kafka-acls",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/49",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-consumer-offset-checker.sh",
+  "short_name": "kafka-consumer-offset-checker",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/50",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/zookeeper-server-start.sh",
+  "short_name": "zookeeper-server-start",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/51",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-server-stop.sh",
+  "short_name": "kafka-server-stop",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/52",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-simple-consumer-shell.sh",
+  "short_name": "kafka-simple-consumer-shell",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/53",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-configs.sh",
+  "short_name": "kafka-configs",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/54",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-reassign-partitions.sh",
+  "short_name": "kafka-reassign-partitions",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/55",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-producer-perf-test.sh",
+  "short_name": "kafka-producer-perf-test",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/56",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-replay-log-producer.sh",
+  "short_name": "kafka-replay-log-producer",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/57",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-topics.sh",
+  "short_name": "kafka-topics",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/58",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/connect-standalone.sh",
+  "short_name": "connect-standalone",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/59",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-consumer-groups.sh",
+  "short_name": "kafka-consumer-groups",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/60",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/connect-distributed.sh",
+  "short_name": "connect-distributed",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/61",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-run-class.sh",
+  "short_name": "kafka-run-class",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/62",
+  "posix_compliant": false,
+  "line_count": 176,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-replica-verification.sh",
+  "short_name": "kafka-replica-verification",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/63",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-console-producer.sh",
+  "short_name": "kafka-console-producer",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/64",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/zookeeper-shell.sh",
+  "short_name": "zookeeper-shell",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/65",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-verifiable-producer.sh",
+  "short_name": "kafka-verifiable-producer",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/66",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-server-start.sh",
+  "short_name": "kafka-server-start",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/67",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/kafka-mirror-maker.sh",
+  "short_name": "kafka-mirror-maker",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/68",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/cmd/gk/command/template/kafka_2.10-0.10.0.0/bin/zookeeper-security-migration.sh",
+  "short_name": "zookeeper-security-migration",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/69",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/funkygao/gafka.git",
+  "relative_path": "gafka/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gafka_AMQfjd/70",
+  "posix_compliant": false,
+  "line_count": 159,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

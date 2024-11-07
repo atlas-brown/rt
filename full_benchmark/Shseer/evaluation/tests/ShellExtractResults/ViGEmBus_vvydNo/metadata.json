@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/nefarius/ViGEmBus.git",
+  "relative_path": "ViGEmBus/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "ViGEmBus_vvydNo/0",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

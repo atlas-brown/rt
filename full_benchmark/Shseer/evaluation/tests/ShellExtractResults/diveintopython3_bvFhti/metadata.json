@@ -1,0 +1,19 @@
+[
+ {
+  "repo": "https://github.com/diveintomark/diveintopython3.git",
+  "relative_path": "diveintopython3/publish",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "diveintopython3_bvFhti/0",
+  "posix_compliant": true,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

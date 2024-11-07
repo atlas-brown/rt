@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/avishayil/react-native-restart.git",
+  "relative_path": "react-native-restart/Example/android/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "react_iWqaul/0",
+  "posix_compliant": true,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

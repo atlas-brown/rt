@@ -1,0 +1,418 @@
+#!/bin/bash -e
+set -eo pipefail
+
+usage(){
+  echo "usage: $0 <command> [<args>] "
+  echo ""
+  echo "COMMANDS"
+  echo "  open              create a new note or open the existion note"
+  echo "  git-sync          flush all the notes to git"
+  echo "  ls                list all the notes in 3 days"
+  echo "  search <pattern>  serach all the notes which match the given pattern"
+}
+
+colorful_output_files(){
+  local files=$1
+  local NOCOLOR='\033[0m'
+  local GREEN='\033[0;32m'
+  for file in $files
+  do
+    echo -e "${GREEN}==> idea open ${file} <==${NOCOLOR}"
+    cat $file
+  done
+}
+
+open(){
+  local local_directory=$IDEA_LOCAL
+  local append_content=""
+  local content_source=""
+  local note=""
+
+  while [[ $# -gt 0 ]]
+  do
+    local option=$1
+    shift
+    case $option in 
+      --local)
+        if [ "$1" == "" ]
+        then
+          echo "The local directory can't be empty."
+          exit 1
+        fi
+        local_directory=$1
+        shift
+        ;;
+      --file)
+        if [ "$content_source" != "" ]
+        then
+          echo "--file can't be used together with $content_source."
+          exit 1
+        fi
+
+        if [ ! -f $1 ]
+        then
+          echo "$1 doesn't exist."
+          exit 1
+        fi
+        content_source="--file"
+        append_content="$(cd "$(dirname "$1")" && pwd -P)/$(basename "$1")"
+        shift
+        ;;
+      --stdin)
+        if [ "$content_source" != "" ]
+        then
+          echo "--stdin can't be used together with $source."
+          exit 1
+        fi
+        content_source="--stdin"
+        read append_content
+        ;;
+      help)
+        echo "open [--local <value>] [--file <value>|--stdin] [<note name>]"
+        echo ""
+        echo "DESCRIPTION"
+        echo "  1. If the note name is not given, create a new note with random name."
+        echo "  2. If the note name is given and the note exists, open the corresponding note."
+        echo "  3. If the note name is given but the note does not exists, open a new note with the given name."
+        echo ""
+        echo "OPTIONS"
+        echo "  --local   Specify the local notes directory explicitly, will use environment variable IDEA_LOCAL if missing."
+        echo "  --file    Append the file content to the note"
+        echo "  --stdin   Append the stdin to the note"
+        exit 0
+        ;;
+      *)
+        note="$option $@"
+        break
+        ;;
+    esac
+  done
+
+  local today=$(date '+%Y-%m-%d')
+  local time=$(date '+%Y%m%dT%H%M%S')
+
+  if [[ ! -d "$local_directory/$today" ]]; then
+    mkdir -p "$local_directory/$today"
+  fi
+
+  if [[ "${note}" == "" ]]
+  then
+    note="$today/$time.md"
+  else
+    if [[ ! -f "$local_directory/$note" ]]
+    then
+      note=$(echo $note|sed -e 's/ /-/g')
+      if [[ ! $note =~ .*\.md$ ]]; then
+        note="$today/$note.md"
+      else
+        note="$today/$note"
+      fi
+    fi
+  fi
+
+  if [[ "$content_source" == "--stdin" ]]
+  then
+    cd ${local_directory} && echo $append_content >> $note && $EDITOR $note
+  elif [[ "$content_source" == "--file" ]]
+  then
+    cd ${local_directory} && cat $append_content >> $note && $EDITOR $note
+  else
+    cd ${local_directory} && $EDITOR $note
+  fi
+}
+
+
+list(){
+  local local_directory=$IDEA_LOCAL
+
+  while [[ $# -gt 0 ]]
+  do
+    local option=$1
+    shift
+    case $option in
+      --local)
+        if [ "$1" == "" ]
+        then
+          echo "The local directory can't be empty."
+          exit 1
+        fi
+        local_directory=$1
+        shift
+        ;;
+      help)
+        echo "ls [--local <value>]"
+        echo ""
+        echo "DESCRIPTION"
+        echo "  Print all the content of notes created in 3 days."
+        echo ""
+        echo "OPTIONS"
+        echo "  --local   Specify the local notes directory explicitly, will use environment variable IDEA_LOCAL if missing."
+        exit 0
+        ;;
+      *)
+        echo "Invalid option $option"
+        exit 1
+        ;;
+    esac
+  done
+
+
+  local today=$(date '+%Y-%m-%d')
+  local yesterday=$(date -v-1d '+%Y-%m-%d')
+  local the_day_before_yesterday=$(date -v-2d '+%Y-%m-%d')
+  local files=""
+
+  for folder in $the_day_before_yesterday $yesterday $today
+  do
+    if [[ -d "$local_directory/$folder" ]]
+    then
+      files="$files $(cd $local_directory && find $folder -name '*.md' -print)"
+    fi
+  done
+
+  cd $local_directory && colorful_output_files "$files"
+}
+
+search(){
+  local local_directory=$IDEA_LOCAL
+  local pattern=""
+
+  while [[ $# -gt 0 ]]
+  do
+    local option=$1
+    shift
+    case $option in 
+      --local)
+        local_directory=$1
+        shift
+        ;;
+      help)
+        echo "search [--local <value>] <pattern>"
+        echo ""
+        echo "DESCRIPTION"
+        echo "  Print all the notes which contain the given pattern."
+        echo ""
+        echo "OPTIONS"
+        echo "  --local   Specify the local notes directory explicitly, will use environment variable IDEA_LOCAL if missing."
+        exit 0
+        ;;
+      *)
+        pattern="$option $@"
+        break
+        ;;
+    esac
+  done
+
+  if [ "$pattern" == "" ]
+  then
+    echo "pattern should not be empty."
+    exit 1
+  fi
+
+  local files=$(cd "$local_directory" && ag -l $pattern . | tr '\n' ' ')
+
+  if [[ "$files" != "" ]]
+  then
+    cd $local_directory && colorful_output_files "$files"
+  fi
+}
+
+sync(){
+  local local=$1
+  local remote=$2
+  local password=""
+  local remote_version_file="$remote/version.md.enc"
+  local local_version_file="$local/version.md"
+
+  if [ ! -d $local ]
+  then
+    mkdir -p $local
+  fi
+
+  if [ ! -d $remote ]
+  then
+    mkdir -p $remote
+  fi
+
+  read -sp "Enter your passphrase: " password
+
+  if [ "$password" == "" ]
+  then
+    echo "The passphrase can't be emtpy."
+    exit 1
+  fi
+
+  # check passphrase
+  if [ -f $remote_version_file ]
+  then
+    openssl enc -d -aes256 -base64 -pass pass:${password} -in $remote_version_file > /dev/null
+    if [ $? != 0 ]
+    then
+      echo "The passphrase is not correct."
+      exit 1
+    fi
+  fi
+
+  local files=""
+  local source_file=""
+  local target_file=""
+  local target_dir=""
+
+  # local -> remote
+  if [ -f $local_version_file ]
+  then
+    files="$(cd $local && find . -newer $local_version_file -name '*.md' -print)"
+    files="$files $(basename $local_version_file)"
+  else
+    files="$(cd $local && find . -name '*.md' -print)"
+  fi
+
+  for file in $files
+  do
+    source_file=$(echo "$local/$file" | sed -E 's/\/\/?\.?\//\//g')
+    target_file=$(echo "$remote/$file.enc" | sed -E 's/\/\/?\.?\//\//g')
+    target_dir=$(dirname $target_file)
+    if [ ! -d $target_dir ]
+    then
+      mkdir -p $target_dir
+    fi
+    echo "Encrypting $source_file to $target_file"
+    openssl enc -aes256 -base64 -pass pass:${password} -in $source_file -out $target_file
+    cp $source_file $local_version_file
+  done
+
+  # remote -> local
+  files="$(cd $remote && find . -name '*.enc' -print)"
+
+  for file in $files
+  do
+    source_file=$(echo "$remote/$file" | sed -E 's/\/\/?\.?\//\//g')
+    target_file=$(echo "$local/$file" | sed -E 's/.enc$//;s/\/\/?\.?\//\//g')
+    if [ ! -f $target_file ]
+    then
+      target_dir=$(dirname $target_file)
+      if [ ! -d $target_dir ]
+      then
+        mkdir -p $target_dir
+      fi
+      echo "Decrypting $source_file to $target_file"
+      openssl enc -d -aes256 -base64 -pass pass:${password} -in $source_file -out $target_file
+      cp $target_file $local_version_file
+    fi
+  done
+}
+
+git_pull(){
+  local path=$1
+  if [[ -d "$path/.git" ]]
+  then
+    cd "$path" && git pull
+  else
+    echo "$path is not a git repo, can not pull data."
+  fi
+}
+
+git_push(){
+  local path=$1
+  local time=$(date '+%Y-%m-%dT%H:%M:%S')
+  if [[ -d "$path/.git" ]]
+  then
+    cd "$path" && git add . && git commit -m "sync @${time}" && git push
+  else
+    echo "$path is not a git repo, can not run flush."
+  fi
+}
+
+git_sync(){
+
+  local local_directory=$IDEA_LOCAL
+  local remote_directory=$IDEA_REMOTE
+
+  while [[ $# -gt 0 ]]
+  do
+    local option=$1
+    shift
+    case $option in 
+      --local)
+        if [ "$1" == "" ]
+        then
+          echo "The local directory can't be empty."
+          exit 1
+        fi
+        local_directory=$1
+        shift
+        ;;
+      --remote)
+        if [ "$1" == "" ]
+        then
+          echo "The remote directory can't be empty."
+          exit 1
+        fi
+        remote_directory=$1
+        shift
+        ;;
+      help)
+        echo "git-sync [--local <value>] [--remote <value>]"
+        echo ""
+        echo "DESCRIPTION"
+        echo "  The workflow of git sync"
+        echo "    1. Featch the latest notes from remote repo by git pull"
+        echo "    2. Encrypt the notes which is newer than the version.md in local directory, then copy them to the corresponding remote directory"
+        echo "    3. Decrypt the notes which don't exist in local directory, then copy them to the corresponding local directory"
+        echo ""
+        echo "OPTIONS"
+        echo "  --local   Specify the local notes directory explicitly, will use environment variable IDEA_LOCAL if missing."
+        echo "  --remote  Specify the remote notes directory explicitly, will use environment variable IDEA_REMOTE if missing."
+        exit 0
+        ;;
+      *)
+        echo "Invalid option $option"
+        exit 1
+        ;;
+    esac
+  done
+
+  git_pull "$remote_directory" \
+    && sync "$local_directory" "$remote_directory" \
+    && git_push "$remote_directory"
+  }
+
+if [[ "$IDEA_LOCAL" == "" ]]
+then
+  IDEA_LOCAL="$HOME/.idea/local"
+fi
+
+if [[ "$IDEA_REMOTE" == "" ]]
+then
+  IDEA_REMOTE="$HOME/.idea/remote"
+fi
+
+if [ $# -gt 0 ]
+then
+  COMMAND="$1"
+  shift
+  case $COMMAND in
+    open)
+      open $@
+      ;;
+    ls)
+      list $@
+      ;;
+    git-sync)
+      git_sync $@
+      ;;
+    search)
+      search $@
+      ;;
+    help)
+      usage
+      ;;
+    *)
+      usage
+      exit 1
+      ;;
+  esac
+else
+  usage
+  exit 1
+fi

@@ -1,0 +1,145 @@
+[
+ {
+  "repo": "https://github.com/japerk/nltk-trainer.git",
+  "relative_path": "nltk-trainer/tests/analyze_tagger_coverage.sh",
+  "short_name": "analyze_tagger_coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "nltk_xGMCtx/0",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/japerk/nltk-trainer.git",
+  "relative_path": "nltk-trainer/tests/analyze_tagged_corpus.sh",
+  "short_name": "analyze_tagged_corpus",
+  "timestamp": "10/22/2024",
+  "identifier": "nltk_xGMCtx/1",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/japerk/nltk-trainer.git",
+  "relative_path": "nltk-trainer/tests/analyze_tagger_coverage3.sh",
+  "short_name": "analyze_tagger_coverage3",
+  "timestamp": "10/22/2024",
+  "identifier": "nltk_xGMCtx/2",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/japerk/nltk-trainer.git",
+  "relative_path": "nltk-trainer/tests/analyze_chunker_coverage.sh",
+  "short_name": "analyze_chunker_coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "nltk_xGMCtx/3",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/japerk/nltk-trainer.git",
+  "relative_path": "nltk-trainer/tests/train_tagger3.sh",
+  "short_name": "train_tagger3",
+  "timestamp": "10/22/2024",
+  "identifier": "nltk_xGMCtx/4",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/japerk/nltk-trainer.git",
+  "relative_path": "nltk-trainer/tests/train_classifier.sh",
+  "short_name": "train_classifier",
+  "timestamp": "10/22/2024",
+  "identifier": "nltk_xGMCtx/5",
+  "posix_compliant": false,
+  "line_count": 96,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/japerk/nltk-trainer.git",
+  "relative_path": "nltk-trainer/tests/train_tagger.sh",
+  "short_name": "train_tagger",
+  "timestamp": "10/22/2024",
+  "identifier": "nltk_xGMCtx/6",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/japerk/nltk-trainer.git",
+  "relative_path": "nltk-trainer/tests/analyze_tagged_corpus3.sh",
+  "short_name": "analyze_tagged_corpus3",
+  "timestamp": "10/22/2024",
+  "identifier": "nltk_xGMCtx/7",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/japerk/nltk-trainer.git",
+  "relative_path": "nltk-trainer/tests/analyze_chunked_corpus.sh",
+  "short_name": "analyze_chunked_corpus",
+  "timestamp": "10/22/2024",
+  "identifier": "nltk_xGMCtx/8",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/japerk/nltk-trainer.git",
+  "relative_path": "nltk-trainer/tests/train_chunker.sh",
+  "short_name": "train_chunker",
+  "timestamp": "10/22/2024",
+  "identifier": "nltk_xGMCtx/9",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

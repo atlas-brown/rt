@@ -1,0 +1,467 @@
+[
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/user/example/custom.sh",
+  "short_name": "custom",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/host/init_runner.sh",
+  "short_name": "init_runner",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/1",
+  "posix_compliant": false,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/host/docker.sh",
+  "short_name": "docker",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/2",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/host/cleanup.sh",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/3",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/4",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/squash/01-init_env.sh",
+  "short_name": "01-init_env",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/5",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/squash/07-squash_builder.sh",
+  "short_name": "07-squash_builder",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/6",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/squash/06-get_builder.sh",
+  "short_name": "06-get_builder",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/7",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/squash/04-configure_docker.sh",
+  "short_name": "04-configure_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/8",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/squash/02-check_target.sh",
+  "short_name": "02-check_target",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/9",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/squash/03-clean_up.sh",
+  "short_name": "03-clean_up",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/10",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/squash/05-check_builders.sh",
+  "short_name": "05-check_builders",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/11",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/squash/08-upload_builder.sh",
+  "short_name": "08-upload_builder",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/12",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/10-download_packages.sh",
+  "short_name": "10-download_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/13",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/01-init_env.sh",
+  "short_name": "01-init_env",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/14",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/09-prepare_config.sh",
+  "short_name": "09-prepare_config",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/15",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/06-get_builder.sh",
+  "short_name": "06-get_builder",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/16",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/04-configure_docker.sh",
+  "short_name": "04-configure_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/17",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/02-check_target.sh",
+  "short_name": "02-check_target",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/18",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/08-customize.sh",
+  "short_name": "08-customize",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/19",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/14-organize_files.sh",
+  "short_name": "14-organize_files",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/20",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/07-download_openwrt.sh",
+  "short_name": "07-download_openwrt",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/21",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/12-compile_single.sh",
+  "short_name": "12-compile_single",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/22",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/13-upload_builder.sh",
+  "short_name": "13-upload_builder",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/23",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/03-clean_up.sh",
+  "short_name": "03-clean_up",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/24",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/05-check_builders.sh",
+  "short_name": "05-check_builders",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/25",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/cisteps/build-openwrt/11-compile_multi.sh",
+  "short_name": "11-compile_multi",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/26",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/pre_commit.sh",
+  "short_name": "pre_commit",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/27",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/init_env.sh",
+  "short_name": "init_env",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/28",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/lib/gaction.sh",
+  "short_name": "gaction",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/29",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/lib/utils.sh",
+  "short_name": "utils",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/30",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/config.sh",
+  "short_name": "config",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/31",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/download.sh",
+  "short_name": "download",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/32",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/customize.sh",
+  "short_name": "customize",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/33",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/update_feeds.sh",
+  "short_name": "update_feeds",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/34",
+  "posix_compliant": false,
+  "line_count": 176,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tete1030/openwrt-fastbuild-actions.git",
+  "relative_path": "openwrt-fastbuild-actions/scripts/update_repo.sh",
+  "short_name": "update_repo",
+  "timestamp": "10/22/2024",
+  "identifier": "openwrt_pBXFoK/35",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

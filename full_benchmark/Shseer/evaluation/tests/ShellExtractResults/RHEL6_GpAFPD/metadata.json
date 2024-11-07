@@ -1,0 +1,54 @@
+[
+ {
+  "repo": "https://github.com/ansible-lockdown/RHEL6-STIG.git",
+  "relative_path": "RHEL6-STIG/files/sys_command_files_with_bad_owner.sh",
+  "short_name": "sys_command_files_with_bad_owner",
+  "timestamp": "10/22/2024",
+  "identifier": "RHEL6_GpAFPD/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ansible-lockdown/RHEL6-STIG.git",
+  "relative_path": "RHEL6-STIG/files/gdm-login-banner.sh",
+  "short_name": "gdm-login-banner",
+  "timestamp": "10/22/2024",
+  "identifier": "RHEL6_GpAFPD/1",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ansible-lockdown/RHEL6-STIG.git",
+  "relative_path": "RHEL6-STIG/files/sys_command_files_with_bad_perms.sh",
+  "short_name": "sys_command_files_with_bad_perms",
+  "timestamp": "10/22/2024",
+  "identifier": "RHEL6_GpAFPD/2",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ansible-lockdown/RHEL6-STIG.git",
+  "relative_path": "RHEL6-STIG/files/sys_libs_with_bad_owner.sh",
+  "short_name": "sys_libs_with_bad_owner",
+  "timestamp": "10/22/2024",
+  "identifier": "RHEL6_GpAFPD/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ansible-lockdown/RHEL6-STIG.git",
+  "relative_path": "RHEL6-STIG/files/sys_libs_with_bad_perms.sh",
+  "short_name": "sys_libs_with_bad_perms",
+  "timestamp": "10/22/2024",
+  "identifier": "RHEL6_GpAFPD/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

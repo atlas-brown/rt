@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/luckybilly/CC.git",
+  "relative_path": "CC/bintrayUpload.sh",
+  "short_name": "bintrayUpload",
+  "timestamp": "10/22/2024",
+  "identifier": "CC_vXSbpS/0",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

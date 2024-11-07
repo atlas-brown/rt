@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/deezer/spleeter.git",
+  "relative_path": "spleeter/docker/conda-entrypoint.sh",
+  "short_name": "conda-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "spleeter_ZIiKMH/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ }
+]

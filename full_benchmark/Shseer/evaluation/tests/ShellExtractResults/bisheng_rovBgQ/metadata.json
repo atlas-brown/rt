@@ -1,0 +1,51 @@
+[
+ {
+  "repo": "https://github.com/dataelement/bisheng.git",
+  "relative_path": "bisheng/src/bisheng-langchain/experimental/autoplanning/set_openai_param.sh",
+  "short_name": "set_openai_param",
+  "timestamp": "10/22/2024",
+  "identifier": "bisheng_rovBgQ/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dataelement/bisheng.git",
+  "relative_path": "bisheng/src/bisheng-langchain/experimental/document_ie_v2/scripts/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "bisheng_rovBgQ/1",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dataelement/bisheng.git",
+  "relative_path": "bisheng/src/bisheng-langchain/experimental/document_ie_v2/scripts/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "bisheng_rovBgQ/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dataelement/bisheng.git",
+  "relative_path": "bisheng/src/frontend/set_proxy.sh",
+  "short_name": "set_proxy",
+  "timestamp": "10/22/2024",
+  "identifier": "bisheng_rovBgQ/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

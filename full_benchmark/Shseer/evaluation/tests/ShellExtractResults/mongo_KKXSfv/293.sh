@@ -1,0 +1,133 @@
+#!/bin/bash
+
+# Only run when building a release
+test -z "$WT_RELEASE_BUILD" && exit 0
+. `dirname -- ${BASH_SOURCE[0]}`/common_functions.sh
+setup_trap
+cd_top
+
+# Check the copyrights.
+
+c1=dist/__wt.copyright.1
+c2=dist/__wt.copyright.2
+c3=dist/__wt.copyright.3
+c4=dist/__wt.copyright.4
+c5=dist/__wt.copyright.5
+RET=0
+
+check()
+{
+    # Skip files in which WiredTiger holds no rights.
+    if grep -E -q "skip[[:space:]]+$1" dist/s_copyright.list; then
+        return 0;
+    fi
+
+    # It's okay if the file doesn't exist: we may be running in a release
+    # tree with some files removed.
+    test -f $1 || return 0
+
+    # Check for a correct copyright header.
+    { sed -e 2,5p -e 6q -e d $1 | diff -q - $c1 > /dev/null; } && return 0
+    { sed -e 2,4p -e 5q -e d $1 | diff -q - $c2 > /dev/null; } && return 0
+    { sed -e 3,6p -e 7q -e d $1 | diff -q - $c3 > /dev/null; } && return 0
+    { sed -e 3,5p -e 6q -e d $1 | diff -q - $c4 > /dev/null; } && return 0
+    { sed -e 1,3p -e 4q -e d $1 | diff -q - $c4 > /dev/null; } && return 0
+    { sed -e 2,7p -e 8q -e d $1 | diff -q - $c5 > /dev/null; } && return 0
+    echo "$1: copyright information is incorrect"
+    RET=1
+}
+
+# s_copyright is re-entrant, calling itself with individual file names.
+if is_recursive_mode; then
+    for f in "$@"; do
+        check $f
+    done
+    exit $RET
+fi
+
+# Remove these files only in the main invocation.
+setup_trap 'rm -f $c1 $c2 $c3 $c4 $c5'
+
+year='present'
+
+cat > $c1 <<ENDOFTEXT
+ * Copyright (c) 2014-$year MongoDB, Inc.
+ * Copyright (c) 2008-2014 WiredTiger, Inc.
+ *    All rights reserved.
+ *
+ * See the file LICENSE for redistribution information.
+ENDOFTEXT
+
+# Copyright for files WiredTiger does not own.
+cat > $c2 <<ENDOFTEXT
+ * Public Domain 2014-$year MongoDB, Inc.
+ * Public Domain 2008-2014 WiredTiger, Inc.
+ *
+ * This is free and unencumbered software released into the public domain.
+ENDOFTEXT
+
+cat > $c3 <<ENDOFTEXT
+# Copyright (c) 2014-$year MongoDB, Inc.
+# Copyright (c) 2008-2014 WiredTiger, Inc.
+#    All rights reserved.
+#
+# See the file LICENSE for redistribution information.
+ENDOFTEXT
+
+cat > $c4 <<ENDOFTEXT
+# Public Domain 2014-$year MongoDB, Inc.
+# Public Domain 2008-2014 WiredTiger, Inc.
+#
+# This is free and unencumbered software released into the public domain.
+ENDOFTEXT
+
+cat > $c5 <<ENDOFTEXT
+ * Copyright (c) 2014-$year MongoDB, Inc.
+ * Copyright (c) 2008-2014 WiredTiger, Inc.
+ *    All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ENDOFTEXT
+
+# Parallel execution: if it's the main onvocation of the script, collect the file names
+# to process and run them in subprocesses.
+
+# Search for files, skipping some well-known 3rd party directories.
+find [a-z]* -name '*.[ch]' \
+    -o -name '*.cpp' \
+    -o -name '*.in' \
+    -o -name '*.py' \
+    -o -name '*.swig' |
+    sed	-e '/Makefile.in/d' \
+    -e '/^cmake\//d' \
+    -e '/checksum\/power8\//d' \
+    -e '/checksum\/zseries\//d' \
+    -e '/\/3rdparty\//d' \
+    -e '/\/node_modules\//d' \
+    -e '/dist\/__/d' \
+    -e 's/^\.\///' |
+    do_in_parallel || RET=1
+
+# One-offs.
+check test/syscall/wt2336_base/base.run
+
+# A few special cases: LICENSE, documentation, wt utility, some of which have
+# more than one copyright notice in the file. For files that have only a single
+# copyright notice, we give it to MongoDB, from 2008 to now.
+special_copyright()
+{
+    cnt=`grep -E "$3" $1 | wc -l`
+    if test $cnt -ne $2; then
+        echo "$1: copyright information is incorrect"
+        RET=1
+    fi
+}
+
+special_copyright LICENSE 1 "Copyright \(c\) 2014-$year MongoDB, Inc."
+special_copyright dist/s_c_test_create 1 "Public Domain 2014-$year MongoDB, Inc."
+special_copyright src/docs/style/footer.html 2 "Copyright \(c\) 2008-$year MongoDB, Inc."
+special_copyright src/utilities/util_cpyright.c 1 "printf.*Copyright \(c\) 2008-$year MongoDB, Inc."
+
+exit $RET

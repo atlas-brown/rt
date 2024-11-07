@@ -1,0 +1,537 @@
+[
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/stable/debian/15-local-resolvers.envsh",
+  "short_name": "15-local-resolvers.envsh",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/0",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/stable/debian/10-listen-on-ipv6-by-default.sh",
+  "short_name": "10-listen-on-ipv6-by-default",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/1",
+  "posix_compliant": true,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/stable/debian/30-tune-worker-processes.sh",
+  "short_name": "30-tune-worker-processes",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/2",
+  "posix_compliant": true,
+  "line_count": 164,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/stable/debian/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/3",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/stable/debian/20-envsubst-on-templates.sh",
+  "short_name": "20-envsubst-on-templates",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/4",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/stable/alpine-slim/15-local-resolvers.envsh",
+  "short_name": "15-local-resolvers.envsh",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/5",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/stable/alpine-slim/10-listen-on-ipv6-by-default.sh",
+  "short_name": "10-listen-on-ipv6-by-default",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/6",
+  "posix_compliant": true,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/stable/alpine-slim/30-tune-worker-processes.sh",
+  "short_name": "30-tune-worker-processes",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/7",
+  "posix_compliant": true,
+  "line_count": 164,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/stable/alpine-slim/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/8",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/stable/alpine-slim/20-envsubst-on-templates.sh",
+  "short_name": "20-envsubst-on-templates",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/9",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/.test/tests/templates-resolver-ipv6/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/10",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/.test/tests/static/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/11",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/.test/tests/templates/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/12",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/.test/tests/workers/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/13",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/.test/tests/templates-resolver/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/14",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/.test/tests/modules/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/15",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/.test/tests/ipv6/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/16",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/.test/config.sh",
+  "short_name": "config",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/17",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/18",
+  "posix_compliant": false,
+  "line_count": 209,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/generate-stackbrew-library.sh",
+  "short_name": "generate-stackbrew-library",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/19",
+  "posix_compliant": false,
+  "line_count": 112,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/entrypoint/15-local-resolvers.envsh",
+  "short_name": "15-local-resolvers.envsh",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/20",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/entrypoint/10-listen-on-ipv6-by-default.sh",
+  "short_name": "10-listen-on-ipv6-by-default",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/21",
+  "posix_compliant": true,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/entrypoint/30-tune-worker-processes.sh",
+  "short_name": "30-tune-worker-processes",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/22",
+  "posix_compliant": true,
+  "line_count": 164,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/entrypoint/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/23",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/entrypoint/20-envsubst-on-templates.sh",
+  "short_name": "20-envsubst-on-templates",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/24",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/sync-awsecr.sh",
+  "short_name": "sync-awsecr",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/25",
+  "posix_compliant": false,
+  "line_count": 137,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/modules/echo/prebuild",
+  "short_name": "prebuild",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/26",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/mainline/debian/15-local-resolvers.envsh",
+  "short_name": "15-local-resolvers.envsh",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/27",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/mainline/debian/10-listen-on-ipv6-by-default.sh",
+  "short_name": "10-listen-on-ipv6-by-default",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/28",
+  "posix_compliant": true,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/mainline/debian/30-tune-worker-processes.sh",
+  "short_name": "30-tune-worker-processes",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/29",
+  "posix_compliant": true,
+  "line_count": 164,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/mainline/debian/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/30",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/mainline/debian/20-envsubst-on-templates.sh",
+  "short_name": "20-envsubst-on-templates",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/31",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/mainline/alpine-slim/15-local-resolvers.envsh",
+  "short_name": "15-local-resolvers.envsh",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/32",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/mainline/alpine-slim/10-listen-on-ipv6-by-default.sh",
+  "short_name": "10-listen-on-ipv6-by-default",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/33",
+  "posix_compliant": true,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/mainline/alpine-slim/30-tune-worker-processes.sh",
+  "short_name": "30-tune-worker-processes",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/34",
+  "posix_compliant": true,
+  "line_count": 164,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/mainline/alpine-slim/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/35",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nginxinc/docker-nginx.git",
+  "relative_path": "docker-nginx/mainline/alpine-slim/20-envsubst-on-templates.sh",
+  "short_name": "20-envsubst-on-templates",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_vwWWQi/36",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

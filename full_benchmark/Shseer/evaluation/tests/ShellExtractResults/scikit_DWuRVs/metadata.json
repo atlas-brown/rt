@@ -1,0 +1,410 @@
+[
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/.binder/postBuild",
+  "short_name": "postBuild",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/0",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/maint_tools/whats_missing.sh",
+  "short_name": "whats_missing",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/1",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/linting.sh",
+  "short_name": "linting",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/2",
+  "posix_compliant": false,
+  "line_count": 96,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/shared.sh",
+  "short_name": "shared",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/3",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/azure/test_script_pyodide.sh",
+  "short_name": "test_script_pyodide",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/4",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/azure/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/5",
+  "posix_compliant": false,
+  "line_count": 107,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/azure/test_pytest_soft_dependency.sh",
+  "short_name": "test_pytest_soft_dependency",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/6",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/azure/combine_coverage_reports.sh",
+  "short_name": "combine_coverage_reports",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/7",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/azure/install_pyodide.sh",
+  "short_name": "install_pyodide",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/8",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/azure/test_docs.sh",
+  "short_name": "test_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/9",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/azure/test_script.sh",
+  "short_name": "test_script",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/10",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/azure/upload_codecov.sh",
+  "short_name": "upload_codecov",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/11",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/wheels/test_wheels.sh",
+  "short_name": "test_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/12",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/wheels/build_wheels.sh",
+  "short_name": "build_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/13",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/wheels/cibw_before_test.sh",
+  "short_name": "cibw_before_test",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/14",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/wheels/cibw_before_build.sh",
+  "short_name": "cibw_before_build",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/15",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/github/build_minimal_windows_image.sh",
+  "short_name": "build_minimal_windows_image",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/16",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/github/upload_anaconda.sh",
+  "short_name": "upload_anaconda",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/17",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/github/repair_windows_wheels.sh",
+  "short_name": "repair_windows_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/18",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/github/check_build_trigger.sh",
+  "short_name": "check_build_trigger",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/19",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/github/create_gpu_environment.sh",
+  "short_name": "create_gpu_environment",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/20",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/github/build_source.sh",
+  "short_name": "build_source",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/21",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/github/test_source.sh",
+  "short_name": "test_source",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/22",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/github/test_windows_wheels.sh",
+  "short_name": "test_windows_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/23",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/circle/push_doc.sh",
+  "short_name": "push_doc",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/24",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/circle/download_documentation.sh",
+  "short_name": "download_documentation",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/25",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/circle/checkout_merge_commit.sh",
+  "short_name": "checkout_merge_commit",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/26",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/circle/build_doc.sh",
+  "short_name": "build_doc",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/27",
+  "posix_compliant": false,
+  "line_count": 177,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/cirrus/update_tracking_issue.sh",
+  "short_name": "update_tracking_issue",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/28",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/scikit-learn/scikit-learn.git",
+  "relative_path": "scikit-learn/build_tools/cirrus/build_test_arm.sh",
+  "short_name": "build_test_arm",
+  "timestamp": "10/22/2024",
+  "identifier": "scikit_DWuRVs/29",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

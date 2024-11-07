@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/gabrielelanaro/emacs-for-python.git",
+  "relative_path": "emacs-for-python/scripts/mypylint.sh",
+  "short_name": "mypylint",
+  "timestamp": "10/22/2024",
+  "identifier": "emacs_OyOpmu/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ }
+]

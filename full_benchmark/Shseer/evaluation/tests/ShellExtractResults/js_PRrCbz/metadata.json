@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/sara-nl/js-webdav-client.git",
+  "relative_path": "js-webdav-client/scripts/check_dependencies.sh",
+  "short_name": "check_dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "js_PRrCbz/0",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

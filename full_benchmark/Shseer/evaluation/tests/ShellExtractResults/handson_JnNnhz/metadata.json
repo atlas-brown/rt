@@ -1,0 +1,25 @@
+[
+ {
+  "repo": "https://github.com/ageron/handson-ml2.git",
+  "relative_path": "handson-ml2/docker/bin/nbdiff_checkpoint",
+  "short_name": "nbdiff_checkpoint",
+  "timestamp": "10/22/2024",
+  "identifier": "handson_JnNnhz/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ageron/handson-ml2.git",
+  "relative_path": "handson-ml2/docker/bin/tensorboard",
+  "short_name": "tensorboard",
+  "timestamp": "10/22/2024",
+  "identifier": "handson_JnNnhz/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

@@ -1,0 +1,41 @@
+[
+ {
+  "repo": "https://github.com/bigskysoftware/htmx.git",
+  "relative_path": "htmx/scripts/www.sh",
+  "short_name": "www",
+  "timestamp": "10/22/2024",
+  "identifier": "htmx_tnSZlI/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bigskysoftware/htmx.git",
+  "relative_path": "htmx/scripts/sha.sh",
+  "short_name": "sha",
+  "timestamp": "10/22/2024",
+  "identifier": "htmx_tnSZlI/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bigskysoftware/htmx.git",
+  "relative_path": "htmx/scripts/dist.sh",
+  "short_name": "dist",
+  "timestamp": "10/22/2024",
+  "identifier": "htmx_tnSZlI/2",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

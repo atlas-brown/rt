@@ -1,0 +1,239 @@
+[
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/docker/context/fish_run_tests.sh",
+  "short_name": "fish_run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/docker/docker_run_tests.sh",
+  "short_name": "docker_run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/1",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/debian/prerm",
+  "short_name": "prerm",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/2",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/debian/postinst",
+  "short_name": "postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/3",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/osx/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/4",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/tests/filter-control-sequences.sh",
+  "short_name": "filter-control-sequences",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/5",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/tests/test_driver.sh",
+  "short_name": "test_driver",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/6",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/tests/test_env.sh",
+  "short_name": "test_env",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/7",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/benchmarks/driver.sh",
+  "short_name": "driver",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/8",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/build_tools/mac_notarize.sh",
+  "short_name": "mac_notarize",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/9",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/build_tools/osx_package_scripts/postinstall",
+  "short_name": "postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/10",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/build_tools/osx_package_scripts/add-shell",
+  "short_name": "add-shell",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/11",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/build_tools/osx_package_scripts/preinstall",
+  "short_name": "preinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/12",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/build_tools/git_version_gen.sh",
+  "short_name": "git_version_gen",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/13",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/build_tools/make_tarball.sh",
+  "short_name": "make_tarball",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/14",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/build_tools/make_vendor_tarball.sh",
+  "short_name": "make_vendor_tarball",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/15",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/fish-shell/fish-shell.git",
+  "relative_path": "fish-shell/build_tools/make_pkg.sh",
+  "short_name": "make_pkg",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_gDbtTa/16",
+  "posix_compliant": false,
+  "line_count": 136,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

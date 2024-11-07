@@ -1,0 +1,417 @@
+[
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/tools/watch.sh",
+  "short_name": "watch",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/tools/lint-go-gopls.sh",
+  "short_name": "lint-go-gopls",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/1",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/root/usr/bin/entrypoint",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/2",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/root/usr/local/bin/gitea",
+  "short_name": "gitea",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/3",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/root/etc/s6/.s6-svscan/finish",
+  "short_name": "finish",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/root/etc/s6/openssh/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/5",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/root/etc/s6/openssh/finish",
+  "short_name": "finish",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/6",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/root/etc/s6/openssh/run",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/7",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/root/etc/s6/gitea/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/8",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/root/etc/s6/gitea/finish",
+  "short_name": "finish",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/9",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/root/etc/s6/gitea/run",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/10",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/rootless/usr/local/bin/docker-setup.sh",
+  "short_name": "docker-setup",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/11",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/rootless/usr/local/bin/gitea",
+  "short_name": "gitea",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/12",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/docker/rootless/usr/local/bin/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/13",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/tests/gitea-repositories-meta/user2/git_hooks_test.git/hooks/pre-receive.d/pre-receive",
+  "short_name": "pre-receive",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/14",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/tests/gitea-repositories-meta/migration/lfs-test.git/hooks/post-commit",
+  "short_name": "post-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/15",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/tests/gitea-repositories-meta/migration/lfs-test.git/hooks/post-checkout",
+  "short_name": "post-checkout",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/16",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/tests/gitea-repositories-meta/migration/lfs-test.git/hooks/pre-push",
+  "short_name": "pre-push",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/17",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/tests/gitea-repositories-meta/migration/lfs-test.git/hooks/post-merge",
+  "short_name": "post-merge",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/18",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/contrib/init/debian/gitea",
+  "short_name": "gitea",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/19",
+  "posix_compliant": true,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/contrib/init/centos/gitea",
+  "short_name": "gitea",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/20",
+  "posix_compliant": true,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/contrib/init/freebsd/gitea",
+  "short_name": "gitea",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/21",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/contrib/init/openbsd/gitea",
+  "short_name": "gitea",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/22",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/contrib/init/openwrt/gitea",
+  "short_name": "gitea",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/23",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/contrib/init/suse/gitea",
+  "short_name": "gitea",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/24",
+  "posix_compliant": true,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/contrib/init/ubuntu/gitea",
+  "short_name": "gitea",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/25",
+  "posix_compliant": true,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/contrib/update_dependencies.sh",
+  "short_name": "update_dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/26",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/contrib/fhs-compliant-script/gitea",
+  "short_name": "gitea",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/27",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/contrib/upgrade.sh",
+  "short_name": "upgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/28",
+  "posix_compliant": false,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/build/update-locales.sh",
+  "short_name": "update-locales",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/29",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/build/test-env-prepare.sh",
+  "short_name": "test-env-prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/30",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-gitea/gitea.git",
+  "relative_path": "gitea/build/test-env-check.sh",
+  "short_name": "test-env-check",
+  "timestamp": "10/22/2024",
+  "identifier": "gitea_iBHmlx/31",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

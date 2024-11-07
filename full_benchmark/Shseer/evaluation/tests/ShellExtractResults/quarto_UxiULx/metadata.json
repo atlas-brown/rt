@@ -1,0 +1,247 @@
+[
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/tools/compare-site.sh",
+  "short_name": "compare-site",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/tests/run-parallel-tests.sh",
+  "short_name": "run-parallel-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/tests/run-tests.sh",
+  "short_name": "run-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/2",
+  "posix_compliant": false,
+  "line_count": 119,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/tests/run-fast-tests.sh",
+  "short_name": "run-fast-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/tests/run-tests-with-luacov.sh",
+  "short_name": "run-tests-with-luacov",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/4",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/tests/new-smoke-all-test.sh",
+  "short_name": "new-smoke-all-test",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/5",
+  "posix_compliant": false,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/tests/configure-test-env.sh",
+  "short_name": "configure-test-env",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/6",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/tests/git-bisect-test.sh",
+  "short_name": "git-bisect-test",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/7",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/configure.sh",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/8",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/package/scripts/macos/pkg/postinstall",
+  "short_name": "postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/9",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/package/scripts/deno_std/lock.sh",
+  "short_name": "lock",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/10",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/package/scripts/deno_std/download.sh",
+  "short_name": "download",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/11",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/package/scripts/common/utils.sh",
+  "short_name": "utils",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/12",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/package/scripts/vendoring/vendor.sh",
+  "short_name": "vendor",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/13",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/package/conda-recipe/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/14",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/package/src/set_package_paths.sh",
+  "short_name": "set_package_paths",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/15",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/package/src/common/project-lint.sh",
+  "short_name": "project-lint",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/16",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/src/resources/formats/revealjs/pandoc/patch.sh",
+  "short_name": "patch",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/17",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/quarto-dev/quarto-cli.git",
+  "relative_path": "quarto-cli/src/resources/scripts/check-usage.sh",
+  "short_name": "check-usage",
+  "timestamp": "10/22/2024",
+  "identifier": "quarto_UxiULx/18",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ }
+]

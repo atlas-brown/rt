@@ -1,0 +1,198 @@
+[
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-jasmin2jar.sh",
+  "short_name": "d2j-jasmin2jar",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/0",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-jar2dex.sh",
+  "short_name": "d2j-jar2dex",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/1",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-jar-remap.sh",
+  "short_name": "d2j-jar-remap",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/2",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-decrpyt-string.sh",
+  "short_name": "d2j-decrpyt-string",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/3",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-dex-dump.sh",
+  "short_name": "d2j-dex-dump",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/4",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-asm-verify.sh",
+  "short_name": "d2j-asm-verify",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/5",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-apk-sign.sh",
+  "short_name": "d2j-apk-sign",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/6",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-init-deobf.sh",
+  "short_name": "d2j-init-deobf",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/7",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-jar2jasmin.sh",
+  "short_name": "d2j-jar2jasmin",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/8",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-dex-asmifier.sh",
+  "short_name": "d2j-dex-asmifier",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/9",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/dex2jar.sh",
+  "short_name": "dex2jar",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/10",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/dex-dump.sh",
+  "short_name": "dex-dump",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/11",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-jar-access.sh",
+  "short_name": "d2j-jar-access",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/12",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/xuyisheng/AndroidHeroes.git",
+  "relative_path": "AndroidHeroes/9.\u7cfb\u7edf\u4e0e\u5b89\u5168/\u53cd\u7f16\u8bd1/dex2jar-0.0.9.15/d2j-dex2jar.sh",
+  "short_name": "d2j-dex2jar",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidHeroes_bdnivm/13",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

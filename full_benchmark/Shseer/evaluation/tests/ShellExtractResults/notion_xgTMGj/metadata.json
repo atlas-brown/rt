@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/makenotion/notion-sdk-js.git",
+  "relative_path": "notion-sdk-js/scripts/verifyLoggedIn.sh",
+  "short_name": "verifyLoggedIn",
+  "timestamp": "10/22/2024",
+  "identifier": "notion_xgTMGj/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

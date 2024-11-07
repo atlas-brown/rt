@@ -1,0 +1,41 @@
+[
+ {
+  "repo": "https://github.com/rmarquis/pacaur.git",
+  "relative_path": "pacaur/pacaur",
+  "short_name": "pacaur",
+  "timestamp": "10/22/2024",
+  "identifier": "pacaur_btnIBe/0",
+  "posix_compliant": false,
+  "line_count": 1887,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rmarquis/pacaur.git",
+  "relative_path": "pacaur/bash.completion",
+  "short_name": "bash.completion",
+  "timestamp": "10/22/2024",
+  "identifier": "pacaur_btnIBe/1",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rmarquis/pacaur.git",
+  "relative_path": "pacaur/config",
+  "short_name": "config",
+  "timestamp": "10/22/2024",
+  "identifier": "pacaur_btnIBe/2",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ }
+]

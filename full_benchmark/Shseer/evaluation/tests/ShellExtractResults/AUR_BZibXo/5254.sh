@@ -1,0 +1,25 @@
+#!/bin/sh
+
+post_install(){
+    echo Adding eduroam templates to /etc/wicd/encryption/templates.....
+    if grep eduroam-TTLS /etc/wicd/encryption/templates/active > /dev/null 
+    then
+        echo eduroam-TTLS was already installed!
+    else
+        echo eduroam-TTLS >> /etc/wicd/encryption/templates/active && echo eduroam-TTLS added to active list
+    fi
+
+    if grep eduroam-PEAP /etc/wicd/encryption/templates/active > /dev/null 
+    then
+        echo eduroam-PEAP was already installed!
+    else
+        echo eduroam-PEAP >> /etc/wicd/encryption/templates/active && echo eduroam-PEAP added to active list
+    fi
+
+}
+post_remove(){
+    export f=/etc/wicd/encryption/templates/active
+    echo -n Deleting eduroam templates from active list...
+    sed -e 's/^eduroam.*$//g' -i $f
+    echo ' [DONE]'
+}

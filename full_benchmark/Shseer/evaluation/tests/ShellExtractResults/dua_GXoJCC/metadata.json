@@ -1,0 +1,67 @@
+[
+ {
+  "repo": "https://github.com/Byron/dua-cli.git",
+  "relative_path": "dua-cli/ci/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "dua_GXoJCC/0",
+  "posix_compliant": true,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Byron/dua-cli.git",
+  "relative_path": "dua-cli/ci/macos-install-packages",
+  "short_name": "macos-install-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "dua_GXoJCC/1",
+  "posix_compliant": true,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Byron/dua-cli.git",
+  "relative_path": "dua-cli/ci/ubuntu-install-packages",
+  "short_name": "ubuntu-install-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "dua_GXoJCC/2",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Byron/dua-cli.git",
+  "relative_path": "dua-cli/tests/utilities.sh",
+  "short_name": "utilities",
+  "timestamp": "10/22/2024",
+  "identifier": "dua_GXoJCC/3",
+  "posix_compliant": false,
+  "line_count": 135,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Byron/dua-cli.git",
+  "relative_path": "dua-cli/tests/stateless-journey.sh",
+  "short_name": "stateless-journey",
+  "timestamp": "10/22/2024",
+  "identifier": "dua_GXoJCC/4",
+  "posix_compliant": false,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

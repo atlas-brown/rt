@@ -1,0 +1,59 @@
+[
+ {
+  "repo": "https://github.com/couchbaselabs/docs-ja.git",
+  "relative_path": "docs-ja/bin/finish-translation.sh",
+  "short_name": "finish-translation",
+  "timestamp": "10/22/2024",
+  "identifier": "docs_kOvjgC/0",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/couchbaselabs/docs-ja.git",
+  "relative_path": "docs-ja/bin/create-issues.sh",
+  "short_name": "create-issues",
+  "timestamp": "10/22/2024",
+  "identifier": "docs_kOvjgC/1",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/couchbaselabs/docs-ja.git",
+  "relative_path": "docs-ja/bin/rebuild-docs-out.sh",
+  "short_name": "rebuild-docs-out",
+  "timestamp": "10/22/2024",
+  "identifier": "docs_kOvjgC/2",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/couchbaselabs/docs-ja.git",
+  "relative_path": "docs-ja/bin/start-translation.sh",
+  "short_name": "start-translation",
+  "timestamp": "10/22/2024",
+  "identifier": "docs_kOvjgC/3",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

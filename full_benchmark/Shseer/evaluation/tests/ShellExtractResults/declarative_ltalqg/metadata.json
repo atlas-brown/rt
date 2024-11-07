@@ -1,0 +1,42 @@
+[
+ {
+  "repo": "https://github.com/vmware-archive/declarative-cluster-management.git",
+  "relative_path": "declarative-cluster-management/verify_docs.sh",
+  "short_name": "verify_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "declarative_ltalqg/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/vmware-archive/declarative-cluster-management.git",
+  "relative_path": "declarative-cluster-management/artifact/run_emulation.sh",
+  "short_name": "run_emulation",
+  "timestamp": "10/22/2024",
+  "identifier": "declarative_ltalqg/1",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/declarative-cluster-management.git",
+  "relative_path": "declarative-cluster-management/workload-generator/getAzureTraces.sh",
+  "short_name": "getAzureTraces",
+  "timestamp": "10/22/2024",
+  "identifier": "declarative_ltalqg/2",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

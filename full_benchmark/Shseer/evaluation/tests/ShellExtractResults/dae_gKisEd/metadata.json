@@ -1,0 +1,41 @@
+[
+ {
+  "repo": "https://github.com/daeuniverse/dae.git",
+  "relative_path": "dae/hack/mock/insert.sh",
+  "short_name": "insert",
+  "timestamp": "10/22/2024",
+  "identifier": "dae_gKisEd/0",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/daeuniverse/dae.git",
+  "relative_path": "dae/hack/maintenance/append_license_signature.sh",
+  "short_name": "append_license_signature",
+  "timestamp": "10/22/2024",
+  "identifier": "dae_gKisEd/1",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/daeuniverse/dae.git",
+  "relative_path": "dae/hack/maintenance/extend_license_signature_period.sh",
+  "short_name": "extend_license_signature_period",
+  "timestamp": "10/22/2024",
+  "identifier": "dae_gKisEd/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "text"
+  ]
+ }
+]

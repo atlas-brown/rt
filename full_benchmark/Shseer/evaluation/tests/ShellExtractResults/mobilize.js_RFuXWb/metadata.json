@@ -1,0 +1,42 @@
+[
+ {
+  "repo": "https://github.com/mobilizejs/mobilize.js.git",
+  "relative_path": "mobilize.js/run-this-after-clone.sh",
+  "short_name": "run-this-after-clone",
+  "timestamp": "10/22/2024",
+  "identifier": "mobilize.js_RFuXWb/0",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mobilizejs/mobilize.js.git",
+  "relative_path": "mobilize.js/docs/genapidoc.sh",
+  "short_name": "genapidoc",
+  "timestamp": "10/22/2024",
+  "identifier": "mobilize.js_RFuXWb/1",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mobilizejs/mobilize.js.git",
+  "relative_path": "mobilize.js/deploy.bash",
+  "short_name": "deploy.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "mobilize.js_RFuXWb/2",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

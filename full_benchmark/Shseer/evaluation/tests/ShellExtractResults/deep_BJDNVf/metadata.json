@@ -1,0 +1,124 @@
+[
+ {
+  "repo": "https://github.com/qiaoguan/deep-ctr-prediction.git",
+  "relative_path": "deep-ctr-prediction/DeepCross/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "deep_BJDNVf/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/qiaoguan/deep-ctr-prediction.git",
+  "relative_path": "deep-ctr-prediction/Transformer/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "deep_BJDNVf/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/qiaoguan/deep-ctr-prediction.git",
+  "relative_path": "deep-ctr-prediction/ResNet/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "deep_BJDNVf/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/qiaoguan/deep-ctr-prediction.git",
+  "relative_path": "deep-ctr-prediction/XDeepFM/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "deep_BJDNVf/3",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/qiaoguan/deep-ctr-prediction.git",
+  "relative_path": "deep-ctr-prediction/AFM/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "deep_BJDNVf/4",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/qiaoguan/deep-ctr-prediction.git",
+  "relative_path": "deep-ctr-prediction/official/utils/testing/scripts/presubmit.sh",
+  "short_name": "presubmit",
+  "timestamp": "10/22/2024",
+  "identifier": "deep_BJDNVf/5",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/qiaoguan/deep-ctr-prediction.git",
+  "relative_path": "deep-ctr-prediction/ESMM/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "deep_BJDNVf/6",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/qiaoguan/deep-ctr-prediction.git",
+  "relative_path": "deep-ctr-prediction/Din/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "deep_BJDNVf/7",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/qiaoguan/deep-ctr-prediction.git",
+  "relative_path": "deep-ctr-prediction/Fibinet/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "deep_BJDNVf/8",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/qiaoguan/deep-ctr-prediction.git",
+  "relative_path": "deep-ctr-prediction/DeepFM/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "deep_BJDNVf/9",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

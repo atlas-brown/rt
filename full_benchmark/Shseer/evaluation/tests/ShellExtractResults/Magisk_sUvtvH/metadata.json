@@ -1,0 +1,248 @@
+[
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/0",
+  "posix_compliant": true,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/update_binary.sh",
+  "short_name": "update_binary",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/1",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/cuttlefish.sh",
+  "short_name": "cuttlefish",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/2",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/util_functions.sh",
+  "short_name": "util_functions",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/3",
+  "posix_compliant": false,
+  "line_count": 570,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/avd_magisk.sh",
+  "short_name": "avd_magisk",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/4",
+  "posix_compliant": false,
+  "line_count": 113,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/addon.d.sh",
+  "short_name": "addon.d",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/5",
+  "posix_compliant": true,
+  "line_count": 124,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/test_common.sh",
+  "short_name": "test_common",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/6",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/app_functions.sh",
+  "short_name": "app_functions",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/7",
+  "posix_compliant": false,
+  "line_count": 200,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/uninstaller.sh",
+  "short_name": "uninstaller",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/8",
+  "posix_compliant": false,
+  "line_count": 132,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/avd_patch.sh",
+  "short_name": "avd_patch",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/9",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/10",
+  "posix_compliant": false,
+  "line_count": 175,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/flash_script.sh",
+  "short_name": "flash_script",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/11",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/boot_patch.sh",
+  "short_name": "boot_patch",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/12",
+  "posix_compliant": true,
+  "line_count": 146,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/avd_test.sh",
+  "short_name": "avd_test",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/13",
+  "posix_compliant": false,
+  "line_count": 170,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/scripts/module_installer.sh",
+  "short_name": "module_installer",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/14",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/topjohnwu/Magisk.git",
+  "relative_path": "Magisk/.github/actions/setup/sccache.sh",
+  "short_name": "sccache",
+  "timestamp": "10/22/2024",
+  "identifier": "Magisk_sUvtvH/15",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

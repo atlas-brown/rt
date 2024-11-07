@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/r9y9/deepvoice3_pytorch.git",
+  "relative_path": "deepvoice3_pytorch/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "deepvoice3_VDBmFl/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

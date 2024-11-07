@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/google/rejoiner.git",
+  "relative_path": "rejoiner/travis_before_install.sh",
+  "short_name": "travis_before_install",
+  "timestamp": "10/22/2024",
+  "identifier": "rejoiner_jFEfKH/0",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

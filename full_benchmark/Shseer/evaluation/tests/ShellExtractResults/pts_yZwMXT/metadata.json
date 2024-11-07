@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/pts/pts-swiggle.git",
+  "relative_path": "pts-swiggle/c.sh",
+  "short_name": "c",
+  "timestamp": "10/22/2024",
+  "identifier": "pts_yZwMXT/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ }
+]

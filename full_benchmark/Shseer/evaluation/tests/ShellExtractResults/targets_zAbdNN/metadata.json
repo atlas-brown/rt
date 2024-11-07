@@ -1,0 +1,84 @@
+[
+ {
+  "repo": "https://github.com/ropensci/targets.git",
+  "relative_path": "targets/tests/hpc/sge_batchtools.tmpl",
+  "short_name": "sge_batchtools.tmpl",
+  "timestamp": "10/22/2024",
+  "identifier": "targets_zAbdNN/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ropensci/targets.git",
+  "relative_path": "targets/inst/templates/clustermq/slurm.tmpl",
+  "short_name": "slurm.tmpl",
+  "timestamp": "10/22/2024",
+  "identifier": "targets_zAbdNN/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ropensci/targets.git",
+  "relative_path": "targets/inst/run/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "targets_zAbdNN/2",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ropensci/targets.git",
+  "relative_path": "targets/inst/run/job/lsf.sh",
+  "short_name": "lsf",
+  "timestamp": "10/22/2024",
+  "identifier": "targets_zAbdNN/3",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ropensci/targets.git",
+  "relative_path": "targets/inst/run/job/torque.sh",
+  "short_name": "torque",
+  "timestamp": "10/22/2024",
+  "identifier": "targets_zAbdNN/4",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ropensci/targets.git",
+  "relative_path": "targets/inst/run/job/pbs.sh",
+  "short_name": "pbs",
+  "timestamp": "10/22/2024",
+  "identifier": "targets_zAbdNN/5",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ropensci/targets.git",
+  "relative_path": "targets/inst/run/job/slurm.sh",
+  "short_name": "slurm",
+  "timestamp": "10/22/2024",
+  "identifier": "targets_zAbdNN/6",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ropensci/targets.git",
+  "relative_path": "targets/inst/run/job/sge.sh",
+  "short_name": "sge",
+  "timestamp": "10/22/2024",
+  "identifier": "targets_zAbdNN/7",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ }
+]

@@ -1,0 +1,6393 @@
+[
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/debian/prerm",
+  "short_name": "prerm",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/0",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/debian/init.d",
+  "short_name": "init.d",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/1",
+  "posix_compliant": true,
+  "line_count": 162,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/debian/mongodb-enterprise-server.postinst",
+  "short_name": "mongodb-enterprise-server.postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/2",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/debian/preinst",
+  "short_name": "preinst",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/3",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/debian/mongodb-org-unstable-server.postinst",
+  "short_name": "mongodb-org-unstable-server.postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/4",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/debian/postrm",
+  "short_name": "postrm",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/5",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/debian/mongodb-org-server.postinst",
+  "short_name": "mongodb-org-server.postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/6",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/debian/mongodb-enterprise-unstable-server.postinst",
+  "short_name": "mongodb-enterprise-unstable-server.postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/7",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/generate_version.sh",
+  "short_name": "generate_version",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/8",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/ninja_compile.sh",
+  "short_name": "ninja_compile",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/9",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/bazel_RBE_supported.sh",
+  "short_name": "bazel_RBE_supported",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/10",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/write_mongo_binary_url_to_downstream_expansions.sh",
+  "short_name": "write_mongo_binary_url_to_downstream_expansions",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/11",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/fcv_test_git_tag.sh",
+  "short_name": "fcv_test_git_tag",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/12",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/wiki_page.sh",
+  "short_name": "wiki_page",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/13",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/antithesis_image_build_and_push.sh",
+  "short_name": "antithesis_image_build_and_push",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/14",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/bazel_scons_diff.sh",
+  "short_name": "bazel_scons_diff",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/15",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/engflow_workspace_status.sh",
+  "short_name": "engflow_workspace_status",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/16",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/cleanup_environment.sh",
+  "short_name": "cleanup_environment",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/17",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/compile_ninja.sh",
+  "short_name": "compile_ninja",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/18",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/prelude_workdir.sh",
+  "short_name": "prelude_workdir",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/19",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/randomized_multiversion_tasks_generate.sh",
+  "short_name": "randomized_multiversion_tasks_generate",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/20",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/lint_fuzzer_sanity_all.sh",
+  "short_name": "lint_fuzzer_sanity_all",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/21",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jstestfuzz_setup.sh",
+  "short_name": "jstestfuzz_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/22",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/external_auth_oidc_teardown.sh",
+  "short_name": "external_auth_oidc_teardown",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/23",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/lint_yaml.sh",
+  "short_name": "lint_yaml",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/24",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/bazel_run.sh",
+  "short_name": "bazel_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/25",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/prelude.sh",
+  "short_name": "prelude",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/26",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/idl_tests_run.sh",
+  "short_name": "idl_tests_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/27",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/external_auth_oidc_setup.sh",
+  "short_name": "external_auth_oidc_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/28",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/prelude_mongo_task_generator.sh",
+  "short_name": "prelude_mongo_task_generator",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/29",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jstestfuzz_minimize.sh",
+  "short_name": "jstestfuzz_minimize",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/30",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jepsen_test_run.sh",
+  "short_name": "jepsen_test_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/31",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/modify_debug_symbols.sh",
+  "short_name": "modify_debug_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/32",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/powercycle_sentinel_run.sh",
+  "short_name": "powercycle_sentinel_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/33",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/compiled_binaries_get.sh",
+  "short_name": "compiled_binaries_get",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/34",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/move_npm_logs.sh",
+  "short_name": "move_npm_logs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/35",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/libdeps_run.sh",
+  "short_name": "libdeps_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/36",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/external_auth_aws_setup.sh",
+  "short_name": "external_auth_aws_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/37",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/do_watchdog_setup.sh",
+  "short_name": "do_watchdog_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/38",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jepsen_docker/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/39",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jepsen_docker/setup_config_fuzzer.sh",
+  "short_name": "setup_config_fuzzer",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/40",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jepsen_docker/list-append.sh",
+  "short_name": "list-append",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/41",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jepsen_docker/docker-up.sh",
+  "short_name": "docker-up",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/42",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jepsen_docker/cleanup.sh",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/43",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/todos_check.sh",
+  "short_name": "todos_check",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/44",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/powercycle_setup_host.sh",
+  "short_name": "powercycle_setup_host",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/45",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/external_auth_gcp_teardown.sh",
+  "short_name": "external_auth_gcp_teardown",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/46",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/check_idl_compat.sh",
+  "short_name": "check_idl_compat",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/47",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/prelude_system_env_variables.sh",
+  "short_name": "prelude_system_env_variables",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/48",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/scons_raw_compile.sh",
+  "short_name": "scons_raw_compile",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/49",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/verify_build_output_present.sh",
+  "short_name": "verify_build_output_present",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/50",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/lint_shellscripts.sh",
+  "short_name": "lint_shellscripts",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/51",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/kill_processes.sh",
+  "short_name": "kill_processes",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/52",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/sasl_windows_cyrussasl_teardown.sh",
+  "short_name": "sasl_windows_cyrussasl_teardown",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/53",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/generate_buildid_debug_symbols_mapping.sh",
+  "short_name": "generate_buildid_debug_symbols_mapping",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/54",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/gen_feature_flags.sh",
+  "short_name": "gen_feature_flags",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/55",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/powercycle_run_test.sh",
+  "short_name": "powercycle_run_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/56",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/external_auth_gcp_setup.sh",
+  "short_name": "external_auth_gcp_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/57",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/restore_git_history_and_tags.sh",
+  "short_name": "restore_git_history_and_tags",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/58",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/generate_evergreen_bazelrc.sh",
+  "short_name": "generate_evergreen_bazelrc",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/59",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/run_upload_lock_push.sh",
+  "short_name": "run_upload_lock_push",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/60",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/garasign_gpg_sign.sh",
+  "short_name": "garasign_gpg_sign",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/61",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/check_run_tests_infrastructure_failure.sh",
+  "short_name": "check_run_tests_infrastructure_failure",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/62",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/selinux_run_test.sh",
+  "short_name": "selinux_run_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/63",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/gen_tasks_activate.sh",
+  "short_name": "gen_tasks_activate",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/64",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jstestfuzz_run.sh",
+  "short_name": "jstestfuzz_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/65",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/feature_flag_tags_check.sh",
+  "short_name": "feature_flag_tags_check",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/66",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/powercycle_ssh_failure_exit.sh",
+  "short_name": "powercycle_ssh_failure_exit",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/67",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/undo_wiki_page.sh",
+  "short_name": "undo_wiki_page",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/68",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/libdeps_setup.sh",
+  "short_name": "libdeps_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/69",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/run_python_script_with_report.sh",
+  "short_name": "run_python_script_with_report",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/70",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/stitch_support_create_lib_tar.sh",
+  "short_name": "stitch_support_create_lib_tar",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/71",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/get_bin_and_fcv_versions.sh",
+  "short_name": "get_bin_and_fcv_versions",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/72",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jepsen_test_fail.sh",
+  "short_name": "jepsen_test_fail",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/73",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/resmoke_tests_runtime_validate.sh",
+  "short_name": "resmoke_tests_runtime_validate",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/74",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/package.sh",
+  "short_name": "package",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/75",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/container_registry_login.sh",
+  "short_name": "container_registry_login",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/76",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/stitch_support_run_tests.sh",
+  "short_name": "stitch_support_run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/77",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/wiki_page_minimized_agg_query_fuzzer.sh",
+  "short_name": "wiki_page_minimized_agg_query_fuzzer",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/78",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/download_tlc.sh",
+  "short_name": "download_tlc",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/79",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/failed_unittests_gather.sh",
+  "short_name": "failed_unittests_gather",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/80",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/powercycle_check_host.sh",
+  "short_name": "powercycle_check_host",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/81",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/prelude_venv.sh",
+  "short_name": "prelude_venv",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/82",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/scons_compile.sh",
+  "short_name": "scons_compile",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/83",
+  "posix_compliant": false,
+  "line_count": 132,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/local_client_logs_tar.sh",
+  "short_name": "local_client_logs_tar",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/84",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/multiversion_setup.sh",
+  "short_name": "multiversion_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/85",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/external_auth_azure_setup.sh",
+  "short_name": "external_auth_azure_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/86",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/powercycle_exit.sh",
+  "short_name": "powercycle_exit",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/87",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/get_bazelisk.sh",
+  "short_name": "get_bazelisk",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/88",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/monitor_build_status_run.sh",
+  "short_name": "monitor_build_status_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/89",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/wait_for_resmoke_to_shutdown.sh",
+  "short_name": "wait_for_resmoke_to_shutdown",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/90",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/hang_analyzer.sh",
+  "short_name": "hang_analyzer",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/91",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/multiversion_exclude_tags_generate.sh",
+  "short_name": "multiversion_exclude_tags_generate",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/92",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/extract_generated_test_configuration.sh",
+  "short_name": "extract_generated_test_configuration",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/93",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/check_resmoke_failure.sh",
+  "short_name": "check_resmoke_failure",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/94",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/generate_version_burn_in.sh",
+  "short_name": "generate_version_burn_in",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/95",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/selinux_test_executor.sh",
+  "short_name": "selinux_test_executor",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/96",
+  "posix_compliant": false,
+  "line_count": 131,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/garasign_jsign_sign.sh",
+  "short_name": "garasign_jsign_sign",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/97",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/prelude_python.sh",
+  "short_name": "prelude_python",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/98",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/run_python_script.sh",
+  "short_name": "run_python_script",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/99",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/resmoke_tests_execute.sh",
+  "short_name": "resmoke_tests_execute",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/100",
+  "posix_compliant": false,
+  "line_count": 134,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/crypt_run_tests.sh",
+  "short_name": "crypt_run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/101",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/venv_setup.sh",
+  "short_name": "venv_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/102",
+  "posix_compliant": false,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/resmoke_jobs_determine.sh",
+  "short_name": "resmoke_jobs_determine",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/103",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/shared_scons_directory_umount.sh",
+  "short_name": "shared_scons_directory_umount",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/104",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/get_mongot_version.sh",
+  "short_name": "get_mongot_version",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/105",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/add_git_tag.sh",
+  "short_name": "add_git_tag",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/106",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/win_mount_script_setup.sh",
+  "short_name": "win_mount_script_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/107",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/run_diskstats.sh",
+  "short_name": "run_diskstats",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/108",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/version_expansions_generate.sh",
+  "short_name": "version_expansions_generate",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/109",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/system_resource_info_collect.sh",
+  "short_name": "system_resource_info_collect",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/110",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/process_threads_monitor.sh",
+  "short_name": "process_threads_monitor",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/111",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/tmp_directory_umount.sh",
+  "short_name": "tmp_directory_umount",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/112",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/credentials_setup.sh",
+  "short_name": "credentials_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/113",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/ulimit_info_collect.sh",
+  "short_name": "ulimit_info_collect",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/114",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/task_timeout_determine.sh",
+  "short_name": "task_timeout_determine",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/115",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/compile_expansions_generate.sh",
+  "short_name": "compile_expansions_generate",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/116",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/files_remove.sh",
+  "short_name": "files_remove",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/117",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/notary_client_credentials_setup.sh",
+  "short_name": "notary_client_credentials_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/118",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/remote_credentials_setup.sh",
+  "short_name": "remote_credentials_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/119",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/modified_patch_files_get_all.sh",
+  "short_name": "modified_patch_files_get_all",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/120",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/fuse_watchdog_cleanup.sh",
+  "short_name": "fuse_watchdog_cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/121",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/wiredtiger_develop_use.sh",
+  "short_name": "wiredtiger_develop_use",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/122",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/download_pgo_profile.sh",
+  "short_name": "download_pgo_profile",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/123",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/evergreen_api_credentials_configure.sh",
+  "short_name": "evergreen_api_credentials_configure",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/124",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/functions/venv_adjust.sh",
+  "short_name": "venv_adjust",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/125",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/packager.py_run.sh",
+  "short_name": "packager.py_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/126",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/packages_publish.sh",
+  "short_name": "packages_publish",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/127",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/gather_mongo_coredumps.sh",
+  "short_name": "gather_mongo_coredumps",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/128",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/scons_splunk.sh",
+  "short_name": "scons_splunk",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/129",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/selinux_test_setup.sh",
+  "short_name": "selinux_test_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/130",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/gen_patch_test_tags.sh",
+  "short_name": "gen_patch_test_tags",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/131",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/external_auth_azure_teardown.sh",
+  "short_name": "external_auth_azure_teardown",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/132",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/powercycle_tasks_generate.sh",
+  "short_name": "powercycle_tasks_generate",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/133",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/jepsen_report.sh",
+  "short_name": "jepsen_report",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/134",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/bazel_coverage.sh",
+  "short_name": "bazel_coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/135",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/prelude_db_contrib_tool.sh",
+  "short_name": "prelude_db_contrib_tool",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/136",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/run_jstestfuzz/clone_repos.sh",
+  "short_name": "clone_repos",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/137",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/record_mongodb_server_version.sh",
+  "short_name": "record_mongodb_server_version",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/138",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/lint_fuzzer_sanity_patch.sh",
+  "short_name": "lint_fuzzer_sanity_patch",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/139",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/bazel_compile.sh",
+  "short_name": "bazel_compile",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/140",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/garasign_gpg_crypt_sign.sh",
+  "short_name": "garasign_gpg_crypt_sign",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/141",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/sasl_windows_cyrussasl_setup.sh",
+  "short_name": "sasl_windows_cyrussasl_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/142",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/powercycle_save_artifacts.sh",
+  "short_name": "powercycle_save_artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/143",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/do_jepsen_setup/move_binaries.sh",
+  "short_name": "move_binaries",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/144",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/do_jepsen_setup/create_fuzz_config.sh",
+  "short_name": "create_fuzz_config",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/145",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/do_jepsen_setup/nodes.sh",
+  "short_name": "nodes",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/146",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/do_jepsen_setup/install_jepsen.sh",
+  "short_name": "install_jepsen",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/147",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/evergreen/do_jepsen_setup/build_libfaketime.sh",
+  "short_name": "build_libfaketime",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/148",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/bazel/remote_execution_container/repin_dockerfiles.sh",
+  "short_name": "repin_dockerfiles",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/149",
+  "posix_compliant": false,
+  "line_count": 198,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/consolidate-repos.sh",
+  "short_name": "consolidate-repos",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/150",
+  "posix_compliant": false,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/antithesis/topologies/replica_set/scripts/workload_init.sh",
+  "short_name": "workload_init",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/151",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/antithesis/topologies/replica_set/scripts/database_init.sh",
+  "short_name": "database_init",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/152",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/antithesis/topologies/sharded_cluster/scripts/database_init.sh",
+  "short_name": "database_init",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/153",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/antithesis/topologies/sharded_cluster/scripts/configsvr_init.sh",
+  "short_name": "configsvr_init",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/154",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/libdeps/graph_visualizer_web_stack/setup_node_env.sh",
+  "short_name": "setup_node_env",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/155",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/shellscripts-linters.sh",
+  "short_name": "shellscripts-linters",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/156",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/consolidate-repos-enterprise.sh",
+  "short_name": "consolidate-repos-enterprise",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/157",
+  "posix_compliant": false,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/mount_drives.sh",
+  "short_name": "mount_drives",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/158",
+  "posix_compliant": false,
+  "line_count": 145,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/tests/sbom_linter/inputs/kafka_missing_version_import.sh",
+  "short_name": "kafka_missing_version_import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/159",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/tests/sbom_linter/inputs/import_script_with_mongo_prefix_version.sh",
+  "short_name": "import_script_with_mongo_prefix_version",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/160",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/tests/sbom_linter/inputs/kafka_valid_import.sh",
+  "short_name": "kafka_valid_import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/161",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/tests/sbom_linter/inputs/kafka_wrong_version_import.sh",
+  "short_name": "kafka_wrong_version_import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/162",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/poetry_sync.sh",
+  "short_name": "poetry_sync",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/163",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/auto_install_db_contrib_tool.sh",
+  "short_name": "auto_install_db_contrib_tool",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/164",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/setup_engflow_creds.sh",
+  "short_name": "setup_engflow_creds",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/165",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/install-hooks",
+  "short_name": "install-hooks",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/166",
+  "posix_compliant": false,
+  "line_count": 88,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/yamllinters.sh",
+  "short_name": "yamllinters",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/167",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/buildscripts/setup_spawnhost_coredump",
+  "short_name": "setup_spawnhost_coredump",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/168",
+  "posix_compliant": false,
+  "line_count": 265,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/rpm/init.d-mongod",
+  "short_name": "init.d-mongod",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/169",
+  "posix_compliant": false,
+  "line_count": 110,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/rpm/init.d-mongod.suse",
+  "short_name": "init.d-mongod.suse",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/170",
+  "posix_compliant": false,
+  "line_count": 100,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/jstests/ssl/libs/localhost-cn-with-san.pem.sh",
+  "short_name": "localhost-cn-with-san.pem",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/171",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/jstests/ssl/x509/mkcrl.sh",
+  "short_name": "mkcrl",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/172",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/jstests/watchdog/charybdefs_setup.sh",
+  "short_name": "charybdefs_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/173",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/benchmark/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/174",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/mozjs/extract.sh",
+  "short_name": "extract",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/175",
+  "posix_compliant": false,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/mozjs/get-sources.sh",
+  "short_name": "get-sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/176",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/mozjs/extract/js/src/devtools/octane-csv.sh",
+  "short_name": "octane-csv",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/177",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/mozjs/extract/js/src/devtools/rootAnalysis/build.js",
+  "short_name": "build.js",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/178",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/mozjs/extract/js/src/devtools/rootAnalysis/run-analysis.sh",
+  "short_name": "run-analysis",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/179",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/mozjs/extract/js/src/devtools/rootAnalysis/gen-hazards.sh",
+  "short_name": "gen-hazards",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/180",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/mozjs/extract/js/src/zydis/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/181",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/mozjs/extract/mfbt/double-conversion/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/182",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/mozjs/gen-config.sh",
+  "short_name": "gen-config",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/183",
+  "posix_compliant": false,
+  "line_count": 139,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/tcmalloc/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/184",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/grpc/dist/third_party/upb/cmake/push_auto_update.sh",
+  "short_name": "push_auto_update",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/185",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/grpc/dist/third_party/toolchains/rbe_ubuntu2004/cc/cc_wrapper.sh",
+  "short_name": "cc_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/186",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/grpc/dist/third_party/toolchains/generate_windows_rbe_configs.sh",
+  "short_name": "generate_windows_rbe_configs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/187",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/grpc/dist/third_party/toolchains/generate_linux_rbe_configs.sh",
+  "short_name": "generate_linux_rbe_configs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/188",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/grpc/dist/examples/cpp/systemd_socket_activation/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/189",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/grpc/dist/bazel/update_mirror.sh",
+  "short_name": "update_mirror",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/190",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/grpc/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/191",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/abseil-cpp/dist/CMake/install_test_project/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/192",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/abseil-cpp/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/193",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/boost/libs/program_options/ci/codecov.sh",
+  "short_name": "codecov",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/194",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/boost/libs/program_options/ci/coverity.sh",
+  "short_name": "coverity",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/195",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/boost/libs/program_options/ci/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/196",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/boost/libs/program_options/ci/cppcheck.sh",
+  "short_name": "cppcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/197",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/fmt/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/198",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/bench/wtperf/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/199",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/bench/wtperf/runners/wtperf_track.sh",
+  "short_name": "wtperf_track",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/200",
+  "posix_compliant": false,
+  "line_count": 133,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/bench/wtperf/runners/wtperf_xray.sh",
+  "short_name": "wtperf_xray",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/201",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/bench/wtperf/runners/wtperf_ckpt.sh",
+  "short_name": "wtperf_ckpt",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/202",
+  "posix_compliant": false,
+  "line_count": 113,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/bench/wtperf/runners/wtperf_run.sh",
+  "short_name": "wtperf_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/203",
+  "posix_compliant": false,
+  "line_count": 163,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/bench/wt2853_perf/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/204",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/bench/workgen/runner/workgen_stat.sh",
+  "short_name": "workgen_stat",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/205",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/tools/antithesis/launch_gdb.sh",
+  "short_name": "launch_gdb",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/206",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/tools/antithesis/build_and_push_containers.sh",
+  "short_name": "build_and_push_containers",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/207",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/tools/antithesis/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/208",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/tools/tcmalloc/build-tcmalloc.sh",
+  "short_name": "build-tcmalloc",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/209",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/tools/tcmalloc/define-with_tcmalloc.sh",
+  "short_name": "define-with_tcmalloc",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/210",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/tools/run_parallel.sh",
+  "short_name": "run_parallel",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/211",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/tools/wt_cmp_dir",
+  "short_name": "wt_cmp_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/212",
+  "posix_compliant": false,
+  "line_count": 107,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/tools/hexfiend/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/213",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/tools/io-trace-explorer/scripts/trace-wtperf.sh",
+  "short_name": "trace-wtperf",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/214",
+  "posix_compliant": false,
+  "line_count": 185,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/compatibility/compatibility_test_for_releases.sh",
+  "short_name": "compatibility_test_for_releases",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/215",
+  "posix_compliant": false,
+  "line_count": 664,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/readonly/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/216",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/unittest/create_test.sh",
+  "short_name": "create_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/217",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/checkpoint/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/218",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/checkpoint/recovery-test.sh",
+  "short_name": "recovery-test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/219",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/cppsuite/create_test.sh",
+  "short_name": "create_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/220",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/multiversion/wt_multiversion.sh",
+  "short_name": "wt_multiversion",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/221",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/verify_wt_datafiles.sh",
+  "short_name": "verify_wt_datafiles",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/222",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/configure_combinations.sh",
+  "short_name": "configure_combinations",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/223",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/coverage-report.sh",
+  "short_name": "coverage-report",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/224",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/code_coverage_analysis.sh",
+  "short_name": "code_coverage_analysis",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/225",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/cyclomatic-complexity.sh",
+  "short_name": "cyclomatic-complexity",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/226",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/install_gcp_dependencies.sh",
+  "short_name": "install_gcp_dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/227",
+  "posix_compliant": true,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/checkpoint_test_predictable.sh",
+  "short_name": "checkpoint_test_predictable",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/228",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/setup_spawn_host.sh",
+  "short_name": "setup_spawn_host",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/229",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/checkpoint_stress_test.sh",
+  "short_name": "checkpoint_stress_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/230",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/find_cmake.sh",
+  "short_name": "find_cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/231",
+  "posix_compliant": true,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/run_model_workloads.sh",
+  "short_name": "run_model_workloads",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/232",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/schema_abort_predictable.sh",
+  "short_name": "schema_abort_predictable",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/233",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/download_metrixpp.sh",
+  "short_name": "download_metrixpp",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/234",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/recovery_stress_test_script.sh",
+  "short_name": "recovery_stress_test_script",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/235",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/cppsuite_test_run.sh",
+  "short_name": "cppsuite_test_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/236",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/run_format_configs.sh",
+  "short_name": "run_format_configs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/237",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/code_coverage/coverage-report-per-test.sh",
+  "short_name": "coverage-report-per-test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/238",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/tcmalloc_install_or_build.sh",
+  "short_name": "tcmalloc_install_or_build",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/239",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/format_test_predictable.sh",
+  "short_name": "format_test_predictable",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/240",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/evergreen/format_test_tiered.sh",
+  "short_name": "format_test_tiered",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/241",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/huge/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/242",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/model/test/test_model.sh",
+  "short_name": "test_model",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/243",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/format/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/244",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/format/config.sh",
+  "short_name": "config",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/245",
+  "posix_compliant": false,
+  "line_count": 205,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/format/format.sh",
+  "short_name": "format",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/246",
+  "posix_compliant": false,
+  "line_count": 500,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/cursor_order/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/247",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/fuzz/fuzz_run.sh",
+  "short_name": "fuzz_run",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/248",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/fuzz/fuzz_coverage.sh",
+  "short_name": "fuzz_coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/249",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/thread/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/250",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/truncated_log/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/251",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/wt10461_skip_list_stress/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/252",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/random_abort/smoke_lazyfs.sh",
+  "short_name": "smoke_lazyfs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/253",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/random_abort/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/254",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/random_directio/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/255",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/wt3363_checkpoint_op_races/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/256",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/wt6616_checkpoint_oldest_ts/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/257",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/timestamp_abort/smoke_lazyfs.sh",
+  "short_name": "smoke_lazyfs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/258",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/timestamp_abort/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/259",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/schema_abort/smoke_lazyfs.sh",
+  "short_name": "smoke_lazyfs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/260",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/schema_abort/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/261",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/wt2909_checkpoint_integrity/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/262",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/time_shift_test.sh",
+  "short_name": "time_shift_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/263",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/incr_backup/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/264",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/wt4105_large_doc_small_upd/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/265",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/wt2447_join_main_table/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/266",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/wt2535_insert_race/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/267",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/csuite/wt6185_modify_ts/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/268",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/test/packing/smoke.sh",
+  "short_name": "smoke",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/269",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_all",
+  "short_name": "s_all",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/270",
+  "posix_compliant": false,
+  "line_count": 156,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_lang",
+  "short_name": "s_lang",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/271",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_version",
+  "short_name": "s_version",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/272",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_tags",
+  "short_name": "s_tags",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/273",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_evergreen",
+  "short_name": "s_evergreen",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/274",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_stat",
+  "short_name": "s_stat",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/275",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_docs_plantuml",
+  "short_name": "s_docs_plantuml",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/276",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_style",
+  "short_name": "s_style",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/277",
+  "posix_compliant": false,
+  "line_count": 193,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_void",
+  "short_name": "s_void",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/278",
+  "posix_compliant": false,
+  "line_count": 244,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_clang_tidy",
+  "short_name": "s_clang_tidy",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/279",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_readme",
+  "short_name": "s_readme",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/280",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_c_test_create",
+  "short_name": "s_c_test_create",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/281",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_include_guards",
+  "short_name": "s_include_guards",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/282",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/access_check/init.sh",
+  "short_name": "init",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/283",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_errno",
+  "short_name": "s_errno",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/284",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/common_functions.sh",
+  "short_name": "common_functions",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/285",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_define",
+  "short_name": "s_define",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/286",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_access",
+  "short_name": "s_access",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/287",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_whitespace",
+  "short_name": "s_whitespace",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/288",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_python",
+  "short_name": "s_python",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/289",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_getopt",
+  "short_name": "s_getopt",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/290",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_export",
+  "short_name": "s_export",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/291",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_string",
+  "short_name": "s_string",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/292",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_copyright",
+  "short_name": "s_copyright",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/293",
+  "posix_compliant": false,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_visibility_checks",
+  "short_name": "s_visibility_checks",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/294",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_typedef",
+  "short_name": "s_typedef",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/295",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_install",
+  "short_name": "s_install",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/296",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_evergreen_validate",
+  "short_name": "s_evergreen_validate",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/297",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_clang_scan",
+  "short_name": "s_clang_scan",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/298",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_free",
+  "short_name": "s_free",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/299",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_function",
+  "short_name": "s_function",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/300",
+  "posix_compliant": false,
+  "line_count": 115,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_release_docs",
+  "short_name": "s_release_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/301",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_longlines",
+  "short_name": "s_longlines",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/302",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_fast",
+  "short_name": "s_fast",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/303",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_funcs",
+  "short_name": "s_funcs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/304",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/dist/s_release",
+  "short_name": "s_release",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/305",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/lang/python/run-ex_access",
+  "short_name": "run-ex_access",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/306",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/src/docs/tools/pyfilter",
+  "short_name": "pyfilter",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/307",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/src/docs/tools/doxfilter",
+  "short_name": "doxfilter",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/308",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/wiredtiger/src/docs/build-pydoc.sh",
+  "short_name": "build-pydoc",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/309",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/310",
+  "posix_compliant": true,
+  "line_count": 352,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/311",
+  "posix_compliant": false,
+  "line_count": 7846,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/packages/rpm.sh",
+  "short_name": "rpm",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/312",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/packages/deb.sh",
+  "short_name": "deb",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/313",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/src/tests/tcmalloc_unittest.sh",
+  "short_name": "tcmalloc_unittest",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/314",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/src/tests/profiler_unittest.sh",
+  "short_name": "profiler_unittest",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/315",
+  "posix_compliant": true,
+  "line_count": 132,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/src/tests/heap-checker-death_unittest.sh",
+  "short_name": "heap-checker-death_unittest",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/316",
+  "posix_compliant": true,
+  "line_count": 100,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/src/tests/sampling_test.sh",
+  "short_name": "sampling_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/317",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/src/tests/heap-profiler_unittest.sh",
+  "short_name": "heap-profiler_unittest",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/318",
+  "posix_compliant": true,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/src/tests/debugallocation_test.sh",
+  "short_name": "debugallocation_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/319",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/src/tests/maybe_threads_unittest.sh",
+  "short_name": "maybe_threads_unittest",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/320",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/dist/src/tests/heap-checker_unittest.sh",
+  "short_name": "heap-checker_unittest",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/321",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/scripts/host_config.sh",
+  "short_name": "host_config",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/322",
+  "posix_compliant": false,
+  "line_count": 100,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/gperftools/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/323",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/re2/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/324",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/immer/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/325",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/snappy/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/326",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/snappy/scripts/generate_config_headers.sh",
+  "short_name": "generate_config_headers",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/327",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/cares/dist/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/328",
+  "posix_compliant": true,
+  "line_count": 329,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/cares/dist/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/329",
+  "posix_compliant": false,
+  "line_count": 7853,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/cares/dist/ci/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/330",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/cares/dist/ci/covupload.sh",
+  "short_name": "covupload",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/331",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/cares/dist/ci/distcheck.sh",
+  "short_name": "distcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/332",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/cares/dist/ci/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/333",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/cares/dist/buildconf",
+  "short_name": "buildconf",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/334",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/cares/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/335",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/scripts/yaml-cpp_get_sources.sh",
+  "short_name": "yaml-cpp_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/336",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/scripts/tomcrypt_get_sources.sh",
+  "short_name": "tomcrypt_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/337",
+  "posix_compliant": true,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/scripts/asio_get_sources.sh",
+  "short_name": "asio_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/338",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/scripts/safeint_get_sources.sh",
+  "short_name": "safeint_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/339",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/scripts/pcre2_get_sources.sh",
+  "short_name": "pcre2_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/340",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/scripts/zlib_get_sources.sh",
+  "short_name": "zlib_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/341",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/scripts/icu_get_sources.sh",
+  "short_name": "icu_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/342",
+  "posix_compliant": false,
+  "line_count": 85,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/scripts/zstandard_get_sources.sh",
+  "short_name": "zstandard_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/343",
+  "posix_compliant": false,
+  "line_count": 91,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/scripts/json_schema_test_suite_get_sources.sh",
+  "short_name": "json_schema_test_suite_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/344",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/scripts/boost_get_sources.sh",
+  "short_name": "boost_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/345",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/libmongocrypt/update_import.sh",
+  "short_name": "update_import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/346",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/libmongocrypt/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/347",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/dist/config/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/348",
+  "posix_compliant": true,
+  "line_count": 329,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/dist/config/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/349",
+  "posix_compliant": false,
+  "line_count": 7853,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/dist/tests/run-coredump-unwind-mdi",
+  "short_name": "run-coredump-unwind-mdi",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/350",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/dist/tests/run-ptrace-mapper",
+  "short_name": "run-ptrace-mapper",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/351",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/dist/tests/run-ptrace-misc",
+  "short_name": "run-ptrace-misc",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/352",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/dist/tests/check-namespace.sh.in",
+  "short_name": "check-namespace.in",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/353",
+  "posix_compliant": true,
+  "line_count": 361,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/dist/tests/run-ia64-test-dyn1",
+  "short_name": "run-ia64-test-dyn1",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/354",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/dist/tests/run-check-namespace",
+  "short_name": "run-check-namespace",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/355",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/dist/tests/run-coredump-unwind",
+  "short_name": "run-coredump-unwind",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/356",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/dist/src/ia64/mk_cursor_i",
+  "short_name": "mk_cursor_i",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/357",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/scripts/host_config.sh",
+  "short_name": "host_config",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/358",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/unwind/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/359",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/timelib/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/360",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/librdkafka/scripts/librdkafka_get_sources.sh",
+  "short_name": "librdkafka_get_sources",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/361",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/asio-master/asio/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/362",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/croaring/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/363",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/test-variants.sh",
+  "short_name": "test-variants",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/364",
+  "posix_compliant": true,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/playTests.sh",
+  "short_name": "playTests",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/365",
+  "posix_compliant": true,
+  "line_count": 1564,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/mixed.sh",
+  "short_name": "mixed",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/366",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/memcpy-abuse.sh",
+  "short_name": "memcpy-abuse",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/367",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/zdiff.sh",
+  "short_name": "zdiff",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/368",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/init.sh",
+  "short_name": "init",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/369",
+  "posix_compliant": false,
+  "line_count": 336,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/trailing-nul.sh",
+  "short_name": "trailing-nul",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/370",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/help-version.sh",
+  "short_name": "help-version",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/371",
+  "posix_compliant": false,
+  "line_count": 177,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/stdin.sh",
+  "short_name": "stdin",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/372",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/zgrep-context.sh",
+  "short_name": "zgrep-context",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/373",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/znew-k.sh",
+  "short_name": "znew-k",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/374",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/zgrep-signal.sh",
+  "short_name": "zgrep-signal",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/375",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/gzip-env.sh",
+  "short_name": "gzip-env",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/376",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/null-suffix-clobber.sh",
+  "short_name": "null-suffix-clobber",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/377",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/zgrep-f.sh",
+  "short_name": "zgrep-f",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/378",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/hufts.sh",
+  "short_name": "hufts",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/379",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/z-suffix.sh",
+  "short_name": "z-suffix",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/380",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/list.sh",
+  "short_name": "list",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/381",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/keep.sh",
+  "short_name": "keep",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/382",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/unpack-invalid.sh",
+  "short_name": "unpack-invalid",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/383",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/helin-segv.sh",
+  "short_name": "helin-segv",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/384",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/gzip/test-driver.sh",
+  "short_name": "test-driver",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/385",
+  "posix_compliant": false,
+  "line_count": 88,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/libzstd_builds.sh",
+  "short_name": "libzstd_builds",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/386",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/decompression/pass-through.sh",
+  "short_name": "pass-through",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/387",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/decompression/golden.sh",
+  "short_name": "golden",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/388",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/progress/no-progress.sh",
+  "short_name": "no-progress",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/389",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/progress/progress.sh",
+  "short_name": "progress",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/390",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/bin/unzstd",
+  "short_name": "unzstd",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/391",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/bin/cmp_size",
+  "short_name": "cmp_size",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/392",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/bin/zstdless",
+  "short_name": "zstdless",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/393",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/bin/die",
+  "short_name": "die",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/394",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/bin/println",
+  "short_name": "println",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/395",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/bin/zstdgrep",
+  "short_name": "zstdgrep",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/396",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/bin/zstd",
+  "short_name": "zstd",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/397",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/bin/zstdcat",
+  "short_name": "zstdcat",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/398",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/bin/datagen",
+  "short_name": "datagen",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/399",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/file-stat/compress-stdin-to-file.sh",
+  "short_name": "compress-stdin-to-file",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/400",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/file-stat/decompress-file-to-stdout.sh",
+  "short_name": "decompress-file-to-stdout",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/401",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/file-stat/compress-stdin-to-stdout.sh",
+  "short_name": "compress-stdin-to-stdout",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/402",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/file-stat/compress-file-to-dir-without-write-perm.sh",
+  "short_name": "compress-file-to-dir-without-write-perm",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/403",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/file-stat/compress-file-to-file.sh",
+  "short_name": "compress-file-to-file",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/404",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/file-stat/decompress-stdin-to-stdout.sh",
+  "short_name": "decompress-stdin-to-stdout",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/405",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/file-stat/decompress-file-to-file.sh",
+  "short_name": "decompress-file-to-file",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/406",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/file-stat/decompress-stdin-to-file.sh",
+  "short_name": "decompress-stdin-to-file",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/407",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/file-stat/compress-file-to-stdout.sh",
+  "short_name": "compress-file-to-stdout",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/408",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/zstd-symlinks/zstdcat.sh",
+  "short_name": "zstdcat",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/409",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/zstd-symlinks/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/410",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/basic/memlimit.sh",
+  "short_name": "memlimit",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/411",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/basic/help.sh",
+  "short_name": "help",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/412",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/basic/version.sh",
+  "short_name": "version",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/413",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/basic/output_dir.sh",
+  "short_name": "output_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/414",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/cltools/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/415",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/cltools/zstdless.sh",
+  "short_name": "zstdless",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/416",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/cltools/zstdgrep.sh",
+  "short_name": "zstdgrep",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/417",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/common/platform.sh",
+  "short_name": "platform",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/418",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/common/permissions.sh",
+  "short_name": "permissions",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/419",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/common/mtime.sh",
+  "short_name": "mtime",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/420",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/common/format.sh",
+  "short_name": "format",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/421",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/basic.sh",
+  "short_name": "basic",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/422",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/adapt.sh",
+  "short_name": "adapt",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/423",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/multi-threaded.sh",
+  "short_name": "multi-threaded",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/424",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/row-match-finder.sh",
+  "short_name": "row-match-finder",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/425",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/window-resize.sh",
+  "short_name": "window-resize",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/426",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/levels.sh",
+  "short_name": "levels",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/427",
+  "posix_compliant": true,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/428",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/gzip-compat.sh",
+  "short_name": "gzip-compat",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/429",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/stream-size.sh",
+  "short_name": "stream-size",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/430",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/multiple-files.sh",
+  "short_name": "multiple-files",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/431",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/verbose-wlog.sh",
+  "short_name": "verbose-wlog",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/432",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/compress-literals.sh",
+  "short_name": "compress-literals",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/433",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/long-distance-matcher.sh",
+  "short_name": "long-distance-matcher",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/434",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/golden.sh",
+  "short_name": "golden",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/435",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/compression/format.sh",
+  "short_name": "format",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/436",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/dictionaries/dictionary-mismatch.sh",
+  "short_name": "dictionary-mismatch",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/437",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/dictionaries/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/438",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/dictionaries/setup_once",
+  "short_name": "setup_once",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/439",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/dictionaries/golden.sh",
+  "short_name": "golden",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/440",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/dict-builder/empty-input.sh",
+  "short_name": "empty-input",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/441",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/tests/cli-tests/dict-builder/no-inputs.sh",
+  "short_name": "no-inputs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/442",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/contrib/linux-kernel/btrfs-benchmark.sh",
+  "short_name": "btrfs-benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/443",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/contrib/linux-kernel/btrfs-extract-benchmark.sh",
+  "short_name": "btrfs-extract-benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/444",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/contrib/linux-kernel/test/macro-test.sh",
+  "short_name": "macro-test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/445",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/contrib/linux-kernel/squashfs-benchmark.sh",
+  "short_name": "squashfs-benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/446",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/contrib/gen_html/gen-zstd-manual.sh",
+  "short_name": "gen-zstd-manual",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/447",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/contrib/cleanTabs",
+  "short_name": "cleanTabs",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/448",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/programs/zstdless",
+  "short_name": "zstdless",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/449",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/programs/zstdgrep",
+  "short_name": "zstdgrep",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/450",
+  "posix_compliant": true,
+  "line_count": 91,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/build/single_file_libs/create_single_file_library.sh",
+  "short_name": "create_single_file_library",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/451",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/build/single_file_libs/create_single_file_decoder.sh",
+  "short_name": "create_single_file_decoder",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/452",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/build/single_file_libs/build_decoder_test.sh",
+  "short_name": "build_decoder_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/453",
+  "posix_compliant": true,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/build/single_file_libs/combine.sh",
+  "short_name": "combine",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/454",
+  "posix_compliant": false,
+  "line_count": 173,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/zstandard/zstd/build/single_file_libs/build_library_test.sh",
+  "short_name": "build_library_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/455",
+  "posix_compliant": true,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/protobuf/dist/generate_descriptor_proto.sh",
+  "short_name": "generate_descriptor_proto",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/456",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/protobuf/dist/google3_export_generated_files.sh",
+  "short_name": "google3_export_generated_files",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/457",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/protobuf/dist/upb/cmake/push_auto_update.sh",
+  "short_name": "push_auto_update",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/458",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/protobuf/dist/fix_permissions.sh",
+  "short_name": "fix_permissions",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/459",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/protobuf/dist/update_subtrees.sh",
+  "short_name": "update_subtrees",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/460",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/protobuf/dist/regenerate_stale_files.sh",
+  "short_name": "regenerate_stale_files",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/461",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/protobuf/dist/pkg/test/gen_file_lists_golden_test.sh",
+  "short_name": "gen_file_lists_golden_test",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/462",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/protobuf/dist/src/google/protobuf/compiler/zip_output_unittest.sh",
+  "short_name": "zip_output_unittest",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/463",
+  "posix_compliant": true,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/protobuf/dist/src/google/protobuf/compiler/objectivec/method_dump.sh",
+  "short_name": "method_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/464",
+  "posix_compliant": false,
+  "line_count": 135,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/protobuf/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/465",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/third_party/libbson/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/466",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/mongo/crypto/scripts/encryption_fle2_test_vectors.sh",
+  "short_name": "encryption_fle2_test_vectors",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/467",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/mongo/crypto/scripts/aead_encryption_fle2_test_vectors.sh",
+  "short_name": "aead_encryption_fle2_test_vectors",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/468",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/mongo/tla_plus/download-tlc.sh",
+  "short_name": "download-tlc",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/469",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mongodb/mongo.git",
+  "relative_path": "mongo/src/mongo/tla_plus/model-check.sh",
+  "short_name": "model-check",
+  "timestamp": "10/22/2024",
+  "identifier": "mongo_KKXSfv/470",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

@@ -1,0 +1,216 @@
+[
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/wait-for-url.sh",
+  "short_name": "wait-for-url",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/integration/generate-mock-augur",
+  "short_name": "generate-mock-augur",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/1",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/2",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/osx-copy-augur-app-db-to-augur-node-cli",
+  "short_name": "osx-copy-augur-app-db-to-augur-node-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/docker/push.sh",
+  "short_name": "push",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/4",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/docker/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/5",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/docker/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/6",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/docker/run-background.sh",
+  "short_name": "run-background",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/7",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/docker/digital-ocean.sh",
+  "short_name": "digital-ocean",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/8",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/go.sh",
+  "short_name": "go",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/9",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/release-stable.sh",
+  "short_name": "release-stable",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/10",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/reinstall.sh",
+  "short_name": "reinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/11",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/release-docker.sh",
+  "short_name": "release-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/12",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/postgres/stop.sh",
+  "short_name": "stop",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/13",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/postgres/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/14",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AugurProject/augur-node.git",
+  "relative_path": "augur-node/scripts/sqlite.sh",
+  "short_name": "sqlite",
+  "timestamp": "10/22/2024",
+  "identifier": "augur_bBnIGy/15",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

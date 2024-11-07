@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/iann0036/AWSConsoleRecorder.git",
+  "relative_path": "AWSConsoleRecorder/assets/plugins/bootstrap-select2/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "AWSConsoleRecorder_atPGSj/0",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

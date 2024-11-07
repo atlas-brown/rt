@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/vuejs/vue-class-component.git",
+  "relative_path": "vue-class-component/build/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "vue_InEcfa/0",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

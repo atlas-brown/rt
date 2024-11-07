@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/Canop/termimad.git",
+  "relative_path": "termimad/fit-width-example.sh",
+  "short_name": "fit-width-example",
+  "timestamp": "10/22/2024",
+  "identifier": "termimad_iHbpJm/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Canop/termimad.git",
+  "relative_path": "termimad/inputs-example.sh",
+  "short_name": "inputs-example",
+  "timestamp": "10/22/2024",
+  "identifier": "termimad_iHbpJm/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

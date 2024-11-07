@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/apache/mahout.git",
+  "relative_path": "mahout/website/build_site.sh",
+  "short_name": "build_site",
+  "timestamp": "10/22/2024",
+  "identifier": "mahout_fKZLQv/0",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

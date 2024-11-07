@@ -1,0 +1,975 @@
+[
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/.husky/pre-push",
+  "short_name": "pre-push",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/0",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_bundler/scripts/minifier.sh",
+  "short_name": "minifier",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_bundler/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_plugin/scripts/cli.sh",
+  "short_name": "cli",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_plugin/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/5",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_atoms/scripts/add-from-cargo-check.sh",
+  "short_name": "add-from-cargo-check",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/6",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_atoms/scripts/sort.sh",
+  "short_name": "sort",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/7",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc/tests/fixture/jsc-paths/vercel-site/1/input/node_modules/.pnpm/nanoid@4.0.2/node_modules/nanoid/node_modules/.bin/nanoid",
+  "short_name": "nanoid",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/8",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc/tests/fixture/jsc-paths/vercel-site/1/input/node_modules/.bin/nanoid",
+  "short_name": "nanoid",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/9",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc/scripts/check-issues.sh",
+  "short_name": "check-issues",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/10",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc/scripts/conc.sh",
+  "short_name": "conc",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/11",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_estree_compat/tests/compare.sh",
+  "short_name": "compare",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/12",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_estree_compat/scripts/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/13",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_css_parser/scripts/instruemnt/bench-lexer.sh",
+  "short_name": "bench-lexer",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/14",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_css_parser/scripts/instruemnt/bench-parser.sh",
+  "short_name": "bench-parser",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/15",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_parser/scripts/crlf.sh",
+  "short_name": "crlf",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/16",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_parser/scripts/tsc/copy-all-tests.sh",
+  "short_name": "copy-all-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/17",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_parser/scripts/dos2unix.sh",
+  "short_name": "dos2unix",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/18",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_codegen/scripts/bench.sh",
+  "short_name": "bench",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/19",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_codegen/scripts/compare-file.sh",
+  "short_name": "compare-file",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/20",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_codegen/scripts/compare.sh",
+  "short_name": "compare",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/21",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_transforms/scripts/fixtures.sh",
+  "short_name": "fixtures",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/22",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_transforms/scripts/helpers.sh",
+  "short_name": "helpers",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/23",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_transforms/scripts/del.sh",
+  "short_name": "del",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/24",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/dbg-swc/scripts/reduce-semantics.sh",
+  "short_name": "reduce-semantics",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/25",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/dbg-swc/scripts/check-semantics.sh",
+  "short_name": "check-semantics",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/26",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/dbg-swc/scripts/reduce-list.sh",
+  "short_name": "reduce-list",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/27",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/dbg-swc/scripts/reduce-size.sh",
+  "short_name": "reduce-size",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/28",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_transforms_react/scripts/patch-options.sh",
+  "short_name": "patch-options",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/29",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_node_bundler/scripts/fixture.sh",
+  "short_name": "fixture",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/30",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/update-list.sh",
+  "short_name": "update-list",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/31",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/next/start2.sh",
+  "short_name": "start2",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/32",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/next/add-test.sh",
+  "short_name": "add-test",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/33",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/next/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/34",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/instrument/file.sh",
+  "short_name": "file",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/35",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/reduce/reduce-all.sh",
+  "short_name": "reduce-all",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/36",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/reduce/reduce.sh",
+  "short_name": "reduce",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/37",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/reduce/remove-useless.sh",
+  "short_name": "remove-useless",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/38",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/_/reduce/compare.sh",
+  "short_name": "compare",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/39",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/_/postpone/ask-file.sh",
+  "short_name": "ask-file",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/40",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/_/notify.sh",
+  "short_name": "notify",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/41",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/mangler/terser-one.sh",
+  "short_name": "terser-one",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/42",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/mangler/terser.sh",
+  "short_name": "terser",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/43",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/exec.sh",
+  "short_name": "exec",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/44",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/postpone.sh",
+  "short_name": "postpone",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/45",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/46",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/size.sh",
+  "short_name": "size",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/47",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/x/terser/reference.sh",
+  "short_name": "reference",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/48",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/crates/swc_ecma_minifier/scripts/ideal.sh",
+  "short_name": "ideal",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/49",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/setup-env.sh",
+  "short_name": "setup-env",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/50",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/cli.sh",
+  "short_name": "cli",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/51",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/doc.sh",
+  "short_name": "doc",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/52",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/cargo/get-crates-with-benchmark.sh",
+  "short_name": "get-crates-with-benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/53",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/cargo/get-crates.sh",
+  "short_name": "get-crates",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/54",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/cargo/list-crates.sh",
+  "short_name": "list-crates",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/55",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/cargo/patch-section.sh",
+  "short_name": "patch-section",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/56",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/cargo/print-pulblished-files.sh",
+  "short_name": "print-pulblished-files",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/57",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/bisect/list-commits.sh",
+  "short_name": "list-commits",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/58",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/update-all-swc-crates.sh",
+  "short_name": "update-all-swc-crates",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/59",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/60",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/cli_upload_gh_release.sh",
+  "short_name": "cli_upload_gh_release",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/61",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/link.sh",
+  "short_name": "link",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/62",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/github/test-concurrent.sh",
+  "short_name": "test-concurrent",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/63",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/github/run-cargo-hack.sh",
+  "short_name": "run-cargo-hack",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/64",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/github/get-all-crates.sh",
+  "short_name": "get-all-crates",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/65",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/bench-node.sh",
+  "short_name": "bench-node",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/66",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/git-diff.sh",
+  "short_name": "git-diff",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/67",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/68",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/update-all.sh",
+  "short_name": "update-all",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/69",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/repo/count-files.sh",
+  "short_name": "count-files",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/70",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/scripts/repo/profile-git.sh",
+  "short_name": "profile-git",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/71",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/packages/core/scripts/cli_artifacts.sh",
+  "short_name": "cli_artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/72",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/packages/html/scripts/cli_artifacts.sh",
+  "short_name": "cli_artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/73",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/bindings/binding_minifier_wasm/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/74",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/bindings/binding_typescript_wasm/scripts/esm.sh",
+  "short_name": "esm",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/75",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/bindings/binding_typescript_wasm/scripts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/76",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/bindings/binding_typescript_wasm/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/77",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/swc-project/swc.git",
+  "relative_path": "swc/bindings/binding_core_wasm/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "swc_qbmInh/78",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

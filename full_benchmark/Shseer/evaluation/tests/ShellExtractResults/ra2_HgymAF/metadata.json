@@ -1,0 +1,133 @@
+[
+ {
+  "repo": "https://github.com/OpenRA/ra2.git",
+  "relative_path": "ra2/packaging/macos/buildpackage.sh",
+  "short_name": "buildpackage",
+  "timestamp": "10/22/2024",
+  "identifier": "ra2_HgymAF/0",
+  "posix_compliant": false,
+  "line_count": 188,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenRA/ra2.git",
+  "relative_path": "ra2/packaging/package-all.sh",
+  "short_name": "package-all",
+  "timestamp": "10/22/2024",
+  "identifier": "ra2_HgymAF/1",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenRA/ra2.git",
+  "relative_path": "ra2/packaging/functions.sh",
+  "short_name": "functions",
+  "timestamp": "10/22/2024",
+  "identifier": "ra2_HgymAF/2",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenRA/ra2.git",
+  "relative_path": "ra2/packaging/linux/buildpackage.sh",
+  "short_name": "buildpackage",
+  "timestamp": "10/22/2024",
+  "identifier": "ra2_HgymAF/3",
+  "posix_compliant": false,
+  "line_count": 109,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenRA/ra2.git",
+  "relative_path": "ra2/packaging/windows/buildpackage.sh",
+  "short_name": "buildpackage",
+  "timestamp": "10/22/2024",
+  "identifier": "ra2_HgymAF/4",
+  "posix_compliant": false,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenRA/ra2.git",
+  "relative_path": "ra2/launch-game.sh",
+  "short_name": "launch-game",
+  "timestamp": "10/22/2024",
+  "identifier": "ra2_HgymAF/5",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenRA/ra2.git",
+  "relative_path": "ra2/launch-dedicated.sh",
+  "short_name": "launch-dedicated",
+  "timestamp": "10/22/2024",
+  "identifier": "ra2_HgymAF/6",
+  "posix_compliant": true,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenRA/ra2.git",
+  "relative_path": "ra2/utility.sh",
+  "short_name": "utility",
+  "timestamp": "10/22/2024",
+  "identifier": "ra2_HgymAF/7",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OpenRA/ra2.git",
+  "relative_path": "ra2/fetch-engine.sh",
+  "short_name": "fetch-engine",
+  "timestamp": "10/22/2024",
+  "identifier": "ra2_HgymAF/8",
+  "posix_compliant": true,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

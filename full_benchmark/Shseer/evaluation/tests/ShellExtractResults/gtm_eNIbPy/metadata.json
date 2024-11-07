@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/git-time-metric/gtm.git",
+  "relative_path": "gtm/script/appveyor-build.sh",
+  "short_name": "appveyor-build",
+  "timestamp": "10/22/2024",
+  "identifier": "gtm_eNIbPy/0",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

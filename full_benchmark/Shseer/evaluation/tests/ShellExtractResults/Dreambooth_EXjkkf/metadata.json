@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/JoePenna/Dreambooth-Stable-Diffusion.git",
+  "relative_path": "Dreambooth-Stable-Diffusion/scripts/download_first_stages.sh",
+  "short_name": "download_first_stages",
+  "timestamp": "10/22/2024",
+  "identifier": "Dreambooth_EXjkkf/0",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/JoePenna/Dreambooth-Stable-Diffusion.git",
+  "relative_path": "Dreambooth-Stable-Diffusion/scripts/download_models.sh",
+  "short_name": "download_models",
+  "timestamp": "10/22/2024",
+  "identifier": "Dreambooth_EXjkkf/1",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "difficult"
+  ]
+ }
+]

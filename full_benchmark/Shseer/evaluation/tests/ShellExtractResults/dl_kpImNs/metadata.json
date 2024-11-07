@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/floydhub/dl-docker.git",
+  "relative_path": "dl-docker/run_jupyter.sh",
+  "short_name": "run_jupyter",
+  "timestamp": "10/22/2024",
+  "identifier": "dl_kpImNs/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

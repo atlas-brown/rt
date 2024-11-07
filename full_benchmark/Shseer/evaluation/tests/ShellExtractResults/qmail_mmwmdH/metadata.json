@@ -1,0 +1,134 @@
+[
+ {
+  "repo": "https://github.com/QMailToaster/qmail.git",
+  "relative_path": "qmail/makecert.sh",
+  "short_name": "makecert",
+  "timestamp": "10/22/2024",
+  "identifier": "qmail_mmwmdH/0",
+  "posix_compliant": true,
+  "line_count": 185,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/QMailToaster/qmail.git",
+  "relative_path": "qmail/qmail.rc",
+  "short_name": "qmail.rc",
+  "timestamp": "10/22/2024",
+  "identifier": "qmail_mmwmdH/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/QMailToaster/qmail.git",
+  "relative_path": "qmail/qmail.init",
+  "short_name": "qmail.init",
+  "timestamp": "10/22/2024",
+  "identifier": "qmail_mmwmdH/2",
+  "posix_compliant": true,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/QMailToaster/qmail.git",
+  "relative_path": "qmail/qmail.dh_key",
+  "short_name": "qmail.dh_key",
+  "timestamp": "10/22/2024",
+  "identifier": "qmail_mmwmdH/3",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/QMailToaster/qmail.git",
+  "relative_path": "qmail/qmail.run.send",
+  "short_name": "qmail.run.send",
+  "timestamp": "10/22/2024",
+  "identifier": "qmail_mmwmdH/4",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/QMailToaster/qmail.git",
+  "relative_path": "qmail/qmail.run.submission.log",
+  "short_name": "qmail.run.submission.log",
+  "timestamp": "10/22/2024",
+  "identifier": "qmail_mmwmdH/5",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/QMailToaster/qmail.git",
+  "relative_path": "qmail/qmail.run.smtp.log",
+  "short_name": "qmail.run.smtp.log",
+  "timestamp": "10/22/2024",
+  "identifier": "qmail_mmwmdH/6",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/QMailToaster/qmail.git",
+  "relative_path": "qmail/qmail.run.send.log",
+  "short_name": "qmail.run.send.log",
+  "timestamp": "10/22/2024",
+  "identifier": "qmail_mmwmdH/7",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/QMailToaster/qmail.git",
+  "relative_path": "qmail/qmail.run.smtp",
+  "short_name": "qmail.run.smtp",
+  "timestamp": "10/22/2024",
+  "identifier": "qmail_mmwmdH/8",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/QMailToaster/qmail.git",
+  "relative_path": "qmail/qmail.run.submission",
+  "short_name": "qmail.run.submission",
+  "timestamp": "10/22/2024",
+  "identifier": "qmail_mmwmdH/9",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

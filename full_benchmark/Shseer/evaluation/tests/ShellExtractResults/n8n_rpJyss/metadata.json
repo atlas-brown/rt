@@ -1,0 +1,31 @@
+[
+ {
+  "repo": "https://github.com/n8n-io/n8n.git",
+  "relative_path": "n8n/docker/images/n8n/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "n8n_rpJyss/0",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/n8n-io/n8n.git",
+  "relative_path": "n8n/packages/@n8n/benchmark/scripts/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "n8n_rpJyss/1",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

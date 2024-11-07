@@ -1,0 +1,1 @@
+export KOTLIN_HOME=/usr/share/kotlin

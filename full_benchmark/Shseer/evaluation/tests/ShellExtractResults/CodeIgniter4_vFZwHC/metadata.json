@@ -1,0 +1,200 @@
+[
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/admin/release-userguide",
+  "short_name": "release-userguide",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/admin/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/1",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/admin/release-deploy",
+  "short_name": "release-deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/2",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/admin/apibot",
+  "short_name": "apibot",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/3",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/admin/alldocs",
+  "short_name": "alldocs",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/4",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/admin/release",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/5",
+  "posix_compliant": false,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/admin/userguide/.github/scripts/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/6",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/admin/docbot",
+  "short_name": "docbot",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/7",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/admin/release-revert",
+  "short_name": "release-revert",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/8",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/admin/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/9",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/.github/scripts/deploy-userguide",
+  "short_name": "deploy-userguide",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/10",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/.github/scripts/deploy-appstarter",
+  "short_name": "deploy-appstarter",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/11",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/.github/scripts/deploy-framework",
+  "short_name": "deploy-framework",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/12",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/codeigniter4/CodeIgniter4.git",
+  "relative_path": "CodeIgniter4/.github/scripts/validate-version",
+  "short_name": "validate-version",
+  "timestamp": "10/22/2024",
+  "identifier": "CodeIgniter4_vFZwHC/13",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

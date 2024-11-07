@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/osfans/trime.git",
+  "relative_path": "trime/script/clang-format.sh",
+  "short_name": "clang-format",
+  "timestamp": "10/22/2024",
+  "identifier": "trime_sXWkVq/0",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/osfans/trime.git",
+  "relative_path": "trime/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "trime_sXWkVq/1",
+  "posix_compliant": true,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

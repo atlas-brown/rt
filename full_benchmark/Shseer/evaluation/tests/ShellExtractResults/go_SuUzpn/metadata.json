@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/phires/go-guerrilla.git",
+  "relative_path": "go-guerrilla/.travis.gofmt.sh",
+  "short_name": ".travis.gofmt",
+  "timestamp": "10/22/2024",
+  "identifier": "go_SuUzpn/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

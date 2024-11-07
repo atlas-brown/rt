@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/docsifyjs/docsify.git",
+  "relative_path": "docsify/build/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "docsify_lIBpwc/0",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,60 @@
+[
+ {
+  "repo": "https://github.com/fastred/IBAnalyzer.git",
+  "relative_path": "IBAnalyzer/Pods/Target Support Files/Pods-IBAnalyzer-IBAnalyzerTests/Pods-IBAnalyzer-IBAnalyzerTests-resources.sh",
+  "short_name": "Pods-IBAnalyzer-IBAnalyzerTests-resources",
+  "timestamp": "10/22/2024",
+  "identifier": "IBAnalyzer_yTCzDw/0",
+  "posix_compliant": true,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/fastred/IBAnalyzer.git",
+  "relative_path": "IBAnalyzer/Pods/Target Support Files/Pods-IBAnalyzer-IBAnalyzerTests/Pods-IBAnalyzer-IBAnalyzerTests-frameworks.sh",
+  "short_name": "Pods-IBAnalyzer-IBAnalyzerTests-frameworks",
+  "timestamp": "10/22/2024",
+  "identifier": "IBAnalyzer_yTCzDw/1",
+  "posix_compliant": true,
+  "line_count": 112,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/fastred/IBAnalyzer.git",
+  "relative_path": "IBAnalyzer/Pods/Target Support Files/Pods-IBAnalyzer/Pods-IBAnalyzer-resources.sh",
+  "short_name": "Pods-IBAnalyzer-resources",
+  "timestamp": "10/22/2024",
+  "identifier": "IBAnalyzer_yTCzDw/2",
+  "posix_compliant": true,
+  "line_count": 102,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/fastred/IBAnalyzer.git",
+  "relative_path": "IBAnalyzer/Pods/Target Support Files/Pods-IBAnalyzer/Pods-IBAnalyzer-frameworks.sh",
+  "short_name": "Pods-IBAnalyzer-frameworks",
+  "timestamp": "10/22/2024",
+  "identifier": "IBAnalyzer_yTCzDw/3",
+  "posix_compliant": true,
+  "line_count": 112,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

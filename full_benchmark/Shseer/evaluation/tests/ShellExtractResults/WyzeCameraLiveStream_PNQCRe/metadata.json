@@ -1,0 +1,34 @@
+[
+ {
+  "repo": "https://github.com/FiveLeavesLeft/WyzeCameraLiveStream.git",
+  "relative_path": "WyzeCameraLiveStream/src/uninstall.sh",
+  "short_name": "uninstall",
+  "timestamp": "10/22/2024",
+  "identifier": "WyzeCameraLiveStream_PNQCRe/0",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/FiveLeavesLeft/WyzeCameraLiveStream.git",
+  "relative_path": "WyzeCameraLiveStream/src/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "WyzeCameraLiveStream_PNQCRe/1",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

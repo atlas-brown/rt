@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/vercel/examples.git",
+  "relative_path": "examples/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "examples_JKTFPi/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ }
+]

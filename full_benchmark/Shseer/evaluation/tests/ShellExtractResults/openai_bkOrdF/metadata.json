@@ -1,0 +1,29 @@
+[
+ {
+  "repo": "https://github.com/openai/openai-node.git",
+  "relative_path": "openai-node/scripts/utils/check-is-in-git-install.sh",
+  "short_name": "check-is-in-git-install",
+  "timestamp": "10/22/2024",
+  "identifier": "openai_bkOrdF/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/openai/openai-node.git",
+  "relative_path": "openai-node/scripts/git-publish-deno.sh",
+  "short_name": "git-publish-deno",
+  "timestamp": "10/22/2024",
+  "identifier": "openai_bkOrdF/1",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

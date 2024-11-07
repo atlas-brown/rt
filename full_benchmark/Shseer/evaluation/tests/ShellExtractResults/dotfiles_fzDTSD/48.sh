@@ -1,0 +1,63 @@
+#!/bin/sh
+# written by Shotaro Fujimoto (https://github.com/ssh0)
+#=#=#=
+# ```
+# NAME
+#       ytdl - wrapper script for youtube-dl.
+#
+# USAGE
+#       ytdl [-h] [-A] [-L FILE] URL [youtube-dl options]
+#
+#       You should place the URL *before* the youtube-dl's options.
+#       If you want to know youtube-dl's options, see manpage.
+#
+# OPTION
+#       -A: Don't add the URL to list file
+#       -L: Set the list file to save URL (default file: '.list')
+#       -e: Edit the list file manually.
+#       -h: Show this help message
+# ```
+#=#=
+
+f="$0"
+usage() {
+  sed -n '/^#=#=#=/,/^#=#=/p' $f | sed -e '1d;$d' | cut -b3- | grep -v "\`\`\`"
+}
+
+listfile=".list"
+save=true
+
+while getopts AL:eh OPT
+do
+  case $OPT in
+    "A" ) save=false ;;
+    "L" ) listfile="${OPTARG}" ;;
+    "e" ) if [ ! -e "${listfile}" ]; then
+            echo "[ytdl] listfile '${listfile}' does not exist."
+            exit 0
+          fi
+          $EDITOR + "${listfile}"
+          exit 0 ;;
+    "h" ) usage;
+          exit 1 ;;
+  esac
+done
+
+shift $((OPTIND-1))
+if [ $# = 0 ];then
+  usage
+  exit 1
+fi
+
+if ${save}; then
+  title=$(youtube-dl -i -q -e "$1")
+  if [ ! -f "${listfile}" ]; then
+    touch "${listfile}"
+  fi
+  for t in "$title"; do
+    echo "# $t" >> "${listfile}"
+  done
+  echo "# $1" >> "${listfile}"
+fi
+
+youtube-dl -i -o "%(title)s.%(ext)s" "$@"

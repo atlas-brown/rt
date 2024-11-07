@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# The `post-command` hook will run after the bootstrap script has run your
+# build commands
+
+# Note that as the script is sourced not run directly, the shebang line will be ignored
+# See https://buildkite.com/docs/agent/v3/hooks#creating-hook-scripts
+
+set -e

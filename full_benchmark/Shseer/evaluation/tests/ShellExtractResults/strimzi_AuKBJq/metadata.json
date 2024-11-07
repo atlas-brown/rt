@@ -1,0 +1,1061 @@
+[
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/packaging/helm-charts/kafka-version-tpl.sh",
+  "short_name": "kafka-version-tpl",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/0",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/systemtest/tmt/tests/strimzi/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/1",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/systemtest/tmt/scripts/copy-logs.sh",
+  "short_name": "copy-logs",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/2",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/systemtest/scripts/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/3",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/systemtest/scripts/results_info.sh",
+  "short_name": "results_info",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/4",
+  "posix_compliant": false,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/systemtest/src/test/resources/connect-build/build-connect-image.sh",
+  "short_name": "build-connect-image",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/5",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/systemtest/src/test/resources/oauth2/teardown_keycloak_operator.sh",
+  "short_name": "teardown_keycloak_operator",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/6",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/systemtest/src/test/resources/oauth2/prepare_keycloak_operator.sh",
+  "short_name": "prepare_keycloak_operator",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/7",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/documentation/snip-kafka-versions.sh",
+  "short_name": "snip-kafka-versions",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/8",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/documentation/snip-images.sh",
+  "short_name": "snip-images",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/9",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/documentation/version-dependent-attrs.sh",
+  "short_name": "version-dependent-attrs",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/10",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/artifacts/find-colliding-classes.sh",
+  "short_name": "find-colliding-classes",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/11",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/artifacts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/12",
+  "posix_compliant": false,
+  "line_count": 115,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/artifacts/extract-jars.sh",
+  "short_name": "extract-jars",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/13",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/find-classpath-collision.sh",
+  "short_name": "find-classpath-collision",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/14",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/15",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/cruise-control-scripts/cruise_control_healthcheck.sh",
+  "short_name": "cruise_control_healthcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/16",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/cruise-control-scripts/cruise_control_tls_prepare_certificates.sh",
+  "short_name": "cruise_control_tls_prepare_certificates",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/17",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/cruise-control-scripts/dynamic_resources.sh",
+  "short_name": "dynamic_resources",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/18",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/cruise-control-scripts/cruise_control_run.sh",
+  "short_name": "cruise_control_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/19",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/cruise-control-scripts/cruise_control_config_generator.sh",
+  "short_name": "cruise_control_config_generator",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/20",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_mirror_maker_2_connector_config_generator.sh",
+  "short_name": "kafka_mirror_maker_2_connector_config_generator",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/21",
+  "posix_compliant": false,
+  "line_count": 128,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/zookeeper_config_generator.sh",
+  "short_name": "zookeeper_config_generator",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/22",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_mirror_maker_2_run.sh",
+  "short_name": "kafka_mirror_maker_2_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/23",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_tls_prepare_certificates.sh",
+  "short_name": "kafka_tls_prepare_certificates",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/24",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_run.sh",
+  "short_name": "kafka_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/25",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_mirror_maker_run.sh",
+  "short_name": "kafka_mirror_maker_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/26",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_readiness_kraft.sh",
+  "short_name": "kafka_readiness_kraft",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/27",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/zookeeper_tls_prepare_certificates.sh",
+  "short_name": "zookeeper_tls_prepare_certificates",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/28",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/zookeeper_run.sh",
+  "short_name": "zookeeper_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/29",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/zookeeper_healthcheck.sh",
+  "short_name": "zookeeper_healthcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/30",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_mirror_maker_producer_config_generator.sh",
+  "short_name": "kafka_mirror_maker_producer_config_generator",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/31",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/set_kafka_jmx_options.sh",
+  "short_name": "set_kafka_jmx_options",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/32",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_readiness.sh",
+  "short_name": "kafka_readiness",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/33",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_liveness.sh",
+  "short_name": "kafka_liveness",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/34",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_mirror_maker_tls_prepare_certificates.sh",
+  "short_name": "kafka_mirror_maker_tls_prepare_certificates",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/35",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_connect_tls_prepare_certificates.sh",
+  "short_name": "kafka_connect_tls_prepare_certificates",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/36",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_connect_config_generator.sh",
+  "short_name": "kafka_connect_config_generator",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/37",
+  "posix_compliant": false,
+  "line_count": 112,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/dynamic_resources.sh",
+  "short_name": "dynamic_resources",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/38",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/set_kafka_gc_options.sh",
+  "short_name": "set_kafka_gc_options",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/39",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kraft_utils.sh",
+  "short_name": "kraft_utils",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/40",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/tls_utils.sh",
+  "short_name": "tls_utils",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/41",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_connect_run.sh",
+  "short_name": "kafka_connect_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/42",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_mirror_maker_consumer_config_generator.sh",
+  "short_name": "kafka_mirror_maker_consumer_config_generator",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/43",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/scripts/kafka_mirror_maker_liveness.sh",
+  "short_name": "kafka_mirror_maker_liveness",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/44",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/kafka-based/kafka/exporter-scripts/kafka_exporter_run.sh",
+  "short_name": "kafka_exporter_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/45",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/docker-images/operator/scripts/launch_java.sh",
+  "short_name": "launch_java",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/46",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/tools/prerequisites-check.sh",
+  "short_name": "prerequisites-check",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/47",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/tools/report.sh",
+  "short_name": "report",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/48",
+  "posix_compliant": false,
+  "line_count": 362,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/tools/strimzi-oauth-version.sh",
+  "short_name": "strimzi-oauth-version",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/49",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/tools/multi-platform-support.sh",
+  "short_name": "multi-platform-support",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/50",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/tools/kafka-versions-tools.sh",
+  "short_name": "kafka-versions-tools",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/51",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/topic-operator/scripts/topic_operator_run.sh",
+  "short_name": "topic_operator_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/52",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/topic-operator/scripts/tls_prepare_certificates.sh",
+  "short_name": "tls_prepare_certificates",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/53",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/cluster-operator/scripts/cluster_operator_run.sh",
+  "short_name": "cluster_operator_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/54",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/kafka-init/scripts/kafka_init_run.sh",
+  "short_name": "kafka_init_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/55",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/config-model-generator/build-config-models.sh",
+  "short_name": "build-config-models",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/56",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/user-operator/scripts/user_operator_run.sh",
+  "short_name": "user_operator_run",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/57",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/install_yq.sh",
+  "short_name": "install_yq",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/58",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/setup_shellcheck.sh",
+  "short_name": "setup_shellcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/59",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/uncommitted-changes.sh",
+  "short_name": "uncommitted-changes",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/60",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/shellcheck.sh",
+  "short_name": "shellcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/61",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/setup-kubernetes.sh",
+  "short_name": "setup-kubernetes",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/62",
+  "posix_compliant": false,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/setup_upgrade.sh",
+  "short_name": "setup_upgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/63",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/docu-push-to-website.sh",
+  "short_name": "docu-push-to-website",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/64",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/install_syft.sh",
+  "short_name": "install_syft",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/65",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/push-to-nexus.sh",
+  "short_name": "push-to-nexus",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/66",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/release_files_check.sh",
+  "short_name": "release_files_check",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/67",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/setup-kind.sh",
+  "short_name": "setup-kind",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/68",
+  "posix_compliant": false,
+  "line_count": 175,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/install_cosign.sh",
+  "short_name": "install_cosign",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/69",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/setup-helm.sh",
+  "short_name": "setup-helm",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/70",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.azure/scripts/check_docs.sh",
+  "short_name": "check_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/71",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.jenkins/scripts/build_keycloak_opa-s390x.sh",
+  "short_name": "build_keycloak_opa-s390x",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/72",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/strimzi/strimzi-kafka-operator.git",
+  "relative_path": "strimzi-kafka-operator/.jenkins/scripts/build_keycloak_opa-ppc64le.sh",
+  "short_name": "build_keycloak_opa-ppc64le",
+  "timestamp": "10/22/2024",
+  "identifier": "strimzi_AuKBJq/73",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/justjanne/powerline-go.git",
+  "relative_path": "powerline-go/generatePreview.sh",
+  "short_name": "generatePreview",
+  "timestamp": "10/22/2024",
+  "identifier": "powerline_Bjyyfg/0",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

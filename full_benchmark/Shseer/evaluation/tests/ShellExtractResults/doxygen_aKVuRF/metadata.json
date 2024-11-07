@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/doxygen/doxygen.git",
+  "relative_path": "doxygen/cmake/Sanitizers/asan-wrapper",
+  "short_name": "asan-wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "doxygen_aKVuRF/0",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

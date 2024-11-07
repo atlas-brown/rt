@@ -1,0 +1,82 @@
+[
+ {
+  "repo": "https://github.com/leokhoa/laragon.git",
+  "relative_path": "laragon/bin/composer/composer",
+  "short_name": "composer",
+  "timestamp": "10/22/2024",
+  "identifier": "laragon_VxKsRv/0",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/leokhoa/laragon.git",
+  "relative_path": "laragon/bin/mysql/mysql-5.1.72-win32/share/charsets/languages.html",
+  "short_name": "languages.html",
+  "timestamp": "10/22/2024",
+  "identifier": "laragon_VxKsRv/1",
+  "posix_compliant": true,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/leokhoa/laragon.git",
+  "relative_path": "laragon/etc/php/pear/PHPMailer/test/runfakepopserver.sh",
+  "short_name": "runfakepopserver",
+  "timestamp": "10/22/2024",
+  "identifier": "laragon_VxKsRv/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/leokhoa/laragon.git",
+  "relative_path": "laragon/etc/php/pear/PHPMailer/test/fakesendmail.sh",
+  "short_name": "fakesendmail",
+  "timestamp": "10/22/2024",
+  "identifier": "laragon_VxKsRv/3",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/leokhoa/laragon.git",
+  "relative_path": "laragon/etc/php/pear/PHPMailer/test/fakepopserver.sh",
+  "short_name": "fakepopserver",
+  "timestamp": "10/22/2024",
+  "identifier": "laragon_VxKsRv/4",
+  "posix_compliant": false,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/leokhoa/laragon.git",
+  "relative_path": "laragon/etc/php/pear/PHPMailer/docs/generatedocs.sh",
+  "short_name": "generatedocs",
+  "timestamp": "10/22/2024",
+  "identifier": "laragon_VxKsRv/5",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

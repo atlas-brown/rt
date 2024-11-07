@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/mit-han-lab/proxylessnas.git",
+  "relative_path": "proxylessnas/proxyless_gaze/training/face_detection/demo/MegEngine/cpp/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "proxylessnas_pNwZBA/0",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,96 @@
+[
+ {
+  "repo": "https://github.com/VonHeikemen/dotfiles.git",
+  "relative_path": "dotfiles/my-configs/spectrwm/baraction.sh",
+  "short_name": "baraction",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_KYKTXW/0",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/VonHeikemen/dotfiles.git",
+  "relative_path": "dotfiles/my-configs/bin/blurlock",
+  "short_name": "blurlock",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_KYKTXW/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/VonHeikemen/dotfiles.git",
+  "relative_path": "dotfiles/my-configs/shell/aliases.sh",
+  "short_name": "aliases",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_KYKTXW/2",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/VonHeikemen/dotfiles.git",
+  "relative_path": "dotfiles/my-configs/shell/custom-functions.sh",
+  "short_name": "custom-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_KYKTXW/3",
+  "posix_compliant": false,
+  "line_count": 140,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/VonHeikemen/dotfiles.git",
+  "relative_path": "dotfiles/my-configs/dwm/make.sh",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_KYKTXW/4",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/VonHeikemen/dotfiles.git",
+  "relative_path": "dotfiles/my-configs/dwm/autostart.sh",
+  "short_name": "autostart",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_KYKTXW/5",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/VonHeikemen/dotfiles.git",
+  "relative_path": "dotfiles/my-configs/autostart.sh",
+  "short_name": "autostart",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_KYKTXW/6",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

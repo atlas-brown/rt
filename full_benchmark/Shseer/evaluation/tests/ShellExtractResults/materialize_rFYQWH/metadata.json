@@ -1,0 +1,663 @@
+[
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/misc/lint/test-attribute.sh",
+  "short_name": "test-attribute",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/misc/lint/trailing-newline.sh",
+  "short_name": "trailing-newline",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/1",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/misc/dist/deb-scripts/postinst",
+  "short_name": "postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/2",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/misc/images/sshd/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/3",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/misc/images/materialized/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/4",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/test/lang/python/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/5",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/test/lang/js/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/6",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/test/lang/csharp/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/7",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/test/lang/ruby/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/8",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/test/postgres/setup-postgres.sh",
+  "short_name": "setup-postgres",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/9",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/test/ldbc-bi/generate-copy.sh",
+  "short_name": "generate-copy",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/10",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/test/test-certs/create-certs.sh",
+  "short_name": "create-certs",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/11",
+  "posix_compliant": false,
+  "line_count": 107,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/license/bump-change-date.sh",
+  "short_name": "bump-change-date",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/12",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-slow.sh",
+  "short_name": "lint-slow",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/13",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/docs-widgets/docs-widgets.sh",
+  "short_name": "docs-widgets",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/14",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/cargo-test-miri.sh",
+  "short_name": "cargo-test-miri",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/15",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/mkpipeline.sh",
+  "short_name": "mkpipeline",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/16",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/coverage_report.sh",
+  "short_name": "coverage_report",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/17",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/cargo-test-miri-fast.sh",
+  "short_name": "cargo-test-miri-fast",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/18",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/preview-docs.sh",
+  "short_name": "preview-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/19",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-docs.sh",
+  "short_name": "lint-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/20",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-fast.sh",
+  "short_name": "lint-fast",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/21",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-python-docs.sh",
+  "short_name": "check-python-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/22",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-python-discouraged.sh",
+  "short_name": "check-python-discouraged",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/23",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-test-history-versioning.sh",
+  "short_name": "check-test-history-versioning",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/24",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-shell-files.sh",
+  "short_name": "check-shell-files",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/25",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-protobuf.sh",
+  "short_name": "check-protobuf",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/26",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-copyright.sh",
+  "short_name": "check-copyright",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/27",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-python-files.sh",
+  "short_name": "check-python-files",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/28",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-cargo.sh",
+  "short_name": "check-cargo",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/29",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-bazel.sh",
+  "short_name": "check-bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/30",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-python-formatting.sh",
+  "short_name": "check-python-formatting",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/31",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-rust-version.sh",
+  "short_name": "check-rust-version",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/32",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-new-line.sh",
+  "short_name": "check-new-line",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/33",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-mzcompose-files.sh",
+  "short_name": "check-mzcompose-files",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/34",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-rust-test-attributes.sh",
+  "short_name": "check-rust-test-attributes",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/35",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/checks/check-generation.sh",
+  "short_name": "check-generation",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/36",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/before/can-lint.sh",
+  "short_name": "can-lint",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/37",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-main/after/check-no-diff.sh",
+  "short_name": "check-no-diff",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/38",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-deps.sh",
+  "short_name": "lint-deps",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/39",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/check-merge-with-target.sh",
+  "short_name": "check-merge-with-target",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/40",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/test/lint-docs-catalog.sh",
+  "short_name": "lint-docs-catalog",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/41",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/deploy/devsite.sh",
+  "short_name": "devsite",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/42",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/mkpipeline.sh",
+  "short_name": "mkpipeline",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/43",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/deploy_website/website.sh",
+  "short_name": "website",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/44",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/builder/root-shell.sh",
+  "short_name": "root-shell",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/45",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/ci/builder/pyright-version.sh",
+  "short_name": "pyright-version",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/46",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/doc/user/sql-grammar/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/47",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/src/aws-util/src/setup_test_env_mz.sh",
+  "short_name": "setup_test_env_mz",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/48",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/src/clusterd/ci/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/49",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/src/environmentd/ci/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/50",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/MaterializeInc/materialize.git",
+  "relative_path": "materialize/src/persist/setup_test_env_mz.sh",
+  "short_name": "setup_test_env_mz",
+  "timestamp": "10/22/2024",
+  "identifier": "materialize_rFYQWH/51",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

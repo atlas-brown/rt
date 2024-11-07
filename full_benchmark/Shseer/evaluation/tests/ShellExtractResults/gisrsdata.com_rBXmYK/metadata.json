@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/ruiduobao/gisrsdata.com.git",
+  "relative_path": "gisrsdata.com/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "gisrsdata.com_rBXmYK/0",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ruiduobao/gisrsdata.com.git",
+  "relative_path": "gisrsdata.com/baiduPush.sh",
+  "short_name": "baiduPush",
+  "timestamp": "10/22/2024",
+  "identifier": "gisrsdata.com_rBXmYK/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

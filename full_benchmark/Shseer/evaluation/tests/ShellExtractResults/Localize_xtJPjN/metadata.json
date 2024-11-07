@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/marmelroy/Localize-Swift.git",
+  "relative_path": "Localize-Swift/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "Localize_xtJPjN/0",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

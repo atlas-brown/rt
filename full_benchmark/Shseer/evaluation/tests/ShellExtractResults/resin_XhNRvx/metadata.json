@@ -1,0 +1,60 @@
+[
+ {
+  "repo": "https://github.com/balena-io-library/resin-armhfv7-debian.git",
+  "relative_path": "resin-armhfv7-debian/mkimage.sh",
+  "short_name": "mkimage",
+  "timestamp": "10/22/2024",
+  "identifier": "resin_XhNRvx/0",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/balena-io-library/resin-armhfv7-debian.git",
+  "relative_path": "resin-armhfv7-debian/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "resin_XhNRvx/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/balena-io-library/resin-armhfv7-debian.git",
+  "relative_path": "resin-armhfv7-debian/automation/jenkins-build.sh",
+  "short_name": "jenkins-build",
+  "timestamp": "10/22/2024",
+  "identifier": "resin_XhNRvx/2",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/balena-io-library/resin-armhfv7-debian.git",
+  "relative_path": "resin-armhfv7-debian/automation/build-image.sh",
+  "short_name": "build-image",
+  "timestamp": "10/22/2024",
+  "identifier": "resin_XhNRvx/3",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

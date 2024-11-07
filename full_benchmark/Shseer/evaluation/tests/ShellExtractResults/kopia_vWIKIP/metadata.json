@@ -1,0 +1,218 @@
+[
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/retry.sh",
+  "short_name": "retry",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/make-tgz.sh",
+  "short_name": "make-tgz",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/1",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/homebrew-publish.sh",
+  "short_name": "homebrew-publish",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/2",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/sign.sh",
+  "short_name": "sign",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/3",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/docker-publish.sh",
+  "short_name": "docker-publish",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/4",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/recovery-job.sh",
+  "short_name": "recovery-job",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/5",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/apt-publish.sh",
+  "short_name": "apt-publish",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/6",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/scoop-publish.sh",
+  "short_name": "scoop-publish",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/7",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/rpm-publish.sh",
+  "short_name": "rpm-publish",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/8",
+  "posix_compliant": false,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/node_env.sh",
+  "short_name": "node_env",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/9",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tools/robustness-job.sh",
+  "short_name": "robustness-job",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/10",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tests/socketactivation_test/server_wrap.sh",
+  "short_name": "server_wrap",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/11",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tests/perf_benchmark/perf-benchmark-setup.sh",
+  "short_name": "perf-benchmark-setup",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/12",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/tests/perf_benchmark/perf-benchmark.sh",
+  "short_name": "perf-benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/13",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kopia/kopia.git",
+  "relative_path": "kopia/icons/convert.sh",
+  "short_name": "convert",
+  "timestamp": "10/22/2024",
+  "identifier": "kopia_vWIKIP/14",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

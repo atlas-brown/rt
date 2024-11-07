@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/b-ash/keg.git",
+  "relative_path": "keg/KegService/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "keg_ClgMuY/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/b-ash/keg.git",
+  "relative_path": "keg/KegService/develop.sh",
+  "short_name": "develop",
+  "timestamp": "10/22/2024",
+  "identifier": "keg_ClgMuY/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

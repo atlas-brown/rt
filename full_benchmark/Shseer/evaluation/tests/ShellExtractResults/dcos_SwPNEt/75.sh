@@ -1,0 +1,88 @@
+#!/bin/bash
+
+# TODO(cmaloney): Check prerequisites installed (glog, protobuf, boost)
+pushd "/pkg/src/mesos"
+
+# Apply patches from packages/mesos/patch directory. All patches are numbered
+for patch in /pkg/extra/patches/*; do
+  git -c user.name="Mesosphere CI" -c user.email="mesosphere-ci@users.noreply.github.com" am $patch
+done
+
+mkdir -p build
+pushd build
+
+cmake .. \
+  -DENABLE_SSL=ON \
+  -DOPENSSL_ROOT_DIR=/opt/mesosphere/active/openssl \
+  -DENABLE_LIBEVENT=ON \
+  -DUNBUNDLED_LIBEVENT=ON \
+  -DLIBEVENT_ROOT_DIR=/opt/mesosphere/active/libevent \
+  -DENABLE_LAUNCHER_SEALING=ON \
+  -DENABLE_JEMALLOC_ALLOCATOR=ON \
+  -DENABLE_SECCOMP_ISOLATOR=ON \
+  -DUNBUNDLED_LIBSECCOMP=ON \
+  -DLIBSECCOMP_ROOT_DIR=/opt/mesosphere/active/libseccomp \
+  -DBOOST_ROOT_DIR=/opt/mesosphere/active/boost-libs \
+  -DCURL_ROOT_DIR=/opt/mesosphere/active/curl \
+  -DENABLE_JAVA=ON \
+  -DBUILD_TESTING=OFF \
+  -DENABLE_INSTALL_MODULE_DEPENDENCIES=ON \
+  -DCMAKE_INSTALL_RPATH=/opt/mesosphere/lib \
+  -DMESOS_FINAL_PREFIX=/opt/mesosphere/active/mesos \
+  -DCMAKE_BUILD_TYPE=Release
+
+cmake --build . --config Release -- -j$NUM_CORES
+
+cmake -DCMAKE_INSTALL_PREFIX=$PKG_PATH -P cmake_install.cmake
+
+popd
+popd
+
+# TODO(cmaloney): Make these a seperate mesos library package.
+# Copy the shared libraries from the system which mesos requires
+libdir="$PKG_PATH/lib"
+cp /usr/lib/x86_64-linux-gnu/libsasl2.so.2 "$libdir"
+cp -r /usr/lib/x86_64-linux-gnu/sasl2 "$libdir"
+cp /usr/lib/x86_64-linux-gnu/libsvn_delta-1.so.1 "$libdir"
+cp /usr/lib/x86_64-linux-gnu/libsvn_subr-1.so.1 "$libdir"
+cp /usr/lib/x86_64-linux-gnu/libapr-1.so.0 "$libdir"
+cp /usr/lib/x86_64-linux-gnu/libaprutil-1.so.0 "$libdir"
+cp /usr/lib/x86_64-linux-gnu/libdb-5.3.so "$libdir"
+
+export PKG_PATH=$PKG_PATH
+systemd_master="$PKG_PATH"/dcos.target.wants_master/dcos-mesos-master.service
+mkdir -p "$(dirname "$systemd_master")"
+envsubst '$PKG_PATH' < /pkg/extra/dcos-mesos-master.service > "$systemd_master"
+
+systemd_slave="$PKG_PATH"/dcos.target.wants_slave/dcos-mesos-slave.service
+mkdir -p "$(dirname "$systemd_slave")"
+envsubst '$PKG_PATH' < /pkg/extra/dcos-mesos-slave.service > "$systemd_slave"
+
+systemd_slave_socket="$PKG_PATH"/dcos.target.wants_slave/dcos-mesos-slave.socket
+mkdir -p "$(dirname "$systemd_slave_socket")"
+envsubst '$PKG_PATH' < /pkg/extra/dcos-mesos-slave.socket > "$systemd_slave_socket"
+
+systemd_slave_public="$PKG_PATH"/dcos.target.wants_slave_public/dcos-mesos-slave-public.service
+mkdir -p "$(dirname "$systemd_slave_public")"
+envsubst '$PKG_PATH' < /pkg/extra/dcos-mesos-slave-public.service > "$systemd_slave_public"
+
+systemd_slave_public_socket="$PKG_PATH"/dcos.target.wants_slave_public/dcos-mesos-slave-public.socket
+mkdir -p "$(dirname "$systemd_slave_public_socket")"
+envsubst '$PKG_PATH' < /pkg/extra/dcos-mesos-slave-public.socket > "$systemd_slave_public_socket"
+
+
+# setup additonal volume service which discovers /dcos/volumeN mounts and creates an optional
+# EnvironmentFile that contains a MESOS_RESOURCES env variable. This MESOS_RESOURCES adds
+# Mount resources to another existing MESOS_RESOURCES variable, which means the EnvironmentFile
+# created by this service has to be the last
+disk_resource_script="$PKG_PATH/bin/make_disk_resources.py"
+cp /pkg/extra/make_disk_resources.py "$disk_resource_script"
+chmod +x "$disk_resource_script"
+
+upgrade_cni_script="$PKG_PATH/bin/upgrade_cni.py"
+cp /pkg/extra/upgrade_cni.py "$upgrade_cni_script"
+chmod +x "$upgrade_cni_script"
+
+mesos_start_wrapper="$PKG_PATH/bin/start_mesos.sh"
+cp /pkg/extra/start_mesos.sh "$mesos_start_wrapper"
+chmod +x "$mesos_start_wrapper"

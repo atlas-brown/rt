@@ -1,0 +1,266 @@
+[
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/buildsinglepage.sh",
+  "short_name": "buildsinglepage",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/server.sh",
+  "short_name": "server",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/2",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/3",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/util/shrinksafe/tests/runner.sh",
+  "short_name": "runner",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/4",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/util/shrinksafe/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/5",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/util/checkstyle/checkstyle.sh",
+  "short_name": "checkstyle",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/6",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/util/doh/robot/compilerobot.sh",
+  "short_name": "compilerobot",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/7",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/util/doh/runner.sh",
+  "short_name": "runner",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/8",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/util/buildscripts/mk_branch.sh",
+  "short_name": "mk_branch",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/9",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/util/buildscripts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/10",
+  "posix_compliant": true,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/util/buildscripts/clean_release.sh",
+  "short_name": "clean_release",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/11",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/util/buildscripts/cdnBuild.sh",
+  "short_name": "cdnBuild",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/12",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/util/buildscripts/build_release.sh",
+  "short_name": "build_release",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/13",
+  "posix_compliant": false,
+  "line_count": 100,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/dojox/storage/buildFlashStorage.sh",
+  "short_name": "buildFlashStorage",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/14",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/dojox/flash/tests/buildFlashTest.sh",
+  "short_name": "buildFlashTest",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/15",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/dojox/mobile/build/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/16",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/dojox/mobile/themes/utils/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/17",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/dojox/mobile/themes/utils/cleanup.sh",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/18",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/dojo/tests/_base/loader/requirejs/layers/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/19",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PeachyPrinter/build-instructions.git",
+  "relative_path": "build-instructions/src/dojo/tests/_base/loader/i18n-exhaustive/i18n-test/build-test-targets.sh",
+  "short_name": "build-test-targets",
+  "timestamp": "10/22/2024",
+  "identifier": "build_HYNuBO/20",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ }
+]

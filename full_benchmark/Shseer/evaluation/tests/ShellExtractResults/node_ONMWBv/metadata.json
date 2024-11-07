@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/jfhbrook/node-ecstatic.git",
+  "relative_path": "node-ecstatic/example/cli.sh",
+  "short_name": "cli",
+  "timestamp": "10/22/2024",
+  "identifier": "node_ONMWBv/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/jfhbrook/node-ecstatic.git",
+  "relative_path": "node-ecstatic/scripts/get-icons.sh",
+  "short_name": "get-icons",
+  "timestamp": "10/22/2024",
+  "identifier": "node_ONMWBv/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

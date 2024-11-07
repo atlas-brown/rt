@@ -1,0 +1,113 @@
+#!/bin/bash
+
+# Build packages for distribution on PyPI
+# and execute some sanity checks on them
+#
+# note: must be executed from the root directory of the project
+
+# first clean up the local environment
+echo "..... Clean up first"
+find . -type f -name '*.pyc' -delete
+find . -type d -name __pycache__ | xargs rm -rf
+find . -type d -name '*.egg-info' | xargs rm -rf
+rm -rf build/ .cache/ dist/ .eggs/ .tox/ .venv/
+rm -rf tcms/node_modules/
+
+# ensure fresh translations are compiled in
+find tcms/locale/ -name "*.mo" -delete
+./manage.py compilemessages
+
+if [ -z "$(find -type f -name "*.mo")" ]; then
+    echo "ERROR: .mo files not found"
+    exit 1
+fi
+
+echo "..... Installing npm dependencies"
+pushd tcms/
+set -e
+./npm-install
+set +e
+find ./node_modules -type d -empty -delete
+# workaround ValueError: ZIP does not support timestamps before 1980
+# for wheel packages because some NPM files have their timestamp
+# as 01-01-1970
+find ./node_modules -type f  -exec touch {} +
+
+# Remove these directories b/c setutools insists on including them
+# into the kiwitcms package, which in turn generates deprecation warning
+# and b/c I can't figure out how to tell find_namespace_packages() to
+# actually exclude them!
+rm -rf ./node_modules/@humanwhocodes/object-schema/tests
+rm -rf ./node_modules/patternfly-bootstrap-combobox/js/tests
+rm -rf ./node_modules/patternfly-bootstrap-treeview/tests
+popd
+
+# then build the packages
+echo "..... Building PyPI packages for kiwitcms"
+set -e
+$(which python) setup.py sdist >/dev/null
+$(which python) setup.py bdist_wheel >/dev/null
+set +e
+
+# we avoid installing twine inside buildroot b/c we're building
+# for release then. However twine is available locally and inside CI
+if [ -n "$(which twine)" ]; then
+    # check rst formatting of README before building the package
+    echo "..... Check rst formatting for PyPI"
+    twine check dist/* || exit 1
+fi
+
+# then run some sanity tests
+for PKG_NAME in kiwitcms; do
+    echo "..... Searching for .pyc files inside the built packages"
+    matched_files=`tar -tvf dist/$PKG_NAME-*.tar.gz | grep -c "\.pyc"`
+    if [ "$matched_files" -gt "0" ]; then
+        echo "ERROR: .pyc files found in .tar.gz package"
+        exit 1
+    fi
+    matched_files=`unzip -t dist/$PKG_NAME*.whl | grep -c "\.pyc"`
+    if [ "$matched_files" -gt "0" ]; then
+        echo "ERROR: .pyc files found in wheel package"
+        exit 1
+    fi
+done
+# exit on error from now on
+set -e
+
+# test for missing templates and static files in sub-packages
+tar -tvf dist/kiwitcms-*.tar.gz | grep "tcms/locale"
+tar -tvf dist/kiwitcms-*.tar.gz | grep "tcms/static"
+tar -tvf dist/kiwitcms-*.tar.gz | grep "tcms/static/js/bundle.js"
+tar -tvf dist/kiwitcms-*.tar.gz | grep "tcms/templates"
+
+tar -tvf dist/kiwitcms-*.tar.gz | grep "tcms/testcases/static"
+tar -tvf dist/kiwitcms-*.tar.gz | grep "tcms/testcases/templates"
+
+tar -tvf dist/kiwitcms-*.tar.gz | grep "tcms/testplans/static"
+tar -tvf dist/kiwitcms-*.tar.gz | grep "tcms/testplans/templates"
+
+tar -tvf dist/kiwitcms-*.tar.gz | grep "tcms/testruns/static"
+tar -tvf dist/kiwitcms-*.tar.gz | grep "tcms/testruns/templates"
+
+echo "..... Trying to install the new tarballs inside a virtualenv"
+$(which python) -m venv .venv/test-tarball
+source .venv/test-tarball/bin/activate
+pip install --upgrade setuptools pip
+# workaround for https://github.com/pypa/setuptools/issues/3424
+pip install setuptools-scm-git-archive
+pip install --no-binary :all: dist/kiwitcms*.tar.gz
+pip freeze | grep kiwitcms
+deactivate
+rm -rf .venv/
+
+echo "..... Trying to install the new wheels inside a virtualenv"
+$(which python) -m venv .venv/test-wheel
+source .venv/test-wheel/bin/activate
+pip install --upgrade setuptools pip
+pip install -r requirements/tarballs.txt
+pip install --only-binary :all: dist/kiwitcms*.whl
+pip freeze | grep kiwitcms
+deactivate
+rm -rf .venv/
+
+echo "..... PASS"

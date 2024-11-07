@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/rgarcia/dochub.git",
+  "relative_path": "dochub/scraper/css-cssinfos/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "dochub_mEbzQr/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

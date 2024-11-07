@@ -1,0 +1,152 @@
+#!/usr/bin/env bash
+# GNU bash, version 4.3.11(1)-release (x86_64-unknown-linux-gnu)
+#
+
+# Send a tmux, desktop, and audio notification after the completion
+# of the given command when using tmux and libnotify.
+#
+# Requires: tmux
+# Recommended: espeak, libnotify
+#
+# TODO: Get the rest of the parameters working
+
+# Functions {{{1
+verbose() {
+  if [[ "$verbose" = "1" ]]; then
+    echo "$1" >&2
+  fi
+}
+
+error() {
+  echo "$1" >&2
+}
+# }}}
+# Usage {{{1
+#
+usage() {
+cat <<EOD
+$(basename $0) sends a message via various notification daemons simultaneously
+
+Usage: $(basename $0) [OPTION] MESSAGE
+
+Options
+  -?, --help                        print this help and exit
+  -v, --verbose                     increase verbosity
+  -u, --urgency=LEVEL               specifies the urgency level (low, normal, critical).
+  -t, --expire-time=TIME            specifies the timeout in milliseconds
+  -a, --app-name=APP_NAME           specifies the app name for the icon
+  -i, --icon=ICON[,ICON...]         specifies an icon filename or stock icon to display.
+  -c, --category=TYPE[,TYPE...]     specifies the notification category.
+  -h, --hint=type:name:value        specifies basic extra data to pass. valid
+                                    types are int, double, string and byte.
+EOD
+exit 1
+}
+# }}}
+# Parameters {{{1
+#
+urgency=""
+
+while :
+do
+  case $1 in
+    --help | -\?)
+      usage
+      exit 0
+      ;;
+    -v | --verbose)
+      # Each instance of -v adds 1 to verbosity
+      local verbose=$((verbose+1))
+      shift
+      ;;
+    -u | --urgency=)
+      shift
+      urgency="$1"
+      shift
+      ;;
+    -t | --expire-time=)
+      expiretime="$1"
+      shift 2
+      ;;
+    -a | --app-name=)
+      appname="$1"
+      shift 2
+      ;;
+    -i | --icon=)
+      icon="$1"
+      shift 2
+      ;;
+    -c | --category=)
+      category="$1"
+      shift 2
+      ;;
+    -h | --hint=)
+      hint="$1"
+      shift 2
+      ;;
+    --) # End of all options
+      shift
+      break
+      ;;
+    -*)
+      echo "FATAL: Unknown option : $1" >&2
+      exit 1
+      ;;
+    *)  # no more options. Stop while loop
+      break
+      ;;
+  esac
+done
+# }}}
+# Business {{{1
+# Build the notification string
+notification="$*"
+
+# tmux
+if type tmux &> /dev/null; then
+  if [[ "$urgency" == "critical" ]]; then
+    while read -r line; do
+#     tmux set-option -ga display-time 10s
+      tmux display-message -t "$line" "$notification" 2> /dev/null
+      tmux display-message -p -t "$line" "$notification" 2> /dev/null
+
+    done < <(tmux list-windows -F "#I")
+
+#   wall "$notification"
+  else
+    if type alignc &> /dev/null; then
+      tmux display-message "$(alignc "$notification")" 2> /dev/null
+    else
+      tmux display-message "$notification" 2> /dev/null
+    fi
+  fi
+fi
+
+# notify-send
+if type notify-send &> /dev/null; then
+  if [[ -z "$urgency" ]]; then
+    notify-send "$notification"
+  else
+    notify-send -u "$urgency" "$notification"
+  fi
+fi
+
+# espeak
+if type espeak &> /dev/null; then
+  if [[ "$urgency" == "critical" ]]; then
+#   espeak "$notification"
+    espeak -s 175 -k 20 -v en-french "$notification"
+  fi
+fi
+
+# terminal-notifier (osx)
+if type terminal-notifier &> /dev/null; then
+  if [[ "$urgency" == "critical" ]]; then
+    terminal-notifier -sound Basso -ignoreDnD -title "CRITICAL" -message "$notification"
+  else
+    terminal-notifier -message "$notification"
+  fi
+fi
+# }}}
+
+# vim: ft=sh foldmethod=marker:

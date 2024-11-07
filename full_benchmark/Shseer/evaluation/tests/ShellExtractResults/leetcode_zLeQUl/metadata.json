@@ -1,0 +1,83 @@
+[
+ {
+  "repo": "https://github.com/doocs/leetcode.git",
+  "relative_path": "leetcode/.husky/_/husky.sh",
+  "short_name": "husky",
+  "timestamp": "10/22/2024",
+  "identifier": "leetcode_zLeQUl/0",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/doocs/leetcode.git",
+  "relative_path": "leetcode/.husky/commit-msg",
+  "short_name": "commit-msg",
+  "timestamp": "10/22/2024",
+  "identifier": "leetcode_zLeQUl/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/doocs/leetcode.git",
+  "relative_path": "leetcode/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "leetcode_zLeQUl/2",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/doocs/leetcode.git",
+  "relative_path": "leetcode/solution/0100-0199/0193.Valid Phone Numbers/Solution.sh",
+  "short_name": "Solution",
+  "timestamp": "10/22/2024",
+  "identifier": "leetcode_zLeQUl/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/doocs/leetcode.git",
+  "relative_path": "leetcode/solution/0100-0199/0192.Word Frequency/Solution.sh",
+  "short_name": "Solution",
+  "timestamp": "10/22/2024",
+  "identifier": "leetcode_zLeQUl/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/doocs/leetcode.git",
+  "relative_path": "leetcode/solution/0100-0199/0195.Tenth Line/Solution.sh",
+  "short_name": "Solution",
+  "timestamp": "10/22/2024",
+  "identifier": "leetcode_zLeQUl/5",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/doocs/leetcode.git",
+  "relative_path": "leetcode/solution/0100-0199/0194.Transpose File/Solution.sh",
+  "short_name": "Solution",
+  "timestamp": "10/22/2024",
+  "identifier": "leetcode_zLeQUl/6",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

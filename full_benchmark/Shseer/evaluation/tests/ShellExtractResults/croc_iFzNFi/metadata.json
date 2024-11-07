@@ -1,0 +1,60 @@
+[
+ {
+  "repo": "https://github.com/schollz/croc.git",
+  "relative_path": "croc/croc-entrypoint.sh",
+  "short_name": "croc-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "croc_iFzNFi/0",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/schollz/croc.git",
+  "relative_path": "croc/src/install/prepare-sources-tarball.sh",
+  "short_name": "prepare-sources-tarball",
+  "timestamp": "10/22/2024",
+  "identifier": "croc_iFzNFi/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/schollz/croc.git",
+  "relative_path": "croc/src/install/upload-src-tarball.sh",
+  "short_name": "upload-src-tarball",
+  "timestamp": "10/22/2024",
+  "identifier": "croc_iFzNFi/2",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/schollz/croc.git",
+  "relative_path": "croc/src/install/default.txt",
+  "short_name": "default.txt",
+  "timestamp": "10/22/2024",
+  "identifier": "croc_iFzNFi/3",
+  "posix_compliant": false,
+  "line_count": 502,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

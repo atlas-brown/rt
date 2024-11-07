@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/heykeetae/Self-Attention-GAN.git",
+  "relative_path": "Self-Attention-GAN/download.sh",
+  "short_name": "download",
+  "timestamp": "10/22/2024",
+  "identifier": "Self_BkrAzQ/0",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

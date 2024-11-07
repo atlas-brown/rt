@@ -1,0 +1,33 @@
+[
+ {
+  "repo": "https://github.com/nodemailer/wildduck-dockerized.git",
+  "relative_path": "wildduck-dockerized/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "wildduck_EQkTnU/0",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nodemailer/wildduck-dockerized.git",
+  "relative_path": "wildduck-dockerized/default-config/haraka/dkim/dkim_key_gen.sh",
+  "short_name": "dkim_key_gen",
+  "timestamp": "10/22/2024",
+  "identifier": "wildduck_EQkTnU/1",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/ceph/gmock.git",
+  "relative_path": "gmock/scripts/gmock-config.in",
+  "short_name": "gmock-config.in",
+  "timestamp": "10/22/2024",
+  "identifier": "gmock_xAxZqs/0",
+  "posix_compliant": true,
+  "line_count": 212,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

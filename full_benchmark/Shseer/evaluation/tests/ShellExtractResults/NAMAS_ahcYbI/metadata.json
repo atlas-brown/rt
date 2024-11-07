@@ -1,0 +1,78 @@
+[
+ {
+  "repo": "https://github.com/facebookarchive/NAMAS.git",
+  "relative_path": "NAMAS/construct_data.sh",
+  "short_name": "construct_data",
+  "timestamp": "10/22/2024",
+  "identifier": "NAMAS_ahcYbI/0",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/NAMAS.git",
+  "relative_path": "NAMAS/DUC/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "NAMAS_ahcYbI/1",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/NAMAS.git",
+  "relative_path": "NAMAS/DUC/eval.sh",
+  "short_name": "eval",
+  "timestamp": "10/22/2024",
+  "identifier": "NAMAS_ahcYbI/2",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/NAMAS.git",
+  "relative_path": "NAMAS/prep_torch_data.sh",
+  "short_name": "prep_torch_data",
+  "timestamp": "10/22/2024",
+  "identifier": "NAMAS_ahcYbI/3",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/NAMAS.git",
+  "relative_path": "NAMAS/test_model.sh",
+  "short_name": "test_model",
+  "timestamp": "10/22/2024",
+  "identifier": "NAMAS_ahcYbI/4",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/NAMAS.git",
+  "relative_path": "NAMAS/train_model.sh",
+  "short_name": "train_model",
+  "timestamp": "10/22/2024",
+  "identifier": "NAMAS_ahcYbI/5",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

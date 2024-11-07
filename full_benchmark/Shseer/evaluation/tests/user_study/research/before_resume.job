@@ -1,0 +1,81 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -N ResumeM4
+#$ -pe smp 12
+#$ -o ./logfiles/pacbio_resume.log
+#$ -j y
+#$ -cwd
+#$ -V
+#$ -m e
+set -ue
+
+REFERENCE=${PWD}/data/NC_037304_1.fa
+READ=${PWD}/result/pacbio/filtered_read/filtered_read.fa
+OUTPUT=${PWD}/result/pacbio/
+RESUME=${PWD}/result/pacbio_resume/
+CORES=12
+ROOT=${PWD}
+
+
+### ---- Decompose --- 
+mmmm resume --alignments ${OUTPUT}/last_db/alignments.tab --output ${RESUME} \
+     --reads ${READ} --contigs ${REFERENCE} \
+     --dump_file ${PWD}/logfiles/pacbio.log\
+     --self_alignments ${OUTPUT}/last_db/self.tab \
+     -vv 
+exit 0;
+
+# ---- Assembly(by Flye) ----
+for reads in $( find ${OUTPUT} -maxdepth 1 -name "*.fasta")
+do
+    ASM_PATH=${reads%%.fasta}
+    INDEX=${ASM_PATH##*/}
+    mkdir -p ${RESUME}/${INDEX}
+    genomesize=$(cargo run --release --bin estimate_genome_size -- ${reads} ${REFERENCE} ${OUTPUT}/last_db/alignments.tab ${RESUME}/${INDEX}/reads.fa)
+    canu \
+        -p $INDEX\
+        -d ${RESUME}/${INDEX} \
+        genomeSize=${genomesize}\
+        useGrid=false\
+        -pacbio-raw \
+        ${RESUME}/${INDEX}/reads.fa
+    # flye \
+    #     --asm-coverage 40\
+    #     --pacbio-raw $reads \
+    #     --meta \
+	#     --genome-size ${genomesize} \
+    #     --threads ${CORES} \
+    #     --iterations 3 \
+    #     --out-dir ${RESUME}/${INDEX}
+done
+exit 0;
+
+# ---- Align back all reads ----
+cargo run --release --bin collect_contigs -- ${RESUME}
+for contigs in  $( find ${RESUME} -maxdepth 1 -name "*contigs.fasta" )
+do
+    reads=${contigs%%.contigs.fasta}.fasta
+    cd ${OUTPUT}/last_db
+    lastdb -R00 temp ${contigs}
+    last-train -P${CORES} -Q0 temp ${reads} > temp.matrix
+    lastal -f maf -P${CORES} -R00 -Q0 -p temp.matrix temp ${reads} |\
+        last-split | maf-convert tab --join 1000 > ${reads%%.fasta}.reads.aln.tab
+    last-train -P${CORES} -Q0 reference ${contigs} > temp.matrix
+    lastal -f tab -P ${CORES} -R00 -Q0 -p temp.matrix reference ${contigs} \
+           > ${contigs%%.fasta}.aln.tab
+    cd ${ROOT}
+done
+
+cat ${RESUME}/*.reads.aln.tab > ${RESUME}/allreads.aln.tab
+cat ${RESUME}/*.contigs.aln.tab > ${RESUME}/allcontigs.aln.tab
+rm ${RESUME}/*.reads.aln.tab ${RESUME}/*.contigs.aln.tab
+
+
+# ---- Create viewer files -----
+mmmm create_viewer --assignments ${OUTPUT}/readlist.tsv \
+     --contig_aln ${RESUME}/allcontigs.aln.tab \
+     --contigs ${RESUME}/multipartite.fasta \
+     --output_dir ${RESUME}/viewer/ \
+     --read_aln ${RESUME}/allreads.aln.tab \
+     --reads ${READ} \
+     --reference ${REFERENCE}

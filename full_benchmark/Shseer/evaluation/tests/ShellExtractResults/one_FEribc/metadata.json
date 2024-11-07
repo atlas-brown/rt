@@ -1,0 +1,165 @@
+[
+ {
+  "repo": "https://github.com/jinwyp/one_click_script.git",
+  "relative_path": "one_click_script/bench.sh",
+  "short_name": "bench",
+  "timestamp": "10/22/2024",
+  "identifier": "one_FEribc/0",
+  "posix_compliant": false,
+  "line_count": 347,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jinwyp/one_click_script.git",
+  "relative_path": "one_click_script/install_kernel.sh",
+  "short_name": "install_kernel",
+  "timestamp": "10/22/2024",
+  "identifier": "one_FEribc/1",
+  "posix_compliant": false,
+  "line_count": 2554,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jinwyp/one_click_script.git",
+  "relative_path": "one_click_script/trojan_v2ray_install.sh",
+  "short_name": "trojan_v2ray_install",
+  "timestamp": "10/22/2024",
+  "identifier": "one_FEribc/2",
+  "posix_compliant": false,
+  "line_count": 7157,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jinwyp/one_click_script.git",
+  "relative_path": "one_click_script/netflix_check.sh",
+  "short_name": "netflix_check",
+  "timestamp": "10/22/2024",
+  "identifier": "one_FEribc/3",
+  "posix_compliant": false,
+  "line_count": 412,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jinwyp/one_click_script.git",
+  "relative_path": "one_click_script/linux_install_software.sh",
+  "short_name": "linux_install_software",
+  "timestamp": "10/22/2024",
+  "identifier": "one_FEribc/4",
+  "posix_compliant": false,
+  "line_count": 5149,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jinwyp/one_click_script.git",
+  "relative_path": "one_click_script/acuteangle/autorun",
+  "short_name": "autorun",
+  "timestamp": "10/22/2024",
+  "identifier": "one_FEribc/5",
+  "posix_compliant": false,
+  "line_count": 138,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jinwyp/one_click_script.git",
+  "relative_path": "one_click_script/acuteangle/date.sh",
+  "short_name": "date",
+  "timestamp": "10/22/2024",
+  "identifier": "one_FEribc/6",
+  "posix_compliant": false,
+  "line_count": 158,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/jinwyp/one_click_script.git",
+  "relative_path": "one_click_script/dsm/openwrt.sh",
+  "short_name": "openwrt",
+  "timestamp": "10/22/2024",
+  "identifier": "one_FEribc/7",
+  "posix_compliant": true,
+  "line_count": 364,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jinwyp/one_click_script.git",
+  "relative_path": "one_click_script/dsm/pve.sh",
+  "short_name": "pve",
+  "timestamp": "10/22/2024",
+  "identifier": "one_FEribc/8",
+  "posix_compliant": false,
+  "line_count": 1942,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jinwyp/one_click_script.git",
+  "relative_path": "one_click_script/dsm/FixSynoboot.sh",
+  "short_name": "FixSynoboot",
+  "timestamp": "10/22/2024",
+  "identifier": "one_FEribc/9",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

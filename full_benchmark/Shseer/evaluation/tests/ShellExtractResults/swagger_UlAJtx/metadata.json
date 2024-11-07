@@ -1,0 +1,74 @@
+[
+ {
+  "repo": "https://github.com/swagger-api/swagger-ui.git",
+  "relative_path": "swagger-ui/docker/docker-entrypoint.d/40-swagger-ui.sh",
+  "short_name": "40-swagger-ui",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_UlAJtx/0",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/swagger-api/swagger-ui.git",
+  "relative_path": "swagger-ui/swagger-ui-dist-package/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_UlAJtx/1",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/swagger-api/swagger-ui.git",
+  "relative_path": "swagger-ui/release/get-changelog.sh",
+  "short_name": "get-changelog",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_UlAJtx/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/swagger-api/swagger-ui.git",
+  "relative_path": "swagger-ui/release/check-for-breaking-changes.sh",
+  "short_name": "check-for-breaking-changes",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_UlAJtx/3",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/swagger-api/swagger-ui.git",
+  "relative_path": "swagger-ui/flavors/swagger-ui-react/release/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_UlAJtx/4",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

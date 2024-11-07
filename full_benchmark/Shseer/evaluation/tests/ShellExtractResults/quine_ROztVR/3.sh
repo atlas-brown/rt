@@ -1,0 +1,1 @@
+x='x=\x27%s\x27;printf "$x" "$x"';printf "$x" "$x"

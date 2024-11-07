@@ -1,0 +1,8 @@
+#!/bin/bash
+rm -fr uaa &&
+git clone --branch 4.32.0 https://github.com/cloudfoundry/uaa.git &&
+cd uaa &&
+./gradlew clean build -x test &&
+cd .. &&
+cp uaa/uaa/build/libs/cloudfoundry-identity-uaa-*.war ./cloudfoundry-identity-uaa.war
+

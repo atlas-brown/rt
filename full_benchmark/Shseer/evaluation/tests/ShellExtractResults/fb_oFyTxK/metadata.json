@@ -1,0 +1,109 @@
+[
+ {
+  "repo": "https://github.com/facebookarchive/fb-adb.git",
+  "relative_path": "fb-adb/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "fb_oFyTxK/0",
+  "posix_compliant": true,
+  "line_count": 351,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/fb-adb.git",
+  "relative_path": "fb-adb/stub-arm/configure",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "fb_oFyTxK/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/facebookarchive/fb-adb.git",
+  "relative_path": "fb-adb/stub-arm-pic/configure",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "fb_oFyTxK/2",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/fb-adb.git",
+  "relative_path": "fb-adb/mkstubsc.sh",
+  "short_name": "mkstubsc",
+  "timestamp": "10/22/2024",
+  "identifier": "fb_oFyTxK/3",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/fb-adb.git",
+  "relative_path": "fb-adb/stub-local/configure",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "fb_oFyTxK/4",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/facebookarchive/fb-adb.git",
+  "relative_path": "fb-adb/stub-config.sh",
+  "short_name": "stub-config",
+  "timestamp": "10/22/2024",
+  "identifier": "fb_oFyTxK/5",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/fb-adb.git",
+  "relative_path": "fb-adb/stub-x86/configure",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "fb_oFyTxK/6",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/facebookarchive/fb-adb.git",
+  "relative_path": "fb-adb/stub-x86-pic/configure",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "fb_oFyTxK/7",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/fb-adb.git",
+  "relative_path": "fb-adb/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "fb_oFyTxK/8",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ }
+]

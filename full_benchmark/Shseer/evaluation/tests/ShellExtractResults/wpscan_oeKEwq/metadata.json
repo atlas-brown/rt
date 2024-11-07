@@ -1,0 +1,32 @@
+[
+ {
+  "repo": "https://github.com/wpscanteam/wpscan.git",
+  "relative_path": "wpscan/bin/wpscan-docker",
+  "short_name": "wpscan-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "wpscan_oeKEwq/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/wpscanteam/wpscan.git",
+  "relative_path": "wpscan/bin/wpscan-docker-dev",
+  "short_name": "wpscan-docker-dev",
+  "timestamp": "10/22/2024",
+  "identifier": "wpscan_oeKEwq/1",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/dabeaz/python-cookbook.git",
+  "relative_path": "python-cookbook/src/11/adding_ssl_to_network_servers/makecerts.sh",
+  "short_name": "makecerts",
+  "timestamp": "10/22/2024",
+  "identifier": "python_HnGtql/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ }
+]

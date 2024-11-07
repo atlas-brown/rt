@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/johnboiles/obs-mac-virtualcam.git",
+  "relative_path": "obs-mac-virtualcam/ci/macos/package-macos.sh",
+  "short_name": "package-macos",
+  "timestamp": "10/22/2024",
+  "identifier": "obs_rqsxSK/0",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

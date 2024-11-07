@@ -1,0 +1,32 @@
+[
+ {
+  "repo": "https://github.com/gdy666/lucky.git",
+  "relative_path": "lucky/scripts/luckyservice",
+  "short_name": "luckyservice",
+  "timestamp": "10/22/2024",
+  "identifier": "lucky_JLqjjA/0",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/gdy666/lucky.git",
+  "relative_path": "lucky/scripts/misnap_init.sh",
+  "short_name": "misnap_init",
+  "timestamp": "10/22/2024",
+  "identifier": "lucky_JLqjjA/1",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

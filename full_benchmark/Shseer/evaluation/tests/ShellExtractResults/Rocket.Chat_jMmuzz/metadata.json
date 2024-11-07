@@ -1,0 +1,82 @@
+[
+ {
+  "repo": "https://github.com/RocketChat/Rocket.Chat.git",
+  "relative_path": "Rocket.Chat/fuselage.sh",
+  "short_name": "fuselage",
+  "timestamp": "10/22/2024",
+  "identifier": "Rocket.Chat_jMmuzz/0",
+  "posix_compliant": false,
+  "line_count": 117,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/RocketChat/Rocket.Chat.git",
+  "relative_path": "Rocket.Chat/apps/meteor/.docker-mongo/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "Rocket.Chat_jMmuzz/1",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/RocketChat/Rocket.Chat.git",
+  "relative_path": "Rocket.Chat/apps/meteor/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "Rocket.Chat_jMmuzz/2",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/RocketChat/Rocket.Chat.git",
+  "relative_path": "Rocket.Chat/apps/meteor/publish_packages.sh",
+  "short_name": "publish_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "Rocket.Chat_jMmuzz/3",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/RocketChat/Rocket.Chat.git",
+  "relative_path": "Rocket.Chat/apps/meteor/packages/rocketchat-livechat/plugin/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "Rocket.Chat_jMmuzz/4",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/RocketChat/Rocket.Chat.git",
+  "relative_path": "Rocket.Chat/apps/meteor/example-build-run.sh",
+  "short_name": "example-build-run",
+  "timestamp": "10/22/2024",
+  "identifier": "Rocket.Chat_jMmuzz/5",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

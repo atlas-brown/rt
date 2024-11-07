@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/mps-youtube/yewtube.git",
+  "relative_path": "yewtube/wheel_recipe.sh",
+  "short_name": "wheel_recipe",
+  "timestamp": "10/22/2024",
+  "identifier": "yewtube_LSdFSH/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ }
+]

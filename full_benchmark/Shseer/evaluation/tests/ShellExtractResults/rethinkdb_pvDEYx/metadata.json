@@ -1,0 +1,387 @@
+[
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/packaging/ami/build-ami-files/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/0",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/packaging/ami/build-ami-files/firstrun-init",
+  "short_name": "firstrun-init",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/1",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/packaging/ami/build-ami-files/firstrun.sh",
+  "short_name": "firstrun",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/2",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/packaging/ami/build-ami.sh",
+  "short_name": "build-ami",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/3",
+  "posix_compliant": false,
+  "line_count": 226,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/packaging/debian/prerm",
+  "short_name": "prerm",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/4",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/packaging/debian/preinst",
+  "short_name": "preinst",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/5",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/packaging/debian/postinst",
+  "short_name": "postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/6",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/packaging/debian/postrm",
+  "short_name": "postrm",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/7",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/packaging/assets/init/rethinkdb",
+  "short_name": "rethinkdb",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/8",
+  "posix_compliant": true,
+  "line_count": 180,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/packaging/assets/scripts/unused_port",
+  "short_name": "unused_port",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/9",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/zlib.sh",
+  "short_name": "zlib",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/10",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/libidn.sh",
+  "short_name": "libidn",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/11",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/pkg.sh",
+  "short_name": "pkg",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/12",
+  "posix_compliant": false,
+  "line_count": 342,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/protobuf.sh",
+  "short_name": "protobuf",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/13",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/gtest.sh",
+  "short_name": "gtest",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/14",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/openssl.sh",
+  "short_name": "openssl",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/15",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/curl.sh",
+  "short_name": "curl",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/16",
+  "posix_compliant": false,
+  "line_count": 96,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/boost.sh",
+  "short_name": "boost",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/17",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/re2.sh",
+  "short_name": "re2",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/18",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/quickjs.sh",
+  "short_name": "quickjs",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/19",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/mk/support/pkg/jemalloc.sh",
+  "short_name": "jemalloc",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/20",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/scripts/build-rpm.sh",
+  "short_name": "build-rpm",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/21",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/scripts/set-corecount",
+  "short_name": "set-corecount",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/22",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/scripts/buildtableview",
+  "short_name": "buildtableview",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/23",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/scripts/set-scheduler",
+  "short_name": "set-scheduler",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/24",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/scripts/gen-version.sh",
+  "short_name": "gen-version",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/25",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/scripts/check_style.sh",
+  "short_name": "check_style",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/26",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rethinkdb/rethinkdb.git",
+  "relative_path": "rethinkdb/scripts/gen-changelog.sh",
+  "short_name": "gen-changelog",
+  "timestamp": "10/22/2024",
+  "identifier": "rethinkdb_pvDEYx/27",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/laurentj/slimerjs.git",
+  "relative_path": "slimerjs/buildpackage.sh",
+  "short_name": "buildpackage",
+  "timestamp": "10/22/2024",
+  "identifier": "slimerjs_UyHwaI/0",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

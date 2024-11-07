@@ -1,0 +1,748 @@
+[
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/boost_checkout_lite.sh",
+  "short_name": "boost_checkout_lite",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/docker/ci/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/docker/node/entry.sh",
+  "short_name": "entry",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/2",
+  "posix_compliant": false,
+  "line_count": 124,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/docker/node/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/3",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/docker/sign/entry.sh",
+  "short_name": "entry",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/4",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/util/build_prep/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/5",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/util/build_prep/macosx/build_qt.sh",
+  "short_name": "build_qt",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/6",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/util/makesrc",
+  "short_name": "makesrc",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/7",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/build-deploy.sh",
+  "short_name": "build-deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/8",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/build-node.sh",
+  "short_name": "build-node",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/9",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/impl/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/10",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/impl/cmake-format.sh",
+  "short_name": "cmake-format",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/11",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/impl/code-inspector.sh",
+  "short_name": "code-inspector",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/12",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/impl/clang-format.sh",
+  "short_name": "clang-format",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/13",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/build-docker-image.sh",
+  "short_name": "build-docker-image",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/14",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/custom-timeout.sh",
+  "short_name": "custom-timeout",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/15",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/cmake-format-do.sh",
+  "short_name": "cmake-format-do",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/16",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/clang-format-check.sh",
+  "short_name": "clang-format-check",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/17",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/build-ci.sh",
+  "short_name": "build-ci",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/18",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/prepare/macos/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/19",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/prepare/linux/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/20",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/prepare/linux/prepare-gcc.sh",
+  "short_name": "prepare-gcc",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/21",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/prepare/linux/prepare-clang.sh",
+  "short_name": "prepare-clang",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/22",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/clang-format-do.sh",
+  "short_name": "clang-format-do",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/23",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/tests/run-flamegraph-tests.sh",
+  "short_name": "run-flamegraph-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/24",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/tests/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/25",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/tests/show-sanitizer-reports.sh",
+  "short_name": "show-sanitizer-reports",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/26",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/tests/run-tests.sh",
+  "short_name": "run-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/27",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/tests/run-rpc-tests.sh",
+  "short_name": "run-rpc-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/28",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/tests/run-core-tests.sh",
+  "short_name": "run-core-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/29",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/tests/run-system-tests.sh",
+  "short_name": "run-system-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/30",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/tests/show-core-dumps.sh",
+  "short_name": "show-core-dumps",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/31",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/tests/run-qt-tests.sh",
+  "short_name": "run-qt-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/32",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/cmake-format-check.sh",
+  "short_name": "cmake-format-check",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/33",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/build-gitlab.sh",
+  "short_name": "build-gitlab",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/34",
+  "posix_compliant": false,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/35",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/osx/install_deps.sh",
+  "short_name": "install_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/36",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/dev-build-tag-gen.sh",
+  "short_name": "dev-build-tag-gen",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/37",
+  "posix_compliant": false,
+  "line_count": 161,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/linux/docker-impl/docker-common.sh",
+  "short_name": "docker-common",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/38",
+  "posix_compliant": false,
+  "line_count": 141,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/linux/ghcr-deploy.sh",
+  "short_name": "ghcr-deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/39",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/linux/docker-deploy-env.sh",
+  "short_name": "docker-deploy-env",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/40",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/linux/docker-deploy.sh",
+  "short_name": "docker-deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/41",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/linux/install_deps.sh",
+  "short_name": "install_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/42",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/linux/docker-build.sh",
+  "short_name": "docker-build",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/43",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/linux/ghcr-deploy-env.sh",
+  "short_name": "ghcr-deploy-env",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/44",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/generate_next_git_tag.sh",
+  "short_name": "generate_next_git_tag",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/45",
+  "posix_compliant": false,
+  "line_count": 166,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/actions/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/46",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/build-rhel.sh",
+  "short_name": "build-rhel",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/47",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/48",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/build-tests.sh",
+  "short_name": "build-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/49",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/ci/code-inspector-check.sh",
+  "short_name": "code-inspector-check",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/50",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/systest/daemon_interrupt.sh",
+  "short_name": "daemon_interrupt",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/51",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/systest/rpc_stop.sh",
+  "short_name": "rpc_stop",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/52",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/systest/RUNALL",
+  "short_name": "RUNALL",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/53",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/systest/node_initialize.sh",
+  "short_name": "node_initialize",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/54",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/systest/set_bandwidth_params.sh.disabled",
+  "short_name": "set_bandwidth_params.disabled",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/55",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nanocurrency/nano-node.git",
+  "relative_path": "nano-node/systest/cli_wallet_create.sh",
+  "short_name": "cli_wallet_create",
+  "timestamp": "10/22/2024",
+  "identifier": "nano_NHkWVC/56",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ }
+]

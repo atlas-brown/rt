@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/projectdiscovery/mapcidr.git",
+  "relative_path": "mapcidr/integration_tests/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "mapcidr_FakGmA/0",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ }
+]

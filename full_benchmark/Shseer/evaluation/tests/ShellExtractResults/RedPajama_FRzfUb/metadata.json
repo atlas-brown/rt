@@ -1,0 +1,45 @@
+[
+ {
+  "repo": "https://github.com/togethercomputer/RedPajama-Data.git",
+  "relative_path": "RedPajama-Data/scripts/apptainer_run_lsh.sh",
+  "short_name": "apptainer_run_lsh",
+  "timestamp": "10/22/2024",
+  "identifier": "RedPajama_FRzfUb/0",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/togethercomputer/RedPajama-Data.git",
+  "relative_path": "RedPajama-Data/scripts/apptainer_run_quality_signals.sh",
+  "short_name": "apptainer_run_quality_signals",
+  "timestamp": "10/22/2024",
+  "identifier": "RedPajama_FRzfUb/1",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/togethercomputer/RedPajama-Data.git",
+  "relative_path": "RedPajama-Data/scripts/run_prep_artifacts.sh",
+  "short_name": "run_prep_artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "RedPajama_FRzfUb/2",
+  "posix_compliant": false,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

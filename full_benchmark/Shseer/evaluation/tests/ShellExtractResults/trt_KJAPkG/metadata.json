@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/NVIDIA-AI-IOT/trt_pose.git",
+  "relative_path": "trt_pose/tasks/human_pose/download_coco.sh",
+  "short_name": "download_coco",
+  "timestamp": "10/22/2024",
+  "identifier": "trt_KJAPkG/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ }
+]

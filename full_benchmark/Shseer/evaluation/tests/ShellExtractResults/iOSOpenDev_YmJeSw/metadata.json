@@ -1,0 +1,19 @@
+[
+ {
+  "repo": "https://github.com/kokoabim/iOSOpenDev.git",
+  "relative_path": "iOSOpenDev/bin/iosod",
+  "short_name": "iosod",
+  "timestamp": "10/22/2024",
+  "identifier": "iOSOpenDev_YmJeSw/0",
+  "posix_compliant": false,
+  "line_count": 1314,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

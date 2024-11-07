@@ -1,0 +1,177 @@
+[
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/twml/libtwml/src/ops/scripts/get_inc.sh",
+  "short_name": "get_inc",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/0",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/twml/libtwml/src/ops/scripts/symlink.sh",
+  "short_name": "symlink",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/1",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/twml/libtwml/src/ops/scripts/get_lib.sh",
+  "short_name": "get_lib",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/2",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/ci/ci.sh",
+  "short_name": "ci",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/3",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/representation-manager/bin/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/4",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/navi/navi/scripts/run_onnx.sh",
+  "short_name": "run_onnx",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/5",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/navi/navi/scripts/run_tf2.sh",
+  "short_name": "run_tf2",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/6",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/representation-scorer/bin/canary-check.sh",
+  "short_name": "canary-check",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/7",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/representation-scorer/bin/remote-debug-tunnel.sh",
+  "short_name": "remote-debug-tunnel",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/8",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/representation-scorer/bin/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/9",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/unified_user_actions/scripts/kill_staging.sh",
+  "short_name": "kill_staging",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/10",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/src/scala/com/twitter/simclusters_v2/summingbird/storm/tweet_alt_job_deploy.sh",
+  "short_name": "tweet_alt_job_deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/11",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/src/scala/com/twitter/simclusters_v2/summingbird/storm/persistent_tweet_job_deploy.sh",
+  "short_name": "persistent_tweet_job_deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/12",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/twitter/the-algorithm.git",
+  "relative_path": "the-algorithm/src/scala/com/twitter/simclusters_v2/summingbird/storm/tweet_job_deploy.sh",
+  "short_name": "tweet_job_deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "the_qvdNEw/13",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+LIB="$HOME/.spoutcraft/bin/natives"
+
+# fix for users of special IM modules
+unset XMODIFIERS GTK_IM_MODULE QT_IM_MODULE
+
+# fix for java choosing 32bit libs on 64bit architecture
+if [ $(uname -m) = "x86_64" ] ; then
+    for i in libjinput-linux liblwjgl libopenal ; do
+	if [ ! -h "$LIB"/"$i".so ] ; then
+	    [ -e "$LIB"/"$i".so ] && rm "$LIB"/"$i".so
+	    ln -s "$LIB"/"$i"64.so "$LIB"/"$i".so
+	fi
+    done
+    export LD_LIBRARY_PATH="/usr/lib/jvm/java-7-openjdk/jre/lib/amd64"
+fi
+
+java -Xmx1024M -Xms512M -jar /usr/share/spoutcraft/Spoutcraft.jar

@@ -1,0 +1,33 @@
+[
+ {
+  "repo": "https://github.com/AbirHasan2005/ShellPhish.git",
+  "relative_path": "ShellPhish/shellphish.sh",
+  "short_name": "shellphish",
+  "timestamp": "10/22/2024",
+  "identifier": "ShellPhish_OflbVM/0",
+  "posix_compliant": false,
+  "line_count": 548,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AbirHasan2005/ShellPhish.git",
+  "relative_path": "ShellPhish/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "ShellPhish_OflbVM/1",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

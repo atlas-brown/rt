@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/xtekky/gpt4free.git",
+  "relative_path": "gpt4free/projects/windows/copy.sh",
+  "short_name": "copy",
+  "timestamp": "10/22/2024",
+  "identifier": "gpt4free_dkBcBk/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

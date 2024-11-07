@@ -1,0 +1,32 @@
+[
+ {
+  "repo": "https://github.com/Z4nzu/hackingtool.git",
+  "relative_path": "hackingtool/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "hackingtool_pZFAmw/0",
+  "posix_compliant": false,
+  "line_count": 137,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Z4nzu/hackingtool.git",
+  "relative_path": "hackingtool/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "hackingtool_pZFAmw/1",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,27 @@
+[
+ {
+  "repo": "https://github.com/danjperron/PIC_MULTI_10_IO.git",
+  "relative_path": "PIC_MULTI_10_IO/createdata.sh",
+  "short_name": "createdata",
+  "timestamp": "10/22/2024",
+  "identifier": "PIC_jLrgAK/0",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/danjperron/PIC_MULTI_10_IO.git",
+  "relative_path": "PIC_MULTI_10_IO/nbproject/Package-default.bash",
+  "short_name": "Package-default.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "PIC_jLrgAK/1",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ }
+]

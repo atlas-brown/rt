@@ -1,0 +1,118 @@
+#!/bin/bash
+#
+# s3-functions
+
+
+buckets() {
+
+  # List S3 Buckets
+  #
+  #     $ buckets
+  #     web-assets  2019-12-20  08:24:38.182045
+  #     backups     2019-12-20  08:24:44.351215
+  #     archive     2019-12-20  08:24:57.567652
+
+  local buckets=$(skim-stdin)
+  local filters=$(__bma_read_filters $@)
+
+  aws s3api list-buckets \
+    --output text        \
+    --query "
+      Buckets[${buckets:+?contains(['${buckets// /"','"}'], Name)}].[
+        Name,
+        CreationDate
+      ]"                |
+  grep -E -- "$filters" |
+  column -t
+}
+
+
+bucket-acls() {
+
+  # List S3 Bucket Access Control Lists.
+  #
+  #     $ bucket-acls another-example-bucket
+  #     another-example-bucket
+  #
+  # !!! Note
+  #     The only recommended use case for the bucket ACL is to grant write
+  #     permission to the Amazon S3 Log Delivery group to write access log
+  #     objects to your bucket. [AWS docs](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-alternatives-guidelines.html)
+
+  local buckets=$(skim-stdin "$@")
+  [[ -z "$buckets" ]] && __bma_usage "bucket [bucket]" && return 1
+
+  local bucket
+  for bucket in $buckets; do
+    aws s3api get-bucket-acl \
+      --bucket "$bucket"     \
+      --output text          \
+      --query "[
+        '$bucket',
+        join(' ', Grants[?Grantee.Type=='Group'].[join('=',[Permission, Grantee.URI])][])
+      ]" |
+    sed 's#http://acs.amazonaws.com/groups/##g'
+  done
+}
+
+
+bucket-remove() {
+
+  # Remove an empty S3 Bucket.
+  #
+  # *In this example the bucket is not empty.*
+  #
+  #     $ bucket-remove another-example-bucket
+  #     You are about to remove the following buckets:
+  #     another-example-bucket  2019-12-07  06:51:12.022496
+  #     Are you sure you want to continue? y
+  #     remove_bucket failed: s3://another-example-bucket An error occurred (BucketNotEmpty) when calling the DeleteBucket operation: The bucket you tried to delete is not empty
+
+  local buckets=$(skim-stdin "$@")
+  [[ -z "$buckets" ]] && __bma_usage "bucket [bucket]" && return 1
+
+  echo "You are about to remove the following buckets:"
+  echo "$buckets" | tr ' ' "\n" | buckets
+  [ -t 0 ] || exec </dev/tty # reattach keyboard to STDIN
+  local regex_yes="^[Yy]$"
+  read -p "Are you sure you want to continue? " -n 1 -r
+  echo
+  if [[ $REPLY =~ $regex_yes ]]
+  then
+    local bucket
+    for bucket in $buckets; do
+      aws s3 rb "s3://${bucket}"
+    done
+  fi
+}
+
+
+bucket-remove-force() {
+
+  # Remove an S3 Bucket, and delete all objects if it's not empty.
+  #
+  #     $ bucket-remove-force another-example-bucket
+  #     You are about to delete all objects from and remove the following buckets:
+  #     another-example-bucket  2019-12-07  06:51:12.022496
+  #     Are you sure you want to continue? y
+  #     delete: s3://another-example-bucket/aliases
+  #     remove_bucket: another-example-bucket
+
+  local buckets=$(skim-stdin "$@")
+  [[ -z "$buckets" ]] && __bma_usage "bucket [bucket]" && return 1
+
+  echo "You are about to delete all objects from and remove the following buckets:"
+  echo "$buckets" | tr ' ' "\n" | buckets
+  [ -t 0 ] || exec </dev/tty # reattach keyboard to STDIN
+  local regex_yes="^[Yy]$"
+  read -p "Are you sure you want to continue? " -n 1 -r
+  echo
+  if [[ $REPLY =~ $regex_yes ]]
+  then
+    local bucket
+    for bucket in $buckets; do
+      aws s3 rb --force "s3://${bucket}"
+    done
+  fi
+}
+

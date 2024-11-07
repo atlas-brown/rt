@@ -1,0 +1,29 @@
+#!/bin/bash -xv
+
+# Get the git tag that triggered the workflow build
+workflow_version=${GITHUB_REF_NAME:1} # Removed the "v" prefix
+# Get version major being handled by the current workflow
+workflow_major=$(echo $workflow_version | cut -d. -f1)
+workflow_track="latest-v${workflow_major}.x"
+
+# Get latest version on npm registry
+latest_version=$(npm view cross-fetch@latest version)
+# Get version major published under the current "latest" npm tag
+latest_major=$(echo $latest_version | cut -d. -f1)
+
+
+# If this has been triggered by a "vX.x-test" branch, we just want to test the release workflow (dry run it!)
+if [[ "$workflow_version" == *"-test"* ]]; then
+  npm publish --tag $workflow_track --dry-run && \
+  exit 0
+fi
+
+npm publish --tag $workflow_track
+
+if [[ "$workflow_major" == "$latest_major" ]]; then
+  npm dist-tag add cross-fetch@$workflow_version latest
+fi
+
+if [[ "$workflow_major" == "$(($latest_major + 1))" ]]; then
+  npm dist-tag add cross-fetch@$workflow_version next
+fi

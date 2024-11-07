@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/turnbullpress/dockerbook-code.git",
+  "relative_path": "dockerbook-code/code/5/jenkins/dockerjenkins.sh",
+  "short_name": "dockerjenkins",
+  "timestamp": "10/22/2024",
+  "identifier": "dockerbook_RPnmZe/0",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

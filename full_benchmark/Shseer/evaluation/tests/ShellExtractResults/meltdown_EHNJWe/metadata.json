@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/IAIK/meltdown.git",
+  "relative_path": "meltdown/kaslr_offset/direct_physical_map.sh",
+  "short_name": "direct_physical_map",
+  "timestamp": "10/22/2024",
+  "identifier": "meltdown_EHNJWe/0",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ }
+]

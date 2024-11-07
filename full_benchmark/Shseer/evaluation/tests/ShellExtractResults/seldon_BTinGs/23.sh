@@ -1,0 +1,79 @@
+#!/bin/bash -e
+#
+# S2I assemble script for the 'seldon-core-s2i-python' image.
+# The 'assemble' script builds your application source so that it is ready to run.
+#
+# For more information refer to the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+
+# If the 'seldon-core-s2i-python3' assemble script is executed with the '-h' flag, print the usage.
+if [[ "$1" == "-h" ]]; then
+	exec /usr/libexec/s2i/usage
+fi
+
+
+if [[ -z "$MODEL_NAME" ]]; then
+
+    echo "Failed to find required env var MODEL_NAME"
+    exit 1
+fi
+
+if [[ -z "$SERVICE_TYPE" ]]; then
+
+    echo "Failed to find required env var SERVICE_TYPE, should be one of MODEL, ROUTER, TRANSFORMER, COMBINER."
+    exit 1
+fi
+
+if [[ -z "$PERSISTENCE" ]]; then
+
+    echo "Failed to find required env var PERSISTENCE, should be 0 or 1."
+    exit 1
+fi
+
+
+cd /microservice
+
+# Restore artifacts from the previous build (if they exist).
+#
+if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+  echo "---> Restoring build artifacts..."
+  mv /tmp/artifacts/. ./
+fi
+
+echo "---> Installing application source..."
+cp -Rf /tmp/src/. ./
+
+if [[ -f requirements.txt ]]; then
+    if [[ -n "$EXTRA_INDEX_URL" ]]; then
+        echo "---> Adding extra index url to pip..."
+        pip config set global.extra-index-url "${EXTRA_INDEX_URL}"
+    fi
+    if [[ -n "$PIP_TRUSTED_HOST" ]]; then
+        echo "---> Adding trusted host to pip..."
+        pip config set global.trusted-host "${PIP_TRUSTED_HOST}"
+    fi
+    echo "---> Installing dependencies ..."
+    pip install --no-cache-dir --find-links /whl -r requirements.txt
+elif [[ -f setup.py ]]; then
+    echo "---> Installing application ..."
+    pip install --no-cache-dir --find-links /whl -e .
+elif [[ -f environment.yml ]]; then
+    echo "---> Creating environment with Conda..."
+    if [[ -z "$CONDA_ENV_NAME" ]]; then
+        echo "----> Failed to find env var CONDA_ENV_NAME."
+        echo "      Falling back to default CONDA_ENV_NAME=microservice."
+        CONDA_ENV_NAME=microservice
+    fi
+    conda env create --name $CONDA_ENV_NAME --file environment.yml
+fi
+
+
+# Add licences
+pip install pip-licenses
+mkdir ./licenses && pip-licenses --from=mixed --format=csv --output-file=./licenses/license_info.csv && \
+    pip-licenses --from=mixed --format=plain-vertical --with-license-file --no-license-path --output-file=./licenses/license.txt
+mv ./licenses /licenses
+
+# Fix permissions issues caused by running assemble as root user
+chown -R 8888 /microservice

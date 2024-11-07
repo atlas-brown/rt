@@ -1,0 +1,501 @@
+[
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/seednode/deployment_v2/docker/blocknotify.sh",
+  "short_name": "blocknotify",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/0",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/seednode/deployment_v2/docker/regtest/blocknotify.sh",
+  "short_name": "blocknotify",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/seednode/deployment_v2/docker/install_seednode_debian.sh",
+  "short_name": "install_seednode_debian",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/2",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/seednode/docker/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/3",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/seednode/docker/startSeedNode.sh",
+  "short_name": "startSeedNode",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/4",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/seednode/create_jaronly_archive.sh",
+  "short_name": "create_jaronly_archive",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/5",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/seednode/blocknotify.sh",
+  "short_name": "blocknotify",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/6",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/seednode/install_seednode_debian.sh",
+  "short_name": "install_seednode_debian",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/7",
+  "posix_compliant": true,
+  "line_count": 139,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/seednode/uninstall_seednode_debian.sh",
+  "short_name": "uninstall_seednode_debian",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/8",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/core/update_translations.sh",
+  "short_name": "update_translations",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/9",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/desktop/package/macosx/copy_dbs.sh",
+  "short_name": "copy_dbs",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/10",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/desktop/package/macosx/replace_version_number.sh",
+  "short_name": "replace_version_number",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/11",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/desktop/package/macosx/insert_snapshot_version.sh",
+  "short_name": "insert_snapshot_version",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/12",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/desktop/package/macosx/finalize.sh",
+  "short_name": "finalize",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/13",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/docs/autosetup-regtest-dao/blocknotify",
+  "short_name": "blocknotify",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/14",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/docs/autosetup-regtest-dao/generate_101_blocks.sh",
+  "short_name": "generate_101_blocks",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/15",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/docs/autosetup-regtest-dao/bisq/bob",
+  "short_name": "bob",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/16",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/docs/autosetup-regtest-dao/bisq/create_genesis.sh",
+  "short_name": "create_genesis",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/17",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/docs/autosetup-regtest-dao/bisq/alice",
+  "short_name": "alice",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/18",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/docs/autosetup-regtest-dao/bisq/config.sh",
+  "short_name": "config",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/19",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/docs/autosetup-regtest-dao/bisq/seed_node",
+  "short_name": "seed_node",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/20",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/docs/autosetup-regtest-dao/clean.sh",
+  "short_name": "clean",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/21",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/docs/autosetup-regtest-dao/start_bitcoind.sh",
+  "short_name": "start_bitcoind",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/22",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/cli/package/create-cli-dist.sh",
+  "short_name": "create-cli-dist",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/23",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/24",
+  "posix_compliant": true,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/daemon/package/create-daemon-dist.sh",
+  "short_name": "create-daemon-dist",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/25",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/trade-xmr-simulation.sh",
+  "short_name": "trade-xmr-simulation",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/26",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/version-parser.bash",
+  "short_name": "version-parser.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/27",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/bsqswap-simulation-utils.sh",
+  "short_name": "bsqswap-simulation-utils",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/28",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/get-bisq-pid.sh",
+  "short_name": "get-bisq-pid",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/29",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/mainnet-test.sh",
+  "short_name": "mainnet-test",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/30",
+  "posix_compliant": false,
+  "line_count": 179,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/trade-simulation-env.sh",
+  "short_name": "trade-simulation-env",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/31",
+  "posix_compliant": false,
+  "line_count": 354,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/trade-simulation.sh",
+  "short_name": "trade-simulation",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/32",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/trade-simulation-utils.sh",
+  "short_name": "trade-simulation-utils",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/33",
+  "posix_compliant": false,
+  "line_count": 450,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/limit-order-simulation.sh",
+  "short_name": "limit-order-simulation",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/34",
+  "posix_compliant": false,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/bsqswap-simulation.sh",
+  "short_name": "bsqswap-simulation",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/35",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/scripts/rolling-offer-simulation.sh",
+  "short_name": "rolling-offer-simulation",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/36",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/apitest/src/main/resources/blocknotify",
+  "short_name": "blocknotify",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/37",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/bisq-network/bisq.git",
+  "relative_path": "bisq/scripts/create_dao_genesis.sh",
+  "short_name": "create_dao_genesis",
+  "timestamp": "10/22/2024",
+  "identifier": "bisq_MmQJEK/38",
+  "posix_compliant": false,
+  "line_count": 165,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

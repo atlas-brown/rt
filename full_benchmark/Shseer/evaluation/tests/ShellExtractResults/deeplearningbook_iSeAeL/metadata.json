@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/exacity/deeplearningbook-chinese.git",
+  "relative_path": "deeplearningbook-chinese/scripts/convert2md.sh",
+  "short_name": "convert2md",
+  "timestamp": "10/22/2024",
+  "identifier": "deeplearningbook_iSeAeL/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

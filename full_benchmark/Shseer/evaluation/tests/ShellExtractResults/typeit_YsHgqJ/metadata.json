@@ -1,0 +1,25 @@
+[
+ {
+  "repo": "https://github.com/alexmacarthur/typeit.git",
+  "relative_path": "typeit/packages/typeit/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "typeit_YsHgqJ/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/alexmacarthur/typeit.git",
+  "relative_path": "typeit/packages/typeit/scripts/banner",
+  "short_name": "banner",
+  "timestamp": "10/22/2024",
+  "identifier": "typeit_YsHgqJ/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

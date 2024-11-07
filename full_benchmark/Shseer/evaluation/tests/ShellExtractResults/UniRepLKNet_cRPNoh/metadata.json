@@ -1,0 +1,222 @@
+[
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/Time-Series/scripts/Demo/Global_Wind_demo.sh",
+  "short_name": "Global_Wind_demo",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/0",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/Time-Series/scripts/Demo/Global_Temp_demo.sh",
+  "short_name": "Global_Temp_demo",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/1",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/Time-Series/scripts/Global_Wind/UniRepLKNet.sh",
+  "short_name": "UniRepLKNet",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/2",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/Time-Series/scripts/Global_Temp/UniRepLKNet.sh",
+  "short_name": "UniRepLKNet",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/3",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/Video/run_unireplknet.sh",
+  "short_name": "run_unireplknet",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/4",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/segmentation/slurm_train.sh",
+  "short_name": "slurm_train",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/5",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/segmentation/dist_train.sh",
+  "short_name": "dist_train",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/6",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/segmentation/dist_test.sh",
+  "short_name": "dist_test",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/7",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/segmentation/slurm_test.sh",
+  "short_name": "slurm_test",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/8",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/Point/tool/train.sh",
+  "short_name": "train",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/9",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/Point/tool/reproduce.sh",
+  "short_name": "reproduce",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/10",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/Point/tool/train_unireplknet.sh",
+  "short_name": "train_unireplknet",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/11",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/Point/tool/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/12",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/Audio/egs/speechcommands/run_sc.sh",
+  "short_name": "run_sc",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/13",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/detection/slurm_train.sh",
+  "short_name": "slurm_train",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/14",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/detection/dist_train.sh",
+  "short_name": "dist_train",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/15",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/detection/dist_test.sh",
+  "short_name": "dist_test",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/16",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/AILab-CVC/UniRepLKNet.git",
+  "relative_path": "UniRepLKNet/detection/slurm_test.sh",
+  "short_name": "slurm_test",
+  "timestamp": "10/22/2024",
+  "identifier": "UniRepLKNet_cRPNoh/17",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

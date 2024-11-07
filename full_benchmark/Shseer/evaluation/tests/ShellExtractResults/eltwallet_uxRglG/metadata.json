@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/eltcoin/eltwallet.git",
+  "relative_path": "eltwallet/scripts/postinstall.sh",
+  "short_name": "postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "eltwallet_uxRglG/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ }
+]

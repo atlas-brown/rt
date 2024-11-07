@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/iMorpheus/XML_Generator.git",
+  "relative_path": "XML_Generator/DLABO.sh",
+  "short_name": "DLABO",
+  "timestamp": "10/22/2024",
+  "identifier": "XML_QcEgPX/0",
+  "posix_compliant": true,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

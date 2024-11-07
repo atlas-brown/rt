@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/ScienceWorldCA/domelights.git",
+  "relative_path": "domelights/backend/renderd/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "domelights_eqjAot/0",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

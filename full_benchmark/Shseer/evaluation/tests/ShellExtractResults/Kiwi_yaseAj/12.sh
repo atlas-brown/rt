@@ -1,0 +1,56 @@
+#!/bin/bash
+
+if [ ! -f "~/.python-gitlab.cfg" ]; then
+    cat > ~/.python-gitlab.cfg << __EOF__
+[global]
+default = bugtracker_kiwitcms_org
+ssl_verify = false
+timeout = 5
+
+[bugtracker_kiwitcms_org]
+url = http://bugtracker.kiwitcms.org
+private_token = ypCa3Dzb23o5nvsixwPA
+api_version = 4
+__EOF__
+fi
+
+# wait for the webUI to initialize otherwise we get a 502 Bad Gateway in tests
+tries=0
+until curl -L http://bugtracker.kiwitcms.org | grep "Sign in"; do
+    echo "INFO: Waiting for bugtracker to become ready before testing ..."
+    sleep 30
+
+    tries=$((tries + 1))
+    if [ $tries -gt 20 ]; then
+        echo "FAIL: Bugtracker taking too long to initialize"
+        exit 1
+    fi
+done
+
+
+# Repo: 'root/kiwitcms', Project ID: 1
+gitlab project create --name kiwitcms --visibility public
+
+# http://bugtracker.kiwitcms.org/root/kiwitcms/-/issues/1
+# http://bugtracker.kiwitcms.org/root/kiwitcms/issues/1
+gitlab project-issue create --project-id 1 --title "Hello GitLab" --description "Created via CLI"
+
+# Repo: 'root/katinar', Project ID: 2
+gitlab project create --name katinar --visibility private
+
+# http://bugtracker.kiwitcms.org/root/katinar/-/issues/1
+# http://bugtracker.kiwitcms.org/root/katinar/issues/1
+gitlab project-issue create --project-id 2 --title "Hello Private Issue" --description "Created in secret via CLI"
+
+# Group: 'group', Group ID: 4
+gitlab group create --name group --path group --visibility public
+
+# Sub-Group: 'group/sub_group', Group ID: 5
+gitlab group create --name sub_group --path sub_group --parent-id 4 --visibility public
+
+# Repo: 'group/sub_group/kiwitcms_group', Project ID: 3
+gitlab project create --name kiwitcms_in_group --path kiwitcms_in_group --namespace-id 5 --visibility public
+
+# http://bugtracker.kiwitcms.org/group/sub_group/kiwitcms_in_group/-/issues/1
+# http://bugtracker.kiwitcms.org/group/sub_group/kiwitcms_in_group/issues/1
+gitlab project-issue create --project-id 3 --title "Hello GitLab Group" --description "Created via CLI"

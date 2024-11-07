@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/samccone/bundle-buddy.git",
+  "relative_path": "bundle-buddy/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "bundle_aHhyYB/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/samccone/bundle-buddy.git",
+  "relative_path": "bundle-buddy/src/storage/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "bundle_aHhyYB/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

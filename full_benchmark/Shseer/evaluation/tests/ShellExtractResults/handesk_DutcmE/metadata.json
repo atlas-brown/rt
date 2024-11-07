@@ -1,0 +1,44 @@
+[
+ {
+  "repo": "https://github.com/BadChoice/handesk.git",
+  "relative_path": "handesk/nginx/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "handesk_DutcmE/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/BadChoice/handesk.git",
+  "relative_path": "handesk/scripts/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "handesk_DutcmE/1",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/BadChoice/handesk.git",
+  "relative_path": "handesk/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "handesk_DutcmE/2",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

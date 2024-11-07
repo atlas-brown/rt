@@ -1,0 +1,171 @@
+[
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/docker/0.3.0/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/0",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/docker/latest/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/1",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/docker/0.4.0/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/2",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/docker/0.1.0/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/3",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/docker/0.5.0/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/4",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/docker/0.2.0/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/5",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/docker/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/6",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/docker/0.6.0/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/7",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/dubbo-admin-distribution/src/bin/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/8",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/dubbo-admin-distribution/src/bin/shutdown.sh",
+  "short_name": "shutdown",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/9",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/dubbo-admin-distribution/src/bin-distribution-check.sh",
+  "short_name": "bin-distribution-check",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/10",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/dubbo-admin.git",
+  "relative_path": "dubbo-admin/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_cwrlTv/11",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

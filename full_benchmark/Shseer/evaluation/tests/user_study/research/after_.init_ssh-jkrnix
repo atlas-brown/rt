@@ -1,0 +1,71 @@
+#!/bin/bash
+function ssh-jkrnix(){
+ssh $@ -t 'cd ~ ; 
+	if [ -f .unims ] ; 
+		then 
+			envFile=.unims
+			if grep -q jkrnix ${envFile} ; 
+				then 
+					installed=true ;
+				else 
+					installed=false ;;
+			fi
+		else
+			if [ -f .bash_profile ] ;
+				envFile=.bash_profile
+				then 
+					if grep -q jkrnix ${envFile} ; 
+						then 
+							installed=true ;
+						else 
+							installed=false ;;
+					fi
+				else	
+					if [ -f .bashrc ] ;
+						envFile=.bashrc
+						then 
+							if grep -q jkrnix ${envFile} ; 
+								then 
+									installed=true ;
+								else 
+									installed=false ;;
+							fi
+						else	
+							if [ -f .profile ] ;
+								envFile=.profile
+								then 
+									if grep -q jkrnix ${envFile} ; 
+										then 
+											installed=true ;
+										else 
+											installed=false ;;
+								else	;;
+							fi
+						;;
+					fi
+				;;
+			fi
+		;;
+	fi
+
+case when ${installed} in
+		true) echo "jkrnix already to be loaded through ${envFile}" ;;
+		false) echo "Installing jkrnix to target environment" ;
+			wget -qO ~/jkrnix.tar.gz https://github.com/JWKoster/JKRnix/tarball/master ;
+			tar -xzf ~/jkrnix.tar.gz --strip-components=1 && rm ~/jkrnix.tar.gz ;
+			wget -qO currentVersion.flat https://api.github.com/repos/JWKoster/JKRnix/commits/master --header="Accept: application/vnd.github.VERSION.sha" ;
+			ln -s ${jkrnix}bin/*.sh ${jkr}bin/ ;
+			ln -s ${jkrnix}lib/*.shlib ${jkr}lib/ ;;
+			cat << EOD >> ${envFile}
+#JKR Start
+if [ -f ~/jkr/jkrnix/.init_jkr_main ];
+	then
+			. ~/jkr/jkrnix/.init_jkr_main
+fi
+#Do everything else in ~/jkr/, to try to maintain separation of own creations
+#JKR End
+EOD
+		*) exit 1 ;;
+esac
+'
+}

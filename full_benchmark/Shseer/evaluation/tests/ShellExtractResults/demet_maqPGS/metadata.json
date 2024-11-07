@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/izniburak/demet.git",
+  "relative_path": "demet/.demet/demet.sh",
+  "short_name": "demet",
+  "timestamp": "10/22/2024",
+  "identifier": "demet_maqPGS/0",
+  "posix_compliant": false,
+  "line_count": 103,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

@@ -1,0 +1,186 @@
+[
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/.docker/cross/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/0",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/.docker/cross/dropbear.sh",
+  "short_name": "dropbear",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/1",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/.docker/cross/deny-debian-packages.sh",
+  "short_name": "deny-debian-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/2",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/.docker/cross/xargo.sh",
+  "short_name": "xargo",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/3",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/.docker/cross/qemu.sh",
+  "short_name": "qemu",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/4",
+  "posix_compliant": false,
+  "line_count": 171,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/.docker/cross/lib.sh",
+  "short_name": "lib",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/5",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/.docker/cross/linux-image.sh",
+  "short_name": "linux-image",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/6",
+  "posix_compliant": false,
+  "line_count": 211,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/.docker/cross/cmake.sh",
+  "short_name": "cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/7",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/crates/tauri/.scripts/loop_qc.sh",
+  "short_name": "loop_qc",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/8",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/crates/tauri-cli/scripts/kill-children.sh",
+  "short_name": "kill-children",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/9",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/.scripts/ci/has-diff.sh",
+  "short_name": "has-diff",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/10",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/.scripts/ci/pack-cli.sh",
+  "short_name": "pack-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/11",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tauri-apps/tauri.git",
+  "relative_path": "tauri/examples/api/.setup-cross.sh",
+  "short_name": ".setup-cross",
+  "timestamp": "10/22/2024",
+  "identifier": "tauri_IUxFLd/12",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

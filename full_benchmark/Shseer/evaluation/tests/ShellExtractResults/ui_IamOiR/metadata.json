@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/shadcn-ui/ui.git",
+  "relative_path": "ui/scripts/sync-templates.sh",
+  "short_name": "sync-templates",
+  "timestamp": "10/22/2024",
+  "identifier": "ui_IamOiR/0",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/shadcn-ui/ui.git",
+  "relative_path": "ui/packages/shadcn/test/fixtures/frameworks/remix-indie-stack/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "ui_IamOiR/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ }
+]

@@ -1,0 +1,47 @@
+[
+ {
+  "repo": "https://github.com/panada/c-extension.git",
+  "relative_path": "c-extension/ext/install",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "c_uAhhJI/0",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/panada/c-extension.git",
+  "relative_path": "c-extension/ext/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "c_uAhhJI/1",
+  "posix_compliant": false,
+  "line_count": 5403,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/panada/c-extension.git",
+  "relative_path": "c-extension/ext/build/shtool",
+  "short_name": "shtool",
+  "timestamp": "10/22/2024",
+  "identifier": "c_uAhhJI/2",
+  "posix_compliant": true,
+  "line_count": 1473,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

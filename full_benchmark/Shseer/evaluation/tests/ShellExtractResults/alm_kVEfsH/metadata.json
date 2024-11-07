@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/alm-tools/alm.git",
+  "relative_path": "alm/scripts/resume.sh",
+  "short_name": "resume",
+  "timestamp": "10/22/2024",
+  "identifier": "alm_kVEfsH/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alm-tools/alm.git",
+  "relative_path": "alm/scripts/prepublish.sh",
+  "short_name": "prepublish",
+  "timestamp": "10/22/2024",
+  "identifier": "alm_kVEfsH/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

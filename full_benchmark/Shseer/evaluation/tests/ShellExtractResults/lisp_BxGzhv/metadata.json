@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/ufasoft/lisp.git",
+  "relative_path": "lisp/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "lisp_BxGzhv/0",
+  "posix_compliant": true,
+  "line_count": 344,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

@@ -1,0 +1,31 @@
+[
+ {
+  "repo": "https://github.com/talal/mimir.git",
+  "relative_path": "mimir/util/installer.sh",
+  "short_name": "installer",
+  "timestamp": "10/22/2024",
+  "identifier": "mimir_wLMoxY/0",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/talal/mimir.git",
+  "relative_path": "mimir/util/find_version.sh",
+  "short_name": "find_version",
+  "timestamp": "10/22/2024",
+  "identifier": "mimir_wLMoxY/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ }
+]

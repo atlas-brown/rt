@@ -1,0 +1,204 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+readonly ROOT_DIR="$(cd "$(dirname "$(dirname "$(dirname "${BASH_SOURCE[0]}")")")" && pwd)"
+
+install_dependencies() {
+  echo "=====> install_dependencies on CIRCLE_NODE_INDEX: $CIRCLE_NODE_INDEX"
+
+  mkdir -p "$ROOT_DIR/build/"
+
+  DOCKER_IMAGE_LABELER_VERSION=$(jq -r --arg name docker-image-labeler '.dependencies[] | select(.name == $name) | .version' contrib/dependencies.json)
+  DOCKER_IMAGE_LABELER_PACKAGE_NAME="docker-image-labeler_${DOCKER_IMAGE_LABELER_VERSION}_amd64.deb"
+  if [[ ! -f "$ROOT_DIR/build/${DOCKER_IMAGE_LABELER_PACKAGE_NAME}" ]]; then
+    curl -L "https://packagecloud.io/dokku/dokku/packages/ubuntu/noble/docker-image-labeler_${DOCKER_IMAGE_LABELER_VERSION}_amd64.deb/download.deb" -o "$ROOT_DIR/build/${DOCKER_IMAGE_LABELER_PACKAGE_NAME}"
+  fi
+
+  DOCKER_CONTAINER_HEALTHCHECKER_VERSION=$(jq -r --arg name docker-container-healthchecker '.dependencies[] | select(.name == $name) | .version' contrib/dependencies.json)
+  DOCKER_CONTAINER_HEALTHCHECKER_PACKAGE_NAME="docker-container-healthchecker_${DOCKER_CONTAINER_HEALTHCHECKER_VERSION}_amd64.deb"
+  if [[ ! -f "$ROOT_DIR/build/${DOCKER_CONTAINER_HEALTHCHECKER_PACKAGE_NAME}" ]]; then
+    curl -L "https://packagecloud.io/dokku/dokku/packages/ubuntu/noble/docker-container-healthchecker_${DOCKER_CONTAINER_HEALTHCHECKER_VERSION}_amd64.deb/download.deb" -o "$ROOT_DIR/build/${DOCKER_CONTAINER_HEALTHCHECKER_PACKAGE_NAME}"
+  fi
+
+  HEROKUISH_VERSION=$(jq -r --arg name herokuish '.recommendations[] | select(.name == $name) | .version' contrib/dependencies.json)
+  HEROKUISH_PACKAGE_NAME="herokuish_${HEROKUISH_VERSION}_amd64.deb"
+  if [[ ! -f "$ROOT_DIR/build/${HEROKUISH_PACKAGE_NAME}" ]]; then
+    curl -L "https://packagecloud.io/dokku/dokku/packages/ubuntu/noble/herokuish_${HEROKUISH_VERSION}_all.deb/download.deb" -o "$ROOT_DIR/build/${HEROKUISH_PACKAGE_NAME}"
+  fi
+
+  LAMBDA_BUILDER_VERSION=$(jq -r --arg name lambda-builder '.dependencies[] | select(.name == $name) | .version' contrib/dependencies.json)
+  LAMBDA_BUILDER_PACKAGE_NAME="lambda-builder_${LAMBDA_BUILDER_VERSION}_amd64.deb"
+  if [[ ! -f "$ROOT_DIR/build/${LAMBDA_BUILDER_PACKAGE_NAME}" ]]; then
+    curl -L "https://packagecloud.io/dokku/dokku/packages/ubuntu/noble/lambda-builder_${LAMBDA_BUILDER_VERSION}_amd64.deb/download.deb" -o "$ROOT_DIR/build/${LAMBDA_BUILDER_PACKAGE_NAME}"
+  fi
+
+  NETRC_VERSION=$(jq -r --arg name netrc '.dependencies[] | select(.name == $name) | .version' contrib/dependencies.json)
+  NETRC_PACKAGE_NAME="netrc_${NETRC_VERSION}_amd64.deb"
+  if [[ ! -f "$ROOT_DIR/build/${NETRC_PACKAGE_NAME}" ]]; then
+    curl -L "https://packagecloud.io/dokku/dokku/packages/ubuntu/noble/netrc_${NETRC_VERSION}_amd64.deb/download.deb" -o "$ROOT_DIR/build/${NETRC_PACKAGE_NAME}"
+  fi
+
+  PLUGN_VERSION=$(jq -r --arg name plugn '.predependencies[] | select(.name == $name) | .version' contrib/dependencies.json)
+  PLUGN_PACKAGE_NAME="plugn_${PLUGN_VERSION}_amd64.deb"
+  if [[ ! -f "$ROOT_DIR/build/${PLUGN_PACKAGE_NAME}" ]]; then
+    curl -L "https://packagecloud.io/dokku/dokku/packages/ubuntu/noble/plugn_${PLUGN_VERSION}_amd64.deb/download.deb" -o "$ROOT_DIR/build/${PLUGN_PACKAGE_NAME}"
+  fi
+
+  SSHCOMMAND_VERSION=$(jq -r --arg name sshcommand '.dependencies[] | select(.name == $name) | .version' contrib/dependencies.json)
+  SSHCOMMAND_PACKAGE_NAME="sshcommand_${SSHCOMMAND_VERSION}_amd64.deb"
+  if [[ ! -f "$ROOT_DIR/build/${SSHCOMMAND_PACKAGE_NAME}" ]]; then
+    curl -L "https://packagecloud.io/dokku/dokku/packages/ubuntu/noble/sshcommand_${SSHCOMMAND_VERSION}_all.deb/download.deb" -o "$ROOT_DIR/build/${SSHCOMMAND_PACKAGE_NAME}"
+  fi
+
+  SIGIL_VERSION=$(jq -r --arg name gliderlabs-sigil '.predependencies[] | select(.name == $name) | .version' contrib/dependencies.json)
+  SIGIL_PACKAGE_NAME="gliderlabs-sigil_${SIGIL_VERSION}_amd64.deb"
+  if [[ ! -f "$ROOT_DIR/build/${SIGIL_PACKAGE_NAME}" ]]; then
+    curl -L "https://packagecloud.io/dokku/dokku/packages/ubuntu/noble/gliderlabs-sigil_${SIGIL_VERSION}_amd64.deb/download.deb" -o "$ROOT_DIR/build/${SIGIL_PACKAGE_NAME}"
+  fi
+
+  PROCFILE_VERSION=$(jq -r --arg name procfile-util '.dependencies[] | select(.name == $name) | .version' contrib/dependencies.json)
+  PROCFILE_UTIL_PACKAGE_NAME="procfile-util_${PROCFILE_VERSION}_amd64.deb"
+  if [[ ! -f "$ROOT_DIR/build/${PROCFILE_UTIL_PACKAGE_NAME}" ]]; then
+    curl -L "https://packagecloud.io/dokku/dokku/packages/ubuntu/noble/procfile-util_${PROCFILE_VERSION}_amd64.deb/download.deb" -o "$ROOT_DIR/build/${PROCFILE_UTIL_PACKAGE_NAME}"
+  fi
+
+  sudo apt-get update -qq
+  sudo apt-get -qq -y --no-install-recommends install cgroupfs-mount dos2unix jq nginx debconf-utils
+  sudo cp "${ROOT_DIR}/tests/dhparam.pem" /etc/nginx/dhparam.pem
+
+  ls -lah "${ROOT_DIR}/build/"
+  sudo dpkg -i \
+    "${ROOT_DIR}/build/$DOCKER_CONTAINER_HEALTHCHECKER_PACKAGE_NAME" \
+    "${ROOT_DIR}/build/$DOCKER_IMAGE_LABELER_PACKAGE_NAME" \
+    "${ROOT_DIR}/build/$HEROKUISH_PACKAGE_NAME" \
+    "${ROOT_DIR}/build/$LAMBDA_BUILDER_PACKAGE_NAME" \
+    "${ROOT_DIR}/build/$NETRC_PACKAGE_NAME" \
+    "${ROOT_DIR}/build/$PLUGN_PACKAGE_NAME" \
+    "${ROOT_DIR}/build/$PROCFILE_UTIL_PACKAGE_NAME" \
+    "${ROOT_DIR}/build/$SIGIL_PACKAGE_NAME" \
+    "${ROOT_DIR}/build/$SSHCOMMAND_PACKAGE_NAME"
+}
+
+build_dokku() {
+  if [[ "$FROM_SOURCE" == "true" ]]; then
+    sudo -E CI=true make -e install
+    return
+  fi
+
+  echo "=====> build_dokku on CIRCLE_NODE_INDEX: $CIRCLE_NODE_INDEX"
+  "${ROOT_DIR}/contrib/release-dokku" build
+}
+
+install_dokku() {
+  echo "=====> install_dokku on CIRCLE_NODE_INDEX: $CIRCLE_NODE_INDEX"
+
+  local architecture="$(dpkg --print-architecture)"
+  if [[ ! -f "${ROOT_DIR}/build/package/dokku-${architecture}.deb" ]]; then
+    build_dokku
+  fi
+
+  cat <<EOF | sudo debconf-set-selections
+dokku dokku/hostname string dokku.me
+dokku dokku/key_file string /root/.ssh/id_rsa.pub
+dokku dokku/nginx_enable boolean true
+dokku dokku/skip_key_file boolean true
+dokku dokku/vhost_enable boolean true
+EOF
+
+  echo "-----> Start debconf selections"
+  sudo debconf-get-selections | grep ^dokku
+  echo "-----> End debconf selections"
+
+  sleep 5
+  echo "-----> Start install ${ROOT_DIR}/build/package/dokku-${architecture}.deb via dpkg"
+  sudo dpkg -i "${ROOT_DIR}/build/package/dokku-${architecture}.deb"
+  echo "-----> End install ${ROOT_DIR}/build/package/dokku-${architecture}.deb via dpkg"
+}
+
+build_dokku_docker_image() {
+  echo "=====> build_dokku_docker_image on CIRCLE_NODE_INDEX: $CIRCLE_NODE_INDEX"
+  docker build -t dokku/dokku:test .
+}
+
+run_dokku_container() {
+  echo "=====> run_dokku_container on CIRCLE_NODE_INDEX: $CIRCLE_NODE_INDEX"
+  echo "redirect: https://github.com/dokku/dokku-redirect.git" | sudo tee /var/lib/dokku/plugin-list
+  docker run -d \
+    --env DOKKU_HOSTNAME=dokku.me \
+    --name dokku \
+    --publish 3022:22 \
+    --publish 80:80 \
+    --publish 443:443 \
+    --volume /var/lib/dokku:/mnt/dokku \
+    --volume /var/run/docker.sock:/var/run/docker.sock \
+    dokku/dokku:test
+
+  check_container
+}
+
+check_container() {
+  echo "=====> check_container on CIRCLE_NODE_INDEX: $CIRCLE_NODE_INDEX"
+  local is_up
+  local cnt=0
+  while [ $cnt -lt 100 ]; do
+    echo "$(date) [count: $cnt]: waiting for dokku startup"
+    is_up=$(
+      docker exec dokku ps -ef | grep "/usr/sbin/sshd -D" &>/dev/null
+      echo $?
+    )
+    echo "" && docker logs dokku
+    if [[ $is_up -eq 0 ]]; then
+      break
+    fi
+    sleep 2
+    cnt=$((cnt + 1))
+  done
+}
+
+create_package() {
+  echo "=====> setup_circle on CIRCLE_NODE_INDEX: $CIRCLE_NODE_INDEX"
+  sudo -E CI=true make -e sshcommand
+  # need to add the dokku user to the docker group
+  sudo usermod -G docker dokku
+  [[ "$1" == "buildstack" ]] && BUILD_STACK=true make -e stack
+
+  install_dependencies
+  build_dokku
+}
+
+setup_circle() {
+  install_dependencies
+  install_dokku
+
+  sudo -E make -e setup-deploy-tests
+  lsb_release -a
+  # setup .dokkurc
+
+  getent passwd | cut -d: -f1 | sort
+
+  sudo -E mkdir -p /home/dokku/.dokkurc
+  if [[ -n "$CIRCLECI" ]]; then
+    sudo -E chown dokku:ubuntu /home/dokku/.dokkurc
+  else
+    sudo -E chown dokku:dokku /home/dokku/.dokkurc
+  fi
+  sudo -E chmod 775 /home/dokku/.dokkurc
+  # pull node:4-alpine image for testing
+  sudo docker pull node:4-alpine
+}
+
+case "$1" in
+  docker)
+    sudo /etc/init.d/nginx stop
+    build_dokku_docker_image
+    run_dokku_container
+    ;;
+  build)
+    create_package
+    exit $?
+    ;;
+  *)
+    setup_circle
+    exit $?
+    ;;
+esac

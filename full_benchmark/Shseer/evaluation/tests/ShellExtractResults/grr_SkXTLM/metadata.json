@@ -1,0 +1,513 @@
+[
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/terraform/demo/google/poolclient_install.sh",
+  "short_name": "poolclient_install",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/0",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/terraform/demo/google/client_install.sh",
+  "short_name": "client_install",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/1",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/terraform/demo/google/server_startup.sh",
+  "short_name": "server_startup",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/2",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/docker/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/3",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/docker/install_grr_from_gcs.sh",
+  "short_name": "install_grr_from_gcs",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/4",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/devenv/devenv.sh",
+  "short_name": "devenv",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/5",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/devenv/src/containers/fleetspeak-server/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/6",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/appveyor/docker_build/build_docker_image.sh",
+  "short_name": "build_docker_image",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/7",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/appveyor/e2e_tests/install_mem_usage_cron.sh",
+  "short_name": "install_mem_usage_cron",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/8",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/appveyor/e2e_tests/run_docker_compose_e2e_test.sh",
+  "short_name": "run_docker_compose_e2e_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/9",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/appveyor/e2e_tests/run_e2e_tests.sh",
+  "short_name": "run_e2e_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/10",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/appveyor/e2e_tests/upload_e2e_artifacts.sh",
+  "short_name": "upload_e2e_artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/11",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/appveyor/e2e_tests/install_latest_server_deb.sh",
+  "short_name": "install_latest_server_deb",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/12",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/appveyor/e2e_tests/test_repack.sh",
+  "short_name": "test_repack",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/13",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/docker_config_files/healthchecks/grr-admin-ui.sh",
+  "short_name": "grr-admin-ui",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/14",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/docker_config_files/healthchecks/grr-client.sh",
+  "short_name": "grr-client",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/15",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/docker_config_files/server/repack_clients.sh",
+  "short_name": "repack_clients",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/16",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/docker_config_files/mysql/init.sh",
+  "short_name": "init",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/17",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/docker_config_files/init_certs.sh",
+  "short_name": "init_certs",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/18",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/docker_config_files/client/create_fake_user.sh",
+  "short_name": "create_fake_user",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/19",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/docker_config_files/client/install_client.sh",
+  "short_name": "install_client",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/20",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/docker_config_files/client/grr_fleetspeak_client.sh",
+  "short_name": "grr_fleetspeak_client",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/21",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/core/scripts/debian_launcher",
+  "short_name": "debian_launcher",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/22",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/core/scripts/debian_launcher_no_extra_args",
+  "short_name": "debian_launcher_no_extra_args",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/23",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/core/scripts/install_server_from_src.sh",
+  "short_name": "install_server_from_src",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/24",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/core/install_data/debian/dpkg_client/fleetspeak-debian/grr-client.postinst.in",
+  "short_name": "grr-client.postinst.in",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/25",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/core/install_data/debian/dpkg_client/fleetspeak-debian/grr-client.postrm.in",
+  "short_name": "grr-client.postrm.in",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/26",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/core/install_data/wrapper.sh.in",
+  "short_name": "wrapper.in",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/27",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/core/install_data/macosx/client/fleetspeak/postinstall.sh.in",
+  "short_name": "postinstall.in",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/28",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/core/install_data/macosx/client/fleetspeak/preinstall.sh.in",
+  "short_name": "preinstall.in",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/29",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/core/install_data/macosx/client/postinstall.sh.in",
+  "short_name": "postinstall.in",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/30",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/core/install_data/macosx/client/preinstall.sh.in",
+  "short_name": "preinstall.in",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/31",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/grr/config/grr_response_templates/upload.sh",
+  "short_name": "upload",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/32",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/travis/build_templates.sh",
+  "short_name": "build_templates",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/33",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/travis/set_up_test_user.sh",
+  "short_name": "set_up_test_user",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/34",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/travis/build_api_documentation.sh",
+  "short_name": "build_api_documentation",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/35",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/travis/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/36",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/travis/install_client_builder.sh",
+  "short_name": "install_client_builder",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/37",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/google/grr.git",
+  "relative_path": "grr/travis/build_local_pyindex.sh",
+  "short_name": "build_local_pyindex",
+  "timestamp": "10/22/2024",
+  "identifier": "grr_SkXTLM/38",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

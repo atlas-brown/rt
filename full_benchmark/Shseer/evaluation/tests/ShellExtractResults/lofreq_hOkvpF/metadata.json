@@ -1,0 +1,544 @@
+[
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/snakemake/dryrun.sh",
+  "short_name": "dryrun",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/1",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/icgc-tcga-dream-testproject.sh",
+  "short_name": "icgc-tcga-dream-testproject",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/2",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/baq-calls-less-than-nobaq.sh",
+  "short_name": "baq-calls-less-than-nobaq",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/3",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/uniq.sh",
+  "short_name": "uniq",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/4",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/consvar_noqual_filter.sh",
+  "short_name": "consvar_noqual_filter",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/5",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/valid_vcf_output.sh",
+  "short_name": "valid_vcf_output",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/6",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/filter.sh",
+  "short_name": "filter",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/7",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/doctest.sh",
+  "short_name": "doctest",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/8",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/somatic_CHH966_chr22.sh",
+  "short_name": "somatic_CHH966_chr22",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/9",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/denv2-pseudoclonal-source-qual.sh",
+  "short_name": "denv2-pseudoclonal-source-qual",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/10",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/af_tests.sh",
+  "short_name": "af_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/11",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/not-matching-ref.sh",
+  "short_name": "not-matching-ref",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/12",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/parallel.sh",
+  "short_name": "parallel",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/13",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/bed.sh",
+  "short_name": "bed",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/14",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/bamstats.sh.FIXME",
+  "short_name": "bamstats.FIXME",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/15",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/run_all.sh",
+  "short_name": "run_all",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/16",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/denv2-pseudoclonal.sh",
+  "short_name": "denv2-pseudoclonal",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/17",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/indel_qual.sh",
+  "short_name": "indel_qual",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/18",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/bonf_auto_vs_dyn.sh",
+  "short_name": "bonf_auto_vs_dyn",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/19",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/denv2-validation.sh",
+  "short_name": "denv2-validation",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/20",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/viterbi.sh",
+  "short_name": "viterbi",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/21",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/pylint.sh",
+  "short_name": "pylint",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/22",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/denv2-simulation.sh",
+  "short_name": "denv2-simulation",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/23",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/ecoli-clone_incl_parallel.sh",
+  "short_name": "ecoli-clone_incl_parallel",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/24",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/fdr.sh",
+  "short_name": "fdr",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/25",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/filter_only_snvs_or_indels.sh",
+  "short_name": "filter_only_snvs_or_indels",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/26",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/icgc-tcga-dream-indel_chr19.sh",
+  "short_name": "icgc-tcga-dream-indel_chr19",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/27",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/lib.sh",
+  "short_name": "lib",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/28",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/valgrind_vcfset.sh",
+  "short_name": "valgrind_vcfset",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/29",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/valgrind_call.sh",
+  "short_name": "valgrind_call",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/30",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/indel_misc.sh",
+  "short_name": "indel_misc",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/31",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/diff_opts_same_out.sh.OLD",
+  "short_name": "diff_opts_same_out.OLD",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/32",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/filter_c.sh",
+  "short_name": "filter_c",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/33",
+  "posix_compliant": false,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/valgrind_uniq.sh",
+  "short_name": "valgrind_uniq",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/34",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/vcf_setop.sh",
+  "short_name": "vcf_setop",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/35",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/tests/ecoli_spikein.sh",
+  "short_name": "ecoli_spikein",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/36",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CSB5/lofreq.git",
+  "relative_path": "lofreq/binary_installer.sh",
+  "short_name": "binary_installer",
+  "timestamp": "10/22/2024",
+  "identifier": "lofreq_hOkvpF/37",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

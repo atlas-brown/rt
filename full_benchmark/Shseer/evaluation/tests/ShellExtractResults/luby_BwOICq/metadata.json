@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/umegaya/luby.git",
+  "relative_path": "luby/test/travis_install.sh",
+  "short_name": "travis_install",
+  "timestamp": "10/22/2024",
+  "identifier": "luby_BwOICq/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

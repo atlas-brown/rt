@@ -1,0 +1,453 @@
+[
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/tools/initenv.sh",
+  "short_name": "initenv",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/tools/release/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/1",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/tools/release/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/2",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/tools/release/generate_config_local.sh",
+  "short_name": "generate_config_local",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/3",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/tools/release/version.sh",
+  "short_name": "version",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/4",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/tools/release/rollback.sh",
+  "short_name": "rollback",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/5",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/test/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/6",
+  "posix_compliant": false,
+  "line_count": 125,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/sources/web/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/7",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/sources/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/8",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/logs.sh",
+  "short_name": "logs",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/9",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/run-extended.sh",
+  "short_name": "run-extended",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/10",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/debug.sh",
+  "short_name": "debug",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/11",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/stage.sh",
+  "short_name": "stage",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/12",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/content/setup-env.sh",
+  "short_name": "setup-env",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/13",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/content/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/14",
+  "posix_compliant": false,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/content/GCSbackup.sh",
+  "short_name": "GCSbackup",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/15",
+  "posix_compliant": false,
+  "line_count": 141,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/16",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/build.gpu.sh",
+  "short_name": "build.gpu",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/17",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/18",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/19",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/datalab/cleanup.sh",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/20",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/base/license.sh",
+  "short_name": "license",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/21",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/base/config/py3-kernel-startup.sh",
+  "short_name": "py3-kernel-startup",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/22",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/base/config/py2-kernel-startup.sh",
+  "short_name": "py2-kernel-startup",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/23",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/base/build.gpu.sh",
+  "short_name": "build.gpu",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/24",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/base/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/25",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/gateway/content/setup-env.sh",
+  "short_name": "setup-env",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/26",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/gateway/content/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/27",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/gateway/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/28",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/gateway/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/29",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/gateway/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/30",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/googledatalab/datalab.git",
+  "relative_path": "datalab/containers/gateway/cleanup.sh",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "datalab_lkuPXl/31",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ }
+]

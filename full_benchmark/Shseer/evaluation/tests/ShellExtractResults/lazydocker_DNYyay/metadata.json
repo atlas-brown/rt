@@ -1,0 +1,306 @@
+[
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/test/print-random-stuff.sh",
+  "short_name": "print-random-stuff",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/0",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/hooks/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/scripts/install_update_linux.sh",
+  "short_name": "install_update_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/2",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/scripts/bump_gocui.sh",
+  "short_name": "bump_gocui",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/scripts/bump_lazycore.sh",
+  "short_name": "bump_lazycore",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/.circleci/update_docs.sh",
+  "short_name": "update_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/5",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/.circleci/install_snapcraft.sh",
+  "short_name": "install_snapcraft",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/6",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/7",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/go.opentelemetry.io/otel/verify_readmes.sh",
+  "short_name": "verify_readmes",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/8",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/go.opentelemetry.io/otel/get_main_pkgs.sh",
+  "short_name": "get_main_pkgs",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/9",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/go.opentelemetry.io/otel/verify_examples.sh",
+  "short_name": "verify_examples",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/10",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/golang.org/x/sys/plan9/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/11",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/golang.org/x/sys/plan9/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/12",
+  "posix_compliant": false,
+  "line_count": 180,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/golang.org/x/sys/plan9/mksysnum_plan9.sh",
+  "short_name": "mksysnum_plan9",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/13",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/golang.org/x/sys/unix/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/14",
+  "posix_compliant": false,
+  "line_count": 212,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/golang.org/x/sys/unix/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/15",
+  "posix_compliant": false,
+  "line_count": 383,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/golang.org/x/sys/windows/mkknownfolderids.bash",
+  "short_name": "mkknownfolderids.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/16",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/golang.org/x/sys/windows/mkerrors.bash",
+  "short_name": "mkerrors.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/17",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/github.com/gdamore/tcell/v2/terminfo/gen.sh",
+  "short_name": "gen",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/18",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/github.com/mattn/go-isatty/go.test.sh",
+  "short_name": "go.test",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/19",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/github.com/mattn/go-colorable/go.test.sh",
+  "short_name": "go.test",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/20",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazydocker.git",
+  "relative_path": "lazydocker/vendor/github.com/sasha-s/go-deadlock/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "lazydocker_DNYyay/21",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

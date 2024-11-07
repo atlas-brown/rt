@@ -1,0 +1,72 @@
+#!/bin/bash
+# written by Shotaro Fujimoto (https://github.com/ssh0)
+#=#=#=
+# I use dropbox for daily work. And I often use rsync program to synchronize the directories.
+#
+# You may change the variables.
+#
+# ```
+# dropboxpath="$HOME/Dropbox/Workspace/"
+# localpath="$HOME/Workspace/"
+# ```
+#
+# Usage:
+#
+# `myrsync up` = `rsync -av --delete $localpath $dropboxpath`
+#
+# `myrsync down` = `rsync -av --delete $dropboxpath $localpath`
+#
+#=#=
+
+dropboxpath="$HOME/Dropbox/Workspace/"
+localpath="$HOME/Workspace/"
+rsynccmd='rsync -azv --progress --delete'
+
+columns=$(tput cols)
+line=$(printf '%*s\n' "$columns" '' | tr ' ' -)
+
+sync() {
+  echo ""
+  if $confirm; then
+    echo "$ $rsynccmd -n $1 $2"
+    echo "$line"
+    $rsynccmd -n $1 $2
+    echo "$line"
+    read -p "Continue? [y/N]" confirm
+    if [ "$confirm" != "y" ]; then
+      echo "Aborted."
+      exit 1
+    fi
+    echo ""
+  fi
+  echo "$ $rsynccmd $1 $2"
+  echo "$line"
+  $rsynccmd $1 $2
+}
+
+confirm=true
+
+while getopts yh OPT
+do
+  case $OPT in
+    "y") confirm=false
+      ;;
+    "h") usage_all "$0"; exit 0
+      ;;
+    *)
+      echo "myrsync: Unknown option."
+      exit 1
+      ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
+if [ "$1" = 'up' ]; then
+  sync $localpath $dropboxpath 
+elif [ "$1" = 'down' ]; then
+  sync $dropboxpath $localpath
+else
+  echo "Command not found. You should select openration from 'up/down'."
+  exit 1
+fi

@@ -1,0 +1,52 @@
+[
+ {
+  "repo": "https://github.com/alexcasalboni/aws-lambda-power-tuning.git",
+  "relative_path": "aws-lambda-power-tuning/terraform/module/scripts/build-layer.sh",
+  "short_name": "build-layer",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_zlKgyU/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alexcasalboni/aws-lambda-power-tuning.git",
+  "relative_path": "aws-lambda-power-tuning/scripts/deploy-sar-app.sh",
+  "short_name": "deploy-sar-app",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_zlKgyU/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alexcasalboni/aws-lambda-power-tuning.git",
+  "relative_path": "aws-lambda-power-tuning/scripts/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_zlKgyU/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alexcasalboni/aws-lambda-power-tuning.git",
+  "relative_path": "aws-lambda-power-tuning/scripts/execute.sh",
+  "short_name": "execute",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_zlKgyU/3",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

@@ -1,0 +1,60 @@
+[
+ {
+  "repo": "https://github.com/kingFighter/ccs-lab-2014-Spring.git",
+  "relative_path": "ccs-lab-2014-Spring/chroot-setup.sh",
+  "short_name": "chroot-setup",
+  "timestamp": "10/22/2024",
+  "identifier": "ccs_LDUTwH/0",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/kingFighter/ccs-lab-2014-Spring.git",
+  "relative_path": "ccs-lab-2014-Spring/check-ex6.sh",
+  "short_name": "check-ex6",
+  "timestamp": "10/22/2024",
+  "identifier": "ccs_LDUTwH/1",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/kingFighter/ccs-lab-2014-Spring.git",
+  "relative_path": "ccs-lab-2014-Spring/chroot-copy.sh",
+  "short_name": "chroot-copy",
+  "timestamp": "10/22/2024",
+  "identifier": "ccs_LDUTwH/2",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kingFighter/ccs-lab-2014-Spring.git",
+  "relative_path": "ccs-lab-2014-Spring/clean-env.sh",
+  "short_name": "clean-env",
+  "timestamp": "10/22/2024",
+  "identifier": "ccs_LDUTwH/3",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

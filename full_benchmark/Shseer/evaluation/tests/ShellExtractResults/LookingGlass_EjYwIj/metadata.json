@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/gnif/LookingGlass.git",
+  "relative_path": "LookingGlass/gl-check",
+  "short_name": "gl-check",
+  "timestamp": "10/22/2024",
+  "identifier": "LookingGlass_EjYwIj/0",
+  "posix_compliant": false,
+  "line_count": 125,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

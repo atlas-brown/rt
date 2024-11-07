@@ -1,0 +1,37 @@
+[
+ {
+  "repo": "https://github.com/facebookarchive/scribe.git",
+  "relative_path": "scribe/test/600buckets/toggleSinker.sh",
+  "short_name": "toggleSinker",
+  "timestamp": "10/22/2024",
+  "identifier": "scribe_lKBcsF/0",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/scribe.git",
+  "relative_path": "scribe/test/600buckets/iorw.sh",
+  "short_name": "iorw",
+  "timestamp": "10/22/2024",
+  "identifier": "scribe_lKBcsF/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/scribe.git",
+  "relative_path": "scribe/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "scribe_lKBcsF/2",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ }
+]

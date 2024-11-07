@@ -1,0 +1,77 @@
+[
+ {
+  "repo": "https://github.com/meilisearch/meilisearch.git",
+  "relative_path": "meilisearch/download-latest.sh",
+  "short_name": "download-latest",
+  "timestamp": "10/22/2024",
+  "identifier": "meilisearch_sfONuQ/0",
+  "posix_compliant": true,
+  "line_count": 125,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meilisearch/meilisearch.git",
+  "relative_path": "meilisearch/benchmarks/scripts/compare.sh",
+  "short_name": "compare",
+  "timestamp": "10/22/2024",
+  "identifier": "meilisearch_sfONuQ/1",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meilisearch/meilisearch.git",
+  "relative_path": "meilisearch/benchmarks/scripts/list.sh",
+  "short_name": "list",
+  "timestamp": "10/22/2024",
+  "identifier": "meilisearch_sfONuQ/2",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meilisearch/meilisearch.git",
+  "relative_path": "meilisearch/.github/scripts/check-release.sh",
+  "short_name": "check-release",
+  "timestamp": "10/22/2024",
+  "identifier": "meilisearch_sfONuQ/3",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/meilisearch/meilisearch.git",
+  "relative_path": "meilisearch/.github/scripts/is-latest-release.sh",
+  "short_name": "is-latest-release",
+  "timestamp": "10/22/2024",
+  "identifier": "meilisearch_sfONuQ/4",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

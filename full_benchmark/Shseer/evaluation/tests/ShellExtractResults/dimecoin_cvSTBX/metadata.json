@@ -1,0 +1,74 @@
+[
+ {
+  "repo": "https://github.com/Dimelord/dimecoin.git",
+  "relative_path": "dimecoin/contrib/verifysfbinaries/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "dimecoin_cvSTBX/0",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Dimelord/dimecoin.git",
+  "relative_path": "dimecoin/contrib/tidy_datadir.sh",
+  "short_name": "tidy_datadir",
+  "timestamp": "10/22/2024",
+  "identifier": "dimecoin_cvSTBX/1",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Dimelord/dimecoin.git",
+  "relative_path": "dimecoin/share/genbuild.sh",
+  "short_name": "genbuild",
+  "timestamp": "10/22/2024",
+  "identifier": "dimecoin_cvSTBX/2",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Dimelord/dimecoin.git",
+  "relative_path": "dimecoin/share/qt/make_windows_icon.sh",
+  "short_name": "make_windows_icon",
+  "timestamp": "10/22/2024",
+  "identifier": "dimecoin_cvSTBX/3",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Dimelord/dimecoin.git",
+  "relative_path": "dimecoin/src/leveldb/build_detect_platform",
+  "short_name": "build_detect_platform",
+  "timestamp": "10/22/2024",
+  "identifier": "dimecoin_cvSTBX/4",
+  "posix_compliant": true,
+  "line_count": 143,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

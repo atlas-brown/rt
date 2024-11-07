@@ -1,0 +1,35 @@
+#!/bin/sh
+
+INTERFACE=$1
+STATUS=$2
+
+# Make sure we're always getting the standard response strings
+LANG='C'
+
+CHRONY=$(which chronyc)
+
+chrony_cmd() {
+  echo "Chrony going $1."
+  exec $CHRONY -a $1
+}
+
+nm_connected() {
+  [ "$(nmcli -t --fields STATE g)" = 'connected' ]
+}
+
+case "$STATUS" in
+  up)
+    chrony_cmd online
+  ;;
+  vpn-up)
+    chrony_cmd online
+  ;;
+  down)
+    # Check for active interface, take offline if none is active
+    nm_connected || chrony_cmd offline
+  ;;
+  vpn-down)
+    # Check for active interface, take offline if none is active
+    nm_connected || chrony_cmd offline
+  ;;
+esac

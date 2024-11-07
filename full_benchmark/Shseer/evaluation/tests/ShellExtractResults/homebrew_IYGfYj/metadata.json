@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/buo/homebrew-cask-upgrade.git",
+  "relative_path": "homebrew-cask-upgrade/cmd/brewcask-upgrade",
+  "short_name": "brewcask-upgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "homebrew_IYGfYj/0",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/buo/homebrew-cask-upgrade.git",
+  "relative_path": "homebrew-cask-upgrade/bin/brew-cask-upgrade",
+  "short_name": "brew-cask-upgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "homebrew_IYGfYj/1",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

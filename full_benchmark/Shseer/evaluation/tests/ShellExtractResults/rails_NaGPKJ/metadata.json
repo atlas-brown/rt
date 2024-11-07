@@ -1,0 +1,43 @@
+[
+ {
+  "repo": "https://github.com/tenex/rails-assets.git",
+  "relative_path": "rails-assets/bin/clean_all",
+  "short_name": "clean_all",
+  "timestamp": "10/22/2024",
+  "identifier": "rails_NaGPKJ/0",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenex/rails-assets.git",
+  "relative_path": "rails-assets/infrastructure/primary-copydown",
+  "short_name": "primary-copydown",
+  "timestamp": "10/22/2024",
+  "identifier": "rails_NaGPKJ/1",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenex/rails-assets.git",
+  "relative_path": "rails-assets/infrastructure/files/passenger-watchdog",
+  "short_name": "passenger-watchdog",
+  "timestamp": "10/22/2024",
+  "identifier": "rails_NaGPKJ/2",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

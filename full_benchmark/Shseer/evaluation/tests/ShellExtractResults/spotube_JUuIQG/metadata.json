@@ -1,0 +1,44 @@
+[
+ {
+  "repo": "https://github.com/KRTirtho/spotube.git",
+  "relative_path": "spotube/scripts/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "spotube_JUuIQG/0",
+  "posix_compliant": false,
+  "line_count": 131,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/KRTirtho/spotube.git",
+  "relative_path": "spotube/scripts/gensums.sh",
+  "short_name": "gensums",
+  "timestamp": "10/22/2024",
+  "identifier": "spotube_JUuIQG/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/KRTirtho/spotube.git",
+  "relative_path": "spotube/scripts/pkgbuild2json.sh",
+  "short_name": "pkgbuild2json",
+  "timestamp": "10/22/2024",
+  "identifier": "spotube_JUuIQG/2",
+  "posix_compliant": false,
+  "line_count": 134,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

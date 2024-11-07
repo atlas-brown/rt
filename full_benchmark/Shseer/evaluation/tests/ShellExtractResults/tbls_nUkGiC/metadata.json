@@ -1,0 +1,52 @@
+[
+ {
+  "repo": "https://github.com/k1LoW/tbls.git",
+  "relative_path": "tbls/testdata/bin/tbls-echo",
+  "short_name": "tbls-echo",
+  "timestamp": "10/22/2024",
+  "identifier": "tbls_nUkGiC/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/k1LoW/tbls.git",
+  "relative_path": "tbls/testdata/ddl/dynamodb.sh",
+  "short_name": "dynamodb",
+  "timestamp": "10/22/2024",
+  "identifier": "tbls_nUkGiC/1",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/k1LoW/tbls.git",
+  "relative_path": "tbls/use",
+  "short_name": "use",
+  "timestamp": "10/22/2024",
+  "identifier": "tbls_nUkGiC/2",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/k1LoW/tbls.git",
+  "relative_path": "tbls/scripts/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "tbls_nUkGiC/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

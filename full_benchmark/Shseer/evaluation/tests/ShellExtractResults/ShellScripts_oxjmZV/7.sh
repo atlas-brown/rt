@@ -1,0 +1,16 @@
+#!/bin/bash
+
+a=$(($(date -d "5" "+%s") - $(date -d "0" "+%s")))
+b=$(($(date "+%s") - $(date -d "0" "+%s")))
+
+if [ $((b - a)) -lt 0 ]; then
+  echo "Start on the same day"
+  /usr/sbin/rtcwake -m no --time "$(date -d "5" +%s)"
+else
+  echo "Start on the next day"
+  /usr/sbin/rtcwake -m no --time "$(date -d "5 +24 hours" +%s)"
+fi
+
+cat /proc/driver/rtc
+
+exit 0

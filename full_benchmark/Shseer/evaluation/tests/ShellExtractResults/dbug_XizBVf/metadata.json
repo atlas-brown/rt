@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/abcdbug/dbug.git",
+  "relative_path": "dbug/Makefiles/fastq_sandbox/bwa_aln.sh",
+  "short_name": "bwa_aln",
+  "timestamp": "10/22/2024",
+  "identifier": "dbug_XizBVf/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/lobehub/lobe-chat.git",
+  "relative_path": "lobe-chat/docker-compose/local/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "lobe_KNwGVD/0",
+  "posix_compliant": false,
+  "line_count": 195,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

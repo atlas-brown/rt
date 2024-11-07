@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/leafo/lapis.git",
+  "relative_path": "lapis/ci.sh",
+  "short_name": "ci",
+  "timestamp": "10/22/2024",
+  "identifier": "lapis_axTMoH/0",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

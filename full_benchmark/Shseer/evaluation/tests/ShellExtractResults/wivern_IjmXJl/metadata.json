@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/asm-products/wivern.git",
+  "relative_path": "wivern/config/vagrant/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "wivern_IjmXJl/0",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

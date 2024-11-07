@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/bloomberg/xcdiff.git",
+  "relative_path": "xcdiff/Scripts/brew.sh",
+  "short_name": "brew",
+  "timestamp": "10/22/2024",
+  "identifier": "xcdiff_UYVMqD/0",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/bloomberg/xcdiff.git",
+  "relative_path": "xcdiff/Scripts/coverage.sh",
+  "short_name": "coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "xcdiff_UYVMqD/1",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

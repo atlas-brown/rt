@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/shubham0d/crack-it.git",
+  "relative_path": "crack-it/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "crack_lJruVr/0",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ }
+]

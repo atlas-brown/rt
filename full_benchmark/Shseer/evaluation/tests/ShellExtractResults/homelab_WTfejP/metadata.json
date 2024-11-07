@@ -1,0 +1,99 @@
+[
+ {
+  "repo": "https://github.com/khuedoan/homelab.git",
+  "relative_path": "homelab/scripts/pxe-logs",
+  "short_name": "pxe-logs",
+  "timestamp": "10/22/2024",
+  "identifier": "homelab_WTfejP/0",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/khuedoan/homelab.git",
+  "relative_path": "homelab/scripts/kanidm-reset-password",
+  "short_name": "kanidm-reset-password",
+  "timestamp": "10/22/2024",
+  "identifier": "homelab_WTfejP/1",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/khuedoan/homelab.git",
+  "relative_path": "homelab/scripts/get-wireguard-config",
+  "short_name": "get-wireguard-config",
+  "timestamp": "10/22/2024",
+  "identifier": "homelab_WTfejP/2",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/khuedoan/homelab.git",
+  "relative_path": "homelab/scripts/onboard-user",
+  "short_name": "onboard-user",
+  "timestamp": "10/22/2024",
+  "identifier": "homelab_WTfejP/3",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/khuedoan/homelab.git",
+  "relative_path": "homelab/scripts/get-dns-config",
+  "short_name": "get-dns-config",
+  "timestamp": "10/22/2024",
+  "identifier": "homelab_WTfejP/4",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/khuedoan/homelab.git",
+  "relative_path": "homelab/scripts/get-status",
+  "short_name": "get-status",
+  "timestamp": "10/22/2024",
+  "identifier": "homelab_WTfejP/5",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/khuedoan/homelab.git",
+  "relative_path": "homelab/scripts/argocd-admin-password",
+  "short_name": "argocd-admin-password",
+  "timestamp": "10/22/2024",
+  "identifier": "homelab_WTfejP/6",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/khuedoan/homelab.git",
+  "relative_path": "homelab/scripts/new-service",
+  "short_name": "new-service",
+  "timestamp": "10/22/2024",
+  "identifier": "homelab_WTfejP/7",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ }
+]

@@ -1,0 +1,54 @@
+[
+ {
+  "repo": "https://github.com/mdn/samples-server.git",
+  "relative_path": "samples-server/user-data.sh",
+  "short_name": "user-data",
+  "timestamp": "10/22/2024",
+  "identifier": "samples_XEdFNQ/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mdn/samples-server.git",
+  "relative_path": "samples-server/s/webrtc-from-chat/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "samples_XEdFNQ/1",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mdn/samples-server.git",
+  "relative_path": "samples-server/s/websocket-chat/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "samples_XEdFNQ/2",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mdn/samples-server.git",
+  "relative_path": "samples-server/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "samples_XEdFNQ/3",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

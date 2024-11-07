@@ -1,0 +1,363 @@
+[
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/tests/run-tests.sh",
+  "short_name": "run-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/0",
+  "posix_compliant": false,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/models/generate-coreml-model.sh",
+  "short_name": "generate-coreml-model",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/1",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/models/generate-coreml-interface.sh",
+  "short_name": "generate-coreml-interface",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/2",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/models/download-ggml-model.sh",
+  "short_name": "download-ggml-model",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/3",
+  "posix_compliant": true,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/models/download-coreml-model.sh",
+  "short_name": "download-coreml-model",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/4",
+  "posix_compliant": true,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/examples/livestream.sh",
+  "short_name": "livestream",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/5",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/examples/whisper.nvim/whisper.nvim",
+  "short_name": "whisper.nvim",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/6",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/examples/twitch.sh",
+  "short_name": "twitch",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/7",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/examples/sycl/run-whisper.sh",
+  "short_name": "run-whisper",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/8",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/examples/sycl/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/9",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/examples/talk-llama/speak",
+  "short_name": "speak",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/10",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/examples/generate-karaoke.sh",
+  "short_name": "generate-karaoke",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/11",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/examples/yt-wsp.sh",
+  "short_name": "yt-wsp",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/12",
+  "posix_compliant": false,
+  "line_count": 106,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/examples/talk/speak",
+  "short_name": "speak",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/13",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/build-info.sh",
+  "short_name": "build-info",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/14",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/gen-authors.sh",
+  "short_name": "gen-authors",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/15",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/sync-ggml-am.sh",
+  "short_name": "sync-ggml-am",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/16",
+  "posix_compliant": false,
+  "line_count": 119,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/convert-all.sh",
+  "short_name": "convert-all",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/17",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/bench-wts.sh",
+  "short_name": "bench-wts",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/18",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/sync-ggml.sh",
+  "short_name": "sync-ggml",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/19",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/sha-all.sh",
+  "short_name": "sha-all",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/20",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/bench-all.sh",
+  "short_name": "bench-all",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/21",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/sync-llama.sh",
+  "short_name": "sync-llama",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/22",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/quantize-all.sh",
+  "short_name": "quantize-all",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/23",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/scripts/deploy-wasm.sh",
+  "short_name": "deploy-wasm",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/24",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ggerganov/whisper.cpp.git",
+  "relative_path": "whisper.cpp/bindings/java/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "whisper.cpp_RkhzEo/25",
+  "posix_compliant": true,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

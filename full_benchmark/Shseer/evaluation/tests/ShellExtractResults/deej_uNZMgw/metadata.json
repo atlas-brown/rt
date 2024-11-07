@@ -1,0 +1,40 @@
+[
+ {
+  "repo": "https://github.com/omriharel/deej.git",
+  "relative_path": "deej/pkg/deej/scripts/linux/build-dev.sh",
+  "short_name": "build-dev",
+  "timestamp": "10/22/2024",
+  "identifier": "deej_uNZMgw/0",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/omriharel/deej.git",
+  "relative_path": "deej/pkg/deej/scripts/linux/build-all.sh",
+  "short_name": "build-all",
+  "timestamp": "10/22/2024",
+  "identifier": "deej_uNZMgw/1",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/omriharel/deej.git",
+  "relative_path": "deej/pkg/deej/scripts/linux/build-release.sh",
+  "short_name": "build-release",
+  "timestamp": "10/22/2024",
+  "identifier": "deej_uNZMgw/2",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

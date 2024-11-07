@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/colormotor/colormotor.git",
+  "relative_path": "colormotor/addons/pycolormotor/swig.sh",
+  "short_name": "swig",
+  "timestamp": "10/22/2024",
+  "identifier": "colormotor_yEkKHe/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "io"
+  ]
+ }
+]

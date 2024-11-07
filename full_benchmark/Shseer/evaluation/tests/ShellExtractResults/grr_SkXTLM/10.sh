@@ -1,0 +1,55 @@
+#!/bin/bash
+#
+# Installs the 64-bit client deb in the GRR server's virtualenv
+# and runs end-to-end tests against it. If the tests fail, the script
+# will terminate with a non-zero exit-code.
+#
+# Needs to be run as root.
+
+set -ex
+
+readonly FLAKY_TESTS_ARR=(\
+  TestCheckRunner.runTest \
+)
+# Convert array to string (comma-separated).
+readonly FLAKY_TESTS="$(IFS=,;echo "${FLAKY_TESTS_ARR[*]}")"
+
+function fatal() {
+  >&2 echo "Error: ${1}"
+  exit 1
+}
+
+# USER_PROCESS utmp records don't seem to get created in Appveyor VMs during
+# builds (they do get created however when you ssh to the VM). GRR, as well as
+# system utilities like 'who' and 'users' rely on those records to determine
+# which users are logged into a machine. Since there are a number of end-to-end
+# tests that rely on the presence of user profiles in the knowledge-base, we
+# generate a dummy wtmp entry for the 'appveyor' user, which is the role used
+# for running tests. This is obviously a hack.
+useradd -m appveyor
+echo "[7] [01234] [ts/3] [appveyor] [pts/3       ] [100.100.10.10       ] [100.100.10.10  ] [Thu Jan 01 00:00:00 1970 UTC]" > wtmp.txt
+utmpdump /var/log/wtmp >> wtmp.txt
+utmpdump --reverse < wtmp.txt > /var/log/wtmp
+utmpdump /var/log/wtmp
+
+apt install -y /usr/share/grr-server/executables/installers/grr_*_amd64.deb
+# Wait until the client gets an id.
+for i in {0..9}; do CLIENT_ID="C.$(cat /tmp/fleetspeak-client.INFO | grep -o '[a-z0-9]\{16\}')" && break || sleep 10; done
+
+echo "Installed GRR client [Id ${CLIENT_ID}]"
+
+grr_end_to_end_tests --verbose \
+  --api_password "${GRR_ADMIN_PASS}" \
+  --client_id "${CLIENT_ID}" \
+  --flow_timeout_secs 240 \
+  --flow_results_sla_secs 60 \
+  --skip_tests "${FLAKY_TESTS}" \
+  2>&1 | tee e2e.log
+
+if [[ ! -z "$(cat e2e.log | grep -F '[ FAIL ]')" ]]; then
+  fatal 'End-to-end tests failed.'
+fi
+
+if [[ -z "$(cat e2e.log | grep -F '[ PASS ]')" ]]; then
+  fatal "Expected to find at least one passing test in the test log. It is possible no tests actually ran."
+fi

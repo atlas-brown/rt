@@ -1,0 +1,41 @@
+[
+ {
+  "repo": "https://github.com/gnustep/libs-base.git",
+  "relative_path": "libs-base/Tools/mkchlog.sh",
+  "short_name": "mkchlog",
+  "timestamp": "10/22/2024",
+  "identifier": "libs_VwuGHM/0",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gnustep/libs-base.git",
+  "relative_path": "libs-base/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "libs_VwuGHM/1",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/gnustep/libs-base.git",
+  "relative_path": "libs-base/.github/scripts/dependencies.sh",
+  "short_name": "dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "libs_VwuGHM/2",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

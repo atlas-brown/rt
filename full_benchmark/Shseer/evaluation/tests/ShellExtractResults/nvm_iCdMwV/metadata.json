@@ -1,0 +1,3394 @@
+[
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/install_nvm_from_git",
+  "short_name": "install_nvm_from_git",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/0",
+  "posix_compliant": true,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/nvm_check_global_modules",
+  "short_name": "nvm_check_global_modules",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/1",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/nvm_download",
+  "short_name": "nvm_download",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/2",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/nvm_reset",
+  "short_name": "nvm_reset",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/3",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/nvm_install_with_node_version",
+  "short_name": "nvm_install_with_node_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/4",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/nvm_install_with_aliased_dot",
+  "short_name": "nvm_install_with_aliased_dot",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/5",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/nvm_profile_is_bash_or_zsh",
+  "short_name": "nvm_profile_is_bash_or_zsh",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/6",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/nvm_source",
+  "short_name": "nvm_source",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/7",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/nvm_do_install",
+  "short_name": "nvm_do_install",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/8",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/nvm_install_dir",
+  "short_name": "nvm_install_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/9",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/install_script/nvm_detect_profile",
+  "short_name": "nvm_detect_profile",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/10",
+  "posix_compliant": true,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/11",
+  "posix_compliant": false,
+  "line_count": 206,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install from binary",
+  "short_name": "install from binary",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/12",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install with --default",
+  "short_name": "install with --default",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/13",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install already installed uses it",
+  "short_name": "install already installed uses it",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/14",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install from source without V8 snapshot for ARM",
+  "short_name": "install from source without V8 snapshot for ARM",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/15",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/teardown_dir",
+  "short_name": "teardown_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/16",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install on bash with ERR trap and set -E",
+  "short_name": "install on bash with ERR trap and set -E",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/17",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install hook",
+  "short_name": "install hook",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/18",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install two versions and use the latest one",
+  "short_name": "install two versions and use the latest one",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/19",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install LTS",
+  "short_name": "install LTS",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/20",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/setup_dir",
+  "short_name": "setup_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/21",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install from source with thread parameter",
+  "short_name": "install from source with thread parameter",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/22",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install from source",
+  "short_name": "install from source",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/23",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install with --latest-npm",
+  "short_name": "install with --latest-npm",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/24",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install latest npm",
+  "short_name": "install latest npm",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/25",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/default-packages",
+  "short_name": "default-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/26",
+  "posix_compliant": true,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install with --alias",
+  "short_name": "install with --alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/27",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install from binary with binary flag set",
+  "short_name": "install from binary with binary flag set",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/28",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install while reinstalling packages",
+  "short_name": "install while reinstalling packages",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/29",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_node/install version specified in .nvmrc from binary",
+  "short_name": "install version specified in .nvmrc from binary",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/30",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_iojs/install from binary",
+  "short_name": "install from binary",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/31",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_iojs/nvm install v1 works",
+  "short_name": "nvm install v1 works",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/32",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_iojs/install already installed uses it",
+  "short_name": "install already installed uses it",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/33",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_iojs/teardown_dir",
+  "short_name": "teardown_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/34",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_iojs/install version specified in .nvmrc from source",
+  "short_name": "install version specified in .nvmrc from source",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/35",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_iojs/install two versions and use the latest one",
+  "short_name": "install two versions and use the latest one",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/36",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_iojs/setup_dir",
+  "short_name": "setup_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/37",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_iojs/install from source",
+  "short_name": "install from source",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/38",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_iojs/install while reinstalling packages",
+  "short_name": "install while reinstalling packages",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/39",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/installation_iojs/install version specified in .nvmrc from binary",
+  "short_name": "install version specified in .nvmrc from binary",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/40",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm reinstall-packages/Running 'nvm copy-packages $(nvm ls current)' should error out",
+  "short_name": "Running 'nvm copy-packages $(nvm ls current)' should error out",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/41",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm reinstall-packages/should work as expected",
+  "short_name": "should work as expected",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/42",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm reinstall-packages/teardown_dir",
+  "short_name": "teardown_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/43",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm reinstall-packages/setup_dir",
+  "short_name": "setup_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/44",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm reinstall-packages/works with no installs",
+  "short_name": "works with no installs",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/45",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/Running 'nvm current' should display current nvm environment",
+  "short_name": "Running 'nvm current' should display current nvm environment",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/46",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm uninstall/teardown_dir",
+  "short_name": "teardown_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/47",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm uninstall/setup_dir",
+  "short_name": "setup_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/48",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm uninstall/Running 'nvm uninstall' with incorrect file permissions fails nicely",
+  "short_name": "Running 'nvm uninstall' with incorrect file permissions fails nicely",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/49",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm uninstall/Running 'nvm uninstall 0.12.6' uninstalls v0.12.6",
+  "short_name": "Running 'nvm uninstall 0.12.6' uninstalls v0.12.6",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/50",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm_get_latest/nvm_get_latest failed redirect",
+  "short_name": "nvm_get_latest failed redirect",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/51",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm_get_latest/nvm_get_latest",
+  "short_name": "nvm_get_latest",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/52",
+  "posix_compliant": true,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/Running 'nvm use' with nvmrc containing not installed version",
+  "short_name": "Running 'nvm use' with nvmrc containing not installed version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/53",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/Running 'nvm use' calls 'nvm_die_on_prefix'",
+  "short_name": "Running 'nvm use' calls 'nvm_die_on_prefix'",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/54",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/Running 'nvm use node' uses latest stable node version",
+  "short_name": "Running 'nvm use node' uses latest stable node version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/55",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/teardown_dir",
+  "short_name": "teardown_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/56",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/Running 'nvm use --lts=foo' uses latest 'foo' LTS version",
+  "short_name": "Running 'nvm use --lts=foo' uses latest 'foo' LTS version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/57",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/Running 'nvm use lts' shows actionable error",
+  "short_name": "Running 'nvm use lts' shows actionable error",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/58",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/Running 'nvm use --lts' uses latest LTS version",
+  "short_name": "Running 'nvm use --lts' uses latest LTS version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/59",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/Running 'nvm use node --silent' doesn't print anything",
+  "short_name": "Running 'nvm use node --silent' doesn't print anything",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/60",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/setup_dir",
+  "short_name": "setup_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/61",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/Running 'nvm use iojs' uses latest io.js version",
+  "short_name": "Running 'nvm use iojs' uses latest io.js version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/62",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm use/Running 'nvm use v1.0.0' uses iojs-v1.0.0 iojs version",
+  "short_name": "Running 'nvm use v1.0.0' uses iojs-v1.0.0 iojs version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/63",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm run/Running 'nvm run --lts' should work",
+  "short_name": "Running 'nvm run --lts' should work",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/64",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm run/teardown_dir",
+  "short_name": "teardown_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/65",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm run/Running 'nvm run' should pick up .nvmrc version",
+  "short_name": "Running 'nvm run' should pick up .nvmrc version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/66",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm run/setup_dir",
+  "short_name": "setup_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/67",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm run/Running 'nvm run 0.x' should work",
+  "short_name": "Running 'nvm run 0.x' should work",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/68",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm run/Running 'nvm run 0.x' should error out sensibly when 0.x is not installed",
+  "short_name": "Running 'nvm run 0.x' should error out sensibly when 0.x is not installed",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/69",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm run/Running 'nvm run --harmony --version' should work",
+  "short_name": "Running 'nvm run --harmony --version' should work",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/70",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm exec/Preamble works and respects 'silent' flag",
+  "short_name": "Preamble works and respects 'silent' flag",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/71",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm exec/Running 'nvm exec 0.x' should work",
+  "short_name": "Running 'nvm exec 0.x' should work",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/72",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm exec/teardown_dir",
+  "short_name": "teardown_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/73",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm exec/setup_dir",
+  "short_name": "setup_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/74",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm exec/Running 'nvm exec' should pick up .nvmrc version",
+  "short_name": "Running 'nvm exec' should pick up .nvmrc version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/75",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm exec/Running 'nvm exec' with help should not parse",
+  "short_name": "Running 'nvm exec' with help should not parse",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/76",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/slow/nvm exec/Running 'nvm exec --lts' should work",
+  "short_name": "Running 'nvm exec --lts' should work",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/77",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm use x' should not create the 'current' symlink if $NVM_SYMLINK_CURRENT is false",
+  "short_name": "Running 'nvm use x' should not create the 'current' symlink if $NVM_SYMLINK_CURRENT is false",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/78",
+  "posix_compliant": true,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm unload' should unset all function and variables",
+  "short_name": "Running 'nvm unload' should unset all function and variables",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/79",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm use system' should work as expected",
+  "short_name": "Running 'nvm use system' should work as expected",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/80",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm use' should drop CR char automatically",
+  "short_name": "Running 'nvm use' should drop CR char automatically",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/81",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm deactivate' should unset the nvm environment variables",
+  "short_name": "Running 'nvm deactivate' should unset the nvm environment variables",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/82",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/teardown_dir",
+  "short_name": "teardown_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/83",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_version",
+  "short_name": "nvm_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/84",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_print_npm_version",
+  "short_name": "nvm_print_npm_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/85",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_alias",
+  "short_name": "nvm_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/86",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_find_project_dir",
+  "short_name": "nvm_find_project_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/87",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_install_binary_nosource",
+  "short_name": "nvm_install_binary_nosource",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/88",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_download_slug",
+  "short_name": "nvm_get_download_slug",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/89",
+  "posix_compliant": true,
+  "line_count": 93,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_remote_version",
+  "short_name": "nvm_remote_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/90",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_clang_version",
+  "short_name": "nvm_clang_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/91",
+  "posix_compliant": true,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_iojs_prefix",
+  "short_name": "nvm_iojs_prefix",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/92",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_find_up",
+  "short_name": "nvm_find_up",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/93",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_stdout_is_terminal",
+  "short_name": "nvm_stdout_is_terminal",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/94",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_ensure_version_installed",
+  "short_name": "nvm_ensure_version_installed",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/95",
+  "posix_compliant": true,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_print_color_code",
+  "short_name": "nvm_print_color_code",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/96",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_compute_checksum",
+  "short_name": "nvm_compute_checksum",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/97",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/Running 'nvm use --save' works as expected'",
+  "short_name": "Running 'nvm use --save' works as expected'",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/98",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_is_alias",
+  "short_name": "nvm_is_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/99",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_ensure_version_prefix",
+  "short_name": "nvm_ensure_version_prefix",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/100",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_alias LTS-N",
+  "short_name": "nvm_alias LTS-N",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/101",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm install -b",
+  "short_name": "nvm install -b",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/102",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_write_nvmrc",
+  "short_name": "nvm_write_nvmrc",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/103",
+  "posix_compliant": true,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_curl_version",
+  "short_name": "nvm_curl_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/104",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_process_nvmrc",
+  "short_name": "nvm_process_nvmrc",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/105",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_ls_remote",
+  "short_name": "nvm_ls_remote",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/106",
+  "posix_compliant": true,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_ensure_default_set",
+  "short_name": "nvm_ensure_default_set",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/107",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_make_alias",
+  "short_name": "nvm_make_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/108",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_alias_path",
+  "short_name": "nvm_alias_path",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/109",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_strip_path",
+  "short_name": "nvm_strip_path",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/110",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_curl_use_compression",
+  "short_name": "nvm_curl_use_compression",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/111",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_default_packages",
+  "short_name": "nvm_get_default_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/112",
+  "posix_compliant": true,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm version-remote",
+  "short_name": "nvm version-remote",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/113",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_print_default_alias",
+  "short_name": "nvm_print_default_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/114",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_download",
+  "short_name": "nvm_download",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/115",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_checksum_alg",
+  "short_name": "nvm_get_checksum_alg",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/116",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_supports_xz",
+  "short_name": "nvm_supports_xz",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/117",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_check_for_help",
+  "short_name": "nvm_check_for_help",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/118",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_has",
+  "short_name": "nvm_has",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/119",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_is_valid_version",
+  "short_name": "nvm_is_valid_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/120",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_ls_remote LTS aliases",
+  "short_name": "nvm_ls_remote LTS aliases",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/121",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_num_version_groups",
+  "short_name": "nvm_num_version_groups",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/122",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_install_latest_npm",
+  "short_name": "nvm_install_latest_npm",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/123",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_version_dir",
+  "short_name": "nvm_version_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/124",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_download_artifact",
+  "short_name": "nvm_download_artifact",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/125",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_compare_checksum",
+  "short_name": "nvm_compare_checksum",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/126",
+  "posix_compliant": true,
+  "line_count": 59,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_arch_unofficial",
+  "short_name": "nvm_get_arch_unofficial",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/127",
+  "posix_compliant": true,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_is_natural_num",
+  "short_name": "nvm_is_natural_num",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/128",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_die_on_prefix",
+  "short_name": "nvm_die_on_prefix",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/129",
+  "posix_compliant": true,
+  "line_count": 147,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/Running 'nvm use --silent --save' doesn't output anything",
+  "short_name": "Running 'nvm use --silent --save' doesn't output anything",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/130",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm install with nonlowercase LTS name",
+  "short_name": "nvm install with nonlowercase LTS name",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/131",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_ls_remote_iojs",
+  "short_name": "nvm_ls_remote_iojs",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/132",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_minor_version",
+  "short_name": "nvm_get_minor_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/133",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_arch",
+  "short_name": "nvm_get_arch",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/134",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_latest missing curl or wget",
+  "short_name": "nvm_get_latest missing curl or wget",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/135",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_colors",
+  "short_name": "nvm_get_colors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/136",
+  "posix_compliant": true,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_version_path",
+  "short_name": "nvm_version_path",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/137",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_node_version_has_solaris_binary",
+  "short_name": "nvm_node_version_has_solaris_binary",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/138",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_is_version_installed",
+  "short_name": "nvm_is_version_installed",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/139",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_extract_tarball",
+  "short_name": "nvm_extract_tarball",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/140",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_print_implicit_alias success",
+  "short_name": "nvm_print_implicit_alias success",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/141",
+  "posix_compliant": true,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_tree_contains_path",
+  "short_name": "nvm_tree_contains_path",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/142",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_use_if_needed",
+  "short_name": "nvm_use_if_needed",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/143",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_ls_current",
+  "short_name": "nvm_ls_current",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/144",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_curl_libz_support",
+  "short_name": "nvm_curl_libz_support",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/145",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/Running 'nvm install --save' works as expected'",
+  "short_name": "Running 'nvm install --save' works as expected'",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/146",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm set_colors",
+  "short_name": "nvm set_colors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/147",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_change_path",
+  "short_name": "nvm_change_path",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/148",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_iojs_version_has_solaris_binary",
+  "short_name": "nvm_iojs_version_has_solaris_binary",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/149",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_is_merged_node_version",
+  "short_name": "nvm_is_merged_node_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/150",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_artifact_compression",
+  "short_name": "nvm_get_artifact_compression",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/151",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_normalize_lts",
+  "short_name": "nvm_normalize_lts",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/152",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_has_solaris_binary",
+  "short_name": "nvm_has_solaris_binary",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/153",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_strip_iojs_prefix",
+  "short_name": "nvm_strip_iojs_prefix",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/154",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_node_prefix",
+  "short_name": "nvm_node_prefix",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/155",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_command_info",
+  "short_name": "nvm_command_info",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/156",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_validate_implicit_alias",
+  "short_name": "nvm_validate_implicit_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/157",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm ls-remote",
+  "short_name": "nvm ls-remote",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/158",
+  "posix_compliant": true,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_checksum",
+  "short_name": "nvm_get_checksum",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/159",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_print_alias_path",
+  "short_name": "nvm_print_alias_path",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/160",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/Running 'nvm use --save' works with a .nvmrc in the parent dir",
+  "short_name": "Running 'nvm use --save' works with a .nvmrc in the parent dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/161",
+  "posix_compliant": true,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_mirror",
+  "short_name": "nvm_get_mirror",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/162",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_has_system_node",
+  "short_name": "nvm_has_system_node",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/163",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_add_iojs_prefix",
+  "short_name": "nvm_add_iojs_prefix",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/164",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_ls_remote nightly",
+  "short_name": "nvm_ls_remote nightly",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/165",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_install_no_progress_bar",
+  "short_name": "nvm_install_no_progress_bar",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/166",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_remote_versions",
+  "short_name": "nvm_remote_versions",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/167",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_has_system_iojs",
+  "short_name": "nvm_has_system_iojs",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/168",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_is_iojs_version",
+  "short_name": "nvm_is_iojs_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/169",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_install_binary_extract",
+  "short_name": "nvm_install_binary_extract",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/170",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_get_checksum_binary",
+  "short_name": "nvm_get_checksum_binary",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/171",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_version_greater",
+  "short_name": "nvm_version_greater",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/172",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_has_non_aliased",
+  "short_name": "nvm_has_non_aliased",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/173",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_print_implicit_alias errors",
+  "short_name": "nvm_print_implicit_alias errors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/174",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Unit tests/nvm_format_version",
+  "short_name": "nvm_format_version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/175",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm use x' should create and change the 'current' symlink",
+  "short_name": "Running 'nvm use x' should create and change the 'current' symlink",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/176",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm current' should display current nvm environment",
+  "short_name": "Running 'nvm current' should display current nvm environment",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/177",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/teardown",
+  "short_name": "teardown",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/178",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/179",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Sourcing nvm.sh should make the nvm command available",
+  "short_name": "Sourcing nvm should make the nvm command available",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/180",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm unalias' should remove the alias file",
+  "short_name": "Running 'nvm unalias' should remove the alias file",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/181",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm alias' should create a file in the alias directory",
+  "short_name": "Running 'nvm alias' should create a file in the alias directory",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/182",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm install' with an invalid version fails nicely",
+  "short_name": "Running 'nvm install' with an invalid version fails nicely",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/183",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/setup_dir",
+  "short_name": "setup_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/184",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm use foo' where 'foo' is circular aborts",
+  "short_name": "Running 'nvm use foo' where 'foo' is circular aborts",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/185",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm uninstall' with incorrect file permissions fails nicely",
+  "short_name": "Running 'nvm uninstall' with incorrect file permissions fails nicely",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/186",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm install' with '--reinstall-packages-from' requires a valid version",
+  "short_name": "Running 'nvm install' with '--reinstall-packages-from' requires a valid version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/187",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm use iojs' uses latest io.js version",
+  "short_name": "Running 'nvm use iojs' uses latest io.js version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/188",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Using a nonstandard IFS should not break",
+  "short_name": "Using a nonstandard IFS should not break",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/189",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls --no-alias' does not call into nvm_alias",
+  "short_name": "Running 'nvm ls --no-alias' does not call into nvm_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/190",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls' should list versions in the 'versions' directory",
+  "short_name": "Running 'nvm ls' should list versions in the 'versions' directory",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/191",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls' with nounset should not fail",
+  "short_name": "Running 'nvm ls' with nounset should not fail",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/192",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls 0.0.2' should display only version 0.0.2",
+  "short_name": "Running 'nvm ls 0.0.2' should display only version 0.0.2",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/193",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls' should display all installed versions",
+  "short_name": "Running 'nvm ls' should display all installed versions",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/194",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls' with node-like versioning vx.x.x should only list a matched version",
+  "short_name": "Running 'nvm ls' with node-like versioning vx.x.x should only list a matched version",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/195",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls' should filter out '.nvm'",
+  "short_name": "Running 'nvm ls' should filter out '.nvm'",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/196",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls stable' and 'nvm ls unstable' should return the appropriate implicit alias",
+  "short_name": "Running 'nvm ls stable' and 'nvm ls unstable' should return the appropriate implicit alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/197",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls foo' should return a nonzero exit code when not found",
+  "short_name": "Running 'nvm ls foo' should return a nonzero exit code when not found",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/198",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls --no-alias' with a pattern errors",
+  "short_name": "Running 'nvm ls --no-alias' with a pattern errors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/199",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls system' should include 'system' when appropriate",
+  "short_name": "Running 'nvm ls system' should include 'system' when appropriate",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/200",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls' calls into nvm_alias",
+  "short_name": "Running 'nvm ls' calls into nvm_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/201",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls io' should return NA",
+  "short_name": "Running 'nvm ls io' should return NA",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/202",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls' should filter out 'versions'",
+  "short_name": "Running 'nvm ls' should filter out 'versions'",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/203",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls node_' should return a nonzero exit code when not found",
+  "short_name": "Running 'nvm ls node_' should return a nonzero exit code when not found",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/204",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls' should include 'system' when appropriate",
+  "short_name": "Running 'nvm ls' should include 'system' when appropriate",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/205",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing versions/Running 'nvm ls 0.2' should display only 0.2.x versions",
+  "short_name": "Running 'nvm ls 0.2' should display only 0.2.x versions",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/206",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Running 'nvm uninstall' should remove the appropriate directory",
+  "short_name": "Running 'nvm uninstall' should remove the appropriate directory",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/207",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/Running 'nvm alias' should list all aliases",
+  "short_name": "Running 'nvm alias' should list all aliases",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/208",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/Running 'nvm alias \u02c2aliasname\u02c3' should list but one alias",
+  "short_name": "Running 'nvm alias \u02c2aliasname\u02c3' should list but one alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/209",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/nvm_list_aliases works with no LTS aliases present",
+  "short_name": "nvm_list_aliases works with no LTS aliases present",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/210",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/nvm_list_aliases works with LTS aliases",
+  "short_name": "nvm_list_aliases works with LTS aliases",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/211",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/nvm_ensure_default_set",
+  "short_name": "nvm_ensure_default_set",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/212",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/'nvm alias' should not accept aliases with a hash",
+  "short_name": "'nvm alias' should not accept aliases with a hash",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/213",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/nvm_list_aliases calls nvm_get_colors",
+  "short_name": "nvm_list_aliases calls nvm_get_colors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/214",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/teardown",
+  "short_name": "teardown",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/215",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/216",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/'nvm unalias' should accept aliases when they shadow a built-in alias",
+  "short_name": "'nvm unalias' should accept aliases when they shadow a built-in alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/217",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/Running 'nvm alias \u02c2aliasname\u02c3 \u02c2target\u02c3' again should change the target",
+  "short_name": "Running 'nvm alias \u02c2aliasname\u02c3 \u02c2target\u02c3' again should change the target",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/218",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/Running 'nvm alias' lists manual aliases instead of implicit aliases when present",
+  "short_name": "Running 'nvm alias' lists manual aliases instead of implicit aliases when present",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/219",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/'nvm alias' should ignore leading blank lines in the file",
+  "short_name": "'nvm alias' should ignore leading blank lines in the file",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/220",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/lts/teardown_dir",
+  "short_name": "teardown_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/221",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/lts/'nvm alias' should ensure LTS alias dir exists",
+  "short_name": "'nvm alias' should ensure LTS alias dir exists",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/222",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/lts/setup_dir",
+  "short_name": "setup_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/223",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/nvm_resolve_alias",
+  "short_name": "nvm_resolve_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/224",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/nvm_print_formatted_alias calls nvm_get_colors",
+  "short_name": "nvm_print_formatted_alias calls nvm_get_colors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/225",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/'nvm unalias' should not accept aliases with slashes",
+  "short_name": "'nvm unalias' should not accept aliases with slashes",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/226",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/'nvm alias' should not accept aliases with slashes",
+  "short_name": "'nvm alias' should not accept aliases with slashes",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/227",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/nvm_print_alias_path calls nvm_get_colors",
+  "short_name": "nvm_print_alias_path calls nvm_get_colors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/228",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/Running 'nvm alias' lists implicit aliases when they do not exist",
+  "short_name": "Running 'nvm alias' lists implicit aliases when they do not exist",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/229",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/circular/teardown",
+  "short_name": "teardown",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/230",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/circular/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/231",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/circular/nvm_resolve_alias",
+  "short_name": "nvm_resolve_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/232",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/circular/nvm_resolve_local_alias",
+  "short_name": "nvm_resolve_local_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/233",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/'nvm unalias' should not accept aliases with names equal to built-in alias",
+  "short_name": "'nvm unalias' should not accept aliases with names equal to built-in alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/234",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Aliases/nvm_resolve_local_alias",
+  "short_name": "nvm_resolve_local_alias",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/235",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/nvm should remove the last trailing slash in $NVM_DIR",
+  "short_name": "nvm should remove the last trailing slash in $NVM_DIR",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/236",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing paths/Running 'nvm which foo' should return a nonzero exit code when not found",
+  "short_name": "Running 'nvm which foo' should return a nonzero exit code when not found",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/237",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Listing paths/Running 'nvm which 0.0.2' should display only version 0.0.2",
+  "short_name": "Running 'nvm which 0.0.2' should display only version 0.0.2",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/238",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Sourcing nvm.sh should not modify parameters of caller",
+  "short_name": "Sourcing nvm should not modify parameters of caller",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/239",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Set Colors/nvm_err_with_colors",
+  "short_name": "nvm_err_with_colors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/240",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Set Colors/nvm_print_default_alias calls nvm_get_colors",
+  "short_name": "nvm_print_default_alias calls nvm_get_colors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/241",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Set Colors/nvm_print_versions calls nvm_get_colors",
+  "short_name": "nvm_print_versions calls nvm_get_colors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/242",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/fast/Set Colors/nvm_echo_with_colors",
+  "short_name": "nvm_echo_with_colors",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/243",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/xenial/install from source without V8 snapshot for ARM",
+  "short_name": "install from source without V8 snapshot for ARM",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/244",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/xenial/node 0.6.21 should install 0.6.21-pre",
+  "short_name": "node 0.6.21 should install 0.6.21-pre",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/245",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/xenial/install version specified in .nvmrc from source",
+  "short_name": "install version specified in .nvmrc from source",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/246",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/xenial/install hook",
+  "short_name": "install hook",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/247",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/xenial/install from source with thread parameter",
+  "short_name": "install from source with thread parameter",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/248",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/xenial/install from source",
+  "short_name": "install from source",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/249",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/xenial/install from source implicitly",
+  "short_name": "install from source implicitly",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/250",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/sourcing/Sourcing nvm.sh with --no-use should not use anything",
+  "short_name": "Sourcing nvm with --no-use should not use anything",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/251",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/sourcing/Sourcing nvm.sh should use the default if available and no nvm node is loaded",
+  "short_name": "Sourcing nvm should use the default if available and no nvm node is loaded",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/252",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/sourcing/teardown_dir",
+  "short_name": "teardown_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/253",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/sourcing/Sourcing nvm.sh with no default should return 0",
+  "short_name": "Sourcing nvm with no default should return 0",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/254",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/sourcing/Sourcing nvm.sh global alias bug",
+  "short_name": "Sourcing nvm global alias bug",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/255",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/sourcing/Sourcing nvm.sh with --install and .nvmrc should install it",
+  "short_name": "Sourcing nvm with --install and .nvmrc should install it",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/256",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/sourcing/setup_dir",
+  "short_name": "setup_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/257",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/sourcing/Sourcing nvm.sh should keep version if one is active",
+  "short_name": "Sourcing nvm should keep version if one is active",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/258",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/test/sourcing/Sourcing nvm.sh with --install should install the default",
+  "short_name": "Sourcing nvm with --install should install the default",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/259",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/260",
+  "posix_compliant": false,
+  "line_count": 391,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/rename_test.sh",
+  "short_name": "rename_test",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/261",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/update_test_mocks.sh",
+  "short_name": "update_test_mocks",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/262",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nvm-sh/nvm.git",
+  "relative_path": "nvm/nvm.sh",
+  "short_name": "nvm",
+  "timestamp": "10/22/2024",
+  "identifier": "nvm_iCdMwV/263",
+  "posix_compliant": false,
+  "line_count": 4074,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

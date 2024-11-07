@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/bevyengine/bevy.git",
+  "relative_path": "bevy/tools/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "bevy_wwuWNe/0",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bevyengine/bevy.git",
+  "relative_path": "bevy/examples/mobile/build_rust_deps.sh",
+  "short_name": "build_rust_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "bevy_wwuWNe/1",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

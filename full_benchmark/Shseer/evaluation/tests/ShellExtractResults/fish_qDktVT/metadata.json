@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/beloglazov/fish-config.git",
+  "relative_path": "fish-config/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "fish_qDktVT/0",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

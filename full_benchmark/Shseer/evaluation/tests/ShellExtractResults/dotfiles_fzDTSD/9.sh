@@ -1,0 +1,146 @@
+#!/bin/sh
+# written by Shotaro Fujimoto (https://github.com/ssh0)
+#=#=#=
+# ```
+# NAME
+#       mytask - start my current tasks easily.
+#
+# USAGE
+#       mytask [option] [start|add|remove|list] [cmdoption]
+#
+# OPTION
+#       -h:  Show this help message.
+#
+# COMMAND
+#       start    Execute the taskset.
+#       add      Add new taskset.
+#       edit     Edit the existing taskset.
+#       remove   Remove a taskset.
+#       list     List all existing taskset.
+# ```
+#=#=
+
+# mytaskroot=$HOME/.mytask
+# taskset="$mytaskroot"/taskset
+mytaskroot=$HOME/Workspace/.mytask
+taskset="$mytaskroot"/taskset
+
+if [ ! -d "$taskset" ]; then
+  mkdir -p "$taskset"
+fi
+
+f="$0"
+usage() {
+  sed -n '/^#=#=#=/,/^#=#=/p' $f | sed -e '1d;$d' | cut -b3- | grep -v "\`\`\`"
+  exit 1
+}
+
+startmytask() {
+  taskname="$1"
+  if [ -f "$taskset/$taskname" ]; then
+    bash "$taskset/$taskname"
+  else
+    echo "$taskname doesn't exist."
+    usage
+  fi
+}
+
+settaskname() {
+  if [ ! "$taskname" = "" ]; then
+    return 0
+  fi
+  echo -n "Set the task name: "
+  read line
+
+  while [ "$line" = "" ]; do
+    echo "You must set the task name."
+    echo -n "Set the task name: "
+    read line
+  done
+  taskname="$line"
+}
+
+addmytask() {
+
+  taskname=""
+
+  if [ -f "$1" ]; then
+    taskname=$1
+  fi
+
+  while getopts o: OPT
+  do
+    case $OPT in
+      "o" ) taskname="${OPTARG}" ;;
+    esac
+  done
+  shift $((OPTIND-1))
+
+  settaskname "$taskname"
+
+  if [ "$1" = '' ]; then
+    $EDITOR "$taskset/$taskname"
+  elif [ -e "$1" ]; then
+    cp "$1" "$taskset/$taskname"
+  else
+    echo "$@" > "$taskset/$taskname"
+  fi
+  echo "$taskname added."
+}
+
+iftaskexist() {
+  if [ -f "$taskset/$1" ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+editmytask() {
+  iftaskexist "$1" && $EDITOR "$taskset/$1"
+}
+
+removemytask() {
+  iftaskexist "$1" && rm "$taskset/$1"
+  echo "removed $taskset/$1"
+}
+
+listmytask() {
+  ls "$taskset"
+}
+
+# option handling
+while getopts hH OPT
+do
+  case $OPT in
+    "h" ) usage ;;
+    "H" ) usage_all "$f"; exit 0 ;;
+  esac
+done
+
+# two arguments must be taken
+shift $((OPTIND-1))
+if [ $# = 0 ];then
+  usage
+fi
+
+case $1 in
+  start)
+    shift 1
+    startmytask "$@" ;;
+  add)
+    shift 1
+    addmytask "$@" ;;
+  edit)
+    shift 1
+    editmytask "$@" ;;
+  remove)
+    shift 1
+    removemytask "$@" ;;
+  list)
+    shift 1
+    listmytask "$@" ;;
+  *)
+    echo "$1 is not defined for subcommand."
+    usage ;;
+esac

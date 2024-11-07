@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/CTeX-org/ctex-kit.git",
+  "relative_path": "ctex-kit/templates/LaTeX/all.sh",
+  "short_name": "all",
+  "timestamp": "10/22/2024",
+  "identifier": "ctex_zSBzGJ/0",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

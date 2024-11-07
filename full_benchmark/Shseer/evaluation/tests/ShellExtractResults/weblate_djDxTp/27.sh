@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Copyright © Michal Čihař <michal@weblate.org>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+set -e
+
+if ! git diff --exit-code --quiet; then
+    echo "There are not committed changes!"
+    exit 1
+fi
+suffix=""
+if [ -n "$1" ]; then
+    suffix="$1"
+    shift
+fi
+if [ -n "$1" ]; then
+    datespec="datetime.date.fromisoformat('$1')"
+    shift
+else
+    datespec="datetime.date.today()"
+fi
+
+. scripts/test-database.sh
+version=$(python -c 'import weblate.utils.version; print(weblate.utils.version.VERSION_BASE)')
+today=$(./manage.py shell -c 'from django.utils.dateformat import format; import datetime; print(format('"$datespec"', "F jS Y"))')
+
+sed -i "s/^VERSION =.*/VERSION = \"$version$suffix\"/" weblate/utils/version.py
+sed -i "s/^Not yet released./Released on $today./" docs/changes.rst
+
+if [ -z "$suffix" ]; then
+    ./scripts/list-contributors --update
+fi
+
+if ! git diff --exit-code --quiet; then
+    git commit -m "chore: releasing $version$suffix" -- weblate/utils/version.py docs/changes.rst "docs/changes/contributors/$version.rst"
+fi

@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/privacytools/privacytools.io.git",
+  "relative_path": "privacytools.io/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "privacytools.io_INsdwb/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ }
+]

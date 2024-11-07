@@ -1,0 +1,81 @@
+[
+ {
+  "repo": "https://github.com/zigbeefordomoticz/Domoticz-Zigbee.git",
+  "relative_path": "Domoticz-Zigbee/Tools/customstart.sh",
+  "short_name": "customstart",
+  "timestamp": "10/22/2024",
+  "identifier": "Domoticz_UNpgaQ/0",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zigbeefordomoticz/Domoticz-Zigbee.git",
+  "relative_path": "Domoticz-Zigbee/Tools/pi-zigate.sh",
+  "short_name": "pi-zigate",
+  "timestamp": "10/22/2024",
+  "identifier": "Domoticz_UNpgaQ/1",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zigbeefordomoticz/Domoticz-Zigbee.git",
+  "relative_path": "Domoticz-Zigbee/Tools/big-clean-git.sh",
+  "short_name": "big-clean-git",
+  "timestamp": "10/22/2024",
+  "identifier": "Domoticz_UNpgaQ/2",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zigbeefordomoticz/Domoticz-Zigbee.git",
+  "relative_path": "Domoticz-Zigbee/Tools/plugin-auto-upgrade.sh",
+  "short_name": "plugin-auto-upgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "Domoticz_UNpgaQ/3",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zigbeefordomoticz/Domoticz-Zigbee.git",
+  "relative_path": "Domoticz-Zigbee/Tools/build-Jennic.sh",
+  "short_name": "build-Jennic",
+  "timestamp": "10/22/2024",
+  "identifier": "Domoticz_UNpgaQ/4",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zigbeefordomoticz/Domoticz-Zigbee.git",
+  "relative_path": "Domoticz-Zigbee/Tools/clean-git.sh",
+  "short_name": "clean-git",
+  "timestamp": "10/22/2024",
+  "identifier": "Domoticz_UNpgaQ/5",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ }
+]

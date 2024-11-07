@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/MoKee/android_packages_apps_WarpShare.git",
+  "relative_path": "android_packages_apps_WarpShare/MaterialProgressBar/art/app_icon_base.sh",
+  "short_name": "app_icon_base",
+  "timestamp": "10/22/2024",
+  "identifier": "android_DGfDLz/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

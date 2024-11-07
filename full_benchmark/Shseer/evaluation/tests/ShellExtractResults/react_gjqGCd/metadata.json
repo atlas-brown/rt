@@ -1,0 +1,98 @@
+[
+ {
+  "repo": "https://github.com/margelo/react-native-filament.git",
+  "relative_path": "react-native-filament/package/example/AppExamplePaper/android/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "react_gjqGCd/0",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/margelo/react-native-filament.git",
+  "relative_path": "react-native-filament/package/example/Shared/scripts/compile-materials.sh",
+  "short_name": "compile-materials",
+  "timestamp": "10/22/2024",
+  "identifier": "react_gjqGCd/1",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/margelo/react-native-filament.git",
+  "relative_path": "react-native-filament/package/example/AppExampleFabric/android/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "react_gjqGCd/2",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/margelo/react-native-filament.git",
+  "relative_path": "react-native-filament/package/scripts/check-all.sh",
+  "short_name": "check-all",
+  "timestamp": "10/22/2024",
+  "identifier": "react_gjqGCd/3",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/margelo/react-native-filament.git",
+  "relative_path": "react-native-filament/package/scripts/build-filament.sh",
+  "short_name": "build-filament",
+  "timestamp": "10/22/2024",
+  "identifier": "react_gjqGCd/4",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/margelo/react-native-filament.git",
+  "relative_path": "react-native-filament/package/scripts/clang-format.sh",
+  "short_name": "clang-format",
+  "timestamp": "10/22/2024",
+  "identifier": "react_gjqGCd/5",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/margelo/react-native-filament.git",
+  "relative_path": "react-native-filament/package/scripts/build-bullet3.sh",
+  "short_name": "build-bullet3",
+  "timestamp": "10/22/2024",
+  "identifier": "react_gjqGCd/6",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,310 @@
+[
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/test-gprof.sh",
+  "short_name": "test-gprof",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/0",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/misc/run_sqlmap.sh",
+  "short_name": "run_sqlmap",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/1",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/misc/modsecurity-merge.sh",
+  "short_name": "modsecurity-merge",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/2",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/misc/mdgen.sh",
+  "short_name": "mdgen",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/misc/gittag.sh",
+  "short_name": "gittag",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/4",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/configure-clang.sh",
+  "short_name": "configure-clang",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/5",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/6",
+  "posix_compliant": true,
+  "line_count": 351,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/run-gcov-samples.sh",
+  "short_name": "run-gcov-samples",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/7",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/run-gcov-unittests.sh",
+  "short_name": "run-gcov-unittests",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/8",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/configure-gprof.sh",
+  "short_name": "configure-gprof",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/9",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/configure-gcov.sh",
+  "short_name": "configure-gcov",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/10",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/configure-gcc-hardened.sh",
+  "short_name": "configure-gcc-hardened",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/11",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/configure-clang-asan.sh",
+  "short_name": "configure-clang-asan",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/12",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/tags.sh",
+  "short_name": "tags",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/13",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/make-ci.sh",
+  "short_name": "make-ci",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/14",
+  "posix_compliant": true,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/run-clang-asan.sh",
+  "short_name": "run-clang-asan",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/15",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/src/test-speed-xss.sh",
+  "short_name": "test-speed-xss",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/16",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/src/test-samples-xss-positive.sh",
+  "short_name": "test-samples-xss-positive",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/17",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/src/test-samples-sqli-negative.sh",
+  "short_name": "test-samples-sqli-negative",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/18",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/src/test-cppcheck.sh",
+  "short_name": "test-cppcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/19",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/src/test-samples-sqli-positive.sh",
+  "short_name": "test-samples-sqli-positive",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/20",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/src/clang.sh",
+  "short_name": "clang",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/21",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/src/test-unit.sh",
+  "short_name": "test-unit",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/22",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/src/test-speed-sqli.sh",
+  "short_name": "test-speed-sqli",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/23",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/client9/libinjection.git",
+  "relative_path": "libinjection/src/test-driver.sh",
+  "short_name": "test-driver",
+  "timestamp": "10/22/2024",
+  "identifier": "libinjection_KNnEqT/24",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

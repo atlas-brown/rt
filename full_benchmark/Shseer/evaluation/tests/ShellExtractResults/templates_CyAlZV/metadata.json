@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/fabric8io/templates.git",
+  "relative_path": "templates/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "templates_CyAlZV/0",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

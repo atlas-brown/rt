@@ -1,0 +1,271 @@
+[
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/test/figures/file-with-exec-permission.sh",
+  "short_name": "file-with-exec-permission",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/0",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/script/binary.sh",
+  "short_name": "binary",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/script/upload.sh",
+  "short_name": "upload",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/2",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/examples/install/sqlserver_example/scripts/python3.6/install_from_source.sh",
+  "short_name": "install_from_source",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/3",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/examples/install/sqlserver_example/scripts/python3.6/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/examples/install/sqlserver_example/scripts/python3.6/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/5",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/examples/install/sqlserver_example/scripts/python3.6/clean.sh",
+  "short_name": "clean",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/6",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/examples/install/sqlserver_example/scripts/python2.7/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/7",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/examples/install/sqlserver_example/scripts/python2.7/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/8",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/examples/install/sqlserver_example/scripts/python2.7/clean.sh",
+  "short_name": "clean",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/9",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/examples/install/tensorflow_example/dl-model-data.sh",
+  "short_name": "dl-model-data",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/10",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/examples/nas/browser/nas.sh",
+  "short_name": "nas",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/11",
+  "posix_compliant": false,
+  "line_count": 169,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/templates/event-custom-cpp/{{ projectName }}/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/12",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/templates/custom-powershell/{{ projectName }}/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/13",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/templates/http-custom-cpp/{{ projectName }}/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/14",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/templates/custom-typescript/{{ projectName }}/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/15",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/templates/custom-ruby/{{ projectName }}/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/16",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/templates/custom-lua/{{ projectName }}/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/17",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/templates/custom-springboot/{{ projectName }}/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/18",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/src/lib/utils/fun-nas-server/.fun/root/usr/bin/zipgrep",
+  "short_name": "zipgrep",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/19",
+  "posix_compliant": true,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/funcraft.git",
+  "relative_path": "funcraft/src/lib/frameworks/support/upload.sh",
+  "short_name": "upload",
+  "timestamp": "10/22/2024",
+  "identifier": "funcraft_hXGXqx/20",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

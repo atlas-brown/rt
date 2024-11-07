@@ -1,0 +1,152 @@
+[
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/tests/syntax-tests/regression_test.sh",
+  "short_name": "regression_test",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/tests/syntax-tests/highlighted/Bash/simple.sh",
+  "short_name": "simple",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/1",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/tests/syntax-tests/highlighted/Bash/batgrep.sh",
+  "short_name": "batgrep",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/2",
+  "posix_compliant": false,
+  "line_count": 510,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/tests/syntax-tests/source/Bash/simple.sh",
+  "short_name": "simple",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/3",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/tests/syntax-tests/source/Bash/batgrep.sh",
+  "short_name": "batgrep",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/4",
+  "posix_compliant": false,
+  "line_count": 503,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/tests/syntax-tests/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/5",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/tests/syntax-tests/test_custom_assets.sh",
+  "short_name": "test_custom_assets",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/6",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/tests/benchmarks/run-benchmarks.sh",
+  "short_name": "run-benchmarks",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/7",
+  "posix_compliant": false,
+  "line_count": 164,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/tests/scripts/license-checks.sh",
+  "short_name": "license-checks",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/8",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/diagnostics/info.sh",
+  "short_name": "info",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/9",
+  "posix_compliant": false,
+  "line_count": 203,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/sharkdp/bat.git",
+  "relative_path": "bat/assets/create.sh",
+  "short_name": "create",
+  "timestamp": "10/22/2024",
+  "identifier": "bat_TpBYaD/10",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

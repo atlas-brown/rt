@@ -1,0 +1,165 @@
+[
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/installer_scripts/scripts/postinstall",
+  "short_name": "postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/installer_scripts/scripts/preinstall",
+  "short_name": "preinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/1",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/bin/generate-translation-files",
+  "short_name": "generate-translation-files",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/2",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/bin/style-check",
+  "short_name": "style-check",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/bin/linux-sh-installer",
+  "short_name": "linux-sh-installer",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/4",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/bin/after-install",
+  "short_name": "after-install",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/5",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/bin/build-python",
+  "short_name": "build-python",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/6",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/bin/import-macos-keys",
+  "short_name": "import-macos-keys",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/7",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/bin/before-remove",
+  "short_name": "before-remove",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/8",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/bin/generate-version-file",
+  "short_name": "generate-version-file",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/9",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/bin/build-windows-installer",
+  "short_name": "build-windows-installer",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/10",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/inkstitch/inkstitch.git",
+  "relative_path": "inkstitch/bin/git-pre-commit-hook",
+  "short_name": "git-pre-commit-hook",
+  "timestamp": "10/22/2024",
+  "identifier": "inkstitch_zCnXgS/11",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/rails/jquery-ujs.git",
+  "relative_path": "jquery-ujs/script/cibuild",
+  "short_name": "cibuild",
+  "timestamp": "10/22/2024",
+  "identifier": "jquery_RoNfHh/0",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

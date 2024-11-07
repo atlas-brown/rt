@@ -1,0 +1,100 @@
+[
+ {
+  "repo": "https://github.com/zombodb/zombodb.git",
+  "relative_path": "zombodb/prepare-release.sh",
+  "short_name": "prepare-release",
+  "timestamp": "10/22/2024",
+  "identifier": "zombodb_mNkHXj/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zombodb/zombodb.git",
+  "relative_path": "zombodb/testlauncher.sh",
+  "short_name": "testlauncher",
+  "timestamp": "10/22/2024",
+  "identifier": "zombodb_mNkHXj/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/zombodb/zombodb.git",
+  "relative_path": "zombodb/upgrade-deps.sh",
+  "short_name": "upgrade-deps",
+  "timestamp": "10/22/2024",
+  "identifier": "zombodb_mNkHXj/2",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zombodb/zombodb.git",
+  "relative_path": "zombodb/test/zdbtaptests/build-same.sh",
+  "short_name": "build-same",
+  "timestamp": "10/22/2024",
+  "identifier": "zombodb_mNkHXj/3",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zombodb/zombodb.git",
+  "relative_path": "zombodb/test/travis/hack-configs.sh",
+  "short_name": "hack-configs",
+  "timestamp": "10/22/2024",
+  "identifier": "zombodb_mNkHXj/4",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zombodb/zombodb.git",
+  "relative_path": "zombodb/docker-build-system/package.sh",
+  "short_name": "package",
+  "timestamp": "10/22/2024",
+  "identifier": "zombodb_mNkHXj/5",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zombodb/zombodb.git",
+  "relative_path": "zombodb/update-versions.sh",
+  "short_name": "update-versions",
+  "timestamp": "10/22/2024",
+  "identifier": "zombodb_mNkHXj/6",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

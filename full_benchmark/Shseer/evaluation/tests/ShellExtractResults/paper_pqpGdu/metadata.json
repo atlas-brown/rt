@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/paper-plane-developers/paper-plane.git",
+  "relative_path": "paper-plane/build-aux/dist-vendor.sh",
+  "short_name": "dist-vendor",
+  "timestamp": "10/22/2024",
+  "identifier": "paper_pqpGdu/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ }
+]

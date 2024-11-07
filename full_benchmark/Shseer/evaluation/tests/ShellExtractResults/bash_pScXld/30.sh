@@ -1,0 +1,64 @@
+#!/bin/bash
+#
+# image-functions
+#
+# List Amazon Machine Images (AMIs)
+
+images() {
+
+  # List EC2 AMI's
+  #
+  # Usage: images [owner] [image-id] [image-id]...
+  #
+  # owner defaults to `self` or can one or more of:
+  #
+  # - an AWS_ACCOUNT_ID  (e.g. 1234567890)
+  # - an AWS_OWNER_ALIAS (amazon, amazon-marketplace, microsoft)
+  #
+  # image_id can be one or more AMIs
+
+  #
+  # Trialing a different approach for grabbing resource ids from input.
+  # As normal, you can pipe resource ids in as first token on each line.
+  # We treat all args that don't start with ami- as owner identifiers.
+  local inputs=$(skim-stdin "$@")
+  local image_ids=$(echo -n "$inputs" | tr ' ' '\n' | grep ami- | tr '\n' ' ')
+  local owners=$(echo -n "$inputs" | tr ' ' '\n' | grep -v ami- | tr '\n' ' ')
+
+  #
+  # Trialing a new pattern for output - putting the Name at the end.
+  # This is more like the output of `ls -la`
+  #
+  # - Pro: Preceding fields tend to be of the same length
+  # - Pro: Easier for eyes to scan final column for names(?)
+  # - Con: Using this pattern for instances() would put name past 80 char point
+  # - Con: Migrating instances() to this output is A Big Change (not made lightly)
+
+  aws ec2 describe-images                                                        \
+    $([[ -n "$image_ids" ]] && echo --image-ids "${image_ids}")                  \
+    $([[ -n "$owners" || -z "$image_ids" ]] && echo --owners "${owners:-self}")  \
+    --output text                                                                \
+    --query "
+      sort_by(Images, &CreationDate)[].[
+        ImageId,
+        CreationDate,
+        OwnerId,
+        Name
+      ]"              |
+    columnise
+}
+
+image-deregister() {
+
+  # Deregister AMI(s)
+  #
+  #     USAGE: image-deregister image_id [image_id]
+
+  local image_ids=$(skim-stdin "$@")
+  [[ -z "${image_ids}" ]] && __bma_usage "image_id" && return 1
+
+  local image_id
+  for image_id in $image_ids; do
+    aws ec2 deregister-image --image-id "$image_id"
+  done
+}

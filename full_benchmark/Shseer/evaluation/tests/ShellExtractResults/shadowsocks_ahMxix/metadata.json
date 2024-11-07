@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/shadowsocks/shadowsocks-android.git",
+  "relative_path": "shadowsocks-android/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_ahMxix/0",
+  "posix_compliant": true,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/shadowsocks/shadowsocks-android.git",
+  "relative_path": "shadowsocks-android/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_ahMxix/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

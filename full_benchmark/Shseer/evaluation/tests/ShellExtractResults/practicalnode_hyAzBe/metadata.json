@@ -1,0 +1,83 @@
+[
+ {
+  "repo": "https://github.com/azat-co/practicalnode.git",
+  "relative_path": "practicalnode/code/ch7/blog-mongoose/seed.sh",
+  "short_name": "seed",
+  "timestamp": "10/22/2024",
+  "identifier": "practicalnode_hyAzBe/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/azat-co/practicalnode.git",
+  "relative_path": "practicalnode/code/ch6/blog-everyauth/seed.sh",
+  "short_name": "seed",
+  "timestamp": "10/22/2024",
+  "identifier": "practicalnode_hyAzBe/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/azat-co/practicalnode.git",
+  "relative_path": "practicalnode/code/ch6/blog-password/seed.sh",
+  "short_name": "seed",
+  "timestamp": "10/22/2024",
+  "identifier": "practicalnode_hyAzBe/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/azat-co/practicalnode.git",
+  "relative_path": "practicalnode/code/ch6/oauth-example/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "practicalnode_hyAzBe/3",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/azat-co/practicalnode.git",
+  "relative_path": "practicalnode/code/ch15/banking-api/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "practicalnode_hyAzBe/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/azat-co/practicalnode.git",
+  "relative_path": "practicalnode/code/ch5/blog-express/seed.sh",
+  "short_name": "seed",
+  "timestamp": "10/22/2024",
+  "identifier": "practicalnode_hyAzBe/5",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/azat-co/practicalnode.git",
+  "relative_path": "practicalnode/code/ch16/serverless/create-api.sh",
+  "short_name": "create-api",
+  "timestamp": "10/22/2024",
+  "identifier": "practicalnode_hyAzBe/6",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

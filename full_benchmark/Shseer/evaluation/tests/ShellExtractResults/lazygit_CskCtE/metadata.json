@@ -1,0 +1,362 @@
+[
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/demo/record_demo.sh",
+  "short_name": "record_demo",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/0",
+  "posix_compliant": true,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/test/files/pre-push",
+  "short_name": "pre-push",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/scripts/record_demo.sh",
+  "short_name": "record_demo",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/2",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/scripts/update_language_files.sh",
+  "short_name": "update_language_files",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/3",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/scripts/run_integration_tests.sh",
+  "short_name": "run_integration_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/4",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/scripts/bisect.sh",
+  "short_name": "bisect",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/5",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/scripts/bump_gocui.sh",
+  "short_name": "bump_gocui",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/6",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/scripts/bump_lazycore.sh",
+  "short_name": "bump_lazycore",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/7",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/scripts/check_filenames.sh",
+  "short_name": "check_filenames",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/8",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/scripts/bump_modules.sh",
+  "short_name": "bump_modules",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/9",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/scripts/check_for_fixups.sh",
+  "short_name": "check_for_fixups",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/10",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/golang.org/x/crypto/curve25519/internal/field/sync.sh",
+  "short_name": "sync",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/11",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/golang.org/x/sys/plan9/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/12",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/golang.org/x/sys/plan9/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/13",
+  "posix_compliant": false,
+  "line_count": 180,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/golang.org/x/sys/plan9/mksysnum_plan9.sh",
+  "short_name": "mksysnum_plan9",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/14",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/golang.org/x/sys/unix/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/15",
+  "posix_compliant": false,
+  "line_count": 212,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/golang.org/x/sys/unix/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/16",
+  "posix_compliant": false,
+  "line_count": 384,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/golang.org/x/sys/windows/mkknownfolderids.bash",
+  "short_name": "mkknownfolderids.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/17",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/golang.org/x/sys/windows/mkerrors.bash",
+  "short_name": "mkerrors.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/18",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/github.com/gdamore/tcell/v2/terminfo/gen.sh",
+  "short_name": "gen",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/19",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/github.com/buger/jsonparser/oss-fuzz-build.sh",
+  "short_name": "oss-fuzz-build",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/20",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/github.com/creack/pty/test_crosscompile.sh",
+  "short_name": "test_crosscompile",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/21",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/github.com/gobwas/glob/bench.sh",
+  "short_name": "bench",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/22",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/github.com/mattn/go-isatty/go.test.sh",
+  "short_name": "go.test",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/23",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/github.com/mattn/go-colorable/go.test.sh",
+  "short_name": "go.test",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/24",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jesseduffield/lazygit.git",
+  "relative_path": "lazygit/vendor/github.com/sasha-s/go-deadlock/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "lazygit_CskCtE/25",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

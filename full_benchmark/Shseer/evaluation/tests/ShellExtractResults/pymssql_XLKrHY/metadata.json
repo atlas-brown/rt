@@ -1,0 +1,71 @@
+[
+ {
+  "repo": "https://github.com/pymssql/pymssql.git",
+  "relative_path": "pymssql/dev/build_freetds.sh",
+  "short_name": "build_freetds",
+  "timestamp": "10/22/2024",
+  "identifier": "pymssql_XLKrHY/0",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pymssql/pymssql.git",
+  "relative_path": "pymssql/dev/test_manylinux_wheels.sh",
+  "short_name": "test_manylinux_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "pymssql_XLKrHY/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/pymssql/pymssql.git",
+  "relative_path": "pymssql/dev/build_manylinux_wheels.sh",
+  "short_name": "build_manylinux_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "pymssql_XLKrHY/2",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pymssql/pymssql.git",
+  "relative_path": "pymssql/dev/hudson.sh",
+  "short_name": "hudson",
+  "timestamp": "10/22/2024",
+  "identifier": "pymssql_XLKrHY/3",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/pymssql/pymssql.git",
+  "relative_path": "pymssql/dev/memtest.sh",
+  "short_name": "memtest",
+  "timestamp": "10/22/2024",
+  "identifier": "pymssql_XLKrHY/4",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

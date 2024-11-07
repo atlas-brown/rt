@@ -1,0 +1,40 @@
+[
+ {
+  "repo": "https://github.com/holoviz/panel.git",
+  "relative_path": "panel/binder/start",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "panel_yIAreZ/0",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/holoviz/panel.git",
+  "relative_path": "panel/scripts/conda/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "panel_yIAreZ/1",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/holoviz/panel.git",
+  "relative_path": "panel/scripts/jupyterlite/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "panel_yIAreZ/2",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "io"
+  ]
+ }
+]

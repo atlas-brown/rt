@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/sketch-hq/SketchAPI.git",
+  "relative_path": "SketchAPI/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "SketchAPI_bVcykj/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ }
+]

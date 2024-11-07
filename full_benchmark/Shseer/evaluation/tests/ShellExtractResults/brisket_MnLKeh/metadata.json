@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/brisket/brisket.git",
+  "relative_path": "brisket/bin/setup-jsdom-version.sh",
+  "short_name": "setup-jsdom-version",
+  "timestamp": "10/22/2024",
+  "identifier": "brisket_MnLKeh/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

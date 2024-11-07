@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/gutschke/nginx_auth_sso.git",
+  "relative_path": "nginx_auth_sso/html/jsSHA-1.5.0/build/make-release",
+  "short_name": "make-release",
+  "timestamp": "10/22/2024",
+  "identifier": "nginx_aIbpwO/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

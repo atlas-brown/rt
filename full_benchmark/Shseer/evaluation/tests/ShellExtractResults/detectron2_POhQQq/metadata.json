@@ -1,0 +1,167 @@
+[
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/projects/DensePose/dev/run_instant_tests.sh",
+  "short_name": "run_instant_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/0",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/projects/DensePose/dev/run_inference_tests.sh",
+  "short_name": "run_inference_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/1",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/datasets/prepare_for_tests.sh",
+  "short_name": "prepare_for_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/2",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/.github/import-tests.sh",
+  "short_name": "import-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/3",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/dev/packaging/build_all_wheels.sh",
+  "short_name": "build_all_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/4",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/dev/packaging/pkg_helpers.bash",
+  "short_name": "pkg_helpers.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/5",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/dev/packaging/build_wheel.sh",
+  "short_name": "build_wheel",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/6",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/dev/packaging/gen_wheel_index.sh",
+  "short_name": "gen_wheel_index",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/7",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/dev/run_instant_tests.sh",
+  "short_name": "run_instant_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/8",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/dev/linter.sh",
+  "short_name": "linter",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/9",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/dev/parse_results.sh",
+  "short_name": "parse_results",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/10",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/detectron2.git",
+  "relative_path": "detectron2/dev/run_inference_tests.sh",
+  "short_name": "run_inference_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "detectron2_POhQQq/11",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

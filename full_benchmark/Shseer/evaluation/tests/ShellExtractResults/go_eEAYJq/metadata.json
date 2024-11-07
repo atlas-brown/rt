@@ -1,0 +1,27 @@
+[
+ {
+  "repo": "https://github.com/go-lang-plugin-org/go-lang-idea-plugin.git",
+  "relative_path": "go-lang-idea-plugin/cloneToWt.sh",
+  "short_name": "cloneToWt",
+  "timestamp": "10/22/2024",
+  "identifier": "go_eEAYJq/0",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/go-lang-plugin-org/go-lang-idea-plugin.git",
+  "relative_path": "go-lang-idea-plugin/src/com/goide/lexer/gen_lexer.sh",
+  "short_name": "gen_lexer",
+  "timestamp": "10/22/2024",
+  "identifier": "go_eEAYJq/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

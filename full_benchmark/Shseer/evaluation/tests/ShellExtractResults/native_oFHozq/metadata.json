@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/airbnb/native-navigation.git",
+  "relative_path": "native-navigation/postinstall.sh",
+  "short_name": "postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "native_oFHozq/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "text"
+  ]
+ }
+]

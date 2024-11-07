@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/scoutapp/scout_statsd_rack.git",
+  "relative_path": "scout_statsd_rack/bin/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "scout_pCoNtj/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

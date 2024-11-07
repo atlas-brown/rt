@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/pine64/bl602-re.git",
+  "relative_path": "bl602-re/script/extract_funcs.sh",
+  "short_name": "extract_funcs",
+  "timestamp": "10/22/2024",
+  "identifier": "bl602_UBBuBu/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ }
+]

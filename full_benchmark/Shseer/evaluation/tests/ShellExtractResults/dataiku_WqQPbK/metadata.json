@@ -1,0 +1,62 @@
+[
+ {
+  "repo": "https://github.com/dataiku/dataiku-contrib.git",
+  "relative_path": "dataiku-contrib/microsoft/solution-templates/hdinsight/scripts/hdinsight-dss-install.sh",
+  "short_name": "hdinsight-dss-install",
+  "timestamp": "10/22/2024",
+  "identifier": "dataiku_WqQPbK/0",
+  "posix_compliant": false,
+  "line_count": 121,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dataiku/dataiku-contrib.git",
+  "relative_path": "dataiku-contrib/microsoft-hdi-dss-non-managed-edge-node/scripts/hdi-edge-node-from-existing-vm.sh",
+  "short_name": "hdi-edge-node-from-existing-vm",
+  "timestamp": "10/22/2024",
+  "identifier": "dataiku_WqQPbK/1",
+  "posix_compliant": false,
+  "line_count": 119,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dataiku/dataiku-contrib.git",
+  "relative_path": "dataiku-contrib/tableau-export/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "dataiku_WqQPbK/2",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dataiku/dataiku-contrib.git",
+  "relative_path": "dataiku-contrib/tableau-export-v2/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "dataiku_WqQPbK/3",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

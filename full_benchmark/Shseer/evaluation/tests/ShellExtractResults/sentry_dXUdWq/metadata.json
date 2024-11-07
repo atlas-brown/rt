@@ -1,0 +1,145 @@
+[
+ {
+  "repo": "https://github.com/getsentry/sentry.git",
+  "relative_path": "sentry/bin/react-to-product-owners-yml-changes.sh",
+  "short_name": "react-to-product-owners-yml-changes",
+  "timestamp": "10/22/2024",
+  "identifier": "sentry_dXUdWq/0",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/getsentry/sentry.git",
+  "relative_path": "sentry/scripts/bump-version.sh",
+  "short_name": "bump-version",
+  "timestamp": "10/22/2024",
+  "identifier": "sentry_dXUdWq/1",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/getsentry/sentry.git",
+  "relative_path": "sentry/scripts/do.sh",
+  "short_name": "do",
+  "timestamp": "10/22/2024",
+  "identifier": "sentry_dXUdWq/2",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/getsentry/sentry.git",
+  "relative_path": "sentry/scripts/upgrade-postgres.sh",
+  "short_name": "upgrade-postgres",
+  "timestamp": "10/22/2024",
+  "identifier": "sentry_dXUdWq/3",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/getsentry/sentry.git",
+  "relative_path": "sentry/scripts/use-colima.sh",
+  "short_name": "use-colima",
+  "timestamp": "10/22/2024",
+  "identifier": "sentry_dXUdWq/4",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/getsentry/sentry.git",
+  "relative_path": "sentry/scripts/use-docker-desktop.sh",
+  "short_name": "use-docker-desktop",
+  "timestamp": "10/22/2024",
+  "identifier": "sentry_dXUdWq/5",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/getsentry/sentry.git",
+  "relative_path": "sentry/scripts/lib.sh",
+  "short_name": "lib",
+  "timestamp": "10/22/2024",
+  "identifier": "sentry_dXUdWq/6",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/getsentry/sentry.git",
+  "relative_path": "sentry/scripts/post-release.sh",
+  "short_name": "post-release",
+  "timestamp": "10/22/2024",
+  "identifier": "sentry_dXUdWq/7",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/getsentry/sentry.git",
+  "relative_path": "sentry/.github/workflows/scripts/migration-check.sh",
+  "short_name": "migration-check",
+  "timestamp": "10/22/2024",
+  "identifier": "sentry_dXUdWq/8",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/getsentry/sentry.git",
+  "relative_path": "sentry/self-hosted/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "sentry_dXUdWq/9",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

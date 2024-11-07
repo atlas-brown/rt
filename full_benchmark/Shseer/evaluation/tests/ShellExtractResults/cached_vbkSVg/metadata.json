@@ -1,0 +1,27 @@
+[
+ {
+  "repo": "https://github.com/basecamp/cached_externals.git",
+  "relative_path": "cached_externals/lib/cached_externals/git-hooks/post-checkout",
+  "short_name": "post-checkout",
+  "timestamp": "10/22/2024",
+  "identifier": "cached_vbkSVg/0",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/basecamp/cached_externals.git",
+  "relative_path": "cached_externals/lib/cached_externals/git-hooks/post-merge",
+  "short_name": "post-merge",
+  "timestamp": "10/22/2024",
+  "identifier": "cached_vbkSVg/1",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

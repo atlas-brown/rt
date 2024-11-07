@@ -1,0 +1,360 @@
+[
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/integrations/argocd/scripts/argocd-terrascan-remote-scan.sh",
+  "short_name": "argocd-terrascan-remote-scan",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/0",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/integrations/atlantis/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/integrations/atlantis/launch-atlantis.sh",
+  "short_name": "launch-atlantis",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/2",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/integrations/atlantis/terrascan.sh",
+  "short_name": "terrascan",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/3",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/integrations/atlantis/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/4",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/validate-golint.sh",
+  "short_name": "validate-golint",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/5",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/run-e2e.sh",
+  "short_name": "run-e2e",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/6",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/install_kustomize.sh",
+  "short_name": "install_kustomize",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/7",
+  "posix_compliant": false,
+  "line_count": 110,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/staticcheck.sh",
+  "short_name": "staticcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/8",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/pre-commit-hook.sh",
+  "short_name": "pre-commit-hook",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/9",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/generate-coverage.sh",
+  "short_name": "generate-coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/10",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/e2e-admission-control.sh",
+  "short_name": "e2e-admission-control",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/11",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/fix-gofmt.sh",
+  "short_name": "fix-gofmt",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/12",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/validate-govet.sh",
+  "short_name": "validate-govet",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/13",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/atlantis/docker-build.sh",
+  "short_name": "docker-build",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/14",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/atlantis/docker-push-latest-tag.sh",
+  "short_name": "docker-push-latest-tag",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/15",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/atlantis/docker-push-latest.sh",
+  "short_name": "docker-push-latest",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/16",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/atlantis/docker-push.sh",
+  "short_name": "docker-push",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/17",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/lib_getopt",
+  "short_name": "lib_getopt",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/18",
+  "posix_compliant": false,
+  "line_count": 339,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/docker-build.sh",
+  "short_name": "docker-build",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/19",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/e2e-vulnerability.sh",
+  "short_name": "e2e-vulnerability",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/20",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/docker-push-latest-tag.sh",
+  "short_name": "docker-push-latest-tag",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/21",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/docker-push-latest.sh",
+  "short_name": "docker-push-latest",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/22",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/docker-push.sh",
+  "short_name": "docker-push",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/23",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/terrascan-remote-scan.sh",
+  "short_name": "terrascan-remote-scan",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/24",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/install-kind.sh",
+  "short_name": "install-kind",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/25",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tenable/terrascan.git",
+  "relative_path": "terrascan/scripts/validate-gofmt.sh",
+  "short_name": "validate-gofmt",
+  "timestamp": "10/22/2024",
+  "identifier": "terrascan_BYwNmv/26",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

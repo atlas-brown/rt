@@ -1,0 +1,70 @@
+[
+ {
+  "repo": "https://github.com/iiitv/algos.git",
+  "relative_path": "algos/.bin/install_go.sh",
+  "short_name": "install_go",
+  "timestamp": "10/22/2024",
+  "identifier": "algos_fhlOkB/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/iiitv/algos.git",
+  "relative_path": "algos/.bin/install_apt.sh",
+  "short_name": "install_apt",
+  "timestamp": "10/22/2024",
+  "identifier": "algos_fhlOkB/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/iiitv/algos.git",
+  "relative_path": "algos/.bin/install_pip3.sh",
+  "short_name": "install_pip3",
+  "timestamp": "10/22/2024",
+  "identifier": "algos_fhlOkB/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/iiitv/algos.git",
+  "relative_path": "algos/.bin/test_running.sh",
+  "short_name": "test_running",
+  "timestamp": "10/22/2024",
+  "identifier": "algos_fhlOkB/3",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/iiitv/algos.git",
+  "relative_path": "algos/.bin/install_pip2.sh",
+  "short_name": "install_pip2",
+  "timestamp": "10/22/2024",
+  "identifier": "algos_fhlOkB/4",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/iiitv/algos.git",
+  "relative_path": "algos/.bin/install_npm.sh",
+  "short_name": "install_npm",
+  "timestamp": "10/22/2024",
+  "identifier": "algos_fhlOkB/5",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ }
+]

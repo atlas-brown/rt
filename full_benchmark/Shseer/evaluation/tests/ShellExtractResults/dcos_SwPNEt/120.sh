@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -e  # Fail the script if anything fails
+set -x  # Verbose output
+set -u  # Undefined variables
+
+# Compile OpenResty
+export CXXFLAGS=-I/opt/mesosphere/include
+export AR_BIN_DIR=$PKG_PATH
+
+$OPENRESTY_COMPILE_SCRIPT --with-cc-opt="-I /opt/mesosphere/include" --with-ld-opt="-L /opt/mesosphere/lib -Wl,-rpath=/opt/mesosphere/lib" --add-module=$VTS_MODULE_DIR
+
+# Incorporate Admin Router components.
+rm -vfR $PKG_PATH/nginx/conf/*
+cp -vR /pkg/extra/src/{includes,errorpages,mime.types,nginx.agent.conf,nginx.master.conf,lib} $PKG_PATH/nginx/conf/
+
+# AR start script:
+ar_wrapper="$PKG_PATH/nginx/sbin/adminrouter.sh"
+envsubst '$PKG_PATH' < /pkg/extra/systemd/adminrouter.sh > "$ar_wrapper"
+chmod a+x $ar_wrapper
+
+# TODO: We need more comprehensive approach to libraries. This is tracked in
+# https://jira.mesosphere.com/browse/DCOS-14039
+mkdir -p "$PKG_PATH/lib"
+cp /lib/x86_64-linux-gnu/libpcre.so.3 "$PKG_PATH/lib/libpcre.so.3"
+
+# Copy systemd unit files:
+tmp="$PKG_PATH/dcos.target.wants_master/dcos-adminrouter.service"
+mkdir -vp "$(dirname "$tmp")"
+envsubst '$PKG_PATH' < "/pkg/extra/systemd/dcos-adminrouter.service" > "$tmp"
+
+for at in slave slave_public; do
+    tmp="$PKG_PATH/dcos.target.wants_${at}/dcos-adminrouter-agent.service"
+    mkdir -vp "$(dirname "$tmp")"
+    envsubst '$PKG_PATH' < "/pkg/extra/systemd/dcos-adminrouter-agent.service" > "$tmp"
+done

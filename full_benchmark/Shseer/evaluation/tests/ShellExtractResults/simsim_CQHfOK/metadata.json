@@ -1,0 +1,27 @@
+[
+ {
+  "repo": "https://github.com/dsmelov/simsim.git",
+  "relative_path": "simsim/Release/dmg/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "simsim_CQHfOK/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dsmelov/simsim.git",
+  "relative_path": "simsim/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "simsim_CQHfOK/1",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

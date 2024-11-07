@@ -1,0 +1,297 @@
+[
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/pipenv",
+  "short_name": "pipenv",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/0",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/go",
+  "short_name": "go",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/1",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/bower",
+  "short_name": "bower",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/2",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/cargo",
+  "short_name": "cargo",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/3",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/git_submodule",
+  "short_name": "git_submodule",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/4",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/composer",
+  "short_name": "composer",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/5",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/pnpm",
+  "short_name": "pnpm",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/6",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/mix",
+  "short_name": "mix",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/7",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/yarn/v1",
+  "short_name": "v1",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/8",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/yarn/berry",
+  "short_name": "berry",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/9",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/pip",
+  "short_name": "pip",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/10",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/swift",
+  "short_name": "swift",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/11",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/dep",
+  "short_name": "dep",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/12",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/nuget",
+  "short_name": "nuget",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/13",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/cocoapods",
+  "short_name": "cocoapods",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/14",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/npm",
+  "short_name": "npm",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/15",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/bundler",
+  "short_name": "bundler",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/16",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/source-setup/cabal",
+  "short_name": "cabal",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/17",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/cibuild",
+  "short_name": "cibuild",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/18",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/19",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/test",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/20",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/github/licensed.git",
+  "relative_path": "licensed/script/setup",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "licensed_mRgkcu/21",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ }
+]

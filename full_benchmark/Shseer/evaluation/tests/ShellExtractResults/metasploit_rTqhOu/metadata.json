@@ -1,0 +1,401 @@
+[
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/tools/exploit/install_msf_apk.sh",
+  "short_name": "install_msf_apk",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/0",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/tools/dev/update_gem_licenses.sh",
+  "short_name": "update_gem_licenses",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/1",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/tools/dev/import-dev-keys.sh",
+  "short_name": "import-dev-keys",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/tools/dev/sign-dev-keys.sh",
+  "short_name": "sign-dev-keys",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/3",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/tools/automation/cache/update_module_cache.sh",
+  "short_name": "update_module_cache",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/4",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/tools/automation/cache/build_new_cache.sh",
+  "short_name": "build_new_cache",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/5",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/tools/modules/aws-aggregator-userdata.sh",
+  "short_name": "aws-aggregator-userdata",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/6",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/tools/modules/profile.sh",
+  "short_name": "profile",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/7",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/docker/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/8",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/test/ldap/samba-ad-run.sh",
+  "short_name": "samba-ad-run",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/9",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/test/ldap/samba-ad-setup.sh",
+  "short_name": "samba-ad-setup",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/10",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/shellcode/windows/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/11",
+  "posix_compliant": false,
+  "line_count": 121,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/vncdll/winvnc/libjpeg/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/12",
+  "posix_compliant": true,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/vncdll/winvnc/libjpeg/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/13",
+  "posix_compliant": false,
+  "line_count": 1794,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/vncdll/winvnc/zlib/configure",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/14",
+  "posix_compliant": true,
+  "line_count": 170,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/pxesploit/regeditor/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/15",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/exploits/cve-2010-4452/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/16",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/exploits/CVE-2009-3867/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/17",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/exploits/CVE-2009-3869/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/18",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/exploits/CVE-2020-9850/payload/sbx/build-threadexec.sh",
+  "short_name": "build-threadexec",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/19",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/exploits/CVE-2020-9850/payload/sbx/build-webkit.sh",
+  "short_name": "build-webkit",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/20",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/exploits/cve-2017-8464/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/21",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/exploits/CVE-2022-2334/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/22",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/osx/x86/src/test/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/23",
+  "posix_compliant": true,
+  "line_count": 88,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/msfJavaToolkit/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/24",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/external/source/DLLHijackAuditKit/package.sh",
+  "short_name": "package",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/25",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/data/exploits/CVE-2017-7494/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/26",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/data/exploits/CVE-2017-7494/install-deps.sh",
+  "short_name": "install-deps",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/27",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/data/exploits/CVE-2017-17562/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/28",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rapid7/metasploit-framework.git",
+  "relative_path": "metasploit-framework/data/exploits/CVE-2017-17562/install-deps.sh",
+  "short_name": "install-deps",
+  "timestamp": "10/22/2024",
+  "identifier": "metasploit_rTqhOu/29",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ }
+]

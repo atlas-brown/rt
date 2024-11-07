@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/imarc/craft-boost.git",
+  "relative_path": "craft-boost/deploy",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "craft_XjBUOR/0",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ }
+]

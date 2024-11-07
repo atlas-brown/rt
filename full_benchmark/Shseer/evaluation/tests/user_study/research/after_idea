@@ -1,0 +1,547 @@
+#!/bin/bash
+set -eo pipefail
+
+usage(){
+  echo "usage: $0 <command> [<args>] "
+  echo ""
+  echo "COMMANDS"
+  echo "  open              create a new note or open the existion note"
+  echo "  git-sync          flush all the notes to git"
+  echo "  ls                list all the notes in 3 days"
+  echo "  search <pattern>  serach all the notes which match the given pattern"
+  echo "  goto              goto the given project folder"
+}
+
+colorful_output_files(){
+  local files=$1
+  local NOCOLOR='\033[0m'
+  local GREEN='\033[0;32m'
+  for file in $files
+  do
+    echo -e "${GREEN}==> idea open ${file} <==${NOCOLOR}"
+    head -n 5 $file
+  done
+}
+
+add(){
+  local local_directory=$IDEA_LOCAL
+  local project=$(date '+%Y-%m-%d')
+  local source_file=""
+
+  while [[ $# -gt 0 ]]
+  do
+    local option=$1
+    shift
+    case $option in 
+      --local)
+        if [ "$1" == "" ]
+        then
+          echo "The local directory can't be empty."
+          exit 1
+        fi
+        local_directory=$1
+        shift
+        ;;
+      --project)
+        project="$1"
+        shift
+        ;;
+      help)
+        echo "add [--local <value>] [--project <value>] <file path>"
+        echo ""
+        echo "DESCRIPTION"
+        echo "  Add the file to given project, the default project is the date of today"
+        echo ""
+        echo "OPTIONS"
+        echo "  --local   Specify the local notes directory explicitly, will use environment variable IDEA_LOCAL if missing."
+        echo "  --project Add file in the given project folder, default is the date of today"
+        exit 0
+        ;;
+      *)
+        source_file="$option"
+        if [ ! -f $source_file ]
+        then
+          echo "$source_file doesn't exist."
+          exit 1
+        fi
+        break
+        ;;
+    esac
+  done
+
+  local time=$(date '+%Y%m%dT%H%M%S')
+
+  if [[ ! -d "$local_directory/$project" ]]; then
+    mkdir -p "$local_directory/$project"
+  fi
+
+  cp $source_file $local_directory/$project
+}
+
+open(){
+  local local_directory=$IDEA_LOCAL
+  local append_content=""
+  local content_source=""
+  local note=""
+  local project=$(date '+%Y-%m-%d')
+  local dry_run=0
+
+  while [[ $# -gt 0 ]]
+  do
+    local option=$1
+    shift
+    case $option in 
+      --local)
+        if [ "$1" == "" ]
+        then
+          echo "The local directory can't be empty."
+          exit 1
+        fi
+        local_directory=$1
+        shift
+        ;;
+      --file)
+        if [ "$content_source" != "" ]
+        then
+          echo "--file can't be used together with $content_source."
+          exit 1
+        fi
+
+        if [ ! -f $1 ]
+        then
+          echo "$1 doesn't exist."
+          exit 1
+        fi
+        content_source="--file"
+        append_content="$(cd "$(dirname "$1")" && pwd -P)/$(basename "$1")"
+        shift
+        ;;
+      --stdin)
+        if [ "$content_source" != "" ]
+        then
+          echo "--stdin can't be used together with $source."
+          exit 1
+        fi
+        content_source="--stdin"
+        read append_content
+        shift
+        ;;
+      --project)
+        project="$1"
+        shift
+        ;;
+      --dry-run)
+        dry_run=1
+        ;;
+      help)
+        echo "open [--local <value>] [--dry-run] [--file <value>|--stdin|--project <value>] [<note name>]"
+        echo ""
+        echo "DESCRIPTION"
+        echo "  1. If the note name is not given, create a new note with random name."
+        echo "  2. If the note name is given and the note exists, open the corresponding note."
+        echo "  3. If the note name is given but the note does not exists, open a new note with the given name."
+        echo ""
+        echo "OPTIONS"
+        echo "  --local   Specify the local notes directory explicitly, will use environment variable IDEA_LOCAL if missing."
+        echo "  --file    Append the file content to the note"
+        echo "  --stdin   Append the stdin to the note"
+        echo "  --project Create note in the given project folder, default is the date of today"
+        echo "  --dry-run Only print the path of note, won't create or open the note"
+        exit 0
+        ;;
+      *)
+        note=$(echo "$option $@"|sed -e 's/ $//g'|sed -e 's/ /-/g')
+        break
+        ;;
+    esac
+  done
+
+  local time=$(date '+%Y%m%dT%H%M%S')
+
+  if [[ ! -d "$local_directory/$project" ]]; then
+    mkdir -p "$local_directory/$project"
+  fi
+
+  if [[ "${note}" == "" ]]
+  then
+    note="$project/$time.md"
+  else
+    if [ ! -f $local_directory/$note ]
+    then
+      note="$project/$note"
+    fi
+  fi
+
+  if [[ $dry_run == 1 ]]
+  then
+    echo $local_directory/$note
+  else
+    if [[ "$content_source" == "--stdin" ]]
+    then
+      cd ${local_directory} && echo $append_content >> $note && $EDITOR $note
+    elif [[ "$content_source" == "--file" ]]
+    then
+      cd ${local_directory} && cat $append_content >> $note && $EDITOR $note
+    else
+      cd ${local_directory} && $EDITOR $note
+    fi
+  fi
+}
+
+
+list(){
+  local local_directory=$IDEA_LOCAL
+
+  while [[ $# -gt 0 ]]
+  do
+    local option=$1
+    shift
+    case $option in
+      --local)
+        if [ "$1" == "" ]
+        then
+          echo "The local directory can't be empty."
+          exit 1
+        fi
+        local_directory=$1
+        shift
+        ;;
+      help)
+        echo "ls [--local <value>]"
+        echo ""
+        echo "DESCRIPTION"
+        echo "  Print all the content of notes modified in 3 days."
+        echo ""
+        echo "OPTIONS"
+        echo "  --local   Specify the local notes directory explicitly, will use environment variable IDEA_LOCAL if missing."
+        exit 0
+        ;;
+      *)
+        echo "Invalid option $option"
+        exit 1
+        ;;
+    esac
+  done
+
+
+  local files=$(cd $local_directory && find . -not -path '.*/\.*' -type f -newerct '3 day ago' -print|sed -e 's/^\.\///g')
+
+  cd $local_directory && colorful_output_files "$files"
+}
+
+goto_project(){
+  local local_directory=$IDEA_LOCAL
+  local project=$(date '+%Y-%m-%d')
+
+  while [[ $# -gt 0 ]]
+  do
+    local option=$1
+    shift
+    case $option in
+      --local)
+        if [ "$1" == "" ]
+        then
+          echo "The local directory can't be empty."
+          exit 1
+        fi
+        local_directory=$1
+        shift
+        ;;
+      help)
+        echo "goto [--local <value>] <project name>"
+        echo ""
+        echo "DESCRIPTION"
+        echo "  Go to the given project folder, if it doesn't exist, create one."
+        echo "  This command will create a subshell working on project folder."
+        echo "  You can exit project by type exit."
+        echo ""
+        echo "OPTIONS"
+        echo "  --local   Specify the local notes directory explicitly, will use environment variable IDEA_LOCAL if missing."
+        exit 0
+        ;;
+      *)
+        project="$option $@"
+        project=$(echo $project|sed -e 's/ $//g'|sed -e 's/ /-/g')
+        break
+        ;;
+    esac
+  done
+
+  if [ ! -d $local_directory/$project ]
+  then
+    mkdir -p "$local_directory/$project"
+  fi
+
+  cd $local_directory/$project && exec $SHELL
+}
+
+search(){
+  local local_directory=$IDEA_LOCAL
+  local pattern=""
+  local target="content"
+
+  while [[ $# -gt 0 ]]
+  do
+    local option=$1
+    shift
+    case $option in 
+      --local)
+        local_directory=$1
+        shift
+        ;;
+      --project)
+        target="project"
+        ;;
+      --file)
+        target="file"
+        ;;
+      help)
+        echo "search [--local <value>] [--project|--file] <pattern>"
+        echo ""
+        echo "DESCRIPTION"
+        echo "  Print all the notes which contain the given pattern."
+        echo ""
+        echo "OPTIONS"
+        echo "  --local   Specify the local notes directory explicitly, will use environment variable IDEA_LOCAL if missing."
+        echo "  --project Only search project name"
+        echo "  --file    Only search file name"
+        exit 0
+        ;;
+      *)
+        pattern="$option"
+        break
+        ;;
+    esac
+  done
+
+  if [ "$pattern" == "" ]
+  then
+    echo "pattern should not be empty."
+    exit 1
+  fi
+
+  if [[ "$target" == "content" ]]
+  then
+    local files=$(cd "$local_directory" && ag -l $pattern . | tr '\n' ' ')
+
+    if [[ "$files" != "" ]]
+    then
+      cd $local_directory && colorful_output_files "$files"
+    fi
+  elif [[ "$target" == "project" ]]
+  then
+    cd "$local_directory" && (ls -d1 */ | grep $pattern)
+  else
+    local files=$(cd "$local_directory" && ag -g $pattern .)
+    if [[ "$files" != "" ]]
+    then
+      cd $local_directory && colorful_output_files "$files"
+    fi
+  fi
+}
+
+sync(){
+  local local=$1
+  local remote=$2
+  local password=""
+  local remote_version_file="$remote/version.md.enc"
+  local local_version_file="$local/version.md"
+
+  if [ ! -d $local ]
+  then
+    mkdir -p $local
+  fi
+
+  if [ ! -d $remote ]
+  then
+    mkdir -p $remote
+  fi
+
+  read -sp "Enter your passphrase: " password
+
+  if [ "$password" == "" ]
+  then
+    echo "The passphrase can't be emtpy."
+    exit 1
+  fi
+
+  # check passphrase
+  if [ -f $remote_version_file ]
+  then
+    openssl enc -d -aes256 -base64 -pass pass:${password} -in $remote_version_file > /dev/null
+    if [ $? != 0 ]
+    then
+      echo "The passphrase is not correct."
+      exit 1
+    fi
+  fi
+
+  local files=""
+  local source_file=""
+  local target_file=""
+  local target_dir=""
+
+  # local -> remote
+  if [ -f $local_version_file ]
+  then
+    files="$(cd $local && find . -newer $local_version_file -not -path '.*/\.*' -type f -print)"
+    files="$files $(basename $local_version_file)"
+  else
+    files="$(cd $local && find . -not -path '.*/\.*' -type f -print)"
+  fi
+
+  for file in $files
+  do
+    source_file=$(echo "$local/$file" | sed -E 's/\/\/?\.?\//\//g')
+    target_file=$(echo "$remote/$file.enc" | sed -E 's/\/\/?\.?\//\//g')
+    target_dir=$(dirname $target_file)
+    if [ ! -d $target_dir ]
+    then
+      mkdir -p $target_dir
+    fi
+    echo "Encrypting $source_file to $target_file"
+    openssl enc -aes256 -base64 -pass pass:${password} -in $source_file -out $target_file
+    cp $source_file $local_version_file
+  done
+
+  # remote -> local
+  files="$(cd $remote && find . -not -path '.*/\.*' -type f -name '*.enc' -print)"
+
+  for file in $files
+  do
+    source_file=$(echo "$remote/$file" | sed -E 's/\/\/?\.?\//\//g')
+    target_file=$(echo "$local/$file" | sed -E 's/.enc$//;s/\/\/?\.?\//\//g')
+    if [ ! -f $target_file ]
+    then
+      target_dir=$(dirname $target_file)
+      if [ ! -d $target_dir ]
+      then
+        mkdir -p $target_dir
+      fi
+      echo "Decrypting $source_file to $target_file"
+      openssl enc -d -aes256 -base64 -pass pass:${password} -in $source_file -out $target_file
+      cp $target_file $local_version_file
+    fi
+  done
+}
+
+git_pull(){
+  local path=$1
+  if [[ -d "$path/.git" ]]
+  then
+    cd "$path" && git pull
+  else
+    echo "$path is not a git repo, can not pull data."
+  fi
+}
+
+git_push(){
+  local path=$1
+  local time=$(date '+%Y-%m-%dT%H:%M:%S')
+  if [[ -d "$path/.git" ]]
+  then
+    cd "$path" && git add . && git commit -m "sync @${time}" && git push
+  else
+    echo "$path is not a git repo, can not run flush."
+  fi
+}
+
+git_sync(){
+
+  local local_directory=$IDEA_LOCAL
+  local remote_directory=$IDEA_REMOTE
+
+  while [[ $# -gt 0 ]]
+  do
+    local option=$1
+    shift
+    case $option in 
+      --local)
+        if [ "$1" == "" ]
+        then
+          echo "The local directory can't be empty."
+          exit 1
+        fi
+        local_directory=$1
+        shift
+        ;;
+      --remote)
+        if [ "$1" == "" ]
+        then
+          echo "The remote directory can't be empty."
+          exit 1
+        fi
+        remote_directory=$1
+        shift
+        ;;
+      help)
+        echo "git-sync [--local <value>] [--remote <value>]"
+        echo ""
+        echo "DESCRIPTION"
+        echo "  The workflow of git sync"
+        echo "    1. Featch the latest notes from remote repo by git pull"
+        echo "    2. Encrypt the notes which is newer than the version.md in local directory, then copy them to the corresponding remote directory"
+        echo "    3. Decrypt the notes which don't exist in local directory, then copy them to the corresponding local directory"
+        echo ""
+        echo "OPTIONS"
+        echo "  --local   Specify the local notes directory explicitly, will use environment variable IDEA_LOCAL if missing."
+        echo "  --remote  Specify the remote notes directory explicitly, will use environment variable IDEA_REMOTE if missing."
+        exit 0
+        ;;
+      *)
+        echo "Invalid option $option"
+        exit 1
+        ;;
+    esac
+  done
+
+  git_pull "$remote_directory" \
+    && sync "$local_directory" "$remote_directory" \
+    && git_push "$remote_directory"
+  }
+
+if [[ "$IDEA_LOCAL" == "" ]]
+then
+  IDEA_LOCAL="$HOME/.idea/local"
+fi
+
+if [[ "$IDEA_REMOTE" == "" ]]
+then
+  IDEA_REMOTE="$HOME/.idea/remote"
+fi
+
+if [ $# -gt 0 ]
+then
+  COMMAND="$1"
+  shift
+  case $COMMAND in
+    open)
+      open $@
+      ;;
+    ls)
+      list $@
+      ;;
+    goto)
+      goto_project $@
+      ;;
+    add)
+      add $@
+      ;;
+    git-sync)
+      git_sync $@
+      ;;
+    search)
+      search $@
+      ;;
+    help)
+      usage
+      ;;
+    *)
+      usage
+      exit 1
+      ;;
+  esac
+else
+  usage
+  exit 1
+fi

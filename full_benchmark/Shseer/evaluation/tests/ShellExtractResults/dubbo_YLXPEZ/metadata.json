@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/apache/dubbo-go.git",
+  "relative_path": "dubbo-go/integrate_test.sh",
+  "short_name": "integrate_test",
+  "timestamp": "10/22/2024",
+  "identifier": "dubbo_YLXPEZ/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

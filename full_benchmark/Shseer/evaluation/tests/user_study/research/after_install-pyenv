@@ -1,0 +1,266 @@
+#!/bin/sh -eu
+
+# install-pyenv: install Python Version Manager
+# Copyright (C) 2018  "Michael G. Morey" <mgmorey@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+BASE_URL=https://github.com/pyenv
+
+DEBIAN_PKG=python3-defaults
+
+abort() {
+    printf "$@" >&2
+    exit 1
+}
+
+abort_not_supported() {
+    abort "%s: %s: %s not supported\n" "$0" "$PRETTY_NAME" "$*"
+}
+
+assert() {
+    "$@" || abort "%s: Assertion failed: %s\n" "$0" "$*"
+}
+
+configure_platform() {
+    package=
+
+    for id in $ID $ID_LIKE; do
+	case "$id" in
+	    (debian)
+		case "$VERSION_ID" in
+		    (10)
+			package=$DEBIAN_PKG
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	    (ubuntu)
+		case "$VERSION_ID" in
+		    (18.04)
+			package=$DEBIAN_PKG
+			;;
+		    (19.10)
+			package=$DEBIAN_PKG
+			;;
+		    (20.04)
+			package=$DEBIAN_PKG
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	esac
+
+	if [ -n "${package-}" ]; then
+	    break
+	fi
+    done
+}
+
+get_packages() {
+    get-bootstrap-packages
+    get-python-build-packages
+}
+
+get_realpath() (
+    assert [ $# -ge 1 ]
+    realpath=$(which realpath)
+
+    if [ -n "$realpath" ]; then
+	$realpath "$@"
+    else
+	for file; do
+	    if expr "$file" : '/.*' >/dev/null; then
+		printf "%s\n" "$file"
+	    else
+		printf "%s\n" "$PWD/${file#./}"
+	    fi
+	done
+    fi
+)
+
+install_dependencies() {
+    for id in $ID $ID_LIKE; do
+	case "$id" in
+	    (windows)
+		return 0
+		;;
+	esac
+    done
+
+    packages="$(get_packages | sort -u)"
+    pattern="$(get-development-pattern)"
+    install-packages ${pattern:+-p "$pattern" }$packages
+
+    if [ -n "${package:-}" ]; then
+	install-build-deps "$@" $package || true
+    fi
+}
+
+install_pyenv() {
+    url=$BASE_URL/pyenv-installer/raw/master/bin/pyenv-installer
+    curl -L $url | bash
+}
+
+validate_platform() {
+    for id in $ID $ID_LIKE; do
+	case "$id" in
+	    (amzn)
+		case "$VERSION_ID" in
+		    (2)
+			return
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	    (centos)
+		case "$VERSION_ID" in
+		    (7)
+			return
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	    (debian)
+		case "$VERSION_ID" in
+		    (10)
+			return
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	    (fedora)
+		return
+		;;
+	    (opensuse)
+		return
+		;;
+	    (rhel|ol)
+		case "$VERSION_ID" in
+		    (7.*)
+			return
+			;;
+		    (8.*)
+			return
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	    (ubuntu)
+		case "$VERSION_ID" in
+		    (18.04)
+			return
+			;;
+		    (19.10)
+			return
+			;;
+		    (20.04)
+			return
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	    (freebsd)
+		case "$VERSION_ID" in
+		    (11.3-*)
+			return
+			;;
+		    (12.1-*)
+			return
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	    (illumos)
+		case "$VERSION_ID" in
+		    (2019.*)
+			return
+			;;
+		    (2020.*)
+			return
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	    (macos)
+		return
+		;;
+	    (netbsd)
+		case "$VERSION_ID" in
+		    (8.1)
+			return
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	    (solaris)
+		case "$VERSION_ID" in
+		    (11.4)
+			return
+			;;
+		    (*)
+			break
+			;;
+		esac
+		;;
+	    (windows)
+		return
+		;;
+	esac
+
+	if [ -n "${packages-}" ]; then
+	    break
+	fi
+    done
+
+    abort_not_supported "Operating system"
+}
+
+script_dir=$(get_realpath "$(dirname "$0")")
+
+. "$script_dir/common-functions.sh"
+. "$script_dir/utility-functions.sh"
+
+set_user_profile "$script_dir"
+eval $(get-os-release -x)
+validate_platform
+configure_platform
+
+if [ "$(id -u)" -eq 0 ]; then
+    install_dependencies
+    run_unpriv "$0"
+else
+    install_dependencies
+    install_pyenv
+fi

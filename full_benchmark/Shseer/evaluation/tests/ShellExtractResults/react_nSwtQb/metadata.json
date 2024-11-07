@@ -1,0 +1,22 @@
+[
+ {
+  "repo": "https://github.com/wellyshen/react-cool-dimensions.git",
+  "relative_path": "react-cool-dimensions/.husky/pre-push",
+  "short_name": "pre-push",
+  "timestamp": "10/22/2024",
+  "identifier": "react_nSwtQb/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/wellyshen/react-cool-dimensions.git",
+  "relative_path": "react-cool-dimensions/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "react_nSwtQb/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ }
+]

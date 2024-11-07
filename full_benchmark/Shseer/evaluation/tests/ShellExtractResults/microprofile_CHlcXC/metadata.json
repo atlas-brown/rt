@@ -1,0 +1,31 @@
+[
+ {
+  "repo": "https://github.com/eclipse/microprofile-metrics.git",
+  "relative_path": "microprofile-metrics/perform_release/prepare_release.sh",
+  "short_name": "prepare_release",
+  "timestamp": "10/22/2024",
+  "identifier": "microprofile_CHlcXC/0",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eclipse/microprofile-metrics.git",
+  "relative_path": "microprofile-metrics/perform_release/deploy_to_maven_central.sh",
+  "short_name": "deploy_to_maven_central",
+  "timestamp": "10/22/2024",
+  "identifier": "microprofile_CHlcXC/1",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

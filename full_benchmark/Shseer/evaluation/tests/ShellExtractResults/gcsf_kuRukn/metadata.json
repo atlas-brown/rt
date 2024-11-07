@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/harababurel/gcsf.git",
+  "relative_path": "gcsf/ci/before_deploy.sh",
+  "short_name": "before_deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "gcsf_kuRukn/0",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

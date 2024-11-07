@@ -1,0 +1,93 @@
+#!/bin/bash
+
+# Usage: build_teamcity [tree_variant ...]
+# tree_variant: Name of a tree variant to build. If no tree variants are passed,
+#               the "default" and "installer" tree variants are built.
+
+set -x
+set -o errexit -o pipefail
+
+function now { date +"%Y-%m-%dT%H:%M:%S.000" | tr -d '\n' ;}
+function _scope_msg() {
+    # Here we want to turn off `-x` that is present when running the bash script
+    # before we echo the message to teamcity, if we do not do this a "duplicate" echo will
+    # be printed to stderr and teamcity will error trying to parse the message because
+    # the format is invalid.
+    set +x
+    echo "##teamcity[block$1 timestamp='$(now)' name='$2']"
+    # Turn `-x` back on now that we're done sending the message to teamcity
+    set -x
+}
+function _scope_opened() {
+    _scope_msg "Opened" $1
+}
+function _scope_closed() {
+    _scope_msg "Closed" $1
+}
+
+# If no tree variants are specified, build the default and installer variants.
+tree_variants=${@:-default installer}
+
+# Fail quickly if docker daemon is not up
+systemctl status docker
+
+_scope_opened "cleanup"
+# cleanup from previous builds
+# *active.json and *.bootstrap.tar.xz must be cleaned up, otherwise
+# Teamcity starts picking up artifacts from previous builds.
+#
+# We manually clean rather than having TeamCity always clean so that
+# builds are quicker.
+rm -rf dcos-release.config.yaml
+rm -rf artifacts/
+rm -f packages/*.active.json
+rm -f packages/bootstrap.latest
+rm -f packages/*.bootstrap.tar.xz
+rm -f CHANNEL_NAME
+rm -rf build/env
+rm -f dcos_generate_config*.sh
+rm -rf wheelhouse/
+_scope_closed "cleanup"
+
+_scope_opened "setup"
+
+# Force Python stdout/err to be unbuffered to
+# have immediate feedback in TeamCity build logs.
+export PYTHONUNBUFFERED="notemtpy"
+
+# enable pkgpanda virtualenv *ALWAYS COPY* otherwise the TC cleanup will traverse and corrupt system python
+python3 -m venv --clear --copies build/env
+. build/env/bin/activate
+
+: ${TEAMCITY_BRANCH?"TEAMCITY_BRANCH must be set (determines the tag and testing/ channel)"}
+
+if [[ "$TEAMCITY_BRANCH" == "<default>" ]]
+then
+  echo "ERROR: Building with a branch name of <default> is not supported"
+  exit 1
+fi
+
+TAG="$TEAMCITY_BRANCH"
+CHANNEL_NAME=testing/$TAG
+
+echo tag: "$TAG"
+echo channel: "$CHANNEL_NAME"
+
+set +x
+echo "##teamcity[setParameter name='env.CHANNEL_NAME' value='$CHANNEL_NAME']"
+echo "##teamcity[setParameter name='env.TAG' value='$TAG']"
+set -x
+
+cp config/dcos-release.config.yaml dcos-release.config.yaml
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+"$DIR"/prep_teamcity
+_scope_closed "setup"
+
+release create $TAG $TAG $tree_variants
+
+mkdir -p artifacts
+cp -r wheelhouse artifacts/
+
+rm -rf artifacts/dcos_generate_config.*

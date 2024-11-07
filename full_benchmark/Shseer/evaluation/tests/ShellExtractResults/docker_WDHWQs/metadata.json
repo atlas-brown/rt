@@ -1,0 +1,22 @@
+[
+ {
+  "repo": "https://github.com/spotify/docker-client.git",
+  "relative_path": "docker-client/src/test/resources/dockerDirectory/bin/date.sh",
+  "short_name": "date",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_WDHWQs/0",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spotify/docker-client.git",
+  "relative_path": "docker-client/src/test/resources/dockerDirectoryWithIgnore/bin/date.sh",
+  "short_name": "date",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_WDHWQs/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ }
+]

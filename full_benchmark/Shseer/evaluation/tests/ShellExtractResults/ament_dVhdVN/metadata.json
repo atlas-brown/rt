@@ -1,0 +1,24 @@
+[
+ {
+  "repo": "https://github.com/ament/ament_cmake.git",
+  "relative_path": "ament_cmake/ament_cmake_core/cmake/environment_hooks/environment/path.sh",
+  "short_name": "path",
+  "timestamp": "10/22/2024",
+  "identifier": "ament_dVhdVN/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ament/ament_cmake.git",
+  "relative_path": "ament_cmake/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh",
+  "short_name": "ament_prefix_path",
+  "timestamp": "10/22/2024",
+  "identifier": "ament_dVhdVN/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

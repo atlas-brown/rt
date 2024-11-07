@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/jstnhuang/rapid.git",
+  "relative_path": "rapid/rapid_perception/scripts/download_test_data.sh",
+  "short_name": "download_test_data",
+  "timestamp": "10/22/2024",
+  "identifier": "rapid_AkqLiL/0",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

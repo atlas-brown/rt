@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/flashlight/flashlight.git",
+  "relative_path": "flashlight/scripts/colab/colab_install_deps.sh",
+  "short_name": "colab_install_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "flashlight_lzaAFm/0",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

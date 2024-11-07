@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/betagouv/bourses.git",
+  "relative_path": "bourses/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "bourses_JiHTUE/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

@@ -1,0 +1,1598 @@
+[
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/run_ner_msra.sh",
+  "short_name": "run_ner_msra",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/0",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/1",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/run_classifier_afqmc.sh",
+  "short_name": "run_classifier_afqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/2",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/run_classifier_cmnli.sh",
+  "short_name": "run_classifier_cmnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/3",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/run_classifier_wsc.sh",
+  "short_name": "run_classifier_wsc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/4",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/run_classifier_iflytek.sh",
+  "short_name": "run_classifier_iflytek",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/5",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/tpu/run_classifier_xnli.sh",
+  "short_name": "run_classifier_xnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/6",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/tpu/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/7",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/tpu/run_classifier_thucnews.sh",
+  "short_name": "run_classifier_thucnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/8",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/tpu/run_classifier_jdcomment.sh",
+  "short_name": "run_classifier_jdcomment",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/9",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/tpu/run_classifier_inews.sh",
+  "short_name": "run_classifier_inews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/10",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/tpu/run_classifier_lcqmc.sh",
+  "short_name": "run_classifier_lcqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/11",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_large_ext/run_classifier_csl.sh",
+  "short_name": "run_classifier_csl",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/12",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/13",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/run_classifier_afqmc.sh",
+  "short_name": "run_classifier_afqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/14",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/resources/shell_scripts/create_pretrain_data_batch_webtext.sh",
+  "short_name": "create_pretrain_data_batch_webtext",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/15",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/run_classifier_cmnli.sh",
+  "short_name": "run_classifier_cmnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/16",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/run_classifier_wsc.sh",
+  "short_name": "run_classifier_wsc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/17",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/run_classifier_iflytek.sh",
+  "short_name": "run_classifier_iflytek",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/18",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/tpu/run_classifier_xnli.sh",
+  "short_name": "run_classifier_xnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/19",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/tpu/run_classifier_tnews_tiny.sh",
+  "short_name": "run_classifier_tnews_tiny",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/20",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/tpu/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/21",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/tpu/run_classifier_thucnews.sh",
+  "short_name": "run_classifier_thucnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/22",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/tpu/run_classifier_thucnews_tiny.sh",
+  "short_name": "run_classifier_thucnews_tiny",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/23",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/tpu/run_classifier_lcqmc_tiny.sh",
+  "short_name": "run_classifier_lcqmc_tiny",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/24",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/tpu/run_classifier_xnli_tiny.sh",
+  "short_name": "run_classifier_xnli_tiny",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/25",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/tpu/run_classifier_inews_tiny.sh",
+  "short_name": "run_classifier_inews_tiny",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/26",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/tpu/run_classifier_inews.sh",
+  "short_name": "run_classifier_inews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/27",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/tpu/run_classifier_lcqmc.sh",
+  "short_name": "run_classifier_lcqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/28",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/create_pretrain_data.sh",
+  "short_name": "create_pretrain_data",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/29",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/albert/run_classifier_csl.sh",
+  "short_name": "run_classifier_csl",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/30",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/copa_sh/copa_eval_dev.sh",
+  "short_name": "copa_eval_dev",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/31",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/32",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/run_classifier_afqmc.sh",
+  "short_name": "run_classifier_afqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/33",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/run_classifier_cmnli.sh",
+  "short_name": "run_classifier_cmnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/34",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/run_classifier_wsc.sh",
+  "short_name": "run_classifier_wsc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/35",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/run_classifier_iflytek.sh",
+  "short_name": "run_classifier_iflytek",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/36",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/tpu/run_classifier_xnli.sh",
+  "short_name": "run_classifier_xnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/37",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/tpu/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/38",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/tpu/run_classifier_thucnews.sh",
+  "short_name": "run_classifier_thucnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/39",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/tpu/run_classifier_jdcomment.sh",
+  "short_name": "run_classifier_jdcomment",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/40",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/tpu/run_classifier_inews.sh",
+  "short_name": "run_classifier_inews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/41",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/tpu/run_classifier_lcqmc.sh",
+  "short_name": "run_classifier_lcqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/42",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert/run_classifier_csl.sh",
+  "short_name": "run_classifier_csl",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/43",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/run_ner_msra.sh",
+  "short_name": "run_ner_msra",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/44",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/45",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/run_classifier_afqmc.sh",
+  "short_name": "run_classifier_afqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/46",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/run_classifier_cmnli.sh",
+  "short_name": "run_classifier_cmnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/47",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/run_classifier_wsc.sh",
+  "short_name": "run_classifier_wsc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/48",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/run_classifier_iflytek.sh",
+  "short_name": "run_classifier_iflytek",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/49",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/tpu/run_classifier_xnli.sh",
+  "short_name": "run_classifier_xnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/50",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/tpu/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/51",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/tpu/run_classifier_thucnews.sh",
+  "short_name": "run_classifier_thucnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/52",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/tpu/run_classifier_jdcomment.sh",
+  "short_name": "run_classifier_jdcomment",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/53",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/tpu/run_classifier_inews.sh",
+  "short_name": "run_classifier_inews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/54",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/tpu/run_classifier_lcqmc.sh",
+  "short_name": "run_classifier_lcqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/55",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta_wwm_ext/run_classifier_csl.sh",
+  "short_name": "run_classifier_csl",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/56",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta/run_ner_msra.sh",
+  "short_name": "run_ner_msra",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/57",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/58",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta/run_classifier_afqmc.sh",
+  "short_name": "run_classifier_afqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/59",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta/run_classifier_cmnli.sh",
+  "short_name": "run_classifier_cmnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/60",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta/run_classifier_wsc.sh",
+  "short_name": "run_classifier_wsc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/61",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta/run_classifier_iflytek.sh",
+  "short_name": "run_classifier_iflytek",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/62",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta/tpu/run_classifier_tiny.sh",
+  "short_name": "run_classifier_tiny",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/63",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta/tpu/run_classifier_tiny_xul.sh",
+  "short_name": "run_classifier_tiny_xul",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/64",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta/create_pretrain_data.sh",
+  "short_name": "create_pretrain_data",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/65",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/roberta/run_classifier_csl.sh",
+  "short_name": "run_classifier_csl",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/66",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/run_classifier_2020wsc.sh",
+  "short_name": "run_classifier_2020wsc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/67",
+  "posix_compliant": false,
+  "line_count": 91,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/68",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/run_classifier_afqmc.sh",
+  "short_name": "run_classifier_afqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/69",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/temp.sh",
+  "short_name": "temp",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/70",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/run_classifier_cmnli.sh",
+  "short_name": "run_classifier_cmnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/71",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/run_classifier_wsc.sh",
+  "short_name": "run_classifier_wsc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/72",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/run_classifier_iflytek.sh",
+  "short_name": "run_classifier_iflytek",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/73",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/tpu/run_classifier_xnli.sh",
+  "short_name": "run_classifier_xnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/74",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/tpu/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/75",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/tpu/run_classifier_inews.sh",
+  "short_name": "run_classifier_inews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/76",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/tpu/run_classifier_lcqmc.sh",
+  "short_name": "run_classifier_lcqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/77",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/xlnet/run_classifier_csl.sh",
+  "short_name": "run_classifier_csl",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/78",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/run_ner_msra.sh",
+  "short_name": "run_ner_msra",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/79",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/80",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/run_classifier_afqmc.sh",
+  "short_name": "run_classifier_afqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/81",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/run_classifier_cmnli.sh",
+  "short_name": "run_classifier_cmnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/82",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/run_classifier_wsc.sh",
+  "short_name": "run_classifier_wsc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/83",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/run_classifier_iflytek.sh",
+  "short_name": "run_classifier_iflytek",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/84",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/tpu/run_classifier_xnli.sh",
+  "short_name": "run_classifier_xnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/85",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/tpu/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/86",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/tpu/run_classifier_thucnews.sh",
+  "short_name": "run_classifier_thucnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/87",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/tpu/run_classifier_inews.sh",
+  "short_name": "run_classifier_inews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/88",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/tpu/run_classifier_lcqmc.sh",
+  "short_name": "run_classifier_lcqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/89",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/ernie/run_classifier_csl.sh",
+  "short_name": "run_classifier_csl",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/90",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/run_ner_msra.sh",
+  "short_name": "run_ner_msra",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/91",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/92",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/run_classifier_afqmc.sh",
+  "short_name": "run_classifier_afqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/93",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/run_classifier_cmnli.sh",
+  "short_name": "run_classifier_cmnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/94",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/run_classifier_wsc.sh",
+  "short_name": "run_classifier_wsc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/95",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/run_classifier_iflytek.sh",
+  "short_name": "run_classifier_iflytek",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/96",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/tpu/run_classifier_xnli.sh",
+  "short_name": "run_classifier_xnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/97",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/tpu/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/98",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/tpu/run_classifier_thucnews.sh",
+  "short_name": "run_classifier_thucnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/99",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/tpu/run_classifier_inews.sh",
+  "short_name": "run_classifier_inews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/100",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/tpu/run_classifier_lcqmc.sh",
+  "short_name": "run_classifier_lcqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/101",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models/bert_wwm_ext/run_classifier_csl.sh",
+  "short_name": "run_classifier_csl",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/102",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/paddlenlp/grid_search_tools/run_cls.sh",
+  "short_name": "run_cls",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/103",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/paddlenlp/grid_search_tools/extract_result.sh",
+  "short_name": "extract_result",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/104",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/paddlenlp/grid_search_tools/run_mrc.sh",
+  "short_name": "run_mrc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/105",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/classifier_pytorch/run_classifier_tnews.sh",
+  "short_name": "run_classifier_tnews",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/106",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/classifier_pytorch/run_classifier_afqmc.sh",
+  "short_name": "run_classifier_afqmc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/107",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/classifier_pytorch/run_classifier_ocnli.sh",
+  "short_name": "run_classifier_ocnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/108",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/classifier_pytorch/run_classifier_cmnli.sh",
+  "short_name": "run_classifier_cmnli",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/109",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/classifier_pytorch/run_classifier_wsc.sh",
+  "short_name": "run_classifier_wsc",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/110",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/classifier_pytorch/run_classifier_iflytek.sh",
+  "short_name": "run_classifier_iflytek",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/111",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/classifier_pytorch/run_classifier_csl.sh",
+  "short_name": "run_classifier_csl",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/112",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/mrc_pytorch/run_mrc_cmrc2018.sh",
+  "short_name": "run_mrc_cmrc2018",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/113",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/mrc_pytorch/run_mrc_drcd.sh",
+  "short_name": "run_mrc_drcd",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/114",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/mrc_pytorch/run_mrc_c3.sh",
+  "short_name": "run_mrc_c3",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/115",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUE.git",
+  "relative_path": "CLUE/baselines/models_pytorch/mrc_pytorch/run_mrc_chid.sh",
+  "short_name": "run_mrc_chid",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUE_TDPxGl/116",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

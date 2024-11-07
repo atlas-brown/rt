@@ -1,0 +1,70 @@
+[
+ {
+  "repo": "https://github.com/nektos/act.git",
+  "relative_path": "act/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "act_nHTNMQ/0",
+  "posix_compliant": true,
+  "line_count": 365,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nektos/act.git",
+  "relative_path": "act/.github/actions/choco/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "act_nHTNMQ/1",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nektos/act.git",
+  "relative_path": "act/pkg/runner/testdata/actions/docker-local/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "act_nHTNMQ/2",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nektos/act.git",
+  "relative_path": "act/pkg/runner/testdata/actions/docker-local-noargs/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "act_nHTNMQ/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nektos/act.git",
+  "relative_path": "act/pkg/runner/testdata/actions-environment-and-context-tests/docker/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "act_nHTNMQ/4",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/scottanderson5/GAME-ON.git",
+  "relative_path": "GAME-ON/StarRating/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "GAME_LBKQEC/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,87 @@
+[
+ {
+  "repo": "https://github.com/google/pytype.git",
+  "relative_path": "pytype/build_scripts/wheels/manylinux.sh",
+  "short_name": "manylinux",
+  "timestamp": "10/22/2024",
+  "identifier": "pytype_jPljTx/0",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/pytype.git",
+  "relative_path": "pytype/build_scripts/wheels/macos.sh",
+  "short_name": "macos",
+  "timestamp": "10/22/2024",
+  "identifier": "pytype_jPljTx/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/pytype.git",
+  "relative_path": "pytype/build_scripts/ci_script.sh",
+  "short_name": "ci_script",
+  "timestamp": "10/22/2024",
+  "identifier": "pytype_jPljTx/2",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/google/pytype.git",
+  "relative_path": "pytype/pytype/tools/xref/scripts/kythe-browse.sh",
+  "short_name": "kythe-browse",
+  "timestamp": "10/22/2024",
+  "identifier": "pytype_jPljTx/3",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/pytype.git",
+  "relative_path": "pytype/pytype/tools/xref/scripts/kythe-verifier.sh",
+  "short_name": "kythe-verifier",
+  "timestamp": "10/22/2024",
+  "identifier": "pytype_jPljTx/4",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/pytype.git",
+  "relative_path": "pytype/pytype/tools/xref/scripts/kythe-add-index.sh",
+  "short_name": "kythe-add-index",
+  "timestamp": "10/22/2024",
+  "identifier": "pytype_jPljTx/5",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/pytype.git",
+  "relative_path": "pytype/pytype/tools/xref/scripts/kythe-clean.sh",
+  "short_name": "kythe-clean",
+  "timestamp": "10/22/2024",
+  "identifier": "pytype_jPljTx/6",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ }
+]

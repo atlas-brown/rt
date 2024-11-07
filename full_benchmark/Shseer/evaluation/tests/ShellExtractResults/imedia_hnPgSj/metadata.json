@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/TangCheng/imedia.git",
+  "relative_path": "imedia/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "imedia_hnPgSj/0",
+  "posix_compliant": true,
+  "line_count": 135,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

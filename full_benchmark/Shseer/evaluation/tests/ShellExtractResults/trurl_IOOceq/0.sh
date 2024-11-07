@@ -1,0 +1,85 @@
+#!/bin/sh
+##########################################################################
+#                                  _   _ ____  _
+#  Project                     ___| | | |  _ \| |
+#                             / __| | | | |_) | |
+#                            | (__| |_| |  _ <| |___
+#                             \___|\___/|_| \_\_____|
+#
+# Copyright (C) Daniel Stenberg, <daniel@haxx.se>, et al.
+#
+# This software is licensed as described in the file COPYING, which
+# you should have received as part of this distribution. The terms
+# are also available at https://curl.se/docs/copyright.html.
+#
+# You may opt to use, copy, modify, merge, publish, distribute and/or sell
+# copies of the Software, and permit persons to whom the Software is
+# furnished to do so, under the terms of the COPYING file.
+#
+# This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
+# KIND, either express or implied.
+#
+# SPDX-License-Identifier: curl
+#
+##########################################################################
+
+set -eu
+
+export LC_ALL=C
+export TZ=UTC
+
+version="${1:-}"
+
+if [ -z "$version" ]; then
+  echo "Specify a version number!"
+  exit
+fi
+
+rel="trurl-$version"
+
+mkdir $rel
+
+# update title in markdown manpage
+sed -ie "s/^Source: trurl \([0-9.]*\)/Source: trurl $version/" trurl.md
+
+# update version number in header file
+sed -ie "s/\"[\.0-9]*\"/\"$version\"/" version.h
+
+# render the manpage into nroff
+./curl/scripts/cd2nroff trurl.md > $rel/trurl.1
+
+# create a release directory tree
+cp -p --parents $(git ls-files | grep -vE '^(.github/|.reuse/|.gitignore|LICENSES/)') $rel
+
+# create tarball from the tree
+targz="$rel.tar.gz"
+tar cfz "$targz" "$rel"
+
+timestamp=${SOURCE_DATE_EPOCH:-$(date +"%s")}
+filestamp=$(date -d "@$timestamp" +"%Y%m%d%H%M.%S")
+
+retar() {
+  tempdir=$1
+  rm -rf "$tempdir"
+  mkdir "$tempdir"
+  cd "$tempdir"
+  gzip -dc "../$targz" | tar -xf -
+  find trurl-* -depth -exec touch -c -t "$filestamp" '{}' +
+  tar --create --format=ustar --owner=0 --group=0 --numeric-owner --sort=name trurl-* | gzip --best --no-name > out.tar.gz
+  mv out.tar.gz ../
+  cd ..
+  rm -rf "$tempdir"
+}
+
+# make it reproducible
+retar ".tarbuild"
+mv out.tar.gz "$targz"
+
+# remove the temporary directory
+rm -rf $rel
+
+# Set deterministic timestamp
+touch -c -t "$filestamp" "$targz"
+
+echo "Now sign the release:"
+echo "gpg -b -a '$targz'"

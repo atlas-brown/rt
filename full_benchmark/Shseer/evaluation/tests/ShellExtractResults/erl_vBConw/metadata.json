@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/Vagabond/erl_crl_example.git",
+  "relative_path": "erl_crl_example/check.sh",
+  "short_name": "check",
+  "timestamp": "10/22/2024",
+  "identifier": "erl_vBConw/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

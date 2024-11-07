@@ -1,0 +1,438 @@
+[
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/gitupdate.sh",
+  "short_name": "gitupdate",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/images/trojan_install.sh",
+  "short_name": "trojan_install",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/1",
+  "posix_compliant": false,
+  "line_count": 142,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/images/backup/bench.sh",
+  "short_name": "bench",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/2",
+  "posix_compliant": false,
+  "line_count": 124,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/images/backup/serverspeeder.sh",
+  "short_name": "serverspeeder",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/3",
+  "posix_compliant": false,
+  "line_count": 132,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/images/backup/bbr.sh",
+  "short_name": "bbr",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/4",
+  "posix_compliant": false,
+  "line_count": 202,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/images/backup/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/5",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/images/backup/ssr.sh",
+  "short_name": "ssr",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/6",
+  "posix_compliant": false,
+  "line_count": 1460,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/images/backup/shadowsocksR.sh",
+  "short_name": "shadowsocksR",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/7",
+  "posix_compliant": false,
+  "line_count": 432,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/server-cfg/bench.sh",
+  "short_name": "bench",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/8",
+  "posix_compliant": false,
+  "line_count": 122,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/server-cfg/xrcheck.sh",
+  "short_name": "xrcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/9",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/server-cfg/v2ray-init.sh",
+  "short_name": "v2ray-init",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/10",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/server-cfg/nginx_check.sh",
+  "short_name": "nginx_check",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/11",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/server-cfg/v2ray_check.sh",
+  "short_name": "v2ray_check",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/12",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/server-cfg/bench-network.sh",
+  "short_name": "bench-network",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/13",
+  "posix_compliant": false,
+  "line_count": 106,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/server-cfg/ss-init.sh",
+  "short_name": "ss-init",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/14",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/server-cfg/ss_nginx_check.sh",
+  "short_name": "ss_nginx_check",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/15",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/v2ss/server-cfg/fqbench.sh",
+  "short_name": "fqbench",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/16",
+  "posix_compliant": false,
+  "line_count": 206,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews/tools/flym_v1_to_v2.sh",
+  "short_name": "flym_v1_to_v2",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/17",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/devenv",
+  "short_name": "devenv",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/18",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/ci/accept-licenses",
+  "short_name": "accept-licenses",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/19",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/ci/delete-unwanted-langs",
+  "short_name": "delete-unwanted-langs",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/20",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/ci/before",
+  "short_name": "before",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/21",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/ci/run-if-release",
+  "short_name": "run-if-release",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/22",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/ci/run-if-not-release",
+  "short_name": "run-if-not-release",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/23",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/prepare_for_build.sh",
+  "short_name": "prepare_for_build",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/24",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/25",
+  "posix_compliant": false,
+  "line_count": 96,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/libcore/init.sh",
+  "short_name": "init",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/26",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/libcore/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/27",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/bannedbook/fanqiang.git",
+  "relative_path": "fanqiang/fqnews2/deploy_playstore_fast.sh",
+  "short_name": "deploy_playstore_fast",
+  "timestamp": "10/22/2024",
+  "identifier": "fanqiang_dWQkZZ/28",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

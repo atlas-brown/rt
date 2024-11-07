@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# -------------------------------------------------------------------------
+# Print image file list
+# -------------------------------------------------------------------------
+
+underline () {
+    echo "\033[4m$1\033[0m"
+}
+
+usage() {
+    echo "Usage: sse filelist -d rootdir -p pattern -o output"
+    echo "  This command lists all image files under `underline rootdir`"
+    echo "  The options are as follows:"
+    echo "  -d\t root directory"
+    echo "  -p\t the pathname being examined matches `underline pattern`, eg: \"*.png\" "
+    echo "  -o\t output file"
+    exit 1
+}
+
+if [ $# -ne 6 ]; then
+    usage;
+fi
+
+while getopts "d:p:o:" arg; do
+    case $arg in
+        d)
+            rootdir=$OPTARG
+            ;;
+        p)
+            pattern=$OPTARG
+            ;;
+        o)
+            filelist=$OPTARG
+            ;;
+        ?)
+            usage;
+            ;;
+    esac
+done
+
+cd $rootdir
+find $(pwd) -name $pattern | sed 's/^\.\///' > $filelist

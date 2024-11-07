@@ -1,0 +1,914 @@
+[
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/benchmark/test_yolov3_lite.sh",
+  "short_name": "test_yolov3_lite",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/tools/extra/launch_resize_and_crop_images.sh",
+  "short_name": "launch_resize_and_crop_images",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/tools/extra/parse_log.sh",
+  "short_name": "parse_log",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/2",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/models/mobilenetv1_voc/train_yolov3_lite.sh",
+  "short_name": "train_yolov3_lite",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/3",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/mnist/create_mnist.sh",
+  "short_name": "create_mnist",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/4",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/mnist/train_lenet_docker.sh",
+  "short_name": "train_lenet_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/5",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/mnist/train_lenet_rmsprop.sh",
+  "short_name": "train_lenet_rmsprop",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/6",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/mnist/train_mnist_autoencoder_adadelta.sh",
+  "short_name": "train_mnist_autoencoder_adadelta",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/7",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/mnist/train_mnist_autoencoder.sh",
+  "short_name": "train_mnist_autoencoder",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/8",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/mnist/train_lenet.sh",
+  "short_name": "train_lenet",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/9",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/mnist/train_mnist_autoencoder_adagrad.sh",
+  "short_name": "train_mnist_autoencoder_adagrad",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/10",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/mnist/train_mnist_autoencoder_nesterov.sh",
+  "short_name": "train_mnist_autoencoder_nesterov",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/11",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/mnist/train_lenet_adam.sh",
+  "short_name": "train_lenet_adam",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/12",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/mnist/train_lenet_consolidated.sh",
+  "short_name": "train_lenet_consolidated",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/13",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/siamese/create_mnist_siamese.sh",
+  "short_name": "create_mnist_siamese",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/14",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/siamese/train_mnist_siamese.sh",
+  "short_name": "train_mnist_siamese",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/15",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/imagenet/make_imagenet_mean.sh",
+  "short_name": "make_imagenet_mean",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/16",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/imagenet/train_caffenet.sh",
+  "short_name": "train_caffenet",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/17",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/imagenet/create_imagenet.sh",
+  "short_name": "create_imagenet",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/18",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/imagenet/resume_training.sh",
+  "short_name": "resume_training",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/19",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/cifar10/train_full_sigmoid.sh",
+  "short_name": "train_full_sigmoid",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/20",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/cifar10/train_full.sh",
+  "short_name": "train_full",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/21",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/cifar10/create_cifar10.sh",
+  "short_name": "create_cifar10",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/22",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/cifar10/train_quick.sh",
+  "short_name": "train_quick",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/23",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/examples/cifar10/train_full_sigmoid_bn.sh",
+  "short_name": "train_full_sigmoid_bn",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/24",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_yolo.sh",
+  "short_name": "train_yolo",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/25",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_yolov3_lite.sh",
+  "short_name": "train_yolov3_lite",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/26",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_darknet.sh",
+  "short_name": "train_darknet",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/27",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_pelee_ssd.sh",
+  "short_name": "train_pelee_ssd",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/28",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/demo_tusimple.sh",
+  "short_name": "demo_tusimple",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/29",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_yolov3_coco_lite.sh",
+  "short_name": "train_yolov3_coco_lite",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/30",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/demo_yolo.sh",
+  "short_name": "demo_yolo",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/31",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/deploy_docs.sh",
+  "short_name": "deploy_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/32",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_yolov3_darknet.sh",
+  "short_name": "train_yolov3_darknet",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/33",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_yolov3_coco.sh",
+  "short_name": "train_yolov3_coco",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/34",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/demo_cityscapes.sh",
+  "short_name": "demo_cityscapes",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/35",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_pelee_ssd_bdd100k.sh",
+  "short_name": "train_pelee_ssd_bdd100k",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/36",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_tusimple.sh",
+  "short_name": "train_tusimple",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/37",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/upload_model_to_gist.sh",
+  "short_name": "upload_model_to_gist",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/38",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/demo_pelee_bdd100k.sh",
+  "short_name": "demo_pelee_bdd100k",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/39",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/demo_darknet_yolov3.sh",
+  "short_name": "demo_darknet_yolov3",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/40",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/build_docs.sh",
+  "short_name": "build_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/41",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/demo_yolo_lite.sh",
+  "short_name": "demo_yolo_lite",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/42",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/gather_examples.sh",
+  "short_name": "gather_examples",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/43",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_m2_yolov3_lite.sh",
+  "short_name": "train_m2_yolov3_lite",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/44",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_yolov3.sh",
+  "short_name": "train_yolov3",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/45",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/download_model_from_gist.sh",
+  "short_name": "download_model_from_gist",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/46",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/travis/configure-make.sh",
+  "short_name": "configure-make",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/47",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/travis/setup-venv.sh",
+  "short_name": "setup-venv",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/48",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/travis/defaults.sh",
+  "short_name": "defaults",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/49",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/travis/install-python-deps.sh",
+  "short_name": "install-python-deps",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/50",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/travis/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/51",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/travis/configure-cmake.sh",
+  "short_name": "configure-cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/52",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/travis/configure.sh",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/53",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/travis/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/54",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/travis/install-deps.sh",
+  "short_name": "install-deps",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/55",
+  "posix_compliant": false,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_yolo_pedestrain.sh",
+  "short_name": "train_yolo_pedestrain",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/56",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/scripts/train_yolo_lite.sh",
+  "short_name": "train_yolo_lite",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/57",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/mnist/get_mnist.sh",
+  "short_name": "get_mnist",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/58",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/bdd100k/create_data.sh",
+  "short_name": "create_data",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/59",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/bdd100k/create_list.sh",
+  "short_name": "create_list",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/60",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/tusimple/create_data.sh",
+  "short_name": "create_data",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/61",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/tusimple/create_list.sh",
+  "short_name": "create_list",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/62",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/tusimple/create_data_fisheye.sh",
+  "short_name": "create_data_fisheye",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/63",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/VOC0712/create_data.sh",
+  "short_name": "create_data",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/64",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/VOC0712/create_list.sh",
+  "short_name": "create_list",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/65",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/coco/create_data.sh",
+  "short_name": "create_data",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/66",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/ilsvrc12/get_ilsvrc_aux.sh",
+  "short_name": "get_ilsvrc_aux",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/67",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/cityscapes/create_data.sh",
+  "short_name": "create_data",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/68",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/cityscapes/create_list.sh",
+  "short_name": "create_list",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/69",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/cityscapes/create_list_fisheye_multi.sh",
+  "short_name": "create_list_fisheye_multi",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/70",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/eric612/MobileNet-YOLO.git",
+  "relative_path": "MobileNet-YOLO/data/cifar10/get_cifar10.sh",
+  "short_name": "get_cifar10",
+  "timestamp": "10/22/2024",
+  "identifier": "MobileNet_dGLkVY/71",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

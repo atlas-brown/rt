@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/ANCIR/southafrica.git",
+  "relative_path": "southafrica/env.tmpl.sh",
+  "short_name": "env.tmpl",
+  "timestamp": "10/22/2024",
+  "identifier": "southafrica_gQodgL/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

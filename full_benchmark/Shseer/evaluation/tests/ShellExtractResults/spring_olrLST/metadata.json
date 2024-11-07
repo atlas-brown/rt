@@ -1,0 +1,32 @@
+[
+ {
+  "repo": "https://github.com/spring-projects/spring-framework.git",
+  "relative_path": "spring-framework/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_olrLST/0",
+  "posix_compliant": true,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-projects/spring-framework.git",
+  "relative_path": "spring-framework/update_copyright_headers.sh",
+  "short_name": "update_copyright_headers",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_olrLST/1",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

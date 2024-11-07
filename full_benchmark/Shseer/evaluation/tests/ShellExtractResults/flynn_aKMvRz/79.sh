@@ -1,0 +1,160 @@
+#!/bin/bash
+
+set -e
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+source "${ROOT}/script/lib/ui.sh"
+source "${ROOT}/script/lib/util.sh"
+
+usage() {
+  cat <<USAGE >&2
+usage: $0 [options]
+
+Boot a Flynn cluster.
+
+Use the --size flag to boot a multi-node cluster, which will create a virtual
+network interface for each node and bind all host network services to that
+interface (i.e. flynn-host, discoverd, flannel and router)
+
+OPTIONS:
+  -h, --help               Show this message
+  -s, --size=SIZE          Cluster size [default: 1]
+  -z, --no-destroy-vols    Don't destroy volumes
+  -v, --version=VERSION    Boot using the released VERSION (e.g. v20151104.1)
+  --from-backup=FILE       Bootstrap from backup file or URL (e.g. https://s3.amazonaws.com/flynn-test/backups/nodejs-v20160624.1.tar)
+  --steps=STEPS            Only run the given steps (comma separated)
+USAGE
+}
+
+main() {
+  local size="1"
+  local version=""
+  local host_flags=()
+  local backup=""
+  local backup_url=""
+  local steps=""
+
+  while true; do
+    case "$1" in
+      -h | --help)
+        usage
+        exit 0
+        ;;
+      -s | --size)
+        if [[ -z "$2" ]]; then
+          usage
+          exit 1
+        fi
+        size="$2"
+        shift 2
+        ;;
+      -z | --no-destroy-vols)
+        host_flags+=("--no-destroy-vols")
+        shift
+        ;;
+      -v | --version)
+        if [[ -z "$2" ]]; then
+          usage
+          exit 1
+        fi
+        version="$2"
+        shift 2
+        ;;
+      --from-backup)
+        if [[ -z "$2" ]]; then
+          usage
+          exit 1
+        fi
+        if [[ "${2:0:8}" = "https://" ]]; then
+          backup_url="$2"
+        else
+          backup="$2"
+        fi
+        shift 2
+        ;;
+      --steps)
+        if [[ -z "$2" ]]; then
+          fail "--steps flag requires an argument"
+        fi
+        steps="$2"
+        shift 2
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  if [[ $# -ne 0 ]]; then
+    usage
+    exit 1
+  fi
+
+  local bin_dir="${ROOT}/build/bin"
+  local flynn_host="${bin_dir}/flynn-host"
+  local manifest="${ROOT}/build/manifests/bootstrap-manifest.json"
+
+  if [[ -n "${backup_url}" ]]; then
+    info "using backup URL ${backup_url}"
+    backup="${ROOT}/tmp/backups/$(basename "${backup_url}")"
+    if [[ ! -s "${backup}" ]]; then
+      mkdir -p "${ROOT}/tmp/backups"
+      curl --fail --location --output "${backup}" "${backup_url}"
+    fi
+  fi
+
+  if [[ -n "${version}" ]]; then
+    local dir="${ROOT}/tmp/${version}"
+    mkdir -p "${dir}"
+
+    info "downloading ${version} into ${dir}"
+    local args=(
+      --config-dir "${dir}"
+      --bin-dir    "${dir}"
+    )
+    if [[ "${version:1:8}" -ge "20161106" ]]; then
+      args+=(
+        --volpath "/var/lib/flynn/volumes-0"
+      )
+    fi
+    sudo FLYNN_VERSION="${version}" "${flynn_host}" download ${args[@]}
+    flynn_host="${dir}/flynn-host"
+    bin_dir="${dir}"
+    manifest="${dir}/bootstrap-manifest.json"
+    host_flags+=("--bin-dir" "${bin_dir}")
+  fi
+
+  # kill flynn first
+  "${ROOT}/script/kill-flynn"
+
+  # populate IP list for bootstrap
+  local ips=()
+  info "starting ${size} node cluster"
+
+  # don't create unnecessary vxlan devices
+  export FLANNEL_BACKEND="alloc"
+
+  for index in $(seq 0 $((size - 1))); do
+    # An RFC 5737 TEST-NET IP
+    local ip="192.0.2.20$(($index))"
+    ips+=("${ip}")
+    "${ROOT}/script/start-flynn-host" ${host_flags[@]} "${index}"
+  done
+
+  info "bootstrapping Flynn"
+  export CLUSTER_DOMAIN="${CLUSTER_DOMAIN:-"${size}.localflynn.com"}"
+  export DISCOVERD="$(join "," ${ips[@]/%/:1111})"
+  local flags=(
+    "--min-hosts=${size}"
+    "--peer-ips=$(join "," ${ips[@]})"
+  )
+  if [[ -n "${backup}" ]]; then
+    flags+=("--from-backup=${backup}")
+  fi
+  if [[ -n "${steps}" ]]; then
+    flags+=("--steps=${steps}")
+  fi
+  "${flynn_host}" bootstrap ${flags[@]} "${manifest}"
+}
+
+main $@

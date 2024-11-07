@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/datafolklabs/ruby-parseconfig.git",
+  "relative_path": "ruby-parseconfig/utils/run-tests.sh",
+  "short_name": "run-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "ruby_hoAccf/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ }
+]

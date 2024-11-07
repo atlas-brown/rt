@@ -1,0 +1,65 @@
+#!/bin/sh
+# written by Shotaro Fujimoto (https://github.com/ssh0)
+#=#=#=
+# ```
+# streamradio - remote control script with streamradio
+#
+# SYNOPSYS
+#       streamradio start <URL>
+#       streamradio pause
+#       streamradio list [stations|current]
+#       streamradio quit
+#       streamradio [-h|--help] 
+# ```
+#=#=
+
+cachefile="$HOME/.cache/streamradio/station"
+if [ ! -e ${cachefile} ]; then
+  touch "${cachefile}"
+fi
+fifofile="$HOME/.cache/streamradio/fifo"
+stationfile="$HOME/.pyradio/stations.csv"
+
+defaultstation="http://streaming.radionomy.com/J-PopProjectRadio"
+
+station="$(head -n 1 "${cachefile}")"
+
+f="$0"
+usage() {
+  sed -n '/^#=#=#=/,/^#=#=/p' $f | sed -e '1d;$d' | cut -b3- | grep -v "\`\`\`"
+  exit 1
+}
+
+if [ "$1" = "pause" ]; then
+  echo "pause" >> "${fifofile}"
+elif [ "$1" = "quit" ]; then
+  echo "quit" >> "${fifofile}"
+elif [ "$1" = "start" ]; then
+  if [ ! "$2" = "" ];then
+    station="$2"
+  elif [ "${station}" = "" ]; then
+    station="${defaultstation}"
+  fi
+  echo "${station}" > "${cachefile}"
+  echo "load ${station}" >> "${fifofile}"
+elif [ "$1" = "list" ]; then
+  if [ "$2" = "stations" ]; then
+    if hash $PERCOL 2>/dev/null; then
+      cat ${stationfile} | $PERCOL | awk 'BEGIN {FS=", "; }  { print $2; }'
+    else
+      cat ${stationfile}
+    fi
+  elif [ "$2" = "current" ]; then
+    cat ${cachefile}
+  fi
+elif [ "$1" = "-h" -o "$1" = "--help" ]; then
+  usage
+elif [ "$1" = "-H" ]; then
+  usage_all "$0"
+  exit 0
+else
+  echo "Unknown command: $1"
+  usage
+fi
+
+exit 0

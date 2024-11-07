@@ -1,0 +1,106 @@
+[
+ {
+  "repo": "https://github.com/thunlp/OpenNRE.git",
+  "relative_path": "OpenNRE/benchmark/download_wiki20m.sh",
+  "short_name": "download_wiki20m",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenNRE_EiBFUJ/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/thunlp/OpenNRE.git",
+  "relative_path": "OpenNRE/benchmark/download_wiki80.sh",
+  "short_name": "download_wiki80",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenNRE_EiBFUJ/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/thunlp/OpenNRE.git",
+  "relative_path": "OpenNRE/benchmark/download_nyt10m.sh",
+  "short_name": "download_nyt10m",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenNRE_EiBFUJ/2",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/thunlp/OpenNRE.git",
+  "relative_path": "OpenNRE/benchmark/download_fewrel.sh",
+  "short_name": "download_fewrel",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenNRE_EiBFUJ/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/thunlp/OpenNRE.git",
+  "relative_path": "OpenNRE/benchmark/download_nyt10.sh",
+  "short_name": "download_nyt10",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenNRE_EiBFUJ/4",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/thunlp/OpenNRE.git",
+  "relative_path": "OpenNRE/benchmark/download_semeval.sh",
+  "short_name": "download_semeval",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenNRE_EiBFUJ/5",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/thunlp/OpenNRE.git",
+  "relative_path": "OpenNRE/pretrain/download_bert.sh",
+  "short_name": "download_bert",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenNRE_EiBFUJ/6",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/thunlp/OpenNRE.git",
+  "relative_path": "OpenNRE/pretrain/download_glove.sh",
+  "short_name": "download_glove",
+  "timestamp": "10/22/2024",
+  "identifier": "OpenNRE_EiBFUJ/7",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

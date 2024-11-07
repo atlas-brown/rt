@@ -1,0 +1,27 @@
+[
+ {
+  "repo": "https://github.com/moscajs/mosca.git",
+  "relative_path": "mosca/publish_docs.sh",
+  "short_name": "publish_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "mosca_aBVeRA/0",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moscajs/mosca.git",
+  "relative_path": "mosca/examples/ws/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "mosca_aBVeRA/1",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/zhuoxiongzhao/EMDT-Quant.git",
+  "relative_path": "EMDT-Quant/package_emd/bugfix.sh",
+  "short_name": "bugfix",
+  "timestamp": "10/22/2024",
+  "identifier": "EMDT_ICsdwd/0",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zhuoxiongzhao/EMDT-Quant.git",
+  "relative_path": "EMDT-Quant/package_emd/revert_bugfix.sh",
+  "short_name": "revert_bugfix",
+  "timestamp": "10/22/2024",
+  "identifier": "EMDT_ICsdwd/1",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

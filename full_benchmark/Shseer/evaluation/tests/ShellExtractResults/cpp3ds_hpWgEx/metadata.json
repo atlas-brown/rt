@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/cpp3ds/cpp3ds.git",
+  "relative_path": "cpp3ds/.build.sh",
+  "short_name": ".build",
+  "timestamp": "10/22/2024",
+  "identifier": "cpp3ds_hpWgEx/0",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "io"
+  ]
+ }
+]

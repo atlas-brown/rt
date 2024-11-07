@@ -1,0 +1,382 @@
+#!/bin/bash
+#
+# A script to install Flynn from a TUF repository.
+
+FLYNN_HOST_CHECKSUM="${FLYNN_HOST_CHECKSUM:="{{FLYNN-HOST-CHECKSUM}}"}"
+
+usage() {
+  cat <<USAGE >&2
+usage: $0 [options]
+
+A script to install Flynn on Ubuntu 16.04 and 18.04.
+See https://flynn.io/docs/installation/manual for further information.
+
+OPTIONS:
+  -h, --help                       Show this message
+
+  -v, --version VERSION            Install explicit VERSION (e.g. v20160512.0)
+
+  -c, --channel CHANNEL            Fetch updates from CHANNEL (either "stable" or "nightly") [default: stable]
+
+  --clean                          Install from a clean state (implies --remove) [DANGER: this will remove all associated data]
+
+  --remove                         Remove existing Flynn installation [DANGER: this will remove all associated data]
+
+  --yes                            Automatic yes to prompts
+
+  --no-ntp                         Don't install ntp package
+
+  -r, --repo URL                   The TUF repository to download files from [default: https://dl.flynn.io]
+
+  --zpool-create-device DEVICE     Device to create the flynn-default zpool on
+
+  --zpool-create-options OPTIONS   Options to pass to 'zpool create'
+
+
+VARIABLES:
+  FLYNN_UPDATE_CHANNEL   The release channel to fetch updates from (either "nightly" or "stable") [default: stable]
+  FLYNN_VERSION          An explicit version to install (e.g. v20151104.1)
+USAGE
+}
+
+main() {
+  if ! is_root; then
+    fail "this script must be executed as the root user"
+  fi
+
+  if ! is_ubuntu_xenial && ! is_ubuntu_bionic; then
+    fail "this script is only compatible with Ubuntu 16.04 and 18.04"
+  fi
+
+  if ! check_overlayfs; then
+    fail "OverlayFS is either missing or does not support multiple lower directories, consider upgrading your kernel to at least 3.19"
+  fi
+
+  check_installed "curl" "sha512sum"
+
+  local install=true
+  local remove=false
+  local assume_yes=false
+  local install_ntp=true
+  local channel="${FLYNN_UPDATE_CHANNEL:-"stable"}"
+  local repo_url
+  local zpool_dev
+  local zpool_opts
+
+  export DEBIAN_FRONTEND=noninteractive
+
+  while true; do
+    case "$1" in
+      -v | --version)
+        if [[ -z "$2" ]]; then
+          fail "--version requires an argument"
+        fi
+        export FLYNN_VERSION="$2"
+        shift 2
+        ;;
+      -c | --channel)
+        if [[ -z "$2" ]]; then
+          fail "--channel requires an argument"
+        fi
+        channel="$2"
+        shift 2
+        ;;
+      --clean)
+        remove=true
+        shift
+        ;;
+      --remove)
+        remove=true
+        install=false
+        shift
+        ;;
+      --yes)
+        assume_yes=true
+        shift
+        ;;
+      --no-ntp)
+        install_ntp=false
+        shift
+        ;;
+      --zpool-create-device)
+        if [[ -z "$2" ]]; then
+          fail "--zpool-create-device requires an argument"
+        fi
+        zpool_dev="$2"
+        shift 2
+        ;;
+      --zpool-create-options)
+        if [[ -z "$2" ]]; then
+          fail "--zpool-create-options requires an argument"
+        fi
+        zpool_opts="$2"
+        shift 2
+        ;;
+      -h | --help)
+        usage
+        exit 1
+        ;;
+      -r | --repo)
+        if [[ -z "$2" ]]; then
+          fail "--repo requires an argument"
+        fi
+        repo_url="$2"
+        shift 2
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  if [[ $# -ne 0 ]]; then
+    usage
+    exit 1
+  fi
+
+  if $remove; then
+    do_remove $assume_yes
+  fi
+
+  if [[ -e "/usr/local/bin/flynn-host" ]]; then
+    fail "Flynn is already installed. Run 'flynn-host update' to update to a more recent version, or use --clean to remove the existing Flynn install first"
+  fi
+
+  if ! $install; then
+    exit
+  fi
+
+  repo_url="${repo_url:="https://dl.flynn.io"}"
+
+  local packages=("iptables" "zfsutils-linux")
+
+  if $install_ntp; then
+    packages+=(
+      "ntp"
+    )
+  fi
+
+  info "installing runtime dependencies"
+  run apt-get install --yes ${packages[@]}
+  info "loading zfs kernel module"
+  run modprobe zfs
+
+  info "downloading flynn-host binary to tmp dir"
+  local tmp="$(mktemp --directory)"
+  trap "rm -rf ${tmp}" EXIT
+  cd "${tmp}"
+  if ! curl -fsSL -o "${tmp}/flynn-host.gz" "${repo_url}/tuf/targets/${FLYNN_HOST_CHECKSUM}.flynn-host.gz"; then
+    fail "failed to download flynn-host binary from ${repo_url}"
+  fi
+
+  info "verifying flynn-host binary checksum"
+  if ! echo "${FLYNN_HOST_CHECKSUM} *flynn-host.gz" | sha512sum --check --status; then
+    fail "failed to verify flynn-host binary checksum!"
+  fi
+  run gunzip "flynn-host.gz"
+  run chmod +x "flynn-host"
+
+  info "setting release update channel to \"${channel}\""
+  mkdir -p "/etc/flynn"
+  echo "${channel}" > "/etc/flynn/channel.txt"
+
+  if [[ -n "${zpool_dev}" ]]; then
+    info "creating flynn-default zpool"
+    run zpool create ${zpool_opts} "flynn-default" ${zpool_dev}
+  fi
+
+  info "downloading Flynn components"
+  mkdir -p "/etc/flynn"
+  run ./flynn-host download \
+    --repository "${repo_url}/tuf" \
+    --tuf-db     "/etc/flynn/tuf.db" \
+    --config-dir "/etc/flynn" \
+    --bin-dir    "/usr/local/bin"
+
+  install_systemd_unit
+
+  info "installation complete!"
+}
+
+is_root() {
+  [[ $(id -u) -eq 0 ]]
+}
+
+is_ubuntu_bionic() {
+  grep -qF "Ubuntu 18.04" /etc/os-release &>/dev/null
+}
+
+is_ubuntu_xenial() {
+  grep -qF "Ubuntu 16.04" /etc/os-release &>/dev/null
+}
+
+install_systemd_unit() {
+  info "installing systemd unit"
+
+  cat > /lib/systemd/system/flynn-host.service <<EOF
+[Unit]
+Description=Flynn host daemon
+Documentation=https://flynn.io/docs
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/flynn-host daemon
+Restart=on-failure
+
+# set delegate yes so that systemd does not reset the cgroups of containers
+Delegate=yes
+
+# kill only the flynn-host process, not all processes in the cgroup
+KillMode=process
+
+# every container uses several fds, so make sure there are enough
+LimitNOFILE=10000
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+  systemctl enable flynn-host.service
+}
+
+do_remove() {
+  local assume_yes=$1
+
+  warn "*** WARNING ***"
+  warn "About to stop Flynn and remove all existing data"
+
+  if ! $assume_yes; then
+    warn "Are you sure this is what you want?"
+    echo -n "(yes/no): "
+    while read answer; do
+      case "${answer}" in
+        yes) assume_yes=true; break ;;
+        no)  break ;;
+        *)   echo -n "Please type 'yes' or 'no': " ;;
+      esac
+    done
+    if ! $assume_yes; then
+      exit
+    fi
+  fi
+
+  info "stopping flynn-host daemon"
+  systemctl stop flynn-host
+  systemctl disable flynn-host
+
+  info "killing old containers"
+  sudo start-stop-daemon \
+    --stop \
+    --oknodo \
+    --retry 5 \
+    --name ".containerinit"
+
+  info "destroying ZFS volumes"
+  for path in $(grep zfs /proc/mounts | cut -d ' ' -f2); do
+    run sudo umount "${path}"
+  done
+  if which flynn-host &>/dev/null; then
+    run flynn-host destroy-volumes --include-data
+  fi
+  if zpool list | grep -q "flynn-default"; then
+    run zpool destroy flynn-default
+  fi
+
+  info "removing Flynn files and directories"
+  run rm -rf \
+    /usr/local/bin/flynn* \
+    /var/lib/flynn \
+    /etc/flynn \
+    /etc/init/flynn-host.conf \
+    /lib/systemd/system/flynn-host.service
+
+  info "Flynn successfully removed"
+}
+
+# check_overlayfs checks that OverlayFS is present and supports multiple
+# lower directories
+check_overlayfs() {
+  if ! modprobe "overlay"; then
+    return 1
+  fi
+
+  if ! grep -q "overlay$" /proc/filesystems; then
+    return 1
+  fi
+
+  local dir="$(mktemp --directory)"
+  trap "rm -rf ${dir}" EXIT
+
+  local lower1="${dir}/lower1"
+  mkdir "${lower1}"
+  echo "1" > "${lower1}/1"
+
+  local lower2="${dir}/lower2"
+  mkdir "${lower2}"
+  echo "2" > "${lower2}/2"
+
+  local upper="${dir}/upper"
+  mkdir "${upper}"
+
+  local work="${dir}/work"
+  mkdir "${work}"
+
+  local mnt="${dir}/mnt"
+  mkdir "${mnt}"
+
+  if ! mount -t overlay -o "lowerdir=${lower2}:${lower1},upperdir=${upper},workdir=${work}" overlay "${mnt}"; then
+    return 1
+  fi
+  trap "umount ${mnt}" EXIT
+
+  # check that both lower files are accessible via the mount
+  [[ -s "${mnt}/1" ]] && [[ -s "${mnt}/2" ]]
+}
+
+check_installed() {
+  local missing=()
+
+  for bin in $@; do
+    if ! which "${bin}" &>/dev/null; then
+      missing+=("${bin}")
+    fi
+  done
+
+  if [[ ${#missing[@]} -gt 0 ]]; then
+    fail "this script requires: ${missing[@]}"
+  fi
+}
+
+run() {
+  local cmd=$@
+  info "running \"${cmd}\""
+  $cmd
+
+  local status=$?
+  if [[ $status -ne 0 ]]; then
+    fail "failed to run \"${cmd}\", exit status ${status}"
+  fi
+}
+
+timestamp() {
+  date "+%H:%M:%S.%3N"
+}
+
+info() {
+  local msg=$1
+  echo -e "\e[1;32m===> $(timestamp) ${msg}\e[0m"
+}
+
+warn() {
+  local msg=$1
+  echo -e "\e[1;33m===> $(timestamp) ${msg}\e[0m"
+}
+
+fail() {
+  local msg=$1
+  echo -e "\e[1;31m===> $(timestamp) ERROR: ${msg}\e[0m"
+  exit 1
+}
+
+main "$@"

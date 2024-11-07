@@ -1,0 +1,73 @@
+[
+ {
+  "repo": "https://github.com/alibaba/druid.git",
+  "relative_path": "druid/core/src/main/scripts/druidStat.sh",
+  "short_name": "druidStat",
+  "timestamp": "10/22/2024",
+  "identifier": "druid_RpBNAD/0",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/druid.git",
+  "relative_path": "druid/vtune.sh",
+  "short_name": "vtune",
+  "timestamp": "10/22/2024",
+  "identifier": "druid_RpBNAD/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/druid.git",
+  "relative_path": "druid/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "druid_RpBNAD/2",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/druid.git",
+  "relative_path": "druid/druid-demo-petclinic/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "druid_RpBNAD/3",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/druid.git",
+  "relative_path": "druid/druid-demo-petclinic/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "druid_RpBNAD/4",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

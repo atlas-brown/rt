@@ -1,0 +1,24 @@
+[
+ {
+  "repo": "https://github.com/EtherealEngine/Digital-Beings.git",
+  "relative_path": "Digital-Beings/editor.sh",
+  "short_name": "editor",
+  "timestamp": "10/22/2024",
+  "identifier": "Digital_BLLdDK/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/EtherealEngine/Digital-Beings.git",
+  "relative_path": "Digital-Beings/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "Digital_BLLdDK/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ }
+]

@@ -1,0 +1,40 @@
+[
+ {
+  "repo": "https://github.com/rakam-io/rakam-api.git",
+  "relative_path": "rakam-api/rakam/bin/launcher",
+  "short_name": "launcher",
+  "timestamp": "10/22/2024",
+  "identifier": "rakam_MYieYF/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/rakam-io/rakam-api.git",
+  "relative_path": "rakam-api/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "rakam_MYieYF/1",
+  "posix_compliant": true,
+  "line_count": 137,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rakam-io/rakam-api.git",
+  "relative_path": "rakam-api/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "rakam_MYieYF/2",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

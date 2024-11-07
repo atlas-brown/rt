@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/thi-ng/thingybot.git",
+  "relative_path": "thingybot/launch-sample.sh",
+  "short_name": "launch-sample",
+  "timestamp": "10/22/2024",
+  "identifier": "thingybot_TeHmRd/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

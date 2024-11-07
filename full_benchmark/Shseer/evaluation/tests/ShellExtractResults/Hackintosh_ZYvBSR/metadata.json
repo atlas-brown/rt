@@ -1,0 +1,1669 @@
+[
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad T540/CLOVER/kexts/10.13/CoreDisplayFixup.kext/Contents/Resources/build.command",
+  "short_name": "build.command",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad T540/CLOVER/kexts/10.12/CoreDisplayFixup.kext/Contents/Resources/build.command",
+  "short_name": "build.command",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/1",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad T540/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/2",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad E431/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/3",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/Y470/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/4",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/Y50/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/5",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/Yoga 710/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/6",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/Y700/CLOVER/kexts/10.11/ACPIBatteryManager.kext/Contents/Resources/PatchCoconut.sh",
+  "short_name": "PatchCoconut",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/7",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/Y700/CLOVER/kexts/Other/ACPIBatteryManager.kext/Contents/Resources/PatchCoconut.sh",
+  "short_name": "PatchCoconut",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/8",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/Y700/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/9",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/G50-80/10.12.5 - Clover/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/10",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/IdeaPad Y700/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/11",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad X270 /CLOVER/kexts/_kext-install.command",
+  "short_name": "_kext-install.command",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/12",
+  "posix_compliant": false,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad X270 /CLOVER/kexts/_post-install-network-reset.command",
+  "short_name": "_post-install-network-reset.command",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/13",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/Y410P/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/14",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad W530/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/15",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad L460 /CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/16",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/E42-80/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/17",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/Y480/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/18",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/Y510P/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/19",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad T450s/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/20",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad X230/CLOVER/kexts/Other/ACPIBatteryManager.kext/Contents/Resources/PatchCoconut.sh",
+  "short_name": "PatchCoconut",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/21",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad X230/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/22",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/S410/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/23",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/ThinkPad L460 X260/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/24",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/IdeaPad 300s/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/25",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Lenovo/Yoga3 -14 /CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/26",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FXPRO 6300 (GL552VW)/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/27",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX53VD/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/28",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/X55/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/29",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/A550J/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/30",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/gen_ahhcd.sh",
+  "short_name": "gen_ahhcd",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/31",
+  "posix_compliant": false,
+  "line_count": 192,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/widget_dump.sh",
+  "short_name": "widget_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/32",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/config_dump.sh",
+  "short_name": "config_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/33",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/node_dump.sh",
+  "short_name": "node_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/34",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/eapd_dump.sh",
+  "short_name": "eapd_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/35",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/convert.sh",
+  "short_name": "convert",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/36",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/extract_hda.sh",
+  "short_name": "extract_hda",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/37",
+  "posix_compliant": false,
+  "line_count": 226,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/10.12/ACPIBatteryManager.kext/Contents/Resources/PatchCoconut.sh",
+  "short_name": "PatchCoconut",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/38",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/gen_ahhcd.sh",
+  "short_name": "gen_ahhcd",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/39",
+  "posix_compliant": false,
+  "line_count": 192,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/widget_dump.sh",
+  "short_name": "widget_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/40",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/config_dump.sh",
+  "short_name": "config_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/41",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/node_dump.sh",
+  "short_name": "node_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/42",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/eapd_dump.sh",
+  "short_name": "eapd_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/43",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/convert.sh",
+  "short_name": "convert",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/44",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50VX/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/extract_hda.sh",
+  "short_name": "extract_hda",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/45",
+  "posix_compliant": false,
+  "line_count": 226,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50V/CLOVER/kexts/other/CodecCommander.kext/Contents/Resources/gen_ahhcd.sh",
+  "short_name": "gen_ahhcd",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/46",
+  "posix_compliant": false,
+  "line_count": 192,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50V/CLOVER/kexts/other/CodecCommander.kext/Contents/Resources/widget_dump.sh",
+  "short_name": "widget_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/47",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50V/CLOVER/kexts/other/CodecCommander.kext/Contents/Resources/config_dump.sh",
+  "short_name": "config_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/48",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50V/CLOVER/kexts/other/CodecCommander.kext/Contents/Resources/node_dump.sh",
+  "short_name": "node_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/49",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50V/CLOVER/kexts/other/CodecCommander.kext/Contents/Resources/eapd_dump.sh",
+  "short_name": "eapd_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/50",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50V/CLOVER/kexts/other/CodecCommander.kext/Contents/Resources/convert.sh",
+  "short_name": "convert",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/51",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50V/CLOVER/kexts/other/CodecCommander.kext/Contents/Resources/extract_hda.sh",
+  "short_name": "extract_hda",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/52",
+  "posix_compliant": false,
+  "line_count": 226,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Asus/FX50J/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/53",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Acer/Aspire VN7-591G/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/54",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Acer/E1-572G/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/55",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Acer/E5-572G/CLOVER/kexts/10.11/ACPIBatteryManager.kext/Contents/Resources/PatchCoconut.sh",
+  "short_name": "PatchCoconut",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/56",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Acer/E5-572G/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/57",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Acer/E1-570/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/58",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 7520/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/59",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell 7577/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/60",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/bak/Other/CodecCommander.kext/Contents/Resources/gen_ahhcd.sh",
+  "short_name": "gen_ahhcd",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/61",
+  "posix_compliant": false,
+  "line_count": 192,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/bak/Other/CodecCommander.kext/Contents/Resources/widget_dump.sh",
+  "short_name": "widget_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/62",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/bak/Other/CodecCommander.kext/Contents/Resources/config_dump.sh",
+  "short_name": "config_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/63",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/bak/Other/CodecCommander.kext/Contents/Resources/node_dump.sh",
+  "short_name": "node_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/64",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/bak/Other/CodecCommander.kext/Contents/Resources/eapd_dump.sh",
+  "short_name": "eapd_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/65",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/bak/Other/CodecCommander.kext/Contents/Resources/convert.sh",
+  "short_name": "convert",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/66",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/bak/Other/CodecCommander.kext/Contents/Resources/extract_hda.sh",
+  "short_name": "extract_hda",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/67",
+  "posix_compliant": false,
+  "line_count": 226,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/bak/10.12\u7684\u526f\u672c/ACPIBatteryManager.kext/Contents/Resources/PatchCoconut.sh",
+  "short_name": "PatchCoconut",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/68",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12/ACPIBatteryManager.kext/Contents/Resources/PatchCoconut.sh",
+  "short_name": "PatchCoconut",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/69",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/gen_ahhcd.sh",
+  "short_name": "gen_ahhcd",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/70",
+  "posix_compliant": false,
+  "line_count": 192,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/widget_dump.sh",
+  "short_name": "widget_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/71",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/config_dump.sh",
+  "short_name": "config_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/72",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/node_dump.sh",
+  "short_name": "node_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/73",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/eapd_dump.sh",
+  "short_name": "eapd_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/74",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/convert.sh",
+  "short_name": "convert",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/75",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12/CodecCommander.kext/Contents/Resources/extract_hda.sh",
+  "short_name": "extract_hda",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/76",
+  "posix_compliant": false,
+  "line_count": 226,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12\u7684\u526f\u672c/ACPIBatteryManager.kext/Contents/Resources/PatchCoconut.sh",
+  "short_name": "PatchCoconut",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/77",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12\u7684\u526f\u672c/CodecCommander.kext/Contents/Resources/gen_ahhcd.sh",
+  "short_name": "gen_ahhcd",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/78",
+  "posix_compliant": false,
+  "line_count": 192,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12\u7684\u526f\u672c/CodecCommander.kext/Contents/Resources/widget_dump.sh",
+  "short_name": "widget_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/79",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12\u7684\u526f\u672c/CodecCommander.kext/Contents/Resources/config_dump.sh",
+  "short_name": "config_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/80",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12\u7684\u526f\u672c/CodecCommander.kext/Contents/Resources/node_dump.sh",
+  "short_name": "node_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/81",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12\u7684\u526f\u672c/CodecCommander.kext/Contents/Resources/eapd_dump.sh",
+  "short_name": "eapd_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/82",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12\u7684\u526f\u672c/CodecCommander.kext/Contents/Resources/convert.sh",
+  "short_name": "convert",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/83",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/kexts/10.12\u7684\u526f\u672c/CodecCommander.kext/Contents/Resources/extract_hda.sh",
+  "short_name": "extract_hda",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/84",
+  "posix_compliant": false,
+  "line_count": 226,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Vostro 5459/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/85",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell XPS 13 9350/CLOVER/kexts/10.11/ACPIBatteryManager.kext/Contents/Resources/PatchCoconut.sh",
+  "short_name": "PatchCoconut",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/86",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell XPS 13 9350/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/87",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell E6230/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/88",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 3567/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/89",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell 7000/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/gen_ahhcd.sh",
+  "short_name": "gen_ahhcd",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/90",
+  "posix_compliant": false,
+  "line_count": 192,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell 7000/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/widget_dump.sh",
+  "short_name": "widget_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/91",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell 7000/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/config_dump.sh",
+  "short_name": "config_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/92",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell 7000/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/node_dump.sh",
+  "short_name": "node_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/93",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell 7000/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/eapd_dump.sh",
+  "short_name": "eapd_dump",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/94",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell 7000/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/convert.sh",
+  "short_name": "convert",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/95",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell 7000/CLOVER/kexts/Other/CodecCommander.kext/Contents/Resources/extract_hda.sh",
+  "short_name": "extract_hda",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/96",
+  "posix_compliant": false,
+  "line_count": 226,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell 7000/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/97",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 15 3543/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/98",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell XPS 13 9550/CLOVER/kexts/Other/ACPIBatteryManager.kext/Contents/Resources/PatchCoconut.sh",
+  "short_name": "PatchCoconut",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/99",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell XPS 13 9550/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/100",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 5370/CLOVER/themes/OS/theme.git/hooks/commit-msg.sample",
+  "short_name": "commit-msg.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/101",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 5370/CLOVER/themes/OS/theme.git/hooks/post-receive.sample",
+  "short_name": "post-receive.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/102",
+  "posix_compliant": true,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 5370/CLOVER/themes/OS/theme.git/hooks/pre-rebase.sample",
+  "short_name": "pre-rebase.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/103",
+  "posix_compliant": true,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 5370/CLOVER/themes/OS/theme.git/hooks/post-commit.sample",
+  "short_name": "post-commit.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/104",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 5370/CLOVER/themes/OS/theme.git/hooks/pre-commit.sample",
+  "short_name": "pre-commit.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/105",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 5370/CLOVER/themes/OS/theme.git/hooks/applypatch-msg.sample",
+  "short_name": "applypatch-msg.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/106",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 5370/CLOVER/themes/OS/theme.git/hooks/prepare-commit-msg.sample",
+  "short_name": "prepare-commit-msg.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/107",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 5370/CLOVER/themes/OS/theme.git/hooks/post-update.sample",
+  "short_name": "post-update.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/108",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 5370/CLOVER/themes/OS/theme.git/hooks/pre-applypatch.sample",
+  "short_name": "pre-applypatch.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/109",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/Dell/Dell Inspiron 5370/CLOVER/themes/OS/theme.git/hooks/update.sample",
+  "short_name": "update.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/110",
+  "posix_compliant": true,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/13.3-without-fingerprint/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/111",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-Pro-15.6/CLOVER/themes/OS/theme.git/hooks/commit-msg.sample",
+  "short_name": "commit-msg.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/112",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-Pro-15.6/CLOVER/themes/OS/theme.git/hooks/post-receive.sample",
+  "short_name": "post-receive.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/113",
+  "posix_compliant": true,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-Pro-15.6/CLOVER/themes/OS/theme.git/hooks/pre-rebase.sample",
+  "short_name": "pre-rebase.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/114",
+  "posix_compliant": true,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-Pro-15.6/CLOVER/themes/OS/theme.git/hooks/post-commit.sample",
+  "short_name": "post-commit.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/115",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-Pro-15.6/CLOVER/themes/OS/theme.git/hooks/pre-commit.sample",
+  "short_name": "pre-commit.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/116",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-Pro-15.6/CLOVER/themes/OS/theme.git/hooks/applypatch-msg.sample",
+  "short_name": "applypatch-msg.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/117",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-Pro-15.6/CLOVER/themes/OS/theme.git/hooks/prepare-commit-msg.sample",
+  "short_name": "prepare-commit-msg.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/118",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-Pro-15.6/CLOVER/themes/OS/theme.git/hooks/post-update.sample",
+  "short_name": "post-update.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/119",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-Pro-15.6/CLOVER/themes/OS/theme.git/hooks/pre-applypatch.sample",
+  "short_name": "pre-applypatch.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/120",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-Pro-15.6/CLOVER/themes/OS/theme.git/hooks/update.sample",
+  "short_name": "update.sample",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/121",
+  "posix_compliant": true,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/12.5-inch-1/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/122",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Mi-with-fingerprint/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/123",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Air-8-i5/CLOVER/kexts/Other/Lilu.kext/Contents/Resources/Library/wrappers/build.tool",
+  "short_name": "build.tool",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/124",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Clover-Configs/XiaoMi/Air-8-i5/CLOVER/doc/boot1f32-install.sh",
+  "short_name": "boot1f32-install",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/125",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huangyz0918/Hackintosh-Installer-University.git",
+  "relative_path": "Hackintosh-Installer-University/Bootloader/Clover\u2193.sh",
+  "short_name": "Clover\u2193",
+  "timestamp": "10/22/2024",
+  "identifier": "Hackintosh_ZYvBSR/126",
+  "posix_compliant": true,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

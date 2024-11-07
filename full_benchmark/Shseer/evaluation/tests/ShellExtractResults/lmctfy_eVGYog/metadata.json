@@ -1,0 +1,120 @@
+[
+ {
+  "repo": "https://github.com/google/lmctfy.git",
+  "relative_path": "lmctfy/gmock/build-aux/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "lmctfy_eVGYog/0",
+  "posix_compliant": true,
+  "line_count": 351,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/lmctfy.git",
+  "relative_path": "lmctfy/gmock/build-aux/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "lmctfy_eVGYog/1",
+  "posix_compliant": false,
+  "line_count": 7165,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/lmctfy.git",
+  "relative_path": "lmctfy/gmock/gtest/xcode/Samples/FrameworkSample/runtests.sh",
+  "short_name": "runtests",
+  "timestamp": "10/22/2024",
+  "identifier": "lmctfy_eVGYog/2",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/lmctfy.git",
+  "relative_path": "lmctfy/gmock/gtest/xcode/Scripts/runtests.sh",
+  "short_name": "runtests",
+  "timestamp": "10/22/2024",
+  "identifier": "lmctfy_eVGYog/3",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/lmctfy.git",
+  "relative_path": "lmctfy/gmock/gtest/build-aux/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "lmctfy_eVGYog/4",
+  "posix_compliant": true,
+  "line_count": 351,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/lmctfy.git",
+  "relative_path": "lmctfy/gmock/gtest/build-aux/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "lmctfy_eVGYog/5",
+  "posix_compliant": false,
+  "line_count": 7165,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/lmctfy.git",
+  "relative_path": "lmctfy/gmock/gtest/scripts/gtest-config.in",
+  "short_name": "gtest-config.in",
+  "timestamp": "10/22/2024",
+  "identifier": "lmctfy_eVGYog/6",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/lmctfy.git",
+  "relative_path": "lmctfy/gmock/scripts/gmock-config.in",
+  "short_name": "gmock-config.in",
+  "timestamp": "10/22/2024",
+  "identifier": "lmctfy_eVGYog/7",
+  "posix_compliant": true,
+  "line_count": 212,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

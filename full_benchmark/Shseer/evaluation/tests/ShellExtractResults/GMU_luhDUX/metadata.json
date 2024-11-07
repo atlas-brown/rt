@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/fex-team/GMU.git",
+  "relative_path": "GMU/test/fet/lib/shell/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "GMU_luhDUX/0",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

@@ -1,0 +1,78 @@
+[
+ {
+  "repo": "https://github.com/localsend/localsend.git",
+  "relative_path": "localsend/scripts/remove_proprietary_dependencies.sh",
+  "short_name": "remove_proprietary_dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "localsend_jqIHaB/0",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/localsend/localsend.git",
+  "relative_path": "localsend/scripts/compile_mac_dmg.sh",
+  "short_name": "compile_mac_dmg",
+  "timestamp": "10/22/2024",
+  "identifier": "localsend_jqIHaB/1",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/localsend/localsend.git",
+  "relative_path": "localsend/scripts/compile_android_apk.sh",
+  "short_name": "compile_android_apk",
+  "timestamp": "10/22/2024",
+  "identifier": "localsend_jqIHaB/2",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/localsend/localsend.git",
+  "relative_path": "localsend/scripts/compile_mac_appstore.sh",
+  "short_name": "compile_mac_appstore",
+  "timestamp": "10/22/2024",
+  "identifier": "localsend_jqIHaB/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/localsend/localsend.git",
+  "relative_path": "localsend/scripts/compile_linux_appimage.sh",
+  "short_name": "compile_linux_appimage",
+  "timestamp": "10/22/2024",
+  "identifier": "localsend_jqIHaB/4",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/localsend/localsend.git",
+  "relative_path": "localsend/scripts/compile_ios.sh",
+  "short_name": "compile_ios",
+  "timestamp": "10/22/2024",
+  "identifier": "localsend_jqIHaB/5",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": []
+ }
+]

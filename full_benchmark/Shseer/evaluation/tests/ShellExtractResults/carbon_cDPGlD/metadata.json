@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/carbon-app/carbon.git",
+  "relative_path": "carbon/bin/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_cDPGlD/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

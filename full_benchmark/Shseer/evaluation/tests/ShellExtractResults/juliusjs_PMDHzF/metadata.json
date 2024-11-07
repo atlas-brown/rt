@@ -1,0 +1,47 @@
+[
+ {
+  "repo": "https://github.com/zzmp/juliusjs.git",
+  "relative_path": "juliusjs/ghpages.sh",
+  "short_name": "ghpages",
+  "timestamp": "10/22/2024",
+  "identifier": "juliusjs_PMDHzF/0",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zzmp/juliusjs.git",
+  "relative_path": "juliusjs/reemscript.sh",
+  "short_name": "reemscript",
+  "timestamp": "10/22/2024",
+  "identifier": "juliusjs_PMDHzF/1",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zzmp/juliusjs.git",
+  "relative_path": "juliusjs/emscript.sh",
+  "short_name": "emscript",
+  "timestamp": "10/22/2024",
+  "identifier": "juliusjs_PMDHzF/2",
+  "posix_compliant": true,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

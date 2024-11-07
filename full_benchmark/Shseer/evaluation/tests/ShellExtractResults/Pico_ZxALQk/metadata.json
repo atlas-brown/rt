@@ -1,0 +1,68 @@
+[
+ {
+  "repo": "https://github.com/picocms/Pico.git",
+  "relative_path": "Pico/.build/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "Pico_ZxALQk/0",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/picocms/Pico.git",
+  "relative_path": "Pico/.build/deploy-release.sh",
+  "short_name": "deploy-release",
+  "timestamp": "10/22/2024",
+  "identifier": "Pico_ZxALQk/1",
+  "posix_compliant": false,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/picocms/Pico.git",
+  "relative_path": "Pico/.build/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "Pico_ZxALQk/2",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/picocms/Pico.git",
+  "relative_path": "Pico/.build/clean.sh",
+  "short_name": "clean",
+  "timestamp": "10/22/2024",
+  "identifier": "Pico_ZxALQk/3",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/picocms/Pico.git",
+  "relative_path": "Pico/.build/deploy-branch.sh",
+  "short_name": "deploy-branch",
+  "timestamp": "10/22/2024",
+  "identifier": "Pico_ZxALQk/4",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,46 @@
+[
+ {
+  "repo": "https://github.com/facebookarchive/atom-ide-ui.git",
+  "relative_path": "atom-ide-ui/scripts/apm-publish.sh",
+  "short_name": "apm-publish",
+  "timestamp": "10/22/2024",
+  "identifier": "atom_FmWxlL/0",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/atom-ide-ui.git",
+  "relative_path": "atom-ide-ui/scripts/sync-nuclide.sh",
+  "short_name": "sync-nuclide",
+  "timestamp": "10/22/2024",
+  "identifier": "atom_FmWxlL/1",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookarchive/atom-ide-ui.git",
+  "relative_path": "atom-ide-ui/modules/scripts/prepublish.sh",
+  "short_name": "prepublish",
+  "timestamp": "10/22/2024",
+  "identifier": "atom_FmWxlL/2",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

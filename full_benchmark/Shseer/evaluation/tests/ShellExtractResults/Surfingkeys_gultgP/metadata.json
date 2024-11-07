@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/brookhong/Surfingkeys.git",
+  "relative_path": "Surfingkeys/src/nvim/server/start_none.sh",
+  "short_name": "start_none",
+  "timestamp": "10/22/2024",
+  "identifier": "Surfingkeys_gultgP/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/brookhong/Surfingkeys.git",
+  "relative_path": "Surfingkeys/src/nvim/server/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "Surfingkeys_gultgP/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

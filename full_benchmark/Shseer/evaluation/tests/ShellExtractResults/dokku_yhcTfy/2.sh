@@ -1,0 +1,128 @@
+#!/bin/bash
+set -e;
+
+# Check if name is specified
+if [[ $1 == redis:* ]]; then
+    if [[ -z $2 ]]; then
+        echo "You must specify an app name"
+        exit 1
+    else
+        APP="$2"
+        # Check if app exists with the same name
+        if [[ -d "$DOKKU_ROOT/$APP" ]]; then
+            APP_EXISTS=true
+        else
+            APP_EXISTS=false
+        fi
+    fi
+fi
+
+case "$1" in
+
+  redis:create)
+    REDIS_IMAGE=redis/$APP
+    # Check if Redis container is installed
+    IMAGE=$(docker images | grep "luxifer/redis " |  awk '{print $3}')
+    if [[ -z $IMAGE ]]; then
+        echo "Redis image not found... Did you run 'dokku plugins-install' ?"
+        exit 1
+    fi
+    # Check if an existing DB volume exists
+    HOST_DIR="$DOKKU_ROOT/.redis/volume-$APP"
+    if [[ -d $HOST_DIR ]]; then
+        echo
+        echo "-----> Reusing redis/$APP database"
+    else
+        mkdir -p $HOST_DIR
+    fi
+    VOLUME="$HOST_DIR:/var/lib/redis"
+    # Stop existing container with the same persistent Redis
+    ID=$(docker ps | grep "$REDIS_IMAGE":latest |  awk '{print $1}')
+    if [[ ! -z "$ID" ]]; then
+        docker stop $ID > /dev/null
+    fi
+    # Fork Redis image
+    ID=$(docker run -d luxifer/redis /bin/bash "exit 0")
+    docker wait $ID > /dev/null
+    IMAGE=$(docker commit $ID)
+    docker tag $IMAGE $REDIS_IMAGE
+    # Launch container
+    ID=$(docker run -v $VOLUME -p 6379 -d $REDIS_IMAGE /bin/start_redis.sh)
+    sleep 4
+    # Link to a potential existing app
+    dokku redis:link $APP $APP
+    echo
+    echo "-----> Redis container created: $REDIS_IMAGE"
+    sleep 1
+    dokku redis:info $APP
+    ;;
+
+  redis:delete)
+    REDIS_IMAGE=redis/$APP
+    # Stop the container
+    ID=$(docker ps -a | grep "$REDIS_IMAGE":latest |  awk '{print $1}')
+    if [[ ! -z $ID ]]; then
+        docker stop $ID
+    fi
+    # Remove image
+    IMAGE=$(docker images | grep "$REDIS_IMAGE " |  awk '{print $1}')
+    if [[ ! -z $IMAGE ]]; then
+        docker rmi $IMAGE
+    fi
+    # Remove persistent volume
+    HOST_DIR="$DOKKU_ROOT/.redis/volume-$APP"
+    if [[ -d $HOST_DIR ]]; then
+        rm -rf $HOST_DIR
+    fi
+    echo
+    echo "-----> Redis container deleted: $REDIS_IMAGE"
+    ;;
+
+  redis:info)
+    REDIS_IMAGE=redis/$APP
+    ID=$(docker ps -a | grep "$REDIS_IMAGE":latest |  awk '{print $1}')
+    IP=$(docker inspect $ID | grep IPAddress | awk '{ print $2 }' | tr -d ',"')
+    PORT=$(docker port $ID 6379 | cut -d":" -f2)
+    echo
+    echo "       Host: $IP"
+    echo "       Public port: $PORT"
+    echo
+    ;;
+
+  redis:link)
+    if $APP_EXISTS; then
+        # Check argument
+        if [[ -z $3 ]]; then
+            echo "You must specify a container name"
+            exit 1
+        fi
+        REDIS_IMAGE="redis/$3"
+        ID=$(docker ps -a | grep "$REDIS_IMAGE":latest |  awk '{print $1}')
+        if [[ -n "$ID" ]]; then
+            IP=$(docker inspect $ID | grep IPAddress | awk '{ print $2 }' | tr -d ',"')
+            # it seems like the dokku way of doing things is using dokku config:set to set environment variables, 
+            # eg, not setting them via modifying the app's ENV file
+            dokku config:set $APP "REDIS_URL=redis://$IP:6379" "REDIS_IP=$IP" "REDIS_PORT=6379"
+            echo
+            echo "-----> $APP linked to $REDIS_IMAGE container"
+        fi
+    fi
+    ;;
+
+  redis:logs)
+    REDIS_IMAGE=redis/$APP
+    ID=$(docker ps -a | grep "$REDIS_IMAGE" |  awk '{print $1}')
+    docker logs $ID | tail -n 100
+    ;;
+
+  help)
+    cat && cat<<EOF
+    redis:create <rd>                               Create a Redis container
+    redis:delete <rd>                               Delete specified Redis container
+    redis:info <rd>                                 Display container information
+    redis:link <app> <rd>                           Link an app to a Redis container
+    redis:logs <rd>                                 Display last logs from Redis container
+EOF
+    ;;
+
+esac

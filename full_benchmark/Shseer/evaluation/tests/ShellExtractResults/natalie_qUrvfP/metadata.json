@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/natalie-lang/natalie.git",
+  "relative_path": "natalie/test/setup_pkgconfig_with_homebrew.sh",
+  "short_name": "setup_pkgconfig_with_homebrew",
+  "timestamp": "10/22/2024",
+  "identifier": "natalie_qUrvfP/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

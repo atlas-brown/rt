@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/MuMech/MechJeb2.git",
+  "relative_path": "MechJeb2/MechJeb2/copy_build.sh",
+  "short_name": "copy_build",
+  "timestamp": "10/22/2024",
+  "identifier": "MechJeb2_SEUoyK/0",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

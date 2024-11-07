@@ -1,0 +1,43 @@
+[
+ {
+  "repo": "https://github.com/simonedegiacomi/gphotosuploader.git",
+  "relative_path": "gphotosuploader/githooks/create-links.sh",
+  "short_name": "create-links",
+  "timestamp": "10/22/2024",
+  "identifier": "gphotosuploader_KBZGNt/0",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/simonedegiacomi/gphotosuploader.git",
+  "relative_path": "gphotosuploader/githooks/post-commit",
+  "short_name": "post-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "gphotosuploader_KBZGNt/1",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/simonedegiacomi/gphotosuploader.git",
+  "relative_path": "gphotosuploader/githooks/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "gphotosuploader_KBZGNt/2",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ }
+]

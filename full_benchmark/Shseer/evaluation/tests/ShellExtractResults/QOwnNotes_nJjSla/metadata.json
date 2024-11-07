@@ -1,0 +1,627 @@
+[
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/ubuntu-launchpad/build-for-launchpad-qt6.sh",
+  "short_name": "build-for-launchpad-qt6",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/0",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/ubuntu-launchpad/build-for-launchpad-trusty.sh",
+  "short_name": "build-for-launchpad-trusty",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/1",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/ubuntu-launchpad/build-for-launchpad.sh",
+  "short_name": "build-for-launchpad",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/2",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/gitlab-ci/create-dmg.sh",
+  "short_name": "create-dmg",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/3",
+  "posix_compliant": true,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/gitlab-ci/deploy-file.sh",
+  "short_name": "deploy-file",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/aur/build-for-aur.sh",
+  "short_name": "build-for-aur",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/5",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/slackware/build-for-slackware.sh",
+  "short_name": "build-for-slackware",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/6",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/slackware/qownnotes.SlackBuild",
+  "short_name": "qownnotes.SlackBuild",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/7",
+  "posix_compliant": true,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/slackware/dobuild.sh",
+  "short_name": "dobuild",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/8",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/sourceforge/build-sourceforge-src.sh",
+  "short_name": "build-sourceforge-src",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/9",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/build-qt6.sh",
+  "short_name": "build-qt6",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/10",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/build-all.sh",
+  "short_name": "build-all",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/11",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/github/macos/create-dmg.sh",
+  "short_name": "create-dmg",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/12",
+  "posix_compliant": true,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/github/macos/create-dmg-qt6.sh",
+  "short_name": "create-dmg-qt6",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/13",
+  "posix_compliant": true,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/github/build-github-src.sh",
+  "short_name": "build-github-src",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/14",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/snap/build-for-launchpad-snap.sh",
+  "short_name": "build-for-launchpad-snap",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/15",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/snap/build-for-local-snap.sh",
+  "short_name": "build-for-local-snap",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/16",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/snap/snapcraft/snap/local/wrapper.sh",
+  "short_name": "wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/17",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/tuxfamily/build-tuxfamily-src.sh",
+  "short_name": "build-tuxfamily-src",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/18",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/build-systems/gentoo/build-for-gentoo.sh",
+  "short_name": "build-for-gentoo",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/19",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/obs/build-for-obs.sh",
+  "short_name": "build-for-obs",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/20",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/scripts/fix-settings-ui-file.sh",
+  "short_name": "fix-settings-ui-file",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/21",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/scripts/download_translations.sh",
+  "short_name": "download_translations",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/22",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/scripts/nix-wrap-run-qt6-app.sh",
+  "short_name": "nix-wrap-run-qt6-app",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/23",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/scripts/clang-format-project.sh",
+  "short_name": "clang-format-project",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/24",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/scripts/increment-build-number.sh",
+  "short_name": "increment-build-number",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/25",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/scripts/update-translations.sh",
+  "short_name": "update-translations",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/26",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/scripts/nix-wrap-run-qt5-app.sh",
+  "short_name": "nix-wrap-run-qt5-app",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/27",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/scripts/update-copyright-year.sh",
+  "short_name": "update-copyright-year",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/28",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/snap/local/wrapper.sh",
+  "short_name": "wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/29",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/travis/create-dmg.sh",
+  "short_name": "create-dmg",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/30",
+  "posix_compliant": true,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/travis/linux/coveralls.sh",
+  "short_name": "coveralls",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/31",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/webpage/scripts/run-dev.sh",
+  "short_name": "run-dev",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/32",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/webpage/scripts/fix-date-range-error.sh",
+  "short_name": "fix-date-range-error",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/33",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/webpage/scripts/run-build.sh",
+  "short_name": "run-build",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/34",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/webpage/scripts/compile-md-files.sh",
+  "short_name": "compile-md-files",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/35",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/src/libraries/fakevim/utils/generate_fakevim_test.sh",
+  "short_name": "generate_fakevim_test",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/36",
+  "posix_compliant": true,
+  "line_count": 97,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/src/libraries/fakevim/utils/update_from_qtc.sh",
+  "short_name": "update_from_qtc",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/37",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/src/libraries/sonnet/src/plugins/hunspell/hunspell/src/tools/wordlist2hunspell",
+  "short_name": "wordlist2hunspell",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/38",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/src/libraries/sonnet/src/plugins/hunspell/hunspell/src/tools/wordforms",
+  "short_name": "wordforms",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/39",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/src/libraries/sonnet/src/plugins/hunspell/hunspell/src/tools/makealias",
+  "short_name": "makealias",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/40",
+  "posix_compliant": true,
+  "line_count": 169,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/src/libraries/sonnet/src/plugins/hunspell/hunspell/src/tools/affixcompress",
+  "short_name": "affixcompress",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/41",
+  "posix_compliant": true,
+  "line_count": 175,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/src/icons/download-icon.sh",
+  "short_name": "download-icon",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/42",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pbek/QOwnNotes.git",
+  "relative_path": "QOwnNotes/src/icons/breeze-dark-qownnotes/copy-from-breeze-dark.sh",
+  "short_name": "copy-from-breeze-dark",
+  "timestamp": "10/22/2024",
+  "identifier": "QOwnNotes_nJjSla/43",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

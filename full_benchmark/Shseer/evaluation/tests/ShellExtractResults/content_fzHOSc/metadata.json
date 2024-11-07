@@ -1,0 +1,67 @@
+[
+ {
+  "repo": "https://github.com/nuxt/content.git",
+  "relative_path": "content/scripts/example.sh",
+  "short_name": "example",
+  "timestamp": "10/22/2024",
+  "identifier": "content_fzHOSc/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nuxt/content.git",
+  "relative_path": "content/scripts/release-edge.sh",
+  "short_name": "release-edge",
+  "timestamp": "10/22/2024",
+  "identifier": "content_fzHOSc/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nuxt/content.git",
+  "relative_path": "content/scripts/fixture.sh",
+  "short_name": "fixture",
+  "timestamp": "10/22/2024",
+  "identifier": "content_fzHOSc/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nuxt/content.git",
+  "relative_path": "content/scripts/playground.sh",
+  "short_name": "playground",
+  "timestamp": "10/22/2024",
+  "identifier": "content_fzHOSc/3",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nuxt/content.git",
+  "relative_path": "content/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "content_fzHOSc/4",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

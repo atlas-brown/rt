@@ -1,0 +1,4643 @@
+[
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/tools/unifying_configs",
+  "short_name": "unifying_configs",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/0",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/tools/mk_format_patch",
+  "short_name": "mk_format_patch",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/1",
+  "posix_compliant": false,
+  "line_count": 181,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/tools/gen-series.sh",
+  "short_name": "gen-series",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/2",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/3",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/noble/environments/i3-wm/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/4",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/noble/environments/kde-plasma/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/5",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/noble/environments/gnome/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/6",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/noble/environments/xfce/debian/armbian-bsp-desktop/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/7",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/noble/environments/xfce/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/8",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/noble/environments/cinnamon/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/9",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/noble/environments/kde-neon/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/10",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/noble/appgroups/browsers/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/11",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/environments/i3-wm/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/12",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/environments/xmonad/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/13",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/environments/kde-plasma/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/14",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/environments/gnome/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/15",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/environments/xfce/debian/armbian-bsp-desktop/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/16",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/environments/xfce/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/17",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/environments/cinnamon/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/18",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/environments/budgie/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/19",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/environments/kde-neon/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/20",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/environments/mate/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/21",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/jammy/appgroups/browsers/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/22",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/oracular/environments/i3-wm/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/23",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/oracular/environments/kde-plasma/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/24",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/oracular/environments/gnome/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/25",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/oracular/environments/xfce/debian/armbian-bsp-desktop/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/26",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/oracular/environments/xfce/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/27",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/oracular/environments/cinnamon/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/28",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/oracular/environments/kde-neon/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/29",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/oracular/appgroups/browsers/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/30",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/i3-wm/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/31",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/xmonad/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/32",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/kde-plasma/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/33",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/gnome/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/34",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/xfce/debian/armbian-bsp-desktop/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/35",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/xfce/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/36",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/enlightenment/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/37",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/cinnamon/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/38",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/deepin/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/39",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/budgie/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/40",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/environments/mate/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/41",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/common/appgroups/browsers/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/42",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/sid/environments/kde-plasma/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/43",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/sid/environments/gnome/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/44",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/sid/environments/xfce/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/45",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/sid/environments/cinnamon/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/46",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/sid/environments/mate/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/47",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/sid/appgroups/browsers/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/48",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/bookworm/environments/i3-wm/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/49",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/bookworm/environments/xmonad/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/50",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/bookworm/environments/kde-plasma/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/51",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/bookworm/environments/gnome/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/52",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/bookworm/environments/xfce/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/53",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/bookworm/environments/cinnamon/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/54",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/bookworm/environments/budgie/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/55",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/bookworm/environments/mate/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/56",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/bookworm/appgroups/browsers/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/57",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/trixie/environments/i3-wm/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/58",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/trixie/environments/xmonad/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/59",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/trixie/environments/kde-plasma/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/60",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/trixie/environments/gnome/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/61",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/trixie/environments/xfce/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/62",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/trixie/environments/cinnamon/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/63",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/trixie/environments/budgie/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/64",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/trixie/environments/mate/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/65",
+  "posix_compliant": false,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/desktop/trixie/appgroups/browsers/armbian/create_desktop_package.sh",
+  "short_name": "create_desktop_package",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/66",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/optional/boards/aml-s9xx-box/_packages/bsp-cli/root/install-aml.sh",
+  "short_name": "install-aml",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/67",
+  "posix_compliant": true,
+  "line_count": 151,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/sources/vendors/microsoft/wsl2.hooks.sh",
+  "short_name": "wsl2.hooks",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/68",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/sources/vendors/mekotronics/mekotronics-rk3588.conf.sh",
+  "short_name": "mekotronics-rk3588.conf",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/69",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/sources/vendors/mekotronics/mekotronics-rk3588.hooks.sh",
+  "short_name": "mekotronics-rk3588.hooks",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/70",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/sources/mainline-kernel.conf.sh",
+  "short_name": "mainline-kernel.conf",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/71",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/config/templates/customize-image.sh.template",
+  "short_name": "customize-image.template",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/72",
+  "posix_compliant": false,
+  "line_count": 160,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/lvm.sh",
+  "short_name": "lvm",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/73",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/fs-xfs-support.sh",
+  "short_name": "fs-xfs-support",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/74",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/lsmod.sh",
+  "short_name": "lsmod",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/75",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/fs-btrfs-support.sh",
+  "short_name": "fs-btrfs-support",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/76",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/zfs.sh",
+  "short_name": "zfs",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/77",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/radxa-aic8800.sh",
+  "short_name": "radxa-aic8800",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/78",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/uwe5622-allwinner.sh",
+  "short_name": "uwe5622-allwinner",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/79",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/v4l2loopback-dkms.sh",
+  "short_name": "v4l2loopback-dkms",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/80",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/fs-cryptroot-support.sh",
+  "short_name": "fs-cryptroot-support",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/81",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/cleanup-space-final-image.sh",
+  "short_name": "cleanup-space-final-image",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/82",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/image-output-ovf.sh",
+  "short_name": "image-output-ovf",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/83",
+  "posix_compliant": false,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/nomod.sh",
+  "short_name": "nomod",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/84",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/image-output-qcow2.sh",
+  "short_name": "image-output-qcow2",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/85",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/network/net-network-manager.sh",
+  "short_name": "net-network-manager",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/86",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/network/net-systemd-timesyncd.sh",
+  "short_name": "net-systemd-timesyncd",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/87",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/network/net-chrony.sh",
+  "short_name": "net-chrony",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/88",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/network/net-systemd-networkd.sh",
+  "short_name": "net-systemd-networkd",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/89",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/allwinner-kernel-bump.sh",
+  "short_name": "allwinner-kernel-bump",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/90",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/rkbin-tools.sh",
+  "short_name": "rkbin-tools",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/91",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/image-output-oowow.sh",
+  "short_name": "image-output-oowow",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/92",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/syterkit-allwinner.sh",
+  "short_name": "syterkit-allwinner",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/93",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/initramfs-usb-gadget-ums/init-premount/usb-gadget-ums.sh",
+  "short_name": "usb-gadget-ums",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/94",
+  "posix_compliant": true,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/initramfs-usb-gadget-ums/initramfs-usb-gadget-ums.sh",
+  "short_name": "initramfs-usb-gadget-ums",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/95",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/armbian-live-patch.sh",
+  "short_name": "armbian-live-patch",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/96",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/grub-riscv64.sh",
+  "short_name": "grub-riscv64",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/97",
+  "posix_compliant": false,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/nvidia.sh",
+  "short_name": "nvidia",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/98",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/sunxi-tools.sh",
+  "short_name": "sunxi-tools",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/99",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/rkdevflash.sh",
+  "short_name": "rkdevflash",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/100",
+  "posix_compliant": false,
+  "line_count": 129,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/preset-firstrun.sh",
+  "short_name": "preset-firstrun",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/101",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/fs-f2fs-support.sh",
+  "short_name": "fs-f2fs-support",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/102",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/fs-nilfs2-support.sh",
+  "short_name": "fs-nilfs2-support",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/103",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/fake-vcgencmd.sh",
+  "short_name": "fake-vcgencmd",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/104",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/xorg-lima-serverflags.sh",
+  "short_name": "xorg-lima-serverflags",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/105",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/grub.sh",
+  "short_name": "grub",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/106",
+  "posix_compliant": false,
+  "line_count": 213,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/image-output-vhd-azure.sh",
+  "short_name": "image-output-vhd-azure",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/107",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/gen-sample-extension-docs.sh",
+  "short_name": "gen-sample-extension-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/108",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/nicod-armbian-gaming.sh",
+  "short_name": "nicod-armbian-gaming",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/109",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/u-boot-menu.sh",
+  "short_name": "u-boot-menu",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/110",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/image-output-utm.sh",
+  "short_name": "image-output-utm",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/111",
+  "posix_compliant": false,
+  "line_count": 170,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/image-output-abl.sh",
+  "short_name": "image-output-abl",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/112",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/cloud-init/cloud-init.sh",
+  "short_name": "cloud-init",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/113",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/vmware-vm.sh",
+  "short_name": "vmware-vm",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/114",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/image-output-vhdx.sh",
+  "short_name": "image-output-vhdx",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/115",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/marvell-tools.sh",
+  "short_name": "marvell-tools",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/116",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/bcmdhd.sh",
+  "short_name": "bcmdhd",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/117",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/detect-unused-extensions.sh",
+  "short_name": "detect-unused-extensions",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/118",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/grub-with-dtb.sh",
+  "short_name": "grub-with-dtb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/119",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/uefi-edk2-rk3588.sh",
+  "short_name": "uefi-edk2-rk3588",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/120",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/mesa-vpu.sh",
+  "short_name": "mesa-vpu",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/121",
+  "posix_compliant": false,
+  "line_count": 125,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/bluetooth-hciattach.sh",
+  "short_name": "bluetooth-hciattach",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/122",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/extensions/c-plus-plus-compiler.sh",
+  "short_name": "c-plus-plus-compiler",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/123",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/plymouth-theme-armbian/debian/prerm",
+  "short_name": "prerm",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/124",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/plymouth-theme-armbian/debian/postinst",
+  "short_name": "postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/125",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/plymouth-theme-armbian/debian/postrm",
+  "short_name": "postrm",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/126",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/rk3328/z28pro/start_bt.sh",
+  "short_name": "start_bt",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/127",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/generate-bt-mac-addr/bt-fixed-mac.sh",
+  "short_name": "bt-fixed-mac",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/128",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/rk3318/rk3318-config",
+  "short_name": "rk3318-config",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/129",
+  "posix_compliant": false,
+  "line_count": 313,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/mvebu64/initramfs/99-uboot-fit",
+  "short_name": "99-uboot-fit",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/130",
+  "posix_compliant": true,
+  "line_count": 81,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/odroid/odroid.shutdown",
+  "short_name": "odroidutdown",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/131",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/odroid/c2_init.sh",
+  "short_name": "c2_init",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/132",
+  "posix_compliant": true,
+  "line_count": 149,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/odroid/c1_init.sh",
+  "short_name": "c1_init",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/133",
+  "posix_compliant": true,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/nanopim4/nanopim4-pwm-fan.sh",
+  "short_name": "nanopim4-pwm-fan",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/134",
+  "posix_compliant": false,
+  "line_count": 441,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/jethub/jethubj200/libjethubconfig.sh",
+  "short_name": "libjethubconfig",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/135",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/jethub/jethub-init",
+  "short_name": "jethub-init",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/136",
+  "posix_compliant": false,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/jethub/jethubj100/libjethubconfig.sh",
+  "short_name": "libjethubconfig",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/137",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/jethub/jethub-ethreset",
+  "short_name": "jethub-ethreset",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/138",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/jethub/jethub-remove-log-file.sh",
+  "short_name": "jethub-remove-log-file",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/139",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/jethub/jethubj80/libjethubconfig.sh",
+  "short_name": "libjethubconfig",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/140",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/jethub/jethubj80/bluetooth/jethub-rtk-hciattach-starter",
+  "short_name": "jethub-rtk-hciattach-starter",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/141",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/usb-gadget-network/setup-usbgadget-network.sh",
+  "short_name": "setup-usbgadget-network",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/142",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/usb-gadget-network/remove-usbgadget-network.sh",
+  "short_name": "remove-usbgadget-network",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/143",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/h3disp",
+  "short_name": "h3disp",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/144",
+  "posix_compliant": false,
+  "line_count": 361,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/olinuxino/usr/sbin/change-display",
+  "short_name": "change-display",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/145",
+  "posix_compliant": false,
+  "line_count": 681,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/rk322x/rk322x-config",
+  "short_name": "rk322x-config",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/146",
+  "posix_compliant": false,
+  "line_count": 374,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/xiaomi-umi/zz-update-abl-kernel",
+  "short_name": "zz-update-abl-kernel",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/147",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/rockchip/start_bt.sh",
+  "short_name": "start_bt",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/148",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/rockchip/ap6330-initramfs-firmware",
+  "short_name": "ap6330-initramfs-firmware",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/149",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/xiaomi-elish/zz-update-abl-kernel",
+  "short_name": "zz-update-abl-kernel",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/150",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/ayn-odin2/zz-update-abl-kernel",
+  "short_name": "zz-update-abl-kernel",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/151",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/ayn-odin2/bt-fixed-mac.sh",
+  "short_name": "bt-fixed-mac",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/152",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/oneplus-kebab/zz-update-abl-kernel",
+  "short_name": "zz-update-abl-kernel",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/153",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/bin/armbianmonitor",
+  "short_name": "armbianmonitor",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/154",
+  "posix_compliant": false,
+  "line_count": 1035,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/sbin/armbian-add-overlay",
+  "short_name": "armbian-add-overlay",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/155",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/sbin/armbian-install",
+  "short_name": "armbian-install",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/156",
+  "posix_compliant": false,
+  "line_count": 711,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/sbin/ddbr",
+  "short_name": "ddbr",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/157",
+  "posix_compliant": false,
+  "line_count": 197,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/sbin/nand-sata-install",
+  "short_name": "nand-sata-install",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/158",
+  "posix_compliant": false,
+  "line_count": 711,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-resize-filesystem",
+  "short_name": "armbian-resize-filesystem",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/159",
+  "posix_compliant": false,
+  "line_count": 224,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-led-state-save.sh",
+  "short_name": "armbian-led-state-save",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/160",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-common",
+  "short_name": "armbian-common",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/161",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-led-state-restore.sh",
+  "short_name": "armbian-led-state-restore",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/162",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-zram-config",
+  "short_name": "armbian-zram-config",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/163",
+  "posix_compliant": false,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-apt-updates",
+  "short_name": "armbian-apt-updates",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/164",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-firstrun",
+  "short_name": "armbian-firstrun",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/165",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-firstlogin",
+  "short_name": "armbian-firstlogin",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/166",
+  "posix_compliant": false,
+  "line_count": 699,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-hardware-optimization",
+  "short_name": "armbian-hardware-optimization",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/167",
+  "posix_compliant": false,
+  "line_count": 339,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-allwinner-battery",
+  "short_name": "armbian-allwinner-battery",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/168",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-ramlog",
+  "short_name": "armbian-ramlog",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/169",
+  "posix_compliant": false,
+  "line_count": 130,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-truncate-logs",
+  "short_name": "armbian-truncate-logs",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/170",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-check-battery-shutdown",
+  "short_name": "armbian-check-battery-shutdown",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/171",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/usr/lib/armbian/armbian-hardware-monitor",
+  "short_name": "armbian-hardware-monitor",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/172",
+  "posix_compliant": false,
+  "line_count": 129,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/cron.daily/armbian-ram-logging",
+  "short_name": "armbian-ram-logging",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/173",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/update-motd.d/41-commands",
+  "short_name": "41-commands",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/174",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/update-motd.d/98-armbian-autoreboot-warn",
+  "short_name": "98-armbian-autoreboot-warn",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/175",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/update-motd.d/00-clear",
+  "short_name": "00-clear",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/176",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/update-motd.d/30-armbian-sysinfo",
+  "short_name": "30-armbian-sysinfo",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/177",
+  "posix_compliant": false,
+  "line_count": 142,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/update-motd.d/35-armbian-tips",
+  "short_name": "35-armbian-tips",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/178",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/update-motd.d/10-armbian-header",
+  "short_name": "10-armbian-header",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/179",
+  "posix_compliant": false,
+  "line_count": 109,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/cron.weekly/armbian-quotes",
+  "short_name": "armbian-quotes",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/180",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/profile.d/armbian-check-first-login-reboot.sh",
+  "short_name": "armbian-check-first-login-reboot",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/181",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/profile.d/armbian-check-first-login.sh",
+  "short_name": "armbian-check-first-login",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/182",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/profile.d/armbian-ssh-title.sh",
+  "short_name": "armbian-ssh-title",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/183",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/profile.d/armbian-activate-profile-sync-daemon.sh",
+  "short_name": "armbian-activate-profile-sync-daemon",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/184",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/profile.d/armbian-lang.sh",
+  "short_name": "armbian-lang",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/185",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/initramfs/post-update.d/99-uboot",
+  "short_name": "99-uboot",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/186",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/kernel/postrm.d/xx-initramfs-cleanup",
+  "short_name": "xx-initramfs-cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/187",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/common/etc/kernel/postinst.d/xx-initramfs-cleanup",
+  "short_name": "xx-initramfs-cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/188",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/sunxi/zeroplus2-bt.sh",
+  "short_name": "zeroplus2-bt",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/189",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/99disable-power-management",
+  "short_name": "99disable-power-management",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/190",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/mvebu/hwclock-set",
+  "short_name": "hwclock-set",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/191",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/mvebu/helios4/mdadm-fault-led.sh",
+  "short_name": "mdadm-fault-led",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/192",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/rockpis/lib/udev/fixEtherAddr",
+  "short_name": "fixEtherAddr",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/193",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/h3consumption",
+  "short_name": "h3consumption",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/194",
+  "posix_compliant": false,
+  "line_count": 362,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/helios64/disable_auto_poweron",
+  "short_name": "disable_auto_poweron",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/195",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/helios64/helios64-ups.sh",
+  "short_name": "helios64-ups",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/196",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/orangepi3b/orangepi3b-sprd-bluetooth",
+  "short_name": "orangepi3b-sprd-bluetooth",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/197",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/bsp/armbianmonitor/armbianmonitor-daemon",
+  "short_name": "armbianmonitor-daemon",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/198",
+  "posix_compliant": false,
+  "line_count": 288,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/packages/blobs/grub/09_linux_with_dtb.sh",
+  "short_name": "09_linux_with_dtb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/199",
+  "posix_compliant": false,
+  "line_count": 421,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/.github/generate_CODEOWNERS.sh",
+  "short_name": "generate_CODEOWNERS",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/200",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/tools/shellcheck.sh",
+  "short_name": "shellcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/201",
+  "posix_compliant": false,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/tools/shellfmt.sh",
+  "short_name": "shellfmt",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/202",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/tools/gen-library.sh",
+  "short_name": "gen-library",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/203",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/tools/oras.sh",
+  "short_name": "oras",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/204",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/library-functions.sh",
+  "short_name": "library-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/205",
+  "posix_compliant": false,
+  "line_count": 398,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/configuration/package-lists.sh",
+  "short_name": "package-lists",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/206",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/configuration/menu.sh",
+  "short_name": "menu",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/207",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/configuration/interactive.sh",
+  "short_name": "interactive",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/208",
+  "posix_compliant": false,
+  "line_count": 210,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/configuration/change-tracking.sh",
+  "short_name": "change-tracking",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/209",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/configuration/config-desktop.sh",
+  "short_name": "config-desktop",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/210",
+  "posix_compliant": false,
+  "line_count": 115,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/configuration/main-config.sh",
+  "short_name": "main-config",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/211",
+  "posix_compliant": false,
+  "line_count": 459,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/configuration/aggregation.sh",
+  "short_name": "aggregation",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/212",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/configuration/compilation-config.sh",
+  "short_name": "compilation-config",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/213",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-armbian-desktop.sh",
+  "short_name": "artifact-armbian-desktop",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/214",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-rootfs.sh",
+  "short_name": "artifact-rootfs",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/215",
+  "posix_compliant": false,
+  "line_count": 115,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-armbian-zsh.sh",
+  "short_name": "artifact-armbian-zsh",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/216",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifacts-obtain.sh",
+  "short_name": "artifacts-obtain",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/217",
+  "posix_compliant": false,
+  "line_count": 411,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-armbian-base-files.sh",
+  "short_name": "artifact-armbian-base-files",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/218",
+  "posix_compliant": false,
+  "line_count": 161,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-armbian-bsp-cli.sh",
+  "short_name": "artifact-armbian-bsp-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/219",
+  "posix_compliant": false,
+  "line_count": 128,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-armbian-plymouth-theme.sh",
+  "short_name": "artifact-armbian-plymouth-theme",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/220",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-armbian-config.sh",
+  "short_name": "artifact-armbian-config",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/221",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-full_firmware.sh",
+  "short_name": "artifact-full_firmware",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/222",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-uboot.sh",
+  "short_name": "artifact-uboot",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/223",
+  "posix_compliant": false,
+  "line_count": 146,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-armbian-bsp-desktop.sh",
+  "short_name": "artifact-armbian-bsp-desktop",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/224",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-kernel.sh",
+  "short_name": "artifact-kernel",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/225",
+  "posix_compliant": false,
+  "line_count": 174,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifacts-registry.sh",
+  "short_name": "artifacts-registry",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/226",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-firmware.sh",
+  "short_name": "artifact-firmware",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/227",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifacts-reversion.sh",
+  "short_name": "artifacts-reversion",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/228",
+  "posix_compliant": false,
+  "line_count": 109,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/artifacts/artifact-fake-ubuntu-advantage-tools.sh",
+  "short_name": "artifact-fake-ubuntu-advantage-tools",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/229",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/create-cache.sh",
+  "short_name": "create-cache",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/230",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/rootfs-create.sh",
+  "short_name": "rootfs-create",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/231",
+  "posix_compliant": false,
+  "line_count": 155,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/qemu-static.sh",
+  "short_name": "qemu-static",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/232",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/trap-rootfs.sh",
+  "short_name": "trap-rootfs",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/233",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/distro-specific.sh",
+  "short_name": "distro-specific",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/234",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/rootfs-desktop.sh",
+  "short_name": "rootfs-desktop",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/235",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/post-tweaks.sh",
+  "short_name": "post-tweaks",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/236",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/apt-install.sh",
+  "short_name": "apt-install",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/237",
+  "posix_compliant": false,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/systemd-utils.sh",
+  "short_name": "systemd-utils",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/238",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/customize.sh",
+  "short_name": "customize",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/239",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/distro-agnostic.sh",
+  "short_name": "distro-agnostic",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/240",
+  "posix_compliant": false,
+  "line_count": 335,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/rootfs/apt-sources.sh",
+  "short_name": "apt-sources",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/241",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/external-toolchains.sh",
+  "short_name": "external-toolchains",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/242",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/host-utils.sh",
+  "short_name": "host-utils",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/243",
+  "posix_compliant": false,
+  "line_count": 281,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/wsl2.sh",
+  "short_name": "wsl2",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/244",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/tmpfs-utils.sh",
+  "short_name": "tmpfs-utils",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/245",
+  "posix_compliant": false,
+  "line_count": 91,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/basic-deps.sh",
+  "short_name": "basic-deps",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/246",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/mountpoints.sh",
+  "short_name": "mountpoints",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/247",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/prepare-host.sh",
+  "short_name": "prepare-host",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/248",
+  "posix_compliant": false,
+  "line_count": 287,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/apt-cacher-ng.sh",
+  "short_name": "apt-cacher-ng",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/249",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/host-release.sh",
+  "short_name": "host-release",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/250",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/mktemp-utils.sh",
+  "short_name": "mktemp-utils",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/251",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/host/docker.sh",
+  "short_name": "docker",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/252",
+  "posix_compliant": false,
+  "line_count": 439,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/python-tools.sh",
+  "short_name": "python-tools",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/253",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/deprecations.sh",
+  "short_name": "deprecations",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/254",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/retry.sh",
+  "short_name": "retry",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/255",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/shellcheck.sh",
+  "short_name": "shellcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/256",
+  "posix_compliant": false,
+  "line_count": 111,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/extensions.sh",
+  "short_name": "extensions",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/257",
+  "posix_compliant": false,
+  "line_count": 329,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/chroot-helpers.sh",
+  "short_name": "chroot-helpers",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/258",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/bat-cat.sh",
+  "short_name": "bat-cat",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/259",
+  "posix_compliant": false,
+  "line_count": 96,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/cleaning.sh",
+  "short_name": "cleaning",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/260",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/countdown.sh",
+  "short_name": "countdown",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/261",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/apt-utils.sh",
+  "short_name": "apt-utils",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/262",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/git.sh",
+  "short_name": "git",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/263",
+  "posix_compliant": false,
+  "line_count": 212,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/oci-oras.sh",
+  "short_name": "oci-oras",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/264",
+  "posix_compliant": false,
+  "line_count": 158,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/git-ref2info.sh",
+  "short_name": "git-ref2info",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/265",
+  "posix_compliant": false,
+  "line_count": 163,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/memoize-cached.sh",
+  "short_name": "memoize-cached",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/266",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/downloads.sh",
+  "short_name": "downloads",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/267",
+  "posix_compliant": false,
+  "line_count": 145,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/hash-files.sh",
+  "short_name": "hash-files",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/268",
+  "posix_compliant": false,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/general/github-actions.sh",
+  "short_name": "github-actions",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/269",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/utils-cli.sh",
+  "short_name": "utils-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/270",
+  "posix_compliant": false,
+  "line_count": 199,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-oras.sh",
+  "short_name": "cli-oras",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/271",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-flash.sh",
+  "short_name": "cli-flash",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/272",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-jsoninfo.sh",
+  "short_name": "cli-jsoninfo",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/273",
+  "posix_compliant": false,
+  "line_count": 187,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-undecided.sh",
+  "short_name": "cli-undecided",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/274",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/commands.sh",
+  "short_name": "commands",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/275",
+  "posix_compliant": false,
+  "line_count": 107,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-configdump.sh",
+  "short_name": "cli-configdump",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/276",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-patch.sh",
+  "short_name": "cli-patch",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/277",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-build.sh",
+  "short_name": "cli-build",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/278",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-distccd.sh",
+  "short_name": "cli-distccd",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/279",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-requirements.sh",
+  "short_name": "cli-requirements",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/280",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-artifact.sh",
+  "short_name": "cli-artifact",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/281",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/cli-docker.sh",
+  "short_name": "cli-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/282",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/cli/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/283",
+  "posix_compliant": false,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/bsp/armbian-bsp-desktop-deb.sh",
+  "short_name": "armbian-bsp-desktop-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/284",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/bsp/armbian-bsp-cli-deb.sh",
+  "short_name": "armbian-bsp-cli-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/285",
+  "posix_compliant": false,
+  "line_count": 335,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/bsp/utils-bsp.sh",
+  "short_name": "utils-bsp",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/286",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/image/loop.sh",
+  "short_name": "loop",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/287",
+  "posix_compliant": false,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/image/initrd.sh",
+  "short_name": "initrd",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/288",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/image/rootfs-to-image.sh",
+  "short_name": "rootfs-to-image",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/289",
+  "posix_compliant": false,
+  "line_count": 159,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/image/partitioning.sh",
+  "short_name": "partitioning",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/290",
+  "posix_compliant": false,
+  "line_count": 283,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/image/fingerprint.sh",
+  "short_name": "fingerprint",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/291",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/image/write-device.sh",
+  "short_name": "write-device",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/292",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/image/compress-checksum.sh",
+  "short_name": "compress-checksum",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/293",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/main/build-packages.sh",
+  "short_name": "build-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/294",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/main/start-end.sh",
+  "short_name": "start-end",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/295",
+  "posix_compliant": false,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/main/rootfs-image.sh",
+  "short_name": "rootfs-image",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/296",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/main/config-interactive.sh",
+  "short_name": "config-interactive",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/297",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/main/config-prepare.sh",
+  "short_name": "config-prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/298",
+  "posix_compliant": false,
+  "line_count": 243,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/main/default-build.sh",
+  "short_name": "default-build",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/299",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/kernel-debs.sh",
+  "short_name": "kernel-debs",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/300",
+  "posix_compliant": false,
+  "line_count": 365,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/uboot-patching.sh",
+  "short_name": "uboot-patching",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/301",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/uboot.sh",
+  "short_name": "uboot",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/302",
+  "posix_compliant": false,
+  "line_count": 325,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/atf.sh",
+  "short_name": "atf",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/303",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/kernel-git-oras.sh",
+  "short_name": "kernel-git-oras",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/304",
+  "posix_compliant": false,
+  "line_count": 176,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/ccache.sh",
+  "short_name": "ccache",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/305",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/crust.sh",
+  "short_name": "crust",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/306",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/patch/drivers-harness.sh",
+  "short_name": "drivers-harness",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/307",
+  "posix_compliant": false,
+  "line_count": 146,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/patch/patching.sh",
+  "short_name": "patching",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/308",
+  "posix_compliant": false,
+  "line_count": 143,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/patch/drivers_network.sh",
+  "short_name": "drivers_network",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/309",
+  "posix_compliant": false,
+  "line_count": 448,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/kernel-make.sh",
+  "short_name": "kernel-make",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/310",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/kernel-dts-check.sh",
+  "short_name": "kernel-dts-check",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/311",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/utils-compilation.sh",
+  "short_name": "utils-compilation",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/312",
+  "posix_compliant": false,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/kernel-config.sh",
+  "short_name": "kernel-config",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/313",
+  "posix_compliant": false,
+  "line_count": 106,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/packages/armbian-zsh-deb.sh",
+  "short_name": "armbian-zsh-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/314",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/packages/fake_ubuntu_advantage_tools-deb.sh",
+  "short_name": "fake_ubuntu_advantage_tools-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/315",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/packages/utils-dpkgdeb.sh",
+  "short_name": "utils-dpkgdeb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/316",
+  "posix_compliant": false,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/packages/firmware-deb.sh",
+  "short_name": "firmware-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/317",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/packages/armbian-plymouth-theme-deb.sh",
+  "short_name": "armbian-plymouth-theme-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/318",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/packages/armbian-desktop-deb.sh",
+  "short_name": "armbian-desktop-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/319",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/packages/armbian-config-deb.sh",
+  "short_name": "armbian-config-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/320",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/uboot-git.sh",
+  "short_name": "uboot-git",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/321",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/kernel.sh",
+  "short_name": "kernel",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/322",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/kernel-patching.sh",
+  "short_name": "kernel-patching",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/323",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/kernel-git-bundle.sh",
+  "short_name": "kernel-git-bundle",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/324",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/kernel-git.sh",
+  "short_name": "kernel-git",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/325",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/armbian-kernel.sh",
+  "short_name": "armbian-kernel",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/326",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/compilation/distcc.sh",
+  "short_name": "distcc",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/327",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/logging/capture.sh",
+  "short_name": "capture",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/328",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/logging/runners.sh",
+  "short_name": "runners",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/329",
+  "posix_compliant": false,
+  "line_count": 183,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/logging/trap-logging.sh",
+  "short_name": "trap-logging",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/330",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/logging/display-alert.sh",
+  "short_name": "display-alert",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/331",
+  "posix_compliant": false,
+  "line_count": 224,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/logging/stacktraces.sh",
+  "short_name": "stacktraces",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/332",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/logging/export-logs.sh",
+  "short_name": "export-logs",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/333",
+  "posix_compliant": false,
+  "line_count": 132,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/logging/section-logging.sh",
+  "short_name": "section-logging",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/334",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/logging/logging.sh",
+  "short_name": "logging",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/335",
+  "posix_compliant": false,
+  "line_count": 150,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/logging/debug-dump.sh",
+  "short_name": "debug-dump",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/336",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/functions/logging/traps.sh",
+  "short_name": "traps",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/337",
+  "posix_compliant": false,
+  "line_count": 125,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/armbian/build.git",
+  "relative_path": "build/lib/single.sh",
+  "short_name": "single",
+  "timestamp": "10/22/2024",
+  "identifier": "build_DclNFT/338",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

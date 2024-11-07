@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/remoteintech/remote-jobs.git",
+  "relative_path": "remote-jobs/bin/rename.sh",
+  "short_name": "rename",
+  "timestamp": "10/22/2024",
+  "identifier": "remote_HoDuKZ/0",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

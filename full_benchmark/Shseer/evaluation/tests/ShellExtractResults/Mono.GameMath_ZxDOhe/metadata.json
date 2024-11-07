@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/mhutch/Mono.GameMath.git",
+  "relative_path": "Mono.GameMath/winbuild.sh",
+  "short_name": "winbuild",
+  "timestamp": "10/22/2024",
+  "identifier": "Mono.GameMath_ZxDOhe/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

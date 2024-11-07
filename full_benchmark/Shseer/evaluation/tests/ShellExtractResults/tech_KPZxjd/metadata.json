@@ -1,0 +1,76 @@
+[
+ {
+  "repo": "https://github.com/moabukar/tech-vault.git",
+  "relative_path": "tech-vault/devops-challenges/code/q39/restore.sh",
+  "short_name": "restore",
+  "timestamp": "10/22/2024",
+  "identifier": "tech_KPZxjd/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/moabukar/tech-vault.git",
+  "relative_path": "tech-vault/devops-challenges/code/q39/backup.sh",
+  "short_name": "backup",
+  "timestamp": "10/22/2024",
+  "identifier": "tech_KPZxjd/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/moabukar/tech-vault.git",
+  "relative_path": "tech-vault/devops-challenges/code/q36/automate.sh",
+  "short_name": "automate",
+  "timestamp": "10/22/2024",
+  "identifier": "tech_KPZxjd/2",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/moabukar/tech-vault.git",
+  "relative_path": "tech-vault/devops-challenges/code/q25/fetch_sec.sh",
+  "short_name": "fetch_sec",
+  "timestamp": "10/22/2024",
+  "identifier": "tech_KPZxjd/3",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/moabukar/tech-vault.git",
+  "relative_path": "tech-vault/devops-challenges/code/q2/runscript.sh",
+  "short_name": "runscript",
+  "timestamp": "10/22/2024",
+  "identifier": "tech_KPZxjd/4",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/moabukar/tech-vault.git",
+  "relative_path": "tech-vault/devops-challenges/code/qinit.sh",
+  "short_name": "qinit",
+  "timestamp": "10/22/2024",
+  "identifier": "tech_KPZxjd/5",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

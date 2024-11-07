@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/w3c/IntersectionObserver.git",
+  "relative_path": "IntersectionObserver/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "IntersectionObserver_bJQMJj/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

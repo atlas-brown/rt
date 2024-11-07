@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/manuelstofer/pinchzoom.git",
+  "relative_path": "pinchzoom/script/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "pinchzoom_qextGh/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ }
+]

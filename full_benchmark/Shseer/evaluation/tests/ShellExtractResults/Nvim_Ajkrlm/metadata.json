@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/jalvesaq/Nvim-R.git",
+  "relative_path": "Nvim-R/hooks/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "Nvim_Ajkrlm/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

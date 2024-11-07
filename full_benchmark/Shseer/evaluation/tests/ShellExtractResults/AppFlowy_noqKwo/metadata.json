@@ -1,0 +1,302 @@
+[
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/.githooks/commit-msg",
+  "short_name": "commit-msg",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/0",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/appflowy_web_app/deploy/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/1",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/appflowy_web_app/deploy/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/linux_distribution/packaging/launcher.sh",
+  "short_name": "launcher",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/3",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/linux_distribution/deb/build_deb.sh",
+  "short_name": "build_deb",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/4",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/linux_distribution/appimage/build_appimage.sh",
+  "short_name": "build_appimage",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/5",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/install_dev_env/install_linux.sh",
+  "short_name": "install_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/6",
+  "posix_compliant": false,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/install_dev_env/install_macos.sh",
+  "short_name": "install_macos",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/7",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/install_dev_env/install_windows.sh",
+  "short_name": "install_windows",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/8",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/install_dev_env/install_ios.sh",
+  "short_name": "install_ios",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/9",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/code_generation/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/10",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/code_generation/language_files/generate_language_files.sh",
+  "short_name": "generate_language_files",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/11",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/code_generation/flowy_icons/generate_flowy_icons.sh",
+  "short_name": "generate_flowy_icons",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/12",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/code_generation/freezed/generate_freezed.sh",
+  "short_name": "generate_freezed",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/13",
+  "posix_compliant": false,
+  "line_count": 99,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/flatpack-buildfiles/launcher.sh",
+  "short_name": "launcher",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/14",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/flutter_release_build/build_universal_package_for_macos.sh",
+  "short_name": "build_universal_package_for_macos",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/15",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/tool/update_collab_source.sh",
+  "short_name": "update_collab_source",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/16",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/tool/update_local_ai_rev.sh",
+  "short_name": "update_local_ai_rev",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/17",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/tool/update_collab_rev.sh",
+  "short_name": "update_collab_rev",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/18",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/frontend/scripts/tool/update_client_api_rev.sh",
+  "short_name": "update_client_api_rev",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/19",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy.git",
+  "relative_path": "AppFlowy/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "AppFlowy_noqKwo/20",
+  "posix_compliant": true,
+  "line_count": 348,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

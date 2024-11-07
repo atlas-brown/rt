@@ -1,0 +1,85 @@
+[
+ {
+  "repo": "https://github.com/airbnb/lottie-android.git",
+  "relative_path": "lottie-android/deploy_snapshot.sh",
+  "short_name": "deploy_snapshot",
+  "timestamp": "10/22/2024",
+  "identifier": "lottie_ephDHM/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/airbnb/lottie-android.git",
+  "relative_path": "lottie-android/upload_release.sh",
+  "short_name": "upload_release",
+  "timestamp": "10/22/2024",
+  "identifier": "lottie_ephDHM/1",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/airbnb/lottie-android.git",
+  "relative_path": "lottie-android/sign.sh",
+  "short_name": "sign",
+  "timestamp": "10/22/2024",
+  "identifier": "lottie_ephDHM/2",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/airbnb/lottie-android.git",
+  "relative_path": "lottie-android/update-baseline-profiles.sh",
+  "short_name": "update-baseline-profiles",
+  "timestamp": "10/22/2024",
+  "identifier": "lottie_ephDHM/3",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/airbnb/lottie-android.git",
+  "relative_path": "lottie-android/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "lottie_ephDHM/4",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/airbnb/lottie-android.git",
+  "relative_path": "lottie-android/version.sh",
+  "short_name": "version",
+  "timestamp": "10/22/2024",
+  "identifier": "lottie_ephDHM/5",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

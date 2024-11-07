@@ -1,0 +1,888 @@
+[
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/database/templates/default/ebs-db-backup.sh.erb",
+  "short_name": "ebs-db-backup.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/database/templates/default/ebs-db-restore.sh.erb",
+  "short_name": "ebs-db-restore.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/flume/old/flume-bin-flume-daemon.sh",
+  "short_name": "flume-bin-flume-daemon",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/2",
+  "posix_compliant": false,
+  "line_count": 85,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/flume/old/etc-init.d-flume",
+  "short_name": "etc-init.d-flume",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/3",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/flume/templates/default/sv-flume_multi_agent-run.erb",
+  "short_name": "sv-flume_multi_agent-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/4",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/flume/templates/default/sv-flume_agent-log-run.erb",
+  "short_name": "sv-flume_agent-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/5",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/flume/templates/default/sv-flume_master-run.erb",
+  "short_name": "sv-flume_master-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/6",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/flume/templates/default/sv-flume_multi_agent-log-run.erb",
+  "short_name": "sv-flume_multi_agent-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/7",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/flume/templates/default/sv-flume_master-log-run.erb",
+  "short_name": "sv-flume_master-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/8",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/flume/templates/default/sv-flume_agent-run.erb",
+  "short_name": "sv-flume_agent-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/9",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/couchdb/files/default/couchdb.init",
+  "short_name": "couchdb.init",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/10",
+  "posix_compliant": false,
+  "line_count": 121,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/rundeck/templates/default/sv-chef-rundeck-log-run.erb",
+  "short_name": "sv-chef-rundeck-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/11",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/nfs/templates/default/fix_nfs_on_maverick_amis.sh",
+  "short_name": "fix_nfs_on_maverick_amis",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/12",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/redis/templates/default/sv-redis_server-log-run.erb",
+  "short_name": "sv-redis_server-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/13",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/redis/templates/default/sv-redis_server-run.erb",
+  "short_name": "sv-redis_server-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/14",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/minidash/templates/default/sv-minidash_dashboard-run.erb",
+  "short_name": "sv-minidash_dashboard-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/15",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/minidash/templates/default/sv-minidash_dashboard-log-run.erb",
+  "short_name": "sv-minidash_dashboard-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/16",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/bluepill/templates/default/bluepill_init.fedora.erb",
+  "short_name": "bluepill_init.fedora.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/17",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/bluepill/templates/default/bluepill_init.lsb.erb",
+  "short_name": "bluepill_init.lsb.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/18",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/bluepill/templates/default/bluepill_init.rhel.erb",
+  "short_name": "bluepill_init.rhel.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/19",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/bluepill/templates/default/bluepill_init.freebsd.erb",
+  "short_name": "bluepill_init.freebsd.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/20",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/ebs_migrate/templates/default/elasticsearch.sh.erb",
+  "short_name": "elasticsearch.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/21",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/chef-server/templates/default/sv-chef-expander-run.erb",
+  "short_name": "sv-chef-expander-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/22",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/chef-server/templates/default/sv-chef-solr-run.erb",
+  "short_name": "sv-chef-solr-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/23",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/chef-server/templates/default/sv-chef-server-run.erb",
+  "short_name": "sv-chef-server-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/24",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/chef-server/templates/default/sv-chef-server-webui-run.erb",
+  "short_name": "sv-chef-server-webui-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/25",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/chef-server/templates/default/sv-chef-server-log-run.erb",
+  "short_name": "sv-chef-server-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/26",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/chef-server/templates/default/sv-chef-server-webui-log-run.erb",
+  "short_name": "sv-chef-server-webui-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/27",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/chef-server/templates/default/sv-chef-solr-log-run.erb",
+  "short_name": "sv-chef-solr-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/28",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/chef-server/templates/default/sv-chef-expander-log-run.erb",
+  "short_name": "sv-chef-expander-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/29",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/vayacondios_old/templates/default/sv-vayacondios-log-run.erb",
+  "short_name": "sv-vayacondios-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/30",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/vayacondios_old/templates/default/sv-vayacondios-run.erb",
+  "short_name": "sv-vayacondios-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/31",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/apache2/templates/default/a2dismod.erb",
+  "short_name": "a2dismod.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/32",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/apache2/templates/default/a2dissite.erb",
+  "short_name": "a2dissite.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/33",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/apache2/templates/default/a2ensite.erb",
+  "short_name": "a2ensite.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/34",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/apache2/templates/default/a2enmod.erb",
+  "short_name": "a2enmod.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/35",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/vayacondios/templates/default/sv-vayacondios-log-run.erb",
+  "short_name": "sv-vayacondios-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/36",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/vayacondios/templates/default/sv-vayacondios-run.erb",
+  "short_name": "sv-vayacondios-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/37",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/nginx/templates/default/sv-nginx-run.erb",
+  "short_name": "sv-nginx-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/38",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/nginx/templates/default/nxdissite.erb",
+  "short_name": "nxdissite.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/39",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/nginx/templates/default/nginx.init.erb",
+  "short_name": "nginx.init.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/40",
+  "posix_compliant": true,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/nginx/templates/default/sv-nginx-log-run.erb",
+  "short_name": "sv-nginx-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/41",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/nginx/templates/default/nxensite.erb",
+  "short_name": "nxensite.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/42",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/kafka/templates/default/sv-kafka-run.erb",
+  "short_name": "sv-kafka-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/43",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/kafka/templates/default/sv-kafka-log-run.erb",
+  "short_name": "sv-kafka-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/44",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/kafka/templates/default/sv-kafka_contrib_app-run.erb",
+  "short_name": "sv-kafka_contrib_app-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/45",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/kafka/templates/default/sv-kafka_contrib_app-log-run.erb",
+  "short_name": "sv-kafka_contrib_app-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/46",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/jruby/templates/default/jruby.erb",
+  "short_name": "jruby.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/47",
+  "posix_compliant": false,
+  "line_count": 302,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/jenkins_integration/templates/default/sendmail.sh.erb",
+  "short_name": "sendmail.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/48",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/package-server/templates/default/sv-gem_server-log-run.erb",
+  "short_name": "sv-gem_server-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/49",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/package-server/templates/default/sv-gem_server-run.erb",
+  "short_name": "sv-gem_server-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/50",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/jenkins/templates/default/sv-jenkins_server-log-run.erb",
+  "short_name": "sv-jenkins_server-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/51",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/jenkins/templates/default/sv-jenkins_server-run.erb",
+  "short_name": "sv-jenkins_server-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/52",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/iptables/templates/default/iptables_load.erb",
+  "short_name": "iptables_load.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/53",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/zabbix/templates/centos/zabbix_server.init.erb",
+  "short_name": "zabbix_server.init.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/54",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/zabbix/templates/centos/zabbix_agentd.init.erb",
+  "short_name": "zabbix_agentd.init.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/55",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/zabbix/templates/default/sv-zabbix_web-log-run.erb",
+  "short_name": "sv-zabbix_web-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/56",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/zabbix/templates/default/sv-zabbix_web-run.erb",
+  "short_name": "sv-zabbix_web-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/57",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/zabbix/templates/default/sv-zabbix_java-run.erb",
+  "short_name": "sv-zabbix_java-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/58",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/zabbix/templates/default/sv-zabbix_java-log-run.erb",
+  "short_name": "sv-zabbix_java-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/59",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/zabbix/templates/redhat/zabbix_agentd.init.erb",
+  "short_name": "zabbix_agentd.init.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/60",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/repo/templates/default/reposync.sh.erb",
+  "short_name": "reposync.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/61",
+  "posix_compliant": true,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/storm/templates/default/sv-storm_worker-log-run.erb",
+  "short_name": "sv-storm_worker-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/62",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/storm/templates/default/sv-storm_ui-log-run.erb",
+  "short_name": "sv-storm_ui-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/63",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/storm/templates/default/sv-storm_master-log-run.erb",
+  "short_name": "sv-storm_master-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/64",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/elasticsearch/templates/default/sv-elasticsearch-run.erb",
+  "short_name": "sv-elasticsearch-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/65",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/elasticsearch/templates/default/sv-elasticsearch-log-run.erb",
+  "short_name": "sv-elasticsearch-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/66",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/git/templates/default/ssh_wrapper.sh.erb",
+  "short_name": "ssh_wrapper.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/67",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/git/templates/default/sv-git-daemon-run.erb",
+  "short_name": "sv-git-daemon-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/68",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/git/templates/default/sv-git-daemon-log-run.erb",
+  "short_name": "sv-git-daemon-log-run.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/69",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/infochimps-labs/ironfan-pantry.git",
+  "relative_path": "ironfan-pantry/cookbooks/cloud_utils/templates/default/soe-register.init.erb",
+  "short_name": "soe-register.init.erb",
+  "timestamp": "10/22/2024",
+  "identifier": "ironfan_ADsYtJ/70",
+  "posix_compliant": true,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

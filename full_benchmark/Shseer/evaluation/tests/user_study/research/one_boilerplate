@@ -1,0 +1,86 @@
+#! /usr/bin/env bash
+
+COMMON_PATH="$QUICKTEST_PATH/common"
+
+set -e
+source "$COMMON_PATH"/error_handler
+source "$COMMON_PATH"/constants
+source "$SCRIPTS_DIR"/option_parser
+set +e
+
+print_usage() {
+
+	printf_err "%s\n"                               \
+	'quicktest boilerplate'                         \
+    '    [-c|--current]'                            \
+    '    [-d|--delete <boilerplate_name>]'          \
+    '    [-g|--get <at_path> [<boilerplate_name>]]' \
+    '    [-h|--help]'                               \
+    '    [-m|--modify [<boilerplate_name>]]'        \
+	'    [-p|--path]'                               \
+    '    [-s|--show-all]'
+
+}
+
+parse_quicktest_options() {
+
+	local option_parser_retval
+
+	parse_options \
+		, 'OPTIONS' 'ARG_CNT' 'ARGS' 'self' '0' ';' '--' \
+		                                                 \
+		'-d' , '--delete'    '1'     \
+		'-g' , '--get'       '1 -1'  \
+		'-h' , '--help'      '0'     \
+		'-m' , '--modify'    '-1'    \
+		'-p' , '--path'      '0'     \
+		'-s' , '--show-all'  '0'     \
+													     \
+		';'                                              \
+		"$@"
+
+	option_parser_retval=$?
+
+	if [ $option_parser_retval -ne 0 ] ; then
+		option_parser_error_msg $option_parser_retval 'OPTIONS'
+		print_usage
+		return 1
+	fi
+
+}
+
+option_help() {
+	less 'help.txt'
+}
+
+main() {
+
+	local boilerplate
+	local user_config
+	local instance
+
+	parse_quicktest_options "$@"
+
+	for option in "${!OPTIONS[@]}"
+	do
+		case "$option" in
+
+			-b)
+				boilerplate="$(option_boilerplate)"
+				;;
+			-h)
+				option_help
+				;;
+			-i)
+				instance="$(option_instance)"
+				;;
+			-u)
+				user_config="$(option_user_config)"
+				;;
+		esac
+	done
+
+	return 0
+}
+
+main "$@"

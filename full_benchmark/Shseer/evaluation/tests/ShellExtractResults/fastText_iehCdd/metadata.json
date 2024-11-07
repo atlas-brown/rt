@@ -1,0 +1,236 @@
+[
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/classification-example.sh",
+  "short_name": "classification-example",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/tests/fetch_test_data.sh",
+  "short_name": "fetch_test_data",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/1",
+  "posix_compliant": false,
+  "line_count": 156,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/crawl/process_wet_file.sh",
+  "short_name": "process_wet_file",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/2",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/crawl/download_crawl.sh",
+  "short_name": "download_crawl",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/3",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/crawl/filter_dedup.sh",
+  "short_name": "filter_dedup",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/4",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/scripts/kbcompletion/wn18.sh",
+  "short_name": "wn18",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/5",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/scripts/kbcompletion/data.sh",
+  "short_name": "data",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/6",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/scripts/kbcompletion/fb15k.sh",
+  "short_name": "fb15k",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/7",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/scripts/kbcompletion/fb15k237.sh",
+  "short_name": "fb15k237",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/8",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/scripts/kbcompletion/svo.sh",
+  "short_name": "svo",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/9",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/scripts/quantization/quantization-results.sh",
+  "short_name": "quantization-results",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/10",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/alignment/example.sh",
+  "short_name": "example",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/11",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/get-wikimedia.sh",
+  "short_name": "get-wikimedia",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/12",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/quantization-example.sh",
+  "short_name": "quantization-example",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/13",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/word-vector-example.sh",
+  "short_name": "word-vector-example",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/14",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebookresearch/fastText.git",
+  "relative_path": "fastText/classification-results.sh",
+  "short_name": "classification-results",
+  "timestamp": "10/22/2024",
+  "identifier": "fastText_iehCdd/15",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,45 @@
+#!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+. /etc/rc.subr
+
+name=netdata
+rcvar=netdata_enable
+
+piddir="@localstatedir_POST@/run/netdata"
+pidfile="${piddir}/netdata.pid"
+
+command="@sbindir_POST@/netdata"
+command_args="-P ${pidfile}"
+
+required_files="@configdir_POST@/netdata.conf"
+
+start_precmd="netdata_prestart"
+stop_postcmd="netdata_poststop"
+
+extra_commands="reloadhealth"
+
+reloadhealth_cmd="netdata_reloadhealth"
+
+netdata_prestart()
+{
+	[ ! -d "${piddir}" ] && mkdir -p "${piddir}"
+	chown @netdata_user_POST@:@netdata_user_POST@ "${piddir}"
+	return 0
+}
+
+netdata_poststop()
+{
+	[ -f "${pidfile}" ] && rm "${pidfile}"
+	return 0
+}
+
+netdata_reloadhealth()
+{
+    p=`cat ${pidfile}`
+    kill -USR2 ${p} && echo "Sent USR2 (reload health) to pid ${p}"
+    return 0
+}
+
+load_rc_config $name
+run_rc_command "$1"

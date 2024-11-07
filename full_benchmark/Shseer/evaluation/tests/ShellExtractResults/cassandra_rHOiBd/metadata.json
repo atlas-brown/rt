@@ -1,0 +1,1461 @@
+[
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/_build-debian.sh",
+  "short_name": "_build-debian",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/0",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/_docker_run.sh",
+  "short_name": "_docker_run",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/1",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/build-redhat.sh",
+  "short_name": "build-redhat",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/2",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/run-tests.sh",
+  "short_name": "run-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/3",
+  "posix_compliant": false,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/_docker_init_tests.sh",
+  "short_name": "_docker_init_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/4",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/_set_java.sh",
+  "short_name": "_set_java",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/5",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/build-artifacts.sh",
+  "short_name": "build-artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/6",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/_create_user.sh",
+  "short_name": "_create_user",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/7",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/_build-redhat.sh",
+  "short_name": "_build-redhat",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/8",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/build-debian.sh",
+  "short_name": "build-debian",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/9",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/build-jars.sh",
+  "short_name": "build-jars",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/10",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/_copy_ccm_repositories.sh",
+  "short_name": "_copy_ccm_repositories",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/11",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/docker/check-code.sh",
+  "short_name": "check-code",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/12",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/run-tests.sh",
+  "short_name": "run-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/13",
+  "posix_compliant": false,
+  "line_count": 202,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/ci/generate-test-report.sh",
+  "short_name": "generate-test-report",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/14",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/ci/generate-ci-summary.sh",
+  "short_name": "generate-ci-summary",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/15",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/ci/precommit_check.sh",
+  "short_name": "precommit_check",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/16",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/ci/logging.sh",
+  "short_name": "logging",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/17",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/build-artifacts.sh",
+  "short_name": "build-artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/18",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/sonar/sonar-report.sh",
+  "short_name": "sonar-report",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/19",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/sonar/sonar-setup-local.sh",
+  "short_name": "sonar-setup-local",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/20",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/build-jars.sh",
+  "short_name": "build-jars",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/21",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/run-python-dtests.sh",
+  "short_name": "run-python-dtests",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/22",
+  "posix_compliant": false,
+  "line_count": 114,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.build/check-code.sh",
+  "short_name": "check-code",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/23",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/ide/nbproject/update-netbeans-classpaths.sh",
+  "short_name": "update-netbeans-classpaths",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/24",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/sstablesplit",
+  "short_name": "sstablesplit",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/25",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/fqltool",
+  "short_name": "fqltool",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/26",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/compaction-stress",
+  "short_name": "compaction-stress",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/27",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/sstablerepairedset",
+  "short_name": "sstablerepairedset",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/28",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/addtocmstool",
+  "short_name": "addtocmstool",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/29",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/jmxtool",
+  "short_name": "jmxtool",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/30",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/auditlogviewer",
+  "short_name": "auditlogviewer",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/31",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/cassandra.in.sh",
+  "short_name": "cassandra.in",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/32",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/generatetokens",
+  "short_name": "generatetokens",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/33",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/cassandra-stress",
+  "short_name": "cassandra-stress",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/34",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/sstablemetadata",
+  "short_name": "sstablemetadata",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/35",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/sstablepartitions",
+  "short_name": "sstablepartitions",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/36",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/sstablelevelreset",
+  "short_name": "sstablelevelreset",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/37",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/sstabledump",
+  "short_name": "sstabledump",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/38",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/sstableexpiredblockers",
+  "short_name": "sstableexpiredblockers",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/39",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/hash_password",
+  "short_name": "hash_password",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/40",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/tools/bin/sstableofflinerelevel",
+  "short_name": "sstableofflinerelevel",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/41",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/pylib/cassandra-cqlsh-tests.sh",
+  "short_name": "cassandra-cqlsh-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/42",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/test/bin/jmh",
+  "short_name": "jmh",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/43",
+  "posix_compliant": false,
+  "line_count": 88,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/test/resources/functions/stop_cassandra.sh",
+  "short_name": "stop_cassandra",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/44",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/test/resources/functions/install_cassandra.sh",
+  "short_name": "install_cassandra",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/45",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/test/resources/functions/wipe_cassandra.sh",
+  "short_name": "wipe_cassandra",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/46",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/test/resources/functions/start_cassandra.sh",
+  "short_name": "start_cassandra",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/47",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/test/resources/functions/nodetool_cassandra.sh",
+  "short_name": "nodetool_cassandra",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/48",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/test/resources/functions/configure_cassandra.sh",
+  "short_name": "configure_cassandra",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/49",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/debian/cassandra.postinst",
+  "short_name": "cassandra.postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/50",
+  "posix_compliant": true,
+  "line_count": 41,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/sstablescrub",
+  "short_name": "sstablescrub",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/51",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/nodetool",
+  "short_name": "nodetool",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/52",
+  "posix_compliant": true,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/sstableverify",
+  "short_name": "sstableverify",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/53",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/cassandra.in.sh",
+  "short_name": "cassandra.in",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/54",
+  "posix_compliant": false,
+  "line_count": 113,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/stop-server",
+  "short_name": "stop-server",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/55",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/cassandra",
+  "short_name": "cassandra",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/56",
+  "posix_compliant": true,
+  "line_count": 170,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/sstableupgrade",
+  "short_name": "sstableupgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/57",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/debug-cql",
+  "short_name": "debug-cql",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/58",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/sstableloader",
+  "short_name": "sstableloader",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/59",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/cqlsh",
+  "short_name": "cqlsh",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/60",
+  "posix_compliant": true,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/bin/sstableutil",
+  "short_name": "sstableutil",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/61",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/ci/harry_simulation.sh",
+  "short_name": "harry_simulation",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/62",
+  "posix_compliant": true,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/build-shaded-dtest-jar.sh",
+  "short_name": "build-shaded-dtest-jar",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/63",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/nodetool_flush_table.sh",
+  "short_name": "nodetool_flush_table",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/64",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/curl_verify_sha.sh",
+  "short_name": "curl_verify_sha",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/65",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/snapshot_mult_tables_again.sh",
+  "short_name": "snapshot_mult_tables_again",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/66",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/docker-run-cqlsh-quickstart.sh",
+  "short_name": "docker-run-cqlsh-quickstart",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/67",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/docker-network-run.sh",
+  "short_name": "docker-network-run",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/68",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/snapshot_files.sh",
+  "short_name": "snapshot_files",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/69",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/tail_syslog_package.sh",
+  "short_name": "tail_syslog_package",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/70",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/check_backups.sh",
+  "short_name": "check_backups",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/71",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/snapshot_one_table2.sh",
+  "short_name": "snapshot_one_table2",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/72",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/run_cqlsh_nobin.sh",
+  "short_name": "run_cqlsh_nobin",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/73",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/apt-get_cass.sh",
+  "short_name": "apt-get_cass",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/74",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/run_cqlsh.sh",
+  "short_name": "run_cqlsh",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/75",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/snapshot_mult_tables.sh",
+  "short_name": "snapshot_mult_tables",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/76",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/snapshot_one_table.sh",
+  "short_name": "snapshot_one_table",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/77",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/nodetool_status_nobin.sh",
+  "short_name": "nodetool_status_nobin",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/78",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/nodetool_status.sh",
+  "short_name": "nodetool_status",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/79",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/docker-kill-and-remove.sh",
+  "short_name": "docker-kill-and-remove",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/80",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/java_verify.sh",
+  "short_name": "java_verify",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/81",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/tarball.sh",
+  "short_name": "tarball",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/82",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/curl_install.sh",
+  "short_name": "curl_install",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/83",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/docker_pull.sh",
+  "short_name": "docker_pull",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/84",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/find_snapshots.sh",
+  "short_name": "find_snapshots",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/85",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/docker_cqlsh.sh",
+  "short_name": "docker_cqlsh",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/86",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/docker_run.sh",
+  "short_name": "docker_run",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/87",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/yum_update.sh",
+  "short_name": "yum_update",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/88",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/yum_start.sh",
+  "short_name": "yum_start",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/89",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/add_repo_keys.sh",
+  "short_name": "add_repo_keys",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/90",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/verify_gpg.sh",
+  "short_name": "verify_gpg",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/91",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/nodetool_clearsnapshot.sh",
+  "short_name": "nodetool_clearsnapshot",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/92",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/snapshot_backup2.sh",
+  "short_name": "snapshot_backup2",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/93",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/cqlsh_localhost.sh",
+  "short_name": "cqlsh_localhost",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/94",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/nodetool_clearsnapshot_all.sh",
+  "short_name": "nodetool_clearsnapshot_all",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/95",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/docker-run-cqlsh-load-data.sh",
+  "short_name": "docker-run-cqlsh-load-data",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/96",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/tail_syslog.sh",
+  "short_name": "tail_syslog",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/97",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/start_tarball.sh",
+  "short_name": "start_tarball",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/98",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/apt-get_update.sh",
+  "short_name": "apt-get_update",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/99",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/nodetool_snapshot.sh",
+  "short_name": "nodetool_snapshot",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/100",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/flush_and_check.sh",
+  "short_name": "flush_and_check",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/101",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/yum_cass.sh",
+  "short_name": "yum_cass",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/102",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/find_backups.sh",
+  "short_name": "find_backups",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/103",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/find_two_snapshots.sh",
+  "short_name": "find_two_snapshots",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/104",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/snapshot_mult_ks.sh",
+  "short_name": "snapshot_mult_ks",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/105",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/nodetool_list_snapshots.sh",
+  "short_name": "nodetool_list_snapshots",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/106",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/find_sstables.sh",
+  "short_name": "find_sstables",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/107",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/nodetool_flush.sh",
+  "short_name": "nodetool_flush",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/108",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/get_deb_package.sh",
+  "short_name": "get_deb_package",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/109",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/doc/modules/cassandra/examples/BASH/snapshot_both_backups.sh",
+  "short_name": "snapshot_both_backups",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/110",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/redhat/cassandra.in.sh",
+  "short_name": "cassandra.in",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/111",
+  "posix_compliant": false,
+  "line_count": 117,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/redhat/cassandra",
+  "short_name": "cassandra",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/112",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/conf/cassandra-env.sh",
+  "short_name": "cassandra-env",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/113",
+  "posix_compliant": false,
+  "line_count": 138,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/cassandra.git",
+  "relative_path": "cassandra/.circleci/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "cassandra_rHOiBd/114",
+  "posix_compliant": false,
+  "line_count": 368,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

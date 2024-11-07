@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+# If not running interactively, don't do anything
+case "$-" in
+    *i*) ;;
+    *)   return ;;
+esac
+
+# Set PS1 prompt
+# shellcheck source=.config/git/git-prompt.sh
+source ~/.config/git/git-prompt.sh
+# export GIT_PS1_SHOWDIRTYSTATE=true
+# export GIT_PS1_SHOWUNTRACKEDFILES=true
+# PS1='[\u@\h \w]\n\$ '
+PS1='[\u@\h \W]\[\e[36m\]$(__git_ps1 " (%s)")\[\e[m\]\n\$ '
+# PS1='[\u@\h \W]\[\e[36m\]$(__git_ps1 " (%s)")\[\e[m\]\$ '
+
+# Automatically trim long paths in the prompt (requires Bash 4.x)
+export PROMPT_DIRTRIM=2
+
+# Disable shell suspension
+stty -ixon
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+export HISTCONTROL='ignoreboth:erasedups'
+export HISTTIMEFORMAT='[%F %T] '
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Case-insensitive globbing (used in pathname expansion)
+[ "${BASH_VERSINFO[0]}" -ge 4 ] && shopt -s nocaseglob
+
+[ "$LANG" = '' ] && export LANG=en_US.UTF-8
+
+# shellcheck source=.config/bash/aliases.bash
+[ -s ~/.config/bash/aliases.bash ] && . ~/.config/bash/aliases.bash
+
+# shellcheck source=.config/bash/functions.sh
+[ -s ~/.config/bash/functions.sh ] && . ~/.config/bash/functions.sh
+
+# Enable following directory shell options {{{
+if [ "${BASH_VERSINFO[0]}" -ge 4 ]; then
+    # go into directory using only the directory's name (no need to type "cd
+    # dirname")
+    shopt -s autocd
+    # Perform spell corrections on directory names
+    shopt -s dirspell
+fi
+shopt -s cdspell
+# Enable following directory shell options }}}
+
+# Set default editor to vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# shellcheck source=.fzf.bash
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# shellcheck source=.config/nnn/config
+[ -s ~/.config/nnn/config ] && . ~/.config/nnn/config
+
+# Direnv {{{
+if command -v direnv 1> /dev/null 2>&1; then
+    show_virtual_env() {
+        if [ -n "$DIRENV_DIR" ]; then
+            if [ -n "$VIRTUAL_ENV" ]; then
+                echo "($(basename "$VIRTUAL_ENV"))"
+            elif [ -n "$CONDA_DEFAULT_ENV" ]; then
+                echo "($(basename "$CONDA_DEFAULT_ENV"))"
+            fi
+        fi
+    }
+    export -f show_virtual_env
+    PS1='$(show_virtual_env)'$PS1
+    eval "$(direnv hook bash)"
+fi
+# Direnv }}}
+
+
+# shellcheck source=.config/bash/scripts/aliases.bash
+source ~/.config/bash/scripts/prompt.bash

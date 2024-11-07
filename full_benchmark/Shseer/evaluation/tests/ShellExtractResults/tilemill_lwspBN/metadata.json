@@ -1,0 +1,113 @@
+[
+ {
+  "repo": "https://github.com/tilemill-project/tilemill.git",
+  "relative_path": "tilemill/rebuild_cxx.sh",
+  "short_name": "rebuild_cxx",
+  "timestamp": "10/22/2024",
+  "identifier": "tilemill_lwspBN/0",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tilemill-project/tilemill.git",
+  "relative_path": "tilemill/platforms/osx/codesign.sh",
+  "short_name": "codesign",
+  "timestamp": "10/22/2024",
+  "identifier": "tilemill_lwspBN/1",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tilemill-project/tilemill.git",
+  "relative_path": "tilemill/tilemill.sh",
+  "short_name": "tilemill",
+  "timestamp": "10/22/2024",
+  "identifier": "tilemill_lwspBN/2",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/tilemill-project/tilemill.git",
+  "relative_path": "tilemill/utils/runclient.sh",
+  "short_name": "runclient",
+  "timestamp": "10/22/2024",
+  "identifier": "tilemill_lwspBN/3",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tilemill-project/tilemill.git",
+  "relative_path": "tilemill/utils/loadosm.sh",
+  "short_name": "loadosm",
+  "timestamp": "10/22/2024",
+  "identifier": "tilemill_lwspBN/4",
+  "posix_compliant": false,
+  "line_count": 454,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tilemill-project/tilemill.git",
+  "relative_path": "tilemill/utils/installdb.sh",
+  "short_name": "installdb",
+  "timestamp": "10/22/2024",
+  "identifier": "tilemill_lwspBN/5",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tilemill-project/tilemill.git",
+  "relative_path": "tilemill/utils/installtilemill.sh",
+  "short_name": "installtilemill",
+  "timestamp": "10/22/2024",
+  "identifier": "tilemill_lwspBN/6",
+  "posix_compliant": false,
+  "line_count": 111,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tilemill-project/tilemill.git",
+  "relative_path": "tilemill/examples/geography-class/insert_flags.sh",
+  "short_name": "insert_flags",
+  "timestamp": "10/22/2024",
+  "identifier": "tilemill_lwspBN/7",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

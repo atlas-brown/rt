@@ -221,6 +221,7 @@ if __name__ == "__main__":
         valid_dirs=[
                     "./evaluation_pipelines/valid", 
                     # "./full_benchmark/intercode/InterCode-ALFA-Data", 
+                    # "./full_benchmark/Shseer",
                     "./full_benchmark/pash_benchmark/benchmarks/unix50"
         ],
         invalid_dirs=["./evaluation_pipelines/invalid"]

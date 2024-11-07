@@ -1,0 +1,43 @@
+[
+ {
+  "repo": "https://github.com/replit/ReplitLM.git",
+  "relative_path": "ReplitLM/evaluation/scripts/multiple_eval.sh",
+  "short_name": "multiple_eval",
+  "timestamp": "10/22/2024",
+  "identifier": "ReplitLM_sbTflY/0",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/replit/ReplitLM.git",
+  "relative_path": "ReplitLM/evaluation/scripts/humaneval.sh",
+  "short_name": "humaneval",
+  "timestamp": "10/22/2024",
+  "identifier": "ReplitLM_sbTflY/1",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/replit/ReplitLM.git",
+  "relative_path": "ReplitLM/evaluation/scripts/multiple_gen.sh",
+  "short_name": "multiple_gen",
+  "timestamp": "10/22/2024",
+  "identifier": "ReplitLM_sbTflY/2",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

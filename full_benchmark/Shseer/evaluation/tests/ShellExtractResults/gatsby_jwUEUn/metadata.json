@@ -1,0 +1,223 @@
+[
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/starters/upgrade-starters.sh",
+  "short_name": "upgrade-starters",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/integration-tests/gatsby-source-wordpress/docker/wp-cli/install-wp-graphql-plugins.sh",
+  "short_name": "install-wp-graphql-plugins",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/integration-tests/gatsby-source-wordpress/docker/wp-cli/install-plugin.sh",
+  "short_name": "install-plugin",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/2",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/integration-tests/gatsby-source-wordpress/docker/wp-cli/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/3",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/integration-tests/gatsby-source-wordpress/docker/wordpress/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/4",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/e2e-tests/adapters/make-monorepo.sh",
+  "short_name": "make-monorepo",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/5",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/examples/build-all-examples.sh",
+  "short_name": "build-all-examples",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/6",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/benchmarks/docker-runner/scripts/enforce-docker",
+  "short_name": "enforce-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/7",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/benchmarks/docker-runner/scripts/docker-stats",
+  "short_name": "docker-stats",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/8",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/benchmarks/query/bin/runQueryTiming.sh",
+  "short_name": "runQueryTiming",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/9",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/scripts/assert-changed-files.sh",
+  "short_name": "assert-changed-files",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/10",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/scripts/publish-starters.sh",
+  "short_name": "publish-starters",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/11",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/scripts/validate-starters.sh",
+  "short_name": "validate-starters",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/12",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/scripts/check-lockfile.sh",
+  "short_name": "check-lockfile",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/13",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/scripts/build-examples.sh",
+  "short_name": "build-examples",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/14",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/gatsbyjs/gatsby.git",
+  "relative_path": "gatsby/scripts/e2e-test.sh",
+  "short_name": "e2e-test",
+  "timestamp": "10/22/2024",
+  "identifier": "gatsby_jwUEUn/15",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ }
+]

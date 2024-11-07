@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/alexjlockwood/ShapeShifter.git",
+  "relative_path": "ShapeShifter/scripts/deploy-beta.sh",
+  "short_name": "deploy-beta",
+  "timestamp": "10/22/2024",
+  "identifier": "ShapeShifter_tuSODR/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alexjlockwood/ShapeShifter.git",
+  "relative_path": "ShapeShifter/scripts/deploy-stable.sh",
+  "short_name": "deploy-stable",
+  "timestamp": "10/22/2024",
+  "identifier": "ShapeShifter_tuSODR/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ }
+]

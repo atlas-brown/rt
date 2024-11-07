@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/smarty/assertions.git",
+  "relative_path": "assertions/internal/go-diff/scripts/lint.sh",
+  "short_name": "lint",
+  "timestamp": "10/22/2024",
+  "identifier": "assertions_zKoqfn/0",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/infotroph/gitMSOfficeDiff.git",
+  "relative_path": "gitMSOfficeDiff/gitxlscmp.sh",
+  "short_name": "gitxlscmp",
+  "timestamp": "10/22/2024",
+  "identifier": "gitMSOfficeDiff_dqXmCp/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/infotroph/gitMSOfficeDiff.git",
+  "relative_path": "gitMSOfficeDiff/xmlzip.sh",
+  "short_name": "xmlzip",
+  "timestamp": "10/22/2024",
+  "identifier": "gitMSOfficeDiff_dqXmCp/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,71 @@
+[
+ {
+  "repo": "https://github.com/nwcdlabs/container-mirror.git",
+  "relative_path": "container-mirror/mirror/mirror-base.sh",
+  "short_name": "mirror-base",
+  "timestamp": "10/22/2024",
+  "identifier": "container_YTiLrM/0",
+  "posix_compliant": false,
+  "line_count": 114,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nwcdlabs/container-mirror.git",
+  "relative_path": "container-mirror/mirror/ECRImageList.sh",
+  "short_name": "ECRImageList",
+  "timestamp": "10/22/2024",
+  "identifier": "container_YTiLrM/1",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nwcdlabs/container-mirror.git",
+  "relative_path": "container-mirror/mirror/ECR_Auth.sh",
+  "short_name": "ECR_Auth",
+  "timestamp": "10/22/2024",
+  "identifier": "container_YTiLrM/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nwcdlabs/container-mirror.git",
+  "relative_path": "container-mirror/mirror/mirror-images.sh",
+  "short_name": "mirror-images",
+  "timestamp": "10/22/2024",
+  "identifier": "container_YTiLrM/3",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nwcdlabs/container-mirror.git",
+  "relative_path": "container-mirror/mirror/mirror-images-daily.sh",
+  "short_name": "mirror-images-daily",
+  "timestamp": "10/22/2024",
+  "identifier": "container_YTiLrM/4",
+  "posix_compliant": false,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

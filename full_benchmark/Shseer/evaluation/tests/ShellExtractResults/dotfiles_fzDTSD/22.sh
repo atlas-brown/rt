@@ -1,0 +1,120 @@
+#!/bin/bash
+# written by Shotaro Fujimoto (https://github.com/ssh0)
+#
+#=#=#=
+# ```
+# Name:
+#       s - Search from terminal
+#
+# Usage:
+#       s <search_provider> <search_queries>...
+#       s [(-g | --gui)] <search_provider> <search_queries>...
+#       s [(-t | --target) <browser>] <search_provider> <search_queries>...
+#       s (-l | --list)
+#       s (-h | --help)
+#
+# Options:
+#       -h --help    Show help message
+#       -t --target  Set the browser to use (-g option is already enabled)
+#       -l --list    Show search providers list
+#       -g --gui     Force search in GUI browser
+#
+# Environment Variables:
+#       $BROWSERCLI   browser used in terminal
+#       $BROWSER      GUI browser
+# ```
+#=#=
+
+script_dir="$(builtin cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")" && pwd)"
+script_file="${script_dir}/s"
+providers="${script_dir}/s_provider"
+
+# default: Google search, use $BROWSERCLI
+url="https://www.google.com/search?q=%s"
+gui=false
+
+usage() {
+  sed -n '/^#=#=#=/,/^#=#=/p' ${script_file} \
+    | sed -e '1d;$d' \
+    | cut -b3- \
+    | grep -v "\`\`\`"
+}
+
+list_providers() {
+  local lists="$(grep -e "^# \"" "${providers}" | sed 's/\"//g' | cut -b3-)"
+  if [[ "$1" = "zsh" ]]; then
+    echo "${lists}" | awk -F ": " '{ printf("%s:%s\n",$1,$2) ;}'
+  else
+    echo "${lists}" | awk -F ": " '{ printf("%5s :%s\n",$1,$2) ;}'
+  fi
+}
+
+for arg in "$@"; do
+  shift
+  case "$arg" in
+    "--help") set -- "$@" "-h" ;;
+    "--target") set -- "$@" "-t" ;;
+    "--list") set -- "$@" "-l" ;;
+    "--gui") set -- "$@" "-g" ;;
+    *)        set -- "$@" "$arg" ;;
+  esac
+done
+
+while getopts gt:l:h OPT; do
+  case $OPT in
+    "g") gui=true ;;
+    "t") gui=true
+         s_browser="${OPTARG}"
+         case ${s_browser} in
+           "firefox") s_browser="firefox --new-tab" ;;
+           "private") s_browser="firefox --private-window" ;;
+           "chromium") s_browser="chromium-browser -new-tab" ;;
+           "chrome") s_browser="google-chrome -new-tab" ;;
+           "opera") s_browser="opera -newtab " ;;
+           "operaprivate") s_browser="opera -newprivatetab" ;;
+           "luakit") s_browser="luakit -n" ;;
+           "w3m") s_browser="urxvt -e w3m" ;;
+         esac ;;
+    "l") list_providers "${OPTARG}"; exit 0 ;;
+    "h") usage; exit 0 ;;
+      *) usage; exit 1 ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
+while read l; do
+  alis="$(echo "$l" | cut -d, -f1)"
+  if [[ "$1" = ${alis} ]]; then
+    url="$(echo "$l" | cut -d, -f2)"
+    gui=$($gui || echo "$l" | cut -d, -f3)
+    shift 1
+    break
+  fi
+done < <(grep -Ev '^#|^$' "${providers}")
+
+[[ -n "$1" ]] && query="$1" || {
+    echo "At least one search term will be needed."; exit 1
+    }
+
+shift 1
+for q in $@; do
+  query="$query%20$q"
+done
+
+url="$(printf "$url" "$query")"
+
+if $gui; then
+  ${s_browser:-$BROWSER} "$url" 2> /dev/null &
+else
+  if [[ -n "$TMUX" ]]; then
+    if [[ $(tput cols) -gt 160 ]]; then
+      tmux split-window -h -p 70 $BROWSERCLI "$url"
+    else
+      tmux new-window $BROWSERCLI "$url"
+    fi
+  else
+    $BROWSERCLI "$url"
+  fi
+fi
+

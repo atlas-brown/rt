@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/DawnFlame/POChouse.git",
+  "relative_path": "POChouse/F5-BIG-IP/TMUI \u8fdc\u7a0b\u4ee3\u7801\u6267\u884c\u6f0f\u6d1e\uff08CVE-2020-5902\uff09/CVE-2020-5902.sh",
+  "short_name": "CVE-2020-5902",
+  "timestamp": "10/22/2024",
+  "identifier": "POChouse_GeKxxe/0",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

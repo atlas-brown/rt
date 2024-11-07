@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/commercetools/sphere-product-import.git",
+  "relative_path": "sphere-product-import/create_config.sh",
+  "short_name": "create_config",
+  "timestamp": "10/22/2024",
+  "identifier": "sphere_Maqvjo/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

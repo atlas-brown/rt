@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/gaussic/text-classification-cnn-rnn.git",
+  "relative_path": "text-classification-cnn-rnn/helper/copy_data.sh",
+  "short_name": "copy_data",
+  "timestamp": "10/22/2024",
+  "identifier": "text_uqTdzH/0",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

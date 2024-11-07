@@ -1,0 +1,76 @@
+#!/bin/bash
+
+function open_uri () {
+  xdg-open "$3"
+}
+export -f open_uri
+
+start_pattern=$1
+start_path=$2
+[[ -z $1 ]] && start_pattern=""
+[[ -z $2 ]] && start_path=$HOME
+
+values=$(yad \
+  --form \
+  --field=Keyword \
+  "$start_pattern" \
+  --field=Path:DIR \
+  "$start_path" \
+  --class="Keyword-And-Path" \
+  --name="Keyword and Path" \
+  --title="$(basename "$0") - Keyword and Path" \
+  --center \
+  --width=400 \
+  --separator="~/~" \
+)
+
+pattern=$(echo "$values" | awk -F "~/~" '{print $1}')
+[[ -z "$pattern" ]] && exit 1
+
+path=$(echo "$values" | awk -F "~/~" '{print $2}')
+[[ -z "$path" ]] && exit 1
+
+
+#exec 4> >(yad --progress --auto-close --pulsate --undecorated --no-buttons --center)
+
+exec 3> >(yad \
+  --center \
+  --class="Search-Results" \
+  --name="Search Results" \
+  --text="The search term <b>\"$pattern\"</b> was found in these files. Double to open a file." \
+  --save \
+  --list \
+  --column="Author" \
+  --column="Title" \
+  --column="Path" \
+  --button="Close:1" \
+  --width=700 \
+  --height=500 \
+  --title="$(basename "$0") - Search Results" \
+  --dclick-action="bash -c \"open_uri %s &\"" \
+  --quoted-output \
+  --listen \
+  --separator="~/~" \
+)
+
+
+#exec 4> >(yad --progress --pulsate --auto-close --center)
+notify-send "$(basename "$0")" "Start search for <b>$pattern</b> in <b>$path</b>"
+
+#echo "Title A" >&3
+#echo "/home/aboettger/Eisenbahn/Eisenbahnliteratur/Autorengruppe - Modelleisenbahner/Modelleisenbahner (2025)/Modelleisenbahner - Autorengruppe - Modelleisenbahner.pdf" >&3
+
+pdfgrep -r "$pattern" "$path" 2> /dev/null | awk -F ":" '{out=$2; for(i=3;i<=NF;i++){out=out":"$i}; print $1}' | uniq | { while read -r pdf_path;
+  do
+    pdfinfo "$pdf_path" | grep "Author" | awk '{sub(/[^ ]+ /, ""); print $0}' | sed 's/^[ \t]*//;s/[ \t]*$//' >&3
+    pdfinfo "$pdf_path" | grep "Title" | awk '{sub(/[^ ]+ /, ""); print $0}' | sed 's/^[ \t]*//;s/[ \t]*$//' >&3
+    echo "$pdf_path" >&3
+  done
+}
+
+notify-send "$(basename "$0")" "Finished search for <b>$pattern</b> in <b>$path</b>"
+
+exec 3>&-
+#exec 4>&-
+
+exit 0

@@ -1,0 +1,71 @@
+[
+ {
+  "repo": "https://github.com/p-e-w/finalterm.git",
+  "relative_path": "finalterm/data/Termlets/wget",
+  "short_name": "wget",
+  "timestamp": "10/22/2024",
+  "identifier": "finalterm_DnJMVK/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/p-e-w/finalterm.git",
+  "relative_path": "finalterm/data/Termlets/ps",
+  "short_name": "ps",
+  "timestamp": "10/22/2024",
+  "identifier": "finalterm_DnJMVK/1",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/p-e-w/finalterm.git",
+  "relative_path": "finalterm/data/Termlets/ls",
+  "short_name": "ls",
+  "timestamp": "10/22/2024",
+  "identifier": "finalterm_DnJMVK/2",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/p-e-w/finalterm.git",
+  "relative_path": "finalterm/data/Startup/preexec.bash",
+  "short_name": "preexec.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "finalterm_DnJMVK/3",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/p-e-w/finalterm.git",
+  "relative_path": "finalterm/data/Startup/bash_startup.in",
+  "short_name": "bash_startup.in",
+  "timestamp": "10/22/2024",
+  "identifier": "finalterm_DnJMVK/4",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

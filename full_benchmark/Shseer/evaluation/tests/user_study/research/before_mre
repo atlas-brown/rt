@@ -1,0 +1,103 @@
+#!/bin/bash
+
+PROD_COMPOSE_FILES=("monitoring" "microservices.base" "microservices.prod")
+DEV_COMPOSE_FILES=("microservices.base" "microservices.dev")
+
+prod_compose_files_argument=$(printf " -f ./docker-compose.%s.yml" "${PROD_COMPOSE_FILES[@]}")
+dev_compose_files_argument=$(printf " -f ./docker-compose.%s.yml" "${DEV_COMPOSE_FILES[@]}")
+
+# environment variables are in *.env files
+initEnv() {
+    while read LINE; do
+        if  [[ $LINE != \#* ]] && [[ $LINE != "" ]];
+        then
+        eval "export $LINE"
+        fi
+    done < $1
+}
+
+dev() {
+    echo "Starting microrealestate..."
+    docker-compose $dev_compose_files_argument rm --stop --force
+    docker-compose $dev_compose_files_argument up --build --remove-orphans
+}
+
+status() {
+    docker-compose $prod_compose_files_argument ps
+}
+
+build() {
+    echo "Building microrealestate..."
+    docker-compose $prod_compose_files_argument rm --stop --force
+    docker-compose $prod_compose_files_argument build --no-cache
+}
+
+start() {
+    echo "Starting microrealestate..."
+    if [ ! -d ./data/elasticsearch ]; then
+        mkdir -p ./data/elasticsearch;
+    fi
+    if [ ! -d ./data/mongodb ]; then
+        mkdir -p ./data/mongodb;
+    fi
+    docker-compose $prod_compose_files_argument up -d --force-recreate --remove-orphans # > /dev/null
+    local res=$?;
+    if [ $res -ne 0 ]; then
+        stop
+        echo "ERROR: Fail to start microrealestate" >&2
+    else
+        status
+        echo ""
+        echo "Front-end             http://localhost:$LOCA_PORT"
+        echo "kibana                http://localhost:$KIBANA_PORT"
+        echo "cadvisor              http://localhost:$CADVISOR_PORT"
+        echo "rabbitmq Management   http://localhost:$RABBITMQ_MANAGEMENT_PORT"
+    fi
+    return $res
+}
+
+stop() {
+    echo "Stoping microrealestate..."
+    docker-compose $prod_compose_files_argument rm -sf > /dev/null
+}
+
+display_help() {
+    echo "Usage: $0 [option...] {dev|build|status|start|stop|restart}" >&2
+}
+
+case "$1" in
+    dev)
+        initEnv dev.env
+        initEnv .env
+        dev
+        ;;
+    status)
+        initEnv prod.env
+        status
+        ;;
+    build)
+        initEnv prod.env
+        build
+        ;;
+    start)
+        initEnv prod.env
+        start
+        ;;
+    stop)
+        initEnv prod.env
+        stop
+        ;;
+    restart)
+        initEnv prod.env
+        stop
+        start
+        ;;
+    -h | --help)
+        display_help
+        exit 0
+        ;;
+    *)
+        display_help
+        exit 1
+        ;;
+esac

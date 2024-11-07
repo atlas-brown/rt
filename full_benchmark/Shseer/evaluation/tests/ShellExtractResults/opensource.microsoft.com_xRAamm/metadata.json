@@ -1,0 +1,27 @@
+[
+ {
+  "repo": "https://github.com/microsoft/opensource.microsoft.com.git",
+  "relative_path": "opensource.microsoft.com/script/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "opensource.microsoft.com_xRAamm/0",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/opensource.microsoft.com.git",
+  "relative_path": "opensource.microsoft.com/script/server",
+  "short_name": "server",
+  "timestamp": "10/22/2024",
+  "identifier": "opensource.microsoft.com_xRAamm/1",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

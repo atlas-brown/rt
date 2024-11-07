@@ -1,0 +1,150 @@
+[
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/tools/list_installed_dll_dependencies_cygwin.sh",
+  "short_name": "list_installed_dll_dependencies_cygwin",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/0",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/tools/ci/run_32_bit_linux_docker.sh",
+  "short_name": "run_32_bit_linux_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/tools/list_numpy_dlls.sh",
+  "short_name": "list_numpy_dlls",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/2",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/tools/rebase_installed_dlls_cygwin.sh",
+  "short_name": "rebase_installed_dlls_cygwin",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/3",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/tools/wheels/gfortran_utils.sh",
+  "short_name": "gfortran_utils",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/4",
+  "posix_compliant": false,
+  "line_count": 126,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/tools/wheels/repair_windows.sh",
+  "short_name": "repair_windows",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/5",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/tools/wheels/cibw_test_command.sh",
+  "short_name": "cibw_test_command",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/6",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/tools/wheels/upload_wheels.sh",
+  "short_name": "upload_wheels",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/7",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/tools/wheels/cibw_before_build.sh",
+  "short_name": "cibw_before_build",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/8",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/tools/c_coverage/c_coverage_collect.sh",
+  "short_name": "c_coverage_collect",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/9",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/numpy/numpy.git",
+  "relative_path": "numpy/.devcontainer/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "numpy_uYVgkd/10",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "difficult"
+  ]
+ }
+]

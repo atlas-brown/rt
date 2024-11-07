@@ -1,0 +1,65 @@
+[
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUENER2020.git",
+  "relative_path": "CLUENER2020/pytorch_version/run_ner_crf.sh",
+  "short_name": "run_ner_crf",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUENER2020_rNLhlk/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUENER2020.git",
+  "relative_path": "CLUENER2020/pytorch_version/scripts/run_ner_crf.sh",
+  "short_name": "run_ner_crf",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUENER2020_rNLhlk/1",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUENER2020.git",
+  "relative_path": "CLUENER2020/pytorch_version/run_ner_span.sh",
+  "short_name": "run_ner_span",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUENER2020_rNLhlk/2",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUENER2020.git",
+  "relative_path": "CLUENER2020/pytorch_version/run_ner_softmax.sh",
+  "short_name": "run_ner_softmax",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUENER2020_rNLhlk/3",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/CLUEbenchmark/CLUENER2020.git",
+  "relative_path": "CLUENER2020/tf_version/run_classifier_roberta_wwm_large.sh",
+  "short_name": "run_classifier_roberta_wwm_large",
+  "timestamp": "10/22/2024",
+  "identifier": "CLUENER2020_rNLhlk/4",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

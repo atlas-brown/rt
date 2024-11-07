@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/tromp/golegal.git",
+  "relative_path": "golegal/golegal",
+  "short_name": "golegal",
+  "timestamp": "10/22/2024",
+  "identifier": "golegal_YQfMNc/0",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/tromp/golegal.git",
+  "relative_path": "golegal/gomon",
+  "short_name": "gomon",
+  "timestamp": "10/22/2024",
+  "identifier": "golegal_YQfMNc/1",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

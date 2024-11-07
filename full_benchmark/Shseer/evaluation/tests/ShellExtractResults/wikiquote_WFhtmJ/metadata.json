@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/maandree/wikiquote-fortune-collection.git",
+  "relative_path": "wikiquote-fortune-collection/aur-upload",
+  "short_name": "aur-upload",
+  "timestamp": "10/22/2024",
+  "identifier": "wikiquote_WFhtmJ/0",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,23 @@
+#!/bin/bash
+#=#=#=
+# agvim - Search files with ag, select with `$PERCOL`, and edit in vim.
+#
+# **Usage:**
+#
+# ```
+# cd ~/Workspace/blog
+# agvim xmonad
+# ```
+#
+# >[ag(The Silver Searcher)で検索しpecoで更に絞り込みvimで該当行を開く - Qiita](http://qiita.com/fmy/items/b92254d14049996f6ec3)
+#=#=
+
+# show how to use this script
+if [ "$1" = '-h' ]; then
+  usage_all "$0"
+  exit 0
+fi
+
+agfilepath="$(ag $@ | $PERCOL | awk -F : '{print "+" $2 " \047" $1 "\047"}')"
+test -n "$agfilepath" && eval "$EDITOR $agfilepath"
+

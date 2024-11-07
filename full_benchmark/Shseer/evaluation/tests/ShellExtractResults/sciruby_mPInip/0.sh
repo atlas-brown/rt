@@ -1,0 +1,18 @@
+#!/bin/sh
+
+mkdir -p pages
+
+cd pages
+
+git init
+git config user.name "Daniel Mendler"
+git config user.email "mail@daniel-mendler.de"
+
+git remote add origin "https://$GH_TOKEN@github.com/minad/sciruby-gems.git"
+git fetch && git reset origin/gh-pages
+
+cp ../gems.html index.html
+
+git add index.html
+git commit -m "rebuild pages"
+git push -q origin HEAD:gh-pages

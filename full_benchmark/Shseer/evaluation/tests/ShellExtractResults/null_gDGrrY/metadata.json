@@ -1,0 +1,34 @@
+[
+ {
+  "repo": "https://github.com/jose-elias-alvarez/null-ls.nvim.git",
+  "relative_path": "null-ls.nvim/test/scripts/sleep-and-echo.sh",
+  "short_name": "sleep-and-echo",
+  "timestamp": "10/22/2024",
+  "identifier": "null_gDGrrY/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/jose-elias-alvarez/null-ls.nvim.git",
+  "relative_path": "null-ls.nvim/test/files/cat",
+  "short_name": "cat",
+  "timestamp": "10/22/2024",
+  "identifier": "null_gDGrrY/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/jose-elias-alvarez/null-ls.nvim.git",
+  "relative_path": "null-ls.nvim/scripts/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "null_gDGrrY/2",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

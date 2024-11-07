@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# The `checkout` hook script will replace the default checkout routine of the
+# bootstrap.sh script. You can use this hook to do your own SCM checkout
+# behaviour
+
+# Note that as the script is sourced not run directly, the shebang line will be ignored
+# See https://buildkite.com/docs/agent/v3/hooks#creating-hook-scripts
+
+set -e

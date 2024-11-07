@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/jadore801120/attention-is-all-you-need-pytorch.git",
+  "relative_path": "attention-is-all-you-need-pytorch/train_multi30k_de_en.sh",
+  "short_name": "train_multi30k_de_en",
+  "timestamp": "10/22/2024",
+  "identifier": "attention_pGQkrj/0",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

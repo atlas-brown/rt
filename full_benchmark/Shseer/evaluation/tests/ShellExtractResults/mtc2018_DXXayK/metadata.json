@@ -1,0 +1,52 @@
+[
+ {
+  "repo": "https://github.com/mercari/mtc2018-web.git",
+  "relative_path": "mtc2018-web/server/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "mtc2018_DXXayK/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mercari/mtc2018-web.git",
+  "relative_path": "mtc2018-web/server/script/check_contents.sh",
+  "short_name": "check_contents",
+  "timestamp": "10/22/2024",
+  "identifier": "mtc2018_DXXayK/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mercari/mtc2018-web.git",
+  "relative_path": "mtc2018-web/server/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "mtc2018_DXXayK/2",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mercari/mtc2018-web.git",
+  "relative_path": "mtc2018-web/server/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "mtc2018_DXXayK/3",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

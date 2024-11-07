@@ -1,0 +1,102 @@
+#!/bin/bash
+
+. `dirname -- ${BASH_SOURCE[0]}`/common_functions.sh
+setup_trap
+cd_dist
+check_fast_mode_flag
+
+# Insulate against locale-specific sort order and IFS from the user's env
+LC_ALL=C
+export LC_ALL
+IFS=' ''	''
+'
+export IFS
+
+build() {
+    set -o pipefail
+
+    [[ -z "$(
+        {
+            echo ../src/include/wt_internal.h
+            ls -1 ../src/*/*.h ../src/include/*.in
+        } | filter_if_fast ../
+    )" ]] && return
+
+    # Build the standard typedefs.
+    f=../src/include/wt_internal.h
+    (sed -e '/Forward type declarations .*: BEGIN/{' \
+        -e 'n' \
+        -e 'q' \
+        -e '}' < $f || exit $?
+
+    l=`ls ../src/*/*.h ../src/include/*.in |
+        sed -e '/wiredtiger.*/d' -e '/queue.h/d'` || exit $?
+    grep -E -h \
+        '^[[:space:]]*(((struct|union)[[:space:]].*__wt_.*{)|WT_PACKED_STRUCT_BEGIN)' \
+        $l |
+        sed -e 's/WT_PACKED_STRUCT_BEGIN(\(.*\))/struct \1 {/' \
+            -e 's/WT_COMPILER_TYPE_ALIGN(.*)[ ]*//' \
+            -e 's/^[ ]*//' -e 's/[ ]*{.*//' | sort -u | \
+    while read t n; do
+        upper=`echo $n | sed -e 's/^__//' | tr '[a-z]' '[A-Z]'`
+        echo "$t $n;"
+        echo "    typedef $t $n $upper;"
+    done || exit $?
+
+    # Fixed types we use.
+    echo
+    echo 'typedef struct timespec WT_TIMER;'
+    echo 'typedef uint64_t wt_timestamp_t;'
+    echo
+
+    echo '/*'
+    sed -e '/Forward type declarations .*: END/,${' \
+        -e 'p' \
+        -e '}' \
+        -e 'd' < $f) > $t || exit $?
+    ./s_clang_format "${PWD}/$t" || exit $?
+    cmp $t $f > /dev/null 2>&1 ||
+        { echo "Building $f" ; cp -f $t $f; }
+}
+
+check() {
+    # Complain about unused #typedefs.
+    # List of files to search.
+    l=`sed -e '/^[a-z]/!d' -e 's/[	 ].*$//' -e 's,^,../,' filelist`
+    l="$l `echo ../src/utilities/*.c` `echo ../examples/c/*.c`"
+
+    (
+    # Get the list of typedefs
+    search=`cat ../src/*/*.h ../src/include/*.in |
+        sed -e 's/^struct.*typedef.* \(.*\);$/\1/p' \
+            -e 's/^union.*typedef.* \(.*\);$/\1/p' \
+            -e d |
+        sort -u`
+    echo "$search"
+    grep -F -who "$search" $l
+    ) | sort | uniq -u > $t
+
+    test -s $t && cat $t
+}
+
+usage()
+{
+    echo 'usage: s_typedef [-bc]' >&2
+    exit 1
+}
+test "$#" -eq 1 || usage
+while :
+    do case "$1" in
+    -b)                # -b builds the typedefs
+        build
+        shift;;
+    -c)                # -c checks the typedefs
+        check
+        shift;;
+    *)
+        test "$#" -eq 0 || usage
+        break;;
+    esac
+done
+
+exit 0

@@ -1,0 +1,71 @@
+#!/bin/bash
+set -euo pipefail
+
+scriptdir=$(cd $(dirname $0) && pwd)
+
+# Load functions for working with local NPM registry (Verdaccio)
+source "$scriptdir"/local-registry.sh
+
+function cleanup {
+  # Restore the original NPM and Yarn registry URLs and stop Verdaccio
+  stopLocalRegistry
+}
+
+function handle_error {
+  cleanup
+  exit 1
+}
+
+function handle_exit {
+  cleanup
+  exit
+}
+
+# Cleanup before exit on any termination signal
+trap 'set +x; handle_error' ERR
+trap 'set +x; handle_exit' SIGQUIT SIGTERM SIGINT SIGKILL SIGHUP
+
+export CDKTF_DIST="${scriptdir}/../dist"
+cwd=$PWD
+cdktf_root="${scriptdir}/.."
+
+# Start the local NPM registry
+startLocalRegistry "$scriptdir"/verdaccio.yaml
+
+cd ${CDKTF_DIST}
+
+# verify this is indeed a "dist" directory
+if [ ! -d "js" ] || [ ! -d "python" ] || [ ! -d "java" ] || [ ! -d "dotnet" ] || [ ! -d "go" ] ; then
+  echo "ERROR: unable to find the subdirectories 'js', 'python', 'java', 'dotnet' and 'go' which should be in the 'dist' directory"
+  echo "Did you run 'yarn run package' to create the 'dist' directory?"
+  exit 1
+fi
+
+echo "Publishing CLI from 'dist'..."
+for pkg in ${CDKTF_DIST}/js/*.tgz
+do
+  echo $pkg
+  npm publish --force "$pkg"
+done
+
+# install the CLI from dist/js in a temporary area and add to path
+echo "Installing CLI from 'dist'..."
+staging=$(mktemp -d)
+cd ${staging}
+npm init -y > /dev/null
+# There's only one version in our local registry, so we don't need to specify a version here
+npm install --global-style cdktf-cli
+
+# stop the local registry now that we installed the CLI
+# Some tests install cdktf in an older version from NPM
+# Which we'd block via the local registry otherwise
+stopLocalRegistry
+
+export TEST_PATH_CDKTF_CLI=${staging}/node_modules/.bin
+export PATH=$TEST_PATH_CDKTF_CLI:$PATH
+
+echo "Installed CDKTF-CLI version: $(cdktf --version)"
+
+# restore working directory
+cd $cwd
+$@

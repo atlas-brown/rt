@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/scipy-lectures/scientific-python-lectures.git",
+  "relative_path": "scientific-python-lectures/misc/yeahconsole",
+  "short_name": "yeahconsole",
+  "timestamp": "10/22/2024",
+  "identifier": "scientific_KmObJF/0",
+  "posix_compliant": true,
+  "line_count": 50,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

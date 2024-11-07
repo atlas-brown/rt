@@ -1,0 +1,22 @@
+[
+ {
+  "repo": "https://github.com/weirdpercent/lyracyst.git",
+  "relative_path": "lyracyst/json.sh",
+  "short_name": "json",
+  "timestamp": "10/22/2024",
+  "identifier": "lyracyst_iTSfoC/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/weirdpercent/lyracyst.git",
+  "relative_path": "lyracyst/xml.sh",
+  "short_name": "xml",
+  "timestamp": "10/22/2024",
+  "identifier": "lyracyst_iTSfoC/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": []
+ }
+]

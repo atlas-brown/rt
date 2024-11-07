@@ -1,0 +1,108 @@
+[
+ {
+  "repo": "https://github.com/tzmax/V2RayXS.git",
+  "relative_path": "V2RayXS/compilefromsource.sh",
+  "short_name": "compilefromsource",
+  "timestamp": "10/22/2024",
+  "identifier": "V2RayXS_pxQOAK/0",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tzmax/V2RayXS.git",
+  "relative_path": "V2RayXS/prepare_zip.sh",
+  "short_name": "prepare_zip",
+  "timestamp": "10/22/2024",
+  "identifier": "V2RayXS_pxQOAK/1",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tzmax/V2RayXS.git",
+  "relative_path": "V2RayXS/update_pac.sh",
+  "short_name": "update_pac",
+  "timestamp": "10/22/2024",
+  "identifier": "V2RayXS_pxQOAK/2",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tzmax/V2RayXS.git",
+  "relative_path": "V2RayXS/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "V2RayXS_pxQOAK/3",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tzmax/V2RayXS.git",
+  "relative_path": "V2RayXS/V2RayX/dlcorex.sh",
+  "short_name": "dlcorex",
+  "timestamp": "10/22/2024",
+  "identifier": "V2RayXS_pxQOAK/4",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tzmax/V2RayXS.git",
+  "relative_path": "V2RayXS/V2RayX/install_helper.sh",
+  "short_name": "install_helper",
+  "timestamp": "10/22/2024",
+  "identifier": "V2RayXS_pxQOAK/5",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/tzmax/V2RayXS.git",
+  "relative_path": "V2RayXS/V2RayX/dlcore.sh",
+  "short_name": "dlcore",
+  "timestamp": "10/22/2024",
+  "identifier": "V2RayXS_pxQOAK/6",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

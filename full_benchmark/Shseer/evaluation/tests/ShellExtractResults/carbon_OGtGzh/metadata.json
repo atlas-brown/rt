@@ -1,0 +1,173 @@
+[
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/utils/treesitter/helix.sh",
+  "short_name": "helix",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/0",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/utils/nvim/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/1",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/testing/file_test/autoupdate_testdata.sh",
+  "short_name": "autoupdate_testdata",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/common/set_benchmark_test.sh",
+  "short_name": "set_benchmark_test",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/common/raw_hashtable_metadata_group_benchmark_test.sh",
+  "short_name": "raw_hashtable_metadata_group_benchmark_test",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/4",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/common/map_benchmark_test.sh",
+  "short_name": "map_benchmark_test",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/5",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/third_party/examples/woff2/migrate_cpp.sh",
+  "short_name": "migrate_cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/6",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/scripts/sync_repos.sh",
+  "short_name": "sync_repos",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/7",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/scripts/clean_disk_cache.sh",
+  "short_name": "clean_disk_cache",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/8",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/installers/local/uninstall.sh",
+  "short_name": "uninstall",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/9",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/installers/local/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/10",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/toolchain/driver/compile_benchmark_test.sh",
+  "short_name": "compile_benchmark_test",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/11",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/carbon-language/carbon-lang.git",
+  "relative_path": "carbon-lang/toolchain/check/testdata/operators/overloaded/make_tests.sh",
+  "short_name": "make_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "carbon_OGtGzh/12",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ }
+]

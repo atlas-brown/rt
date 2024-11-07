@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/lwthiker/curl-impersonate.git",
+  "relative_path": "curl-impersonate/generate_dockerfiles.sh",
+  "short_name": "generate_dockerfiles",
+  "timestamp": "10/22/2024",
+  "identifier": "curl_GMIzNb/0",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "io"
+  ]
+ }
+]

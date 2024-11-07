@@ -1,0 +1,1 @@
+java -jar ~/src/intellij-community/tools/lexer/jflex-1.7.0-SNAPSHOT.jar --skel ~/src/intellij-community/tools/lexer/idea-flex.skeleton --nobak go.flex -d ../../../../gen/com/goide/lexer/

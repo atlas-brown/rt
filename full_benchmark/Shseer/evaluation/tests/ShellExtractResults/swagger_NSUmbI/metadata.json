@@ -1,0 +1,105 @@
+[
+ {
+  "repo": "https://github.com/mohiva/swagger-codegen-play-scala.git",
+  "relative_path": "swagger-codegen-play-scala/scripts/validate-format.sh",
+  "short_name": "validate-format",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_NSUmbI/0",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/mohiva/swagger-codegen-play-scala.git",
+  "relative_path": "swagger-codegen-play-scala/scripts/ci-build.sh",
+  "short_name": "ci-build",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_NSUmbI/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mohiva/swagger-codegen-play-scala.git",
+  "relative_path": "swagger-codegen-play-scala/scripts/codegen.sh",
+  "short_name": "codegen",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_NSUmbI/2",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mohiva/swagger-codegen-play-scala.git",
+  "relative_path": "swagger-codegen-play-scala/scripts/sbt.sh",
+  "short_name": "sbt",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_NSUmbI/3",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mohiva/swagger-codegen-play-scala.git",
+  "relative_path": "swagger-codegen-play-scala/scripts/reformat.sh",
+  "short_name": "reformat",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_NSUmbI/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mohiva/swagger-codegen-play-scala.git",
+  "relative_path": "swagger-codegen-play-scala/scripts/functions.sh",
+  "short_name": "functions",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_NSUmbI/5",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mohiva/swagger-codegen-play-scala.git",
+  "relative_path": "swagger-codegen-play-scala/scripts/coveralls.sh",
+  "short_name": "coveralls",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_NSUmbI/6",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mohiva/swagger-codegen-play-scala.git",
+  "relative_path": "swagger-codegen-play-scala/scripts/sbt-runner.sh",
+  "short_name": "sbt-runner",
+  "timestamp": "10/22/2024",
+  "identifier": "swagger_NSUmbI/7",
+  "posix_compliant": false,
+  "line_count": 444,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

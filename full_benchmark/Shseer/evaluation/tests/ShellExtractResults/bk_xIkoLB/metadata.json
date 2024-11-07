@@ -1,0 +1,407 @@
+[
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/support-files/kubernetes/images/startup-controller/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/0",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/support-files/kubernetes/images/backend/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/1",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/support-files/kubernetes/images/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/2",
+  "posix_compliant": false,
+  "line_count": 283,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/support-files/kubernetes/images/migration/runUpgrader.sh",
+  "short_name": "runUpgrader",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/3",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/support-files/kubernetes/images/migration/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/4",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/support-files/kubernetes/charts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/5",
+  "posix_compliant": false,
+  "line_count": 85,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/support-files/bk-api-gateway/v3/bin/sync-bkapigateway.sh",
+  "short_name": "sync-bkapigateway",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/6",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/package.sh",
+  "short_name": "package",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/7",
+  "posix_compliant": false,
+  "line_count": 233,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-assemble/job-assemble.sh",
+  "short_name": "job-assemble",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/8",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-file-gateway/job-file-gateway.sh",
+  "short_name": "job-file-gateway",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/9",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-backup/job-backup.sh",
+  "short_name": "job-backup",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/10",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-gateway/job-gateway.sh",
+  "short_name": "job-gateway",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/11",
+  "posix_compliant": false,
+  "line_count": 154,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-gateway/job-gateway_assemble.sh",
+  "short_name": "job-gateway_assemble",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/12",
+  "posix_compliant": false,
+  "line_count": 155,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-manage/job-manage.sh",
+  "short_name": "job-manage",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/13",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-ticket/job-ticket.sh",
+  "short_name": "job-ticket",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/14",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-analysis/job-analysis.sh",
+  "short_name": "job-analysis",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/15",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-execute/job-execute.sh",
+  "short_name": "job-execute",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/16",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-logsvr/job-logsvr.sh",
+  "short_name": "job-logsvr",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/17",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-config/job-config.sh",
+  "short_name": "job-config",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/18",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-file-worker/job-file-worker.sh",
+  "short_name": "job-file-worker",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/19",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/scripts/job-crontab/job-crontab.sh",
+  "short_name": "job-crontab",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/20",
+  "posix_compliant": false,
+  "line_count": 153,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/op-tools/batch-invoke/cronJobEnable.sh",
+  "short_name": "cronJobEnable",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/21",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/op-tools/batch-invoke/terminate.sh",
+  "short_name": "terminate",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/22",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/op-tools/batch-invoke/execute.sh",
+  "short_name": "execute",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/23",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/src/backend/job-manage/service-job-manage/src/main/resources/script_template/shell",
+  "short_name": "shell",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/24",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/src/backend/job-execute/service-job-execute/src/main/resources/sqltask/oracle_exec_template.sh",
+  "short_name": "oracle_exec_template",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/25",
+  "posix_compliant": true,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/src/backend/job-execute/service-job-execute/src/main/resources/sqltask/mysql_exec_template.sh",
+  "short_name": "mysql_exec_template",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/26",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/TencentBlueKing/bk-job.git",
+  "relative_path": "bk-job/src/backend/job-execute/service-job-execute/src/main/resources/sqltask/db2_exec_template.sh",
+  "short_name": "db2_exec_template",
+  "timestamp": "10/22/2024",
+  "identifier": "bk_xIkoLB/27",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

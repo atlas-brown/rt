@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/salyh/elasticsearch-imap.git",
+  "relative_path": "elasticsearch-imap/bin/importer.sh",
+  "short_name": "importer",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_AhCIWg/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/beyondcode/expose.git",
+  "relative_path": "expose/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "expose_KZlAqT/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ }
+]

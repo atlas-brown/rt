@@ -1,0 +1,1341 @@
+[
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_swbd/path.sh",
+  "short_name": "path",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_swbd/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/1",
+  "posix_compliant": false,
+  "line_count": 292,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_swbd/local/score_basic_e2e.sh",
+  "short_name": "score_basic_e2e",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/2",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_swbd/local/score_sclite_e2e.sh",
+  "short_name": "score_sclite_e2e",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/3",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_swbd/local/score_e2e.sh",
+  "short_name": "score_e2e",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/4",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_swbd/cmd.sh",
+  "short_name": "cmd",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/5",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/backtranslation/prepare-de-monolingual.sh",
+  "short_name": "prepare-de-monolingual",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/6",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/backtranslation/sacrebleu.sh",
+  "short_name": "sacrebleu",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/7",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/backtranslation/tokenized_bleu.sh",
+  "short_name": "tokenized_bleu",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/8",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/backtranslation/prepare-wmt18en2de.sh",
+  "short_name": "prepare-wmt18en2de",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/9",
+  "posix_compliant": false,
+  "line_count": 115,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/m2m_100/tok.sh",
+  "short_name": "tok",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/10",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/m2m_100/tokenizers/tokenizer_ar.sh",
+  "short_name": "tokenizer_ar",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/11",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/m2m_100/tokenizers/seg_ja.sh",
+  "short_name": "seg_ja",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/12",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/m2m_100/tokenizers/seg_ko.sh",
+  "short_name": "seg_ko",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/13",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/m2m_100/install_dependecies.sh",
+  "short_name": "install_dependecies",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/14",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wmt21/eval.sh",
+  "short_name": "eval",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/15",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/translation/prepare-wmt14en2de.sh",
+  "short_name": "prepare-wmt14en2de",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/16",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/translation/prepare-wmt14en2fr.sh",
+  "short_name": "prepare-wmt14en2fr",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/17",
+  "posix_compliant": false,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/translation/prepare-iwslt14.sh",
+  "short_name": "prepare-iwslt14",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/18",
+  "posix_compliant": false,
+  "line_count": 93,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/translation/prepare-iwslt17-multilingual.sh",
+  "short_name": "prepare-iwslt17-multilingual",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/19",
+  "posix_compliant": false,
+  "line_count": 113,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/hubert/tests/test_finetuned_asr.sh",
+  "short_name": "test_finetuned_asr",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/20",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/hubert/tests/test_feature_and_unit.sh",
+  "short_name": "test_feature_and_unit",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/21",
+  "posix_compliant": false,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/textless_nlp/pgslm/scripts/prepare_data.sh",
+  "short_name": "prepare_data",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/22",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/textless_nlp/pgslm/scripts/prepare_f0_quantization.sh",
+  "short_name": "prepare_f0_quantization",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/23",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_wsj/run_xent.sh",
+  "short_name": "run_xent",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/24",
+  "posix_compliant": false,
+  "line_count": 183,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_wsj/path.sh",
+  "short_name": "path",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/25",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_wsj/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/26",
+  "posix_compliant": false,
+  "line_count": 299,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_wsj/local/common_data_prep.sh",
+  "short_name": "common_data_prep",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/27",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_wsj/local/score_e2e.sh",
+  "short_name": "score_e2e",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/28",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_wsj/local/data_prep_char.sh",
+  "short_name": "data_prep_char",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/29",
+  "posix_compliant": false,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_wsj/run_chain_e2e_bichar.sh",
+  "short_name": "run_chain_e2e_bichar",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/30",
+  "posix_compliant": false,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_wsj/cmd.sh",
+  "short_name": "cmd",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/31",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_wsj/run_chain_e2e.sh",
+  "short_name": "run_chain_e2e",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/32",
+  "posix_compliant": false,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/speech_recognition/datasets/prepare-librispeech.sh",
+  "short_name": "prepare-librispeech",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/33",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/audio_nlp/nlu/create_dict_stop.sh",
+  "short_name": "create_dict_stop",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/34",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/train_multilingual_model.sh",
+  "short_name": "train_multilingual_model",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/35",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/finetune_multilingual_model.sh",
+  "short_name": "finetune_multilingual_model",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/36",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/data_scripts/download_flores_data.sh",
+  "short_name": "download_flores_data",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/37",
+  "posix_compliant": false,
+  "line_count": 171,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/data_scripts/download_wat19_my.sh",
+  "short_name": "download_wat19_my",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/38",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/data_scripts/download_ML50_v1.sh",
+  "short_name": "download_ML50_v1",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/39",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/data_scripts/download_af_xh.sh",
+  "short_name": "download_af_xh",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/40",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/data_scripts/preprocess_ML50_v1.sh",
+  "short_name": "preprocess_ML50_v1",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/41",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/data_scripts/utils/strip_sgm.sh",
+  "short_name": "strip_sgm",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/42",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/data_scripts/download_iwslt_and_extract.sh",
+  "short_name": "download_iwslt_and_extract",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/43",
+  "posix_compliant": false,
+  "line_count": 180,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/data_scripts/download_iitb.sh",
+  "short_name": "download_iitb",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/44",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/data_scripts/download_lotus.sh",
+  "short_name": "download_lotus",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/45",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/data_scripts/download_wmt20.sh",
+  "short_name": "download_wmt20",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/46",
+  "posix_compliant": false,
+  "line_count": 403,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/multilingual/multilingual_fairseq_gen.sh",
+  "short_name": "multilingual_fairseq_gen",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/47",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/joint_alignment_translation/prepare-wmt18en2de_no_norm_no_escape_no_agressive.sh",
+  "short_name": "prepare-wmt18en2de_no_norm_no_escape_no_agressive",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/48",
+  "posix_compliant": false,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/MMPT/scripts/video_feature_extractor/how2/s3d.sh",
+  "short_name": "s3d",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/49",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/normformer/train_lm.sh",
+  "short_name": "train_lm",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/50",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/language_model/prepare-wikitext-103.sh",
+  "short_name": "prepare-wikitext-103",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/51",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/decode_phone.sh",
+  "short_name": "decode_phone",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/52",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/train.sh",
+  "short_name": "train",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/53",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/decode_word_step2.sh",
+  "short_name": "decode_word_step2",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/54",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/path.sh",
+  "short_name": "path",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/55",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/local/unsup_select_decode.sh",
+  "short_name": "unsup_select_decode",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/56",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/local/decode.sh",
+  "short_name": "decode",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/57",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/local/prepare_lang.sh",
+  "short_name": "prepare_lang",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/58",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/local/score.sh",
+  "short_name": "score",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/59",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/local/train_subset_lgbeam.sh",
+  "short_name": "train_subset_lgbeam",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/60",
+  "posix_compliant": false,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/local/unsup_select_decode_word.sh",
+  "short_name": "unsup_select_decode_word",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/61",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/local/prepare_lang_word.sh",
+  "short_name": "prepare_lang_word",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/62",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/local/prepare_lm.sh",
+  "short_name": "prepare_lm",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/63",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/local/show_wer.sh",
+  "short_name": "show_wer",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/64",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/steps_gan/train_deltas.sh",
+  "short_name": "train_deltas",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/65",
+  "posix_compliant": false,
+  "line_count": 138,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/steps_gan/train_lda_mllt.sh",
+  "short_name": "train_lda_mllt",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/66",
+  "posix_compliant": false,
+  "line_count": 185,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/steps_gan/train_sat.sh",
+  "short_name": "train_sat",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/67",
+  "posix_compliant": false,
+  "line_count": 218,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/cmd.sh",
+  "short_name": "cmd",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/68",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/kaldi_self_train/st/decode_word_step1.sh",
+  "short_name": "decode_word_step1",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/69",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/scripts/prepare_audio.sh",
+  "short_name": "prepare_audio",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/70",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/scripts/prepare_timit.sh",
+  "short_name": "prepare_timit",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/71",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/scripts/prepare_audio_v2.sh",
+  "short_name": "prepare_audio_v2",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/72",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/unsupervised/scripts/prepare_text.sh",
+  "short_name": "prepare_text",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/73",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/wav2vec/scripts/binarize_manifest.sh",
+  "short_name": "binarize_manifest",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/74",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/roberta/preprocess_RACE.sh",
+  "short_name": "preprocess_RACE",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/75",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/roberta/preprocess_GLUE_tasks.sh",
+  "short_name": "preprocess_GLUE_tasks",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/76",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/roberta/commonsense_qa/download_cqa_data.sh",
+  "short_name": "download_cqa_data",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/77",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_librispeech/path.sh",
+  "short_name": "path",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/78",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_librispeech/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/79",
+  "posix_compliant": false,
+  "line_count": 257,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_librispeech/local/score_e2e.sh",
+  "short_name": "score_e2e",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/80",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_librispeech/run_transformer_transducer.sh",
+  "short_name": "run_transformer_transducer",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/81",
+  "posix_compliant": false,
+  "line_count": 236,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_librispeech/run_torchaudio.sh",
+  "short_name": "run_torchaudio",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/82",
+  "posix_compliant": false,
+  "line_count": 254,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/asr_librispeech/cmd.sh",
+  "short_name": "cmd",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/83",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/criss/download_and_preprocess_flores_test.sh",
+  "short_name": "download_and_preprocess_flores_test",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/84",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/criss/mining/mine_example.sh",
+  "short_name": "mine_example",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/85",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/criss/sentence_retrieval/sentence_retrieval_tatoeba.sh",
+  "short_name": "sentence_retrieval_tatoeba",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/86",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/criss/download_and_preprocess_tatoeba.sh",
+  "short_name": "download_and_preprocess_tatoeba",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/87",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/criss/unsupervised_mt/eval.sh",
+  "short_name": "eval",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/88",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/examples/byte_level_bpe/get_data.sh",
+  "short_name": "get_data",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/89",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/scripts/compound_split_bleu.sh",
+  "short_name": "compound_split_bleu",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/90",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/scripts/sacrebleu.sh",
+  "short_name": "sacrebleu",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/91",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/scripts/test_fsdp.sh",
+  "short_name": "test_fsdp",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/92",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/freewym/espresso.git",
+  "relative_path": "espresso/espresso/tools/dump.sh",
+  "short_name": "dump",
+  "timestamp": "10/22/2024",
+  "identifier": "espresso_WzWqQb/93",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

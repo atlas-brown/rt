@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# The `command` hook script will replace the default implementation of running
+# the build command.
+
+# Note that as the script is sourced not run directly, the shebang line will be ignored
+# See https://buildkite.com/docs/agent/v3/hooks#creating-hook-scripts
+
+set -e

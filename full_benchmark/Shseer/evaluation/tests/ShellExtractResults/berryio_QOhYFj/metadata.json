@@ -1,0 +1,53 @@
+[
+ {
+  "repo": "https://github.com/NeonHorizon/berryio.git",
+  "relative_path": "berryio/default_config/network/if-up.d/berryio_email_ip",
+  "short_name": "berryio_email_ip",
+  "timestamp": "10/22/2024",
+  "identifier": "berryio_QOhYFj/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/NeonHorizon/berryio.git",
+  "relative_path": "berryio/scripts/berryio_install.sh",
+  "short_name": "berryio_install",
+  "timestamp": "10/22/2024",
+  "identifier": "berryio_QOhYFj/1",
+  "posix_compliant": false,
+  "line_count": 109,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/NeonHorizon/berryio.git",
+  "relative_path": "berryio/scripts/gpio_set_device_permissions.sh",
+  "short_name": "gpio_set_device_permissions",
+  "timestamp": "10/22/2024",
+  "identifier": "berryio_QOhYFj/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/NeonHorizon/berryio.git",
+  "relative_path": "berryio/scripts/gpio_set_export_permissions.sh",
+  "short_name": "gpio_set_export_permissions",
+  "timestamp": "10/22/2024",
+  "identifier": "berryio_QOhYFj/3",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "permissions"
+  ]
+ }
+]

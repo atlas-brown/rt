@@ -1,0 +1,28 @@
+[
+ {
+  "repo": "https://github.com/mingrammer/diagrams.git",
+  "relative_path": "diagrams/website/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "diagrams_tQtjSz/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/mingrammer/diagrams.git",
+  "relative_path": "diagrams/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "diagrams_tQtjSz/1",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

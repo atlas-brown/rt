@@ -1,0 +1,16 @@
+#!/bin/bash
+source /opt/mesosphere/environment.export
+export LIB_INSTALL_DIR="$PKG_PATH/lib/python3.6/site-packages"
+mkdir -p "$LIB_INSTALL_DIR"
+
+# Install wheels.
+for package in adal analytics-python apipkg azure-nspkg azure-common azure-mgmt-nspkg \
+    azure-mgmt-network azure-storage beautifulsoup4 docutils execnet keyring msrest \
+    msrestazure requests-oauthlib schema webob wheel; do
+  pip3 install --no-deps --no-index --prefix=$PKG_PATH /pkg/src/$package/*.whl
+done
+
+for package in aiohttp checksumdir coloredlogs humanfriendly multidict \
+    oauthlib waitress websocket-client; do
+  pip3 install --no-deps --install-option="--prefix=$PKG_PATH" --root=/ /pkg/src/$package
+done

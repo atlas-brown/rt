@@ -1,0 +1,214 @@
+[
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/cmd/test/info/all.sh",
+  "short_name": "all",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/0",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/cmd/test/info/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/1",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/cmd/serve/restic/restic-test.sh",
+  "short_name": "restic-test",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/2",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/fstest/testserver/images/test-hdfs/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/3",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/fstest/testserver/init.d/TestSwiftAIOsegments",
+  "short_name": "TestSwiftAIOsegments",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/4",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/bin/backend-versions.sh",
+  "short_name": "backend-versions",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/5",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/bin/test-all-commits-compile.sh",
+  "short_name": "test-all-commits-compile",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/6",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/bin/bisect-go-rclone.sh",
+  "short_name": "bisect-go-rclone",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/7",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/bin/tidy-beta",
+  "short_name": "tidy-beta",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/8",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/bin/bisect-rclone.sh",
+  "short_name": "bisect-rclone",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/9",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/bin/test-repeat.sh",
+  "short_name": "test-repeat",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/10",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/bin/make_rc_docs.sh",
+  "short_name": "make_rc_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/11",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/bin/build-xgo-cgofuse.sh",
+  "short_name": "build-xgo-cgofuse",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/12",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/bin/test-repeat-vfs.sh",
+  "short_name": "test-repeat-vfs",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/13",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/backend/sharefile/update-timezone.sh",
+  "short_name": "update-timezone",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/14",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rclone/rclone.git",
+  "relative_path": "rclone/docs/content/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "rclone_ZTKHZu/15",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,4986 @@
+[
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/buildgen/generate_build_additions.sh",
+  "short_name": "generate_build_additions",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/0",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/buildgen/generate_projects.sh",
+  "short_name": "generate_projects",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/1",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/fuzzing/sample_fuzzers.sh",
+  "short_name": "sample_fuzzers",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/fuzzing/generate_coverage_report.sh",
+  "short_name": "generate_coverage_report",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/3",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/docker_runners/run_in_docker.sh",
+  "short_name": "run_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/4",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/docker_runners/examples/concurrent_bazel.sh",
+  "short_name": "concurrent_bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/5",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/docker_runners/examples/gdb_in_docker.sh",
+  "short_name": "gdb_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/6",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/docker_runners/examples/coredump_in_docker.sh",
+  "short_name": "coredump_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/7",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/docker_runners/examples/run_tests_csharp_in_docker.sh",
+  "short_name": "run_tests_csharp_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/8",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/docker_runners/examples/bazel_test_in_docker.sh",
+  "short_name": "bazel_test_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/9",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/docker_runners/examples/run_tests_c_in_docker.sh",
+  "short_name": "run_tests_c_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/10",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/create_testcases.sh",
+  "short_name": "create_testcases",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/11",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/node__v1.0.1",
+  "short_name": "node__v1.0.1",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/12",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/csharpcoreclr__v1.20.0",
+  "short_name": "csharpcoreclr__v1.20.0",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/13",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/csharp__v1.3.9",
+  "short_name": "csharp__v1.3.9",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/14",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/csharp__v1.1.4",
+  "short_name": "csharp__v1.1.4",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/15",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/cxx__master",
+  "short_name": "cxx__master",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/16",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/java__master",
+  "short_name": "java__master",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/17",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/csharp__v1.18.0",
+  "short_name": "csharp__v1.18.0",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/18",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/php__v1.0.1",
+  "short_name": "php__v1.0.1",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/19",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/go__master",
+  "short_name": "go__master",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/20",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/csharp__v1.20.0",
+  "short_name": "csharp__v1.20.0",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/21",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/csharpcoreclr__v1.3.9",
+  "short_name": "csharpcoreclr__v1.3.9",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/22",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/csharpcoreclr__v1.1.4",
+  "short_name": "csharpcoreclr__v1.1.4",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/23",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/cxx__v1.31.1",
+  "short_name": "cxx__v1.31.1",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/24",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/java__v1.0.3",
+  "short_name": "java__v1.0.3",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/25",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/node__v1.1.4",
+  "short_name": "node__v1.1.4",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/26",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/csharpcoreclr__v1.18.0",
+  "short_name": "csharpcoreclr__v1.18.0",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/27",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/go__v1.20.0",
+  "short_name": "go__v1.20.0",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/28",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/go__v1.0.5",
+  "short_name": "go__v1.0.5",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/29",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/ruby__master",
+  "short_name": "ruby__master",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/30",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/csharp__master",
+  "short_name": "csharp__master",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/31",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/ruby__v1.0.1",
+  "short_name": "ruby__v1.0.1",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/32",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/python__master",
+  "short_name": "python__master",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/33",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/python__v1.18.0",
+  "short_name": "python__v1.18.0",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/34",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/cxx__v1.0.1",
+  "short_name": "cxx__v1.0.1",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/35",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/csharpcoreclr__master",
+  "short_name": "csharpcoreclr__master",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/36",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/python__v1.41.1",
+  "short_name": "python__v1.41.1",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/37",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/node__master",
+  "short_name": "node__master",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/38",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/php__master",
+  "short_name": "php__master",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/39",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/python__v1.0.x",
+  "short_name": "python__v1.0.x",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/40",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/python__v1.11.1",
+  "short_name": "python__v1.11.1",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/41",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/interop_matrix/testcases/ruby__v1.1.4",
+  "short_name": "ruby__v1.1.4",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/42",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/grpc_clang_format/clang_format_all_the_things.sh",
+  "short_name": "clang_format_all_the_things",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/43",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/grpc_artifact_python_linux_armv7/install_python_for_wheel_crosscompilation.sh",
+  "short_name": "install_python_for_wheel_crosscompilation",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/44",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/grpc_clang_tidy/clang_tidy_all_the_things.sh",
+  "short_name": "clang_tidy_all_the_things",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/45",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_java/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/46",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_pythonasyncio/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/47",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_php7/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/48",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_dart/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/49",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_http2/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/50",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_go1.8/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/51",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_cxx/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/52",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_go1.19/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/53",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_go1.16/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/54",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_ruby/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/55",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_go/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/56",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_go1.11/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/57",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_nodepurejs/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/58",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_python/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/59",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_node/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/60",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_go1.x/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/61",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/interoptest/grpc_interop_aspnetcore/build_interop.sh",
+  "short_name": "build_interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/62",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/observability-test/cpp/build_docker.sh",
+  "short_name": "build_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/63",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/observability-test/cpp/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/64",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/dockerfile/push_testing_images.sh",
+  "short_name": "push_testing_images",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/65",
+  "posix_compliant": false,
+  "line_count": 129,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/gource/gource.sh",
+  "short_name": "gource",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/66",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/gource/make-video.sh",
+  "short_name": "make-video",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/67",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/gource/gen-all-logs.sh",
+  "short_name": "gen-all-logs",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/68",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/package_hosting/upload_web_assets.sh",
+  "short_name": "upload_web_assets",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/69",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/release/update_supported_bazel_versions.sh",
+  "short_name": "update_supported_bazel_versions",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/70",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/release/backport_pr.sh",
+  "short_name": "backport_pr",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/71",
+  "posix_compliant": false,
+  "line_count": 117,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/gce/create_linux_kokoro_performance_worker.sh",
+  "short_name": "create_linux_kokoro_performance_worker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/72",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/gce/create_windows_debug_worker.sh",
+  "short_name": "create_windows_debug_worker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/73",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/gce/create_win2019_container_vm.sh",
+  "short_name": "create_win2019_container_vm",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/74",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/gce/create_linux_kokoro_performance_worker_from_image.sh",
+  "short_name": "create_linux_kokoro_performance_worker_from_image",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/75",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/gce/linux_kokoro_performance_worker_init.sh",
+  "short_name": "linux_kokoro_performance_worker_init",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/76",
+  "posix_compliant": false,
+  "line_count": 125,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/api_reference/add_google_analytics.sh",
+  "short_name": "add_google_analytics",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/77",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/codegen/core/gen_upb_api.sh",
+  "short_name": "gen_upb_api",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/78",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/codegen/core/gen_trace_flags_ci.sh",
+  "short_name": "gen_trace_flags_ci",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/79",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/grpc_repo_archive.sh",
+  "short_name": "grpc_repo_archive",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/80",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/generate_dockerimage_current_versions_bzl.sh",
+  "short_name": "generate_dockerimage_current_versions_bzl",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/81",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/grpc_build_artifact_task_build_test.sh",
+  "short_name": "grpc_build_artifact_task_build_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/82",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/grpc_run_bazel_distribtest_test.sh",
+  "short_name": "grpc_run_bazel_distribtest_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/83",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/grpc_run_cpp_distribtest_test.sh",
+  "short_name": "grpc_run_cpp_distribtest_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/84",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/build_artifact_python_linux_x64_cp313.sh",
+  "short_name": "build_artifact_python_linux_x64_cp313",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/85",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/build_artifact_php_linux.sh",
+  "short_name": "build_artifact_php_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/86",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/run_distribtest_csharp_linux.sh",
+  "short_name": "run_distribtest_csharp_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/87",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/prepare_ruby.sh",
+  "short_name": "prepare_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/88",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/bazel_build_with_grpc_no_xds_linux.sh",
+  "short_name": "bazel_build_with_grpc_no_xds_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/89",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/build_package_python_linux.sh",
+  "short_name": "build_package_python_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/90",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/build_artifact_python_linux_x64_cp39.sh",
+  "short_name": "build_artifact_python_linux_x64_cp39",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/91",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/run_distribtest_python_linux.sh",
+  "short_name": "run_distribtest_python_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/92",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/bazel_build_with_grpc_no_xds_negative_test_linux.sh",
+  "short_name": "bazel_build_with_grpc_no_xds_negative_test_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/93",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/build_artifact_protoc_linux.sh",
+  "short_name": "build_artifact_protoc_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/94",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/bazel_build_with_strict_warnings_linux.sh",
+  "short_name": "bazel_build_with_strict_warnings_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/95",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/build_package_csharp_linux.sh",
+  "short_name": "build_package_csharp_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/96",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/test/run_distribtest_php_linux.sh",
+  "short_name": "run_distribtest_php_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/97",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/grpc_run_tests_harness_test.sh",
+  "short_name": "grpc_run_tests_harness_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/98",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/workspace_status_cmd.sh",
+  "short_name": "workspace_status_cmd",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/99",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/grpc_build_artifact_task.sh",
+  "short_name": "grpc_build_artifact_task",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/100",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/grpc_run_simple_command_test.sh",
+  "short_name": "grpc_run_simple_command_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/101",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazelify_tests/grpc_run_distribtest_test.sh",
+  "short_name": "grpc_run_distribtest_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/102",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/install_python_modules_and_run_tests.sh",
+  "short_name": "install_python_modules_and_run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/103",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/gen_db.sh",
+  "short_name": "gen_db",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/104",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/install_all_python_modules.sh",
+  "short_name": "install_all_python_modules",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/105",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/clang_tidy_code.sh",
+  "short_name": "clang_tidy_code",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/106",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/gen_experiments_and_format.sh",
+  "short_name": "gen_experiments_and_format",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/107",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/isort_code.sh",
+  "short_name": "isort_code",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/108",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/pylint_code.sh",
+  "short_name": "pylint_code",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/109",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/black_code.sh",
+  "short_name": "black_code",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/110",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/check_protobuf_pod_version.sh",
+  "short_name": "check_protobuf_pod_version",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/111",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/python/bazel_deps.sh",
+  "short_name": "bazel_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/112",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/generate_boringssl_prefix_header.sh",
+  "short_name": "generate_boringssl_prefix_header",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/113",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/guard_headers.sh",
+  "short_name": "guard_headers",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/114",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/python_wrapper.sh",
+  "short_name": "python_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/115",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/check_pytype.sh",
+  "short_name": "check_pytype",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/116",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/check_upb_output.sh",
+  "short_name": "check_upb_output",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/117",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/sanitize.sh",
+  "short_name": "sanitize",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/118",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/buildozer.sh",
+  "short_name": "buildozer",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/119",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/clang_format_code.sh",
+  "short_name": "clang_format_code",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/120",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/check_boringssl_prefix_symbol.sh",
+  "short_name": "check_boringssl_prefix_symbol",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/121",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/check_windows_dlls.sh",
+  "short_name": "check_windows_dlls",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/122",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/buildifier_format_code_strict.sh",
+  "short_name": "buildifier_format_code_strict",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/123",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/format_bazel.sh",
+  "short_name": "format_bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/124",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/docgen/all_lang_docgen.sh",
+  "short_name": "all_lang_docgen",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/125",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/docgen/_generate_python_doc.sh",
+  "short_name": "_generate_python_doc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/126",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/buildifier_format_code.sh",
+  "short_name": "buildifier_format_code",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/127",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/pull_requests_interval.sh",
+  "short_name": "pull_requests_interval",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/128",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/python_tooling_tests.sh",
+  "short_name": "python_tooling_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/129",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/distrib/check_trailing_newlines.sh",
+  "short_name": "check_trailing_newlines",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/130",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/bazel",
+  "short_name": "bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/131",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/artifacts/build_artifact_protoc.sh",
+  "short_name": "build_artifact_protoc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/132",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/artifacts/build_artifact_php.sh",
+  "short_name": "build_artifact_php",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/133",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/artifacts/run_in_workspace.sh",
+  "short_name": "run_in_workspace",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/134",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/artifacts/build_artifact_ruby.sh",
+  "short_name": "build_artifact_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/135",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/artifacts/build_package_php.sh",
+  "short_name": "build_package_php",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/136",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/artifacts/run_distribtest_csharp.sh",
+  "short_name": "run_distribtest_csharp",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/137",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/artifacts/build_package_python.sh",
+  "short_name": "build_package_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/138",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/artifacts/build_artifact_python.sh",
+  "short_name": "build_artifact_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/139",
+  "posix_compliant": false,
+  "line_count": 188,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/artifacts/build_package_ruby.sh",
+  "short_name": "build_package_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/140",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/interop/with_rvm.sh",
+  "short_name": "with_rvm",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/141",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/interop/with_nvm.sh",
+  "short_name": "with_nvm",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/142",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/check_version.sh",
+  "short_name": "check_version",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/143",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/check_illegal_terms.sh",
+  "short_name": "check_illegal_terms",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/144",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/core_untyped_structs.sh",
+  "short_name": "core_untyped_structs",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/145",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/check_shellcheck.sh",
+  "short_name": "check_shellcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/146",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/check_bad_dependencies.sh",
+  "short_name": "check_bad_dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/147",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/check_testing_docker_images.sh",
+  "short_name": "check_testing_docker_images",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/148",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/check_buildifier.sh",
+  "short_name": "check_buildifier",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/149",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/check_cache_mk.sh",
+  "short_name": "check_cache_mk",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/150",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/check_submodules.sh",
+  "short_name": "check_submodules",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/151",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/cpp_banned_constructs.sh",
+  "short_name": "cpp_banned_constructs",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/152",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/check_absl_mutex.sh",
+  "short_name": "check_absl_mutex",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/153",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/sanity/build_banned_constructs.sh",
+  "short_name": "build_banned_constructs",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/154",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/dockerize/docker_run.sh",
+  "short_name": "docker_run",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/155",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/dockerize/build_and_run_docker.sh",
+  "short_name": "build_and_run_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/156",
+  "posix_compliant": false,
+  "line_count": 124,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/dockerize/build_interop_image.sh",
+  "short_name": "build_interop_image",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/157",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/build_performance_go.sh",
+  "short_name": "build_performance_go",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/158",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/build_performance_php7.sh",
+  "short_name": "build_performance_php7",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/159",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/loadtest_examples.sh",
+  "short_name": "loadtest_examples",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/160",
+  "posix_compliant": false,
+  "line_count": 162,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/remote_host_prepare.sh",
+  "short_name": "remote_host_prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/161",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/run_worker_java.sh",
+  "short_name": "run_worker_java",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/162",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/build_performance_node.sh",
+  "short_name": "build_performance_node",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/163",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/run_worker_csharp.sh",
+  "short_name": "run_worker_csharp",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/164",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/run_worker_ruby.sh",
+  "short_name": "run_worker_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/165",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/process_local_perf_flamegraphs.sh",
+  "short_name": "process_local_perf_flamegraphs",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/166",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/run_qps_driver.sh",
+  "short_name": "run_qps_driver",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/167",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/run_worker_php.sh",
+  "short_name": "run_worker_php",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/168",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/run_worker_python.sh",
+  "short_name": "run_worker_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/169",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/process_remote_perf_flamegraphs.sh",
+  "short_name": "process_remote_perf_flamegraphs",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/170",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/remote_host_build.sh",
+  "short_name": "remote_host_build",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/171",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/kill_workers.sh",
+  "short_name": "kill_workers",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/172",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/run_netperf.sh",
+  "short_name": "run_netperf",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/173",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/run_worker_go.sh",
+  "short_name": "run_worker_go",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/174",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/build_performance.sh",
+  "short_name": "build_performance",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/175",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/run_worker_node.sh",
+  "short_name": "run_worker_node",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/176",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/performance/run_worker_python_asyncio.sh",
+  "short_name": "run_worker_python_asyncio",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/177",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/run_ruby.sh",
+  "short_name": "run_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/178",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/build_cxx.sh",
+  "short_name": "build_cxx",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/179",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/run_grpc-node.sh",
+  "short_name": "run_grpc-node",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/180",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/bundle_install_wrapper.sh",
+  "short_name": "bundle_install_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/181",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/build_php.sh",
+  "short_name": "build_php",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/182",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/prep_xds.sh",
+  "short_name": "prep_xds",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/183",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/post_tests_ruby.sh",
+  "short_name": "post_tests_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/184",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/post_tests_php.sh",
+  "short_name": "post_tests_php",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/185",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/build_csharp.sh",
+  "short_name": "build_csharp",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/186",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/post_tests_python.sh",
+  "short_name": "post_tests_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/187",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/post_tests_c.sh",
+  "short_name": "post_tests_c",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/188",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/pre_build_csharp.sh",
+  "short_name": "pre_build_csharp",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/189",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/post_tests_csharp.sh",
+  "short_name": "post_tests_csharp",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/190",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/build_python.sh",
+  "short_name": "build_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/191",
+  "posix_compliant": false,
+  "line_count": 141,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/build_python_msys2.sh",
+  "short_name": "build_python_msys2",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/192",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/build_ruby.sh",
+  "short_name": "build_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/193",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/pre_build_ruby.sh",
+  "short_name": "pre_build_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/194",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/run_python.sh",
+  "short_name": "run_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/195",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/run_tests/helper_scripts/run_tests_in_workspace.sh",
+  "short_name": "run_tests_in_workspace",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/196",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/remote_build/workspace_status_kokoro.sh",
+  "short_name": "workspace_status_kokoro",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/197",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/doxygen/run_doxygen.sh",
+  "short_name": "run_doxygen",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/198",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_build_artifacts.sh",
+  "short_name": "grpc_build_artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/199",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_distribtests.sh",
+  "short_name": "grpc_distribtests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/200",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_basictests_php.sh",
+  "short_name": "grpc_basictests_php",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/201",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_ios_binary_size.sh",
+  "short_name": "grpc_ios_binary_size",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/202",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_run_bazel_c_cpp_tests.sh",
+  "short_name": "grpc_run_bazel_c_cpp_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/203",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_run_tests_matrix.sh",
+  "short_name": "grpc_run_tests_matrix",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/204",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_basictests_python.sh",
+  "short_name": "grpc_basictests_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/205",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_distribtests_ruby.sh",
+  "short_name": "grpc_distribtests_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/206",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_run_tests_matrix_objc.sh",
+  "short_name": "grpc_run_tests_matrix_objc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/207",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_basictests_csharp.sh",
+  "short_name": "grpc_basictests_csharp",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/208",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_run_bazel_isolated_tests.sh",
+  "short_name": "grpc_run_bazel_isolated_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/209",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_interop_toprod.sh",
+  "short_name": "grpc_interop_toprod",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/210",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_objc_bazel_test.sh",
+  "short_name": "grpc_objc_bazel_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/211",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_basictests_ruby.sh",
+  "short_name": "grpc_basictests_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/212",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_distribtests_csharp.sh",
+  "short_name": "grpc_distribtests_csharp",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/213",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_distribtests_python.sh",
+  "short_name": "grpc_distribtests_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/214",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_run_bazel_cpp_ios_tests.sh",
+  "short_name": "grpc_run_bazel_cpp_ios_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/215",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/macos/grpc_distribtests_php.sh",
+  "short_name": "grpc_distribtests_php",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/216",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_build_artifacts.sh",
+  "short_name": "grpc_build_artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/217",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/psm-interop-build-cpp.sh",
+  "short_name": "psm-interop-build-cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/218",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_distribtests.sh",
+  "short_name": "grpc_distribtests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/219",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_distribtests_gcp_python.sh",
+  "short_name": "grpc_distribtests_gcp_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/220",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/pull_request/grpc_basictests_c_cpp_build_only.sh",
+  "short_name": "grpc_basictests_c_cpp_build_only",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/221",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/psm-interop-test-python.sh",
+  "short_name": "psm-interop-test-python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/222",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/psm-interop-test-cpp.sh",
+  "short_name": "psm-interop-test-cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/223",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_distribtests_standalone.sh",
+  "short_name": "grpc_distribtests_standalone",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/224",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_python_bazel_test_fork_in_docker.sh",
+  "short_name": "grpc_python_bazel_test_fork_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/225",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_bazel_build_in_docker.sh",
+  "short_name": "grpc_bazel_build_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/226",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_full_performance_master.sh",
+  "short_name": "grpc_full_performance_master",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/227",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_run_tests_matrix.sh",
+  "short_name": "grpc_run_tests_matrix",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/228",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/run_if_c_cpp_modified.sh",
+  "short_name": "run_if_c_cpp_modified",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/229",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_bazel.sh",
+  "short_name": "grpc_bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/230",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_distribtests_ruby.sh",
+  "short_name": "grpc_distribtests_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/231",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_xds_k8s_xlang.sh",
+  "short_name": "grpc_xds_k8s_xlang",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/232",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/sanitizer/pull_request/grpc_cpp_tsan.cfg",
+  "short_name": "grpc_cpp_tsan.cfg",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/233",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/sanitizer/pull_request/grpc_c_tsan.cfg",
+  "short_name": "grpc_c_tsan.cfg",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/234",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/sanitizer/pull_request/grpc_cpp_asan.cfg",
+  "short_name": "grpc_cpp_asan.cfg",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/235",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/sanitizer/pull_request/grpc_c_ubsan.cfg",
+  "short_name": "grpc_c_ubsan.cfg",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/236",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/sanitizer/pull_request/grpc_c_asan.cfg",
+  "short_name": "grpc_c_asan.cfg",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/237",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/sanitizer/pull_request/grpc_c_msan.cfg",
+  "short_name": "grpc_c_msan.cfg",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/238",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_build_packages.sh",
+  "short_name": "grpc_build_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/239",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_e2e_performance_gke_experiment.sh",
+  "short_name": "grpc_e2e_performance_gke_experiment",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/240",
+  "posix_compliant": false,
+  "line_count": 147,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_e2e_performance_gke_cxx_experiments_framework.sh",
+  "short_name": "grpc_e2e_performance_gke_cxx_experiments_framework",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/241",
+  "posix_compliant": false,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/release/grpc_collect_all_packages.sh",
+  "short_name": "grpc_collect_all_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/242",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_psm_performance_gke_experiment.sh",
+  "short_name": "grpc_psm_performance_gke_experiment",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/243",
+  "posix_compliant": false,
+  "line_count": 115,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/psm-interop-build-python.sh",
+  "short_name": "psm-interop-build-python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/244",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_interop_matrix.sh",
+  "short_name": "grpc_interop_matrix",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/245",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_publish_packages.sh",
+  "short_name": "grpc_publish_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/246",
+  "posix_compliant": false,
+  "line_count": 191,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_run_interop_tests.sh",
+  "short_name": "grpc_run_interop_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/247",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_python_bazel_test_in_docker.sh",
+  "short_name": "grpc_python_bazel_test_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/248",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_flaky_network.sh",
+  "short_name": "grpc_flaky_network",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/249",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_flaky_network_in_docker.sh",
+  "short_name": "grpc_flaky_network_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/250",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_android.sh",
+  "short_name": "grpc_android",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/251",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_xds_k8s_xbranch.sh",
+  "short_name": "grpc_xds_k8s_xbranch",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/252",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_bazel_rbe_incompatible_changes.sh",
+  "short_name": "grpc_bazel_rbe_incompatible_changes",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/253",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_e2e_performance_gke.sh",
+  "short_name": "grpc_e2e_performance_gke",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/254",
+  "posix_compliant": false,
+  "line_count": 149,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_xds_bazel_test_in_docker.sh",
+  "short_name": "grpc_xds_bazel_test_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/255",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_bazel_rbe.sh",
+  "short_name": "grpc_bazel_rbe",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/256",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_bloat_diff.sh",
+  "short_name": "grpc_bloat_diff",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/257",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/aws/grpc_run_basictests_ruby_aarch64.sh",
+  "short_name": "grpc_run_basictests_ruby_aarch64",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/258",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/aws/grpc_aws_experiment_remote.sh",
+  "short_name": "grpc_aws_experiment_remote",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/259",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/aws/grpc_bazel_test_c_cpp_aarch64.sh",
+  "short_name": "grpc_bazel_test_c_cpp_aarch64",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/260",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/aws/grpc_run_basictests_php_aarch64.sh",
+  "short_name": "grpc_run_basictests_php_aarch64",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/261",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/aws/grpc_aws_run_remote_test.sh",
+  "short_name": "grpc_aws_run_remote_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/262",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/aws/grpc_run_basictests_csharp_aarch64.sh",
+  "short_name": "grpc_run_basictests_csharp_aarch64",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/263",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/aws/grpc_run_basictests_python_aarch64.sh",
+  "short_name": "grpc_run_basictests_python_aarch64",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/264",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/aws/grpc_aws_run_remote_test_8core.sh",
+  "short_name": "grpc_aws_run_remote_test_8core",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/265",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_toolingtests_python.sh",
+  "short_name": "grpc_toolingtests_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/266",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_android_in_docker.sh",
+  "short_name": "grpc_android_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/267",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_xds.sh",
+  "short_name": "grpc_xds",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/268",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_xds_v3_bazel_test_in_docker.sh",
+  "short_name": "grpc_xds_v3_bazel_test_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/269",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_full_performance_release.sh",
+  "short_name": "grpc_full_performance_release",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/270",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_xds_k8s_run_xtest.sh",
+  "short_name": "grpc_xds_k8s_run_xtest",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/271",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_bloat_diff_in_docker.sh",
+  "short_name": "grpc_bloat_diff_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/272",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_memory_diff_in_docker.sh",
+  "short_name": "grpc_memory_diff_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/273",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_xds_resource_cleanup.sh",
+  "short_name": "grpc_xds_resource_cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/274",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_distribtests_csharp.sh",
+  "short_name": "grpc_distribtests_csharp",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/275",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_memory_diff.sh",
+  "short_name": "grpc_memory_diff",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/276",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_portability_build_only.sh",
+  "short_name": "grpc_portability_build_only",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/277",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_xds_v3_bazel_python_test_in_docker.sh",
+  "short_name": "grpc_xds_v3_bazel_python_test_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/278",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_xds_bazel_python_test_in_docker.sh",
+  "short_name": "grpc_xds_bazel_python_test_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/279",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/arm64/grpc_bazel.sh",
+  "short_name": "grpc_bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/280",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/arm64/grpc_bazel_test_c_cpp_in_docker.sh",
+  "short_name": "grpc_bazel_test_c_cpp_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/281",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_sample_fuzzers.sh",
+  "short_name": "grpc_sample_fuzzers",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/282",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_build_submodule_at_head.sh",
+  "short_name": "grpc_build_submodule_at_head",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/283",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_distribtests_python.sh",
+  "short_name": "grpc_distribtests_python",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/284",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/psm-interop-install-lib.sh",
+  "short_name": "psm-interop-install-lib",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/285",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_distribtests_php.sh",
+  "short_name": "grpc_distribtests_php",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/286",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_e2e_performance_singlevm.sh",
+  "short_name": "grpc_e2e_performance_singlevm",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/287",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/linux/grpc_sample_fuzzers_in_docker.sh",
+  "short_name": "grpc_sample_fuzzers_in_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/288",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/store_artifacts_from_moved_src_tree.sh",
+  "short_name": "store_artifacts_from_moved_src_tree",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/289",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/prepare_build_linux_perf_multilang_rc",
+  "short_name": "prepare_build_linux_perf_multilang_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/290",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/prepare_ccache_rc",
+  "short_name": "prepare_ccache_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/291",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/prepare_build_linux_ruby_artifact_rc",
+  "short_name": "prepare_build_linux_ruby_artifact_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/292",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/prepare_build_linux_rc",
+  "short_name": "prepare_build_linux_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/293",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/check_python_artifacts_size.sh",
+  "short_name": "check_python_artifacts_size",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/294",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/move_src_tree_and_respawn_itself_rc",
+  "short_name": "move_src_tree_and_respawn_itself_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/295",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/prepare_qemu_rc",
+  "short_name": "prepare_qemu_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/296",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/prepare_ccache_symlinks_rc",
+  "short_name": "prepare_ccache_symlinks_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/297",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/prepare_build_linux_perf_rc",
+  "short_name": "prepare_build_linux_perf_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/298",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/prepare_build_macos_rc",
+  "short_name": "prepare_build_macos_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/299",
+  "posix_compliant": false,
+  "line_count": 128,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/prepare_build_macos_interop_rc",
+  "short_name": "prepare_build_macos_interop_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/300",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/tools/internal_ci/helper_scripts/prepare_build_interop_rc",
+  "short_name": "prepare_build_interop_rc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/301",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/core/http/python_wrapper.sh",
+  "short_name": "python_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/302",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/core/iomgr/ios/CFStreamTests/build_tests.sh",
+  "short_name": "build_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/303",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/core/iomgr/ios/CFStreamTests/build_and_run_tests.sh",
+  "short_name": "build_and_run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/304",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/core/test_util/fuzzer_one_entry_runner.sh",
+  "short_name": "fuzzer_one_entry_runner",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/305",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/core/tsi/test_creds/crl_data/evil_ca_gen.sh",
+  "short_name": "evil_ca_gen",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/306",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/core/tsi/test_creds/crl_data/intermediate_gen.sh",
+  "short_name": "intermediate_gen",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/307",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/core/tsi/test_creds/crl_data/ca_with_akid_gen.sh",
+  "short_name": "ca_with_akid_gen",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/308",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/python/run_binary_distrib_test.sh",
+  "short_name": "run_binary_distrib_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/309",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/python/run_source_distrib_test.sh",
+  "short_name": "run_source_distrib_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/310",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/python/test_packages.sh",
+  "short_name": "test_packages",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/311",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/php/run_distrib_test_macos.sh",
+  "short_name": "run_distrib_test_macos",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/312",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/php/run_distrib_test.sh",
+  "short_name": "run_distrib_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/313",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/cpp/run_distrib_test_cmake_pkgconfig.sh",
+  "short_name": "run_distrib_test_cmake_pkgconfig",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/314",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/cpp/run_distrib_test_cmake_fetchcontent.sh",
+  "short_name": "run_distrib_test_cmake_fetchcontent",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/315",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/cpp/run_distrib_test_cmake.sh",
+  "short_name": "run_distrib_test_cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/316",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/cpp/run_distrib_test_cmake_as_submodule.sh",
+  "short_name": "run_distrib_test_cmake_as_submodule",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/317",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/cpp/run_distrib_test_cmake_aarch64_cross.sh",
+  "short_name": "run_distrib_test_cmake_aarch64_cross",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/318",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/cpp/run_distrib_test_cmake_as_externalproject.sh",
+  "short_name": "run_distrib_test_cmake_as_externalproject",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/319",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/cpp/run_distrib_test_dummy.sh",
+  "short_name": "run_distrib_test_dummy",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/320",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/cpp/run_distrib_test_cmake_module_install.sh",
+  "short_name": "run_distrib_test_cmake_module_install",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/321",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/bazel/python/tools/bazel",
+  "short_name": "bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/322",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/bazel/run_bazel_distrib_test.sh",
+  "short_name": "run_bazel_distrib_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/323",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/bazel/cpp/tools/bazel",
+  "short_name": "bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/324",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/bazel/cpp/greeter_test.sh",
+  "short_name": "greeter_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/325",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/bazel/test_latest_bazel_version.sh",
+  "short_name": "test_latest_bazel_version",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/326",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/bazel/test_single_bazel_version.sh",
+  "short_name": "test_single_bazel_version",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/327",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/csharp/run_distrib_test_dotnetcli.sh",
+  "short_name": "run_distrib_test_dotnetcli",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/328",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/csharp/update_version.sh",
+  "short_name": "update_version",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/329",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/ruby/run_distrib_test.sh",
+  "short_name": "run_distrib_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/330",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/gcf/python/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/331",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/gcf/python/run_single.sh",
+  "short_name": "run_single",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/332",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/gcf/python/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/333",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/distrib/gcf/python/cleanup.sh",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/334",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/cpp/interop/interop_test_with_metadata_log.sh",
+  "short_name": "interop_test_with_metadata_log",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/335",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/cpp/codegen/run_golden_file_test.sh",
+  "short_name": "run_golden_file_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/336",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/csharp/codegen/csharp_codegen_base_namespace_test.sh",
+  "short_name": "csharp_codegen_base_namespace_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/337",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/csharp/codegen/csharp_codegen_deprecated_test.sh",
+  "short_name": "csharp_codegen_deprecated_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/338",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/test/csharp/codegen/csharp_codegen_simple_test.sh",
+  "short_name": "csharp_codegen_simple_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/339",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/third_party/upb/upb/cmake/push_auto_update.sh",
+  "short_name": "push_auto_update",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/340",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/third_party/toolchains/rbe_ubuntu2004/cc/cc_wrapper.sh",
+  "short_name": "cc_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/341",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/third_party/toolchains/generate_windows_rbe_configs.sh",
+  "short_name": "generate_windows_rbe_configs",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/342",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/third_party/toolchains/generate_linux_rbe_configs.sh",
+  "short_name": "generate_linux_rbe_configs",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/343",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/examples/php/run_greeter_client.sh",
+  "short_name": "run_greeter_client",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/344",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/examples/php/greeter_proto_gen.sh",
+  "short_name": "greeter_proto_gen",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/345",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/examples/php/route_guide/route_guide_proto_gen.sh",
+  "short_name": "route_guide_proto_gen",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/346",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/examples/php/route_guide/run_route_guide_client.sh",
+  "short_name": "run_route_guide_client",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/347",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/examples/cpp/systemd_socket_activation/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/348",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/bazel/update_mirror.sh",
+  "short_name": "update_mirror",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/349",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/templates/tools/dockerfile/java_build_interop.sh.include",
+  "short_name": "java_build_interop.include",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/350",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/templates/tools/dockerfile/python_build_interop.sh.include",
+  "short_name": "python_build_interop.include",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/351",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/templates/tools/dockerfile/csharp_build_interop.sh.include",
+  "short_name": "csharp_build_interop.include",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/352",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/templates/tools/dockerfile/go_build_interop.sh.include",
+  "short_name": "go_build_interop.include",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/353",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/run_all_docker_images.sh",
+  "short_name": "run_all_docker_images",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/354",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/build_all_docker_images.sh",
+  "short_name": "build_all_docker_images",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/355",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/determine_extension_dir.sh",
+  "short_name": "determine_extension_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/356",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/interop_client.sh",
+  "short_name": "interop_client",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/357",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/run_gen_code_test.sh",
+  "short_name": "run_gen_code_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/358",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/359",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/run_xds_client.sh",
+  "short_name": "run_xds_client",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/360",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/stress_client.sh",
+  "short_name": "stress_client",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/361",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/php_extension_to_php_doc.sh",
+  "short_name": "php_extension_to_php_doc",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/362",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/interop_server.sh",
+  "short_name": "interop_server",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/363",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/run_php_cs_fixer.sh",
+  "short_name": "run_php_cs_fixer",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/364",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/php/bin/generate_proto_php.sh",
+  "short_name": "generate_proto_php",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/365",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/csharp/build_nuget.sh",
+  "short_name": "build_nuget",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/366",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/csharp/nuget_helpers/create_fake_native_artifacts.sh",
+  "short_name": "create_fake_native_artifacts",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/367",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/csharp/nuget_helpers/expand_dev_version.sh",
+  "short_name": "expand_dev_version",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/368",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/objective-c/tests/tvtests_build_test.sh",
+  "short_name": "tvtests_build_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/369",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/objective-c/tests/build_one_example.sh",
+  "short_name": "build_one_example",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/370",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/objective-c/tests/PluginTest/plugin_test.sh",
+  "short_name": "plugin_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/371",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/objective-c/tests/PluginTest/plugin_option_test.sh",
+  "short_name": "plugin_option_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/372",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/objective-c/tests/run_one_test_bazel.sh",
+  "short_name": "run_one_test_bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/373",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/objective-c/tests/examples_build_test.sh",
+  "short_name": "examples_build_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/374",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/objective-c/tests/xcodebuild_filter_output.sh",
+  "short_name": "xcodebuild_filter_output",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/375",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/objective-c/tests/run_one_test.sh",
+  "short_name": "run_one_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/376",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/objective-c/tests/build_tests.sh",
+  "short_name": "build_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/377",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/objective-c/format-all-comments.sh",
+  "short_name": "format-all-comments",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/378",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/ruby/pb/generate_proto_ruby.sh",
+  "short_name": "generate_proto_ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/379",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/ruby/nativedebug/build_package.sh",
+  "short_name": "build_package",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/380",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc.git",
+  "relative_path": "grpc/src/ruby/end2end/gen_protos.sh",
+  "short_name": "gen_protos",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_kDtZPq/381",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

@@ -1,0 +1,32 @@
+[
+ {
+  "repo": "https://github.com/disabled/phasex-dev.git",
+  "relative_path": "phasex-dev/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "phasex_XOSDRt/0",
+  "posix_compliant": true,
+  "line_count": 248,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/disabled/phasex-dev.git",
+  "relative_path": "phasex-dev/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "phasex_XOSDRt/1",
+  "posix_compliant": false,
+  "line_count": 5359,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

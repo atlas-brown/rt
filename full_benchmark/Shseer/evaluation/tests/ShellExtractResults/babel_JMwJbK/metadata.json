@@ -1,0 +1,297 @@
+[
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/test/babel-7-8-compat/babel-7-plugins-with-babel-8-core.sh",
+  "short_name": "babel-7-plugins-with-babel-8-core",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/0",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/update-compat-table/bump-compat-table-commit.sh",
+  "short_name": "bump-compat-table-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/update-compat-table/get-last-commit.sh",
+  "short_name": "get-last-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/e2e-babel7plugins-babel8core.sh",
+  "short_name": "e2e-babel7plugins-babel8core",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/3",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/e2e-babel.sh",
+  "short_name": "e2e-babel",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/4",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/publish-local.sh",
+  "short_name": "publish-local",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/5",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/e2e-vue-cli.sh",
+  "short_name": "e2e-vue-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/6",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/utils/local-registry.sh",
+  "short_name": "local-registry",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/7",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/utils/git.sh",
+  "short_name": "git",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/8",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/utils/cleanup.sh",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/9",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/e2e-nextjs-10.sh",
+  "short_name": "e2e-nextjs-10",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/10",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/e2e-react-native.sh",
+  "short_name": "e2e-react-native",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/11",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/e2e-jest.sh",
+  "short_name": "e2e-jest",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/12",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/e2e-babel-old-version.sh",
+  "short_name": "e2e-babel-old-version",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/13",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/e2e-angular-cli.sh",
+  "short_name": "e2e-angular-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/14",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/e2e-prettier.sh",
+  "short_name": "e2e-prettier",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/15",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/integration-tests/e2e-create-react-app.sh",
+  "short_name": "e2e-create-react-app",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/16",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/get-artifact-files.sh",
+  "short_name": "get-artifact-files",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/17",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/parser-tests/bump-test262-version.sh",
+  "short_name": "bump-test262-version",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/18",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/parser-tests/get-test262-version.sh",
+  "short_name": "get-test262-version",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/19",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/20",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/babel/babel.git",
+  "relative_path": "babel/packages/babel-compat-data/scripts/download-compat-table.sh",
+  "short_name": "download-compat-table",
+  "timestamp": "10/22/2024",
+  "identifier": "babel_JMwJbK/21",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

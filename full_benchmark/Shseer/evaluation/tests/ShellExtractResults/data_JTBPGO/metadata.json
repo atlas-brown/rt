@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/pveugen/data-visualization.git",
+  "relative_path": "data-visualization/snippets.sh",
+  "short_name": "snippets",
+  "timestamp": "10/22/2024",
+  "identifier": "data_JTBPGO/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

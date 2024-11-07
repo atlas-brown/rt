@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/isl-org/MultiObjectiveOptimization.git",
+  "relative_path": "MultiObjectiveOptimization/configure.sh",
+  "short_name": "configure",
+  "timestamp": "10/22/2024",
+  "identifier": "MultiObjectiveOptimization_fZTvqa/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

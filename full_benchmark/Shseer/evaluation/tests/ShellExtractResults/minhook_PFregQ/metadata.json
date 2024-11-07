@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/TsudaKageyu/minhook.git",
+  "relative_path": "minhook/build/MinGW/make.sh",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "minhook_PFregQ/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

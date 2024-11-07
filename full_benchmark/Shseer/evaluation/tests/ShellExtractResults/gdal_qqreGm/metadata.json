@@ -1,0 +1,1371 @@
+[
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ogr/ogrsf_frmts/geojson/libjson/dump_symbols.sh",
+  "short_name": "dump_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/0",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ogr/ogrsf_frmts/shape/dump_symbols.sh",
+  "short_name": "dump_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/1",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ogr/ogrsf_frmts/sdts/install-libs.sh",
+  "short_name": "install-libs",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/2",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ogr/ogrsf_frmts/sosi/tools/convert.sh",
+  "short_name": "convert",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/3",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/docker/alpine-normal/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/4",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/docker/build-all.sh",
+  "short_name": "build-all",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/5",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/docker/alpine-small/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/6",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/docker/ubuntu-full/bh-proj.sh",
+  "short_name": "bh-proj",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/7",
+  "posix_compliant": true,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/docker/ubuntu-full/bh-set-envvars.sh",
+  "short_name": "bh-set-envvars",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/8",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/docker/ubuntu-full/bh-gdal.sh",
+  "short_name": "bh-gdal",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/9",
+  "posix_compliant": true,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/docker/ubuntu-full/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/10",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/docker/util.sh",
+  "short_name": "util",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/11",
+  "posix_compliant": false,
+  "line_count": 345,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/docker/ubuntu-small/bh-set-envvars.sh",
+  "short_name": "bh-set-envvars",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/12",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/docker/ubuntu-small/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/13",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/mkgdaldist.sh",
+  "short_name": "mkgdaldist",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/14",
+  "posix_compliant": true,
+  "line_count": 155,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/swig/python/fallback_build_mingw32_under_unix_py37.sh",
+  "short_name": "fallback_build_mingw32_under_unix_py37",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/15",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/swig/java/make_doc.sh",
+  "short_name": "make_doc",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/16",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/swig/csharp/mkinterface.sh",
+  "short_name": "mkinterface",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/17",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/cmake/template/gdal-config.in",
+  "short_name": "gdal-config.in",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/18",
+  "posix_compliant": true,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/osx/script.sh",
+  "short_name": "script",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/19",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/osx/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/20",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/osx/before_install.sh",
+  "short_name": "before_install",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/21",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/conda/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/22",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/conda/compile.sh",
+  "short_name": "compile",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/23",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/conda/upload.sh",
+  "short_name": "upload",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/24",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/common_install.sh",
+  "short_name": "common_install",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/25",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/s390x/script.sh",
+  "short_name": "script",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/26",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/s390x/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/27",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/s390x/before_install.sh",
+  "short_name": "before_install",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/28",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/graviton2/script.sh",
+  "short_name": "script",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/29",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/graviton2/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/30",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/graviton2/before_install.sh",
+  "short_name": "before_install",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/31",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/csa_common/script.sh",
+  "short_name": "script",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/32",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/csa_common/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/33",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/ci/travis/csa_common/before_install.sh",
+  "short_name": "before_install",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/34",
+  "posix_compliant": true,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/autotest/postinstall/test_gdal-config.sh",
+  "short_name": "test_gdal-config",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/35",
+  "posix_compliant": true,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/autotest/postinstall/test_cmake.sh",
+  "short_name": "test_cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/36",
+  "posix_compliant": true,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/autotest/postinstall/test_pkg-config.sh",
+  "short_name": "test_pkg-config",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/37",
+  "posix_compliant": true,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/autotest/ogc_cite_testing/generate_ogc_geotiff_1_1_samples.sh",
+  "short_name": "generate_ogc_geotiff_1_1_samples",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/38",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/autotest/ogc_cite_testing/generate_ogc_gmljp2_v2_samples.sh",
+  "short_name": "generate_ogc_gmljp2_v2_samples",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/39",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/autotest/gdrivers/data/load_postgisraster_test_data.sh",
+  "short_name": "load_postgisraster_test_data",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/40",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/autotest/run_slow_tests.sh",
+  "short_name": "run_slow_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/41",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/third_party/fast_float/resync_with_upstream.sh",
+  "short_name": "resync_with_upstream",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/42",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/fix_container_dot_size_zero.sh",
+  "short_name": "fix_container_dot_size_zero",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/43",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/detect_self_assignment.sh",
+  "short_name": "detect_self_assignment",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/44",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/vagrant/gdal.sh",
+  "short_name": "gdal",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/45",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/vagrant/arrow-parquet.sh",
+  "short_name": "arrow-parquet",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/46",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/vagrant/postgis.sh",
+  "short_name": "postgis",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/47",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/setdevenv.sh",
+  "short_name": "setdevenv",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/48",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/gdal-bash-completion.sh",
+  "short_name": "gdal-bash-completion",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/49",
+  "posix_compliant": false,
+  "line_count": 911,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/reformat.sh",
+  "short_name": "reformat",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/50",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/fix_typos.sh",
+  "short_name": "fix_typos",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/51",
+  "posix_compliant": true,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/cppcheck.sh",
+  "short_name": "cppcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/52",
+  "posix_compliant": false,
+  "line_count": 458,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/detect_tabulations.sh",
+  "short_name": "detect_tabulations",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/53",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/detect_suspicious_char_digit_zero.sh",
+  "short_name": "detect_suspicious_char_digit_zero",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/54",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/detect_missing_include.sh",
+  "short_name": "detect_missing_include",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/55",
+  "posix_compliant": false,
+  "line_count": 63,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/scripts/detect_printf.sh",
+  "short_name": "detect_printf",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/56",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/alpine_numpy2/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/57",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/alpine/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/58",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/fedora_rawhide/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/59",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/ubuntu_22.04/services.sh",
+  "short_name": "services",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/60",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/ubuntu_22.04/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/61",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/ubuntu_22.04/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/62",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/alpine_32bit/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/63",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/alpine_32bit/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/64",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/slow_tests/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/65",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/slow_tests/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/66",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/coverity_scan/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/67",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/common_install.sh",
+  "short_name": "common_install",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/68",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/icc/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/69",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/asan/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/70",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/asan/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/71",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/benchmarks/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/72",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/benchmarks/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/73",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/ubuntu_24.04/services.sh",
+  "short_name": "services",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/74",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/ubuntu_24.04/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/75",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/ubuntu_24.04/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/76",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/ubuntu_20.04/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/77",
+  "posix_compliant": true,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/ubuntu_20.04/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/78",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/android_cmake/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/79",
+  "posix_compliant": true,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/coverage/services.sh",
+  "short_name": "services",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/80",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/coverage/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/81",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/.github/workflows/coverage/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/82",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/frmts/gtiff/libtiff/dump_symbols.sh",
+  "short_name": "dump_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/83",
+  "posix_compliant": true,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/frmts/gtiff/libtiff/resync_from_upstream.sh",
+  "short_name": "resync_from_upstream",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/84",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/frmts/gtiff/libgeotiff/dump_symbols.sh",
+  "short_name": "dump_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/85",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/frmts/gtiff/libgeotiff/resync_from_upstream.sh",
+  "short_name": "resync_from_upstream",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/86",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/frmts/zlib/dump_symbols.sh",
+  "short_name": "dump_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/87",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/frmts/png/libpng/dump_symbols.sh",
+  "short_name": "dump_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/88",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/frmts/iso8211/teststream.sh",
+  "short_name": "teststream",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/89",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/frmts/grib/degrib/degrib/dump_symbols.sh",
+  "short_name": "dump_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/90",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/frmts/grib/rename_g2clib_symbols.sh",
+  "short_name": "rename_g2clib_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/91",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/frmts/gif/giflib/dump_symbols.sh",
+  "short_name": "dump_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/92",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/doc/rtd/pre_build.sh",
+  "short_name": "pre_build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/93",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/doc/build_doc_snapshot.sh",
+  "short_name": "build_doc_snapshot",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/94",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/doc/generate-sponsor-logos.sh",
+  "short_name": "generate-sponsor-logos",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/95",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/fuzzers/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/96",
+  "posix_compliant": false,
+  "line_count": 261,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/fuzzers/build_seed_corpus.sh",
+  "short_name": "build_seed_corpus",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/97",
+  "posix_compliant": false,
+  "line_count": 545,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/OSGeo/gdal.git",
+  "relative_path": "gdal/fuzzers/build_google_oss_fuzzers.sh",
+  "short_name": "build_google_oss_fuzzers",
+  "timestamp": "10/22/2024",
+  "identifier": "gdal_qqreGm/98",
+  "posix_compliant": false,
+  "line_count": 113,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/froghui/yolanda.git",
+  "relative_path": "yolanda/clean.sh",
+  "short_name": "clean",
+  "timestamp": "10/22/2024",
+  "identifier": "yolanda_hKEffb/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ }
+]

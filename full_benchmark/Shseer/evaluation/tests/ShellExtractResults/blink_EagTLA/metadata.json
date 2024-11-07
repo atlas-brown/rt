@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/liyuan989/blink.git",
+  "relative_path": "blink/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "blink_EagTLA/0",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

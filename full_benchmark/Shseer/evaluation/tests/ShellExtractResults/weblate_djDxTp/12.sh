@@ -1,0 +1,59 @@
+#!/bin/sh
+
+# Copyright © Michal Čihař <michal@weblate.org>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+set -e -x
+
+CI_DATABASE="$1"
+
+mkdir -p /run/user/1000
+chown -R 1000:1000 /run/user/1000
+
+# Add PostgreSQL repo
+echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+curl -L https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+
+# Update package lists
+apt-get update
+
+# Remove non-installable git packages. There git-svn can not be installed
+# because the image contains newer versions which do not have matching git-svn
+# in enabled repositories.
+apt-get purge git git-man
+
+# Install dependencies
+apt-get install -y \
+    gettext \
+    git \
+    git-svn \
+    gnupg \
+    subversion \
+    postgresql-client-17 \
+    pkg-config \
+    libxml2-dev \
+    libacl1-dev \
+    liblz4-dev \
+    libzstd-dev \
+    libxxhash-dev \
+    libxmlsec1-dev \
+    libsasl2-dev \
+    libldap2-dev \
+    libssl-dev \
+    libffi-dev \
+    libgirepository1.0-dev \
+    libcairo-dev \
+    liblz4-dev \
+    gir1.2-rsvg-2.0 \
+    gir1.2-pango-1.0
+
+# TODO: remove this once Python 3.13 wheels are available, see
+# https://github.com/sirfz/tesserocr/pull/357
+apt-get install -y libleptonica-dev libtesseract-dev
+
+# Remove MySQL 8.x client, use older MariaDB one to ensure compatibility
+if [ "$CI_DATABASE" = "mariadb" ]; then
+    apt-get purge 'mysql-client.*'
+    apt-get install -y mariadb-client
+fi

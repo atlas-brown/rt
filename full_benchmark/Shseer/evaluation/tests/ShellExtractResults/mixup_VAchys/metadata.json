@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/unsky/mixup.git",
+  "relative_path": "mixup/train.sh",
+  "short_name": "train",
+  "timestamp": "10/22/2024",
+  "identifier": "mixup_VAchys/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/unsky/mixup.git",
+  "relative_path": "mixup/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "mixup_VAchys/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

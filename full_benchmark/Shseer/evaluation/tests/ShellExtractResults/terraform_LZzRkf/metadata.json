@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/gosuri/terraform-exec-provider.git",
+  "relative_path": "terraform-exec-provider/test-fixtures/test-command",
+  "short_name": "test-command",
+  "timestamp": "10/22/2024",
+  "identifier": "terraform_LZzRkf/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow"
+  ]
+ }
+]

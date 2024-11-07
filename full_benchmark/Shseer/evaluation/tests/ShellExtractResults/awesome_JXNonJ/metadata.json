@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/docker/awesome-compose.git",
+  "relative_path": "awesome-compose/nginx-wsgi-flask/nginx/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_JXNonJ/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

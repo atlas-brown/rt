@@ -1,0 +1,143 @@
+#!/bin/bash
+
+DATA="$1"
+NS=@CIM_VIRT_NS@
+CIMOM=@CIMSERVER@
+SCHEMA_VERSION="2.21.0"
+
+TMPDIR=$(mktemp -d /tmp/cim_schema.XXXXX)
+chmod a+x $TMPDIR
+
+if [ ! -z "$CIM_DEBUG" ]; then
+    set -x
+    DEBUG="$TMPDIR/log"
+else
+    DEBUG="/dev/null"
+fi
+
+unpack_schema() {
+    cd ${TMPDIR} && unzip ${DATA}/cim_schema_*-MOFs.zip
+}
+
+fix_schema() {
+    cp -a ${DATA}/cimv2.21.0-interop_mof ${TMPDIR}/cimv2.21.0-interop.mof
+    cp -a ${DATA}/cimv2.21.0-cimv2_mof ${TMPDIR}/cimv2.21.0-cimv2.mof
+    cp -a ${DATA}/cimv2.21.0-pginterop_mof ${TMPDIR}/cimv2.21.0-pginterop.mof
+
+}
+
+detect_peg_repo() {
+    dirs="$PEGASUS_HOME /var/lib/Pegasus /var/lib/pegasus /usr/local/var/lib/pegasus /var/local/lib/pegasus /var/opt/tog-pegasus /opt/ibm/icc/cimom"
+
+    for d in $dirs; do
+	if [ -d "$d" ]; then
+	    echo $d
+	    return
+	fi
+    done
+}
+
+detect_sfcb_dir() {
+    dirs="SFCB_DIR /usr/local/share/sfcb /usr/share/sfcb"
+
+    for d in $dirs; do
+	if [ -d "$d" ]; then
+	    echo $d;
+	    return
+	    fi
+    done
+}
+
+detect_openwbem_dir() {
+    dirs="/usr/share/mof"
+
+    for d in $dirs; do
+	if [ -d "$d" ]; then
+	    echo $d
+	    return
+	fi
+    done
+}
+
+install_schema_pegasus() {
+    local repo=$(detect_peg_repo)
+
+    if [ -z "$repo" ]; then
+	echo "Unable to determine Pegasus repository path"
+	echo "set PEGASUS_HOME"
+	return
+    fi
+
+    cd ${TMPDIR}
+
+    cimmofl -uc -aEV -R$repo -n $NS cim_schema_?.??.?.mof
+    cimmofl -uc -aEV -R$repo -n $NS qualifiers.mof
+    cimmofl -uc -aEV -R$repo -n $NS qualifiers_optional.mof
+    cimmofl -uc -aEV -R$repo -n /root/interop cimv?.??.?-interop.mof
+    cimmofl -uc -aEV -R$repo -n /root/cimv2 cimv?.??.?-cimv2.mof
+    cimmofl -uc -aEV -R$repo -n /root/PG_InterOp cimv?.??.?-pginterop.mof
+}
+
+install_schema_sfcb() {
+    local dir=$(detect_sfcb_dir)
+
+    mkdir ${dir}/CIM
+    if [ ! -d "${dir}/CIM" ]; then
+	echo "Unable to determine SFCB directory"
+	echo "set SFCB_DIR"
+	return
+    fi
+
+    mv ${TMPDIR}/cim_schema_?.??.?.mof ${TMPDIR}/CIM_Schema.mof
+    cp -ra ${TMPDIR}/* ${dir}/CIM
+    sfcbrepos -f
+}
+
+install_schema_openwbem() {
+    local dir=$(detect_openwbem_dir)
+    local schema_dir=$dir/cimv$SCHEMA_VERSION
+
+    mkdir $schema_dir
+    if [ ! -d "$schema_dir" ]; then
+	echo "Unable to determine openwbem schema directory"
+	return
+    fi
+
+    cp ${TMPDIR}/cimv???.mof ${TMPDIR}/CIM_Schema.mof
+    cp -ra ${TMPDIR}/* $schema_dir
+
+    owcreatenamespace -u http://localhost/ -n root/virt
+    owmofc -u http://localhost/cimom -n root/virt $schema_dir/CIM_Schema.mof
+
+    owcreatenamespace -u http://localhost/ -n root/interop
+    owmofc -u http://localhost/cimom -n root/interop $schema_dir/cimv???-interop.mof
+}
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 [source_dir]"
+    exit 1
+fi
+
+(unpack_schema) >>$DEBUG 2>&1
+(fix_schema) >>$DEBUG 2>&1
+
+case "$CIMOM" in
+    sfcb)
+	(install_schema_sfcb) >>$DEBUG 2>&1
+	;;
+    pegasus)
+	(install_schema_pegasus) >>$DEBUG 2>&1
+	;;
+    openwbem)
+	(install_schema_openwbem) >>$DEBUG 2>&1
+	;;
+    *)
+	echo ERROR: Unknown CIMOM: $CIMOM
+	;;
+esac
+
+if [ -f "$DEBUG" ]; then
+    echo "-- base schema install log begin --"
+    cat $DEBUG
+    echo "-- base schema install log end --"
+fi

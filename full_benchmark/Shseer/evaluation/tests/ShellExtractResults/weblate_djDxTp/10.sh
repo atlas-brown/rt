@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Copyright © Michal Čihař <michal@weblate.org>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+set -e
+
+if [ ! -f services-down ]; then
+    cd ci
+fi
+
+filename="docker-compose-$1.yml"
+
+docker compose --file "$filename" logs
+docker compose --file "$filename" down --remove-orphans

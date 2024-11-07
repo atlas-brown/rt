@@ -1,0 +1,180 @@
+[
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/e510/proprietary/bin/backuptool.sh",
+  "short_name": "backuptool",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/0",
+  "posix_compliant": true,
+  "line_count": 174,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/e510/proprietary/bin/init.qcom.bt.sh",
+  "short_name": "init.qcom.bt",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/1",
+  "posix_compliant": true,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/e510/proprietary/bin/modelid_cfg.sh",
+  "short_name": "modelid_cfg",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/2",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/e510/proprietary/bin/verify_cache_partition_size.sh",
+  "short_name": "verify_cache_partition_size",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/3",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/p698/proprietary/bin/rft.sh",
+  "short_name": "rft",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/4",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/p698/proprietary/etc/init.goldfish.sh",
+  "short_name": "init.goldfish",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/5",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/p698/proprietary/etc/init.qcom.fm.sh",
+  "short_name": "init.qcom.fm",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/6",
+  "posix_compliant": true,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/p698/proprietary/etc/init.qcom.bt.sh",
+  "short_name": "init.qcom.bt",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/7",
+  "posix_compliant": true,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/p698/proprietary/etc/init.qcom.coex.sh",
+  "short_name": "init.qcom.coex",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/8",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/p698/proprietary/etc/init.qcom.post_boot.sh",
+  "short_name": "init.qcom.post_boot",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/9",
+  "posix_compliant": true,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/p698/proprietary/etc/init.qcom.sdio.sh",
+  "short_name": "init.qcom.sdio",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/10",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/p698/proprietary/etc/init.qcom.wifi.sh",
+  "short_name": "init.qcom.wifi",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/11",
+  "posix_compliant": true,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/lgics/cm_vendor_lge.git",
+  "relative_path": "cm_vendor_lge/e720/proprietary/bin/rft.sh",
+  "short_name": "rft",
+  "timestamp": "10/22/2024",
+  "identifier": "cm_FwvemA/12",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

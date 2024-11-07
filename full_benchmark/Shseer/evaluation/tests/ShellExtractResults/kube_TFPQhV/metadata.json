@@ -1,0 +1,547 @@
+[
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/tools/godeps.sh",
+  "short_name": "godeps",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/0",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/google.golang.org/grpc/codegen.sh",
+  "short_name": "codegen",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/google.golang.org/grpc/internal/binarylog/regenerate.sh",
+  "short_name": "regenerate",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/2",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/google.golang.org/grpc/install_gae.sh",
+  "short_name": "install_gae",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/3",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/google.golang.org/grpc/balancer/grpclb/regenerate.sh",
+  "short_name": "regenerate",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/4",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/google.golang.org/grpc/vet.sh",
+  "short_name": "vet",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/5",
+  "posix_compliant": false,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/google.golang.org/grpc/credentials/alts/internal/regenerate.sh",
+  "short_name": "regenerate",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/6",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/google.golang.org/appengine/internal/regen.sh",
+  "short_name": "regen",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/7",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/google.golang.org/appengine/travis_test.sh",
+  "short_name": "travis_test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/8",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/google.golang.org/appengine/travis_install.sh",
+  "short_name": "travis_install",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/9",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/golang.org/x/sys/unix/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/10",
+  "posix_compliant": false,
+  "line_count": 206,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/golang.org/x/sys/unix/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/11",
+  "posix_compliant": false,
+  "line_count": 340,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/golang.org/x/sys/windows/mkknownfolderids.bash",
+  "short_name": "mkknownfolderids.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/12",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/golang.org/x/sys/windows/mkerrors.bash",
+  "short_name": "mkerrors.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/13",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/github.com/json-iterator/go/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/14",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/github.com/json-iterator/go/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/15",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/github.com/google/go-jsonnet/travisBuild.sh",
+  "short_name": "travisBuild",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/16",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/github.com/google/go-jsonnet/tests.sh",
+  "short_name": "tests",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/17",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/github.com/google/go-jsonnet/travisBazel.sh",
+  "short_name": "travisBazel",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/18",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/github.com/google/go-jsonnet/benchmark.sh",
+  "short_name": "benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/19",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/github.com/modern-go/reflect2/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/20",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/kubeprod/vendor/github.com/modern-go/concurrent/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/21",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/scripts/es-curator_test.sh",
+  "short_name": "es-curator_test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/22",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/google.golang.org/appengine/internal/regen.sh",
+  "short_name": "regen",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/23",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/google.golang.org/appengine/travis_test.sh",
+  "short_name": "travis_test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/24",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/google.golang.org/appengine/travis_install.sh",
+  "short_name": "travis_install",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/25",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/golang.org/x/sys/unix/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/26",
+  "posix_compliant": false,
+  "line_count": 197,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/golang.org/x/sys/unix/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/27",
+  "posix_compliant": false,
+  "line_count": 331,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/golang.org/x/sys/windows/mkknownfolderids.bash",
+  "short_name": "mkknownfolderids.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/28",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/golang.org/x/sys/windows/mkerrors.bash",
+  "short_name": "mkerrors.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/29",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/github.com/json-iterator/go/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/30",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/github.com/json-iterator/go/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/31",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/github.com/modern-go/reflect2/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/32",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/tests/vendor/github.com/modern-go/concurrent/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/33",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/manifests/components/powerdns/setup-db.sh",
+  "short_name": "setup-db",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/34",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/manifests/components/keycloak/setup-db.sh",
+  "short_name": "setup-db",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/35",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/manifests/vendor/github.com/bitnami-labs/kube-libsonnet/tests/k3s-e2e-test.sh",
+  "short_name": "k3s-e2e-test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/36",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/manifests/vendor/kube-libsonnet/tests/k3s-e2e-test.sh",
+  "short_name": "k3s-e2e-test",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/37",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/vmware-archive/kube-prod-runtime.git",
+  "relative_path": "kube-prod-runtime/jenkins/automation/automatic-updates.sh",
+  "short_name": "automatic-updates",
+  "timestamp": "10/22/2024",
+  "identifier": "kube_TFPQhV/38",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

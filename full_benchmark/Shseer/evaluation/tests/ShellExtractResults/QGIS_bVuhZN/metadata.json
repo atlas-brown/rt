@@ -1,0 +1,24 @@
+[
+ {
+  "repo": "https://github.com/qgis/QGIS-Code-Examples.git",
+  "relative_path": "QGIS-Code-Examples/4_adding_rasters_to_canvas/build.mac.sh",
+  "short_name": "build.mac",
+  "timestamp": "10/22/2024",
+  "identifier": "QGIS_bVuhZN/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/qgis/QGIS-Code-Examples.git",
+  "relative_path": "QGIS-Code-Examples/generate_docs.sh",
+  "short_name": "generate_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "QGIS_bVuhZN/1",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ }
+]

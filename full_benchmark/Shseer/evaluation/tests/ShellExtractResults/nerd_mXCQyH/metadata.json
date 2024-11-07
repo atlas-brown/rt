@@ -1,0 +1,622 @@
+[
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/fetch-archives.sh",
+  "short_name": "fetch-archives",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/0",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/generate-release-summary.sh",
+  "short_name": "generate-release-summary",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/1",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/generate-css.sh",
+  "short_name": "generate-css",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/2",
+  "posix_compliant": false,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/generate-webfonts.sh",
+  "short_name": "generate-webfonts",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/3",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/archive-font-patcher.sh",
+  "short_name": "archive-font-patcher",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/4",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/test-fonts.sh",
+  "short_name": "test-fonts",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/5",
+  "posix_compliant": false,
+  "line_count": 139,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/archive-fonts.sh",
+  "short_name": "archive-fonts",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/6",
+  "posix_compliant": false,
+  "line_count": 91,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/cheatsheet.sh",
+  "short_name": "cheatsheet",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/7",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/gotta-patch-em-all-font-patcher!.sh",
+  "short_name": "gotta-patch-em-all-font-patcher!",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/8",
+  "posix_compliant": false,
+  "line_count": 276,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/generate-sample-set.sh",
+  "short_name": "generate-sample-set",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/9",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/version-bump.sh",
+  "short_name": "version-bump",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/10",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/11",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/generate-font-image-previews.sh",
+  "short_name": "generate-font-image-previews",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/12",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_logos.sh",
+  "short_name": "i_logos",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/13",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_dev.sh",
+  "short_name": "i_dev",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/14",
+  "posix_compliant": false,
+  "line_count": 200,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_pom.sh",
+  "short_name": "i_pom",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/15",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_material.sh",
+  "short_name": "i_material",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/16",
+  "posix_compliant": false,
+  "line_count": 2121,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_fa.sh",
+  "short_name": "i_fa",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/17",
+  "posix_compliant": false,
+  "line_count": 1819,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_all.sh",
+  "short_name": "i_all",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/18",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_md.sh",
+  "short_name": "i_md",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/19",
+  "posix_compliant": false,
+  "line_count": 6882,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_iec.sh",
+  "short_name": "i_iec",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/20",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_weather.sh",
+  "short_name": "i_weather",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/21",
+  "posix_compliant": false,
+  "line_count": 229,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_seti.sh",
+  "short_name": "i_seti",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/22",
+  "posix_compliant": false,
+  "line_count": 211,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_oct.sh",
+  "short_name": "i_oct",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/23",
+  "posix_compliant": false,
+  "line_count": 312,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_fae.sh",
+  "short_name": "i_fae",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/24",
+  "posix_compliant": false,
+  "line_count": 172,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_ple.sh",
+  "short_name": "i_ple",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/25",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/lib/i_cod.sh",
+  "short_name": "i_cod",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/26",
+  "posix_compliant": false,
+  "line_count": 440,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/27",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/test-vertical-lines.sh",
+  "short_name": "test-vertical-lines",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/28",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/get-font-names-from-json.sh",
+  "short_name": "get-font-names-from-json",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/29",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/optimize-original-source.sh",
+  "short_name": "optimize-original-source",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/30",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/standardize-and-complete-readmes.sh",
+  "short_name": "standardize-and-complete-readmes",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/31",
+  "posix_compliant": false,
+  "line_count": 145,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/test-powerlines.sh",
+  "short_name": "test-powerlines",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/32",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/generate-casks.sh",
+  "short_name": "generate-casks",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/33",
+  "posix_compliant": false,
+  "line_count": 183,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/update-gitignore.sh",
+  "short_name": "update-gitignore",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/34",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/bin/scripts/generate-fontconfig.sh",
+  "short_name": "generate-fontconfig",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/35",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/36",
+  "posix_compliant": false,
+  "line_count": 217,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/src/unpatched-fonts/JetBrainsMono/copyall.sh",
+  "short_name": "copyall",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/37",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/src/unpatched-fonts/MartianMono/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/38",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/src/unpatched-fonts/Gohu/fix_gohufont_14.sh",
+  "short_name": "fix_gohufont_14",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/39",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/src/unpatched-fonts/IosevkaTermSlab/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/40",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/src/unpatched-fonts/Iosevka/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/41",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/src/unpatched-fonts/IntelOneMono/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/42",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/src/unpatched-fonts/IosevkaTerm/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/43",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/src/unpatched-fonts/ZedMono/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/44",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ryanoasis/nerd-fonts.git",
+  "relative_path": "nerd-fonts/src/unpatched-fonts/Monaspace/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "nerd_mXCQyH/45",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

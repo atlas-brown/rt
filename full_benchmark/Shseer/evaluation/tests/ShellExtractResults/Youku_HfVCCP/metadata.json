@@ -1,0 +1,19 @@
+[
+ {
+  "repo": "https://github.com/esterTion/Youku-HTML5-Player.git",
+  "relative_path": "Youku-HTML5-Player/src/yhp_update",
+  "short_name": "yhp_update",
+  "timestamp": "10/22/2024",
+  "identifier": "Youku_HfVCCP/0",
+  "posix_compliant": true,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

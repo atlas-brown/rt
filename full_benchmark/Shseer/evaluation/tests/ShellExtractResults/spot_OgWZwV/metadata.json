@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/rauchg/spot.git",
+  "relative_path": "spot/spot.sh",
+  "short_name": "spot",
+  "timestamp": "10/22/2024",
+  "identifier": "spot_OgWZwV/0",
+  "posix_compliant": false,
+  "line_count": 139,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

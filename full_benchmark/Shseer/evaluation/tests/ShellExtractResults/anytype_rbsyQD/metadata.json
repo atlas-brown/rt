@@ -1,0 +1,32 @@
+[
+ {
+  "repo": "https://github.com/anyproto/anytype-ts.git",
+  "relative_path": "anytype-ts/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "anytype_rbsyQD/0",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/anyproto/anytype-ts.git",
+  "relative_path": "anytype-ts/update-ci.sh",
+  "short_name": "update-ci",
+  "timestamp": "10/22/2024",
+  "identifier": "anytype_rbsyQD/1",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

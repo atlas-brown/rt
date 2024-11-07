@@ -1,0 +1,411 @@
+[
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/crates/terminal_view/scripts/truecolor.sh",
+  "short_name": "truecolor",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/0",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/crates/terminal_view/scripts/print256color.sh",
+  "short_name": "print256color",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/1",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/crates/collab/k8s/environments/staging.sh",
+  "short_name": "staging",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/2",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/crates/collab/k8s/environments/production.sh",
+  "short_name": "production",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/3",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/metal-debug",
+  "short_name": "metal-debug",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/4",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/deploy-postgrest",
+  "short_name": "deploy-postgrest",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/5",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/storybook",
+  "short_name": "storybook",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/6",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/bump-nightly",
+  "short_name": "bump-nightly",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/7",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/bump-zed-minor-versions",
+  "short_name": "bump-zed-minor-versions",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/8",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/bump-extension-cli",
+  "short_name": "bump-extension-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/9",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/bump-zed-patch-version",
+  "short_name": "bump-zed-patch-version",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/10",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/11",
+  "posix_compliant": false,
+  "line_count": 120,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/what-is-deployed",
+  "short_name": "what-is-deployed",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/12",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/flatpak/deps",
+  "short_name": "deps",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/13",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/run-local-minio",
+  "short_name": "run-local-minio",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/14",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/deploy-collab",
+  "short_name": "deploy-collab",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/15",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/seed-db",
+  "short_name": "seed-db",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/16",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/collab-flamegraph",
+  "short_name": "collab-flamegraph",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/17",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/import-themes",
+  "short_name": "import-themes",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/18",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/get-released-version",
+  "short_name": "get-released-version",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/19",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/trigger-release",
+  "short_name": "trigger-release",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/20",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/lib/bump-version.sh",
+  "short_name": "bump-version",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/21",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/lib/blob-store.sh",
+  "short_name": "blob-store",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/22",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/lib/deploy-helpers.sh",
+  "short_name": "deploy-helpers",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/23",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/prompts",
+  "short_name": "prompts",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/24",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/generate-terms-rtf",
+  "short_name": "generate-terms-rtf",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/25",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/kube-shell",
+  "short_name": "kube-shell",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/26",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/crate-dep-graph",
+  "short_name": "crate-dep-graph",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/27",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/clear-target-dir-if-larger-than",
+  "short_name": "clear-target-dir-if-larger-than",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/28",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/get-crate-version",
+  "short_name": "get-crate-version",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/29",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zed-industries/zed.git",
+  "relative_path": "zed/script/drop-test-dbs",
+  "short_name": "drop-test-dbs",
+  "timestamp": "10/22/2024",
+  "identifier": "zed_hcdVVw/30",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

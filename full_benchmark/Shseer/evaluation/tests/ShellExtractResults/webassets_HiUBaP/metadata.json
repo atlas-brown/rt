@@ -1,0 +1,24 @@
+[
+ {
+  "repo": "https://github.com/miracle2k/webassets.git",
+  "relative_path": "webassets/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "webassets_HiUBaP/0",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/miracle2k/webassets.git",
+  "relative_path": "webassets/requirements-dev.sh",
+  "short_name": "requirements-dev",
+  "timestamp": "10/22/2024",
+  "identifier": "webassets_HiUBaP/1",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": []
+ }
+]

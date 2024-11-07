@@ -1,0 +1,64 @@
+[
+ {
+  "repo": "https://github.com/FuelLabs/fuel-core.git",
+  "relative_path": "fuel-core/ci_checks.sh",
+  "short_name": "ci_checks",
+  "timestamp": "10/22/2024",
+  "identifier": "fuel_PjCFsr/0",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/FuelLabs/fuel-core.git",
+  "relative_path": "fuel-core/ci/macos-install-packages.sh",
+  "short_name": "macos-install-packages",
+  "timestamp": "10/22/2024",
+  "identifier": "fuel_PjCFsr/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/FuelLabs/fuel-core.git",
+  "relative_path": "fuel-core/ci/build-images.sh",
+  "short_name": "build-images",
+  "timestamp": "10/22/2024",
+  "identifier": "fuel_PjCFsr/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/FuelLabs/fuel-core.git",
+  "relative_path": "fuel-core/.github/workflows/scripts/verify_openssl.sh",
+  "short_name": "verify_openssl",
+  "timestamp": "10/22/2024",
+  "identifier": "fuel_PjCFsr/3",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/FuelLabs/fuel-core.git",
+  "relative_path": "fuel-core/.github/workflows/scripts/verify_tag.sh",
+  "short_name": "verify_tag",
+  "timestamp": "10/22/2024",
+  "identifier": "fuel_PjCFsr/4",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

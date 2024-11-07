@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/minimaxir/big-list-of-naughty-strings.git",
+  "relative_path": "big-list-of-naughty-strings/scripts/texttobase64.sh",
+  "short_name": "texttobase64",
+  "timestamp": "10/22/2024",
+  "identifier": "big_NQqtew/0",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

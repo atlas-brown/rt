@@ -1,0 +1,47 @@
+[
+ {
+  "repo": "https://github.com/osixia/docker-phpLDAPadmin.git",
+  "relative_path": "docker-phpLDAPadmin/image/service/phpldapadmin/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_jmXSRB/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/osixia/docker-phpLDAPadmin.git",
+  "relative_path": "docker-phpLDAPadmin/image/service/phpldapadmin/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_jmXSRB/1",
+  "posix_compliant": false,
+  "line_count": 94,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/osixia/docker-phpLDAPadmin.git",
+  "relative_path": "docker-phpLDAPadmin/image/service/ldap-client/startup.sh",
+  "short_name": "startup",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_jmXSRB/2",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

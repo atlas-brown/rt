@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/OpenLMIS/open-lmis.git",
+  "relative_path": "open-lmis/modules/openlmis-web/src/main/webapp/public/lib/select2/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "open_tnRRmJ/0",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

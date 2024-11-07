@@ -1,0 +1,895 @@
+[
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/prow/integ-suite-kind.sh",
+  "short_name": "integ-suite-kind",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/0",
+  "posix_compliant": false,
+  "line_count": 143,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/prow/release-commit.sh",
+  "short_name": "release-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/1",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/prow/lib.sh",
+  "short_name": "lib",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/2",
+  "posix_compliant": false,
+  "line_count": 163,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/prow/release-test.sh",
+  "short_name": "release-test",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/3",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/prow/benchtest.sh",
+  "short_name": "benchtest",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/4",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/build-base-images.sh",
+  "short_name": "build-base-images",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/5",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/build-kind-image.sh",
+  "short_name": "build-kind-image",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/6",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/packaging/postinst.sh",
+  "short_name": "postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/7",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/packaging/common/istio-start.sh",
+  "short_name": "istio-start",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/8",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/dump-docker-logs.sh",
+  "short_name": "dump-docker-logs",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/9",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/docker",
+  "short_name": "docker",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/10",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/skip-image.sh",
+  "short_name": "skip-image",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/11",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/convert_RbacConfig_to_ClusterRbacConfig.sh",
+  "short_name": "convert_RbacConfig_to_ClusterRbacConfig",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/12",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/docker-copy.sh",
+  "short_name": "docker-copy",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/13",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/gen_istio_image_list.sh",
+  "short_name": "gen_istio_image_list",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/14",
+  "posix_compliant": false,
+  "line_count": 128,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/go-compile-without-link",
+  "short_name": "go-compile-without-link",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/15",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/dump_kubernetes.sh",
+  "short_name": "dump_kubernetes",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/16",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tools/commonfiles-postprocess.sh",
+  "short_name": "commonfiles-postprocess",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/17",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/bin/retry.sh",
+  "short_name": "retry",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/18",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/bin/init.sh",
+  "short_name": "init",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/19",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/bin/update_deps.sh",
+  "short_name": "update_deps",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/20",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/bin/update_ztunnel.sh",
+  "short_name": "update_ztunnel",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/21",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/bin/build_ztunnel.sh",
+  "short_name": "build_ztunnel",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/22",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/bin/update_proxy.sh",
+  "short_name": "update_proxy",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/23",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/bin/check_samples.sh",
+  "short_name": "check_samples",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/24",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/bin/update_crds.sh",
+  "short_name": "update_crds",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/25",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/security/samples/plugin_ca_certs/gen_certs.sh",
+  "short_name": "gen_certs",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/26",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/security/pkg/pki/testdata/multilevelpki/ecc-certs.sh",
+  "short_name": "ecc-certs",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/27",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/security/pkg/pki/testdata/multilevelpki/certs.sh",
+  "short_name": "certs",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/28",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tests/testdata/certs/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/29",
+  "posix_compliant": false,
+  "line_count": 134,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tests/integration/security/sds_ingress/util/generate_certs.sh",
+  "short_name": "generate_certs",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/30",
+  "posix_compliant": true,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tests/integration/security/fuzz/fuzzers/jwt_tool/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/31",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tests/integration/security/fuzz/fuzzers/dotdotpwn/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/32",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tests/integration/create_cluster_gke.sh",
+  "short_name": "create_cluster_gke",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/33",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/tests/fuzz/oss_fuzz_build.sh",
+  "short_name": "oss_fuzz_build",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/34",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/release/downloadIstioCtl.sh",
+  "short_name": "downloadIstioCtl",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/35",
+  "posix_compliant": true,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/release/downloadIstioCandidate.sh",
+  "short_name": "downloadIstioCandidate",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/36",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/samples/helloworld/loadgen.sh",
+  "short_name": "loadgen",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/37",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/samples/helloworld/gen-helloworld.sh",
+  "short_name": "gen-helloworld",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/38",
+  "posix_compliant": false,
+  "line_count": 100,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/samples/kind-lb/setupkind.sh",
+  "short_name": "setupkind",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/39",
+  "posix_compliant": false,
+  "line_count": 218,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/samples/certs/generate-workload.sh",
+  "short_name": "generate-workload",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/40",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/samples/multicluster/gen-eastwest-gateway.sh",
+  "short_name": "gen-eastwest-gateway",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/41",
+  "posix_compliant": false,
+  "line_count": 109,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/samples/bookinfo/platform/kube/cleanup.sh",
+  "short_name": "cleanup",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/42",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/samples/bookinfo/src/build-services.sh",
+  "short_name": "build-services",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/43",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/samples/bookinfo/src/mongodb/script.sh",
+  "short_name": "script",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/44",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/gobuild.sh",
+  "short_name": "gobuild",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/45",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/fix_copyright_banner.sh",
+  "short_name": "fix_copyright_banner",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/46",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/format_go.sh",
+  "short_name": "format_go",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/47",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/lint_go.sh",
+  "short_name": "lint_go",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/48",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/report_build_info.sh",
+  "short_name": "report_build_info",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/49",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/kind_provisioner.sh",
+  "short_name": "kind_provisioner",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/50",
+  "posix_compliant": false,
+  "line_count": 309,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/51",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/tracing.sh",
+  "short_name": "tracing",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/52",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/setup_env.sh",
+  "short_name": "setup_env",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/53",
+  "posix_compliant": false,
+  "line_count": 161,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/check_clean_repo.sh",
+  "short_name": "check_clean_repo",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/54",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/common/scripts/lint_copyright_banner.sh",
+  "short_name": "lint_copyright_banner",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/55",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/cni/test/testdata/env_vars.sh",
+  "short_name": "env_vars",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/56",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/pilot/pkg/model/test/testcert/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/57",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/manifests/addons/gen.sh",
+  "short_name": "gen",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/58",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/operator/scripts/update_version.sh",
+  "short_name": "update_version",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/59",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/operator/scripts/run_update_branch.sh",
+  "short_name": "run_update_branch",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/60",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/operator/scripts/run_update_golden_snapshots.sh",
+  "short_name": "run_update_golden_snapshots",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/61",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/pkg/testcerts/generate-certs.sh",
+  "short_name": "generate-certs",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/62",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/istio/istio.git",
+  "relative_path": "istio/pkg/test/echo/docker/echo-start.sh",
+  "short_name": "echo-start",
+  "timestamp": "10/22/2024",
+  "identifier": "istio_EGcnCr/63",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

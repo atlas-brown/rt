@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/webtorrent/webtorrent.git",
+  "relative_path": "webtorrent/scripts/update-authors.sh",
+  "short_name": "update-authors",
+  "timestamp": "10/22/2024",
+  "identifier": "webtorrent_xxuNGT/0",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

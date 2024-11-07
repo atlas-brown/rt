@@ -1,0 +1,471 @@
+[
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/UseDotNetV2/externals/get-os-distro.sh",
+  "short_name": "get-os-distro",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/0",
+  "posix_compliant": false,
+  "line_count": 167,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/AzureRmWebAppDeploymentV3/postDeploymentScript/mainCmdFile.sh",
+  "short_name": "mainCmdFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/AzureRmWebAppDeploymentV3/postDeploymentScript/deleteLogFile.sh",
+  "short_name": "deleteLogFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/2",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/AzureRmWebAppDeploymentV4/postDeploymentScript/mainCmdFile.sh",
+  "short_name": "mainCmdFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/3",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/AzureRmWebAppDeploymentV4/postDeploymentScript/deleteLogFile.sh",
+  "short_name": "deleteLogFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/4",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/AzureStaticWebAppV0/launch-docker.sh",
+  "short_name": "launch-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/5",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/DotNetCoreInstallerV0/externals/get-os-distro.sh",
+  "short_name": "get-os-distro",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/6",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/DotNetCoreInstallerV0/externals/install-dotnet.sh",
+  "short_name": "install-dotnet",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/7",
+  "posix_compliant": false,
+  "line_count": 615,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/AzureVmssDeploymentV0/Resources/customScriptInvoker.sh",
+  "short_name": "customScriptInvoker",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/8",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/DotNetCoreInstallerV1/externals/get-os-distro.sh",
+  "short_name": "get-os-distro",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/9",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/Tasks/AzureVmssDeploymentV1/Resources/customScriptInvoker.sh",
+  "short_name": "customScriptInvoker",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/10",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/BuildConfigGen/Misc/helpers.sh",
+  "short_name": "helpers",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/11",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/BuildConfigGen/Misc/dotnet-install.sh",
+  "short_name": "dotnet-install",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/12",
+  "posix_compliant": false,
+  "line_count": 1328,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/BuildConfigGen/dev.sh",
+  "short_name": "dev",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/13",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureVmssDeploymentV1_Node20/Resources/customScriptInvoker.sh",
+  "short_name": "customScriptInvoker",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/14",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/DotNetCoreInstallerV0_Node20/externals/get-os-distro.sh",
+  "short_name": "get-os-distro",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/15",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/DotNetCoreInstallerV0_Node20/externals/install-dotnet.sh",
+  "short_name": "install-dotnet",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/16",
+  "posix_compliant": false,
+  "line_count": 615,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureRmWebAppDeploymentV4_Node20/postDeploymentScript/mainCmdFile.sh",
+  "short_name": "mainCmdFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/17",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureRmWebAppDeploymentV4_Node20/postDeploymentScript/deleteLogFile.sh",
+  "short_name": "deleteLogFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/18",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/UseDotNetV2/externals/get-os-distro.sh",
+  "short_name": "get-os-distro",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/19",
+  "posix_compliant": false,
+  "line_count": 167,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureRmWebAppDeploymentV3/postDeploymentScript/mainCmdFile.sh",
+  "short_name": "mainCmdFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/20",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureRmWebAppDeploymentV3/postDeploymentScript/deleteLogFile.sh",
+  "short_name": "deleteLogFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/21",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureRmWebAppDeploymentV4/postDeploymentScript/mainCmdFile.sh",
+  "short_name": "mainCmdFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/22",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureRmWebAppDeploymentV4/postDeploymentScript/deleteLogFile.sh",
+  "short_name": "deleteLogFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/23",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureStaticWebAppV0/launch-docker.sh",
+  "short_name": "launch-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/24",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/DotNetCoreInstallerV1_Node20/externals/get-os-distro.sh",
+  "short_name": "get-os-distro",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/25",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/DotNetCoreInstallerV0/externals/get-os-distro.sh",
+  "short_name": "get-os-distro",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/26",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/DotNetCoreInstallerV0/externals/install-dotnet.sh",
+  "short_name": "install-dotnet",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/27",
+  "posix_compliant": false,
+  "line_count": 615,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureVmssDeploymentV0_Node20/Resources/customScriptInvoker.sh",
+  "short_name": "customScriptInvoker",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/28",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureVmssDeploymentV0/Resources/customScriptInvoker.sh",
+  "short_name": "customScriptInvoker",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/29",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/DotNetCoreInstallerV1/externals/get-os-distro.sh",
+  "short_name": "get-os-distro",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/30",
+  "posix_compliant": false,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureVmssDeploymentV1/Resources/customScriptInvoker.sh",
+  "short_name": "customScriptInvoker",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/31",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/UseDotNetV2_Node20/externals/get-os-distro.sh",
+  "short_name": "get-os-distro",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/32",
+  "posix_compliant": false,
+  "line_count": 167,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureStaticWebAppV0_Node20/launch-docker.sh",
+  "short_name": "launch-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/33",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureRmWebAppDeploymentV3_Node20/postDeploymentScript/mainCmdFile.sh",
+  "short_name": "mainCmdFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/34",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/azure-pipelines-tasks.git",
+  "relative_path": "azure-pipelines-tasks/_generated/AzureRmWebAppDeploymentV3_Node20/postDeploymentScript/deleteLogFile.sh",
+  "short_name": "deleteLogFile",
+  "timestamp": "10/22/2024",
+  "identifier": "azure_YCqabt/35",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ }
+]

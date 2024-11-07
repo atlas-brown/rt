@@ -1,0 +1,28 @@
+#!/bin/bash
+mv /pkg/src/dcos-diagnostics /
+cd /dcos-diagnostics
+make install
+# Copy the build from the bin to the correct place
+cp -r /pkg/bin/ "$PKG_PATH"
+
+master_service=${PKG_PATH}/dcos.target.wants_master/dcos-diagnostics.service
+slave_service=${PKG_PATH}/dcos.target.wants_slave/dcos-diagnostics.service
+slave_public_service=${PKG_PATH}/dcos.target.wants_slave_public/dcos-diagnostics.service
+
+master_socket_service=${PKG_PATH}/dcos.target.wants_master/dcos-diagnostics.socket
+slave_socket_service=${PKG_PATH}/dcos.target.wants_slave/dcos-diagnostics.socket
+slave_public_socket_service=${PKG_PATH}/dcos.target.wants_slave_public/dcos-diagnostics.socket
+
+mkdir -p $(dirname $master_service)
+mkdir -p $(dirname $slave_service)
+mkdir -p $(dirname $slave_public_service)
+
+cp /pkg/extra/dcos-diagnostics-mesos-state.service "${PKG_PATH}/dcos.target.wants_master/dcos-diagnostics-mesos-state.service"
+cp /pkg/extra/dcos-diagnostics-mesos-state.timer "${PKG_PATH}/dcos.target.wants_master/dcos-diagnostics-mesos-state.timer"
+
+cp /pkg/extra/dcos-diagnostics-master.service "$master_service"
+cp /pkg/extra/dcos-diagnostics-agent.service "$slave_service"
+cp /pkg/extra/dcos-diagnostics-agent.service "$slave_public_service"
+cp /pkg/extra/dcos-diagnostics.socket "$master_socket_service"
+cp /pkg/extra/dcos-diagnostics.socket "$slave_socket_service"
+cp /pkg/extra/dcos-diagnostics.socket "$slave_public_socket_service"

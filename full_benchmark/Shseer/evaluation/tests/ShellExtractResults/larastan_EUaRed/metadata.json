@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/larastan/larastan.git",
+  "relative_path": "larastan/tests/laravel-test.sh",
+  "short_name": "laravel-test",
+  "timestamp": "10/22/2024",
+  "identifier": "larastan_EUaRed/0",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

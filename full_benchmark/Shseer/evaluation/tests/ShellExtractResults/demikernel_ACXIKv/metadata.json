@@ -1,0 +1,133 @@
+[
+ {
+  "repo": "https://github.com/microsoft/demikernel.git",
+  "relative_path": "demikernel/.githooks/commit-msg",
+  "short_name": "commit-msg",
+  "timestamp": "10/22/2024",
+  "identifier": "demikernel_ACXIKv/0",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/demikernel.git",
+  "relative_path": "demikernel/.githooks/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "demikernel_ACXIKv/1",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/demikernel.git",
+  "relative_path": "demikernel/scripts/setup/debian.sh",
+  "short_name": "debian",
+  "timestamp": "10/22/2024",
+  "identifier": "demikernel_ACXIKv/2",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/demikernel.git",
+  "relative_path": "demikernel/scripts/setup/irq.sh",
+  "short_name": "irq",
+  "timestamp": "10/22/2024",
+  "identifier": "demikernel_ACXIKv/3",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/demikernel.git",
+  "relative_path": "demikernel/scripts/setup/hugepages.sh",
+  "short_name": "hugepages",
+  "timestamp": "10/22/2024",
+  "identifier": "demikernel_ACXIKv/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/demikernel.git",
+  "relative_path": "demikernel/scripts/setup/dpdk.sh",
+  "short_name": "dpdk",
+  "timestamp": "10/22/2024",
+  "identifier": "demikernel_ACXIKv/5",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/demikernel.git",
+  "relative_path": "demikernel/scripts/setup/config.sh",
+  "short_name": "config",
+  "timestamp": "10/22/2024",
+  "identifier": "demikernel_ACXIKv/6",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/demikernel.git",
+  "relative_path": "demikernel/scripts/setup/azure.sh",
+  "short_name": "azure",
+  "timestamp": "10/22/2024",
+  "identifier": "demikernel_ACXIKv/7",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/demikernel.git",
+  "relative_path": "demikernel/scripts/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "demikernel_ACXIKv/8",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/demikernel.git",
+  "relative_path": "demikernel/scripts/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "demikernel_ACXIKv/9",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

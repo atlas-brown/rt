@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/steni/RYOLisp.git",
+  "relative_path": "RYOLisp/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "RYOLisp_DqhJQK/0",
+  "posix_compliant": false,
+  "line_count": 122,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

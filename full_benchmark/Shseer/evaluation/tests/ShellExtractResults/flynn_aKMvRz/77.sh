@@ -1,0 +1,219 @@
+#!/bin/bash
+
+set -e
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+source "${ROOT}/script/lib/ui.sh"
+
+usage() {
+  cat <<USAGE >&2
+usage: $0 [options]
+
+Build Flynn using the builder image.
+
+OPTIONS:
+  -h, --help              Show this message
+  -v, --verbose           Be verbose
+  -x, --version=VERSION   Explicit version to use [default: dev]
+  -f, --force-bootstrap   Force bootstrap
+  --host=HOST             Host to run the build on
+  --git-version           Generate the version using git status
+USAGE
+}
+
+main() {
+  local host=""
+  local version="dev"
+  local verbose=false
+  local force_bootstrap=false
+
+  while true; do
+    case "$1" in
+      -h | --help)
+        usage
+        exit 0
+        ;;
+      --host)
+        if [[ -z "$2" ]]; then
+          fail "--host flag requires an argument"
+        fi
+        host="$2"
+        shift 2
+        ;;
+      -v | --verbose)
+        verbose=true
+        shift
+        ;;
+      -f | --force-bootstrap)
+        force_bootstrap=true
+        shift
+        ;;
+      -x | --version)
+        if [[ -z "$2" ]]; then
+          fail "--version flag requires an argument"
+        fi
+        version="$2"
+        shift 2
+        ;;
+      --git-version)
+        version="$(git_version)"
+        shift
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  if [[ $# -ne 0 ]]; then
+    usage
+    exit 1
+  fi
+
+  local flynn_host="${ROOT}/build/bin/flynn-host"
+  local builder_image="${ROOT}/build/image/builder.json"
+
+  # if building from clean, download binaries + images
+  if ! [[ -e "${builder_image}" ]]; then
+    local sha="de87e0d04d262a134fe7e7471e3c4c20e40ae229f20bf753a54a78656f72737e1a3ef3e8a165e8d4e39201f412173faf9bf4518c24678681ff5449e95fb82374"
+    local url="https://dl.flynn.io/tuf/targets/${sha}.flynn-host.gz"
+
+    info "downloading flynn-host from ${url}"
+    mkdir -p "${ROOT}/build/bin"
+    curl -fsSLo "${flynn_host}.gz" "${url}"
+    echo "${sha}  ${flynn_host}.gz" | shasum -a "512" -c -
+    gunzip --force "${flynn_host}.gz"
+    chmod +x "${flynn_host}"
+
+    # kill existing cluster to unlock the volume database
+    "${ROOT}/script/kill-flynn"
+
+    info "getting nightly release version"
+    local dl_version="$(curl -fsSL "https://releases.flynn.io/api/channels" | jq -r '.[] | select(.name == "nightly") | .version')"
+    if [[ -z "${dl_version}" ]]; then
+      fail "unable to determine nightly release version"
+    fi
+
+    info "downloading binaries + images (${dl_version})"
+    mkdir -p "${ROOT}/build/manifests"
+    sudo FLYNN_VERSION="${dl_version}" "${flynn_host}" download \
+      --tuf-db     "/tmp/tuf.db" \
+      --bin-dir    "${ROOT}/build/bin" \
+      --config-dir "${ROOT}/build/manifests" \
+      --volpath    "/var/lib/flynn/volumes-0"
+
+    mkdir -p "${ROOT}/build/image"
+    jq '.builder' "${ROOT}/build/manifests/images.${dl_version}.json" > "${builder_image}"
+  fi
+
+  # bootstrap the cluster if not running
+  export DISCOVERD="${DISCOVERD:-"1.localflynn.com:1111"}"
+  if $force_bootstrap || ! curl -fsSLo /dev/null --connect-timeout 1 "${DISCOVERD}/.well-known/status"; then
+    info "Flynn cluster not running, bootstrapping"
+    "${ROOT}/script/bootstrap-flynn" --steps "discoverd,flannel,wait-hosts"
+  fi
+
+  local args=("--version" "${version}")
+  if $verbose; then
+    args+=("--verbose")
+  fi
+  args+=("--tuf-db=/tmp/tuf.db")
+
+  sudo mkdir -p "/var/lib/flynn/layer-cache"
+  "${flynn_host}" run \
+    --host    "${host}" \
+    --bind    "${ROOT}:/src,/var/lib/flynn/layer-cache:/var/lib/flynn/layer-cache" \
+    --limits  "temp_disk=4G,memory=4G" \
+    --workdir "/src" \
+    "${builder_image}" \
+    /src/script/flynn-builder build "${args[@]}"
+
+  # extract binaries into build/bin
+  extract_bin "host"              "/usr/local/bin/flynn-host"
+  extract_bin "host"              "/usr/local/bin/flynn-init"
+  extract_bin "cli-linux-amd64"   "/bin/flynn-linux-amd64"
+  extract_bin "cli-linux-amd64"   "/bin/flynn-linux-amd64"
+  extract_bin "cli-linux-386"     "/bin/flynn-linux-386"
+  extract_bin "cli-darwin-amd64"  "/bin/flynn-darwin-amd64"
+  extract_bin "cli-windows-amd64" "/bin/flynn-windows-amd64"
+  extract_bin "cli-windows-386"   "/bin/flynn-windows-386"
+  extract_bin "release"           "/bin/flynn-release"
+  extract_bin "builder"           "/bin/flynn-builder"
+  extract_bin "discoverd"         "/bin/discoverd"
+  extract_bin "test"              "/bin/flynn-test-file-server"
+  extract_bin "build-tools"       "/bin/tuf"
+  extract_bin "build-tools"       "/bin/tuf-client"
+  ln -nfs "flynn-linux-amd64" "${ROOT}/build/bin/flynn"
+
+  # extract GOROOT from the Go image into build/_go and symlink
+  # binaries so we can run unit tests on the host
+  extract_dir "go" "/usr/local/go" "${ROOT}/build/_go"
+  ln -nfs "${ROOT}/build/_go/bin/go"    "${ROOT}/build/bin/go"
+  ln -nfs "${ROOT}/build/_go/bin/gofmt" "${ROOT}/build/bin/gofmt"
+}
+
+git_version() {
+  local commit="$(git rev-parse --short HEAD)"
+  if [[ -z "${commit}" ]]; then
+    fail "unable to determine Git commit"
+  fi
+
+  # if there are tags like 'vYYYYMMDD.N' pointing at HEAD, use the most recent
+  # one suffixed with the commit
+  local tag="$(git tag --list "v*" --sort "v:refname" --points-at HEAD 2>/dev/null | tail -n 1)"
+  if [[ -n "${tag}" ]]; then
+    echo "${tag}-${commit}"
+    return
+  fi
+
+  # use the branch and commit, appending a '+' if the index is dirty
+  local branch="$(git rev-parse --abbrev-ref HEAD)"
+  local version="${branch}-${commit}"
+  if [[ -n "$(git status --porcelain)" ]]; then
+    version="${version}+"
+  fi
+  echo "${version}"
+}
+
+extract_bin() {
+  local name=$1
+  local bin=$2
+
+  local image="${ROOT}/build/image/${name}.json"
+  local id="$(jq --raw-output '.meta["manifest.id"]' "${image}")"
+  if [[ -z "${id}" ]]; then
+    fail "unable to determine ${name} image ID"
+  fi
+
+  local dst="${ROOT}/build/bin/$(basename ${bin})"
+  if ! [[ -e "${dst}.${id}" ]]; then
+    info "extracting $(basename ${bin}) binary from image ${id}"
+    "${flynn_host}" run --host "${host}" "${image}" cat "${bin}" > "${dst}.${id}"
+    chmod +x "${dst}.${id}"
+  fi
+
+  ln -nfs "$(basename ${dst}.${id})" "${dst}"
+}
+
+extract_dir() {
+  local name=$1
+  local src=$2
+  local dst=$3
+
+  local image="${ROOT}/build/image/${name}.json"
+  local id="$(jq --raw-output '.meta["manifest.id"]' "${image}")"
+  if [[ -z "${id}" ]]; then
+    fail "unable to determine ${name} image ID"
+  fi
+
+  if ! [[ -d "${dst}.${id}" ]]; then
+    info "extracting $(basename ${src}) directory from image ${id}"
+    mkdir -p "${dst}.${id}"
+    "${flynn_host}" run --host "${host}" "${image}" tar cf - -C "${src}" . | tar xf - -C "${dst}.${id}"
+    sudo chown -R "$(id --user):$(id --group)" "${dst}.${id}"
+  fi
+
+  ln -nfs "${dst}.${id}" "${dst}"
+}
+
+main "$@"

@@ -1,0 +1,1129 @@
+#!/bin/bash
+#
+# stack-functions
+
+##
+# Suggested stack/template/params naming conventions
+# These are completely optional.
+#
+#   stack   : token-env
+#   template: token.yml
+#   params  : token-params-env.json or params/token-params-env.json
+#
+# Where:
+#
+#   token : describes the resources (mywebsite, vpc, bastion, etc)
+#   env   : environment descriptor (dev, test, prod, etc)
+#
+# Following these (entirely optional) conventions means bash-my-aws can
+# infer template & params file from stack name
+#
+# e.g. stack-create mywebsite-test
+#
+#      is equivalent (if files present) to:
+#
+#      stack-create mywebsite-test mywebsite.yml mywebsite-params-test.json
+#
+# Other benefits include:
+#
+# * ease in locating stack for template (and vice versa) based on name
+# * template and params files are listed together on filesystem
+# * stack name env suffixes protect against accidents (wrong account error)
+# * supports prodlike non-prod environments through using same template
+#
+# And don't forget, these naming conventions are completely optional.
+##
+
+stacks() {
+
+  # List CloudFormation stacks.
+  #
+  # To make it fly we omit stacks with status of DELETE_COMPLETE
+  # Output is sorted by CreationTime
+  #
+  #     $ stacks
+  #     nagios          CREATE_COMPLETE  2018-03-12T11:41:31Z  NEVER_UPDATED  NOT_NESTED
+  #     postgres1       CREATE_COMPLETE  2019-04-14T15:22:44Z  NEVER_UPDATED  NOT_NESTED
+  #     postgres2       CREATE_COMPLETE  2019-05-18T05:45:50Z  NEVER_UPDATED  NOT_NESTED
+  #     prometheus-web  CREATE_COMPLETE  2019-11-23T15:57:04Z  NEVER_UPDATED  NOT_NESTED
+  #
+  # *Provide a filter string for a `| grep` effect with tighter columisation:*
+  #
+  #     $ stacks postgres
+  #     postgres1  CREATE_COMPLETE  2019-04-14T15:22:44Z  NEVER_UPDATED  NOT_NESTED
+  #     postgres2  CREATE_COMPLETE  2019-05-18T05:45:50Z  NEVER_UPDATED  NOT_NESTED
+
+  local stack_names=$(skim-stdin) # Filter by stack-names from STDIN (optional)
+  local filters=$(__bma_read_filters $@) # Filter output by arguments (optional)
+
+  aws cloudformation list-stacks                      \
+    --stack-status                                    \
+      CREATE_COMPLETE                                 \
+      CREATE_FAILED                                   \
+      CREATE_IN_PROGRESS                              \
+      DELETE_FAILED                                   \
+      DELETE_IN_PROGRESS                              \
+      IMPORT_IN_PROGRESS                              \
+      IMPORT_COMPLETE                                 \
+      IMPORT_ROLLBACK_IN_PROGRESS                     \
+      IMPORT_ROLLBACK_FAILED                          \
+      IMPORT_ROLLBACK_COMPLETE                        \
+      REVIEW_IN_PROGRESS                              \
+      ROLLBACK_COMPLETE                               \
+      ROLLBACK_FAILED                                 \
+      ROLLBACK_IN_PROGRESS                            \
+      UPDATE_COMPLETE                                 \
+      UPDATE_COMPLETE_CLEANUP_IN_PROGRESS             \
+      UPDATE_FAILED                                   \
+      UPDATE_IN_PROGRESS                              \
+      UPDATE_ROLLBACK_COMPLETE                        \
+      UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS    \
+      UPDATE_ROLLBACK_FAILED                          \
+      UPDATE_ROLLBACK_IN_PROGRESS                     \
+    --query "StackSummaries[${stack_names:+?contains(['${stack_names// /"','"}'], StackName)}][
+               StackName ,
+               StackStatus,
+               CreationTime,
+               LastUpdatedTime || 'NEVER_UPDATED',
+               ( RootId && 'NESTED') || 'NOT_NESTED'
+             ]"                                       \
+    --output text       |
+  grep -E -- "$filters" |
+  LC_ALL=C sort -b -k 3 |
+    columnise
+}
+
+stack-arn() {
+
+  # Returns ARN(s) for stacks.
+  #
+  #     USAGE: stack-arn stack [stack]
+  #
+  #     $ stack-arn prometheus-web
+  #     arn:aws:cloudformation:us-east-1:000000000000:stack/prometheus-web/805e081c-b8eb-4f6c-9872-2b5cddc77fba
+  #
+  # *Supports multiple stack names from STDIN*:
+  #
+  #     $ stacks | stack-arn
+  #     arn:aws:cloudformation:us-east-1:000000000000:stack/nagios/c0f0ef04-b505-4c0c-87cd-ca924153ad1c
+  #     arn:aws:cloudformation:us-east-1:000000000000:stack/postgres1/758b0ba2-60f2-4432-8935-f79f47708f23
+  #     arn:aws:cloudformation:us-east-1:000000000000:stack/postgres2/7420bbd4-3026-444f-b55b-fa0a9d564730
+  #     arn:aws:cloudformation:us-east-1:000000000000:stack/prometheus-web/805e081c-b8eb-4f6c-9872-2b5cddc77fba
+
+  local stacks=$(skim-stdin "$@")
+  [[ -z ${stacks} ]] && __bma_usage "stack [stack]" && return 1
+  local stack
+  for stack in $stacks; do
+    aws cloudformation describe-stacks \
+      --stack-name "$stack"            \
+      --query "Stacks[].StackId" \
+      --output text
+  done
+}
+
+stack-cancel-update() {
+
+  # Cancel an in-progress stack update
+
+  local stack=$(_bma_stack_name_arg $(skim-stdin "$@"))
+  [[ -z ${stack} ]] && __bma_usage "stack" && return 1
+
+  aws cloudformation cancel-update-stack --stack-name "$stack"
+}
+
+stack-create() {
+
+  # Create a CloudFormation Stack
+  #
+  # *See suggested [CloudFormation File Naming Conventions](/cloudformation-naming/)
+  # to take advantage of shorter commands*
+  #
+  #     USAGE: stack-create stack [template-file] [parameters-file]             \
+  #                 [--capabilities=OPTIONAL_VALUE] [--role-arn=OPTIONAL_VALUE]
+  #
+  #     $ stack-create params/asg-params-prod.json
+  #     Resolved arguments: asg-prod ./asg.yml params/asg-params-prod.json
+  #     arn:aws:cloudformation:ap-southeast-2:812094344564:stack/asg-prod/98d40130-23f2-11ea-b7c1-06494f833672
+  #     ----------------------------------------------------------------------------------------------
+  #     |                                     DescribeStackEvents                                    |
+  #     +---------------------------+-----------+------------------------------+---------------------+
+  #     |  2019-12-21T13:05:44.261Z |  asg-prod |  AWS::CloudFormation::Stack  |  CREATE_IN_PROGRESS |
+  #     --------------------------------------------------------------------------------------------------------------------
+  #     |                                                DescribeStackEvents                                               |
+  #     +--------------------------+----------------------+-----------------------------------------+----------------------+
+  #     |  2019-12-21T13:05:44.261Z|  asg-prod            |  AWS::CloudFormation::Stack             |  CREATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:05:48.351Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:05:48.828Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:05:49.187Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_COMPLETE     |
+  #     |  2019-12-21T13:05:51.230Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:05:51.837Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:05:52.950Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_COMPLETE     |
+  #     |  2019-12-21T13:05:54.493Z|  asg-prod            |  AWS::CloudFormation::Stack             |  CREATE_COMPLETE     |
+  #     +--------------------------+----------------------+-----------------------------------------+----------------------+
+
+  local stack template params # values set by _bma_stack_args()
+  _bma_stack_args $@
+  if [[ $? -ne 0 ]]; then
+    __bma_usage "stack [template-file] [parameters-file] \
+                   [--capabilities=OPTIONAL_VALUE] [--role-arn=OPTIONAL_VALUE]"
+    return 1
+  fi
+
+  if [[ -n "$params" ]]; then local parameters="--parameters file://$params"; fi
+
+  local arn=''
+  local capabilities=''
+  local inputs_array=($@)
+  local IFS='=' # override default field separator in the scope of this function only
+  local regex_role_arn="^\-\-role\-arn=.*"
+  local regex_capabilities="^\-\-capabilities=.*"
+  for index in "${inputs_array[@]}" ; do
+    if [[ "$index" =~ $regex_role_arn ]] ; then
+      read arn_opt arn_arg <<< "$index" # ignore anything after option + arg
+      arn="--role-arn $arn_arg"
+    elif [[ "$index" =~ $regex_capabilities ]] ; then
+      read caps_opt caps_arg <<< "$index" # ignore anything after option + arg
+      capabilities="--capabilities $caps_arg"
+    fi
+  done
+  unset IFS # to prevent it from breaking things later
+
+  if aws cloudformation create-stack \
+    --stack-name $stack              \
+    --template-body file://$template \
+    $parameters                      \
+    $capabilities                    \
+    $arn                             \
+    --disable-rollback               \
+    --output text; then
+    stack-tail $stack
+  fi
+}
+
+stack-update() {
+
+  # Update a CloudFormation Stack
+  #
+  # *See suggested [CloudFormation File Naming Conventions](/cloudformation-naming/)
+  # to take advantage of shorter commands*
+  #
+  #     USAGE: stack-update stack [template-file] [parameters-file] \
+  #                   [--capabilities=OPTIONAL_VALUE] [--role-arn=OPTIONAL_VALUE]
+  #
+  #     $ stack-update params/asg-params-prod.json
+  #     Resolved arguments: asg-prod ./asg.yml params/asg-params-prod.json
+  #     arn:aws:cloudformation:ap-southeast-2:812094344564:stack/asg-prod/98d40130-23f2-11ea-b7c1-06494f833672
+  #     --------------------------------------------------------------------------------------------------------------------
+  #     |                                                DescribeStackEvents                                               |
+  #     +--------------------------+----------------------+-----------------------------------------+----------------------+
+  #     |  2019-12-21T13:05:44.261Z|  asg-prod            |  AWS::CloudFormation::Stack             |  CREATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:05:48.351Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:05:48.828Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:05:49.187Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_COMPLETE     |
+  #     |  2019-12-21T13:05:51.230Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:05:51.837Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:05:52.950Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_COMPLETE     |
+  #     |  2019-12-21T13:05:54.493Z|  asg-prod            |  AWS::CloudFormation::Stack             |  CREATE_COMPLETE     |
+  #     |  2019-12-21T13:12:43.731Z|  asg-prod            |  AWS::CloudFormation::Stack             |  UPDATE_IN_PROGRESS  |
+  #     |  2019-12-21T13:12:48.294Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  UPDATE_IN_PROGRESS  |
+  #     -------------------------------------------------------------------------------------------------------------------------------------
+  #     |                                                        DescribeStackEvents                                                        |
+  #     +--------------------------+----------------------+-----------------------------------------+---------------------------------------+
+  #     |  2019-12-21T13:05:44.261Z|  asg-prod            |  AWS::CloudFormation::Stack             |  CREATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:05:48.351Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:05:48.828Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:05:49.187Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_COMPLETE                      |
+  #     |  2019-12-21T13:05:51.230Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:05:51.837Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:05:52.950Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_COMPLETE                      |
+  #     |  2019-12-21T13:05:54.493Z|  asg-prod            |  AWS::CloudFormation::Stack             |  CREATE_COMPLETE                      |
+  #     |  2019-12-21T13:12:43.731Z|  asg-prod            |  AWS::CloudFormation::Stack             |  UPDATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:12:48.294Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  UPDATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:14:05.182Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  UPDATE_COMPLETE                      |
+  #     |  2019-12-21T13:14:07.118Z|  asg-prod            |  AWS::CloudFormation::Stack             |  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS  |
+  #     |  2019-12-21T13:14:07.820Z|  asg-prod            |  AWS::CloudFormation::Stack             |  UPDATE_COMPLETE                      |
+  #     +--------------------------+----------------------+-----------------------------------------+---------------------------------------+
+
+  local stack template params # values set by _bma_stack_args()
+  _bma_stack_args $@
+  if [[ $? -ne 0 ]]; then
+    __bma_usage "stack [template-file] [parameters-file] \
+                   [--capabilities=OPTIONAL_VALUE] [--role-arn=OPTIONAL_VALUE]"
+    return 1
+  fi
+
+  if [ -n "$params" ]; then local parameters="--parameters file://$params"; fi
+
+  local capabilities=''
+  local capabilities_value=$(_bma_stack_capabilities $stack)
+  [[ -z "${capabilities_value}" ]] || capabilities="--capabilities ${capabilities_value}"
+
+  if aws cloudformation update-stack \
+    --stack-name $stack              \
+    --template-body file://$template \
+    $parameters                      \
+    $capabilities                    \
+    --output text; then
+    stack-tail $stack
+  fi
+}
+
+stack-delete() {
+
+  # Delete a CloudFormation Stack
+  #
+  #     USAGE: stack-delete stack [stack]
+  #
+  #     $ stacks | stack-delete
+  #     You are about to delete the following stacks:
+  #     asg-prod
+  #     Are you sure you want to continue? y
+  #     -------------------------------------------------------------------------------------------------------------------------------------
+  #     |                                                        DescribeStackEvents                                                        |
+  #     +--------------------------+----------------------+-----------------------------------------+---------------------------------------+
+  #     |  2019-12-21T13:05:44.261Z|  asg-prod            |  AWS::CloudFormation::Stack             |  CREATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:05:48.351Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:05:48.828Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:05:49.187Z|  LaunchConfiguration |  AWS::AutoScaling::LaunchConfiguration  |  CREATE_COMPLETE                      |
+  #     |  2019-12-21T13:05:51.230Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:05:51.837Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:05:52.950Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  CREATE_COMPLETE                      |
+  #     |  2019-12-21T13:05:54.493Z|  asg-prod            |  AWS::CloudFormation::Stack             |  CREATE_COMPLETE                      |
+  #     |  2019-12-21T13:12:43.731Z|  asg-prod            |  AWS::CloudFormation::Stack             |  UPDATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:12:48.294Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  UPDATE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:14:05.182Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  UPDATE_COMPLETE                      |
+  #     |  2019-12-21T13:14:07.118Z|  asg-prod            |  AWS::CloudFormation::Stack             |  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS  |
+  #     |  2019-12-21T13:14:07.820Z|  asg-prod            |  AWS::CloudFormation::Stack             |  UPDATE_COMPLETE                      |
+  #     |  2019-12-21T13:18:06.709Z|  asg-prod            |  AWS::CloudFormation::Stack             |  DELETE_IN_PROGRESS                   |
+  #     |  2019-12-21T13:18:08.931Z|  AutoScalingGroup    |  AWS::AutoScaling::AutoScalingGroup     |  DELETE_IN_PROGRESS                   |
+  #
+  #     An error occurred (ValidationError) when calling the DescribeStackEvents operation: Stack [asg-prod] does not exist
+
+  # *Note that the error reported at the end of `stack-delete` command is just AWSCLI saying it can't find the stack anymore.*
+
+  local stacks=$(skim-stdin "$@")
+  local stack
+  [[ -z $stacks ]] && __bma_usage "stack [stack]" && return 1
+  [ -t 0 ] || exec </dev/tty # reattach keyboard to STDIN
+  local regex_yes="^[Yy]$"
+  echo "You are about to delete the following stacks:"
+  echo "$stacks" | tr ' ' "\n" | stacks
+  read -p "Are you sure you want to continue? " -n 1 -r
+  echo
+  [[ $REPLY =~ $regex_yes ]] || return 0
+  for stack in $stacks; do
+    if aws cloudformation delete-stack \
+         --stack-name "$stack"         \
+      --output text; then
+      stack-tail "$stack"
+    fi
+  done
+}
+
+# Returns key,value pairs for exports from *all* stacks
+# This breaks from convention for bash-my-aws functions
+# TODO Find a way to make it more consistent
+stack-exports() {
+  aws cloudformation list-exports     \
+    --query 'Exports[].[Name, Value]' \
+    --output text                     |
+    columnise
+}
+
+stack-recreate() {
+  local inputs=$(skim-stdin "$@")
+  local stack=$(_bma_stack_name_arg ${inputs})
+  [[ -z "${stack}" ]] && __bma_usage "stack" && return 1
+
+  local capabilities=''
+  local capabilities_value=$(_bma_stack_capabilities $stack)
+  [[ -z "${capabilities_value}" ]] || capabilities="--capabilities=${capabilities_value}"
+
+  local tmpdir=$(mktemp -d /tmp/bash-my-aws.XXXXXXXX)
+  cd $tmpdir
+  stack-template $stack > "${stack}.template"
+  stack-parameters $stack > "${stack}-params.json"
+  stack-delete $stack
+  stack-create $stack \
+              "${stack}.template" \
+              "${stack}-params.json" \
+              $capabilities
+  rm -fr $tmpdir
+}
+
+stack-failure() {
+
+  # Return reason a stack failed to update/create/delete
+
+  local inputs=$(skim-stdin "$@")
+  local stack=$(_bma_stack_name_arg ${inputs})
+  [[ -z "${stack}" ]] && __bma_usage "stack" && return 1
+
+  aws cloudformation describe-stack-events \
+    --stack-name ${stack}                  \
+    --query "
+      StackEvents[?contains(ResourceStatus,'FAILED')].[
+        PhysicalResourceId,
+        Timestamp,
+        ResourceStatusReason
+      ]" \
+    --output text
+}
+
+stack-events() {
+
+  # List event history for a single Stack
+  #
+  #     USAGE: stack-events stack
+
+  local inputs=$(skim-stdin "$@")
+  local stack=$(_bma_stack_name_arg ${inputs})
+  [[ -z ${stack} ]] && __bma_usage "stack" && return 1
+
+  if output=$(
+    aws cloudformation describe-stack-events \
+    --stack-name "$stack"                  \
+    --output table                         \
+    --query "
+      sort_by(StackEvents, &Timestamp)[].[
+        Timestamp,
+        LogicalResourceId,
+        ResourceType,
+        ResourceStatus
+      ]"
+  ); then
+    echo "$output" | uniq -u
+  else
+    return $?
+  fi
+}
+
+stack-resources() {
+
+  # List all resources in Stack(s)
+  #
+  #     USAGE: stack-resources stack [stack]
+  #
+  #     $ stacks | stack-resources
+  #     i-7d54924538baa7a1f  AWS::EC2::Instance  ec2
+  #     i-c54279c6055c3c794  AWS::EC2::Instance  nagios
+  #     i-a8b8dd6783e1a40cc  AWS::EC2::Instance  postgres1
+  #     i-5d74753e210bfe04d  AWS::EC2::Instance  postgres2
+  #     i-2aa95cc214a461398  AWS::EC2::Instance  prometheus-web
+
+  local stacks=$(skim-stdin "$@")
+  [[ -z ${stacks} ]] && __bma_usage "stack [stack]" && return 1
+
+  local stack
+  for stack in $stacks; do
+    stack=$(_bma_stack_name_arg "$stack")
+    aws cloudformation describe-stack-resources                       \
+      --stack-name $(_bma_stack_name_arg "$stack")                    \
+      --output "${BMA_OUTPUT_AWS:-text}" \
+      --query "StackResources[].{
+               PhysicalResourceId: PhysicalResourceId,
+               ResourceType: ResourceType,
+               ResourceStatus: ResourceStatus,
+               Stack: '${stack}'
+             }" |
+      columnise
+  done
+}
+
+stack-asgs() {
+
+  # List ASGs in Stack(s)
+  #
+  #     USAGE: stack-asgs stack [stack]
+  #
+  #     $ stacks | stack-asgs
+  #     asg-bash-my-aws-AutoScalingGroup-MSBCWRTI3PVM  AWS::AutoScaling::AutoScalingGroup  asg-bash-my-aws
+  #     asg2-AutoScalingGroup-1FHUVUJ7SLPU7            AWS::AutoScaling::AutoScalingGroup  asg2
+
+  local stacks=$(skim-stdin "$@")
+  [[ -z ${stacks} ]] && __bma_usage "stack [stack]" && return 1
+
+  stack-resources $stacks                 |
+  grep AWS::AutoScaling::AutoScalingGroup |
+  column -t
+}
+
+stack-asg-instances() {
+
+  # List EC2 Instances of EC2 Autoscaling Groups in Stack(s)
+  #
+  #     USAGE: stack-asg-instances stack [stack]
+  #
+  #     $ stacks | stack-asg-instances
+  #     i-06ee900565652ecc5  ami-0119aa4d67e59007c  t3.nano  running  asg-bash-my-aws  2019-12-13T03:15:22.000Z  ap-southeast-2c  vpc-deb8edb9
+  #     i-01c7edb986c18c16a  ami-0119aa4d67e59007c  t3.nano  running  asg2             2019-12-13T03:37:51.000Z  ap-southeast-2c  vpc-deb8edb9
+
+  local stacks=$(skim-stdin "$@")
+  [[ -z ${stacks} ]] && __bma_usage "stack [stack]" && return 1
+
+  local asgs=$(stack-asgs $stacks)
+  if [[ -n $asgs ]]; then
+    asg-instances $asgs
+  fi
+}
+
+stack-elbs() {
+
+  # List EC2 Elastic Load Balancers in Stack(s)
+  #
+  #  USAGE: stack-elbs stack [stack]
+  #
+  #     $ stacks | stack-elbs
+  #     elb-MyLoadBalancer-NA5S72MLA5KI   AWS::ElasticLoadBalancing::LoadBalancer  elb-stack-1
+  #     load-bala-MyLoadBa-11HZ0DHUHJZZI  AWS::ElasticLoadBalancing::LoadBalancer  elb-stack-2
+
+  local stacks=$(skim-stdin "$@")
+  [[ -z ${stacks} ]] && __bma_usage "stack [stack]" && return 1
+
+  stack-resources $stacks                      |
+  grep AWS::ElasticLoadBalancing::LoadBalancer |
+  column -t
+}
+
+stack-instances() {
+
+  # List instances in stack(s)
+  #
+  #     USAGE: stack-instances stack [stack]
+  #
+  #     $ stacks | stack-instances
+  #     i-7d54924538baa7a1f  ami-123456789012  t3.nano  stopped  ec2             2019-12-11T09:31:03.000Z  ap-southeast-2a  None
+  #     i-c54279c6055c3c794  ami-123456789012  t3.nano  running  nagios          2019-12-13T02:24:30.000Z  ap-southeast-2a  None
+  #     i-a8b8dd6783e1a40cc  ami-123456789012  t3.nano  running  postgres1       2019-12-13T02:24:32.000Z  ap-southeast-2a  None
+  #     i-5d74753e210bfe04d  ami-123456789012  t3.nano  running  postgres2       2019-12-13T02:24:34.000Z  ap-southeast-2a  None
+  #     i-2aa95cc214a461398  ami-123456789012  t3.nano  running  prometheus-web  2019-12-13T02:24:36.000Z  ap-southeast-2a  None
+
+  local stacks=$(skim-stdin "$@")
+  [[ -z ${stacks} ]] && __bma_usage "stack [stack]" && return 1
+
+  local instance_ids=$(stack-resources $stacks | grep AWS::EC2::Instance | awk '{ print $1 }')
+  [[ -n "$instance_ids" ]] && instances $instance_ids
+}
+
+stack-parameters() {
+  # List parameters of stack
+  local inputs=$(skim-stdin "$@")
+  local stack=$(_bma_stack_name_arg ${inputs})
+  [[ -z ${stack} ]] && __bma_usage "stack" && return 1
+
+  aws cloudformation describe-stacks                        \
+    --stack-name "$stack"                                   \
+    --query 'sort_by(Stacks[].Parameters[], &ParameterKey)' |
+    jq --sort-keys .
+}
+
+stack-status() {
+
+  # List status of stack
+
+  local stacks=$(skim-stdin "$@")
+  [[ -z ${stacks} ]] && __bma_usage "stack [stack]" && return 1
+
+  local stack
+  for stack in $stacks; do
+    aws cloudformation describe-stacks                   \
+      --stack-name "${stack}"                            \
+      --query "Stacks[][ [ StackName, StackStatus ] ][]" \
+      --output text
+  done
+}
+
+stack-tag() {
+
+  # Return selected stack tag
+
+  local tag=$1
+  shift 1
+  [[ -z "${tag}" ]] && __bma_usage "tag-key stack [stack]" && return 1
+  local stacks=$(skim-stdin "$@")
+  [[ -z ${stacks} && -t 0 ]] && __bma_usage "tag-key stack [stack]" && return 1
+  local stack
+  for stack in $stacks; do
+    aws cloudformation describe-stacks                                       \
+      --stack-name "${stack}"                                                \
+      --query "Stacks[].[
+                 StackName,
+                 join(' ', [Tags[?Key=='$tag'].[join('=',[Key,Value])][]][])
+               ]"                                                            \
+      --output text
+  done
+}
+
+# XXX Handy but dangerous - updating a nested stack breaks things. Put in a guard.
+# XXX
+# XXX stack-tag-apply() {
+# XXX 
+# XXX   # Apply a stack tag
+# XXX 
+# XXX   local tag_key=$1
+# XXX   local tag_value=$2
+# XXX   shift 2
+# XXX   local usage_msg="tag-key tag-value stack [stack]"
+# XXX   [[ -z "${tag_key}" ]]    && __bma_usage $usage_msg && return 1
+# XXX   [[ -z "${tag_value}" ]] && __bma_usage $usage_msg && return 1
+# XXX 
+# XXX   local stacks=$(skim-stdin "$@")
+# XXX   [[ -z "${stacks}" && -t 0 ]] && __bma_usage $usage_msg && return 1
+# XXX 
+# XXX   local stack
+# XXX   for stack in $stacks; do
+# XXX 
+# XXX     # XXX deal with tagging service failing
+# XXX     local tags=$(aws cloudformation describe-stacks \
+# XXX            --stack-name "$stack"                    \
+# XXX            --query "[
+# XXX                   [{Key:'$tag_key', Value:'$tag_value'}],
+# XXX                   Stacks[].Tags[?Key != '$tag_key'][]
+# XXX                 ][]")
+# XXX 
+# XXX     local parameters=$(aws cloudformation describe-stacks \
+# XXX            --stack-name "$stack"                          \
+# XXX            --query '
+# XXX              Stacks[].Parameters[].{
+# XXX                ParameterKey: ParameterKey,
+# XXX                UsePreviousValue: `true`
+# XXX            }')
+# XXX 
+# XXX     local capabilities=''
+# XXX     local capabilities_value=$(_bma_stack_capabilities $stack)
+# XXX     [[ -z "${capabilities_value}" ]] || capabilities="--capabilities ${capabilities_value}"
+# XXX 
+# XXX      $([[ -n $DRY_RUN ]] && echo echo) aws cloudformation update-stack \
+# XXX       --stack-name "$stack"         \
+# XXX       --use-previous-template       \
+# XXX       --parameters "$parameters"    \
+# XXX       --tags "$tags"                \
+# XXX       $capabilities                 \
+# XXX       --query StackId               \
+# XXX       --output text
+# XXX   done
+# XXX }
+
+# XXX Handy but dangerous - updating a nested stack breaks things. Put in a guard.
+# XXX
+# XXX stack-tag-delete() {
+# XXX 
+# XXX   # delete a stack tag
+# XXX 
+# XXX   local tag_key=$1
+# XXX   shift 1
+# XXX   [[ -z "${tag_key}" ]] && __bma_usage "tag-key stack [stack]" && return 1
+# XXX 
+# XXX   local stacks=$(skim-stdin "$@")
+# XXX   [[ -z "${stacks}" ]] && __bma_usage "tag-key stack [stack]" && return 1
+# XXX 
+# XXX   local stack
+# XXX   for stack in $stacks; do
+# XXX 
+# XXX     # XXX deal with tagging service failing
+# XXX     local tags=$(aws cloudformation describe-stacks \
+# XXX            --stack-name "$stack"                    \
+# XXX            --query "[
+# XXX                   Stacks[].Tags[?Key != '$tag_key'][]
+# XXX                 ][]")
+# XXX 
+# XXX     local parameters=$(aws cloudformation describe-stacks \
+# XXX            --stack-name "$stack"                          \
+# XXX            --query '
+# XXX              Stacks[].Parameters[].{
+# XXX                ParameterKey: ParameterKey,
+# XXX                UsePreviousValue: `true`
+# XXX            }')
+# XXX 
+# XXX     aws cloudformation update-stack \
+# XXX       --stack-name "$stack"         \
+# XXX       --use-previous-template       \
+# XXX       --parameters "$parameters"    \
+# XXX       --tags "$tags"
+# XXX 
+# XXX   done
+# XXX }
+
+stack-tail() {
+
+  # Show all events for CF stack until update completes or fails.
+
+  local inputs=$(skim-stdin "$@")
+  local stack=$(_bma_stack_name_arg ${inputs})
+  [[ -z ${stack} ]] && __bma_usage "stack" && return 1
+
+  local current
+  local final_line
+  local output
+  local previous
+  until echo "$current" | tail -1 | grep --extended-regexp --quiet "${stack}.*_(COMPLETE|FAILED)($| )"; do
+    if ! output=$(stack-events "$inputs"); then
+      # Something went wrong with stack-events (like stack not known)
+      return 1
+    fi
+    if [ -z "$output" ]; then
+      sleep 1
+      continue
+    fi
+
+    current=$(echo "$output" | sed '$d')
+    final_line=$(echo "$output" | tail -1)
+    if [ -z "$previous" ]; then
+      echo "$current"
+    elif [ "$current" != "$previous" ]; then
+      comm -13 <(echo "$previous") <(echo "$current") 2> >(grep -v "not in sorted order")
+    fi
+    previous="$current"
+    sleep 1
+  done
+  echo $final_line
+}
+
+stack-template() {
+
+  # Return template of a stack
+
+  local inputs=$(skim-stdin "$@")
+  local stack=$(_bma_stack_name_arg ${inputs})
+
+  [[ -z ${stack} ]] && __bma_usage "stack" && return 1
+
+  aws cloudformation get-template       \
+    --stack-name "$stack"               \
+    --query TemplateBody                |
+  jq --raw-output --sort-keys .         |
+  sed -e :a -e '/^\n*$/{$d;N;};/\n$/ba'   # remove trailing blank lines
+                                          # sometimes appended by jq
+}
+
+stack-template-changeset-latest() {
+
+  # Return template of a stack's latest changeset
+
+  local inputs=$(skim-stdin "$@")
+  local stack=$(_bma_stack_name_arg ${inputs})
+
+  [[ -z ${stack} ]] && __bma_usage "stack" && return 1
+
+  # Try to get the latest changeset ARN
+  local changeset_arn=$(aws cloudformation list-change-sets --stack-name "$stack" \
+    --query 'Summaries[-1].ChangeSetId' --output text)
+
+  if [ "$changeset_arn" != "None" ]; then
+    # Output the template for the latest changeset
+    aws cloudformation get-template \
+      --stack-name "$stack" \
+      --change-set-name "$changeset_arn" \
+      --query 'TemplateBody' |
+    jq --raw-output --sort-keys . |
+    sed -e :a -e '/^\n*$/{$d;N;};/\n$/ba'
+  fi
+}
+
+stack-tags() {
+
+  # List stack-tags applied to a stack
+
+  local inputs=$(skim-stdin "$@")
+  local stack=$(_bma_stack_name_arg ${inputs})
+
+  [[ -z ${stack} ]] && __bma_usage "stack" && return 1
+
+  aws cloudformation describe-stacks \
+    --stack-name "$stack"            \
+    --query 'Stacks[0].Tags'         |
+  jq --sort-keys .
+
+}
+
+stack-tags-text() {
+
+  # List stack-tags applied to a stack on a single line
+
+  local stacks=$(skim-stdin "$@")
+
+  [[ -z ${stacks} ]] && __bma_usage "stack [stack]" && return 1
+  local stack
+  for stack in $stacks; do
+    aws cloudformation describe-stacks                                  \
+      --stack-name "${stack}"                                           \
+      --query "Stacks[].[
+                 StackName,
+                 join(' ', [Tags[].[join('=',[Key,Value])][]][])
+               ]"                                                       \
+      --output text
+  done
+}
+
+stack-outputs() {
+
+  # List outputs of a stack
+
+  local inputs=$(skim-stdin "$@")
+  local stack=$(_bma_stack_name_arg ${inputs})
+  [[ -z ${stack} ]] && __bma_usage "stack" && return 1
+
+  aws cloudformation describe-stacks \
+    --stack-name ${stack}            \
+    --query "Stacks[].Outputs[].[
+               OutputKey,
+               OutputValue,
+               Description || ''
+             ]"                      \
+    --output text                    |
+  LC_ALL=C sort              |
+    columnise
+}
+
+stack-validate() {
+
+  # Validate a stack template
+
+  local inputs=$(skim-stdin "$@")
+  [[ -z "$inputs" ]] && __bma_usage "template-file" && return 1
+  size=$(wc -c <"$inputs")
+  if [[ $size -gt 51200 ]]; then
+    # TODO: upload s3 + --template-url
+    __bma_error "template too large: $size bytes, 51200 max"
+    return 1
+  else
+    aws cloudformation validate-template --template-body "file://$inputs"
+  fi
+}
+
+stack-diff(){
+
+  # Compare live stack against local template (and optional params file)
+  #
+  #     USAGE: stack-diff stack [template-file]
+  #
+  #     $ stack-diff params/asg-params-prod.json
+  #     Resolved arguments: asg-prod ./asg.yml params/asg-params-prod.json
+  #     template for stack (asg-prod) and contents of file (./asg.yml) are the same
+  #
+  #     Resolved arguments: asg-prod ./asg.yml params/asg-params-prod.json
+  #     --- params
+  #     +++ params/asg-params-prod.json
+  #     @@ -1,11 +1,11 @@
+  #      [
+  #        {
+  #          "ParameterKey": "AsgMaxSize",
+  #     -    "ParameterValue": "5"
+  #     +    "ParameterValue": "2"
+  #        },
+  #        {
+  #          "ParameterKey": "AsgMinSize",
+  #     -    "ParameterValue": "0"
+  #     +    "ParameterValue": "1"
+  #        },
+  #        {
+  #          "ParameterKey": "InstanceType",
+
+  local inputs=$(skim-stdin "$@")
+  [[ -z "$inputs" ]] && __bma_usage "stack [template-file]" && return 1
+  _bma_stack_diff_template $inputs
+  [[ $? -ne 0 ]] && __bma_usage "stack [template-file]" && return 1
+  echo
+  _bma_stack_diff_params $inputs
+  [[ $? -ne 0 ]] && __bma_usage "stack [template-file]" && return 1
+}
+
+#
+# Requires jq-1.4 or later # http://stedolan.github.io/jq/download/
+#
+_bma_stack_diff_template() {
+  # report changes which would be made to stack if template were applied
+  local stack template params # values set by _bma_stack_args()
+  _bma_stack_args $@
+  [[ $? -ne 0 ]] && return 1
+
+  if ! aws cloudformation describe-stacks --stack-name "$stack" 1>/dev/null; then
+    return 1
+  fi
+  if command -v colordiff; then
+    local DIFF_CMD=colordiff
+  elif command -v icdiff; then
+    local DIFF_CMD=icdiff
+  else
+    local DIFF_CMD=diff
+  fi
+
+  $DIFF_CMD -u                     \
+    --label stack                  \
+      <( stack-template $stack)    \
+     --label $template             \
+       <(jq --sort-keys . $template 2>/dev/null || cat $template )
+
+  if [ $? -eq 0 ]; then
+    echo "template for stack ($stack) and contents of file ($template) are the same" >&2
+  fi
+}
+
+#
+# Requires jq-1.4 or later # http://stedolan.github.io/jq/download/
+#
+_bma_stack_diff_params() {
+  # report on what changes would be made to stack by applying params
+  local stack template params # values set by _bma_stack_args()
+  _bma_stack_args $@
+  [[ $? -ne 0 ]] && return 1
+
+  if ! aws cloudformation describe-stacks --stack-name $stack 1>/dev/null; then
+    return 1
+  fi
+  if [ -z "$params" ]; then
+    echo "No params file provided. Skipping" >&2
+    return 0
+  fi
+  if [ ! -f "$params" ]; then
+    return 1
+  fi
+  if command -v colordiff; then
+    local DIFF_CMD=colordiff
+  elif command -v icdiff; then
+    local DIFF_CMD=icdiff
+  else
+    local DIFF_CMD=diff
+  fi
+
+  $DIFF_CMD -u                                   \
+    --label params                               \
+      <(aws cloudformation describe-stacks       \
+          --query "Stacks[].Parameters[]"        \
+          --stack-name $stack                    |
+        jq --sort-keys 'sort_by(.ParameterKey)') \
+    --label $params                              \
+      <(jq --sort-keys 'sort_by(.ParameterKey)' $params)
+
+  if [ $? -eq 0 ]; then
+    echo "params for stack ($stack) and contents of file ($params) are the same" >&2
+  fi
+}
+
+_bma_stack_args(){
+  # Derive and check arguments for:
+  #
+  # - stack-create
+  # - stack-delete
+  # - stack-diff
+  #
+  # In the interests of making the functions simple and a shallow read,
+  # it's unusual for us to abstract out shared code like this.
+  # This bit is doing some funky stuff though and I think it deserves
+  # to go in it's own function to DRY (Don't Repeat Yourself) it up a bit.
+  #
+  # This function takes the unusual approach of writing to variables of the
+  # calling function:
+  #
+  # - stack
+  # - template
+  # - params
+  #
+  # This is generally not good practice for readability and unexpected outcomes.
+  # To contain this, the calling functions all clearly declare these three
+  # variables as local and contain a comment that they will be set by this function.
+  #
+  # If we are working from a single argument (ignore args starting with `--`)
+  if [[ $# -eq 1 ]] || [[ $2 =~ ^-- ]] ; then
+    [[ -n "${BMA_DEBUG:-}" ]] && echo "Single arg magic!"
+
+    # XXX Should this be a params file?
+    # $ _bma_stack_args params/foo-bar.json
+    # template!
+
+    # If it's a params file
+    if [[ $1 =~ -params[-.] ]]; then
+      [[ -n "${BMA_DEBUG:-}" ]] && echo params!
+      stack=$(_bma_derive_stack_from_params ${params:-$1})
+      template=$(_bma_derive_template_from_params ${params:-$1})
+      params="${1}"
+
+    # If it's a stack
+    elif [[ ! $1 =~ [.] ]]; then
+      [[ -n "${BMA_DEBUG:-}" ]] && echo stack!
+      stack="${1}"
+      template=$(_bma_derive_template_from_stack $stack)
+      params=$(_bma_derive_params_from_stack_and_template $stack $template)
+
+    # If it's a template
+    elif [[ ! $1 =~ -params[-.] && $1 =~ .json|.yaml|.yml  ]]; then
+      [[ -n "${BMA_DEBUG:-}" ]] && echo template!
+      stack=$(_bma_derive_stack_from_template ${template:-$1})
+      template=${1}
+      params=$(_bma_derive_params_from_template $template)
+    fi
+
+  else
+    # There are some other shortcuts available if you use BMA's naming convention
+    # See explanation at top of this file
+    stack=$(_bma_stack_name_arg $@)
+    template=$(_bma_stack_template_arg $@)
+    params=$(_bma_stack_params_arg $@)
+  fi
+
+  [[ -n "${BMA_DEBUG:-}" ]] && echo "stack='$stack' template='$template' params='$params'"
+
+  if [[ -z ${stack} ]]; then
+    __bma_error "Stack name not provided."
+  elif [[ ! -f "$template" ]]; then
+    __bma_error "Could not find template (${template})."
+  elif [[ -n $params && ! -f "$params" ]]; then
+    __bma_error "Could not find params file (${params})."
+  else
+    # Display calling (or current if none) with expanded arguments
+    echo "Resolved arguments: $stack $template $params"
+  fi
+}
+
+##
+## Single argument helpers
+##
+
+# Look for params file based on stack and template
+_bma_derive_params_from_stack_and_template() {
+  local stack=$1
+  local template=$2
+  [[ -z ${stack} || -z ${template} ]] && __bma_usage "stack template" && return 1
+  # XXX Usage
+
+  # Strip path and extension from template
+  local template_slug=$(basename $template | sed 's/\.[^.]*//')
+  # Deduce params filename from stack and template names
+  local params_file="${template_slug}-params-${stack#${template_slug}-}.json"
+
+  local target_dir
+
+  for target_dir in . params; do
+    candidate="${target_dir}/$params_file"
+    if [[ -f "$candidate" ]]; then
+      echo $candidate
+      break 2
+    fi
+  done
+}
+
+_bma_derive_params_from_template(){
+  local template=$1
+  local target_dir
+
+  # Strip path and extension from template
+  local template_slug=$(basename $template | sed 's/\.[^.]*//')
+
+  for target_dir in . params; do
+    candidate="${target_dir}/${template_slug}-params.json"
+    if [[ -f "$candidate" ]]; then
+      echo $candidate
+      break 2
+    fi
+  done
+}
+
+_bma_derive_stack_from_params(){
+  local params=$1
+  # XXX Usage
+  basename $params .json | sed 's/-params//'
+}
+
+_bma_derive_stack_from_template(){
+  local template=$1
+  # XXX Usage
+  basename "${template%.*}"
+}
+
+_bma_derive_template_from_params(){
+  local params=$1
+  # XXX Usage
+
+  local template_slug="$(basename ${params%-params*} .json)"
+
+  local target_dir
+  if [[ $PWD =~ params$ ]]; then
+    target_dir='..'
+  else
+    target_dir='.'
+  fi
+
+  local extension
+  for extension in json yml yaml; do
+    candidate="${target_dir}/${template_slug}.${extension}"
+    if [[ -f "$candidate" ]]; then
+      echo $candidate
+      break
+    fi
+  done
+}
+
+# Look for template file by repeatedly dropping off last '-*' from stack-name
+_bma_derive_template_from_stack() {
+  local stack_name=$1
+
+  local target_dir
+  if [[ $PWD =~ params$ ]]; then
+    target_dir='..'
+  else
+    target_dir='.'
+  fi
+
+  local extension
+  while true; do
+    for extension in json yml yaml; do
+      candidate="${target_dir}/${stack_name}.${extension}"
+      if [[ -f "$candidate" ]]; then
+        echo $candidate
+        break 2
+      fi
+    done
+    [[ ${stack_name%-*} == $stack_name ]] && break 2
+    stack_name=${stack_name%-*}
+  done
+}
+
+#
+# Multi-argument helpers
+#
+
+_bma_stack_name_arg() {
+  # File extension gets stripped off if template name provided as stack name
+  if [[ $1 =~ \-\-role\-arn=.*|^\-\-capabilities=.*  ]] ; then
+    return 1
+  fi
+  basename "$1" | sed 's/[.].*$//' # remove file extension
+}
+
+_bma_stack_template_arg() {
+  # Determine name of template to use
+  local stack="$(_bma_stack_name_arg $@)"
+  local template=$2
+  if [[ -z "$template" || $template =~ ^\-\-role\-arn=.*|^\-\-capabilities=.* ]]; then
+    for extension in json yaml yml; do
+      if [ -f "${stack}.${extension}" ]; then
+        template="${stack}.${extension}"
+        break
+      elif [ -f "${stack%-*}.${extension}" ]; then
+        template="${stack%-*}.${extension}"
+        break
+      fi
+    done
+  fi
+
+  [[ -z $template ]] && return 1
+
+  echo $template
+}
+
+_bma_stack_params_arg() {
+  # determine name of params file to use
+  local stack="$(_bma_stack_name_arg $@)"
+  local template="$(_bma_stack_template_arg $@)"
+  local params=${3:-$(echo $stack | sed "s/\($(basename $template .json)\)\(.*\)/\1-params\2.json/")}
+  if [ -f "${params}" ]; then
+    echo $params
+  fi
+}
+
+_bma_stack_capabilities() {
+  # determine what (if any) capabilities a given stack was deployed with
+  aws cloudformation describe-stacks --stack-name "$1" --query 'Stacks[].Capabilities' --output text
+}
+
+## vim: ft=sh

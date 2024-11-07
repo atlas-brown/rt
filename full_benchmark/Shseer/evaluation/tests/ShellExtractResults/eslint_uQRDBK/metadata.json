@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/import-js/eslint-plugin-import.git",
+  "relative_path": "eslint-plugin-import/tests/dep-time-travel.sh",
+  "short_name": "dep-time-travel",
+  "timestamp": "10/22/2024",
+  "identifier": "eslint_uQRDBK/0",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

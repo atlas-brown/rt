@@ -1,0 +1,764 @@
+[
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/libnetwork/support/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/0",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/libnetwork/support/support.sh",
+  "short_name": "support",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/1",
+  "posix_compliant": false,
+  "line_count": 121,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/dind",
+  "short_name": "dind",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/2",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/generate-test-rogue-certs.sh",
+  "short_name": "generate-test-rogue-certs",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/3",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/make.sh",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/4",
+  "posix_compliant": false,
+  "line_count": 100,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/test/e2e-run.sh",
+  "short_name": "e2e-run",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/5",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/with-go-mod.sh",
+  "short_name": "with-go-mod",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/6",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/dockerfile/cli.sh",
+  "short_name": "cli",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/7",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/dockerfile/install/rootlesskit.installer",
+  "short_name": "rootlesskit.installer",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/8",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/dockerfile/install/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/9",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/dockerfile/install/dockercli.installer",
+  "short_name": "dockercli.installer",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/10",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/dockerfile/install/containerd.installer",
+  "short_name": "containerd.installer",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/11",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/dockerfile/install/runc.installer",
+  "short_name": "runc.installer",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/12",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/dockerfile/install/tini.installer",
+  "short_name": "tini.installer",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/13",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/generate-swagger-api.sh",
+  "short_name": "generate-swagger-api",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/14",
+  "posix_compliant": true,
+  "line_count": 43,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/generate-test-certs.sh",
+  "short_name": "generate-test-certs",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/15",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/generate-authors.sh",
+  "short_name": "generate-authors",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/16",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/vendor.sh",
+  "short_name": "vendor",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/17",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/hack/dind-systemd",
+  "short_name": "dind-systemd",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/18",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/init/sysvinit-debian/docker",
+  "short_name": "docker",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/19",
+  "posix_compliant": true,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/init/sysvinit-redhat/docker",
+  "short_name": "docker",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/20",
+  "posix_compliant": true,
+  "line_count": 112,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/mkimage-arch.sh",
+  "short_name": "mkimage-arch",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/21",
+  "posix_compliant": false,
+  "line_count": 130,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/dockerd-rootless-setuptool.sh",
+  "short_name": "dockerd-rootless-setuptool",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/22",
+  "posix_compliant": true,
+  "line_count": 423,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/mkimage-yum.sh",
+  "short_name": "mkimage-yum",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/23",
+  "posix_compliant": false,
+  "line_count": 109,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/dockerd-rootless.sh",
+  "short_name": "dockerd-rootless",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/24",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/dockerize-disk.sh",
+  "short_name": "dockerize-disk",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/25",
+  "posix_compliant": false,
+  "line_count": 87,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/mkimage-pld.sh",
+  "short_name": "mkimage-pld",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/26",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/mac-install-bundle.sh",
+  "short_name": "mac-install-bundle",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/27",
+  "posix_compliant": true,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/download-frozen-image-v2.sh",
+  "short_name": "download-frozen-image-v2",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/28",
+  "posix_compliant": false,
+  "line_count": 348,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/mkimage-alpine.sh",
+  "short_name": "mkimage-alpine",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/29",
+  "posix_compliant": true,
+  "line_count": 74,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/mkimage-crux.sh",
+  "short_name": "mkimage-crux",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/30",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/nuke-graph-directory.sh",
+  "short_name": "nuke-graph-directory",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/31",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/check-config.sh",
+  "short_name": "check-config",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/32",
+  "posix_compliant": false,
+  "line_count": 340,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/contrib/gitdm/generate_aliases.sh",
+  "short_name": "generate_aliases",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/33",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/go.opentelemetry.io/otel/get_main_pkgs.sh",
+  "short_name": "get_main_pkgs",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/34",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/go.opentelemetry.io/otel/verify_examples.sh",
+  "short_name": "verify_examples",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/35",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/go.uber.org/zap/checklicense.sh",
+  "short_name": "checklicense",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/36",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/golang.org/x/sys/unix/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/37",
+  "posix_compliant": false,
+  "line_count": 212,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/golang.org/x/sys/unix/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/38",
+  "posix_compliant": false,
+  "line_count": 384,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/golang.org/x/sys/windows/mkknownfolderids.bash",
+  "short_name": "mkknownfolderids.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/39",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/golang.org/x/sys/windows/mkerrors.bash",
+  "short_name": "mkerrors.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/40",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/pelletier/go-toml/fuzz.sh",
+  "short_name": "fuzz",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/41",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/pelletier/go-toml/benchmark.sh",
+  "short_name": "benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/42",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/klauspost/compress/gen.sh",
+  "short_name": "gen",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/43",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/cespare/xxhash/v2/testall.sh",
+  "short_name": "testall",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/44",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/agext/levenshtein/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/45",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/hashicorp/memberlist/tag.sh",
+  "short_name": "tag",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/46",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/creack/pty/test_crosscompile.sh",
+  "short_name": "test_crosscompile",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/47",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/zmap/zlint/v3/newLint.sh",
+  "short_name": "newLint",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/48",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/zmap/zcrypto/x509/extended_key_usage_schema.sh",
+  "short_name": "extended_key_usage_schema",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/49",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/aws/smithy-go/local-mod-replace.sh",
+  "short_name": "local-mod-replace",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/50",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/gofrs/flock/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/51",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/moby/moby.git",
+  "relative_path": "moby/vendor/github.com/cilium/ebpf/run-tests.sh",
+  "short_name": "run-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "moby_OWFvbj/52",
+  "posix_compliant": false,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,114 @@
+#!/bin/bash
+# written by Shotaro Fujimoto (https://github.com/ssh0)
+#
+#=#=#=
+# ```
+# NAME
+#       alarm - Alert after specified time with popup and sound.
+#
+# SYNOPSYS
+#       alarm NUMBER[smhd]
+#       alarm [-t <Notification title>][-b <Notification body>] NUMBER[smhd]
+#       alarm -h
+#
+# OPTION
+#       -h: Show this help.
+#       -t: Set notification title
+#       -b: Set notification body
+#
+# EXAMPLE
+#       # ramen timer
+#       alarm 3m
+#
+#       # alert after 1 hour 10 minutes 30 seconds
+#       alarm 1h 10m 30s
+#
+#       # with custom message
+#       alarm -t "Time to sleep" -b "zzz..." 6h
+# ```
+#=#=
+
+# set notification icon and sound as you like
+notification_icon="/usr/share/icons/gnome/scalable/status/alarm-symbolic.svg"
+notification_sound="/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
+
+# this file's path
+f="$0"
+# show how to use this script
+usage() {
+  sed -n '/^#=#=#=/,/^#=#=/p' $f | sed -e '1d;$d' | cut -b3- | grep -v "\`\`\`"
+}
+
+# Option hundling
+while getopts hHt:b: OPT; do
+  case $OPT in
+    "h")
+      usage; exit 0 ;;
+    "H")
+      usage_all "$f"; exit 0 ;;
+    "t")
+      ntf_title="${OPTARG}" ;;
+    "b")
+      ntf_body="${OPTARG}" ;;
+    * )
+      usage; exit 1 ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
+# arg number check
+if [ $# -eq 0 ]; then
+  echo "[alarm] At least 1 argument is needed." >&2
+  usage; exit 1
+fi
+
+# record start time
+start_time="`date +"%Y/%m/%d %H:%M:%S"`"
+echo "[alarm] Start at $start_time"
+
+parse_date() {
+  case ${1: -1} in
+    "d") [[ ${1%d} -gt 0 ]] && echo -n " ${1%d} days" ;;
+    "h") [[ ${1%h} -gt 0 ]] && echo -n " ${1%h} hours" ;;
+    "m") [[ ${1%m} -gt 0 ]] && echo -n " ${1%m} minutes" ;;
+    "s") [[ ${1%s} -gt 0 ]] && echo -n " ${1%s} seconds" ;;
+    [0-9]) echo -n " ${1%s} seconds" ;;
+    *) echo -n "";;
+  esac
+}
+
+dateafter=""
+for l in $@; do
+  dateafter="${dateafter}$(parse_date $l)"
+done
+
+# show end time
+end_time=$(date -d "${start_time} ${dateafter}" +"%Y/%m/%d %H:%M:%S")
+echo "[alarm] Alert at ${end_time} (${dateafter} )..."
+
+# set default notification messages
+notification_title="[alarm] ${dateafter}"
+notification_body="${start_time} : start\n${end_time} : end"
+
+## visual timer (choose tty-clock or xclock)
+# tty-clock -sc &
+xclock -d -update 1 &
+clockpid=$!
+
+# trap Ctrl-C and then kill child process
+trap 'kill -s SIGTERM $clockpid 2> /dev/null; exit 1' 1 2 3 ERR
+
+# sleep ...
+sleep $@
+
+# then, send notification
+notify-send "${ntf_title:-${notification_title}}" \
+  "${ntf_body:-${notification_body}}" \
+  -t 6000 \
+  -i "${notification_icon}"
+paplay "${notification_sound}" &
+
+echo "[alarm] Done!"
+kill -s SIGTERM $clockpid 2> /dev/null || exit 0
+

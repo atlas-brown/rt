@@ -1,0 +1,36 @@
+[
+ {
+  "repo": "https://github.com/Blankj/AndroidUtilCode.git",
+  "relative_path": "AndroidUtilCode/script/gitHelp.sh",
+  "short_name": "gitHelp",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidUtilCode_iaTQhX/0",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Blankj/AndroidUtilCode.git",
+  "relative_path": "AndroidUtilCode/script/runProductionRelease.sh",
+  "short_name": "runProductionRelease",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidUtilCode_iaTQhX/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Blankj/AndroidUtilCode.git",
+  "relative_path": "AndroidUtilCode/script/runDevDebug.sh",
+  "short_name": "runDevDebug",
+  "timestamp": "10/22/2024",
+  "identifier": "AndroidUtilCode_iaTQhX/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ }
+]

@@ -1,0 +1,29 @@
+[
+ {
+  "repo": "https://github.com/elasticsearch-dump/elasticsearch-dump.git",
+  "relative_path": "elasticsearch-dump/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_NRbsNI/0",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/elasticsearch-dump/elasticsearch-dump.git",
+  "relative_path": "elasticsearch-dump/.github/scripts/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_NRbsNI/1",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

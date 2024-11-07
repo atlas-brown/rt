@@ -1,0 +1,31 @@
+[
+ {
+  "repo": "https://github.com/nixbuild/nix-quick-install-action.git",
+  "relative_path": "nix-quick-install-action/vercomp.sh",
+  "short_name": "vercomp",
+  "timestamp": "10/22/2024",
+  "identifier": "nix_ukQAap/0",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/nixbuild/nix-quick-install-action.git",
+  "relative_path": "nix-quick-install-action/nix-quick-install.sh",
+  "short_name": "nix-quick-install",
+  "timestamp": "10/22/2024",
+  "identifier": "nix_ukQAap/1",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

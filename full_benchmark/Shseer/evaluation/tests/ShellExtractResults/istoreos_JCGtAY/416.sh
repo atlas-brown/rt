@@ -1,0 +1,104 @@
+#!/bin/sh /etc/rc.common
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Copyright (C) 2013-2020 OpenWrt.org
+
+START=11
+
+FS_CONSUMER=/tmp/.fstab.consumer
+
+check_uuid() {
+	blkid --uuid "$1" >/dev/null 2>&1
+}
+check_label() {
+	blkid --label "$1" >/dev/null 2>&1
+}
+check_device() {
+	[ -b "$1" ] >/dev/null 2>&1
+}
+
+wait_essential() {
+	local enabled
+	local target
+	local essential
+	[ $TIMEOUT -gt 0 ] || return 1
+	config_get_bool enabled $1 "enabled" "0"
+	config_get_bool essential $1 essential "0"
+	[ "$enabled" = "0" ] && return 0
+	config_get target $1 "target"
+	target=${target%%/}
+	[ -z "$target" -o "$target" = "/" -o "$target" = "/rom" -o "$target" = "/overlay" ] && return 0
+
+	if [ "$essential" = "0" ]; then
+		[ -f $FS_CONSUMER ] || return 0
+		grep -Fqxm1 "$target" $FS_CONSUMER || grep -q "^$target/" $FS_CONSUMER || return 0
+	fi
+
+	/bin/mount | grep -qF " on $target type " && return 0
+
+	local uuid label device check_cmd
+	config_get uuid $1 "uuid"
+	config_get label $1 "label"
+	config_get device $1 "device"
+	if [ -n "$uuid" ]; then
+		check_cmd="check_uuid \"$uuid\""
+	elif [ -n "$label" ]; then
+		check_cmd="check_label \"$label\""
+	elif [ -n "$device" ]; then
+		check_cmd="check_device \"$device\""
+	else
+		return 0
+	fi
+	while :; do
+		eval "$check_cmd" && return 0
+		TIMEOUT=$(($TIMEOUT - 1))
+		if [ $TIMEOUT -gt 0 ]; then
+			sleep 1
+		else
+			break
+		fi
+	done
+	echo "fstab: wait essential device(s) timeout on $check_cmd" >/dev/kmsg
+	return 1
+}
+
+# for /lib/fstab.d/*.sh call
+fstab_add_essential_mountpoint() {
+	echo "$1" >>$FS_CONSUMER.raw
+}
+
+check_block_ready() {
+	TIMEOUT=$(uci -q get fstab.@global[0].essential_timeout)
+	[ -z "$TIMEOUT" ] && TIMEOUT=5
+	[ $TIMEOUT -ge 0 ] || return 0
+	TIMEOUT=$(($TIMEOUT + 1))
+	local ORIG=$TIMEOUT
+
+	>$FS_CONSUMER.raw
+	include /lib/fstab.d
+	busybox sort -u $FS_CONSUMER.raw | grep / >$FS_CONSUMER
+	rm -f $FS_CONSUMER.raw
+	[ -s $FS_CONSUMER ] || rm -f $FS_CONSUMER
+
+	config_load fstab
+	config_foreach wait_essential mount
+	[ $TIMEOUT -gt 0 ] && echo "fstab: essential device(s) ready after $(($ORIG - $TIMEOUT)) seconds" >/dev/kmsg
+	rm -f $FS_CONSUMER
+}
+
+boot() {
+	( check_block_ready )
+	/sbin/block mount
+}
+
+start() {
+	return 0
+}
+
+restart() {
+	return 0
+}
+
+stop() {
+	/sbin/block umount
+}

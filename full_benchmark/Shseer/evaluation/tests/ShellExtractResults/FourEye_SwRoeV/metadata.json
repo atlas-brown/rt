@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/lengjibo/FourEye.git",
+  "relative_path": "FourEye/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "FourEye_SwRoeV/0",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

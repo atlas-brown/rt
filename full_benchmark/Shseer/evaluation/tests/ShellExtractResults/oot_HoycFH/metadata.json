@@ -1,0 +1,84 @@
+[
+ {
+  "repo": "https://github.com/zeldaret/oot.git",
+  "relative_path": "oot/tools/disasm/do_disasm.sh",
+  "short_name": "do_disasm",
+  "timestamp": "10/22/2024",
+  "identifier": "oot_HoycFH/0",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zeldaret/oot.git",
+  "relative_path": "oot/tools/preprocess.sh",
+  "short_name": "preprocess",
+  "timestamp": "10/22/2024",
+  "identifier": "oot_HoycFH/1",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/zeldaret/oot.git",
+  "relative_path": "oot/tools/fado/find_program.sh",
+  "short_name": "find_program",
+  "timestamp": "10/22/2024",
+  "identifier": "oot_HoycFH/2",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zeldaret/oot.git",
+  "relative_path": "oot/tools/dmadata_start.sh",
+  "short_name": "dmadata_start",
+  "timestamp": "10/22/2024",
+  "identifier": "oot_HoycFH/3",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/zeldaret/oot.git",
+  "relative_path": "oot/tools/generate_patch_from_jenkins.sh",
+  "short_name": "generate_patch_from_jenkins",
+  "timestamp": "10/22/2024",
+  "identifier": "oot_HoycFH/4",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/zeldaret/oot.git",
+  "relative_path": "oot/fixle.sh",
+  "short_name": "fixle",
+  "timestamp": "10/22/2024",
+  "identifier": "oot_HoycFH/5",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

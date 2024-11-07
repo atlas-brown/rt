@@ -1,0 +1,559 @@
+[
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/v3-docs/docs/jsdoc/jsdoc.sh",
+  "short_name": "jsdoc",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/tools/tests/old/cli-test.sh",
+  "short_name": "cli-test",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/1",
+  "posix_compliant": false,
+  "line_count": 111,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/tools/tests/apps/modules/packages/modules-test-package/node_modules/acorn/bin/update_authors.sh",
+  "short_name": "update_authors",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/2",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/docs/jsdoc/jsdoc.sh",
+  "short_name": "jsdoc",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/3",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/generate-dev-bundle.sh",
+  "short_name": "generate-dev-bundle",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/4",
+  "posix_compliant": false,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/ci/run-selftest-ci.sh",
+  "short_name": "run-selftest-ci",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/5",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/make-release-tarballs.sh",
+  "short_name": "make-release-tarballs",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/6",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/build-dev-bundle-common.sh",
+  "short_name": "build-dev-bundle-common",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/7",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/node.sh",
+  "short_name": "node",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/8",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/publish-meteor-tool-on-all-platforms.sh",
+  "short_name": "publish-meteor-tool-on-all-platforms",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/9",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/find-author-github.sh",
+  "short_name": "find-author-github",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/10",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/copy-dev-bundle-mac-m1-from-jenkins.sh",
+  "short_name": "copy-dev-bundle-mac-m1-from-jenkins",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/11",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/copy-dev-bundle-from-jenkins.sh",
+  "short_name": "copy-dev-bundle-from-jenkins",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/12",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/copy-bootstrap-tarballs-from-jenkins.sh",
+  "short_name": "copy-bootstrap-tarballs-from-jenkins",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/13",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/find-new-npm-versions.sh",
+  "short_name": "find-new-npm-versions",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/14",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/publish-meteor-tool-on-arch.sh",
+  "short_name": "publish-meteor-tool-on-arch",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/15",
+  "posix_compliant": false,
+  "line_count": 96,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/jsdoc/jsdoc.sh",
+  "short_name": "jsdoc",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/16",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/browserstack-check.sh",
+  "short_name": "browserstack-check",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/17",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/update-semver/get-diff.sh",
+  "short_name": "get-diff",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/18",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/update-semver/get-branch-name.sh",
+  "short_name": "get-branch-name",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/19",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/admin/install-from-bootstrap.sh",
+  "short_name": "install-from-bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/20",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/benchmarks/initial-start-time.sh",
+  "short_name": "initial-start-time",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/21",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/scripts/build-node-for-dev-bundle.sh",
+  "short_name": "build-node-for-dev-bundle",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/22",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/packages/test-in-console/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/23",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/meteor-babel/test/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/24",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/generate-dev-bundle.sh",
+  "short_name": "generate-dev-bundle",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/25",
+  "posix_compliant": false,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/ci/run-selftest-ci.sh",
+  "short_name": "run-selftest-ci",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/26",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/build-dev-bundle-common.sh",
+  "short_name": "build-dev-bundle-common",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/27",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/node.sh",
+  "short_name": "node",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/28",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/admin/publish-meteor-tool-on-all-platforms.sh",
+  "short_name": "publish-meteor-tool-on-all-platforms",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/29",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/admin/find-author-github.sh",
+  "short_name": "find-author-github",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/30",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/admin/copy-dev-bundle-from-jenkins.sh",
+  "short_name": "copy-dev-bundle-from-jenkins",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/31",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/admin/copy-bootstrap-tarballs-from-jenkins.sh",
+  "short_name": "copy-bootstrap-tarballs-from-jenkins",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/32",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/admin/find-new-npm-versions.sh",
+  "short_name": "find-new-npm-versions",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/33",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/admin/publish-meteor-tool-on-arch.sh",
+  "short_name": "publish-meteor-tool-on-arch",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/34",
+  "posix_compliant": false,
+  "line_count": 96,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/admin/jsdoc/jsdoc.sh",
+  "short_name": "jsdoc",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/35",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/admin/browserstack-check.sh",
+  "short_name": "browserstack-check",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/36",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/admin/install-from-bootstrap.sh",
+  "short_name": "install-from-bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/37",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/benchmarks/initial-start-time.sh",
+  "short_name": "initial-start-time",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/38",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/meteor/meteor.git",
+  "relative_path": "meteor/npm-packages/eslint-plugin-meteor/scripts/build-node-for-dev-bundle.sh",
+  "short_name": "build-node-for-dev-bundle",
+  "timestamp": "10/22/2024",
+  "identifier": "meteor_WvOpnZ/39",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

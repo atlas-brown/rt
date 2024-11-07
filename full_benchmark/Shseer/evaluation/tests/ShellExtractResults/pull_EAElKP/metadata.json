@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/paul-hammant/pull-request-scraper.git",
+  "relative_path": "pull-request-scraper/scrape-pull-requests.sh",
+  "short_name": "scrape-pull-requests",
+  "timestamp": "10/22/2024",
+  "identifier": "pull_EAElKP/0",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

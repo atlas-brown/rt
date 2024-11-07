@@ -1,0 +1,82 @@
+[
+ {
+  "repo": "https://github.com/ViLab-UCSD/PhotoScene.git",
+  "relative_path": "PhotoScene/run_photoscene.sh",
+  "short_name": "run_photoscene",
+  "timestamp": "10/22/2024",
+  "identifier": "PhotoScene_rqoUOo/0",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/ViLab-UCSD/PhotoScene.git",
+  "relative_path": "PhotoScene/scripts/download_model.sh",
+  "short_name": "download_model",
+  "timestamp": "10/22/2024",
+  "identifier": "PhotoScene_rqoUOo/1",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ViLab-UCSD/PhotoScene.git",
+  "relative_path": "PhotoScene/scripts/download_total3d_data.sh",
+  "short_name": "download_total3d_data",
+  "timestamp": "10/22/2024",
+  "identifier": "PhotoScene_rqoUOo/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ViLab-UCSD/PhotoScene.git",
+  "relative_path": "PhotoScene/scripts/photoscene_utils.sh",
+  "short_name": "photoscene_utils",
+  "timestamp": "10/22/2024",
+  "identifier": "PhotoScene_rqoUOo/3",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ViLab-UCSD/PhotoScene.git",
+  "relative_path": "PhotoScene/scripts/run_docker_interactive.sh",
+  "short_name": "run_docker_interactive",
+  "timestamp": "10/22/2024",
+  "identifier": "PhotoScene_rqoUOo/4",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ViLab-UCSD/PhotoScene.git",
+  "relative_path": "PhotoScene/scripts/build_renderer.sh",
+  "short_name": "build_renderer",
+  "timestamp": "10/22/2024",
+  "identifier": "PhotoScene_rqoUOo/5",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

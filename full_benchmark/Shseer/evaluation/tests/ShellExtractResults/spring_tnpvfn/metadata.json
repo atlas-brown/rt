@@ -1,0 +1,2746 @@
+[
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/run-dev-container.sh",
+  "short_name": "run-dev-container",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/0",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/build-samples.sh",
+  "short_name": "build-samples",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/1",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/ci/images/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/2",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/ci/images/start-docker.sh",
+  "short_name": "start-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/3",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/ci/images/docker-lib.sh",
+  "short_name": "docker-lib",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/4",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/ci/scripts/common.sh",
+  "short_name": "common",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/5",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/ci/scripts/generate-changelog.sh",
+  "short_name": "generate-changelog",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/6",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/ci/scripts/build-project.sh",
+  "short_name": "build-project",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/7",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/ci/scripts/build-samples.sh",
+  "short_name": "build-samples",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/8",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/ci/scripts/stage.sh",
+  "short_name": "stage",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/9",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/ci/scripts/build-key-samples.sh",
+  "short_name": "build-key-samples",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/10",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/ci/scripts/promote.sh",
+  "short_name": "promote",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/11",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/build-samples-aot-only.sh",
+  "short_name": "build-samples-aot-only",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/12",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webmvc-kotlin/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/13",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webmvc-kotlin/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/14",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webmvc-kotlin/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/15",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/kafka-avro/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/16",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/kafka-avro/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/17",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/actuator-webmvc-metrics/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/18",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/actuator-webmvc-metrics/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/19",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webclient/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/20",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webclient/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/21",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-discovery/discoveryclient/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/22",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-discovery/discoveryclient/build-without-server.sh",
+  "short_name": "build-without-server",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/23",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-discovery/discoveryclient/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/24",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/commandlinerunner/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/25",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/commandlinerunner/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/26",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/websocket/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/27",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/websocket/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/28",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/websocket/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/29",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/actuator-webflux/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/30",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/actuator-webflux/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/31",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-mongodb/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/32",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-mongodb/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/33",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-mongodb/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/34",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/session-jdbc/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/35",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/session-jdbc/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/36",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/session-jdbc/run_agent.sh",
+  "short_name": "run_agent",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/37",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/zipkin-sleuth/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/38",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/zipkin-sleuth/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/39",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/zipkin-sleuth/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/40",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-config/configserver/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/41",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-config/configserver/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/42",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-config/configclient/build-without-server-build.sh",
+  "short_name": "build-without-server-build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/43",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-config/configclient/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/44",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-config/configclient/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/45",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/validator/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/46",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/validator/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/47",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/logger/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/48",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/logger/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/49",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/commandlinerunner-agent/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/50",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/commandlinerunner-agent/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/51",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/lombok/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/52",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/lombok/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/53",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/lombok/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/54",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webmvc-tomcat-agent/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/55",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webmvc-tomcat-agent/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/56",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webmvc-tomcat-agent/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/57",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/grpc/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/58",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/grpc/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/59",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-r2dbc/build-single-profile.sh",
+  "short_name": "build-single-profile",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/60",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-r2dbc/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/61",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-r2dbc/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/62",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/clientHttpRequestFactory/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/63",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/clientHttpRequestFactory/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/64",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-kotlin/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/65",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-kotlin/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/66",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-kotlin/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/67",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/68",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/69",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security/run_agent.sh",
+  "short_name": "run_agent",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/70",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/petclinic-jpa/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/71",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/petclinic-jpa/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/72",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/petclinic-jpa/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/73",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/javamail/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/74",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/javamail/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/75",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/javamail/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/76",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/jdbc-tx/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/77",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/jdbc-tx/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/78",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-function-netty/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/79",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-function-netty/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/80",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-function-netty/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/81",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/integration/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/82",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/integration/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/83",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-jpa/build-single-profile.sh",
+  "short_name": "build-single-profile",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/84",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-jpa/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/85",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-jpa/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/86",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/petclinic-keyvalue/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/87",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/petclinic-keyvalue/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/88",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/petclinic-keyvalue/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/89",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/actuator-webmvc/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/90",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/actuator-webmvc/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/91",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/async/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/92",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/async/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/93",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/features/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/94",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/features/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/95",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/batch-io/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/96",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/batch-io/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/97",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webmvc-tomcat/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/98",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webmvc-tomcat/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/99",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webmvc-tomcat/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/100",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-redis/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/101",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-redis/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/102",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-redis/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/103",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/kafka-streams/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/104",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/kafka-streams/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/105",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/session-redis-webflux/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/106",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/session-redis-webflux/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/107",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/session-redis-webflux/run_agent.sh",
+  "short_name": "run_agent",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/108",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-netty/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/109",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-netty/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/110",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-netty/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/111",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/commandlinerunner-gradle/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/112",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/commandlinerunner-gradle/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/113",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/hibernate/mvnw.cmd",
+  "short_name": "mvnw.cmd",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/114",
+  "posix_compliant": true,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/hibernate/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/115",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/hibernate/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/116",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/hibernate/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/117",
+  "posix_compliant": true,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/session-without-security/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/118",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/session-without-security/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/119",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/session-without-security/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/120",
+  "posix_compliant": true,
+  "line_count": 219,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-neo4j/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/121",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-neo4j/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/122",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-neo4j/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/123",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/rabbitmq/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/124",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/rabbitmq/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/125",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-task/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/126",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-task/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/127",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/wavefront-sleuth/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/128",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/wavefront-sleuth/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/129",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/wavefront-sleuth/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/130",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-function-cloudevent/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/131",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-function-cloudevent/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/132",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-function-cloudevent/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/133",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-mongodb-reactive/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/134",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-mongodb-reactive/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/135",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-mongodb-reactive/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/136",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-jdbc/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/137",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-jdbc/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/138",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-jdbc/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/139",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/scheduling-tasks/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/140",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/scheduling-tasks/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/141",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-websocket/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/142",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-websocket/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/143",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-websocket/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/144",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/rsocket/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/145",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/rsocket/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/146",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/rsocket/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/147",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/class-proxies-aop/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/148",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/class-proxies-aop/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/149",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/boot-features/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/150",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/boot-features/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/151",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-r2dbc-kotlin/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/152",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-r2dbc-kotlin/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/153",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/actuator-webmvc-management-port/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/154",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/actuator-webmvc-management-port/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/155",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-method-class-proxies/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/156",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-method-class-proxies/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/157",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-method-class-proxies/run_agent.sh",
+  "short_name": "run_agent",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/158",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/kafka/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/159",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/kafka/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/160",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/batch/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/161",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/batch/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/162",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/commandlinerunner-log4j2/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/163",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/commandlinerunner-log4j2/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/164",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/petclinic-jdbc/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/165",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/petclinic-jdbc/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/166",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/petclinic-jdbc/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/167",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-ldap/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/168",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-ldap/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/169",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-ldap/run_agent.sh",
+  "short_name": "run_agent",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/170",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/171",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/172",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/173",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-elasticsearch/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/174",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-elasticsearch/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/175",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-elasticsearch/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/176",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-thymeleaf/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/177",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-thymeleaf/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/178",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-thymeleaf/run_agent.sh",
+  "short_name": "run_agent",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/179",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-function-aws/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/180",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-function-aws/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/181",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-function-aws/src/shell/native/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/182",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/cloud-function-aws/src/shell/java/bootstrap",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/183",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-method/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/184",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-method/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/185",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-method/run_agent.sh",
+  "short_name": "run_agent",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/186",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/actuator-webflux-management-port/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/187",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/actuator-webflux-management-port/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/188",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/wavefront/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/189",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/wavefront/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/190",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/wavefront/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/191",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/quartz/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/192",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/quartz/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/193",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/events/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/194",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/events/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/195",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/hateoas/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/196",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/hateoas/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/197",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/hateoas/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/198",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-kotlin/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/199",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-kotlin/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/200",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-kotlin/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/201",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-webflux/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/202",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-webflux/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/203",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/security-webflux/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/204",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-thymeleaf/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/205",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-thymeleaf/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/206",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/webflux-thymeleaf/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/207",
+  "posix_compliant": true,
+  "line_count": 137,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-rest/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/208",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-rest/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/209",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/data-rest/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/210",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/spring-tcf/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/211",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/samples/spring-tcf/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/212",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/build-key-samples.sh",
+  "short_name": "build-key-samples",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/213",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/214",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/runWithAgent.sh",
+  "short_name": "runWithAgent",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/215",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/compilationDiff.sh",
+  "short_name": "compilationDiff",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/216",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/reflectStrip.sh",
+  "short_name": "reflectStrip",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/217",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/callTreeQuery.sh",
+  "short_name": "callTreeQuery",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/218",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/rss.sh",
+  "short_name": "rss",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/219",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/heapHistogramReport.sh",
+  "short_name": "heapHistogramReport",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/220",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/compileWithGradle.sh",
+  "short_name": "compileWithGradle",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/221",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/gu-wrapper.sh",
+  "short_name": "gu-wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/222",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/histogramDiff.sh",
+  "short_name": "histogramDiff",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/223",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/wait.sh",
+  "short_name": "wait",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/224",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/reflectCompare.sh",
+  "short_name": "reflectCompare",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/225",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/methodHistogramReport.sh",
+  "short_name": "methodHistogramReport",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/226",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/227",
+  "posix_compliant": false,
+  "line_count": 141,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/size.sh",
+  "short_name": "size",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/228",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/scripts/compileWithMaven.sh",
+  "short_name": "compileWithMaven",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/229",
+  "posix_compliant": false,
+  "line_count": 85,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/230",
+  "posix_compliant": true,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-attic/spring-native.git",
+  "relative_path": "spring-native/build-samples-with-native-tests.sh",
+  "short_name": "build-samples-with-native-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_tnpvfn/231",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

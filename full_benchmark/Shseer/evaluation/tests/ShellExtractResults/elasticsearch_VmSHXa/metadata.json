@@ -1,0 +1,1113 @@
+[
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/build-tools-internal/src/main/resources/deb/preinst.ftl",
+  "short_name": "preinst.ftl",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/build-tools-internal/src/main/resources/deb/postinst.ftl",
+  "short_name": "postinst.ftl",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.ci/packer_cache.sh",
+  "short_name": "packer_cache",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/2",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.ci/scripts/packaging-test.sh",
+  "short_name": "packaging-test",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/3",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.ci/scripts/install-gradle-profiler.sh",
+  "short_name": "install-gradle-profiler",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/4",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.ci/scripts/resolve-dra-manifest.sh",
+  "short_name": "resolve-dra-manifest",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/5",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.ci/scripts/run-gradle.sh",
+  "short_name": "run-gradle",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/6",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.ci/scripts/run-gradle-profiler.sh",
+  "short_name": "run-gradle-profiler",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/7",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/test/fixtures/krb5kdc-fixture/src/main/resources/provision/hdfs.sh",
+  "short_name": "hdfs",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/8",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/test/fixtures/krb5kdc-fixture/src/main/resources/provision/installkdc.sh",
+  "short_name": "installkdc",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/9",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/test/fixtures/krb5kdc-fixture/src/main/resources/provision/peppa.sh",
+  "short_name": "peppa",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/10",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/test/fixtures/krb5kdc-fixture/src/main/resources/provision/addprinc.sh",
+  "short_name": "addprinc",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/11",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/plugins/examples/custom-settings/src/main/bin/test",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/12",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/plugins/examples/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/13",
+  "posix_compliant": true,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/docker/docker-test-entrypoint.sh",
+  "short_name": "docker-test-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/14",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/docker/src/docker/bin/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/15",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/packages/src/common/systemd/systemd-entrypoint",
+  "short_name": "systemd-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/16",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/packages/src/common/scripts/preinst",
+  "short_name": "preinst",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/17",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/src/bin/elasticsearch-env",
+  "short_name": "elasticsearch-env",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/18",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/src/bin/elasticsearch-geoip",
+  "short_name": "elasticsearch-geoip",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/19",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/src/bin/elasticsearch-env-from-file",
+  "short_name": "elasticsearch-env-from-file",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/20",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/src/bin/elasticsearch-node",
+  "short_name": "elasticsearch-node",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/21",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/src/bin/elasticsearch-keystore",
+  "short_name": "elasticsearch-keystore",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/22",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/src/bin/elasticsearch-plugin",
+  "short_name": "elasticsearch-plugin",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/23",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/src/bin/elasticsearch-shard",
+  "short_name": "elasticsearch-shard",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/24",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/src/bin/elasticsearch-cli",
+  "short_name": "elasticsearch-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/25",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/distribution/src/bin/elasticsearch",
+  "short_name": "elasticsearch",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/26",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/qa/remote-clusters/docker-test-entrypoint.sh",
+  "short_name": "docker-test-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/27",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/libs/ssl-config/src/test/resources/certs/README.txt",
+  "short_name": "README.txt",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/28",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/libs/simdvec/native/publish_vec_binaries.sh",
+  "short_name": "publish_vec_binaries",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/29",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/libs/simdvec/native/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/30",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/31",
+  "posix_compliant": true,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/packer_cache.sh",
+  "short_name": "packer_cache",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/32",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/hooks/pre-command",
+  "short_name": "pre-command",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/33",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/third-party-test-credentials.sh",
+  "short_name": "third-party-test-credentials",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/34",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/encryption-at-rest.sh",
+  "short_name": "encryption-at-rest",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/35",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/windows-run-gradle.sh",
+  "short_name": "windows-run-gradle",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/36",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/eql-correctness.sh",
+  "short_name": "eql-correctness",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/37",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/lucene-snapshot/upload-snapshot.sh",
+  "short_name": "upload-snapshot",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/38",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/lucene-snapshot/update-branch.sh",
+  "short_name": "update-branch",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/39",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/lucene-snapshot/update-es-snapshot.sh",
+  "short_name": "update-es-snapshot",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/40",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/get-legacy-secret.sh",
+  "short_name": "get-legacy-secret",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/41",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/setup-legacy-vault.sh",
+  "short_name": "setup-legacy-vault",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/42",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/dra-update-staging.sh",
+  "short_name": "dra-update-staging",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/43",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/pull-request/pipeline.sh",
+  "short_name": "pipeline",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/44",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/third-party-test-credentials.gcs.sh",
+  "short_name": "third-party-test-credentials.gcs",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/45",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/update-serverless-submodule.sh",
+  "short_name": "update-serverless-submodule",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/46",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/gradle-configuration-cache-validation.sh",
+  "short_name": "gradle-configuration-cache-validation",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/47",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/gradle-build-cache-validation.sh",
+  "short_name": "gradle-build-cache-validation",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/48",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/release-tests.sh",
+  "short_name": "release-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/49",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/periodic.trigger.sh",
+  "short_name": "periodic.trigger",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/50",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/branches.sh",
+  "short_name": "branches",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/51",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/fixture-deploy.sh",
+  "short_name": "fixture-deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/52",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/branch-protection.sh",
+  "short_name": "branch-protection",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/53",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/cloud-deploy.sh",
+  "short_name": "cloud-deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/54",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/dra-workflow.trigger.sh",
+  "short_name": "dra-workflow.trigger",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/55",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/setup-monitoring.sh",
+  "short_name": "setup-monitoring",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/56",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/.buildkite/scripts/dra-workflow.sh",
+  "short_name": "dra-workflow",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/57",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/dev-tools/publish_zstd_binaries.sh",
+  "short_name": "publish_zstd_binaries",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/58",
+  "posix_compliant": false,
+  "line_count": 84,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/dev-tools/atomic_push.sh",
+  "short_name": "atomic_push",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/59",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/dev-tools/delete_branch_jobs.sh",
+  "short_name": "delete_branch_jobs",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/60",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/client/sniffer/src/test/resources/create_test_nodes_info.bash",
+  "short_name": "create_test_nodes_info.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/61",
+  "posix_compliant": false,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/test/smb-fixture/src/main/resources/smb/provision/installsmb.sh",
+  "short_name": "installsmb",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/62",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/test/idp-fixture/src/main/resources/idp/bin/init-idp.sh",
+  "short_name": "init-idp",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/63",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/test/idp-fixture/src/main/resources/idp/bin/run-jetty.sh",
+  "short_name": "run-jetty",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/64",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/test/idp-fixture/src/main/resources/oidc/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/65",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/watcher/src/main/bin/elasticsearch-croneval",
+  "short_name": "elasticsearch-croneval",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/66",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/security/src/main/bin/elasticsearch-syskeygen",
+  "short_name": "elasticsearch-syskeygen",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/67",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/security/src/main/bin/elasticsearch-reconfigure-node",
+  "short_name": "elasticsearch-reconfigure-node",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/68",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/security/src/main/bin/elasticsearch-create-enrollment-token",
+  "short_name": "elasticsearch-create-enrollment-token",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/69",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/security/src/main/bin/elasticsearch-saml-metadata",
+  "short_name": "elasticsearch-saml-metadata",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/70",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/security/src/main/bin/elasticsearch-reset-password",
+  "short_name": "elasticsearch-reset-password",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/71",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/security/src/main/bin/elasticsearch-setup-passwords",
+  "short_name": "elasticsearch-setup-passwords",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/72",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/security/src/main/bin/elasticsearch-certgen",
+  "short_name": "elasticsearch-certgen",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/73",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/security/src/main/bin/elasticsearch-certutil",
+  "short_name": "elasticsearch-certutil",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/74",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/security/src/main/bin/elasticsearch-users",
+  "short_name": "elasticsearch-users",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/75",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/security/src/main/bin/elasticsearch-service-tokens",
+  "short_name": "elasticsearch-service-tokens",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/76",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/sql/connectors/tableau/package.sh",
+  "short_name": "package",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/77",
+  "posix_compliant": false,
+  "line_count": 250,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/plugin/sql/src/main/bin/elasticsearch-sql-cli",
+  "short_name": "elasticsearch-sql-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/78",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/license-tools/bin/license-cli",
+  "short_name": "license-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/79",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/license-tools/bin/verify-license",
+  "short_name": "verify-license",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/80",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/license-tools/bin/license-generator",
+  "short_name": "license-generator",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/81",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/elastic/elasticsearch.git",
+  "relative_path": "elasticsearch/x-pack/license-tools/bin/key-pair-generator",
+  "short_name": "key-pair-generator",
+  "timestamp": "10/22/2024",
+  "identifier": "elasticsearch_VmSHXa/82",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

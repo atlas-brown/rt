@@ -1,0 +1,334 @@
+{
+ "177ba72f976f5a9a3b9481503904b06185b221e6.llm": {
+  "version": "177ba72f976f5a9a3b9481503904b06185b221e6.llm",
+  "scripts_total": 212,
+  "scripts_good": 11,
+  "scripts_bad": 62,
+  "scripts_panic": 138,
+  "scripts_timeout": 0,
+  "scripts_crash": 1,
+  "average_time_per_line": 528.110380424301,
+  "average_time_per_script": 1095.300929,
+  "included": [
+   "llm",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Sun Aug  4 13:43:40 2024"
+ },
+ "177ba72f976f5a9a3b9481503904b06185b221e6.github": {
+  "version": "177ba72f976f5a9a3b9481503904b06185b221e6.github",
+  "scripts_total": 3077,
+  "scripts_good": 36,
+  "scripts_bad": 201,
+  "scripts_panic": 2764,
+  "scripts_timeout": 15,
+  "scripts_crash": 61,
+  "average_time_per_line": 753.0108800661469,
+  "average_time_per_script": 235420.5685330001,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Sun Aug  4 13:43:40 2024"
+ },
+ "a6d67731394fce43f7ef07a5a655466d2fce9789.llm": {
+  "version": "a6d67731394fce43f7ef07a5a655466d2fce9789.llm",
+  "scripts_total": 212,
+  "scripts_good": 10,
+  "scripts_bad": 62,
+  "scripts_panic": 138,
+  "scripts_timeout": 1,
+  "scripts_crash": 1,
+  "average_time_per_line": 74.21794512851272,
+  "average_time_per_script": 152.51787723909365,
+  "included": [
+   "llm",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Sun Aug  4 17:36:47 2024"
+ },
+ "d1ee805b91202bb43a306ace2c63cdf05eadc6a6.llm": {
+  "version": "d1ee805b91202bb43a306ace2c63cdf05eadc6a6.llm",
+  "scripts_total": 212,
+  "scripts_good": 10,
+  "scripts_bad": 62,
+  "scripts_panic": 137,
+  "scripts_timeout": 3,
+  "scripts_crash": 0,
+  "average_time_per_line": 104.58752494544409,
+  "average_time_per_script": 211.89432553946972,
+  "included": [
+   "llm",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Sat Aug 10 13:34:36 2024"
+ },
+ "526c5beb2c73f058a79739f7090f3d3d90b2d045.debian": {
+  "version": "526c5beb2c73f058a79739f7090f3d3d90b2d045.debian",
+  "scripts_total": 87185,
+  "scripts_good": 3297,
+  "scripts_bad": 10597,
+  "scripts_panic": 64570,
+  "scripts_timeout": 5374,
+  "scripts_crash": 3347,
+  "average_time_per_line": 1.9929754716404346,
+  "average_time_per_script": 15960.480991870165,
+  "included": [
+   "debian",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Mon Aug  5 21:27:47 2024"
+ },
+ "02ded6789795896969c3c87f80ebb0a2f6591fed.github": {
+  "version": "02ded6789795896969c3c87f80ebb0a2f6591fed.github",
+  "scripts_total": 15165,
+  "scripts_good": 850,
+  "scripts_bad": 857,
+  "scripts_panic": 1147,
+  "scripts_timeout": 9547,
+  "scripts_crash": 0,
+  "scripts_parse": 573,
+  "scripts_unknown": 2191,
+  "average_time_per_line": 121.52033444125746,
+  "average_time_per_script": 19301.439280308245,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Thu Oct 24 06:27:32 2024"
+ },
+ "2ee9c9dcc6f8c30616996139032d43f0ca65f222.github": {
+  "version": "2ee9c9dcc6f8c30616996139032d43f0ca65f222.github",
+  "scripts_total": 15165,
+  "scripts_good": 1266,
+  "scripts_bad": 305,
+  "scripts_panic": 1330,
+  "scripts_timeout": 4710,
+  "scripts_crash": 0,
+  "scripts_parse": 713,
+  "scripts_unknown": 6841,
+  "average_time_per_line": 33.48357233811046,
+  "average_time_per_script": 13189.011726120021,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Thu Oct 31 23:10:54 2024"
+ },
+ "6854017c85674f0a66f5c537fba722b939c0e371.github": {
+  "version": "6854017c85674f0a66f5c537fba722b939c0e371.github",
+  "scripts_total": 15165,
+  "scripts_good": 1420,
+  "scripts_bad": 277,
+  "scripts_panic": 1575,
+  "scripts_timeout": 3103,
+  "scripts_crash": 0,
+  "scripts_parse": 713,
+  "scripts_unknown": 8077,
+  "average_time_per_line": 16.516932795371716,
+  "average_time_per_script": 9362.1113301398,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Fri Nov  1 05:10:44 2024"
+ },
+ "de0ea4facdce687fed3e6382854a00486db82a0c.github": {
+  "version": "de0ea4facdce687fed3e6382854a00486db82a0c.github",
+  "scripts_total": 15165,
+  "scripts_good": 1406,
+  "scripts_bad": 263,
+  "scripts_panic": 1541,
+  "scripts_timeout": 3198,
+  "scripts_crash": 0,
+  "scripts_parse": 704,
+  "scripts_unknown": 8053,
+  "average_time_per_line": 16.598898271966608,
+  "average_time_per_script": 9478.45228134282,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Fri Nov  1 19:33:12 2024"
+ },
+ "9669a7eba565d0b493a84b351851d0af37a640e5.github": {
+  "version": "9669a7eba565d0b493a84b351851d0af37a640e5.github",
+  "scripts_total": 15165,
+  "scripts_good": 1426,
+  "scripts_bad": 316,
+  "scripts_panic": 1215,
+  "scripts_timeout": 3440,
+  "scripts_crash": 0,
+  "scripts_parse": 707,
+  "scripts_unknown": 8061,
+  "average_time_per_line": 13.214826195926106,
+  "average_time_per_script": 7240.654354445636,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Fri Nov  1 21:17:34 2024"
+ },
+ "42f96dc5c464d98f4cc39b32b017629c1b31121f.github": {
+  "version": "42f96dc5c464d98f4cc39b32b017629c1b31121f.github",
+  "scripts_total": 15165,
+  "scripts_good": 2372,
+  "scripts_bad": 980,
+  "scripts_panic": 246,
+  "scripts_timeout": 3744,
+  "scripts_crash": 0,
+  "scripts_parse": 699,
+  "scripts_unknown": 7124,
+  "average_time_per_line": 14.629939141349512,
+  "average_time_per_script": 8611.577186955139,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Sun Nov  3 01:17:10 2024"
+ },
+ "79f195fff599bd1e54007a975117ca650ec32761.github": {
+  "version": "79f195fff599bd1e54007a975117ca650ec32761.github",
+  "scripts_total": 15165,
+  "scripts_good": 2476,
+  "scripts_bad": 16,
+  "scripts_panic": 509,
+  "scripts_timeout": 923,
+  "scripts_crash": 0,
+  "scripts_parse": 707,
+  "scripts_unknown": 10534,
+  "average_time_per_line": 8.615339670795672,
+  "average_time_per_script": 7748.309117006138,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Sun Nov  3 06:08:19 2024"
+ },
+ "75702074e753f4a625d9c1ebb579153a2287bdee.github": {
+  "version": "75702074e753f4a625d9c1ebb579153a2287bdee.github",
+  "scripts_total": 15165,
+  "scripts_good": 2480,
+  "scripts_bad": 15,
+  "scripts_panic": 511,
+  "scripts_timeout": 860,
+  "scripts_crash": 0,
+  "scripts_parse": 707,
+  "scripts_unknown": 10592,
+  "average_time_per_line": 8.06216471759285,
+  "average_time_per_script": 7295.3399826437235,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Sun Nov  3 06:57:49 2024"
+ },
+ "8def91069a2955d0521dd8fe9ac6806e2e4a8805.github": {
+  "version": "8def91069a2955d0521dd8fe9ac6806e2e4a8805.github",
+  "scripts_total": 15165,
+  "scripts_good": 2129,
+  "scripts_bad": 408,
+  "scripts_panic": 508,
+  "scripts_timeout": 1710,
+  "scripts_crash": 0,
+  "scripts_parse": 707,
+  "scripts_unknown": 9703,
+  "average_time_per_line": 9.500384964828692,
+  "average_time_per_script": 7008.18697854504,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Mon Nov  4 02:11:54 2024"
+ },
+ "5217d8856250cdd79ee64232cb85d72dab681454.github": {
+  "version": "5217d8856250cdd79ee64232cb85d72dab681454.github",
+  "scripts_total": 15165,
+  "scripts_good": 2123,
+  "scripts_bad": 398,
+  "scripts_panic": 496,
+  "scripts_timeout": 1881,
+  "scripts_crash": 0,
+  "scripts_parse": 702,
+  "scripts_unknown": 9565,
+  "average_time_per_line": 11.598488434598751,
+  "average_time_per_script": 8344.497708806768,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Mon Nov  4 02:39:54 2024"
+ },
+ "a3a3f4106172eaf0e09494de83701a2a0d50abaa.github": {
+  "version": "a3a3f4106172eaf0e09494de83701a2a0d50abaa.github",
+  "scripts_total": 15165,
+  "scripts_good": 2126,
+  "scripts_bad": 438,
+  "scripts_panic": 125,
+  "scripts_timeout": 1827,
+  "scripts_crash": 0,
+  "scripts_parse": 707,
+  "scripts_unknown": 9942,
+  "average_time_per_line": 11.578526356035608,
+  "average_time_per_script": 8417.866545470431,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Mon Nov  4 03:34:01 2024"
+ },
+ "f28eb15e7949235f8e11921e3e7203d81f5189a9.github": {
+  "version": "f28eb15e7949235f8e11921e3e7203d81f5189a9.github",
+  "scripts_total": 15165,
+  "scripts_good": 2138,
+  "scripts_bad": 501,
+  "scripts_panic": 155,
+  "scripts_timeout": 1351,
+  "scripts_crash": 0,
+  "scripts_parse": 707,
+  "scripts_unknown": 10313,
+  "average_time_per_line": 18.70852530383074,
+  "average_time_per_script": 14853.727207602933,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Mon Nov  4 04:24:33 2024"
+ },
+ "b2ab00e3ddfe2763986337fa8f5f8afe0689e6c1.github": {
+  "version": "b2ab00e3ddfe2763986337fa8f5f8afe0689e6c1.github",
+  "scripts_total": 15165,
+  "scripts_good": 2138,
+  "scripts_bad": 397,
+  "scripts_panic": 165,
+  "scripts_timeout": 1358,
+  "scripts_crash": 0,
+  "scripts_parse": 707,
+  "scripts_unknown": 10400,
+  "average_time_per_line": 18.262542674478713,
+  "average_time_per_script": 14428.394890142605,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Mon Nov  4 05:28:24 2024"
+ },
+ "a2c296ca1fbabfa461b2e4cae04b1a4b85230e33.github": {
+  "version": "a2c296ca1fbabfa461b2e4cae04b1a4b85230e33.github",
+  "scripts_total": 15165,
+  "scripts_good": 1734,
+  "scripts_bad": 167,
+  "scripts_panic": 70,
+  "scripts_timeout": 2087,
+  "scripts_crash": 0,
+  "scripts_parse": 721,
+  "scripts_unknown": 10386,
+  "average_time_per_line": 18.223807571193912,
+  "average_time_per_script": 13125.569836499417,
+  "included": [
+   "github",
+   "no_perf [performance results might be inaccurate]"
+  ],
+  "timestamp": "Thu Nov  7 19:26:26 2024"
+ }
+}

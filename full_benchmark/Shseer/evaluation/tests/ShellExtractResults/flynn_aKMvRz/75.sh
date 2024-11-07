@@ -1,0 +1,173 @@
+#!/bin/bash
+
+set -e
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+source "${ROOT}/script/lib/ui.sh"
+source "${ROOT}/script/lib/util.sh"
+
+usage() {
+  cat <<USAGE >&2
+usage: $0 [options] INDEX
+
+Start a flynn node with specific binary, ip and index.
+
+Options:
+
+  -b, --bin-dir=DIR        Host binary dir [default: ROOT/build/bin]
+
+  -k, --no-destroy-state   Don't destroy job state
+
+  -z, --no-destroy-vols    Don't destroy volumes
+
+  -p, --peers PEERS        Join existing cluster (PEERS should be a comma
+                           separated list of indexes, e.g. 0,1,2)
+
+  -h, --help               Show this help message
+USAGE
+}
+
+main() {
+  local bin_dir="${ROOT}/build/bin"
+  local destroy_vols=true
+  local destroy_state=true
+  local peers=()
+
+  while true; do
+    case "$1" in
+      -h | --help)
+        usage
+        exit
+        ;;
+      -b | --bin-dir)
+        if [[ -z "$2" ]]; then
+          fail "--bin-dir requires an argument"
+        elif [[ ! -d "$2" ]]; then
+          fail "no such directory: ${bin_dir}"
+        fi
+        bin_dir="$2"
+        shift 2
+        ;;
+      -k | --no-destroy-state)
+        destroy_state=false
+        shift
+        ;;
+      -z | --no-destroy-vols)
+        destroy_vols=false
+        shift
+        ;;
+      -p | --peers)
+        if [[ -z "$2" ]]; then
+          fail "--peers flag requires an argument"
+        fi
+        # Initialise array by replacing "," with " "
+        peers=(${2//,/ })
+        shift 2
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  if [[ $# -ne 1 ]]; then
+    usage
+    exit 1
+  fi
+
+  local index=$1
+
+  # An RFC 5737 TEST-NET IP
+  local ip="192.0.2.20$(($index))"
+  local flynn_host="${bin_dir}/flynn-host"
+
+  local id="host${index}"
+  local state="/tmp/flynn-host-state-${index}.bolt"
+  local sinkstate="/tmp/flynn-host-sink-state-${index}.bolt"
+  local pidfile="/tmp/flynn-host-${index}.pid"
+  local bridge_name="flynnbr${index}"
+  local vol_path="/var/lib/flynn/volumes-${index}"
+  local log_dir="/var/log/flynn/host-${index}"
+  local log="/tmp/flynn-host-${index}-$(date +%Y-%m-%dT%H-%M-%S.%N).log"
+  local peer_ips=""
+  ln -nfs "${log}" "/tmp/flynn-host-${index}.log"
+
+  # delete the old state
+  if $destroy_state; then
+    sudo rm -f "${state}"
+    sudo rm -f "${sinkstate}"
+  fi
+
+  if $destroy_vols; then
+    local args=(
+      --volpath="${vol_path}"
+      --include-data
+    )
+    local version="$(${flynn_host} version)"
+    if [[ "${version}" = "dev" ]] || [[ "${version:1:8}" -gt "20161106" ]]; then
+      args+=(
+        --keep-system-images
+      )
+    fi
+    sudo "${flynn_host}" destroy-volumes ${args[@]}
+  fi
+
+  # create IP on enp or lo interface
+  info "starting flynn-host using IP ${ip}"
+  local ifname=""
+  for i in $(ls /sys/class/net/); do
+    if [[ $i = "enp"* ]]; then
+      if [[ "$(ifquery $i | grep address)" = "address: 192.0.2.100" ]]; then
+        ifname="$i:$index"
+        break
+      fi
+    fi
+  done;
+  if [[ $ifname = "" ]]; then
+    ifname="lo:$index"
+  fi
+  info "using network interface $ifname"
+  sudo ifconfig "$ifname" "$ip"
+
+  # if the number of peers given is > 0 then join existing cluster
+  if [[ ${#peers[@]} -gt 0 ]]; then
+    local ips=()
+    for i in ${peers[@]}; do
+      ips+=("192.0.2.20$(($i))")
+    done
+    info "joining to existing cluster"
+    peer_ips="--peer-ips=$(join "," ${ips[@]})"
+  fi
+
+  # ensure log dir exists
+  sudo mkdir -p $log_dir
+
+  sudo start-stop-daemon \
+    --start \
+    --background \
+    --no-close \
+    --make-pidfile \
+    --pidfile "${pidfile}" \
+    --exec "${flynn_host}" \
+    -- \
+    daemon \
+    --id "${id}" \
+    --external-ip "${ip}" \
+    --listen-ip "${ip}" \
+    --bridge-name "${bridge_name}" \
+    --force \
+    --state "${state}" \
+    --sink-state "${sinkstate}" \
+    --volpath "${vol_path}" \
+    --log-dir "${log_dir}" \
+    --flynn-init "${bin_dir}/flynn-init" \
+    --init-log-level "debug" \
+    --tags "host_id=${id}" \
+    --max-job-concurrency=100 \
+    --enable-dhcp \
+    ${peer_ips} \
+    &>"${log}"
+
+}
+
+main $@

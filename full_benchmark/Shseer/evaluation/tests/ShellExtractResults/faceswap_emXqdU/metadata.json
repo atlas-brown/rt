@@ -1,0 +1,36 @@
+[
+ {
+  "repo": "https://github.com/deepfakes/faceswap.git",
+  "relative_path": "faceswap/.install/macos/faceswap_setup_macos.sh",
+  "short_name": "faceswap_setup_macos",
+  "timestamp": "10/22/2024",
+  "identifier": "faceswap_emXqdU/0",
+  "posix_compliant": false,
+  "line_count": 403,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepfakes/faceswap.git",
+  "relative_path": "faceswap/.install/linux/faceswap_setup_x64.sh",
+  "short_name": "faceswap_setup_x64",
+  "timestamp": "10/22/2024",
+  "identifier": "faceswap_emXqdU/1",
+  "posix_compliant": false,
+  "line_count": 372,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/docker/compose.git",
+  "relative_path": "compose/pkg/e2e/fixtures/stdout-stderr/log_to_stderr.sh",
+  "short_name": "log_to_stderr",
+  "timestamp": "10/22/2024",
+  "identifier": "compose_xEmogW/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ }
+]

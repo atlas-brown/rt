@@ -1,0 +1,42 @@
+[
+ {
+  "repo": "https://github.com/aitemr/awesome-git-hooks.git",
+  "relative_path": "awesome-git-hooks/pre-rebase/pre-rebase-rebaselock",
+  "short_name": "pre-rebase-rebaselock",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_Nbcpbx/0",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/aitemr/awesome-git-hooks.git",
+  "relative_path": "awesome-git-hooks/pre-auto-gc/pre-auto-gc-battery",
+  "short_name": "pre-auto-gc-battery",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_Nbcpbx/1",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/aitemr/awesome-git-hooks.git",
+  "relative_path": "awesome-git-hooks/applypatch-msg/applypatch-msg-check-log-message",
+  "short_name": "applypatch-msg-check-log-message",
+  "timestamp": "10/22/2024",
+  "identifier": "awesome_Nbcpbx/2",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,77 @@
+[
+ {
+  "repo": "https://github.com/chrissimpkins/Crunch.git",
+  "relative_path": "Crunch/bin/Crunch.app/Contents/Resources/script",
+  "short_name": "script",
+  "timestamp": "10/22/2024",
+  "identifier": "Crunch_bxerPk/0",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/chrissimpkins/Crunch.git",
+  "relative_path": "Crunch/dmg-builder.sh",
+  "short_name": "dmg-builder",
+  "timestamp": "10/22/2024",
+  "identifier": "Crunch_bxerPk/1",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/chrissimpkins/Crunch.git",
+  "relative_path": "Crunch/coverage.sh",
+  "short_name": "coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "Crunch_bxerPk/2",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/chrissimpkins/Crunch.git",
+  "relative_path": "Crunch/src/utils/dssim-comparisons.sh",
+  "short_name": "dssim-comparisons",
+  "timestamp": "10/22/2024",
+  "identifier": "Crunch_bxerPk/3",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/chrissimpkins/Crunch.git",
+  "relative_path": "Crunch/src/crunch-gui.sh",
+  "short_name": "crunch-gui",
+  "timestamp": "10/22/2024",
+  "identifier": "Crunch_bxerPk/4",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/chrissimpkins/Crunch.git",
+  "relative_path": "Crunch/src/install-dependencies.sh",
+  "short_name": "install-dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "Crunch_bxerPk/5",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

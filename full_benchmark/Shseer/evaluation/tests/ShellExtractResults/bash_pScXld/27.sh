@@ -1,0 +1,1320 @@
+#!/bin/bash
+# set -eu -o pipefail # I source this file and don't want my shell to exit on error.
+# shellcheck disable=SC2120
+
+# azure-functions
+#
+# WARNING, an experiment - alpha! - do not use!
+#
+# I first used the `az cli` on 25 Nov 2022 so am only at the start of a
+# learning journey.
+#
+# Source this file in from bash terminal and enjoy the functions.
+#
+# az reference: https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest
+
+# Wishlist
+#
+# - `az login` without opening GUI web browser. username/password is an option.
+#    read -sp "Azure password: " AZ_PASS && echo && az login -u <username> -p $AZ_PASS
+# - bash completion
+
+# Notes
+#
+# az login : log in
+# az account clear: log out all users
+# az logout: only log out current user
+
+# Shared Functions
+
+debug() {
+  [[ -n $DEBUG ]] && printf "$1" >&2
+}
+
+__bma_read_filters-az() {
+
+  # Construct a string to be passed to `grep -E`
+  #
+  #     $ __bma_read_filters foo bar baz
+  #     foo|bar|baz
+
+  (
+    IFS=$'|'
+    printf -- "$*"
+  )
+}
+
+skim-stdin-tsv() {
+  # XXX Update to quote items in output
+  local skimmed_stdin="$([[ -t 0 ]] || awk -F$'\t' 'ORS=" " { print $1 }')"
+  printf -- '%s %s' "$*" "$skimmed_stdin" | awk '{$1=$1;print}'
+}
+
+# Copied from bash-my-aws
+skim-stdin-bma() {
+
+  # Append first token from each line of STDIN to argument list
+  #
+  # Implementation of `pipe-skimming` pattern.
+  #
+  #     $ stacks | skim-stdin foo bar
+  #     foo bar huginn mastodon grafana
+  #
+  #     $ stacks
+  #     huginn    CREATE_COMPLETE  2020-01-11T06:18:46.905Z  NEVER_UPDATED  NOT_NESTED
+  #     mastodon  CREATE_COMPLETE  2020-01-11T06:19:31.958Z  NEVER_UPDATED  NOT_NESTED
+  #     grafana   CREATE_COMPLETE  2020-01-11T06:19:47.001Z  NEVER_UPDATED  NOT_NESTED
+  #
+  # Typical usage within Bash-my-AWS functions:
+  #
+  #     local asg_names=$(skim-stdin "$@") # Append to arg list
+  #     local asg_names=$(skim-stdin)      # Only draw from STDIN
+
+  local skimmed_stdin="$([[ -t 0 ]] || awk 'ORS=" " { print $1 }')"
+
+  printf -- '%s %s' "$*" "$skimmed_stdin" |
+    awk '{$1=$1;print}' # trim leading/trailing spaces
+
+}
+
+# Authentication functions
+
+az-account() {
+  az account show \
+    --query ' [[ name, user.name ]]' \
+    --output tsv |
+    columnise
+}
+
+az-user() {
+  az ad signed-in-user show
+}
+
+# az cache functions
+
+az-cache-items() {
+  az cache list \
+    --query '[].[
+    resourceGroup,
+    resourceType,
+    name,
+    lastSaved
+    ]' \
+    --output tsv
+}
+
+az-cache-item() {
+  # XXX We probably want to quote args
+  # Create arguments from output of az-cache-items() (if present)
+  local args_from_stdin
+  args_from_stdin="$([[ -t 0 ]] || awk '{ print "--resource-group=" $1, " --resource-type=" $2, " --name=" $3 }')"
+  if [[ -n $1 ]]; then                     # if command line args provided
+    if [[ -n $1 && -n $2 && -n $3 ]]; then # if >= 3 args present
+      local args_from_cmd
+      args_from_cmd="--resource-group=$1 --resource-type=$2 --name=$3"
+    fi
+  fi
+  local $arg_list
+  arg_list=$(printf -- '%s\n%s' "$args_from_stdin" "$args_from_cmd") # | awk '{$1=$1;print}')  # trim leading/trailing spaces
+  echo "$arg_list"
+  while read -r line; do
+    az cache show $line
+  done <<<"$arg_list"
+}
+
+az-cache-item-delete() {
+  # XXX We probably want to quote args
+  # Create arguments from output of az-cache-items() (if present)
+  local args_from_stdin
+  args_from_stdin="$([[ -t 0 ]] || awk '{ print "--resource-group=" $1, " --resource-type=" $2, " --name=" $3 }')"
+  if [[ -n $1 ]]; then                     # if command line args provided
+    if [[ -n $1 && -n $2 && -n $3 ]]; then # if >= 3 args present
+      local args_from_cmd
+      args_from_cmd="--resource-group=$1 --resource-type=$2 --name=$3"
+    fi
+  fi
+  local $arg_list
+  arg_list=$(printf -- '%s\n%s' "$args_from_stdin" "$args_from_cmd") # | awk '{$1=$1;print}')  # trim leading/trailing spaces
+  while read -r line; do
+    az cache delete $line
+  done <<<"$arg_list"
+}
+
+# Location Functions
+
+locations() {
+  local filters=$(__bma_read_filters-az $@)
+  az account list-locations \
+    --query '[].[
+      name,
+      displayName
+    ]' \
+    --output tsv |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -t$'\t' -b -k 3 |
+    columnise
+
+}
+
+location() {
+
+  local location=$(skim-stdin-tsv "$@")
+  # XXX Check input is a valid location
+  if [[ -z "$location" ]]; then
+    az config get defaults.location \
+      --only-show-errors \
+      --output tsv \
+      --query "value"
+  else
+    az config set defaults.location="${location}" \
+      --only-show-errors \
+      --output tsv
+  fi
+}
+
+location-unset() {
+  az config unset defaults.location
+}
+
+location-each() {
+
+  local locations
+  if [[ -t 0 ]]; then
+    locations=$(locations | awk -F$'\t' '{print $1}')
+  else
+    locations=$(awk 'ORS=" " { print $1 }')
+  fi
+  local old_azure_default_location
+  old_azure_default_location="$(location)"
+  local location
+  for location in $locations; do
+    location "$location"
+    eval "$@" | sed "s/$/ #${location}/"
+  done
+  location "$old_azure_default_location"
+}
+
+## Resource Functions
+
+resource-groups() {
+  local filters=$(__bma_read_filters-az $@)
+  az group list \
+    --query "[].[
+      name,
+      id,
+      location
+      ]" \
+    --output tsv |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -t$'\t' -b -k 5 |
+    columnise
+}
+
+resource-group() {
+
+  local group=$(skim-stdin-bma "$@")
+  # XXX Check input is a valid location
+  if [[ -z "$group" ]]; then
+    az config get defaults.group \
+      --only-show-errors \
+      --output tsv \
+      --query "value"
+  else
+    az config set defaults.group="${group}" \
+      --only-show-errors \
+      --output tsv
+  fi
+}
+
+resource-group-export() {
+
+  local resource_group=$(skim-stdin-bma "$@")
+  [[ -z $resource_group ]] && resource_group=$(resource-group)
+  debug "\$resource_group=$resource_group"
+  [[ -z $resource_group ]] && __bma_usage "resource_group [resource_group]" && return 1
+
+  az group export --resource-group "$resource_group"
+}
+
+resource-group-unset() {
+  az config unset defaults.group
+}
+
+resources() {
+  local filters=$(__bma_read_filters-az $@)
+  az resource list \
+    --query "[].[
+      name,
+      resourceGroup,
+      type,
+      createdTime,
+      changedTime]" \
+    --output tsv |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -t$'\t' -b -k 5 |
+    columnise
+}
+
+resourceids() {
+  local filters=$(__bma_read_filters-az $@)
+  az resource list \
+    --query "[].[id] " \
+    --output tsv |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -t$'\t' -b -k 5 |
+    columnise
+}
+
+resource-show() {
+
+  local resources=$(skim-stdin-bma "$@")
+  debug "\$resources=$resources"
+  [[ -z $resources ]] && __bma_usage "resource [resource]" && return 1
+
+  az resource show --ids $resources
+}
+
+resource-diff() {
+  read -ra resources <<<"$(skim-stdin-bma "$@")"
+  if [[ "${#resources[@]}" -ne 2 ]]; then
+    __bma_usage "RESOURCE_ID RESOURCE_ID"
+    echo 1
+  fi
+  diff -u <(resource-show "${resources[0]}") <(resource-show "${resources[1]}")
+}
+
+resource-export() {
+
+  local resources=$(skim-stdin-bma "$@")
+  debug "\$resources=$resources"
+  [[ -z $resources ]] && __bma_usage "resource [resource]" && return 1
+
+  az group export --resource-ids $resources
+}
+
+## Service Principal Functions
+
+service-principals() {
+  local filters=$(__bma_read_filters-az $@)
+  az ad sp list \
+    --query "[].[
+      appId,
+      appOwnerTenantId,
+      appDisplayName
+    ]" \
+    --output tsv |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -t$'\t' -b -k 3 |
+    columnise
+}
+
+management-groups() {
+  local filters=$(__bma_read_filters-az $@)
+  az account management-group list \
+    --query "[].[ displayName]" \
+    --output tsv |
+    grep -E -- "$filters"
+}
+# az account management-group list --output tsv --query '[].[displayName]'
+
+## Subscription Functions
+
+subscriptions() {
+  local filters=$(__bma_read_filters-az $@)
+  az account list \
+    --query "[].[
+      id,
+      isDefault,
+      state,
+      user.name,
+      name
+    ]" \
+    --output tsv |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -t$'\t' -b -k 3 |
+    columnise
+}
+
+subscription() {
+
+  local subscription=$(skim-stdin-bma "$@")
+  if [[ -z $subscription ]]; then
+    az account show --query "name" --output tsv
+  else
+    az account set --subscription "$subscription"
+  fi
+}
+
+subscription-unset() {
+  az config unset defaults.subscription
+}
+
+subscription-each() {
+
+  # Ported from BMA
+
+  local subscriptions
+  if [[ -t 0 ]]; then
+    subscriptions=$(subscriptions | awk -F$'\t' '{print $1}')
+  else
+    subscriptions=$(awk 'ORS=" " { print $1 }')
+  fi
+  local old_default_subscription
+  old_default_subscription="$(subscription | awk '{print $1}')"
+  local subscription
+  for subscription in $subscriptions; do
+    subscription "$subscription"
+    eval "$@" | sed "s/$/ #${subscription}/"
+  done
+  subscription "$old_default_subscription"
+}
+
+## Resource Specific Functions
+
+## AD Functions
+
+ad-groups() {
+
+  # Usage: ad-users REMOTE_STARTS_WITH_FILTER LOCAL_FILTER
+  #
+  # REMOTE_STARTS_WITH_FILTER: filters on start of userPrincipalName
+  # LOCAL_FILTER: grep results
+  #
+  # [User Properties](https://learn.microsoft.com/en-us/graph/api/resources/user?view=graph-rest-1.0#properties)
+  # [List Users](https://learn.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http)
+
+  local filter_arg filters
+  if [[ -n $1 ]]; then
+    filter_arg='--filter "startswith(displayName,'"'$1'"')"'
+    shift
+    local filters=$(__bma_read_filters-az $@)
+  fi
+
+  eval "az ad group list \
+    ${filter_arg}        \
+    --query '[].[
+      id,
+      displayName,
+      createdDateTime
+      ]'                \
+    --output tsv" |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -t$'\t' -b -k 2
+  # columnise
+}
+
+ad-group-members() {
+
+  # List groups for AD User(s)
+  #
+  #     USAGE: ad-user-groups USER USER # object ID or principal name of the user
+  #
+  #     $ ad-users mike.bailey@bash-my-aws.org | ad-user-groups
+  #     XXX
+  #     XXX
+
+  local groups=$(skim-stdin "$@")
+  [[ -z $groups ]] && __bma_usage "GROUP [GROUP]" && return 1
+
+  local group
+  for group in $groups; do
+    az ad group member list \
+      --group "$group" \
+      --output tsv \
+      --query '[].[
+        id,
+        userPrincipalName,
+        displayName,
+        mail
+      ]' |
+      LC_ALL=C sort -t$'\t' -b -k 2 #|
+    # columnise
+  done
+}
+
+# Similar to ad-users-graph but uses azcli with no limit on result count
+#
+# $ time ad-users-not-graph-api | wc -l
+# 20820
+#
+# real    0m50.309s
+# user    0m15.158s
+# sys     0m0.443s
+#
+ad-users() {
+
+  # Usage: ad-users REMOTE_STARTS_WITH_FILTER LOCAL_FILTER
+  #
+  # REMOTE_STARTS_WITH_FILTER: filters on start of userPrincipalName
+  # LOCAL_FILTER: grep results
+  #
+  # [User Properties](https://learn.microsoft.com/en-us/graph/api/resources/user?view=graph-rest-1.0#properties)
+  # [List Users](https://learn.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http)
+
+  local filter_arg filters
+  if [[ -n $1 ]]; then
+    filter_arg='--filter "startswith(userPrincipalName,'"'$1'"')"'
+    shift
+    local filters=$(__bma_read_filters-az $@)
+  fi
+
+  eval "az ad user list \
+    ${filter_arg}       \
+    --query '[].[
+      id,
+      userPrincipalName,
+      displayName,
+      mail
+      ]'                \
+    --output tsv" |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -t$'\t' -b -k 2
+  # columnise
+}
+
+ad-user-upns() {
+  ad-users $@ | cut -f1
+}
+
+ad-user-upns() {
+  ad-users $@ | cut -f2
+}
+
+ad-user-names() {
+  ad-users $@ | cut -f3
+}
+
+ad-users-graph() {
+
+  # Usage: ad-users-graph REMOTE_STARTS_WITH_FILTER LOCAL_FILTER
+  #
+  # REMOTE_STARTS_WITH_FILTER: filters on start of userPrincipalName
+  # - https://learn.microsoft.com/en-us/cli/azure/format-output-azure-cli
+  #
+  # Uses graph API - more functionaility than azcli but limited result count
+  #
+  # $ time ad-users | wc -l
+  # 999
+  # real    0m0.792s
+  # user    0m0.311s
+  # sys     0m0.047s
+  #
+  # [User Properties](https://learn.microsoft.com/en-us/graph/api/resources/user?view=graph-rest-1.0#properties)
+  # [List Users](https://learn.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http)
+
+  local filter_arg filters
+  local output_format="${2:-tsv}" #  or json, table, etc
+  local top_arg='&top=999'        # max items to return # uncomment to enable
+  if [[ -n $1 ]]; then
+    filter_arg="&filter=startswith(userPrincipalName,'$1')"
+    shift
+  fi
+
+  local url="https://graph.microsoft.com/beta/users?${top_arg}${filter_arg}&select=userPrincipalName,displayName,onPremisesSyncEnabled,mail"
+  az rest \
+    --method get \
+    --url "$url" \
+    --query "value[].[
+      userPrincipalName,
+      displayName,
+      join('=',['onPremisesSyncEnabled', to_string(onPremisesSyncEnabled)]),
+      mail
+    ]" \
+    --output $output_format |
+    LC_ALL=C sort -t$'\t' -b -k 2 # | # Set to sort only when output is not set to JSON
+  # columnise # Disabled to preserve tabs
+}
+
+alias az-rest='az rest --method get --url'
+
+ad-user-groups() {
+
+  # List groups for AD User(s)
+  #
+  #     USAGE: ad-user-groups USER USER # object ID or principal name of the user
+  #
+  #     $ ad-users mike.bailey@bash-my-aws.org | ad-user-groups
+  #     XXX
+  #     XXX
+
+  local users=$(skim-stdin "$@")
+  [[ -z $users ]] && __bma_usage "USER [USER]" && return 1
+
+  local user
+  for user in $users; do
+    az ad user get-member-groups \
+      --id "$user" \
+      --query "[].[
+        id,
+        displayName,
+        '$user'
+        ]" \
+      --output tsv |
+      LC_ALL=C sort -t$'\t' -b -k 2 #|
+    # columnise
+  done
+}
+
+ad-user-group-diff() {
+  diff <(ad-users "${1:?}" | ad-user-groups | cut -f2) <(ad-users "${2:?}" | ad-user-groups | cut -f2)
+}
+
+ad-apps() {
+
+  # Usage: ad-apps REMOTE_FILTER LOCAL_FILTER
+  #
+  # REMOTE_FILTER: filters on start of displayName
+  # LOCAL_FILTER: grep results
+
+  local filter_arg filters
+  if [[ -n $1 ]]; then
+    filter_arg='--filter "startswith(displayName,'"'$1'"')"'
+    shift
+    local filters=$(__bma_read_filters-az $@)
+  fi
+
+  eval "az ad app list  \
+    --all \
+    ${filter_arg}       \
+   --query 'sort_by([].{
+        "appId": appId,
+        "displayName": displayName,
+        "createdDateTime": createdDateTime,
+        "identifierUris": to_string(identifierUris)
+    },
+    &createdDateTime)'        \
+    --output ${BMA_OUTPUT_AZ:-${BMA_OUTPUT:-tsv}}"
+  # columnise
+}
+
+ad-app() {
+
+  # Usage: ad-app APP [APP]
+
+  local apps=$(skim-stdin "$@")
+  [[ -z $apps ]] && __bma_usage "APP [APP]" && return 1
+
+  local output_format="${BMA_OUTPUT_FORMAT:-yaml}" #  or json, table, etc
+
+  local app
+  for app in $apps; do
+    az ad app show \
+      --id="$app" \
+      --output "$output_format"
+  done
+}
+
+# ad-app-signins() {
+#   local apps=$(skim-stdin "$@")
+#   [[ -z $apps ]] && __bma_usage "APP [APP]" && return 1
+#
+#   local output_format="${OUTPUT_FORMAT:-table}" #  or json, table, etc
+#
+#   : ${WORKSPACE_ID:?}
+#
+#   local app
+#   for app in $apps; do
+#
+#     az monitor log-analytics query \
+#       --workspace "${WORKSPACE_ID}" \
+#       --analytics-query "
+#         SigninLogs
+#         | where TimeGenerated >= ago(7d)
+#         | where AppId == '$app'
+#         | where NetworkLocationDetails contains 'trustedNamedLocation'
+#         | summarize SignInCount=count() by Identity
+#         | sort by SignInCount" \
+#       --output "$output_format" \
+#       --query '[].{Identity:Identity, SignInCount:SignInCount}'
+#
+#   done
+# }
+
+ad-app-owners() {
+
+  # Usage: ad-app-owners APP [APP]
+
+  local apps=$(skim-stdin "$@")
+  [[ -z $apps ]] && __bma_usage "APP [APP]" && return 1
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" #  or json, table, etc
+
+  local app
+  for app in $apps; do
+    az ad app owner list \
+      --id="$app" \
+      --query "value[].[
+        userPrincipalName,
+        displayName,
+        join('=',['onPremisesSyncEnabled', to_string(onPremisesSyncEnabled)]),
+        mail
+      ]" \
+      --output "$output_format" |
+      LC_ALL=C sort -k 2
+
+  done
+
+  #     --query '[].[
+  #       appId,
+  #       displayName,
+  #       createdDateTime
+  #       ]'                \
+  #     --output tsv"       |
+  #   grep -E -- "$filters" |
+  #   LC_ALL=C sort -t$'\t' -b -k 3
+}
+
+connectors() {
+
+  # Usage: connectors REMOTE_FILTER LOCAL_FILTER
+  #
+  # REMOTE_FILTER: filters on start of machineName
+  # LOCAL_FILTER: grep results
+
+  local filter_arg filters
+  if [[ -n $1 ]]; then
+    filter_arg="&filter=startswith(machineName,'$1')"
+    shift
+    local filters=$(__bma_read_filters-az $@)
+  fi
+  local top_arg='&top=999' # max items to return # uncomment to enable
+
+  local output_format="${BMA_OUTPUT_FORMAT:-tsv}" #  or json, table, etc
+
+  local url="https://graph.microsoft.com/beta/onPremisesPublishingProfiles/applicationProxy/connectors?${top_arg}${filter_arg}"
+  az rest \
+    --method get \
+    --url "$url" \
+    --output "$output_format" \
+    --query 'value[].[id, status, machineName, externalIp]' --output tsv |
+    sort -k 3
+}
+
+connector-groups() {
+
+  # Usage: connector-groups REMOTE_FILTER LOCAL_FILTER
+  #
+  # REMOTE_FILTER: filters on start of displayName
+  # LOCAL_FILTER: grep results
+
+  local filter_arg filters
+  if [[ -n $1 ]]; then
+    filter_arg="&filter=startswith(name,'$1')"
+    shift
+    local filters=$(__bma_read_filters-az $@)
+  fi
+  local top_arg='&top=999' # max items to return # uncomment to enable
+
+  local output_format="${BMA_OUTPUT_FORMAT:-tsv}" #  or json, table, etc
+
+  local url="https://graph.microsoft.com/beta/onPremisesPublishingProfiles/applicationProxy/connectorGroups?${top_arg}${filter_arg}"
+  az rest \
+    --method get \
+    --url "$url" \
+    --output "$output_format" \
+    --query 'value[].[id, name, region, connectorGroupType, isDefault]' --output tsv \
+  | LC_ALL=C sort -k 2 \
+  | columnise
+}
+
+connector-group-apps() {
+
+  # Usage: connector-group-apps CONNECTOR_GROUP [CONNECTOR_GROUP]
+
+  local cgs=$(skim-stdin "$@")
+  [[ -z $cgs ]] && __bma_usage "CONNECTOR_GROUP [CONNECTOR_GROUP]" && return 1
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" #  or json, table, etc
+
+  local cg
+  for cg in $cgs; do
+    local url="https://graph.microsoft.com/beta/onPremisesPublishingProfiles/applicationProxy/connectorGroups/$cg/applications"
+    az rest \
+      --method get \
+      --url "$url" \
+      --output "$output_format" \
+      --query 'value[].[
+        appId,
+        displayName,
+        createdDateTime
+      ]' \
+      --output tsv \
+    | LC_ALL=C sort -k 2 \
+    | columnise
+  done
+}
+
+connector-group-members() {
+
+  # Usage: connector-group-members CONNECTOR_GROUP [CONNECTOR_GROUP]
+
+  local cgs=$(skim-stdin "$@")
+  [[ -z $cgs ]] && __bma_usage "CONNECTOR_GROUP [CONNECTOR_GROUP]" && return 1
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" #  or json, table, etc
+
+  local cg
+  for cg in $cgs; do
+    local url="https://graph.microsoft.com/beta/onPremisesPublishingProfiles/applicationProxy/connectorGroups/$cg/members"
+    az rest \
+      --method get \
+      --url "$url" \
+      --output "$output_format" \
+      --query 'value[].[
+        id,
+        status,
+        machineName,
+        externalIp
+      ]' \
+      --output tsv \
+    | LC_ALL=C sort -k 2 \
+    | columnise
+  done
+}
+# https://graph.microsoft.com/beta/rolemanagement/directory/transitiveRoleAssignments?$count=true&$filter=principalId eq '12345'
+# https://graph.microsoft.com/beta/onPremisesPublishingProfiles/applicationProxy/connectors
+
+# TODO
+
+deployments-group() {
+  local filters=$(__bma_read_filters-az $@)
+  az deployment group list \
+    --query '[].[
+      name,
+      properties.timestamp
+    ]' \
+    --output tsv \
+    | grep -E -- "$filters" \
+    | LC_ALL=C sort -k 2 \
+    | columnise
+}
+
+alias deployments=deployments-group
+
+# Azure Front Door
+#
+# Subgroups:
+#     custom-domain    : Manage custom domains within the specified profile.
+#     endpoint         : Manage AFD endpoints within the specified profile.
+#     log-analytic     : Manage afd log analytic results.
+#     origin           : Manage origins within the specified origin group.
+#     origin-group     : Manage origin groups under the specified profile.
+#     profile          : Manage AFD profiles.
+#     route            : Manage routes under an AFD endpoint.
+#     rule             : Manage delivery rules within the specified rule set.
+#     rule-set         : Manage rule set for the specified profile.
+#     secret           : Manage secrets within the specified profile.
+#     security-policy  : Manage security policies within the specified profile.
+#     waf-log-analytic : Manage afd WAF related log analytic results.
+
+afds() {
+  local filters=$(__bma_read_filters-az $@)
+  az afd profile list \
+    --only-show-errors \
+    --output tsv \
+    --query '[].[
+      name,
+      resourceState
+    ]' \
+    --output tsv |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -k 2
+}
+
+afd-endpoints() {
+  local profiles=$(skim-stdin "$@")
+  [[ -z $profiles ]] && __bma_usage "PROFILE [PROFILE]" && return 1
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" #  or json, table, etc
+
+  local profile
+  for profile in $profiles; do
+    az afd endpoint list \
+      --only-show-errors \
+      --profile-name "$profile" \
+      --output tsv \
+      --query "[].[
+        name, 
+        enabledState,
+        hostName,
+        '$profile'
+      ]" \
+      --output tsv |
+      LC_ALL=C sort -k 1
+  done
+}
+
+afd-routes() {
+  # List routes of all endpoints for Front Door Profile(s)
+  local profiles=$(skim-stdin "$@")
+  [[ -z $profiles ]] && __bma_usage "PROFILE [PROFILE]" && return 1
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" #  or json, table, etc
+
+  local profile
+  local endpoint
+  for profile in $profiles; do
+    for endpoint in $(afd-endpoints "$profile" | cut -f1); do
+      az afd route list \
+        --only-show-errors \
+        --profile-name "$profile" \
+        --endpoint-name "$endpoint" \
+        --output tsv \
+        --query "[].[
+          name, 
+          hostName, 
+          domainValidationState, 
+          validationProperties.validationToken,
+          '$profile',
+          '$endpoint'
+        ]" \
+        --output tsv |
+        LC_ALL=C sort -k 1
+    done
+  done
+}
+
+afd-custom-domains() {
+  local profiles=$(skim-stdin "$@")
+  [[ -z $profiles ]] && __bma_usage "PROFILE [PROFILE]" && return 1
+
+  local profile
+  for profile in $profiles; do
+    az afd custom-domain list \
+      --only-show-errors \
+      --profile-name "$profile" \
+      --query "sort_by([].{
+        Hostname: hostName,
+        Provisioning: provisioningState,
+        DomainValidation: domainValidationState,
+        AFDProfile: '$profile'
+        }, &Hostname)" \
+      --output "${BMA_OUTPUT_AZ:-${BMA_OUTPUT:-tsv}}" |
+      columnise
+  done
+}
+
+afd-custom-domains-validation-request() {
+  local profiles=$(skim-stdin "$@")
+  [[ -z $profiles ]] && __bma_usage "PROFILE [PROFILE]" && return 1
+
+  local profile
+  for profile in $profiles; do
+    az afd custom-domain list \
+      --only-show-errors \
+      --profile-name "$profile" \
+      --query "sort_by([].{
+        Hostname:hostName,
+        DomainValidation:domainValidationState,
+        ValidationExpiration:validationProperties.expirationDate
+        DNSValidationRequest:join(' ', [
+          join('.', ['_dnsauth', hostName]),
+            'IN TXT',
+            validationProperties.validationToken
+          ])
+        }, &ValidationExpiration)" \
+      --output "${BMA_OUTPUT_AZ:-${BMA_OUTPUT:-tsv}}"
+  done
+}
+
+afd-origin-groups() {
+  local profiles=$(skim-stdin "$@")
+  [[ -z $profiles ]] && __bma_usage "PROFILE [PROFILE]" && return 1
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" #  or json, table, etc
+
+  local profile
+  for profile in $profiles; do
+    echo $profile
+    az afd origin-group list \
+      --only-show-errors \
+      --profile-name "$profile" \
+      --output tsv \
+      --query "[].[
+        name
+      ]" \
+      --output tsv |
+      LC_ALL=C sort -k 1
+  done
+}
+
+## Front Door WAF Functions
+
+afd-waf-policies() {
+  local filters=$(__bma_read_filters-az $@)
+  az network front-door waf-policy list \
+    --output tsv \
+    --query "[].[
+      name,
+      resourceGroup,
+      resourceState
+      ]" |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -t$'\t' -b -k 1 |
+    columnise
+}
+
+afd-waf-policy-rules() {
+
+  local policies=$(skim-stdin-bma "$@")
+  debug "\$policies=$policies"
+  [[ -z $policies ]] && __bma_usage "policy [policy]" && return 1
+
+  local policy
+  for policy in $policies; do
+    az network front-door waf-policy rule list \
+      --policy-name "$policy" \
+      --output tsv \
+      --query "[].[
+        name,
+        enabledState,
+        priority,
+        ruleType,
+        action,
+        '$policy',
+        '$resource_group'
+      ]" |
+      LC_ALL=C sort -t$'\t' -b -k 1 |
+      columnise
+  done
+}
+
+afd-waf-policy() {
+
+  local policies=$(skim-stdin-bma "$@")
+  debug "\$policies=$policies"
+  [[ -z $policies ]] && __bma_usage "policy [policy]" && return 1
+
+  local policy
+  for policy in $policies; do
+    az network front-door waf-policy show --name "$policy" --output json
+  done
+}
+
+afd-waf-policy-rule-match-conditions() {
+
+  local policy_name="${1}"
+  shift 1
+  local rule_names=$(skim-stdin "$@")
+
+  if [[ -z $policy_name || -z $rule_names ]]; then
+    echo "Usage: ${FUNCNAME[0]} POLICY_NAME RULE_NAME [RULE_NAME]" >&2
+    return 1
+  fi
+
+  local rule_name
+  for rule_name in $rule_names; do
+    az network front-door waf-policy rule match-condition list \
+      --policy-name "$policy_name" \
+      --name "$rule_name" \
+      --query '[].[[
+        join(`=`, [`operator`, operator]),
+        join(`=`, [`matchVariable`, matchVariable]),
+        join(`=`, [
+          `matchValues`,
+          to_string(length(matchValue))
+        ]),
+        `# view matches with afd-waf-policy-rule-match-values()`
+      ]][]' \
+      --output tsv
+  done
+}
+
+afd-waf-policy-rule-match-condition-values() {
+
+  local policy_name="${1}"
+  shift 1
+  local rule_names=$(skim-stdin "$@")
+
+  if [[ -z $policy_name || -z $rule_names ]]; then
+    echo "Usage: ${FUNCNAME[0]} POLICY_NAME RULE_NAME [RULE_NAME]" >&2
+    return 1
+  fi
+
+  local rule_name
+  for rule_name in $rule_names; do
+    az network front-door waf-policy rule match-condition list \
+      --policy-name "$policy_name" \
+      --name "$rule_name" \
+      --query '[0].[matchValue][]' \
+      --output tsv
+  done
+}
+
+afd-waf-policy-rule-delete() {
+
+  local policy_name="${1:-}"
+  shift
+  local rule_names=$(skim-stdin-bma "$@")
+
+  if [[ -z $policy_name || -z $rule_names ]]; then
+    echo "Usage: afd-waf-policy-rule-delete POLICY_NAME RULE_NAME [RULE_NAME]" >&2
+    return 1
+  fi
+
+  echo "You are about to delete the following front-door WAF policy rules from $policy_name:"
+  echo "$rule_names" | tr ' ' "\n" # | afd-waf-policy-rules # XXX add when we have resourceGroup sorted
+  [ -t 0 ] || exec </dev/tty       # reattach keyboard to STDIN
+  local regex_yes="^[Yy]$"
+  read -p "Are you sure you want to continue? " -n 1 -r
+  echo
+  if [[ $REPLY =~ $regex_yes ]]; then
+    # XXX replace with `--ids` arg when we can generate resource IDs # it's easy
+    for rule_name in $rule_names; do
+      az network front-door waf-policy rule delete --policy-name wafPremium --name "${rule_name}"
+    done
+  fi
+}
+
+deployment-groups() {
+  local filters=$(__bma_read_filters-az $@)
+  az deployment group list \
+    --query '[].[
+      name,
+      properties.timestamp
+    ]' \
+    --output tsv |
+    grep -E -- "$filters" |
+    LC_ALL=C sort -k 2
+}
+
+# az afd custom-domain list --profile-name afd-azureappproxy-global-001
+# az deployment group list --query '[].[name, properties.timestamp]' --output tsv
+# https://learn.microsoft.com/en-gb/azure/azure-resource-manager/templates/deployment-history?tabs=azure-cli#deployment-operations-and-error-message
+
+# Doesn't account for dependencies
+deployment-delete-danger() {
+  local deployments=$(skim-stdin-bma "$@")
+  local resource_group="$(resource-group)" # XXX allow for provision of resource_group
+
+  if [[ -z $resource_group || -z $deployments ]]; then
+    __bma_usage "DEPLOYMENT [DEPLOYMENT]"
+    return 1
+  fi
+
+  echo "You're about to delete the following Azure Deployment(s) in Resource Group '$(resource-group)':"
+  echo "$deployments" | tr ' ' "\n"
+  [ -t 0 ] || exec </dev/tty # reattach keyboard to STDIN
+  read -p "Are you sure you want to continue? (y/n)" -n 1 -r
+  echo
+  [[ ! $REPLY =~ y ]] && return
+
+  local deployment
+  for deployment in $deployments; do
+    echo "Deployment '$deployment'"
+
+    # Get list of resources in the deployment
+    resources=$(az deployment group show \
+      --verbose \
+      --resource-group "$resource_group" \
+      --name "$deployment" \
+      --query "properties.outputResources[].id" \
+      --output tsv)
+
+    echo "You're about to delete the following Azure Resources in Deployment '$deployment':"
+    echo "$resources" | tr ' ' "\n"
+    read -p "Are you sure you want to continue? (y/n)" -n 1 -r
+    echo
+    [[ ! $REPLY =~ y ]] && return
+
+    az resource delete --verbose --ids $resources
+
+    # Delete the deployment
+    az deployment group delete \
+      --verbose \
+      --resource-group "$resource_group" \
+      --name "$deployment"
+  done
+}
+
+private-dns-zones() {
+
+  # private-dns-zones - List Azure private DNS zones with details
+  #
+  # Usage: private-dns-zones
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" # Define default output format or use an env variable
+
+  az network private-dns zone list \
+    --only-show-errors \
+    --query "[].[
+      name,
+      location,
+      numberOfRecordSets,
+      numberOfVirtualNetworkLinks,
+      maxNumberOfRecordSets,
+      maxNumberOfVirtualNetworkLinks,
+      provisioningState,
+      resourceGroup,
+      type
+    ]" \
+    --output "$output_format" \
+    | LC_ALL=C sort -k 1 \
+    | columnise
+}
+
+
+private-dns-zone-record-sets() {
+  local zones="$(skim-stdin "$@")"
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" # Define default output format or use an env variable
+
+  if [[ -z $zones ]]; then
+    __bma_usage "<private-dns-zone> [<private-dns-zone>]"
+    return 1
+  fi
+  local zone
+  for zone in $zones; do
+    az network private-dns record-set list \
+      --zone-name "$zone" \
+      --query "[].[
+        '$zone',
+        name, 
+        type, 
+        ttl, 
+        join(',', [aRecords[].ipv4Address][]), 
+        resourceGroup,
+        fqdn
+      ]" \
+      --output "$output_format" \
+    | LC_ALL=C sort -k 1 \
+    | sed 's#Microsoft.Network/privateDnsZones/##g' \
+    | columnise
+  done
+}
+
+private-dns-zone-a-record-add(){
+    local ipv4_address="${1:?}"
+    local record_set_name="${2:?}"
+    local zone_name="${3:?}"
+    az network private-dns record-set a add-record \
+      --ipv4-address "$ipv4_address" \
+      --record-set-name "$record_set_name" \
+      --zone-name "$zone_name"
+}
+
+# Are you sure you want to perform this operation? (y/n): y
+private-dns-zone-a-record-delete() {
+    local zone_name="$1:?"
+    local name="$2:?"
+    az network private-dns record-set a delete \
+        --zone-name "$zone_name" \
+        --name "$name"
+}
+
+private-endpoints() {
+
+  # private-endpoints - List Azure private endpoints with details
+  #
+  # Usage: private-endpoints
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" #  or json, table, etc
+
+    az network private-endpoint list \
+      --only-show-errors \
+      --query "[].[
+        name,
+        location,
+        privateLinkServiceConnections[0].name,
+        provisioningState,
+        resourceGroup,
+        customDnsConfigs[0].fqdn,
+        join(',' customDnsConfigs[0].ipAddresses || \`[]\`)
+      ]" \
+      --output "$output_format" \
+    | LC_ALL=C sort -k 1 \
+    | columnise
+}
+
+private-endpoint-custom-dns-configs() {
+
+  # private-endpoint-custom-dns-configs - List Azure customDnsConfigs for private endpoints
+  #
+  # Usage: private-endpointcustom-dns-configs
+
+  local private_endpoints private_endpoint 
+  private_endpoints="$(skim-stdin "$@")"
+  [[ -z $private_endpoints ]] && __bma_usage "PRIVATE_ENDPOINT [PRIVATE_ENDPOINT]" && return 1
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" #  or json, table, etc
+
+  for private_endpoint in $private_endpoints; do
+    az network private-endpoint show \
+      --name "$private_endpoint" \
+      --only-show-errors \
+      --query "customDnsConfigs[].[
+        '$private_endpoint',
+        fqdn,
+        join(',' ipAddresses || \`[]\`)
+      ] || \`$private_endpoint\`" \
+      --output "$output_format" \
+    | LC_ALL=C sort -k 1 \
+    | columnise
+  done
+}
+
+vnets() {
+
+  # vnets - List Azure Virtual Networks with details
+  #
+  # Usage: list-vnets
+
+  local output_format="${OUTPUT_FORMAT:-tsv}" # or json, table, etc
+
+  az network vnet list \
+    --only-show-errors \
+    --query "[].[
+      name,
+      location,
+      addressSpace.addressPrefixes[0],
+      subnets[].name,
+      provisioningState,
+      resourceGroup,
+      type
+    ]" \
+    --output "$output_format" \
+    | LC_ALL=C sort -k 1 \
+    | columnise
+}
+
+vnet-subnets() {
+
+  # List subnets in a VNet
+  #
+  #   USAGE: vnet-subnets VNET
+  #
+  #   $ vnet-subnets my-vnet
+
+  local vnets=$(skim-stdin "$@")
+  [[ -z $vnets ]] && __bma_usage "VNET [VNET]" && return 1
+
+  local vnet
+  for vnet in $vnets; do
+    az network vnet subnet list \
+      --vnet-name "$vnet" \
+      --query "[].[
+        name,
+        addressPrefix,
+        provisioningState,
+        resourceGroup,
+        type
+      ]" \
+      --output tsv \
+    | LC_ALL=C sort -k 1 \
+    | columnise
+  done
+}
+
+nics() {
+    az network nic list \
+      --only-show-errors \
+      --output tsv \
+      --query "[].ipConfigurations[].[
+        name,
+        privateIPAddress,
+        join(',', privateLinkConnectionProperties.fqdns[] || \`[]\` )
+      ]" \
+    | LC_ALL=C sort -k 2 \
+    | columnise
+}
+

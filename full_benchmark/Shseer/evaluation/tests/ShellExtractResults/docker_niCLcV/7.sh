@@ -1,0 +1,102 @@
+#!/bin/bash
+###############################################################################
+# mount.remote - A script to mount GDrive remote for use with Plex
+###############################################################################
+# CONFIGURATION
+###############################################################################
+# shellcheck source=config
+
+. "/usr/bin/config"
+###############################################################################
+# FUNCTIONS
+###############################################################################
+mount_gdrive () {
+	cloud_dir="${cloud_encrypt_dir}"
+	if [ "$(printenv ENCRYPT_MEDIA)" -eq "0" ]; then
+		cloud_dir="${cloud_decrypt_dir}"
+	fi
+
+	# Make sure GD mountpoint exists.
+	if [ ! -d "${cloud_dir}" ]; then
+		mkdir -p "${cloud_dir}"
+	fi
+
+	# Make sure Plexdrive temp folder exists.
+	if [ ! -d "${plexdrive_temp_dir}" ]; then
+		mkdir -p "${plexdrive_temp_dir}"
+	fi
+
+	# Mount GD if not already mounted.
+	if [ $(ps -ef | grep "plexdrive" | grep -v "grep" | wc -l) == "0" ]; then
+		echo "[ $(date $(printenv DATE_FORMAT)) ] Mounting Google Drive mountpoint: ${cloud_dir}"
+		plexdrive $mongo $plexdrive_options "${cloud_dir}" &
+	else
+		echo "[ $(date $(printenv DATE_FORMAT)) ] Google Drive mountpoint: ${cloud_dir} already mounted."
+	fi
+}
+
+mount_local_media () {
+	check_rclone_local
+
+	# Make sure decrypted GD directory exists.
+	if [ ! -d "${cloud_decrypt_dir}" ]; then
+		mkdir -p "${cloud_decrypt_dir}"
+	fi
+
+	sleep 5
+	while [ -z "$(ls -A ${cloud_encrypt_dir})" ]
+	do
+		echo "Waiting for mount ${cloud_encrypt_dir} ..."
+		sleep 30
+	done
+
+	if [ $(ps -ef | grep "rclone" | grep -v "grep" | wc -l) == "0" ]; then
+		echo "[ $(date $(printenv DATE_FORMAT)) ] Mounting decrypted Google Drive: ${cloud_decrypt_dir}"
+		rclone mount $rclone_mount_options "$@" "${rclone_local_endpoint}" "${cloud_decrypt_dir}" &
+	else
+		echo "[ $(date $(printenv DATE_FORMAT)) ] Decrypted mountpoint: ${cloud_decrypt_dir} already mounted."
+	fi
+}
+
+mount_union () {
+	# Make sure combined plex media directory exists.
+	if [ ! -d "${local_media_dir}" ]; then
+		mkdir -p "${local_media_dir}"
+	fi
+
+	if [ ! -d "${local_decrypt_dir}" ]; then
+		mkdir -p "${local_decrypt_dir}"
+	fi
+
+	sleep 5
+
+	# Mount plex media directory if not already mounted.
+	if [ $(ps -ef | grep "unionfs" | grep -v "grep" | wc -l) == "0" ]; then
+		ufs_mounts="${local_decrypt_dir}=RW:${cloud_decrypt_dir}=RO"
+
+		echo "[ $(date $(printenv DATE_FORMAT)) ] Mounting union: ${local_media_dir}"
+		unionfs $ufs_options "${ufs_mounts}" "${local_media_dir}"
+	else
+		echo "[ $(date $(printenv DATE_FORMAT)) ] Union mountpoint: ${local_media_dir} already mounted."
+	fi
+}
+
+###############################################################################
+
+if pidof -o %PPID -x "$(basename "$0")"; then
+	echo "[ $(date $(printenv DATE_FORMAT)) ] Mount already in progress. Aborting."
+else
+	mount_gdrive
+	if [ "$(printenv ENCRYPT_MEDIA)" != "0" ]; then
+		mount_local_media
+	fi
+	mount_union
+fi
+
+#Output environmental variables for cron
+env >> /etc/environment
+printf "${cloud_upload_time} cloudupload >> ${cron_log} 2>&1\n${rm_delete_time} rmlocal >> ${cron_log} 2>&1\n" > /etc/cron.d/upload
+chmod 0644 /etc/cron.d/upload
+crontab /etc/cron.d/upload
+
+exit 0

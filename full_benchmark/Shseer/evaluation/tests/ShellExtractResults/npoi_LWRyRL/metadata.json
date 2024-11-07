@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/nissl-lab/npoi.git",
+  "relative_path": "npoi/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "npoi_LWRyRL/0",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

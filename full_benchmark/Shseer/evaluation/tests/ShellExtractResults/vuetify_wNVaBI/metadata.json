@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/vuetifyjs/vuetify.git",
+  "relative_path": "vuetify/scripts/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "vuetify_wNVaBI/0",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "difficult"
+  ]
+ }
+]

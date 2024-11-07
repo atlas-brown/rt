@@ -1,0 +1,96 @@
+#!/bin/sh
+echo "Content-type: text/plain"
+echo
+case $PATH_INFO in
+	"/ver")
+		echo "odctl versn 2.0.0 17:02:10 May  6 2014"
+		echo "DONE"
+	;;
+	"/lsc")
+		echo 'lgt01:DOMl:OFF
+lgt02:DOMl:OFF
+lgt03:DOMl:OFF
+bl1up:DOMa:OFF
+bl1dn:DOMa:OFF
+bl2up:DOMa:OFF
+bl2dn:DOMa:OFF
+do007:DOM_:OFF
+di000:DIM_:OFF
+di001:DIM_:OFF
+di002:DIM_:OFF
+di003:DIM_:OFF
+di004:DIM_:OFF
+di005:DIM_:OFF
+di006:DIM_:OFF
+di007:DIM_:OFF
+vent1:AOMc:+0000.0000:+00000|00100:a5:00255
+pump1:AOMc:+0000.0000:+00000|00100:a5:00255
+temp1:AIMc:+0006.0000:-00050|00050:a5:00255
+temp2:AIMc:+0021.0000:+00050|00050:a5:00255
+vt000:AVM_:+0000.0040:PER:+0000.0040:00010
+vt001:DVC_:ON:PER:ON
+vt002:DVC_:ON:VAR:ON
+AND03:DvMs:OFF:GRP:di000 di001 and
+vt004:DVC_:ON:VAR:ON
+vt005:DVC_:OFF:VAR:OFF
+vt006:DVC_:ON:VAR:ON
+vt007:DVC_:ON:VAR:ON
+vt008:AVC_:+0010.0000:PER:+0010.0000:00010
+vt009:DvC_:OFF:GRP:DO000 DO000 and
+vt010:XVC_:
+vt011:XVC_:
+vt012:XVC_:
+vt013:XVH_:
+vt014:XVH_:
+vt015:XVH_:
+vt016:XVH_:
+vt017:XVH_:
+vt018:XVH_:
+vt019:XVH_:
+vt020:XVH_:
+vt021:XVH_:
+vt022:XVH_:
+vt023:XVH_:
+vt024:XVH_:
+vt025:XVH_:
+vt026:XVH_:
+vt027:XVH_:
+vt028:XVH_:
+vt029:XVH_:
+vt030:XVH_:
+vt031:XVH_:
+vt032:XVH_:
+vt033:XVH_:
+vt034:XVH_:
+vt035:XVH_:
+vt036:XVH_:
+vt037:XVH_:
+vt038:XVH_:
+vt039:XVH_:
+vt040:XVH_:
+vt041:XVH_:
+vt042:XVH_:
+vt043:XVH_:
+vt044:XVH_:
+vt045:XVH_:
+vt046:XVH_:
+vt047:XVH_:
+vt048:XVH_:
+vt049:XVH_:
+vt050:XVH_:
+vt051:XVH_:
+vt052:XVH_:
+vt053:XVH_:
+vt054:XVH_:
+vt055:XVH_:
+vt056:XVH_:
+vt057:XVH_:
+vt058:XVH_:
+vt059:XVH_:
+vt060:XVH_:
+vt061:XVC_:
+$ON__:DVH_:ON:PER:ON
+$OFF_:DVH_:OFF:PER:OFF
+DONE' 
+	;;
+esac

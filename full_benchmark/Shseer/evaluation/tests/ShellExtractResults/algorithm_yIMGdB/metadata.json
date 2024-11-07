@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/billryan/algorithm-exercise.git",
+  "relative_path": "algorithm-exercise/scripts/rename_ebook.sh",
+  "short_name": "rename_ebook",
+  "timestamp": "10/22/2024",
+  "identifier": "algorithm_yIMGdB/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/billryan/algorithm-exercise.git",
+  "relative_path": "algorithm-exercise/scripts/gitls.sh",
+  "short_name": "gitls",
+  "timestamp": "10/22/2024",
+  "identifier": "algorithm_yIMGdB/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

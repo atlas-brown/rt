@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/happypeter/happygrep.git",
+  "relative_path": "happygrep/contrib/happygrep.sh",
+  "short_name": "happygrep",
+  "timestamp": "10/22/2024",
+  "identifier": "happygrep_GmrcSx/0",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

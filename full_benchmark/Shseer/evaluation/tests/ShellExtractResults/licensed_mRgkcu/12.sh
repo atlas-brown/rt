@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+
+if [ -z "$(which go)" ]; then
+  echo "A local Go installation is required for go dep development." >&2
+  exit 127
+fi
+
+if [ -z "$(which dep)" ]; then
+  echo "A local go dep installation is required for go dep development." >&2
+  exit 127
+fi
+
+# setup test fixtures
+BASE_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+export GOPATH="$BASE_PATH/test/fixtures/dep"
+export GO111MODULE=off
+cd "$BASE_PATH/test/fixtures/dep"
+
+if [ "$1" == "-f" ]; then
+  git clean -ffX .
+fi
+
+cd src/test
+dep ensure

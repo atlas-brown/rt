@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/studygolang/studygolang.git",
+  "relative_path": "studygolang/start-docker.sh",
+  "short_name": "start-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "studygolang_dJAGLD/0",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

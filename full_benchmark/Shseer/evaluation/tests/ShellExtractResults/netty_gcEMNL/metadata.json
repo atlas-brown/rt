@@ -1,0 +1,199 @@
+[
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/run-example.sh",
+  "short_name": "run-example",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/0",
+  "posix_compliant": false,
+  "line_count": 109,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/handler/src/test/resources/io/netty/handler/ssl/generate-certificate.sh",
+  "short_name": "generate-certificate",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/1",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/handler/src/test/resources/io/netty/handler/ssl/generate-certs.sh",
+  "short_name": "generate-certs",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/2",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/scripts/finish_release.sh",
+  "short_name": "finish_release",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/3",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/scripts/list_staged_release.sh",
+  "short_name": "list_staged_release",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/4",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/scripts/generate_docs.sh",
+  "short_name": "generate_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/5",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/.github/scripts/check_build_result.sh",
+  "short_name": "check_build_result",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/6",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/.github/scripts/check_leak.sh",
+  "short_name": "check_leak",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/7",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/.github/scripts/merge_local_staging.sh",
+  "short_name": "merge_local_staging",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/8",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/.github/scripts/build_affected_only.sh",
+  "short_name": "build_affected_only",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/9",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/.github/scripts/check_bom_dependencies.sh",
+  "short_name": "check_bom_dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/10",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/.github/scripts/release_rollback.sh",
+  "short_name": "release_rollback",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/11",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/.github/scripts/release_checkout_tag.sh",
+  "short_name": "release_checkout_tag",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/12",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/netty/netty.git",
+  "relative_path": "netty/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "netty_gcEMNL/13",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

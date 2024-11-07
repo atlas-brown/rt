@@ -1,0 +1,52 @@
+[
+ {
+  "repo": "https://github.com/NARKOZ/hacker-scripts.git",
+  "relative_path": "hacker-scripts/fucking-coffee.sh",
+  "short_name": "fucking-coffee",
+  "timestamp": "10/22/2024",
+  "identifier": "hacker_wyqIGh/0",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/NARKOZ/hacker-scripts.git",
+  "relative_path": "hacker-scripts/hangover.sh",
+  "short_name": "hangover",
+  "timestamp": "10/22/2024",
+  "identifier": "hacker_wyqIGh/1",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/NARKOZ/hacker-scripts.git",
+  "relative_path": "hacker-scripts/kumar-asshole.sh",
+  "short_name": "kumar-asshole",
+  "timestamp": "10/22/2024",
+  "identifier": "hacker_wyqIGh/2",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/NARKOZ/hacker-scripts.git",
+  "relative_path": "hacker-scripts/smack-my-bitch-up.sh",
+  "short_name": "smack-my-bitch-up",
+  "timestamp": "10/22/2024",
+  "identifier": "hacker_wyqIGh/3",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

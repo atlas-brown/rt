@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/nothings/stb.git",
+  "relative_path": "stb/tests/ossfuzz.sh",
+  "short_name": "ossfuzz",
+  "timestamp": "10/22/2024",
+  "identifier": "stb_KVOCOX/0",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

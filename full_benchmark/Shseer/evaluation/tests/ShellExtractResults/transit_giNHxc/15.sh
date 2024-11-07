@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+cd `dirname $0`/..
+
+java -jar deps/closure-compiler/compiler.jar -O WHITESPACE_ONLY \
+--dependency_mode=PRUNE --entry_point=com.cognitect.transit \
+--js_output_file=target/transit.js \
+'deps/closure-library/closure/**.js' 'src/**.js'

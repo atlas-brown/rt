@@ -1,0 +1,1728 @@
+[
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/prep_local",
+  "short_name": "prep_local",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/build_teamcity",
+  "short_name": "build_teamcity",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/1",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/gen/fault-domain-detect/cloud.sh",
+  "short_name": "cloud",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/2",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/gen/ip-detect/azure6.sh",
+  "short_name": "azure6",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/3",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/gen/ip-detect/vagrant6.sh",
+  "short_name": "vagrant6",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/4",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/gen/ip-detect/azure.sh",
+  "short_name": "azure",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/5",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/gen/ip-detect/aws6.sh",
+  "short_name": "aws6",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/6",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/gen/ip-detect/aws_public.sh",
+  "short_name": "aws_public",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/7",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/gen/ip-detect/aws.sh",
+  "short_name": "aws",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/8",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/gen/ip-detect/vagrant.sh",
+  "short_name": "vagrant",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/9",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/gen/build_deploy/bash/dcos_generate_config.sh.in",
+  "short_name": "dcos_generate_config.in",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/10",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/gen/build_deploy/bash/installer_internal_wrapper.in",
+  "short_name": "installer_internal_wrapper.in",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/11",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/symlink_check",
+  "short_name": "symlink_check",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/12",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/single_source/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/13",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/non_bootstrap/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/14",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/buildhash/hashcheck1/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/15",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/buildhash/hashcheck3/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/16",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/buildhash/hashcheck2/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/17",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/url_extract-tar/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/18",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/non_bootstrap_variant/downstream.build",
+  "short_name": "downstream.build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/19",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/variant/downstream.build",
+  "short_name": "downstream.build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/20",
+  "posix_compliant": false,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/single_source_extra/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/21",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/base/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/22",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources/url_extract-zip/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/23",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources-nonbootstrapable/no_buildinfo/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/24",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources-nonbootstrapable/single_source_corrupt/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/25",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/build/tests/resources-nonbootstrapable/restricted_services/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/26",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/test_resources/opt/mesosphere/packages/pkg2--12345/check/shell_script_check.sh",
+  "short_name": "shell_script_check",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/27",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/pkgpanda/test_resources/opt/mesosphere/active/pkg2/check/shell_script_check.sh",
+  "short_name": "shell_script_check",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/28",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/boto/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/29",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-certifi/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/30",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-pyyaml/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/31",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/mesos-dns/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/32",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/flask/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/33",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-azure-mgmt-resource/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/34",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-idna/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/35",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-pycparser/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/36",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-jose/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/37",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/pkgpanda-api/extra/pkgpanda-api.sh",
+  "short_name": "pkgpanda-api",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/38",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/pkgpanda-api/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/39",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/liblzma/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/40",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/ncurses/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/41",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/bootstrap/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/42",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-image-deps/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/43",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/telegraf/extra/start_telegraf.sh",
+  "short_name": "start_telegraf",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/44",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/telegraf/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/45",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-dateutil/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/46",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/pytest/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/47",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/48",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-requests/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/49",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-isodate/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/50",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-image/extra/dcos-shell",
+  "short_name": "dcos-shell",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/51",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-image/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/52",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/csi-driver-nfs/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/53",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/bouncer-deps/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/54",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-cni/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/55",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-future/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/56",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/logrotate/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/57",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-diagnostics/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/58",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/cosmos/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/59",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/erlang/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/60",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/marathon/extra/marathon.sh",
+  "short_name": "marathon",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/61",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/marathon/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/62",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/bouncer/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/63",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/java/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/64",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/mesos-modules/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/65",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dnspython/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/66",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-passlib/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/67",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-responses/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/68",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-log/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/69",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/check-time/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/70",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/boost-libs/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/71",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/curl/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/72",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/docker-gc/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/73",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/mesos/extra/start_mesos.sh",
+  "short_name": "start_mesos",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/74",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/mesos/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/75",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/cni/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/76",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/exhibitor/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/77",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dvdcli/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/78",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-kazoo/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/79",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-tox/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/80",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-ui-update-service/extra/dcos-ui-update-service-pre-start.sh",
+  "short_name": "dcos-ui-update-service-pre-start",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/81",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-ui-update-service/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/82",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/libsodium/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/83",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/etcd/extra/systemd/etcd.sh",
+  "short_name": "etcd",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/84",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/etcd/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/85",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/libpq/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/86",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-gunicorn/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/87",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-jwt/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/88",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/conntrack-tools/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/89",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/strace/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/90",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-retrying/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/91",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/calico/extra/start-calico-felix.sh",
+  "short_name": "start-calico-felix",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/92",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/calico/extra/start-calico-libnetwork-plugin.sh",
+  "short_name": "start-calico-libnetwork-plugin",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/93",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/calico/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/94",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/libevent/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/95",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/cockroach/extra/cockroach.sh",
+  "short_name": "cockroach",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/96",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/cockroach/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/97",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-cryptography/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/98",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/teamcity-messages/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/99",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-integration-test/extra/util/run_integration_test.sh",
+  "short_name": "run_integration_test",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/100",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-integration-test/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/101",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-docopt/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/102",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/six/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/103",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-ui/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/104",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/openssl/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/105",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-net/extra/dcos-net-env",
+  "short_name": "dcos-net-env",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/106",
+  "posix_compliant": false,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-net/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/107",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-check-runner/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/108",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/rexray/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/109",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-test-utils/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/110",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-prometheus_client/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/111",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-checks/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/112",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/dcos-bootstrap-ca/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/113",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/libseccomp/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/114",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/pkgpanda-role/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/115",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/libffi/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/116",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/fluent-bit/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/117",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/adminrouter/docker/build-resty.sh",
+  "short_name": "build-resty",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/118",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/adminrouter/extra/systemd/adminrouter.sh",
+  "short_name": "adminrouter",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/119",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/adminrouter/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/120",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-markupsafe/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/121",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/python-jinja2/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/122",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/packages/metronome/build",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/123",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/test_util/terraform_init.sh",
+  "short_name": "terraform_init",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/124",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/test_util/terraform_logs.sh",
+  "short_name": "terraform_logs",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/125",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/test_util/terraform_test.sh",
+  "short_name": "terraform_test",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/126",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/build_dcos_launch.sh",
+  "short_name": "build_dcos_launch",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/127",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/prep_teamcity",
+  "short_name": "prep_teamcity",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/128",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/build_local.sh",
+  "short_name": "build_local",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/129",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dcos/dcos.git",
+  "relative_path": "dcos/fetch_cluster_logs.bash",
+  "short_name": "fetch_cluster_logs.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "dcos_SwPNEt/130",
+  "posix_compliant": false,
+  "line_count": 170,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

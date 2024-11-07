@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/CenturyLinkCloud/clc-sdk.git",
+  "relative_path": "clc-sdk/cover.sh",
+  "short_name": "cover",
+  "timestamp": "10/22/2024",
+  "identifier": "clc_gOcwcZ/0",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

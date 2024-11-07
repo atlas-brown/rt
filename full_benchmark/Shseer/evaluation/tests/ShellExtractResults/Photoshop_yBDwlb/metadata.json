@@ -1,0 +1,76 @@
+[
+ {
+  "repo": "https://github.com/LinSoftWin/Photoshop-CC2022-Linux.git",
+  "relative_path": "Photoshop-CC2022-Linux/installer.sh.old.DONT-USE",
+  "short_name": "installer.old.DONT-USE",
+  "timestamp": "10/22/2024",
+  "identifier": "Photoshop_yBDwlb/0",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/LinSoftWin/Photoshop-CC2022-Linux.git",
+  "relative_path": "Photoshop-CC2022-Linux/scripts/photoshop2022install.sh",
+  "short_name": "photoshop2022install",
+  "timestamp": "10/22/2024",
+  "identifier": "Photoshop_yBDwlb/1",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/LinSoftWin/Photoshop-CC2022-Linux.git",
+  "relative_path": "Photoshop-CC2022-Linux/scripts/photoshop2021install.sh",
+  "short_name": "photoshop2021install",
+  "timestamp": "10/22/2024",
+  "identifier": "Photoshop_yBDwlb/2",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/LinSoftWin/Photoshop-CC2022-Linux.git",
+  "relative_path": "Photoshop-CC2022-Linux/scripts/photoshop2021installcr.sh",
+  "short_name": "photoshop2021installcr",
+  "timestamp": "10/22/2024",
+  "identifier": "Photoshop_yBDwlb/3",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/LinSoftWin/Photoshop-CC2022-Linux.git",
+  "relative_path": "Photoshop-CC2022-Linux/uninstaller.sh",
+  "short_name": "uninstaller",
+  "timestamp": "10/22/2024",
+  "identifier": "Photoshop_yBDwlb/4",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

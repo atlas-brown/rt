@@ -1,0 +1,47 @@
+#!/bin/bash
+set -eo pipefail
+
+buildpacks_dir="$1"
+buildpack_url="$2"
+buildpack_order="$3"
+env_dir="$4"
+
+export_env_dir() {
+  env_dir=$1
+  whitelist_regex=${2:-''}
+  blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
+  if [ -d "${env_dir}" ]; then
+    for e in $(ls $env_dir); do
+      echo "$e" | grep -Ei "$whitelist_regex" | grep -qvE "$blacklist_regex" &&
+      export "$e=$(cat $env_dir/$e)"
+      :
+    done
+  fi
+}
+
+#Only import proxy related environment variables to support 'git clone'
+export_env_dir "${env_dir}" '(HTTP_PROXY|HTTPS_PROXY|NO_PROXY)$'
+
+buildpack_name="$(basename "${buildpack_url}")"
+buildpack_name="${buildpack_order}_${buildpack_name%.*}"
+
+mkdir -p "${buildpacks_dir}"
+pushd "${buildpacks_dir}" > /dev/null
+
+IFS='#' read url treeish <<< "${buildpack_url}"
+
+if [[ "${treeish}" == "" ]]; then
+  git clone --recursive --depth=1 "${url}" "${buildpack_name}"
+else
+  git clone --no-checkout "${url}" "${buildpack_name}"
+  pushd ${buildpack_name} > /dev/null
+  git checkout -q "${treeish}"
+  git submodule update --init --recursive
+  rm -rf .git
+  popd > /dev/null
+fi
+
+# Ensure buildpack directories are writeable (see https://github.com/heroku/heroku-buildpack-nodejs/issues/152)
+chmod -R ugo+w "${buildpack_name}"
+
+popd > /dev/null

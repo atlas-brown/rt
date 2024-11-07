@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/scala-android/sbt-android.git",
+  "relative_path": "sbt-android/sbt-test/gradle-build/u2020/scripts/strip-image-metadata.sh",
+  "short_name": "strip-image-metadata",
+  "timestamp": "10/22/2024",
+  "identifier": "sbt_nVxUtt/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

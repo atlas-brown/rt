@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/Martin-Gleiss/smartvisu.git",
+  "relative_path": "smartvisu/setpermissions",
+  "short_name": "setpermissions",
+  "timestamp": "10/22/2024",
+  "identifier": "smartvisu_RwMwkO/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "permissions"
+  ]
+ }
+]

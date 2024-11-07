@@ -1,0 +1,167 @@
+[
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/scripts/restore.sh",
+  "short_name": "restore",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/scripts/backup.sh",
+  "short_name": "backup",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/1",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/scripts/import.sh",
+  "short_name": "import",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/2",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/vendor/golang.org/x/sys/unix/mkall.sh",
+  "short_name": "mkall",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/3",
+  "posix_compliant": false,
+  "line_count": 212,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/vendor/golang.org/x/sys/unix/mkerrors.sh",
+  "short_name": "mkerrors",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/4",
+  "posix_compliant": false,
+  "line_count": 383,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/vendor/golang.org/x/sys/windows/mkknownfolderids.bash",
+  "short_name": "mkknownfolderids.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/5",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/vendor/golang.org/x/sys/windows/mkerrors.bash",
+  "short_name": "mkerrors.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/6",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/vendor/github.com/klauspost/compress/gen.sh",
+  "short_name": "gen",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/7",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/vendor/github.com/cespare/xxhash/v2/testall.sh",
+  "short_name": "testall",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/8",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/vendor/github.com/ajg/form/pre-commit.sh",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/9",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/vendor/github.com/go-oauth2/oauth2/v4/go.test.sh",
+  "short_name": "go.test",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/10",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/backend/vendor/github.com/jessevdk/go-flags/check_crosscompile.sh",
+  "short_name": "check_crosscompile",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/11",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/umputun/remark42.git",
+  "relative_path": "remark42/docker-init.sh",
+  "short_name": "docker-init",
+  "timestamp": "10/22/2024",
+  "identifier": "remark42_UyYlAW/12",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "permissions"
+  ]
+ }
+]

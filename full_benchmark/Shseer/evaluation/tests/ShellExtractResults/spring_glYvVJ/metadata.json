@@ -1,0 +1,43 @@
+[
+ {
+  "repo": "https://github.com/spring-projects/spring-authorization-server.git",
+  "relative_path": "spring-authorization-server/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_glYvVJ/0",
+  "posix_compliant": true,
+  "line_count": 104,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-projects/spring-authorization-server.git",
+  "relative_path": "spring-authorization-server/scripts/update-dependencies.sh",
+  "short_name": "update-dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_glYvVJ/1",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/spring-projects/spring-authorization-server.git",
+  "relative_path": "spring-authorization-server/scripts/release/wait-for-done.sh",
+  "short_name": "wait-for-done",
+  "timestamp": "10/22/2024",
+  "identifier": "spring_glYvVJ/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

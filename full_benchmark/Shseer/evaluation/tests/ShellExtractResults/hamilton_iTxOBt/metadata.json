@@ -1,0 +1,56 @@
+[
+ {
+  "repo": "https://github.com/stitchfix/hamilton.git",
+  "relative_path": "hamilton/.ci/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "hamilton_iTxOBt/0",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/stitchfix/hamilton.git",
+  "relative_path": "hamilton/.ci/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "hamilton_iTxOBt/1",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/stitchfix/hamilton.git",
+  "relative_path": "hamilton/examples/make_python_virtualenv.sh",
+  "short_name": "make_python_virtualenv",
+  "timestamp": "10/22/2024",
+  "identifier": "hamilton_iTxOBt/2",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/stitchfix/hamilton.git",
+  "relative_path": "hamilton/build_conda.sh",
+  "short_name": "build_conda",
+  "timestamp": "10/22/2024",
+  "identifier": "hamilton_iTxOBt/3",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,321 @@
+[
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/debian/init",
+  "short_name": "init",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/0",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/debian/postinst",
+  "short_name": "postinst",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/1",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/debian/postrm",
+  "short_name": "postrm",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/2",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/web/tooling/disable.sh",
+  "short_name": "disable",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/3",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/web/tooling/refresh.sh",
+  "short_name": "refresh",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/4",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/web/tooling/enable.sh",
+  "short_name": "enable",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/5",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/web/tooling/hooks/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/6",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/web/tooling/reload.sh",
+  "short_name": "reload",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/7",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/hw_drivers/tools/sync_touchscreen.sh",
+  "short_name": "sync_touchscreen",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/8",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/overwrite_before_init/etc/init_posbox_image.sh",
+  "short_name": "init_posbox_image",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/9",
+  "posix_compliant": false,
+  "line_count": 211,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/overwrite_before_init/etc/rc.local",
+  "short_name": "rc.local",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/10",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/configuration/posbox_update.sh",
+  "short_name": "posbox_update",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/11",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/configuration/setup_ramdisks.sh",
+  "short_name": "setup_ramdisks",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/12",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/configuration/wireless_ap.sh",
+  "short_name": "wireless_ap",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/13",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/configuration/rename_iot.sh",
+  "short_name": "rename_iot",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/14",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/configuration/connect_to_wifi.sh",
+  "short_name": "connect_to_wifi",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/15",
+  "posix_compliant": false,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/configuration/keep_wifi_alive.sh",
+  "short_name": "keep_wifi_alive",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/16",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/configuration/led_status.sh",
+  "short_name": "led_status",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/17",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/configuration/upgrade.sh",
+  "short_name": "upgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/18",
+  "posix_compliant": false,
+  "line_count": 172,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/posbox_create_image.sh",
+  "short_name": "posbox_create_image",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/19",
+  "posix_compliant": false,
+  "line_count": 130,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/addons/point_of_sale/tools/posbox/overwrite_after_init/etc/rc.local",
+  "short_name": "rc.local",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/20",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/odoo/odoo.git",
+  "relative_path": "odoo/setup/debinstall.sh",
+  "short_name": "debinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "odoo_nOcQCU/21",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

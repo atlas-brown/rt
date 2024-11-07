@@ -1,0 +1,151 @@
+[
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/frontend/cilpp/bin/wrapper",
+  "short_name": "wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/0",
+  "posix_compliant": false,
+  "line_count": 124,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/frontend/cilpp/bin/cilpp-cppflags",
+  "short_name": "cilpp-cppflags",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/frontend/cilpp/bin/cilpp-ldflags",
+  "short_name": "cilpp-ldflags",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/2",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/frontend/cilpp/bin/cilpp-cflags",
+  "short_name": "cilpp-cflags",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/3",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/frontend/cilpp/bin/cc",
+  "short_name": "cc",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/4",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/frontend/cilpp/bin/cc1",
+  "short_name": "cc1",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/5",
+  "posix_compliant": false,
+  "line_count": 124,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/frontend/c/shadowprov/shadowprov-cflags",
+  "short_name": "shadowprov-cflags",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/6",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/frontend/c/shadowprov/shadowprov-ldflags",
+  "short_name": "shadowprov-ldflags",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/7",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/frontend/c/lib/find-interesting-casts.sh",
+  "short_name": "find-interesting-casts",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/8",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/test/checks.sh",
+  "short_name": "checks",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/9",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/stephenrkell/libcrunch.git",
+  "relative_path": "libcrunch/lib/debug-funcs.sh",
+  "short_name": "debug-funcs",
+  "timestamp": "10/22/2024",
+  "identifier": "libcrunch_YNLhba/10",
+  "posix_compliant": false,
+  "line_count": 207,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

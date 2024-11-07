@@ -1,0 +1,957 @@
+[
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/document_preview.sh",
+  "short_name": "document_preview",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/codestyle/pylint_pre_commit.hook",
+  "short_name": "pylint_pre_commit.hook",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/1",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/codestyle/clang_format.hook",
+  "short_name": "clang_format.hook",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/2",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/codestyle/cpplint_pre_commit.hook",
+  "short_name": "cpplint_pre_commit.hook",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/3",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/coverage/paddle_lite_coverage.sh",
+  "short_name": "paddle_lite_coverage",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/4",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/utils.sh",
+  "short_name": "utils",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/5",
+  "posix_compliant": false,
+  "line_count": 218,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_mac_publish.sh",
+  "short_name": "ci_mac_publish",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/6",
+  "posix_compliant": false,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_android_model_unit_test.sh",
+  "short_name": "ci_android_model_unit_test",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/7",
+  "posix_compliant": false,
+  "line_count": 155,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_benchmark.sh",
+  "short_name": "ci_benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/8",
+  "posix_compliant": false,
+  "line_count": 325,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_autoscan_xpu.sh",
+  "short_name": "ci_autoscan_xpu",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/9",
+  "posix_compliant": false,
+  "line_count": 131,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_autoscan_arm.sh",
+  "short_name": "ci_autoscan_arm",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/10",
+  "posix_compliant": false,
+  "line_count": 172,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_autoscan_nnadapter.sh",
+  "short_name": "ci_autoscan_nnadapter",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/11",
+  "posix_compliant": false,
+  "line_count": 203,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_android_publish.sh",
+  "short_name": "ci_android_publish",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/12",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_ios_metal_publish.sh",
+  "short_name": "ci_ios_metal_publish",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/13",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_android_install.sh",
+  "short_name": "ci_android_install",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/14",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_autoscan_x86.sh",
+  "short_name": "ci_autoscan_x86",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/15",
+  "posix_compliant": false,
+  "line_count": 148,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_nn_accelerators_unit_test.sh",
+  "short_name": "ci_nn_accelerators_unit_test",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/16",
+  "posix_compliant": false,
+  "line_count": 1533,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_android_unit_test.sh",
+  "short_name": "ci_android_unit_test",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/17",
+  "posix_compliant": false,
+  "line_count": 133,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_autoscan_arm_linux.sh",
+  "short_name": "ci_autoscan_arm_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/18",
+  "posix_compliant": false,
+  "line_count": 122,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_android_opencl_unit_test.sh",
+  "short_name": "ci_android_opencl_unit_test",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/19",
+  "posix_compliant": false,
+  "line_count": 207,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/tools/ci_tools/ci_ios_publish.sh",
+  "short_name": "ci_ios_publish",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/20",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/test_libs/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/21",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/test_libs/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/22",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/armlinux_mobilenetv1_full_demo/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/23",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/quant_post_dynamic/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/24",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/quant_post_dynamic/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/25",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/x86_mobilenetv1_full_demo/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/26",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/armlinux_mobilenetv1_light_demo/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/27",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/x86_mobilenetv1_light_demo/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/28",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/mask_detection/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/29",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/mask_detection/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/30",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/lac_demo/prepare.sh",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/31",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/cxx/lac_demo/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/32",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/demo/java/android/prepare_demo.bash",
+  "short_name": "prepare_demo.bash",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/33",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build_qnx.sh",
+  "short_name": "build_qnx",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/34",
+  "posix_compliant": false,
+  "line_count": 322,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build_android_by_models.sh",
+  "short_name": "build_android_by_models",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/35",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/prepare_benchmark.sh",
+  "short_name": "prepare_benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/36",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build_android.sh",
+  "short_name": "build_android",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/37",
+  "posix_compliant": false,
+  "line_count": 539,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build_android_opencl_by_models.sh",
+  "short_name": "build_android_opencl_by_models",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/38",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build_ios.sh",
+  "short_name": "build_ios",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/39",
+  "posix_compliant": false,
+  "line_count": 182,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build_android_arm_opencl_by_models.sh",
+  "short_name": "build_android_arm_opencl_by_models",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/40",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build_linux.sh",
+  "short_name": "build_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/41",
+  "posix_compliant": false,
+  "line_count": 708,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build_ios_by_models.sh",
+  "short_name": "build_ios_by_models",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/42",
+  "posix_compliant": false,
+  "line_count": 117,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build_macos.sh",
+  "short_name": "build_macos",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/43",
+  "posix_compliant": false,
+  "line_count": 419,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/44",
+  "posix_compliant": false,
+  "line_count": 792,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/build_xcode.sh",
+  "short_name": "build_xcode",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/45",
+  "posix_compliant": false,
+  "line_count": 149,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/check_symbol.sh",
+  "short_name": "check_symbol",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/46",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/profile/profile.sh",
+  "short_name": "profile",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/47",
+  "posix_compliant": false,
+  "line_count": 292,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/ci_build.sh",
+  "short_name": "ci_build",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/48",
+  "posix_compliant": false,
+  "line_count": 1130,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/benchmark.sh",
+  "short_name": "benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/49",
+  "posix_compliant": false,
+  "line_count": 238,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/auto_transform.sh",
+  "short_name": "auto_transform",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/50",
+  "posix_compliant": false,
+  "line_count": 131,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/check_api_approvals.sh",
+  "short_name": "check_api_approvals",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/51",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/debug/check_model.sh",
+  "short_name": "check_model",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/52",
+  "posix_compliant": false,
+  "line_count": 159,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tools/ci_test.sh",
+  "short_name": "ci_test",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/53",
+  "posix_compliant": false,
+  "line_count": 565,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/backends/nnadapter/nnadapter/src/driver/fake_device/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/54",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/backends/arm/arm_dnn_library/scripts/build_qnx.sh",
+  "short_name": "build_qnx",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/55",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/backends/arm/arm_dnn_library/scripts/build_android.sh",
+  "short_name": "build_android",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/56",
+  "posix_compliant": false,
+  "line_count": 112,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/backends/arm/arm_dnn_library/scripts/build_linux.sh",
+  "short_name": "build_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/57",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/backends/arm/arm_dnn_library/scripts/codegen/gen_relu.sh",
+  "short_name": "gen_relu",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/58",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tests/benchmark/build_benchmark_ops.sh",
+  "short_name": "build_benchmark_ops",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/59",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tests/unittest_py/rpc_service/start_rpc_server.sh",
+  "short_name": "start_rpc_server",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/60",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tests/unittest_py/pass/auto_scan.sh",
+  "short_name": "auto_scan",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/61",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/lite/tests/unittest_py/op/auto_scan.sh",
+  "short_name": "auto_scan",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/62",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/.travis/pre-commit-job.sh",
+  "short_name": "pre-commit-job",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/63",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/PaddlePaddle/Paddle-Lite.git",
+  "relative_path": "Paddle-Lite/third-party/flatbuffers/update_fbs.sh",
+  "short_name": "update_fbs",
+  "timestamp": "10/22/2024",
+  "identifier": "Paddle_TiKJog/64",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,194 @@
+#!/bin/bash
+#
+# A script to build and release Flynn VM images.
+#
+# PREREQUISITES:
+#
+# - Install VirtualBox
+#   wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+#   echo deb http://download.virtualbox.org/virtualbox/debian trusty contrib | sudo tee /etc/apt/sources.list.d/virtualbox.list
+#   sudo apt-get update
+#   sudo apt-get install dkms virtualbox-4.3
+#
+# - Install packer
+#   sudo apt-get install -y unzip
+#   wget -O /tmp/packer.zip https://dl.bintray.com/mitchellh/packer/packer_0.8.6_linux_amd64.zip
+#   sudo unzip -d /usr/local/bin /tmp/packer.zip
+#   rm /tmp/packer.zip
+#
+# - Install up-to-date s3cmd so "s3cmd info" works
+#   sudo apt-get install -y python-dateutil
+#   wget -O /tmp/s3cmd.deb http://archive.ubuntu.com/ubuntu/pool/universe/s/s3cmd/s3cmd_1.5.0~rc1-2_all.deb
+#   sudo dpkg -i /tmp/s3cmd.deb
+#   rm /tmp/s3cmd.deb
+#
+# - Set AWS keys
+#   export AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXXXXX
+#   export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+set -eo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+source "${ROOT}/script/lib/ui.sh"
+source "${ROOT}/script/lib/aws.sh"
+source "${ROOT}/script/lib/util.sh"
+
+usage() {
+  cat <<USAGE >&2
+usage: $0 [options] VERSION
+
+OPTIONS:
+  -h            Show this message
+  -k            Keep release directory
+  -b BUCKET     The S3 bucket to upload vagrant images to [default: `flynn`]
+  -d DOMAIN     The CloudFront domain [default: `dl.flynn.io`]
+  -r DIR        Resume the release using DIR
+
+Requires AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY to be set
+USAGE
+}
+
+main() {
+  local bucket dir domain
+  local keep=false
+
+  while getopts "hkb:d:r:" opt; do
+    case $opt in
+      h)
+        usage
+        exit 1
+        ;;
+      k) keep=true ;;
+      b) bucket=${OPTARG} ;;
+      d) domain=${OPTARG} ;;
+      r)
+        dir=${OPTARG}
+        if [[ ! -d "${dir}" ]]; then
+          fail "No such directory: ${dir}"
+        fi
+        ;;
+      ?)
+        usage
+        exit 1
+        ;;
+    esac
+  done
+  shift $((${OPTIND} - 1))
+
+  if [[ $# -ne 1 ]]; then
+    usage
+    exit 1
+  fi
+
+  check_aws_keys
+
+  local version=$1
+  bucket=${bucket:-"flynn"}
+  dir="${dir:-$(mktemp -d)}"
+  domain="${domain:-"dl.flynn.io"}"
+
+  info "using base dir: ${dir}"
+
+  local box=$(ls "${dir}"/*_virtualbox.box 2>/dev/null)
+  if [[ -z "${box}" ]]; then
+    info "building VirtualBox image"
+    pushd "${ROOT}/util/packer" >/dev/null
+    local output=$(packer build \
+      -machine-readable \
+      -only="virtualbox-iso" \
+      -var "headless=true" \
+      -var "output_dir=${dir}" \
+      -var "flynn_repository=https://${domain}" \
+      -var "version=${version}" \
+      -var-file "ubuntu-xenial.json" \
+      ubuntu.json | parse_packer)
+    popd >/dev/null
+
+    info "parsing build output"
+    while read line; do
+      IFS="|" read builder artifacts <<< "${line}"
+
+      case "${builder}" in
+        virtualbox-iso)
+          box="${artifacts}"
+          ;;
+      esac
+    done <<< "${output}"
+
+    if [[ -z "${box}" ]]; then
+      fail "failed to parse build output"
+    fi
+  fi
+
+  local box_name="$(basename "${box}")"
+  if ! s3cmd info "s3://${bucket}/vagrant/boxes/${box_name}" &>/dev/null; then
+    info "uploading ${box_name} to s3://${bucket}/vagrant/boxes"
+    s3cmd put --acl-public --no-preserve "${box}" "s3://${bucket}/vagrant/boxes/"
+  fi
+
+  info "calculating SHA256 checksum of ${box_name}"
+  checksum=$(sha256 "${box}")
+  if [[ ${#checksum} -ne 64 ]]; then
+    fail "invalid checksum generated: '${checksum}'"
+  fi
+  info "checksum is ${checksum}"
+
+  info "fetching current vagrant manifest"
+  local manifest="$(s3cmd \
+    --no-progress \
+    get "s3://${bucket}/vagrant/flynn-base.json" - 2>/dev/null)"
+  if [[ -z "${manifest}" ]]; then
+    manifest='{"name":"flynn-base"}'
+  fi
+
+  info "updating vagrant manifest"
+  mkdir -p "${dir}/manifests/vagrant"
+  "${ROOT}/util/release/flynn-release" vagrant \
+    "https://${domain}/vagrant/boxes/${box_name}" \
+    "${checksum}" \
+    "${version}" \
+    "virtualbox" \
+    <<< "${manifest}" \
+    > "${dir}/manifests/vagrant/flynn-base.json"
+
+  info "releasing manifests"
+  sync_cloudfront "${dir}/manifests/" "s3://${bucket}/"
+
+  info "successfully released images for version ${version}"
+
+  if $keep; then
+    info "locally built images will remain in ${dir}"
+  else
+    info "removing locally built images"
+    rm -rf "${dir}"
+  fi
+}
+
+# parse_packer reads machine readable packer output, prints the
+# ui messages to stderr and prints the artifacts to stdout.
+#
+# example artifact output:
+#
+#   virtualbox-iso|/tmp/tmp.FhRkEcY9YJ/flynn-base_20141021.1_virtualbox.box
+#   amazon-ebs|eu-west-1:ami-4c832d3b,us-east-1:ami-fea92d96
+#
+parse_packer() {
+  sed "s/%!(PACKER_COMMA)/,/g" | while read -r line; do
+    IFS="," read -r _ target type data <<< "${line}"
+
+    case "${type}" in
+      ui) echo -e "$(cut -d "," -f 2 <<< "${data}")" >&2 ;;
+      artifact)
+        if [[ "${target}" == "virtualbox-iso" ]] \
+          && [[ "${data:0:9}" == "0,file,0," ]]; then
+          echo "virtualbox-iso|${data:9}"
+        elif [[ "${target}" == "amazon-ebs" ]] \
+          && [[ "${data:0:5}" == "0,id," ]]; then
+          echo "amazon-ebs|${data:5}"
+        fi
+        ;;
+    esac
+  done
+}
+
+main $@

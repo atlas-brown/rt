@@ -1,0 +1,71 @@
+[
+ {
+  "repo": "https://github.com/sunspot/sunspot.git",
+  "relative_path": "sunspot/ci/sunspot_test_script.sh",
+  "short_name": "sunspot_test_script",
+  "timestamp": "10/22/2024",
+  "identifier": "sunspot_QdQiiD/0",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/sunspot/sunspot.git",
+  "relative_path": "sunspot/sunspot_solr/solr/bin/install_solr_service.sh",
+  "short_name": "install_solr_service",
+  "timestamp": "10/22/2024",
+  "identifier": "sunspot_QdQiiD/1",
+  "posix_compliant": false,
+  "line_count": 220,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/sunspot/sunspot.git",
+  "relative_path": "sunspot/sunspot_solr/solr/bin/init.d/solr",
+  "short_name": "solr",
+  "timestamp": "10/22/2024",
+  "identifier": "sunspot_QdQiiD/2",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/sunspot/sunspot.git",
+  "relative_path": "sunspot/sunspot_solr/solr/bin/oom_solr.sh",
+  "short_name": "oom_solr",
+  "timestamp": "10/22/2024",
+  "identifier": "sunspot_QdQiiD/3",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/sunspot/sunspot.git",
+  "relative_path": "sunspot/sunspot_solr/solr/bin/solr.in.sh",
+  "short_name": "solr.in",
+  "timestamp": "10/22/2024",
+  "identifier": "sunspot_QdQiiD/4",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

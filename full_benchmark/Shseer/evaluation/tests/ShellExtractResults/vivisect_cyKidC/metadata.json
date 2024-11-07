@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/vivisect/vivisect.git",
+  "relative_path": "vivisect/vdb/tools/androidpy.sh",
+  "short_name": "androidpy",
+  "timestamp": "10/22/2024",
+  "identifier": "vivisect_cyKidC/0",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

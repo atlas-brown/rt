@@ -1,0 +1,148 @@
+[
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/assembly/src/main/distribution/bin/sshd.sh",
+  "short_name": "sshd",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/0",
+  "posix_compliant": true,
+  "line_count": 176,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/assembly/src/main/distribution/bin/ssh.sh",
+  "short_name": "ssh",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/1",
+  "posix_compliant": true,
+  "line_count": 176,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/assembly/src/main/distribution/bin/sftp.sh",
+  "short_name": "sftp",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/2",
+  "posix_compliant": true,
+  "line_count": 176,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/assembly/src/main/distribution/bin/scp.sh",
+  "short_name": "scp",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/3",
+  "posix_compliant": true,
+  "line_count": 176,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/assembly/src/main/distribution/bin/ssh-keyscan.sh",
+  "short_name": "ssh-keyscan",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/4",
+  "posix_compliant": true,
+  "line_count": 176,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/sshd-scp/src/test/resources/org/apache/sshd/scp/client/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/5",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/sshd-benchmarks/src/main/resources/org/apache/sshd/benchmarks/disable_force_command.sh",
+  "short_name": "disable_force_command",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/6",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/sshd-core/src/test/resources/org/apache/sshd/common/kex/extensions/client/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/7",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/sshd-core/src/test/resources/org/apache/sshd/client/auth/pubkey/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/8",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/sshd-core/src/test/resources/org/apache/sshd/client/opensshcerts/docker/entrypoint.sh",
+  "short_name": "entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/9",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/apache/mina-sshd.git",
+  "relative_path": "mina-sshd/sshd-core/src/test/resources/org/apache/sshd/client/opensshcerts/user/certificateoptions/generate_openssh_certs.sh",
+  "short_name": "generate_openssh_certs",
+  "timestamp": "10/22/2024",
+  "identifier": "mina_kJNQaX/10",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

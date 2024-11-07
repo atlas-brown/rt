@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/sepandhaghighi/samila.git",
+  "relative_path": "samila/autopep8.sh",
+  "short_name": "autopep8",
+  "timestamp": "10/22/2024",
+  "identifier": "samila_RPmofy/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

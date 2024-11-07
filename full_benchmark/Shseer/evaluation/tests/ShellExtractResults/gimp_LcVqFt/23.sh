@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# Loosely based on:
+# https://appimage-builder.readthedocs.io/en/latest/examples/gimp_path_mapping.html
+# https://github.com/aferrero2707/gimp-appimage
+# https://github.com/ivan-hc/GIMP-appimage
+# https://github.com/sudo-give-me-coffee/PhotoMP/
+
+set -e
+
+
+# PATHS MAPPING
+HERE="$(dirname "$(readlink -f "${0}")")"
+
+## Minimum runtime paths
+export PATH="$HERE"/usr/bin/:"$PATH"
+export LD_LIBRARY_PATH="$HERE"/usr/lib/:"$HERE"/usr/lib/x86_64-linux-gnu/:"$HERE"/usr/lib64/:"$LD_LIBRARY_PATH"
+export XDG_DATA_DIRS="$HERE"/usr/share/:"$XDG_DATA_DIRS"
+LD_LINUX="$HERE/LD_LINUX_WILD --inhibit-cache"
+
+## GTK-related paths
+export GIO_MODULE_DIR="$HERE"/GIO_MODULE_DIR_WILD/modules
+export GDK_PIXBUF_MODULEDIR="$HERE"/GDK_PIXBUF_MODULEDIR_WILD/loaders
+export GDK_PIXBUF_MODULE_FILE="$HERE"/GDK_PIXBUF_MODULE_FILE_WILD/loaders.cache
+export GTK_PATH="$HERE"/GTK_PATH_WILD
+export GTK_IM_MODULE_FILE="$HERE"/GTK_IM_MODULE_FILE_WILD/immodules.cache
+#export GTK_THEME=$(eval "$LD_LINUX" "$HERE"/usr/bin/gsettings get org.gnome.desktop.interface gtk-theme)
+
+## GIMP-specific paths
+export BABL_PATH="$HERE"/BABL_PATH_WILD
+export GEGL_PATH="$HERE"/GEGL_PATH_WILD
+export GIMP3_PLUGINDIR="$HERE"/GIMP3_PLUGINDIR_WILD
+export GIMP3_DATADIR="$HERE"/GIMP3_DATADIR_WILD
+export GIMP3_LOCALEDIR="$HERE"/GIMP3_LOCALEDIR_WILD
+export GIMP3_SYSCONFDIR="$HERE"/GIMP3_SYSCONFDIR_WILD
+
+## Other paths (feature-related)
+export LIBGL_DRIVERS_PATH="$HERE"/LIBGL_DRIVERS_PATH_WILD
+export GI_TYPELIB_PATH="$HERE"/GI_TYPELIB_PATH_WILD:"$GI_TYPELIB_PATH"
+export PYTHONHOME="$HERE"/usr
+export PYTHONDONTWRITEBYTECODE=1
+
+
+# RUN MAIN_BIN
+echo "This is a CI build of GIMP compatible with Debian DEBIAN_VERSION. See: https://gitlab.gnome.org/GNOME/gimp/-/issues/7661"
+echo '.js   (JavaScript) plug-ins | supported.'
+echo '.py   (Python) plug-ins     | supported.'
+echo '.scm  (ScriptFu) plug-ins   | supported.'
+echo '.vala (Vala) plug-ins       | supported.'
+
+LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libc.so.6 "$HERE"/usr/bin/gimp-GIMP_APP_VERSION "$@"

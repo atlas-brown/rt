@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/s-a/digital-numbers-font.git",
+  "relative_path": "digital-numbers-font/build/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "digital_jhtNGB/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

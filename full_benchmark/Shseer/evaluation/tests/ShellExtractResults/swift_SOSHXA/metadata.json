@@ -1,0 +1,252 @@
+[
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/benchmark/scripts/generate_harness/test_generate_harness.sh",
+  "short_name": "test_generate_harness",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/0",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/test/Driver/LegacyDriver/Inputs/print-args.sh",
+  "short_name": "print-args",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/test/Driver/Inputs/xcrun-bad.sh",
+  "short_name": "xcrun-bad",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/2",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/test/Driver/Inputs/xcrun-return-self.sh",
+  "short_name": "xcrun-return-self",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/3",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/test/Driver/Inputs/xcrun.sh",
+  "short_name": "xcrun",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/4",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/test/Driver/Inputs/print-var.sh",
+  "short_name": "print-var",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/5",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/test/Driver/Inputs/xcrun-empty.sh",
+  "short_name": "xcrun-empty",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/6",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/test/Backtracing/Inputs/make-minidebug",
+  "short_name": "make-minidebug",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/7",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/test/Backtracing/Inputs/has-uuid-syms",
+  "short_name": "has-uuid-syms",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/8",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/test/Backtracing/Inputs/make-debuglink",
+  "short_name": "make-debuglink",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/9",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/utils/find-overlay-dependencies-loop.sh",
+  "short_name": "find-overlay-dependencies-loop",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/10",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/utils/lldb/lldb-check-expect.in",
+  "short_name": "lldb-check-expect.in",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/11",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/utils/lldb/lldb-with-tools.in",
+  "short_name": "lldb-with-tools.in",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/12",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/utils/find-overlay-dependencies.sh",
+  "short_name": "find-overlay-dependencies",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/13",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/utils/find-overlay-deps-closure.sh",
+  "short_name": "find-overlay-deps-closure",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/14",
+  "posix_compliant": false,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/utils/find-unused-diagnostics.sh",
+  "short_name": "find-unused-diagnostics",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/15",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/utils/api_checker/dump-sdk.sh",
+  "short_name": "dump-sdk",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/16",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/utils/api_checker/sdk-module-lists/create-module-lists.sh",
+  "short_name": "create-module-lists",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/17",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/utils/dev-scripts/emacs-compile",
+  "short_name": "emacs-compile",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/18",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/apple/swift.git",
+  "relative_path": "swift/utils/dev-scripts/at-to-filelist",
+  "short_name": "at-to-filelist",
+  "timestamp": "10/22/2024",
+  "identifier": "swift_SOSHXA/19",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ }
+]

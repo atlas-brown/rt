@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/derailed/k9s.git",
+  "relative_path": "k9s/plugins/kubectl-plugins/kubectl-jq",
+  "short_name": "kubectl-jq",
+  "timestamp": "10/22/2024",
+  "identifier": "k9s_kWBZse/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/derailed/k9s.git",
+  "relative_path": "k9s/plugins/kubectl/kubectl-purge",
+  "short_name": "kubectl-purge",
+  "timestamp": "10/22/2024",
+  "identifier": "k9s_kWBZse/1",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

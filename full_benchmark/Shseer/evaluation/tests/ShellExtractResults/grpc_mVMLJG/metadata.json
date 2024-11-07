@@ -1,0 +1,134 @@
+[
+ {
+  "repo": "https://github.com/grpc/grpc-dotnet.git",
+  "relative_path": "grpc-dotnet/docfx/generate_reference_docs.sh",
+  "short_name": "generate_reference_docs",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_mVMLJG/0",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc-dotnet.git",
+  "relative_path": "grpc-dotnet/activate.sh",
+  "short_name": "activate",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_mVMLJG/1",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc-dotnet.git",
+  "relative_path": "grpc-dotnet/grpcweb_interoptests.sh",
+  "short_name": "grpcweb_interoptests",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_mVMLJG/2",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc-dotnet.git",
+  "relative_path": "grpc-dotnet/build_and_test.sh",
+  "short_name": "build_and_test",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_mVMLJG/3",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc-dotnet.git",
+  "relative_path": "grpc-dotnet/build/get-dotnet.sh",
+  "short_name": "get-dotnet",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_mVMLJG/4",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc-dotnet.git",
+  "relative_path": "grpc-dotnet/build/expand_dev_version.sh",
+  "short_name": "expand_dev_version",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_mVMLJG/5",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc-dotnet.git",
+  "relative_path": "grpc-dotnet/build/update_grpc_core_api_version.sh",
+  "short_name": "update_grpc_core_api_version",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_mVMLJG/6",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc-dotnet.git",
+  "relative_path": "grpc-dotnet/kokoro/publish_nuget.sh",
+  "short_name": "publish_nuget",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_mVMLJG/7",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc-dotnet.git",
+  "relative_path": "grpc-dotnet/kokoro/interop.sh",
+  "short_name": "interop",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_mVMLJG/8",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/grpc/grpc-dotnet.git",
+  "relative_path": "grpc-dotnet/kokoro/build_nuget.sh",
+  "short_name": "build_nuget",
+  "timestamp": "10/22/2024",
+  "identifier": "grpc_mVMLJG/9",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

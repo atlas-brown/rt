@@ -1,0 +1,69 @@
+[
+ {
+  "repo": "https://github.com/saltstack/salt-bootstrap.git",
+  "relative_path": "salt-bootstrap/salt-quick-start.sh",
+  "short_name": "salt-quick-start",
+  "timestamp": "10/22/2024",
+  "identifier": "salt_EzUsFF/0",
+  "posix_compliant": true,
+  "line_count": 183,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/saltstack/salt-bootstrap.git",
+  "relative_path": "salt-bootstrap/bootstrap-salt-minion.sh",
+  "short_name": "bootstrap-salt-minion",
+  "timestamp": "10/22/2024",
+  "identifier": "salt_EzUsFF/1",
+  "posix_compliant": true,
+  "line_count": 5359,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/saltstack/salt-bootstrap.git",
+  "relative_path": "salt-bootstrap/bootstrap-salt.sh",
+  "short_name": "bootstrap-salt",
+  "timestamp": "10/22/2024",
+  "identifier": "salt_EzUsFF/2",
+  "posix_compliant": true,
+  "line_count": 5359,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/saltstack/salt-bootstrap.git",
+  "relative_path": "salt-bootstrap/salt-bootstrap.sh",
+  "short_name": "salt-bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "salt_EzUsFF/3",
+  "posix_compliant": true,
+  "line_count": 5359,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

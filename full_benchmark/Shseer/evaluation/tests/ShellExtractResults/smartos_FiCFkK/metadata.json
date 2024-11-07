@@ -1,0 +1,85 @@
+[
+ {
+  "repo": "https://github.com/rhinok/smartos-as-nas.git",
+  "relative_path": "smartos-as-nas/opt/custom/share/svc/timezone.sh",
+  "short_name": "timezone",
+  "timestamp": "10/22/2024",
+  "identifier": "smartos_FiCFkK/0",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rhinok/smartos-as-nas.git",
+  "relative_path": "smartos-as-nas/opt/custom/share/svc/ups-nut.sh",
+  "short_name": "ups-nut",
+  "timestamp": "10/22/2024",
+  "identifier": "smartos_FiCFkK/1",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rhinok/smartos-as-nas.git",
+  "relative_path": "smartos-as-nas/opt/custom/share/svc/persist-syscfg.sh",
+  "short_name": "persist-syscfg",
+  "timestamp": "10/22/2024",
+  "identifier": "smartos_FiCFkK/2",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/rhinok/smartos-as-nas.git",
+  "relative_path": "smartos-as-nas/opt/custom/share/svc/ups-driver.sh",
+  "short_name": "ups-driver",
+  "timestamp": "10/22/2024",
+  "identifier": "smartos_FiCFkK/3",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/rhinok/smartos-as-nas.git",
+  "relative_path": "smartos-as-nas/opt/custom/share/svc/stormstone.sh",
+  "short_name": "stormstone",
+  "timestamp": "10/22/2024",
+  "identifier": "smartos_FiCFkK/4",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/rhinok/smartos-as-nas.git",
+  "relative_path": "smartos-as-nas/opt/custom/share/global/system/cron/ups-status.sh",
+  "short_name": "ups-status",
+  "timestamp": "10/22/2024",
+  "identifier": "smartos_FiCFkK/5",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

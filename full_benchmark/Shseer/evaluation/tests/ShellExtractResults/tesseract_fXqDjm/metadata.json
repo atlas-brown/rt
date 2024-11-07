@@ -1,0 +1,45 @@
+[
+ {
+  "repo": "https://github.com/tesseract-ocr/tesseract.git",
+  "relative_path": "tesseract/unittest/fuzzers/oss-fuzz-build.sh",
+  "short_name": "oss-fuzz-build",
+  "timestamp": "10/22/2024",
+  "identifier": "tesseract_fXqDjm/0",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/tesseract-ocr/tesseract.git",
+  "relative_path": "tesseract/doc/generate_manpages.sh",
+  "short_name": "generate_manpages",
+  "timestamp": "10/22/2024",
+  "identifier": "tesseract_fXqDjm/1",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/tesseract-ocr/tesseract.git",
+  "relative_path": "tesseract/autogen.sh",
+  "short_name": "autogen",
+  "timestamp": "10/22/2024",
+  "identifier": "tesseract_fXqDjm/2",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

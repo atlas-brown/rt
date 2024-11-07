@@ -1,0 +1,144 @@
+[
+ {
+  "repo": "https://github.com/Koheron/koheron-sdk.git",
+  "relative_path": "koheron-sdk/build_examples.sh",
+  "short_name": "build_examples",
+  "timestamp": "10/22/2024",
+  "identifier": "koheron_rQJlfO/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Koheron/koheron-sdk.git",
+  "relative_path": "koheron-sdk/docker/install_docker.sh",
+  "short_name": "install_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "koheron_rQJlfO/1",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Koheron/koheron-sdk.git",
+  "relative_path": "koheron-sdk/install_eigen.sh",
+  "short_name": "install_eigen",
+  "timestamp": "10/22/2024",
+  "identifier": "koheron_rQJlfO/2",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Koheron/koheron-sdk.git",
+  "relative_path": "koheron-sdk/fpga/install_vivado.sh",
+  "short_name": "install_vivado",
+  "timestamp": "10/22/2024",
+  "identifier": "koheron_rQJlfO/3",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Koheron/koheron-sdk.git",
+  "relative_path": "koheron-sdk/os/scripts/mount_unionfs",
+  "short_name": "mount_unionfs",
+  "timestamp": "10/22/2024",
+  "identifier": "koheron_rQJlfO/4",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Koheron/koheron-sdk.git",
+  "relative_path": "koheron-sdk/os/scripts/unzip_default_instrument.sh",
+  "short_name": "unzip_default_instrument",
+  "timestamp": "10/22/2024",
+  "identifier": "koheron_rQJlfO/5",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Koheron/koheron-sdk.git",
+  "relative_path": "koheron-sdk/os/scripts/ubuntu-production.sh",
+  "short_name": "ubuntu-production",
+  "timestamp": "10/22/2024",
+  "identifier": "koheron_rQJlfO/6",
+  "posix_compliant": false,
+  "line_count": 139,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Koheron/koheron-sdk.git",
+  "relative_path": "koheron-sdk/os/scripts/ubuntu-development.sh",
+  "short_name": "ubuntu-development",
+  "timestamp": "10/22/2024",
+  "identifier": "koheron_rQJlfO/7",
+  "posix_compliant": false,
+  "line_count": 146,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Koheron/koheron-sdk.git",
+  "relative_path": "koheron-sdk/os/scripts/patch_devicetree.sh",
+  "short_name": "patch_devicetree",
+  "timestamp": "10/22/2024",
+  "identifier": "koheron_rQJlfO/8",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Koheron/koheron-sdk.git",
+  "relative_path": "koheron-sdk/os/api/install_instrument.sh",
+  "short_name": "install_instrument",
+  "timestamp": "10/22/2024",
+  "identifier": "koheron_rQJlfO/9",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

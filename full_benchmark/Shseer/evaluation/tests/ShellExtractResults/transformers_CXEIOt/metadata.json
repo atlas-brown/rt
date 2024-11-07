@@ -1,0 +1,709 @@
+[
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/docker/transformers-pytorch-tpu/docker-entrypoint.sh",
+  "short_name": "docker-entrypoint",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/self-training-text-classification/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/1",
+  "posix_compliant": false,
+  "line_count": 55,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/performer/full_script.sh",
+  "short_name": "full_script",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/2",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/performer/sanity_script.sh",
+  "short_name": "sanity_script",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/3",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/seq2seq-distillation/train_distilbart_xsum.sh",
+  "short_name": "train_distilbart_xsum",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/4",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/seq2seq-distillation/finetune_t5.sh",
+  "short_name": "finetune_t5",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/5",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/seq2seq-distillation/finetune_bart_tiny.sh",
+  "short_name": "finetune_bart_tiny",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/6",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/seq2seq-distillation/distil_marian_no_teacher.sh",
+  "short_name": "distil_marian_no_teacher",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/7",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/seq2seq-distillation/dynamic_bs_example.sh",
+  "short_name": "dynamic_bs_example",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/8",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/seq2seq-distillation/finetune.sh",
+  "short_name": "finetune",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/9",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/seq2seq-distillation/distil_marian_enro_teacher.sh",
+  "short_name": "distil_marian_enro_teacher",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/10",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/seq2seq-distillation/train_mbart_cc25_enro.sh",
+  "short_name": "train_mbart_cc25_enro",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/11",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/seq2seq-distillation/finetune_pegasus_xsum.sh",
+  "short_name": "finetune_pegasus_xsum",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/12",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/seq2seq-distillation/train_distilbart_cnn.sh",
+  "short_name": "train_distilbart_cnn",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/13",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/rag/finetune_rag_ray.sh",
+  "short_name": "finetune_rag_ray",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/14",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/rag/finetune_rag.sh",
+  "short_name": "finetune_rag",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/15",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/wav2vec2/finetune_wav2vec2_xlsr_turkish.sh",
+  "short_name": "finetune_wav2vec2_xlsr_turkish",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/16",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/wav2vec2/finetune_large_xlsr_53_arabic_speech_corpus.sh",
+  "short_name": "finetune_large_xlsr_53_arabic_speech_corpus",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/17",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/wav2vec2/run_alignment.sh",
+  "short_name": "run_alignment",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/18",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/wav2vec2/finetune_large_lv60_timit_asr.sh",
+  "short_name": "finetune_large_lv60_timit_asr",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/19",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/wav2vec2/finetune_large_lv60_100.sh",
+  "short_name": "finetune_large_lv60_100",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/20",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/wav2vec2/finetune_base_100.sh",
+  "short_name": "finetune_base_100",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/21",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/wav2vec2/finetune_base_timit_asr.sh",
+  "short_name": "finetune_base_timit_asr",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/22",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/deebert/entropy_eval.sh",
+  "short_name": "entropy_eval",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/23",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/deebert/eval_deebert.sh",
+  "short_name": "eval_deebert",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/24",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/deebert/train_deebert.sh",
+  "short_name": "train_deebert",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/25",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/rag-end2end-retriever/finetune_rag_ray_end2end.sh",
+  "short_name": "finetune_rag_ray_end2end",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/26",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/rag-end2end-retriever/test_run/test_finetune.sh",
+  "short_name": "test_finetune",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/27",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/research_projects/rag-end2end-retriever/test_run/test_rag_new_features.sh",
+  "short_name": "test_rag_new_features",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/28",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/token-classification/run_chunk.sh",
+  "short_name": "run_chunk",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/29",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/token-classification/run_pos.sh",
+  "short_name": "run_pos",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/30",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/token-classification/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/31",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/seq2seq/train_distil_marian_enro_tpu.sh",
+  "short_name": "train_distil_marian_enro_tpu",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/32",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/seq2seq/finetune.sh",
+  "short_name": "finetune",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/33",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/seq2seq/finetune_tpu.sh",
+  "short_name": "finetune_tpu",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/34",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/seq2seq/train_mbart_cc25_enro.sh",
+  "short_name": "train_mbart_cc25_enro",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/35",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/seq2seq/train_distil_marian_enro.sh",
+  "short_name": "train_distil_marian_enro",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/36",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/seq2seq/train_distilbart_cnn.sh",
+  "short_name": "train_distilbart_cnn",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/37",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/pytorch-lightning/run_pos.sh",
+  "short_name": "run_pos",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/38",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/pytorch-lightning/run_ner.sh",
+  "short_name": "run_ner",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/39",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/legacy/pytorch-lightning/run_glue.sh",
+  "short_name": "run_glue",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/40",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/modular-transformers/convert_examples.sh",
+  "short_name": "convert_examples",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/41",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/pytorch/token-classification/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/42",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/pytorch/token-classification/run_no_trainer.sh",
+  "short_name": "run_no_trainer",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/43",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/examples/pytorch/multiple-choice/run_no_trainer.sh",
+  "short_name": "run_no_trainer",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/44",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/scripts/tatoeba/upload_models.sh",
+  "short_name": "upload_models",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/45",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/scripts/fsmt/convert-allenai-wmt19.sh",
+  "short_name": "convert-allenai-wmt19",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/46",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/scripts/fsmt/eval-facebook-wmt19.sh",
+  "short_name": "eval-facebook-wmt19",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/47",
+  "posix_compliant": false,
+  "line_count": 86,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/scripts/fsmt/convert-allenai-wmt16.sh",
+  "short_name": "convert-allenai-wmt16",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/48",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/scripts/fsmt/convert-facebook-wmt19.sh",
+  "short_name": "convert-facebook-wmt19",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/49",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/scripts/fsmt/eval-allenai-wmt19.sh",
+  "short_name": "eval-allenai-wmt19",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/50",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/scripts/fsmt/tests-to-run.sh",
+  "short_name": "tests-to-run",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/51",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/scripts/fsmt/eval-allenai-wmt16.sh",
+  "short_name": "eval-allenai-wmt16",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/52",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/scripts/fsmt/s3-move.sh",
+  "short_name": "s3-move",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/53",
+  "posix_compliant": false,
+  "line_count": 89,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/.github/conda/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/54",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/huggingface/transformers.git",
+  "relative_path": "transformers/src/transformers/models/t5/download_from_gcp.sh",
+  "short_name": "download_from_gcp",
+  "timestamp": "10/22/2024",
+  "identifier": "transformers_CXEIOt/55",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

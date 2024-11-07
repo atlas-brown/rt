@@ -1,0 +1,24 @@
+[
+ {
+  "repo": "https://github.com/kevinpeterson/fhir.git",
+  "relative_path": "fhir/build/tools/java/copy-current-generated-code.sh",
+  "short_name": "copy-current-generated-code",
+  "timestamp": "10/22/2024",
+  "identifier": "fhir_HMoDkj/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kevinpeterson/fhir.git",
+  "relative_path": "fhir/build/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "fhir_HMoDkj/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ }
+]

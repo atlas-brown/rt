@@ -1,0 +1,129 @@
+#!/bin/bash
+
+set -e
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+source "${ROOT}/script/lib/util.sh"
+
+usage() {
+  cat <<USAGE >&2
+usage: $0 [options]
+
+Boot a Flynn cluster and run integration tests.
+
+OPTIONS:
+  -h, --help               Show this message
+  -n, --size=SIZE          Cluster size [default: 1]
+  -f, --filter=FILTER      Regular expression selecting which tests and/or suites to run
+  -s, --stream             Stream debug output
+  -v, --version=VERSION    Boot using the released VERSION (e.g. v20151104.1)
+USAGE
+}
+
+main() {
+  local size="1"
+  local filter
+  local stream=false
+  local version=""
+
+  while true; do
+    case "$1" in
+      -h | --help)
+        usage
+        exit 0
+        ;;
+      -n | --size)
+        if [[ -z "$2" ]]; then
+          fail "--size flag requires an argument"
+        fi
+        size="$2"
+        shift 2
+        ;;
+      -f | --filter)
+        if [[ -z "$2" ]]; then
+          fail "--filter flag requires an argument"
+        fi
+        filter="$2"
+        shift 2
+        ;;
+      -s | --stream)
+        stream=true
+        shift
+        ;;
+      -v | --version)
+        if [[ -z "$2" ]]; then
+          fail "--version flag requires an argument"
+        fi
+        version="$2"
+        shift 2
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  if [[ $# -ne 0 ]]; then
+    usage
+    exit 1
+  fi
+
+  local flynn="${ROOT}/build/bin/flynn"
+  local flynn_host="${ROOT}/build/bin/flynn-host"
+
+  pushd "${ROOT}" >/dev/null
+  make
+  popd >/dev/null
+
+  local boot_flags=(
+    "--size" "${size}"
+  )
+  if [[ -n "${version}" ]]; then
+    boot_flags+=("--version" "${version}")
+  fi
+  cluster_add=$("${ROOT}/script/bootstrap-flynn" ${boot_flags[@]} &> >(tee /dev/stderr) | tail -1 | head -1)
+
+  if [[ "${cluster_add:0:17}" != "flynn cluster add" ]]; then
+    echo Bootstrap failed >&2
+    exit 1
+  fi
+
+  local args=(
+    "--concurrency 1"
+    "--debug"
+  )
+
+  local mounts=(
+    "${ROOT}:/go/src/github.com/flynn/flynn"
+    "/var/run/docker.sock:/var/run/docker.sock"
+    "/var/lib/flynn:/var/lib/flynn"
+  )
+
+  if [[ -d "${ROOT}/backups" ]]; then
+    args+=("--backups-dir" "${ROOT}/backups")
+    mounts+=("${ROOT}/backups:${ROOT}/backups")
+  fi
+  if [[ -n "${filter}" ]]; then
+    args+=("--run ${filter}")
+  fi
+  if $stream; then
+    args+=("--stream")
+  fi
+  if [[ -t 0 ]]; then
+    args+=("--interactive")
+  fi
+  args+=("--router-ip=192.0.2.200")
+
+  "${flynn_host}" run \
+    --bind "$(join "," ${mounts[@]})" \
+    --volume "/tmp" \
+    "${ROOT}/build/image/test.json" \
+    /usr/bin/env \
+    ROOT="/go/src/github.com/flynn/flynn" \
+    CLUSTER_ADD_ARGS="${cluster_add:18}" \
+    USE_KVM="$([[ -e /dev/kvm ]] && echo true)" \
+    /bin/run-flynn-test.sh \
+    ${args[@]}
+}
+
+main $@

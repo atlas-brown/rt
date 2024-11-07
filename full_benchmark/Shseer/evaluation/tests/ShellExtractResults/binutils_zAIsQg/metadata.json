@@ -1,0 +1,6589 @@
+[
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/0",
+  "posix_compliant": true,
+  "line_count": 327,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gas/testsuite/gas/ppc/generate.sh",
+  "short_name": "generate",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gas/testsuite/gas/xstormy16/gcc.sh",
+  "short_name": "gcc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/2",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gas/testsuite/gas/xstormy16/allinsn.sh",
+  "short_name": "allinsn",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/3",
+  "posix_compliant": false,
+  "line_count": 1454,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gas/testsuite/gas/tic4x/rebuild.sh",
+  "short_name": "rebuild",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/4",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gas/testsuite/lib/dotest",
+  "short_name": "dotest",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/5",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gas/testsuite/lib/doboth",
+  "short_name": "doboth",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/6",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gas/testsuite/lib/doobjcmp",
+  "short_name": "doobjcmp",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/7",
+  "posix_compliant": true,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gas/testsuite/lib/dounssym",
+  "short_name": "dounssym",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/8",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gas/testsuite/lib/dounsreloc",
+  "short_name": "dounsreloc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/9",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gas/testsuite/lib/dostriptest",
+  "short_name": "dostriptest",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/10",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/gdb_mbuild.sh",
+  "short_name": "gdb_mbuild",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/11",
+  "posix_compliant": true,
+  "line_count": 219,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/gdbsupport/create-version.sh",
+  "short_name": "create-version",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/12",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/config/djgpp/djconfig.sh",
+  "short_name": "djconfig",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/13",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/config/djgpp/djcheck.sh",
+  "short_name": "djcheck",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/14",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/regformats/regdat.sh",
+  "short_name": "regdat",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/15",
+  "posix_compliant": false,
+  "line_count": 148,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/testsuite/lib/pdtrace.in",
+  "short_name": "pdtrace.in",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/16",
+  "posix_compliant": true,
+  "line_count": 579,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/features/feature_to_c.sh",
+  "short_name": "feature_to_c",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/17",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/features/riscv/rebuild-csr-xml.sh",
+  "short_name": "rebuild-csr-xml",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/18",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/gdbarch.sh",
+  "short_name": "gdbarch",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/19",
+  "posix_compliant": false,
+  "line_count": 1481,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/contrib/gdb-add-index.sh",
+  "short_name": "gdb-add-index",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/20",
+  "posix_compliant": false,
+  "line_count": 112,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/contrib/expect-read1.sh",
+  "short_name": "expect-read1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/21",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/contrib/ari/update-web-ari.sh",
+  "short_name": "update-web-ari",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/22",
+  "posix_compliant": false,
+  "line_count": 730,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/contrib/ari/gdb_ari.sh",
+  "short_name": "gdb_ari",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/23",
+  "posix_compliant": true,
+  "line_count": 994,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/contrib/ari/create-web-ari-in-src.sh",
+  "short_name": "create-web-ari-in-src",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/24",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/contrib/ari/gdb_find.sh",
+  "short_name": "gdb_find",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/25",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/contrib/cc-with-tweaks.sh",
+  "short_name": "cc-with-tweaks",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/26",
+  "posix_compliant": false,
+  "line_count": 148,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/gdb_indent.sh",
+  "short_name": "gdb_indent",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/27",
+  "posix_compliant": true,
+  "line_count": 67,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/gdb_buildall.sh",
+  "short_name": "gdb_buildall",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/28",
+  "posix_compliant": true,
+  "line_count": 184,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/po/gdbtext",
+  "short_name": "gdbtext",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/29",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/doc/filter-for-doxygen",
+  "short_name": "filter-for-doxygen",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/30",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gdb/syscalls/update-freebsd.sh",
+  "short_name": "update-freebsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/31",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ltmain.sh",
+  "short_name": "ltmain",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/32",
+  "posix_compliant": false,
+  "line_count": 6494,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/bfd/development.sh",
+  "short_name": "development",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/33",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/genscrba.sh",
+  "short_name": "genscrba",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/34",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386pe.sh",
+  "short_name": "i386pe",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/35",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avr5.sh",
+  "short_name": "avr5",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/36",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_tic6x_elf_le.sh",
+  "short_name": "elf32_tic6x_elf_le",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/37",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/arcelf_prof.sh",
+  "short_name": "arcelf_prof",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/38",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/pdp11.sh",
+  "short_name": "pdp11",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/39",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m68kelfnbsd.sh",
+  "short_name": "m68kelfnbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/40",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/pc532macha.sh",
+  "short_name": "pc532macha",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/41",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/ppcpe.sh",
+  "short_name": "ppcpe",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/42",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shpe.sh",
+  "short_name": "shpe",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/43",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/arclinux_nps.sh",
+  "short_name": "arclinux_nps",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/44",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300helf_linux.sh",
+  "short_name": "h8300helf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/45",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_tic6x_le.sh",
+  "short_name": "elf32_tic6x_le",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/46",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_i386_sol2.sh",
+  "short_name": "elf_i386_sol2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/47",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/dynamic_undefined_weak.sh",
+  "short_name": "dynamic_undefined_weak",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/48",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32epiphany.sh",
+  "short_name": "elf32epiphany",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/49",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shlelf_linux.sh",
+  "short_name": "shlelf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/50",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ip2k.sh",
+  "short_name": "elf32ip2k",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/51",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64_aix.sh",
+  "short_name": "elf64_aix",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/52",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32mb_linux.sh",
+  "short_name": "elf32mb_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/53",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32tilepro.sh",
+  "short_name": "elf32tilepro",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/54",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/pjlelf.sh",
+  "short_name": "pjlelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/55",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ppcsim.sh",
+  "short_name": "elf32ppcsim",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/56",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/tic30aout.sh",
+  "short_name": "tic30aout",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/57",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ltsmip_fbsd.sh",
+  "short_name": "elf32ltsmip_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/58",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/ppcmacos.sh",
+  "short_name": "ppcmacos",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/59",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_i386_be.sh",
+  "short_name": "elf_i386_be",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/60",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32mt.sh",
+  "short_name": "elf32mt",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/61",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avr1.sh",
+  "short_name": "avr1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/62",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shelf_uclinux.sh",
+  "short_name": "shelf_uclinux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/63",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32mbel_linux.sh",
+  "short_name": "elf32mbel_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/64",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300sxelf_linux.sh",
+  "short_name": "h8300sxelf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/65",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/tic80coff.sh",
+  "short_name": "tic80coff",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/66",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32iq2000.sh",
+  "short_name": "elf32iq2000",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/67",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32elmip.sh",
+  "short_name": "elf32elmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/68",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32bmip.sh",
+  "short_name": "elf32bmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/69",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64bpf.sh",
+  "short_name": "elf64bpf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/70",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32epiphany_4x4.sh",
+  "short_name": "elf32epiphany_4x4",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/71",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64btsmip_fbsd.sh",
+  "short_name": "elf64btsmip_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/72",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelf_linux_fdpiceabi.sh",
+  "short_name": "armelf_linux_fdpiceabi",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/73",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64_ia64_fbsd.sh",
+  "short_name": "elf64_ia64_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/74",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/cskyelf.sh",
+  "short_name": "cskyelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/75",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32vax.sh",
+  "short_name": "elf32vax",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/76",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shelf_linux.sh",
+  "short_name": "shelf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/77",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelfb_nacl.sh",
+  "short_name": "armelfb_nacl",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/78",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/mmo.sh",
+  "short_name": "mmo",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/79",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/pruelf.sh",
+  "short_name": "pruelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/80",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armsymbian.sh",
+  "short_name": "armsymbian",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/81",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m68hc11elfb.sh",
+  "short_name": "m68hc11elfb",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/82",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/score3_elf.sh",
+  "short_name": "score3_elf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/83",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64alpha.sh",
+  "short_name": "elf64alpha",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/84",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/ns32knbsd.sh",
+  "short_name": "ns32knbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/85",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/alpha.sh",
+  "short_name": "alpha",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/86",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lriscv_ilp32.sh",
+  "short_name": "elf32lriscv_ilp32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/87",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64ltsmip.sh",
+  "short_name": "elf64ltsmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/88",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300elf.sh",
+  "short_name": "h8300elf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/89",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lppcsim.sh",
+  "short_name": "elf32lppcsim",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/90",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aixppc.sh",
+  "short_name": "aixppc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/91",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_s390.sh",
+  "short_name": "elf_s390",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/92",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32btsmip.sh",
+  "short_name": "elf32btsmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/93",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32crx.sh",
+  "short_name": "elf32crx",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/94",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32btsmipn32.sh",
+  "short_name": "elf32btsmipn32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/95",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32xc16xl.sh",
+  "short_name": "elf32xc16xl",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/96",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_x86_64_nacl.sh",
+  "short_name": "elf_x86_64_nacl",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/97",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/z8002.sh",
+  "short_name": "z8002",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/98",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelfb_linux_eabi.sh",
+  "short_name": "armelfb_linux_eabi",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/99",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aixrs6.sh",
+  "short_name": "aixrs6",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/100",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lriscv-defs.sh",
+  "short_name": "elf32lriscv-defs",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/101",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avr4.sh",
+  "short_name": "avr4",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/102",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32bmipn32-defs.sh",
+  "short_name": "elf32bmipn32-defs",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/103",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_nacl.sh",
+  "short_name": "elf_nacl",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/104",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/d30v_o.sh",
+  "short_name": "d30v_o",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/105",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_i386_fbsd.sh",
+  "short_name": "elf_i386_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/106",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_x86_64_nacl.sh",
+  "short_name": "elf32_x86_64_nacl",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/107",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_i386_vxworks.sh",
+  "short_name": "elf_i386_vxworks",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/108",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelf_nbsd.sh",
+  "short_name": "armelf_nbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/109",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_k1om_fbsd.sh",
+  "short_name": "elf_k1om_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/110",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_tic6x_linux_be.sh",
+  "short_name": "elf32_tic6x_linux_be",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/111",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/pjelf.sh",
+  "short_name": "pjelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/112",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64elfb.sh",
+  "short_name": "aarch64elfb",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/113",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_dlx.sh",
+  "short_name": "elf32_dlx",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/114",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shelf_nto.sh",
+  "short_name": "shelf_nto",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/115",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64lriscv_lp64f.sh",
+  "short_name": "elf64lriscv_lp64f",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/116",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shelf_fd.sh",
+  "short_name": "shelf_fd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/117",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armpe.sh",
+  "short_name": "armpe",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/118",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64lppc.sh",
+  "short_name": "elf64lppc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/119",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avrxmega3.sh",
+  "short_name": "avrxmega3",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/120",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32cr16.sh",
+  "short_name": "elf32cr16",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/121",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/tic3xcoff.sh",
+  "short_name": "tic3xcoff",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/122",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/moxiebox.sh",
+  "short_name": "moxiebox",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/123",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64elf.sh",
+  "short_name": "aarch64elf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/124",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shelf_nbsd.sh",
+  "short_name": "shelf_nbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/125",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/nios2linux.sh",
+  "short_name": "nios2linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/126",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_l1om_fbsd.sh",
+  "short_name": "elf_l1om_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/127",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/hppa64linux.sh",
+  "short_name": "hppa64linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/128",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300snelf.sh",
+  "short_name": "h8300snelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/129",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64rdos.sh",
+  "short_name": "elf64rdos",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/130",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/xgateelf.sh",
+  "short_name": "xgateelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/131",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64lriscv.sh",
+  "short_name": "elf64lriscv",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/132",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelf_fuchsia.sh",
+  "short_name": "armelf_fuchsia",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/133",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32tilegx_be.sh",
+  "short_name": "elf32tilegx_be",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/134",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32mcore.sh",
+  "short_name": "elf32mcore",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/135",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32tilegx.sh",
+  "short_name": "elf32tilegx",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/136",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ppcvxworks.sh",
+  "short_name": "elf32ppcvxworks",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/137",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64_sparc_fbsd.sh",
+  "short_name": "elf64_sparc_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/138",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64_ia64_vms.sh",
+  "short_name": "elf64_ia64_vms",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/139",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelfb_nbsd.sh",
+  "short_name": "armelfb_nbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/140",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/solaris2.sh",
+  "short_name": "solaris2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/141",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386aout.sh",
+  "short_name": "i386aout",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/142",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avrxmega7.sh",
+  "short_name": "avrxmega7",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/143",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/extern_protected_data.sh",
+  "short_name": "extern_protected_data",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/144",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/call_nop.sh",
+  "short_name": "call_nop",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/145",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m32rlelf_linux.sh",
+  "short_name": "m32rlelf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/146",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/z80.sh",
+  "short_name": "z80",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/147",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ppclinux.sh",
+  "short_name": "elf32ppclinux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/148",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/arcv2elfx.sh",
+  "short_name": "arcv2elfx",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/149",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/v850_rh850.sh",
+  "short_name": "v850_rh850",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/150",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/nds32belf16m.sh",
+  "short_name": "nds32belf16m",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/151",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32metag.sh",
+  "short_name": "elf32metag",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/152",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64linux32b.sh",
+  "short_name": "aarch64linux32b",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/153",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386beos.sh",
+  "short_name": "i386beos",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/154",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64ppc.sh",
+  "short_name": "elf64ppc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/155",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/reloc_overflow.sh",
+  "short_name": "reloc_overflow",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/156",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32rx.sh",
+  "short_name": "elf32rx",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/157",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelfb_linux.sh",
+  "short_name": "armelfb_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/158",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64fbsdb.sh",
+  "short_name": "aarch64fbsdb",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/159",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_x86_64.sh",
+  "short_name": "elf_x86_64",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/160",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386pep.sh",
+  "short_name": "i386pep",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/161",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ppccommon.sh",
+  "short_name": "elf32ppccommon",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/162",
+  "posix_compliant": false,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avrxmega6.sh",
+  "short_name": "avrxmega6",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/163",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32mep.sh",
+  "short_name": "elf32mep",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/164",
+  "posix_compliant": false,
+  "line_count": 56,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32xc16x.sh",
+  "short_name": "elf32xc16x",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/165",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/arc-nps.sh",
+  "short_name": "arc-nps",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/166",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelf_linux.sh",
+  "short_name": "armelf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/167",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/tic30coff.sh",
+  "short_name": "tic30coff",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/168",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64_sparc.sh",
+  "short_name": "elf64_sparc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/169",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/hppalinux.sh",
+  "short_name": "hppalinux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/170",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32elmipvxworks.sh",
+  "short_name": "elf32elmipvxworks",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/171",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/arc-endianness.sh",
+  "short_name": "arc-endianness",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/172",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32frvfd.sh",
+  "short_name": "elf32frvfd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/173",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lriscv_ilp32f.sh",
+  "short_name": "elf32lriscv_ilp32f",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/174",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m9s12zelf.sh",
+  "short_name": "m9s12zelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/175",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shlelf.sh",
+  "short_name": "shlelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/176",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/nds32belf_linux.sh",
+  "short_name": "nds32belf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/177",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32mipswindiss.sh",
+  "short_name": "elf32mipswindiss",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/178",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64fbsd.sh",
+  "short_name": "aarch64fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/179",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386lynx.sh",
+  "short_name": "i386lynx",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/180",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32bmipn32.sh",
+  "short_name": "elf32bmipn32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/181",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/score7_elf.sh",
+  "short_name": "score7_elf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/182",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avrxmega2.sh",
+  "short_name": "avrxmega2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/183",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ft32.sh",
+  "short_name": "elf32ft32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/184",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64_sparc_sol2.sh",
+  "short_name": "elf64_sparc_sol2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/185",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/d30v_e.sh",
+  "short_name": "d30v_e",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/186",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shlelf_vxworks.sh",
+  "short_name": "shlelf_vxworks",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/187",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shlelf_nto.sh",
+  "short_name": "shlelf_nto",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/188",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ppc_fbsd.sh",
+  "short_name": "elf32ppc_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/189",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/arcelf.sh",
+  "short_name": "arcelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/190",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64alpha_fbsd.sh",
+  "short_name": "elf64alpha_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/191",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/nds32elf_linux.sh",
+  "short_name": "nds32elf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/192",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelf_vxworks.sh",
+  "short_name": "armelf_vxworks",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/193",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m32relf.sh",
+  "short_name": "m32relf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/194",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386moss.sh",
+  "short_name": "i386moss",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/195",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/alphavms.sh",
+  "short_name": "alphavms",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/196",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelf_nacl.sh",
+  "short_name": "armelf_nacl",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/197",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lr5900.sh",
+  "short_name": "elf32lr5900",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/198",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avrxmega5.sh",
+  "short_name": "avrxmega5",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/199",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32b4300.sh",
+  "short_name": "elf32b4300",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/200",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelfb_linux_fdpiceabi.sh",
+  "short_name": "armelfb_linux_fdpiceabi",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/201",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64lriscv_lp64.sh",
+  "short_name": "elf64lriscv_lp64",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/202",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32moxie.sh",
+  "short_name": "elf32moxie",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/203",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300self_linux.sh",
+  "short_name": "h8300self_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/204",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32am33lin.sh",
+  "short_name": "elf32am33lin",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/205",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32m32c.sh",
+  "short_name": "elf32m32c",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/206",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ppc.sh",
+  "short_name": "elf32ppc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/207",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386bsd.sh",
+  "short_name": "i386bsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/208",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shelf.sh",
+  "short_name": "shelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/209",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/crisaout.sh",
+  "short_name": "crisaout",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/210",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/tic3xcoff_onchip.sh",
+  "short_name": "tic3xcoff_onchip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/211",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386pe_posix.sh",
+  "short_name": "i386pe_posix",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/212",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32visium.sh",
+  "short_name": "elf32visium",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/213",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ppcnto.sh",
+  "short_name": "elf32ppcnto",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/214",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/msp430elf.sh",
+  "short_name": "msp430elf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/215",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32microblazeel.sh",
+  "short_name": "elf32microblazeel",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/216",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avrxmega1.sh",
+  "short_name": "avrxmega1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/217",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_x86_64.sh",
+  "short_name": "elf32_x86_64",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/218",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_l1om.sh",
+  "short_name": "elf_l1om",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/219",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_spu.sh",
+  "short_name": "elf32_spu",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/220",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32xstormy16.sh",
+  "short_name": "elf32xstormy16",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/221",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64ppc_fbsd.sh",
+  "short_name": "elf64ppc_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/222",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/vanilla.sh",
+  "short_name": "vanilla",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/223",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelfb_fbsd.sh",
+  "short_name": "armelfb_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/224",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64mmix.sh",
+  "short_name": "elf64mmix",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/225",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32xtensa.sh",
+  "short_name": "elf32xtensa",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/226",
+  "posix_compliant": false,
+  "line_count": 46,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300elf_linux.sh",
+  "short_name": "h8300elf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/227",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lr5900n32.sh",
+  "short_name": "elf32lr5900n32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/228",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/hppanbsd.sh",
+  "short_name": "hppanbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/229",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelf.sh",
+  "short_name": "armelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/230",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_x86_64_sol2.sh",
+  "short_name": "elf_x86_64_sol2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/231",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avr51.sh",
+  "short_name": "avr51",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/232",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64lriscv-defs.sh",
+  "short_name": "elf64lriscv-defs",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/233",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64linuxb.sh",
+  "short_name": "aarch64linuxb",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/234",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avrtiny.sh",
+  "short_name": "avrtiny",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/235",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/plt_unwind.sh",
+  "short_name": "plt_unwind",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/236",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32rl78.sh",
+  "short_name": "elf32rl78",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/237",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ltsmipn32_fbsd.sh",
+  "short_name": "elf32ltsmipn32_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/238",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avr25.sh",
+  "short_name": "avr25",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/239",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shelf_vxworks.sh",
+  "short_name": "shelf_vxworks",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/240",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_x86_64_fbsd.sh",
+  "short_name": "elf_x86_64_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/241",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armnto.sh",
+  "short_name": "armnto",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/242",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ltsmip.sh",
+  "short_name": "elf32ltsmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/243",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_iamcu.sh",
+  "short_name": "elf_iamcu",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/244",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64ltsmip_fbsd.sh",
+  "short_name": "elf64ltsmip_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/245",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelf_linux_eabi.sh",
+  "short_name": "armelf_linux_eabi",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/246",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32btsmip_fbsd.sh",
+  "short_name": "elf32btsmip_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/247",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32bfin.sh",
+  "short_name": "elf32bfin",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/248",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/arcv2elf.sh",
+  "short_name": "arcv2elf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/249",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ppcwindiss.sh",
+  "short_name": "elf32ppcwindiss",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/250",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32iq10.sh",
+  "short_name": "elf32iq10",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/251",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lppcnto.sh",
+  "short_name": "elf32lppcnto",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/252",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lppclinux.sh",
+  "short_name": "elf32lppclinux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/253",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64hppa.sh",
+  "short_name": "elf64hppa",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/254",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m68hc12elf.sh",
+  "short_name": "m68hc12elf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/255",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64btsmip.sh",
+  "short_name": "elf64btsmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/256",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300self.sh",
+  "short_name": "h8300self",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/257",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avr35.sh",
+  "short_name": "avr35",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/258",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386msdos.sh",
+  "short_name": "i386msdos",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/259",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300helf.sh",
+  "short_name": "h8300helf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/260",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avrxmega4.sh",
+  "short_name": "avrxmega4",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/261",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32l4300.sh",
+  "short_name": "elf32l4300",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/262",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_i386.sh",
+  "short_name": "elf_i386",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/263",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/hppaelf.sh",
+  "short_name": "hppaelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/264",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m68hc12elfb.sh",
+  "short_name": "m68hc12elfb",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/265",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/d10velf.sh",
+  "short_name": "d10velf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/266",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64bmip.sh",
+  "short_name": "elf64bmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/267",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lm32.sh",
+  "short_name": "elf32lm32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/268",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/arm_wince_pe.sh",
+  "short_name": "arm_wince_pe",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/269",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/cskyelf_linux.sh",
+  "short_name": "cskyelf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/270",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32bfinfd.sh",
+  "short_name": "elf32bfinfd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/271",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64cloudabi.sh",
+  "short_name": "aarch64cloudabi",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/272",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64alpha_nbsd.sh",
+  "short_name": "elf64alpha_nbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/273",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avr31.sh",
+  "short_name": "avr31",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/274",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64bmip-defs.sh",
+  "short_name": "elf64bmip-defs",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/275",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_fbsd.sh",
+  "short_name": "elf_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/276",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_i386_nacl.sh",
+  "short_name": "elf_i386_nacl",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/277",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shl.sh",
+  "short_name": "shl",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/278",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32or1k_linux.sh",
+  "short_name": "elf32or1k_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/279",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32microblaze.sh",
+  "short_name": "elf32microblaze",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/280",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/sh.sh",
+  "short_name": "sh",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/281",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shlelf_nbsd.sh",
+  "short_name": "shlelf_nbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/282",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/nios2elf.sh",
+  "short_name": "nios2elf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/283",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelfb.sh",
+  "short_name": "armelfb",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/284",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300sxnelf.sh",
+  "short_name": "h8300sxnelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/285",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avr3.sh",
+  "short_name": "avr3",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/286",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/criself.sh",
+  "short_name": "criself",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/287",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_sparc_sol2.sh",
+  "short_name": "elf32_sparc_sol2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/288",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m68kelf.sh",
+  "short_name": "m68kelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/289",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64tilegx.sh",
+  "short_name": "elf64tilegx",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/290",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m32relf_linux.sh",
+  "short_name": "m32relf_linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/291",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/hppaobsd.sh",
+  "short_name": "hppaobsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/292",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386nto.sh",
+  "short_name": "i386nto",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/293",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_i386_ldso.sh",
+  "short_name": "elf_i386_ldso",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/294",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_sparc_vxworks.sh",
+  "short_name": "elf32_sparc_vxworks",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/295",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lriscv.sh",
+  "short_name": "elf32lriscv",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/296",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/z8001.sh",
+  "short_name": "z8001",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/297",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64cloudabib.sh",
+  "short_name": "aarch64cloudabib",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/298",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ltsmipn32.sh",
+  "short_name": "elf32ltsmipn32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/299",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32xc16xs.sh",
+  "short_name": "elf32xc16xs",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/300",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/d30velf.sh",
+  "short_name": "d30velf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/301",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/tic54xcoff.sh",
+  "short_name": "tic54xcoff",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/302",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/tic4xcoff.sh",
+  "short_name": "tic4xcoff",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/303",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_tic6x_linux_le.sh",
+  "short_name": "elf32_tic6x_linux_le",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/304",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/msp430X.sh",
+  "short_name": "msp430X",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/305",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/vxworks.sh",
+  "short_name": "vxworks",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/306",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m32rlelf.sh",
+  "short_name": "m32rlelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/307",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/mn10200.sh",
+  "short_name": "mn10200",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/308",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lsmip.sh",
+  "short_name": "elf32lsmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/309",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32frv.sh",
+  "short_name": "elf32frv",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/310",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32btsmipn32_fbsd.sh",
+  "short_name": "elf32btsmipn32_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/311",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ebmipvxworks.sh",
+  "short_name": "elf32ebmipvxworks",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/312",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300sxelf.sh",
+  "short_name": "h8300sxelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/313",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/arclinux_prof.sh",
+  "short_name": "arclinux_prof",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/314",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/m68hc11elf.sh",
+  "short_name": "m68hc11elf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/315",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_sparc.sh",
+  "short_name": "elf32_sparc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/316",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/nds32elf16m.sh",
+  "short_name": "nds32elf16m",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/317",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avr6.sh",
+  "short_name": "avr6",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/318",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/cet.sh",
+  "short_name": "cet",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/319",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelf_phoenix.sh",
+  "short_name": "armelf_phoenix",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/320",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64_ia64.sh",
+  "short_name": "elf64_ia64",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/321",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/crislinux.sh",
+  "short_name": "crislinux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/322",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelfb_fuchsia.sh",
+  "short_name": "armelfb_fuchsia",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/323",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lppc.sh",
+  "short_name": "elf32lppc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/324",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64tilegx_be.sh",
+  "short_name": "elf64tilegx_be",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/325",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_k1om.sh",
+  "short_name": "elf_k1om",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/326",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/mn10300.sh",
+  "short_name": "mn10300",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/327",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/nds32belf.sh",
+  "short_name": "nds32belf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/328",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/ppclynx.sh",
+  "short_name": "ppclynx",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/329",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64elf32b.sh",
+  "short_name": "aarch64elf32b",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/330",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/vaxnbsd.sh",
+  "short_name": "vaxnbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/331",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_tic6x_be.sh",
+  "short_name": "elf32_tic6x_be",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/332",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/h8300hnelf.sh",
+  "short_name": "h8300hnelf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/333",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/shlelf_fd.sh",
+  "short_name": "shlelf_fd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/334",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aix5rs6.sh",
+  "short_name": "aix5rs6",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/335",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64linux32.sh",
+  "short_name": "aarch64linux32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/336",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aix5ppc.sh",
+  "short_name": "aix5ppc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/337",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32bsmip.sh",
+  "short_name": "elf32bsmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/338",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/nds32elf.sh",
+  "short_name": "nds32elf",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/339",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64elf32.sh",
+  "short_name": "aarch64elf32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/340",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32_tic6x_elf_be.sh",
+  "short_name": "elf32_tic6x_elf_be",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/341",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/arclinux.sh",
+  "short_name": "arclinux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/342",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/v850.sh",
+  "short_name": "v850",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/343",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32fr30.sh",
+  "short_name": "elf32fr30",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/344",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32or1k.sh",
+  "short_name": "elf32or1k",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/345",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/avr2.sh",
+  "short_name": "avr2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/346",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/armelf_fbsd.sh",
+  "short_name": "armelf_fbsd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/347",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32ebmip.sh",
+  "short_name": "elf32ebmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/348",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/aarch64linux.sh",
+  "short_name": "aarch64linux",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/349",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf64_s390.sh",
+  "short_name": "elf64_s390",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/350",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32cr16c.sh",
+  "short_name": "elf32cr16c",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/351",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lmip.sh",
+  "short_name": "elf32lmip",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/352",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/i386go32.sh",
+  "short_name": "i386go32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/353",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf_x86_64_cloudabi.sh",
+  "short_name": "elf_x86_64_cloudabi",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/354",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/mcorepe.sh",
+  "short_name": "mcorepe",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/355",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/emulparams/elf32lm32fd.sh",
+  "short_name": "elf32lm32fd",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/356",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/ld/genscripts.sh",
+  "short_name": "genscripts",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/357",
+  "posix_compliant": true,
+  "line_count": 447,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/readline/support/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/358",
+  "posix_compliant": true,
+  "line_count": 152,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/binutils/embedspu.sh",
+  "short_name": "embedspu",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/359",
+  "posix_compliant": false,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/binutils/ranlib.sh",
+  "short_name": "ranlib",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/360",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/binutils/testsuite/binutils-all/windres/msupdate",
+  "short_name": "msupdate",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/361",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/binutils/sanity.sh",
+  "short_name": "sanity",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/362",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/src-release.sh",
+  "short_name": "src-release",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/363",
+  "posix_compliant": false,
+  "line_count": 305,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/zlib/os400/make.sh",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/364",
+  "posix_compliant": true,
+  "line_count": 206,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/contrib/dg-extract-results.sh",
+  "short_name": "dg-extract-results",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/365",
+  "posix_compliant": false,
+  "line_count": 359,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/eh_test_2.sh",
+  "short_name": "eh_test_2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/366",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/split_x86_64.sh",
+  "short_name": "split_x86_64",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/367",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/text_section_grouping.sh",
+  "short_name": "text_section_grouping",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/368",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_fix_1176.sh",
+  "short_name": "arm_fix_1176",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/369",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/aarch64_relocs.sh",
+  "short_name": "aarch64_relocs",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/370",
+  "posix_compliant": true,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/i386_mov_to_lea.sh",
+  "short_name": "i386_mov_to_lea",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/371",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_7.sh",
+  "short_name": "script_test_7",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/372",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_farcall_thumb_arm.sh",
+  "short_name": "arm_farcall_thumb_arm",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/373",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_farcall_thumb_thumb.sh",
+  "short_name": "arm_farcall_thumb_thumb",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/374",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/missing_key_func.sh",
+  "short_name": "missing_key_func",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/375",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_attr_merge.sh",
+  "short_name": "arm_attr_merge",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/376",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/empty_command_line_test.sh",
+  "short_name": "empty_command_line_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/377",
+  "posix_compliant": true,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gnu_property_test.sh",
+  "short_name": "gnu_property_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/378",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_3.sh",
+  "short_name": "script_test_3",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/379",
+  "posix_compliant": true,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_pr23409.sh",
+  "short_name": "ver_test_pr23409",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/380",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_1.sh",
+  "short_name": "plugin_test_1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/381",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/bnd_ifunc_2.sh",
+  "short_name": "bnd_ifunc_2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/382",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gc_tls_test.sh",
+  "short_name": "gc_tls_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/383",
+  "posix_compliant": true,
+  "line_count": 10,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_final_layout.sh",
+  "short_name": "plugin_final_layout",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/384",
+  "posix_compliant": true,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_pr22868.sh",
+  "short_name": "plugin_pr22868",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/385",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_farcall_arm_thumb.sh",
+  "short_name": "arm_farcall_arm_thumb",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/386",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/pr23016_1.sh",
+  "short_name": "pr23016_1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/387",
+  "posix_compliant": true,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ifuncmod1.sh",
+  "short_name": "ifuncmod1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/388",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_abs_global.sh",
+  "short_name": "arm_abs_global",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/389",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/x86_64_mov_to_lea.sh",
+  "short_name": "x86_64_mov_to_lea",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/390",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/icf_keep_unique_test.sh",
+  "short_name": "icf_keep_unique_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/391",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/dwp_test_1.sh",
+  "short_name": "dwp_test_1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/392",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/bnd_plt_1.sh",
+  "short_name": "bnd_plt_1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/393",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_8.sh",
+  "short_name": "ver_test_8",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/394",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_tls.sh",
+  "short_name": "plugin_test_tls",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/395",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/split_s390.sh",
+  "short_name": "split_s390",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/396",
+  "posix_compliant": true,
+  "line_count": 80,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_6.sh",
+  "short_name": "script_test_6",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/397",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_4.sh",
+  "short_name": "plugin_test_4",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/398",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/icf_test_pr21066.sh",
+  "short_name": "icf_test_pr21066",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/399",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/icf_sht_rel_addend_test.sh",
+  "short_name": "icf_sht_rel_addend_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/400",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/dynamic_list.sh",
+  "short_name": "dynamic_list",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/401",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/x32_overflow_pc32.sh",
+  "short_name": "x32_overflow_pc32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/402",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/tls_pie_test.sh",
+  "short_name": "tls_pie_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/403",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_15a.sh",
+  "short_name": "script_test_15a",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/404",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/icf_test.sh",
+  "short_name": "icf_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/405",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/weak_as_needed.sh",
+  "short_name": "weak_as_needed",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/406",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gc_comdat_test.sh",
+  "short_name": "gc_comdat_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/407",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_target1_rel.sh",
+  "short_name": "arm_target1_rel",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/408",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_10.sh",
+  "short_name": "ver_test_10",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/409",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_7.sh",
+  "short_name": "ver_test_7",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/410",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/merge_string_literals.sh",
+  "short_name": "merge_string_literals",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/411",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_pr16504.sh",
+  "short_name": "ver_test_pr16504",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/412",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gdb_index_test_comm.sh",
+  "short_name": "gdb_index_test_comm",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/413",
+  "posix_compliant": true,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gdb_index_test_3.sh",
+  "short_name": "gdb_index_test_3",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/414",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_12.sh",
+  "short_name": "plugin_test_12",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/415",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/keep_text_section_prefix.sh",
+  "short_name": "keep_text_section_prefix",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/416",
+  "posix_compliant": true,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_9.sh",
+  "short_name": "script_test_9",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/417",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_14.sh",
+  "short_name": "ver_test_14",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/418",
+  "posix_compliant": true,
+  "line_count": 17,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_farcall_arm_arm_be8.sh",
+  "short_name": "arm_farcall_arm_arm_be8",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/419",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/memory_test.sh",
+  "short_name": "memory_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/420",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gdb_index_test_2.sh",
+  "short_name": "gdb_index_test_2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/421",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_10.sh",
+  "short_name": "script_test_10",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/422",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_8.sh",
+  "short_name": "script_test_8",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/423",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_target2_abs.sh",
+  "short_name": "arm_target2_abs",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/424",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/pr18689.sh",
+  "short_name": "pr18689",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/425",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_wrap_symbols.sh",
+  "short_name": "plugin_test_wrap_symbols",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/426",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_2.sh",
+  "short_name": "ver_test_2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/427",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/no_version_test.sh",
+  "short_name": "no_version_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/428",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_farcall_thumb_thumb_be8.sh",
+  "short_name": "arm_farcall_thumb_thumb_be8",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/429",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/aarch64_tlsdesc.sh",
+  "short_name": "aarch64_tlsdesc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/430",
+  "posix_compliant": true,
+  "line_count": 78,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_14.sh",
+  "short_name": "script_test_14",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/431",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/section_sorting_name.sh",
+  "short_name": "section_sorting_name",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/432",
+  "posix_compliant": true,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/pr14265.sh",
+  "short_name": "pr14265",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/433",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_cortex_a8.sh",
+  "short_name": "arm_cortex_a8",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/434",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/x86_64_indirect_call_to_direct.sh",
+  "short_name": "x86_64_indirect_call_to_direct",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/435",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_branch_in_range.sh",
+  "short_name": "arm_branch_in_range",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/436",
+  "posix_compliant": true,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_5.sh",
+  "short_name": "ver_test_5",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/437",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ehdr_start_test_4.sh",
+  "short_name": "ehdr_start_test_4",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/438",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/discard_locals_test.sh",
+  "short_name": "discard_locals_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/439",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/incremental_test.sh",
+  "short_name": "incremental_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/440",
+  "posix_compliant": true,
+  "line_count": 49,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/defsym_test.sh",
+  "short_name": "defsym_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/441",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/icf_safe_pie_test.sh",
+  "short_name": "icf_safe_pie_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/442",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/final_layout.sh",
+  "short_name": "final_layout",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/443",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_10.sh",
+  "short_name": "plugin_test_10",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/444",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gdb_index_test_1.sh",
+  "short_name": "gdb_index_test_1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/445",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_13.sh",
+  "short_name": "script_test_13",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/446",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/icf_safe_test.sh",
+  "short_name": "icf_safe_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/447",
+  "posix_compliant": true,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_1.sh",
+  "short_name": "ver_test_1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/448",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/aarch64_reloc_none.sh",
+  "short_name": "aarch64_reloc_none",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/449",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_branch_out_of_range.sh",
+  "short_name": "arm_branch_out_of_range",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/450",
+  "posix_compliant": true,
+  "line_count": 83,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_target2_got_rel.sh",
+  "short_name": "arm_target2_got_rel",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/451",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_15c.sh",
+  "short_name": "script_test_15c",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/452",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_matching_test.sh",
+  "short_name": "ver_matching_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/453",
+  "posix_compliant": true,
+  "line_count": 49,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/split_i386.sh",
+  "short_name": "split_i386",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/454",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/weak_plt.sh",
+  "short_name": "weak_plt",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/455",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_exidx_test.sh",
+  "short_name": "arm_exidx_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/456",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_15b.sh",
+  "short_name": "script_test_15b",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/457",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gdb_index_test_4.sh",
+  "short_name": "gdb_index_test_4",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/458",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/dyn_weak_ref.sh",
+  "short_name": "dyn_weak_ref",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/459",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_unaligned_reloc.sh",
+  "short_name": "arm_unaligned_reloc",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/460",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_13.sh",
+  "short_name": "ver_test_13",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/461",
+  "posix_compliant": true,
+  "line_count": 27,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/ver_test_4.sh",
+  "short_name": "ver_test_4",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/462",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_layout_with_alignment.sh",
+  "short_name": "plugin_layout_with_alignment",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/463",
+  "posix_compliant": true,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/pr20717.sh",
+  "short_name": "pr20717",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/464",
+  "posix_compliant": true,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_farcall_arm_arm.sh",
+  "short_name": "arm_farcall_arm_arm",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/465",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_11.sh",
+  "short_name": "plugin_test_11",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/466",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/split_x32.sh",
+  "short_name": "split_x32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/467",
+  "posix_compliant": true,
+  "line_count": 24,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/pr23016_2.sh",
+  "short_name": "pr23016_2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/468",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_target1_abs.sh",
+  "short_name": "arm_target1_abs",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/469",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/pr12826.sh",
+  "short_name": "pr12826",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/470",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/icf_string_merge_test.sh",
+  "short_name": "icf_string_merge_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/471",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/two_file_shared.sh",
+  "short_name": "two_file_shared",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/472",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/text_unlikely_segment.sh",
+  "short_name": "text_unlikely_segment",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/473",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/icf_safe_so_test.sh",
+  "short_name": "icf_safe_so_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/474",
+  "posix_compliant": true,
+  "line_count": 72,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_3.sh",
+  "short_name": "plugin_test_3",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/475",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_fix_v4bx.sh",
+  "short_name": "arm_fix_v4bx",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/476",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/strong_ref_weak_def.sh",
+  "short_name": "strong_ref_weak_def",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/477",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/icf_preemptible_functions_test.sh",
+  "short_name": "icf_preemptible_functions_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/478",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/exclude_libs_test.sh",
+  "short_name": "exclude_libs_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/479",
+  "posix_compliant": true,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/dwp_test_2.sh",
+  "short_name": "dwp_test_2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/480",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/file_in_many_sections_test.sh",
+  "short_name": "file_in_many_sections_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/481",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/relro_test.sh",
+  "short_name": "relro_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/482",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gc_dynamic_list_test.sh",
+  "short_name": "gc_dynamic_list_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/483",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_5.sh",
+  "short_name": "script_test_5",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/484",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_7.sh",
+  "short_name": "plugin_test_7",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/485",
+  "posix_compliant": true,
+  "line_count": 29,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_start_lib.sh",
+  "short_name": "plugin_test_start_lib",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/486",
+  "posix_compliant": true,
+  "line_count": 21,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/x86_64_overflow_pc32.sh",
+  "short_name": "x86_64_overflow_pc32",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/487",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/arm_target2_rel.sh",
+  "short_name": "arm_target2_rel",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/488",
+  "posix_compliant": true,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/hidden_test.sh",
+  "short_name": "hidden_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/489",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/undef_symbol.sh",
+  "short_name": "undef_symbol",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/490",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gdb_index_test_2_gabi.sh",
+  "short_name": "gdb_index_test_2_gabi",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/491",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/script_test_4.sh",
+  "short_name": "script_test_4",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/492",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_6.sh",
+  "short_name": "plugin_test_6",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/493",
+  "posix_compliant": true,
+  "line_count": 28,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_defsym.sh",
+  "short_name": "plugin_test_defsym",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/494",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/copy_test_protected.sh",
+  "short_name": "copy_test_protected",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/495",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/retain_symbols_file_test.sh",
+  "short_name": "retain_symbols_file_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/496",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/gc_orphan_section_test.sh",
+  "short_name": "gc_orphan_section_test",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/497",
+  "posix_compliant": true,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/bnd_ifunc_1.sh",
+  "short_name": "bnd_ifunc_1",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/498",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/pr21430.sh",
+  "short_name": "pr21430",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/499",
+  "posix_compliant": true,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/plugin_test_2.sh",
+  "short_name": "plugin_test_2",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/500",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gold/testsuite/debug_msg.sh",
+  "short_name": "debug_msg",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/501",
+  "posix_compliant": true,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/symlink-tree",
+  "short_name": "symlink-tree",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/502",
+  "posix_compliant": true,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/mkdep",
+  "short_name": "mkdep",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/503",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/move-if-change",
+  "short_name": "move-if-change",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/504",
+  "posix_compliant": true,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/gnulib/update-gnulib.sh",
+  "short_name": "update-gnulib",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/505",
+  "posix_compliant": false,
+  "line_count": 119,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/sim/testsuite/sim/bfin/run-tests.sh",
+  "short_name": "run-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/506",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/sim/common/cgen.sh",
+  "short_name": "cgen",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/507",
+  "posix_compliant": false,
+  "line_count": 193,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/sim/common/genmloop.sh",
+  "short_name": "genmloop",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/508",
+  "posix_compliant": false,
+  "line_count": 809,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/sim/common/create-version.sh",
+  "short_name": "create-version",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/509",
+  "posix_compliant": true,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/sim/common/gentvals.sh",
+  "short_name": "gentvals",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/510",
+  "posix_compliant": true,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/sim/common/gennltvals.sh",
+  "short_name": "gennltvals",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/511",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/sim/igen/compare_igen_models",
+  "short_name": "compare_igen_models",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/512",
+  "posix_compliant": true,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/murachue/binutils-gdb.git",
+  "relative_path": "binutils-gdb/opcodes/cgen.sh",
+  "short_name": "cgen",
+  "timestamp": "10/22/2024",
+  "identifier": "binutils_zAIsQg/513",
+  "posix_compliant": false,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

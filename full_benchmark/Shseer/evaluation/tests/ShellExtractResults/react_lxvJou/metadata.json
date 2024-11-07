@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/react-native-device-info/react-native-device-info.git",
+  "relative_path": "react-native-device-info/refresh-example.sh",
+  "short_name": "refresh-example",
+  "timestamp": "10/22/2024",
+  "identifier": "react_lxvJou/0",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

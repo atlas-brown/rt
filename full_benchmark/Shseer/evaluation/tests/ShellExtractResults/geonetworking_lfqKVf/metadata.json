@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/alexvoronov/geonetworking.git",
+  "relative_path": "geonetworking/run_udp_duplicator.sh",
+  "short_name": "run_udp_duplicator",
+  "timestamp": "10/22/2024",
+  "identifier": "geonetworking_lfqKVf/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "io"
+  ]
+ }
+]

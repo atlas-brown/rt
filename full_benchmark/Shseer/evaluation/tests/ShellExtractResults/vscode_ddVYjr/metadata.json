@@ -1,0 +1,630 @@
+[
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/server/bin/code-server-linux.sh",
+  "short_name": "code-server-linux",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/server/bin/code-server-darwin.sh",
+  "short_name": "code-server-darwin",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/1",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/server/bin/remote-cli/code-darwin.sh",
+  "short_name": "code-darwin",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/2",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/server/bin/remote-cli/code-linux.sh",
+  "short_name": "code-linux",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/3",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/server/bin/helpers/browser-darwin.sh",
+  "short_name": "browser-darwin",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/4",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/server/bin/helpers/browser-linux.sh",
+  "short_name": "browser-linux",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/5",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/server/bin/helpers/check-requirements-linux.sh",
+  "short_name": "check-requirements-linux",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/6",
+  "posix_compliant": false,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/server/bin/helpers/check-requirements-linux-legacy.sh",
+  "short_name": "check-requirements-linux-legacy",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/7",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/server/bin-dev/remote-cli/code.sh",
+  "short_name": "code",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/8",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/server/bin-dev/helpers/browser.sh",
+  "short_name": "browser",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/9",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/linux/debian/postrm.template",
+  "short_name": "postrm.template",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/10",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/linux/bin/code.sh",
+  "short_name": "code",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/11",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/darwin/bin/code.sh",
+  "short_name": "code",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/12",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/resources/win32/bin/code.sh",
+  "short_name": "code",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/13",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/.devcontainer/install-vscode.sh",
+  "short_name": "install-vscode",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/14",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/.devcontainer/post-create.sh",
+  "short_name": "post-create",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/15",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/vscode-colorize-tests/test/colorize-fixtures/test-173224.sh",
+  "short_name": "test-173224",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/16",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/vscode-colorize-tests/test/colorize-fixtures/test-173336.sh",
+  "short_name": "test-173336",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/17",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/vscode-colorize-tests/test/colorize-fixtures/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/18",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/vscode-colorize-tests/test/colorize-fixtures/test-173216.sh",
+  "short_name": "test-173216",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/19",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/git/src/askpass-empty.sh",
+  "short_name": "askpass-empty",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/20",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/git/src/git-editor-empty.sh",
+  "short_name": "git-editor-empty",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/21",
+  "posix_compliant": true,
+  "line_count": 0,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/git/src/git-editor.sh",
+  "short_name": "git-editor",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/22",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/git/src/ssh-askpass.sh",
+  "short_name": "ssh-askpass",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/23",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/git/src/ssh-askpass-empty.sh",
+  "short_name": "ssh-askpass-empty",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/24",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/git/src/askpass.sh",
+  "short_name": "askpass",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/25",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/extensions/vscode-test-resolver/scripts/terminateProcess.sh",
+  "short_name": "terminateProcess",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/26",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/node-electron.sh",
+  "short_name": "node-electron",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/27",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/code-web.sh",
+  "short_name": "code-web",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/28",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/generate-definitelytyped.sh",
+  "short_name": "generate-definitelytyped",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/29",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/test-web-integration.sh",
+  "short_name": "test-web-integration",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/30",
+  "posix_compliant": false,
+  "line_count": 50,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/test-integration.sh",
+  "short_name": "test-integration",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/31",
+  "posix_compliant": false,
+  "line_count": 97,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/test-remote-integration.sh",
+  "short_name": "test-remote-integration",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/32",
+  "posix_compliant": false,
+  "line_count": 95,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/33",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/code-server.sh",
+  "short_name": "code-server",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/34",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/code-cli.sh",
+  "short_name": "code-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/35",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/test-documentation.sh",
+  "short_name": "test-documentation",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/36",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/scripts/code.sh",
+  "short_name": "code",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/37",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/.github/workflows/check-clean-git-state.sh",
+  "short_name": "check-clean-git-state",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/38",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/build/azure-pipelines/common/extract-telemetry.sh",
+  "short_name": "extract-telemetry",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/39",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/build/azure-pipelines/linux/setup-env.sh",
+  "short_name": "setup-env",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/40",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/build/azure-pipelines/linux/verify-glibc-requirements.sh",
+  "short_name": "verify-glibc-requirements",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/41",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/build/azure-pipelines/linux/apt-retry.sh",
+  "short_name": "apt-retry",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/42",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/build/azure-pipelines/linux/xvfb.init",
+  "short_name": "xvfb.init",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/43",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/src/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh",
+  "short_name": "shellIntegration-bash",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/44",
+  "posix_compliant": false,
+  "line_count": 266,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/src/vs/base/node/ps.sh",
+  "short_name": "ps",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/45",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/src/vs/base/node/terminateProcess.sh",
+  "short_name": "terminateProcess",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/46",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/microsoft/vscode.git",
+  "relative_path": "vscode/src/vs/base/node/cpuUsage.sh",
+  "short_name": "cpuUsage",
+  "timestamp": "10/22/2024",
+  "identifier": "vscode_ddVYjr/47",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

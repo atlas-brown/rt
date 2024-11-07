@@ -1,0 +1,278 @@
+[
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/tmux/.tmux_scripts/battery.sh",
+  "short_name": "battery",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/tools/changelog.sh",
+  "short_name": "changelog",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/1",
+  "posix_compliant": false,
+  "line_count": 275,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/tools/check_for_upgrade.sh",
+  "short_name": "check_for_upgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/2",
+  "posix_compliant": false,
+  "line_count": 128,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/tools/uninstall.sh",
+  "short_name": "uninstall",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/3",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/tools/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/4",
+  "posix_compliant": true,
+  "line_count": 313,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/tools/theme_chooser.sh",
+  "short_name": "theme_chooser",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/5",
+  "posix_compliant": false,
+  "line_count": 79,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/tools/upgrade.sh",
+  "short_name": "upgrade",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/6",
+  "posix_compliant": false,
+  "line_count": 156,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/tools/require_tool.sh",
+  "short_name": "require_tool",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/7",
+  "posix_compliant": false,
+  "line_count": 121,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/plugins/gitfast/update",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/8",
+  "posix_compliant": true,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/plugins/gitfast/git-prompt.sh",
+  "short_name": "git-prompt",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/9",
+  "posix_compliant": false,
+  "line_count": 366,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/plugins/zsh-navigation-tools/doc/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/10",
+  "posix_compliant": true,
+  "line_count": 47,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/plugins/wd/_wd.sh",
+  "short_name": "_wd",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/11",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/plugins/wd/wd.sh",
+  "short_name": "wd",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/12",
+  "posix_compliant": false,
+  "line_count": 399,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/plugins/z/z.sh",
+  "short_name": "z",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/13",
+  "posix_compliant": false,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/plugins/emacs/emacsclient.sh",
+  "short_name": "emacsclient",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/14",
+  "posix_compliant": true,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/plugins/catimg/catimg.sh",
+  "short_name": "catimg",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/15",
+  "posix_compliant": false,
+  "line_count": 65,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/plugins/colored-man-pages/nroff",
+  "short_name": "nroff",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/16",
+  "posix_compliant": true,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/plugins/drush/drush.complete.sh",
+  "short_name": "drush.complete",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/17",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jkusa/dotfiles.git",
+  "relative_path": "dotfiles/zsh/.oh-my-zsh/oh-my-zsh.sh",
+  "short_name": "oh-my-zsh",
+  "timestamp": "10/22/2024",
+  "identifier": "dotfiles_zXAmqz/18",
+  "posix_compliant": false,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

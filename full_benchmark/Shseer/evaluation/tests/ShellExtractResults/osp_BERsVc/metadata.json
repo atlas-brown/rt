@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/larsks/osp-5-6-ansible.git",
+  "relative_path": "osp-5-6-ansible/makedoc.sh",
+  "short_name": "makedoc",
+  "timestamp": "10/22/2024",
+  "identifier": "osp_BERsVc/0",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ }
+]

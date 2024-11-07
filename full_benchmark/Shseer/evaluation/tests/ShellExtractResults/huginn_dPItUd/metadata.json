@@ -1,0 +1,129 @@
+[
+ {
+  "repo": "https://github.com/huginn/huginn.git",
+  "relative_path": "huginn/build_docker_image.sh",
+  "short_name": "build_docker_image",
+  "timestamp": "10/22/2024",
+  "identifier": "huginn_dPItUd/0",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huginn/huginn.git",
+  "relative_path": "huginn/docker/test/scripts/test_env",
+  "short_name": "test_env",
+  "timestamp": "10/22/2024",
+  "identifier": "huginn_dPItUd/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/huginn/huginn.git",
+  "relative_path": "huginn/docker/single-process/scripts/init",
+  "short_name": "init",
+  "timestamp": "10/22/2024",
+  "identifier": "huginn_dPItUd/2",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/huginn/huginn.git",
+  "relative_path": "huginn/docker/multi-process/scripts/init",
+  "short_name": "init",
+  "timestamp": "10/22/2024",
+  "identifier": "huginn_dPItUd/3",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/huginn/huginn.git",
+  "relative_path": "huginn/docker/multi-process/scripts/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "huginn_dPItUd/4",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/huginn/huginn.git",
+  "relative_path": "huginn/docker/multi-process/scripts/foreman.sh",
+  "short_name": "foreman",
+  "timestamp": "10/22/2024",
+  "identifier": "huginn_dPItUd/5",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huginn/huginn.git",
+  "relative_path": "huginn/docker/scripts/prepare",
+  "short_name": "prepare",
+  "timestamp": "10/22/2024",
+  "identifier": "huginn_dPItUd/6",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/huginn/huginn.git",
+  "relative_path": "huginn/docker/scripts/setup_env",
+  "short_name": "setup_env",
+  "timestamp": "10/22/2024",
+  "identifier": "huginn_dPItUd/7",
+  "posix_compliant": false,
+  "line_count": 116,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/huginn/huginn.git",
+  "relative_path": "huginn/.s2i/bin/run",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "huginn_dPItUd/8",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

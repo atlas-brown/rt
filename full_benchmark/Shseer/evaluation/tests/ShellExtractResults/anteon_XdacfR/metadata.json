@@ -1,0 +1,59 @@
+[
+ {
+  "repo": "https://github.com/getanteon/anteon.git",
+  "relative_path": "anteon/selfhosted/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "anteon_XdacfR/0",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/getanteon/anteon.git",
+  "relative_path": "anteon/selfhosted/init_scripts/influxdb/01_influxdb_create_buckets.sh",
+  "short_name": "01_influxdb_create_buckets",
+  "timestamp": "10/22/2024",
+  "identifier": "anteon_XdacfR/1",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/getanteon/anteon.git",
+  "relative_path": "anteon/ddosify_engine/scripts/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "anteon_XdacfR/2",
+  "posix_compliant": true,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/getanteon/anteon.git",
+  "relative_path": "anteon/ddosify_engine/scripts/testing/benchstat.sh",
+  "short_name": "benchstat",
+  "timestamp": "10/22/2024",
+  "identifier": "anteon_XdacfR/3",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

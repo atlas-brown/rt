@@ -1,0 +1,97 @@
+[
+ {
+  "repo": "https://github.com/ccforward/cc.git",
+  "relative_path": "cc/php-fpm/php-fpm.sh",
+  "short_name": "php-fpm",
+  "timestamp": "10/22/2024",
+  "identifier": "cc_GoIgCV/0",
+  "posix_compliant": false,
+  "line_count": 92,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/ccforward/cc.git",
+  "relative_path": "cc/bash/bash.sh",
+  "short_name": "bash",
+  "timestamp": "10/22/2024",
+  "identifier": "cc_GoIgCV/1",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/ccforward/cc.git",
+  "relative_path": "cc/gitconfig/git_config_update",
+  "short_name": "git_config_update",
+  "timestamp": "10/22/2024",
+  "identifier": "cc_GoIgCV/2",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ccforward/cc.git",
+  "relative_path": "cc/gitconfig/git-diff-wrapper.sh",
+  "short_name": "git-diff-wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "cc_GoIgCV/3",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ccforward/cc.git",
+  "relative_path": "cc/gitconfig/git_config_init",
+  "short_name": "git_config_init",
+  "timestamp": "10/22/2024",
+  "identifier": "cc_GoIgCV/4",
+  "posix_compliant": false,
+  "line_count": 172,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ccforward/cc.git",
+  "relative_path": "cc/gitconfig/gitconfig",
+  "short_name": "gitconfig",
+  "timestamp": "10/22/2024",
+  "identifier": "cc_GoIgCV/5",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/ccforward/cc.git",
+  "relative_path": "cc/git/autoPush.sh",
+  "short_name": "autoPush",
+  "timestamp": "10/22/2024",
+  "identifier": "cc_GoIgCV/6",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "text",
+   "difficult"
+  ]
+ }
+]

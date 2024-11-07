@@ -1,0 +1,41 @@
+[
+ {
+  "repo": "https://github.com/otaviof/vim_confs.git",
+  "relative_path": "vim_confs/snippets/sh.snippets",
+  "short_name": "sh.snippets",
+  "timestamp": "10/22/2024",
+  "identifier": "vim_jLoGGQ/0",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/otaviof/vim_confs.git",
+  "relative_path": "vim_confs/perl-support/scripts/wrapper.sh",
+  "short_name": "wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "vim_jLoGGQ/1",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/otaviof/vim_confs.git",
+  "relative_path": "vim_confs/c-support/scripts/wrapper.sh",
+  "short_name": "wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "vim_jLoGGQ/2",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

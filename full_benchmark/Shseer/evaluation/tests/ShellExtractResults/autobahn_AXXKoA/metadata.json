@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/crossbario/autobahn-testsuite.git",
+  "relative_path": "autobahn-testsuite/docker/versions.sh",
+  "short_name": "versions",
+  "timestamp": "10/22/2024",
+  "identifier": "autobahn_AXXKoA/0",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ }
+]

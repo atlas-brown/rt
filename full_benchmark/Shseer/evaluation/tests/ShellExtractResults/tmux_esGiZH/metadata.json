@@ -1,0 +1,33 @@
+[
+ {
+  "repo": "https://github.com/fcsonline/tmux-thumbs.git",
+  "relative_path": "tmux-thumbs/tmux-thumbs-install.sh",
+  "short_name": "tmux-thumbs-install",
+  "timestamp": "10/22/2024",
+  "identifier": "tmux_esGiZH/0",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/fcsonline/tmux-thumbs.git",
+  "relative_path": "tmux-thumbs/tmux-thumbs.sh",
+  "short_name": "tmux-thumbs",
+  "timestamp": "10/22/2024",
+  "identifier": "tmux_esGiZH/1",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

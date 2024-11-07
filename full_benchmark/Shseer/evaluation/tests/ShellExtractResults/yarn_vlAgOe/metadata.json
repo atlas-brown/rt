@@ -1,0 +1,210 @@
+[
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/bin/yarn",
+  "short_name": "yarn",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/0",
+  "posix_compliant": true,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/end_to_end_tests/test-ubuntu-16.04.sh",
+  "short_name": "test-ubuntu-16.04",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/1",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/end_to_end_tests/test-ubuntu-14.04.sh",
+  "short_name": "test-ubuntu-14.04",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/end_to_end_tests/test-ubuntu-12.04.sh",
+  "short_name": "test-ubuntu-12.04",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/3",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/end_to_end_tests/data/run-yarn-test.sh",
+  "short_name": "run-yarn-test",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/4",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/end_to_end_tests/data/start-ubuntu.sh",
+  "short_name": "start-ubuntu",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/5",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/end_to_end_tests/data/run-ubuntu.sh",
+  "short_name": "run-ubuntu",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/6",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/scripts/build-dist-debug.sh",
+  "short_name": "build-dist-debug",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/7",
+  "posix_compliant": true,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/scripts/update-homebrew.sh",
+  "short_name": "update-homebrew",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/8",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/scripts/build-dist.sh",
+  "short_name": "build-dist",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/9",
+  "posix_compliant": false,
+  "line_count": 44,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/scripts/clean-mirror.sh",
+  "short_name": "clean-mirror",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/10",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/scripts/install-latest.sh",
+  "short_name": "install-latest",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/11",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/scripts/release-branch.sh",
+  "short_name": "release-branch",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/12",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/scripts/build-deb.sh",
+  "short_name": "build-deb",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/13",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/scripts/update-npm.sh",
+  "short_name": "update-npm",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/14",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/yarnpkg/yarn.git",
+  "relative_path": "yarn/scripts/bootstrap-env-ubuntu.sh",
+  "short_name": "bootstrap-env-ubuntu",
+  "timestamp": "10/22/2024",
+  "identifier": "yarn_vlAgOe/15",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ }
+]

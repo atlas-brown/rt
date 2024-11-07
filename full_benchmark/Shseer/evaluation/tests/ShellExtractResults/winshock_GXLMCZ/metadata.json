@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/anexia-it/winshock-test.git",
+  "relative_path": "winshock-test/winshock_test.sh",
+  "short_name": "winshock_test",
+  "timestamp": "10/22/2024",
+  "identifier": "winshock_GXLMCZ/0",
+  "posix_compliant": false,
+  "line_count": 195,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

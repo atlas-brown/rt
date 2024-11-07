@@ -1,0 +1,40 @@
+[
+ {
+  "repo": "https://github.com/ActivisionGameScience/ipyparallel-mesos.git",
+  "relative_path": "ipyparallel-mesos/conda_recipe/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "ipyparallel_JuCUkU/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/ActivisionGameScience/ipyparallel-mesos.git",
+  "relative_path": "ipyparallel-mesos/docker/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "ipyparallel_JuCUkU/1",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/ActivisionGameScience/ipyparallel-mesos.git",
+  "relative_path": "ipyparallel-mesos/docker/engine/start_engine.sh",
+  "short_name": "start_engine",
+  "timestamp": "10/22/2024",
+  "identifier": "ipyparallel_JuCUkU/2",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

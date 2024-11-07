@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/common-workflow-library/legacy.git",
+  "relative_path": "legacy/test/test-files/prepare_test.sh",
+  "short_name": "prepare_test",
+  "timestamp": "10/22/2024",
+  "identifier": "legacy_eicPBy/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/common-workflow-library/legacy.git",
+  "relative_path": "legacy/test/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "legacy_eicPBy/1",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/0xAX/linux-insides.git",
+  "relative_path": "linux-insides/Scripts/latex.sh",
+  "short_name": "latex",
+  "timestamp": "10/22/2024",
+  "identifier": "linux_xKJqnA/0",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

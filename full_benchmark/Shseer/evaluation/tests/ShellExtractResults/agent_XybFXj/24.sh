@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# The `pre-checkout` hook will run just before your pipelines source code is
+# checked out from your SCM provider
+
+# Note that as the script is sourced not run directly, the shebang line will be ignored
+# See https://buildkite.com/docs/agent/v3/hooks#creating-hook-scripts
+
+
+set -e

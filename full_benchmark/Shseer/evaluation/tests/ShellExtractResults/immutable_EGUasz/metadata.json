@@ -1,0 +1,29 @@
+[
+ {
+  "repo": "https://github.com/immutable-js/immutable-js.git",
+  "relative_path": "immutable-js/resources/check-git-clean.sh",
+  "short_name": "check-git-clean",
+  "timestamp": "10/22/2024",
+  "identifier": "immutable_EGUasz/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/immutable-js/immutable-js.git",
+  "relative_path": "immutable-js/resources/prepare-dist.sh",
+  "short_name": "prepare-dist",
+  "timestamp": "10/22/2024",
+  "identifier": "immutable_EGUasz/1",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

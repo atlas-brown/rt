@@ -1,0 +1,222 @@
+[
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/test-e2e-android",
+  "short_name": "test-e2e-android",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/1",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/start-appium-server",
+  "short_name": "start-appium-server",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/2",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/test-smoke-android",
+  "short_name": "test-smoke-android",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/3",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/stop-appium-server",
+  "short_name": "stop-appium-server",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/4",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/backend/post-remove-unused-files.sh",
+  "short_name": "post-remove-unused-files",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/5",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/backend/build-native-modules.sh",
+  "short_name": "build-native-modules",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/6",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/backend/move-shared-libs-android.sh",
+  "short_name": "move-shared-libs-android",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/7",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/backend/move-to-nodejs-assets.sh",
+  "short_name": "move-to-nodejs-assets",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/8",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/backend/pre-remove-unused-files.sh",
+  "short_name": "pre-remove-unused-files",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/9",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/validate-license-year.sh",
+  "short_name": "validate-license-year",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/10",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/update-desktop-release-resources",
+  "short_name": "update-desktop-release-resources",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/11",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/benchmark-initial-sync",
+  "short_name": "benchmark-initial-sync",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/12",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/test-e2e-desktop",
+  "short_name": "test-e2e-desktop",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/13",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/commit-release",
+  "short_name": "commit-release",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/14",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/staltz/manyverse.git",
+  "relative_path": "manyverse/tools/test-smoke-ios",
+  "short_name": "test-smoke-ios",
+  "timestamp": "10/22/2024",
+  "identifier": "manyverse_ejjbpN/15",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,40 @@
+[
+ {
+  "repo": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+  "relative_path": "DefinitelyTyped/types/lodash/scripts/generate-all.sh",
+  "short_name": "generate-all",
+  "timestamp": "10/22/2024",
+  "identifier": "DefinitelyTyped_xPUUHZ/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+  "relative_path": "DefinitelyTyped/types/facebook-nodejs-business-sdk/scripts/generate-dts.sh",
+  "short_name": "generate-dts",
+  "timestamp": "10/22/2024",
+  "identifier": "DefinitelyTyped_xPUUHZ/1",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+  "relative_path": "DefinitelyTyped/scripts/pnpm-install.sh",
+  "short_name": "pnpm-install",
+  "timestamp": "10/22/2024",
+  "identifier": "DefinitelyTyped_xPUUHZ/2",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

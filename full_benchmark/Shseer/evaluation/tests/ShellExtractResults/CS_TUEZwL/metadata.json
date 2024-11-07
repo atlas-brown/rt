@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/trustedsec/CS-Remote-OPs-BOF.git",
+  "relative_path": "CS-Remote-OPs-BOF/make_all.sh",
+  "short_name": "make_all",
+  "timestamp": "10/22/2024",
+  "identifier": "CS_TUEZwL/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ }
+]

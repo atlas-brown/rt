@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/huonw/shared_slice.git",
+  "relative_path": "shared_slice/deploy-docs.sh",
+  "short_name": "deploy-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "shared_LGdkNU/0",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

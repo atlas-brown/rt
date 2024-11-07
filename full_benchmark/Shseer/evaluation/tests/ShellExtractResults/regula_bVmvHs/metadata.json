@@ -1,0 +1,42 @@
+[
+ {
+  "repo": "https://github.com/fugue/regula.git",
+  "relative_path": "regula/rego/scripts/generate-tfplan.sh",
+  "short_name": "generate-tfplan",
+  "timestamp": "10/22/2024",
+  "identifier": "regula_bVmvHs/0",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/fugue/regula.git",
+  "relative_path": "regula/rego/scripts/check-naming.sh",
+  "short_name": "check-naming",
+  "timestamp": "10/22/2024",
+  "identifier": "regula_bVmvHs/1",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/fugue/regula.git",
+  "relative_path": "regula/docs/scripts/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "regula_bVmvHs/2",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

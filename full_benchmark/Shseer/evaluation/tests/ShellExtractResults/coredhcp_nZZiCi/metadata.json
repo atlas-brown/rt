@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/coredhcp/coredhcp.git",
+  "relative_path": "coredhcp/.ci/setup-integ.sh",
+  "short_name": "setup-integ",
+  "timestamp": "10/22/2024",
+  "identifier": "coredhcp_nZZiCi/0",
+  "posix_compliant": false,
+  "line_count": 53,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/coredhcp/coredhcp.git",
+  "relative_path": "coredhcp/.ci/tests.sh",
+  "short_name": "tests",
+  "timestamp": "10/22/2024",
+  "identifier": "coredhcp_nZZiCi/1",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

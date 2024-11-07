@@ -1,0 +1,135 @@
+[
+ {
+  "repo": "https://github.com/GoogleCloudPlatform/metacontroller.git",
+  "relative_path": "metacontroller/hack/get-kube-binaries.sh",
+  "short_name": "get-kube-binaries",
+  "timestamp": "10/22/2024",
+  "identifier": "metacontroller_TzbaDr/0",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/GoogleCloudPlatform/metacontroller.git",
+  "relative_path": "metacontroller/examples/crd-roles/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "metacontroller_TzbaDr/1",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GoogleCloudPlatform/metacontroller.git",
+  "relative_path": "metacontroller/examples/service-per-pod/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "metacontroller_TzbaDr/2",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GoogleCloudPlatform/metacontroller.git",
+  "relative_path": "metacontroller/examples/indexedjob/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "metacontroller_TzbaDr/3",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GoogleCloudPlatform/metacontroller.git",
+  "relative_path": "metacontroller/examples/daemonjob/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "metacontroller_TzbaDr/4",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GoogleCloudPlatform/metacontroller.git",
+  "relative_path": "metacontroller/examples/clusteredparent/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "metacontroller_TzbaDr/5",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GoogleCloudPlatform/metacontroller.git",
+  "relative_path": "metacontroller/examples/status/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "metacontroller_TzbaDr/6",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GoogleCloudPlatform/metacontroller.git",
+  "relative_path": "metacontroller/examples/bluegreen/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "metacontroller_TzbaDr/7",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/GoogleCloudPlatform/metacontroller.git",
+  "relative_path": "metacontroller/examples/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "metacontroller_TzbaDr/8",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/GoogleCloudPlatform/metacontroller.git",
+  "relative_path": "metacontroller/examples/catset/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "metacontroller_TzbaDr/9",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/3DGenomes/TADbit.git",
+  "relative_path": "TADbit/test/test_tools.sh",
+  "short_name": "test_tools",
+  "timestamp": "10/22/2024",
+  "identifier": "TADbit_FLNzNG/0",
+  "posix_compliant": false,
+  "line_count": 201,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

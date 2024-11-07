@@ -1,0 +1,325 @@
+#!/bin/bash
+
+VERSION="2.1.2-cuda9.2"
+DEVVERSION="dev-cuda9.2"
+
+OS=`uname -a`
+PARLIB=$1
+if [ "$ARCH" = "" ]; then
+    ARCH=`arch`
+fi
+ 
+# standardise the OS and ARCH names
+if [[ "$OS" == Darwin* ]] ; then
+    if [[ "$OS" == *x86_64 ]] ; then
+	    ARCH="x86_64"
+    fi
+    OS="apple"
+elif [[ "$OS" == Linux* ]] ; then
+    OS="linux"
+elif [[ "$OS" == CYGWIN* ]] ; then
+    if [[ "$OS" == *WOW* ]] ; then
+        ARCH="x86_64"
+    fi
+	OS="windows"
+else
+    echo "OS not supported" $OS
+    exit 1
+fi
+
+if [ "$ARCH" = "x86" ] || [ "$ARCH" = "i686" ] || [ "$ARCH" = "i586" ] \
+	|| [ "$ARCH" = "i486" ] || [ "$ARCH" = "i386" ] ; then
+    ARCH="x86"
+    ARCHD="ia32"
+    SUBDIR=""
+    PTYPE=""
+    MBITS="32"
+elif [ "$ARCH" = "amd64" ] || [ "$ARCH" = "x86_64" ] ; then
+    ARCH="x86_64"
+    ARCHD="intel64"
+    SUBDIR="/lp64"
+    PTYPE="_lp64"
+    MBITS="64"
+elif [[ "$ARCH" == armv7* ]] ; then
+    ARCH="arm"
+    ARMFLAGS="-marm -march=armv7-a -mfloat-abi=hard"
+    MBITS=32
+elif [[ "$ARCH" == "aarch64" ]] ; then
+    ARCH="aarch64"
+    MBITS=64
+    
+    gcc cpuid_arm64.c -o cpuid_arm64 >/dev/null
+    if [[ $? -ne 0 ]]; then
+        echo 'failed to compile cpuid_arm64, aborting' && exit 1
+    fi
+    if [[ $(./cpuid_arm64) == "CORTEXA57" ]]; then
+        ARMFLAGS="-march=armv8-a+crc+crypto+fp+simd -mtune=cortex-a57"
+    else
+        ARMFLAGS="-march=armv8-a"
+    fi
+else
+    echo "ARCH not supported"
+    exit 1
+fi
+
+echo "Creating config for $OS $ARCH"
+
+BIDMACH_ROOT="${BASH_SOURCE[0]}"
+if [ ! `uname` = "Darwin" ]; then
+  BIDMACH_ROOT=`readlink -f "${BIDMACH_ROOT}"`
+else 
+  BIDMACH_ROOT=`readlink "${BIDMACH_ROOT}"`
+fi
+BIDMACH_ROOT=`dirname "$BIDMACH_ROOT"`
+BIDMACH_ROOT=`cd "$BIDMACH_ROOT/../..";pwd -P`
+BIDMACH_ROOT="$( echo ${BIDMACH_ROOT} | sed 's+/cygdrive/\(.\)+\1:+' )" 
+
+if [ "$OS" = "apple" ] ; then
+    ICC_ROOT="/opt/intel/compilers_and_libraries/mac"
+    BLAS_ROOT="${ICC_ROOT}/mkl"
+    if [ "$JAVA_HOME" = "" ]; then
+	JAVA_HOME=`/usr/libexec/java_home`
+    fi
+    CUDA_HOME="/usr/local/cuda"
+    CC="icc"
+    GCC="g++"
+    NVCC="nvcc"
+    NVCCFLAGS="-c -ccbin=clang -use_fast_math  --default-stream per-thread -I$BIDMACH_ROOT/jni/include \
+          -gencode arch=compute_30,code=sm_30 \
+          -gencode arch=compute_35,code=sm_35 \
+          -gencode arch=compute_50,code=sm_50 \
+          -gencode arch=compute_52,code=sm_52 \
+          -gencode arch=compute_60,code=sm_60 \
+          -gencode arch=compute_61,code=sm_61 \
+          -gencode arch=compute_61,code=compute_61 \
+          --machine ${MBITS} -Xcompiler -arch -Xcompiler ${ARCH} -Xcompiler -stdlib=libstdc++"
+    OBJ="o"
+    OUTFLG="-o "
+    CPPFLAGS="-fPIC -c -O2 -g -DNDEBUG -I$JAVA_HOME/include  -I$JAVA_HOME/include/darwin -I$BIDMACH_ROOT/jni/include -I$CUDA_HOME/include"
+    CFLAGS="-qopenmp -fPIC -c -O2 -g -DNDEBUG -I$JAVA_HOME/include  -I$JAVA_HOME/include/darwin -I$BLAS_ROOT/include -I$BLAS_ROOT/include/${ARCHD}${SUBDIR}"
+    LB="ar rc"    
+    LD="icc -dynamiclib"
+    GLD="nvcc -shared -Xlinker -rpath -Xlinker ${CUDA_HOME}/lib -lstdc++"
+    LDFLAGS="$LDFLAGS"
+    LIBPREPEND="lib"
+    LIBAPPEND="-${OS}-${ARCH}.dylib"
+    LIBIOMPAPPEND=".dylib"
+    FC="gfortran"
+    FFLAGS="$CFLAGS"
+    LAPACK_INCLUDES=""
+    FORTRAN_LIBS="-lgfortran"
+    if [ "$PARLIB" = "sequential" ] ; then
+	    CPU_LIBS="-L${BIDMACH_ROOT}/lib \ 
+            $BLAS_ROOT/lib/libmkl_intel${PTYPE}.a $BLAS_ROOT/lib/libmkl_sequential.a \
+            $BLAS_ROOT/lib/libmkl_core.a \
+            $BLAS_ROOT/lib/libmkl_intel${PTYPE}.a $BLAS_ROOT/lib/libmkl_sequential.a \
+            $BLAS_ROOT/lib/libmkl_core.a \
+            -lpthread -lm  -framework JavaVM"
+    else 
+	    CPU_LIBS="-L${BIDMACH_ROOT}/lib \
+            $BLAS_ROOT/lib/libmkl_intel${PTYPE}.a $BLAS_ROOT/lib/libmkl_intel_thread.a \
+            $BLAS_ROOT/lib/libmkl_core.a \
+            $BLAS_ROOT/lib/libmkl_intel${PTYPE}.a $BLAS_ROOT/lib/libmkl_intel_thread.a \
+            $BLAS_ROOT/lib/libmkl_core.a \
+            $ICC_ROOT/lib/libiomp5.a \
+            -lpthread -lm  -framework JavaVM"
+    fi
+    LIBDIR="${BIDMACH_ROOT}/lib"
+    INSTALL_DIR="${BIDMACH_ROOT}/src/main/resources/lib"
+    CUDA_LIBS="-L${CUDA_HOME}/lib -L${LIBDIR} -lcudart -lcublas"
+elif [ "$OS" = "linux" ] ; then
+    if [ "$ARCH" = "arm" ] || [[ "$ARCH" = "aarch64" ]] ; then
+	RANDSRC="RAND"
+        if [ "$QSML_ROOT" != "" ]; then
+            BLAS_INCLUDE="-I$QSML_ROOT/include"
+            BLAS_LIB="-L$QSML_ROOT/lib -lQSML -lsymphony-cpu"
+        elif [ "$OPENBLAS_ROOT" != "" ]; then
+            BLAS_INCLUDE="-I$OPENBLAS_ROOT/include"
+            BLAS_LIB="-L$OPENBLAS_ROOT/lib -lopenblas"
+        else
+            BLAS_INCLUDE="-I/usr/local/include"
+            BLAS_LIB="-L/usr/local/lib -lopenblas"
+        fi
+	if [ "$JAVA_HOME" = "" ]; then
+	    JAVA_HOME="/usr/java/default"
+	fi
+        if [ "$CUDA_HOME" = "" ]; then
+	  CUDA_HOME="/usr/local/cuda"
+        fi
+	CC="gcc"
+	GCC="g++"
+	NVCC="nvcc" 
+        if [[ "$ARCH" = "arm" ]]; then
+            NVARCH="-gencode arch=compute_32,code=sm_32"
+        else
+            NVARCH="-gencode arch=compute_53,code=sm_53 \
+                    -gencode arch=compute_53,code=compute_53"
+        fi
+	NVCCFLAGS="-c -use_fast_math --default-stream per-thread -I$BIDMACH_ROOT/jni/include ${NVARCH} \
+          --machine ${MBITS}  -Xcompiler \"-fPIC -c -O2 -g ${ARMFLAGS} -DNDEBUG\""
+	OBJ="o"
+	OUTFLG="-o "
+	CPPFLAGS="-fPIC -std=c++11 ${ARMFLAGS} -c -O2 -DNDEBUG -I$JAVA_HOME/include -I$JAVA_HOME/include/linux -I$BIDMACH_ROOT/jni/include -I$CUDA_HOME/include ${BLAS_INCLUDE}"
+	CFLAGS="-fPIC -fopenmp ${ARMFLAGS} -c -O2 -DNDEBUG -I$JAVA_HOME/include -I$JAVA_HOME/include/linux -I$BIDMACH_ROOT/jni/include ${BLAS_INCLUDE}"
+	LB="ar rc"    
+	GLD="g++ -shared"
+	LD="gcc -shared -z noexecstack"
+	LDFLAGS="$LDFLAGS"
+	LIBPREPEND="lib"
+	LIBAPPEND="-${OS}-${ARCH}.so"
+	LIBAPPENDLIB="-${OS}-${ARCH}.so"
+	LIBIOMPAPPEND=".so"
+	FC="gfortran"
+	FFLAGS="$CFLAGS"
+	LAPACK_INCLUDES=""
+	FORTRAN_LIBS="-lgfortran"
+	CPU_LIBS="-L$JAVA_HOME/lib -L${BIDMACH_ROOT}/lib ${BLAS_LIB} -ldl -lpthread -lm -lstdc++ -lgomp" 
+	if [ "$ARCH" = "arm" ] ; then
+            CULIB="lib"
+	else
+            CULIB="lib64"
+	fi
+	LIBDIR="${BIDMACH_ROOT}/lib"
+	INSTALL_DIR="${BIDMACH_ROOT}/src/main/resources/lib"
+	CUDA_LIBS="-L${CUDA_HOME}/${CULIB} -L${LIBDIR} -lcudart -lcublas"
+else
+	BLAS_ROOT="/opt/intel/mkl"
+	if [ "$JAVA_HOME" = "" ]; then
+	    JAVA_HOME="/usr/java/default"
+	fi
+        if [ "$CUDA_HOME" = "" ]; then
+	  CUDA_HOME="/usr/local/cuda"
+        fi
+	CC="icc"
+	GCC="g++"
+	NVCC="nvcc"
+	NVCCFLAGS="-c -use_fast_math --default-stream per-thread -I$BIDMACH_ROOT/jni/include \
+          -gencode arch=compute_30,code=sm_30 \
+          -gencode arch=compute_35,code=sm_35 \
+          -gencode arch=compute_50,code=sm_50 \
+          -gencode arch=compute_52,code=sm_52 \
+          -gencode arch=compute_60,code=sm_60 \
+          -gencode arch=compute_61,code=sm_61 \
+          -gencode arch=compute_61,code=compute_61 \
+          --machine ${MBITS}  -Xcompiler \"-fPIC -c -O2 -g -DNDEBUG\""
+	OBJ="o"
+	OUTFLG="-o "
+	CPPFLAGS="-fPIC -c -O2 -DNDEBUG  -I$JAVA_HOME/include -I$JAVA_HOME/include/linux -I$BIDMACH_ROOT/jni/include -I$CUDA_HOME/include" 
+	CFLAGS="-qopenmp -fPIC -c -O2 -DNDEBUG -I$JAVA_HOME/include -I$JAVA_HOME/include/linux -I$BLAS_ROOT/include -I$BLAS_ROOT/include/${ARCHD}${SUBDIR}"
+	LB="ar rc"    
+	GLD="g++ -shared"
+	LD="icc -shared -static-intel -z noexecstack"
+	LDFLAGS="$LDFLAGS"
+	LIBPREPEND="lib"
+	LIBAPPEND="-${OS}-${ARCH}.so"
+	LIBIOMPAPPEND=".so"
+	FC="gfortran"
+	FFLAGS="$CFLAGS"
+	LAPACK_INCLUDES=""
+	FORTRAN_LIBS="-lgfortran"
+	if [ "$PARLIB" = "sequential" ] ; then
+	    CPU_LIBS="-L$JAVA_HOME/lib -L${BIDMACH_ROOT}/lib \
+             -lpthread -lm"
+	else 
+	    CPU_LIBS="-L$JAVA_HOME/lib -L${BIDMACH_ROOT}/lib \
+             -liomp5 -ldl -lpthread -lm"
+	fi
+	if [ "$ARCH" = "x86" ] ; then
+            CULIB="lib"
+	else
+            CULIB="lib64"
+	fi
+	LIBDIR="${BIDMACH_ROOT}/lib"
+	INSTALL_DIR="${BIDMACH_ROOT}/src/main/resources/lib"
+	CUDA_LIBS="-L${CUDA_HOME}/${CULIB} -L${LIBDIR} -lcudart -lcublas"
+    fi
+elif [ "$OS" = "windows" ] ; then
+    CUDA_HOME="$CUDA_PATH"
+    if [ "$BLASROOT" = "" ] ; then
+        BLASROOT="${MKLROOT}"
+    fi
+    BLAS_ROOT="$BLASROOT"
+    CC="icl"
+    GCC="cl"
+    NVCC="nvcc"
+    OBJ="obj"
+    OUTFLG="/OUT:"
+    CFLAGS="/openmp /c /MT /DNDEBUG /O2 /EHsc $CFLAGS"    # static linking
+    CPPFLAGS="/c /MT /DNDEBUG /O2 /EHsc $CFLAGS"    # static linking
+    NVCCFLAGS="-c -use_fast_math --default-stream per-thread -I$BIDMACH_ROOT/jni/include \
+          -gencode arch=compute_30,code=sm_30 \
+          -gencode arch=compute_35,code=sm_35 \
+          -gencode arch=compute_50,code=sm_50 \
+          -gencode arch=compute_52,code=sm_52 \
+          -gencode arch=compute_60,code=sm_60 \
+          -gencode arch=compute_61,code=sm_61 \
+          -gencode arch=compute_61,code=compute_61 \
+          --machine ${MBITS} -Xcompiler \"/EHsc /W3 /nologo /O2 /Zi /wd4661 /wd4267 /MT\""
+    LB="lib"    
+    LD="link"
+    GLD="link"
+    if [ "$ARCH" = "x86" ] ; then
+        WINARCH=x86
+        CULIB="Win32"
+        PTYPE="_c"
+    else
+        WINARCH=amd64
+        CULIB="x64"
+        PTYPE="_lp64"
+    fi
+    LDFLAGS="/DLL /MACHINE:${WINARCH} $LDFLAGS"
+    LIBPREPEND=""
+    LIBAPPEND="-${OS}-${ARCH}.dll"
+    LIBIOMPAPPEND="md.dll"
+    FC="ifort"
+    FFLAGS="-c $FFLAGS"
+    LAPACK_INCLUDES=""
+    FORTRAN_LIBS=""
+    if [ "$PARLIB" = "sequential" ] ; then
+	    CPU_LIBS=""
+    else
+	    CPU_LIBS="libiomp5md.lib"
+    fi
+    LIBDIR="${BIDMACH_ROOT}/lib"
+    INSTALL_DIR="${BIDMACH_ROOT}/src/main/resources/lib"
+    CUDA_LIBS="cudart.lib"
+    LIB="$BLAS_ROOT/lib/${ARCHD};$JAVA_HOME/lib;$CUDA_HOME/lib/${CULIB};${LIBDIR};$LIB"
+    INCLUDE="$JAVA_HOME/include;$JAVA_HOME/include/win32;$BLAS_ROOT/include;${BIDMACH_ROOT}/jni/include;$CUDA_HOME/include;$INCLUDE"
+else
+    echo "OS not supported"
+    exit 1
+fi
+
+echo "OS=$OS" > Makefile.incl
+echo "MARCH=$ARCH" >> Makefile.incl
+echo "VERSION=$VERSION" >> Makefile.incl
+echo "DEVVERSION=$DEVVERSION" >> Makefile.incl
+echo "BIDMACH_ROOT=$BIDMACH_ROOT" >> Makefile.incl
+echo "CC=$CC" >> Makefile.incl
+echo "GCC=$GCC" >> Makefile.incl
+echo "NVCC=$NVCC" >> Makefile.incl
+echo "NVCCFLAGS=$NVCCFLAGS" >> Makefile.incl
+echo "SUBLIB=$SUBLIB" >> Makefile.incl
+echo "OBJ=$OBJ" >> Makefile.incl
+echo "OUTFLG=$OUTFLG" >> Makefile.incl
+echo "CPPFLAGS=$CPPFLAGS" >> Makefile.incl
+echo "CFLAGS=$CFLAGS" >> Makefile.incl
+echo "LB=$LB" >> Makefile.incl
+echo "LD=$LD" >> Makefile.incl
+echo "GLD=$GLD" >> Makefile.incl
+echo "LDFLAGS=$LDFLAGS" >> Makefile.incl
+echo "LIBPREPEND=$LIBPREPEND" >> Makefile.incl
+echo "LIBAPPEND=$LIBAPPEND" >> Makefile.incl
+echo "LIBIOMPAPPEND=$LIBIOMPAPPEND" >> Makefile.incl
+echo "LIBDIR=$LIBDIR" >> Makefile.incl
+echo "LAPACK_INCLUDES=$LAPACK_INCLUDES" >> Makefile.incl
+echo "CPU_LIBS=$CPU_LIBS" >> Makefile.incl
+echo "CUDA_LIBS=$CUDA_LIBS" >> Makefile.incl
+echo "FORTRAN_LIBS=$FORTRAN_LIBS" >> Makefile.incl
+echo "FC=$FC" >> Makefile.incl
+echo "FFLAGS=$FFLAGS" >> Makefile.incl
+echo "LIB=$LIB" >> Makefile.incl
+echo "INSTALL_DIR=$INSTALL_DIR" >> Makefile.incl
+echo "INCLUDE=$INCLUDE" >> Makefile.incl
+
+

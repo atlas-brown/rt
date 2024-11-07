@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+
+if [ -z "$(which bundle)" ]; then
+  echo "A local bundler installation is required for bundler development." >&2
+  exit 127
+fi
+
+# setup test fixtures
+BASE_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+cd $BASE_PATH/test/fixtures/bundler
+
+# unset any pre-existing gemfile when installing test fixtures
+unset BUNDLE_GEMFILE
+
+if [ "$1" == "-f" ]; then
+echo "cleaning"
+  git clean -ffX .
+fi
+
+bundle config set path 'vendor/gems'
+bundle config set without ignore
+bundle install

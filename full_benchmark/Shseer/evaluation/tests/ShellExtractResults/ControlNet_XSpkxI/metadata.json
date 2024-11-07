@@ -1,0 +1,26 @@
+[
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet.git",
+  "relative_path": "ControlNet/annotator/uniformer/exp/upernet_global_small/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_XSpkxI/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/lllyasviel/ControlNet.git",
+  "relative_path": "ControlNet/annotator/uniformer/exp/upernet_global_small/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "ControlNet_XSpkxI/1",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

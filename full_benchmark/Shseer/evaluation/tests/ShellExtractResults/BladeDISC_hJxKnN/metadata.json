@@ -1,0 +1,589 @@
+[
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/tools/torch_quant/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/docker/scripts/install-python-aarch64.sh",
+  "short_name": "install-python-aarch64",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/1",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/docker/scripts/install-cmake.sh",
+  "short_name": "install-cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/2",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/docker/scripts/install-tensorrt.sh",
+  "short_name": "install-tensorrt",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/3",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/docker/scripts/install-bazel.sh",
+  "short_name": "install-bazel",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/4",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/docker/scripts/install-python.sh",
+  "short_name": "install-python",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/5",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/docker/scripts/install-cudnn.sh",
+  "short_name": "install-cudnn",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/6",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/docker/scripts/find-fastest-apt.sh",
+  "short_name": "find-fastest-apt",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/7",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/docs/html_docs/workaround_passpipeline_html.sh",
+  "short_name": "workaround_passpipeline_html",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/8",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/tao_compiler/mlir/disc/utils/preprocess_hdrs_to_rstr.sh",
+  "short_name": "preprocess_hdrs_to_rstr",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/9",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/tao_compiler/mlir/ral/test/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/10",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/TensorFlow/Train/DeePMD/download_data.sh",
+  "short_name": "download_data",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/11",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/TensorFlow/Train/DeePMD/run.sh",
+  "short_name": "run",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/12",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/TensorFlow/Inference/CUDA/FastSpeech2/download_model.sh",
+  "short_name": "download_model",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/13",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/TensorFlow/Inference/CUDA/BERT/download_model.sh",
+  "short_name": "download_model",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/14",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/TensorFlow/Inference/X86/BERT/download_model.sh",
+  "short_name": "download_model",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/15",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/TensorFlow/Inference/AArch64/BERT/download_model.sh",
+  "short_name": "download_model",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/16",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/PyTorch/Train/Dynamo/Bert/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/17",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/PyTorch/Train/Dynamo/StableDiffusion/launch_dreambooth_train.sh",
+  "short_name": "launch_dreambooth_train",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/18",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/PyTorch/Inference/CPU/albert/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/19",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/PyTorch/Inference/CUDA/ResNet/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/20",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/PyTorch/Inference/CUDA/T5/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/21",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/PyTorch/Inference/CUDA/S2T/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/22",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/examples/PyTorch/Inference/CUDA/BERT/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/23",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/scripts/ci/parse_args.sh",
+  "short_name": "parse_args",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/24",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/scripts/ci/deploy_pytorch_blade.sh",
+  "short_name": "deploy_pytorch_blade",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/25",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/scripts/ci/test_tensorflow_blade.sh",
+  "short_name": "test_tensorflow_blade",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/26",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/scripts/ci/test_pytorch_blade.sh",
+  "short_name": "test_pytorch_blade",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/27",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/scripts/ci/auto_rebase.sh",
+  "short_name": "auto_rebase",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/28",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/scripts/ci/deploy_docker.sh",
+  "short_name": "deploy_docker",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/29",
+  "posix_compliant": false,
+  "line_count": 42,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/scripts/ci/build_and_test.sh",
+  "short_name": "build_and_test",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/30",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/scripts/ci/deploy_tensorflow_blade.sh",
+  "short_name": "deploy_tensorflow_blade",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/31",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/scripts/ci/test_cpu_examples.sh",
+  "short_name": "test_cpu_examples",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/32",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/scripts/ci/deploy_wrapper.sh",
+  "short_name": "deploy_wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/33",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/pytorch_blade/benchmark/TorchBench/torch_bench_gpu.sh",
+  "short_name": "torch_bench_gpu",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/34",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/pytorch_blade/benchmark/TorchBench/torch_bench_cpu.sh",
+  "short_name": "torch_bench_cpu",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/35",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/pytorch_blade/benchmark/torch-tensorrt/test_trt_benchmark.sh",
+  "short_name": "test_trt_benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/36",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/pytorch_blade/benchmark/run_benchmark.sh",
+  "short_name": "run_benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/37",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/pytorch_blade/benchmark/detectron2/test_d2_benchmark.sh",
+  "short_name": "test_d2_benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/38",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/pytorch_blade/scripts/build_pytorch_blade.sh",
+  "short_name": "build_pytorch_blade",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/39",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/pytorch_blade/scripts/build_pytorch_blade_dcu.sh",
+  "short_name": "build_pytorch_blade_dcu",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/40",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/tensorflow_blade/build_pip_package.sh",
+  "short_name": "build_pip_package",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/41",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/tao/tools/download_protoc.sh",
+  "short_name": "download_protoc",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/42",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/alibaba/BladeDISC.git",
+  "relative_path": "BladeDISC/tao/docker/install_cuda10_toolkit.sh",
+  "short_name": "install_cuda10_toolkit",
+  "timestamp": "10/22/2024",
+  "identifier": "BladeDISC_hJxKnN/43",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ }
+]

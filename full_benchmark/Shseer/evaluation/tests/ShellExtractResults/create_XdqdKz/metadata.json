@@ -1,0 +1,147 @@
+[
+ {
+  "repo": "https://github.com/facebook/create-react-app.git",
+  "relative_path": "create-react-app/tasks/local-registry.sh",
+  "short_name": "local-registry",
+  "timestamp": "10/22/2024",
+  "identifier": "create_XdqdKz/0",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/create-react-app.git",
+  "relative_path": "create-react-app/tasks/e2e-old-node.sh",
+  "short_name": "e2e-old-node",
+  "timestamp": "10/22/2024",
+  "identifier": "create_XdqdKz/1",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/create-react-app.git",
+  "relative_path": "create-react-app/tasks/e2e-kitchensink.sh",
+  "short_name": "e2e-kitchensink",
+  "timestamp": "10/22/2024",
+  "identifier": "create_XdqdKz/2",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/create-react-app.git",
+  "relative_path": "create-react-app/tasks/e2e-kitchensink-eject.sh",
+  "short_name": "e2e-kitchensink-eject",
+  "timestamp": "10/22/2024",
+  "identifier": "create_XdqdKz/3",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/create-react-app.git",
+  "relative_path": "create-react-app/tasks/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "create_XdqdKz/4",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/create-react-app.git",
+  "relative_path": "create-react-app/tasks/e2e-simple.sh",
+  "short_name": "e2e-simple",
+  "timestamp": "10/22/2024",
+  "identifier": "create_XdqdKz/5",
+  "posix_compliant": false,
+  "line_count": 122,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/create-react-app.git",
+  "relative_path": "create-react-app/tasks/e2e-behavior.sh",
+  "short_name": "e2e-behavior",
+  "timestamp": "10/22/2024",
+  "identifier": "create_XdqdKz/6",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/create-react-app.git",
+  "relative_path": "create-react-app/tasks/screencast.sh",
+  "short_name": "screencast",
+  "timestamp": "10/22/2024",
+  "identifier": "create_XdqdKz/7",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/create-react-app.git",
+  "relative_path": "create-react-app/tasks/e2e-installs.sh",
+  "short_name": "e2e-installs",
+  "timestamp": "10/22/2024",
+  "identifier": "create_XdqdKz/8",
+  "posix_compliant": false,
+  "line_count": 140,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/facebook/create-react-app.git",
+  "relative_path": "create-react-app/tasks/local-test.sh",
+  "short_name": "local-test",
+  "timestamp": "10/22/2024",
+  "identifier": "create_XdqdKz/9",
+  "posix_compliant": false,
+  "line_count": 114,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

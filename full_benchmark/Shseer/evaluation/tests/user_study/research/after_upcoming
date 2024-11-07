@@ -1,0 +1,200 @@
+#!/bin/bash
+# Creates notifications for upcoming calendar events
+# and shows upcoming events from *.ics files
+
+REMINDER_TIME=600 # seconds
+UPCOMING_FILE=~/.calendar/.upcoming
+
+# Check if an event is upcoming
+check_event() {
+    NOW=$(date --utc +%s)
+    ts=$(start_ts)
+    if [[ "$NOW" -lt "$ts" ]]; then
+        echo "$f" >> "$UPCOMING_FILE"
+        return 0
+    fi
+    return 1
+}
+
+# Parse an ics datetime into a format `date` can deal with
+parse_dt() {
+    dt=$1
+    if [[ ${#dt} -lt 9 ]]; then
+        echo "${dt:0:4}-${dt:4:2}-${dt:6:2}"
+    else
+        echo "${dt:0:4}-${dt:4:2}-${dt:6:2}T${dt:9:2}:${dt:11:2}"
+    fi
+}
+
+# Extract the start datetime (as a UTC timestamp) from an event
+# It doesn't seem you can (easily at least) pass associative arrays
+# as arguments, so we use it as a global variable, yuck
+start_ts() {
+    echo $(date +%s --utc --date=$(parse_dt ${event[DTSTART]}))
+}
+
+# Iterate over the events in a single ics file
+iterate_events() {
+    handle_event=$1
+    declare -A event=( )
+
+    # Join lines if following lines are preceded with a space
+    # b/c ics values can wrap like that
+    # Then remove VALARM section, since it can interfere (it also has a "DESCRIPTION" key)
+    data=$(cat "$2" | sed -e :a -e '$!N;s/\n //;ta' -e 'P;D' | sed '/^BEGIN:VALARM/,/^END:VALARM/ {/.*/d}')
+
+    while IFS=: read -r key value; do
+      value=${value%$'\r'} # remove DOS newlines
+      if [[ $key = END && $value = VEVENT ]]; then
+        # If handle event returns true (0), break
+        if $handle_event; then break; fi
+        event=( )
+      else
+
+      if [[ $key == "DTSTART;TZID=*" ]]; then
+        event[TZID]=${key##*";TZID="}
+      fi
+        event[${key%%";"*}]=$value
+      fi
+    done <<< $data
+}
+
+# Check if an event is upcoming,
+# if so, save its data for later use
+is_upcoming() {
+    ts=$(start_ts)
+    if [[ "$ts" -gt "$TODAY" && "$ts" -lt "$END_DATE" ]]; then
+        file=$(basename $line)
+        key="${ts}_${file}"
+        events[$key]=$ts
+        summaries[$key]=${event[SUMMARY]}
+        descriptions[$key]=${event[DESCRIPTION]}
+    fi
+    return 1
+}
+
+view_upcoming() {
+    DAYS=$1
+    TODAY=$(date --utc -d "today 00:00:00" +%s)
+    END_DATE=$(date --utc -d "today + $DAYS days 00:00:00" +%s)
+
+    # Check the upcoming file
+    # Can't have nested associative arrays
+    # so have separate ones for the fields we want to use
+    declare -A events
+    declare -A descriptions
+    declare -A summaries
+    while IFS= read -r line; do
+        if [ -f "$line" ]; then
+            iterate_events is_upcoming $line
+        fi
+    done < "$UPCOMING_FILE"
+
+    # Sort by timestamp
+    LAST_DAY=""
+    mapfile -d '' sorted < <(printf '%s\0' "${!events[@]}" | sort -z)
+    for key in "${sorted[@]}"; do
+        ts=${events[$key]}
+        desc=${descriptions[$key]}
+        summ=${summaries[$key]}
+        days=$(echo "( `date --utc -d @$ts +%s` - `date --utc -d @$TODAY +%s`) / (24*3600)" | bc -l | cut -d"." -f1)
+        days=${days:-0} # Set to 0 if empty (indicating today)
+
+        # Print days out
+        if [ "$days" != "$LAST_DAY" ]; then
+            LAST_DAY=$days
+            tput setaf 11
+            case $days in
+                0)
+                    echo -e "Today"
+                    ;;
+                1)
+                    echo -e $(date --utc -d @$ts +%m/%d)"\tTomorrow"
+                    ;;
+                *)
+                    echo -e $(date --utc -d @$ts +%m/%d)"\t${days} days"
+                    ;;
+            esac
+            tput sgr0
+        fi
+
+        # Print event info
+        echo -e "$(date --utc -d @$ts +%H:%M)\t$(tput setaf 2)${summ}$(tput sgr 0)"
+        if [ -n "$desc" ]; then
+            # Indent description
+            desc=$(echo -e "${desc}" | sed 's/^/\t/')
+            echo -e "${desc}\n"
+        else
+            echo ""
+        fi
+    done
+}
+
+# Send notification for upcoming event
+# Track which events we've already sent notifications for
+NOTIFIED=()
+decide_remind() {
+    NOW=$(date --utc +%s)
+    ts=$(start_ts)
+    hash=$(echo "${ts}_${event[SUMMARY]}" | md5sum | awk '{ print $1 }')
+    if [[ ! "${NOTIFIED[*]}" =~ "${hash}" ]]; then
+        diff=$(($ts - $NOW))
+        # Should probably parse the ics TRIGGER value,
+        # but for now easier to just set fixed reminders
+        if [[ $diff -gt 0 && $diff -lt $REMINDER_TIME ]]; then
+            NOTIFIED+=($hash)
+            summary=${event[SUMMARY]}
+            time=$(date --utc -d @$ts +%H:%M)
+            notify-send -t 0 "Calendar: [${time}] ${summary}"
+        fi
+    fi
+}
+
+# Check the reminder file,
+# create a notification for upcoming events
+remind() {
+    while IFS= read -r line; do
+        if [ -f "$line" ]; then
+            iterate_events decide_remind $line
+        fi
+    done < "$UPCOMING_FILE"
+}
+
+update() {
+    # Only check ics files modified after this datetime
+    # Start with 0 so on a first run this will refresh everything
+    last_updated=0
+    [ -e "$UPCOMING_FILE" ] && rm "$UPCOMING_FILE"
+
+    while true; do
+        NOW=$(date +%s)
+
+        # Check which ics files have upcoming events
+        for f in ~/.calendar/**/*.ics; do
+            modified=$(date +%s -r "$f")
+            if [[ "$modified" -gt "$last_updated" ]]; then
+                iterate_events check_event $f
+            fi
+        done
+        last_updated=$NOW
+        sleep 600
+    done
+}
+
+if [[ $1 == 'view' ]]; then
+    # Show upcoming agenda
+    # Usage: upcoming view [DAYS]
+    # DAYS defaults to 2
+    view_upcoming ${2:-2} | less -R
+
+elif [[ $1 == 'remind' ]]; then
+    # Update upcoming events in the background
+    update &
+    P1=$!
+
+    while true; do
+        remind
+        sleep 60
+    done
+    wait $P1
+fi

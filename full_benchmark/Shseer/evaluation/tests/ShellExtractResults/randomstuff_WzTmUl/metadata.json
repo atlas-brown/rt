@@ -1,0 +1,141 @@
+[
+ {
+  "repo": "https://github.com/jvalkeal/randomstuff.git",
+  "relative_path": "randomstuff/highwaybooth/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "randomstuff_WzTmUl/0",
+  "posix_compliant": true,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jvalkeal/randomstuff.git",
+  "relative_path": "randomstuff/partitioned-batch-job/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "randomstuff_WzTmUl/1",
+  "posix_compliant": true,
+  "line_count": 137,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jvalkeal/randomstuff.git",
+  "relative_path": "randomstuff/graphqlclientdemo/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "randomstuff_WzTmUl/2",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/jvalkeal/randomstuff.git",
+  "relative_path": "randomstuff/custom-skipper-server/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "randomstuff_WzTmUl/3",
+  "posix_compliant": true,
+  "line_count": 144,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/jvalkeal/randomstuff.git",
+  "relative_path": "randomstuff/dataflow-uaa/build-docker",
+  "short_name": "build-docker",
+  "timestamp": "10/22/2024",
+  "identifier": "randomstuff_WzTmUl/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jvalkeal/randomstuff.git",
+  "relative_path": "randomstuff/dataflow-uaa/build-uaa",
+  "short_name": "build-uaa",
+  "timestamp": "10/22/2024",
+  "identifier": "randomstuff_WzTmUl/5",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jvalkeal/randomstuff.git",
+  "relative_path": "randomstuff/dataflow-uaa/build-all",
+  "short_name": "build-all",
+  "timestamp": "10/22/2024",
+  "identifier": "randomstuff_WzTmUl/6",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jvalkeal/randomstuff.git",
+  "relative_path": "randomstuff/ssm-sample4/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "randomstuff_WzTmUl/7",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jvalkeal/randomstuff.git",
+  "relative_path": "randomstuff/metadatanaming/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "randomstuff_WzTmUl/8",
+  "posix_compliant": true,
+  "line_count": 194,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/jvalkeal/randomstuff.git",
+  "relative_path": "randomstuff/ssm-sample5/mvnw",
+  "short_name": "mvnw",
+  "timestamp": "10/22/2024",
+  "identifier": "randomstuff_WzTmUl/9",
+  "posix_compliant": true,
+  "line_count": 214,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

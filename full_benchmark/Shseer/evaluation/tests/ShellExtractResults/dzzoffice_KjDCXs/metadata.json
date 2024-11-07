@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/zyx0814/dzzoffice.git",
+  "relative_path": "dzzoffice/static/select2/release.sh",
+  "short_name": "release",
+  "timestamp": "10/22/2024",
+  "identifier": "dzzoffice_KjDCXs/0",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

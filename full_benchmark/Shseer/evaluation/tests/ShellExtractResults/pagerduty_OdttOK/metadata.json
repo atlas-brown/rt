@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/envato/pagerduty.git",
+  "relative_path": "pagerduty/script/setup.sh",
+  "short_name": "setup",
+  "timestamp": "10/22/2024",
+  "identifier": "pagerduty_OdttOK/0",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ }
+]

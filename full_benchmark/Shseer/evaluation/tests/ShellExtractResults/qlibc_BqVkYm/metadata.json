@@ -1,0 +1,44 @@
+[
+ {
+  "repo": "https://github.com/wolkykim/qlibc.git",
+  "relative_path": "qlibc/install-sh",
+  "short_name": "install-sh",
+  "timestamp": "10/22/2024",
+  "identifier": "qlibc_BqVkYm/0",
+  "posix_compliant": true,
+  "line_count": 340,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/wolkykim/qlibc.git",
+  "relative_path": "qlibc/tests/launcher.sh",
+  "short_name": "launcher",
+  "timestamp": "10/22/2024",
+  "identifier": "qlibc_BqVkYm/1",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/wolkykim/qlibc.git",
+  "relative_path": "qlibc/src/autocompile.sh",
+  "short_name": "autocompile",
+  "timestamp": "10/22/2024",
+  "identifier": "qlibc_BqVkYm/2",
+  "posix_compliant": false,
+  "line_count": 68,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

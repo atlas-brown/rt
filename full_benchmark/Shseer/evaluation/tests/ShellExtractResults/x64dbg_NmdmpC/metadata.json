@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/x64dbg/x64dbg.git",
+  "relative_path": "x64dbg/.github/format/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "x64dbg_NmdmpC/0",
+  "posix_compliant": true,
+  "line_count": 19,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ }
+]

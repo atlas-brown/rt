@@ -1,0 +1,131 @@
+[
+ {
+  "repo": "https://github.com/linkerd/linkerd.git",
+  "relative_path": "linkerd/ci/twitter-develop.sh",
+  "short_name": "twitter-develop",
+  "timestamp": "10/22/2024",
+  "identifier": "linkerd_OAlibg/0",
+  "posix_compliant": false,
+  "line_count": 80,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/linkerd/linkerd.git",
+  "relative_path": "linkerd/ci/coverage-publish.sh",
+  "short_name": "coverage-publish",
+  "timestamp": "10/22/2024",
+  "identifier": "linkerd_OAlibg/1",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/linkerd/linkerd.git",
+  "relative_path": "linkerd/ci/docker-publish.sh",
+  "short_name": "docker-publish",
+  "timestamp": "10/22/2024",
+  "identifier": "linkerd_OAlibg/2",
+  "posix_compliant": true,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/linkerd/linkerd.git",
+  "relative_path": "linkerd/ci/h2.sh",
+  "short_name": "h2",
+  "timestamp": "10/22/2024",
+  "identifier": "linkerd_OAlibg/3",
+  "posix_compliant": false,
+  "line_count": 191,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/linkerd/linkerd.git",
+  "relative_path": "linkerd/ci/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "linkerd_OAlibg/4",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/linkerd/linkerd.git",
+  "relative_path": "linkerd/ci/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "linkerd_OAlibg/5",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/linkerd/linkerd.git",
+  "relative_path": "linkerd/protoc",
+  "short_name": "protoc",
+  "timestamp": "10/22/2024",
+  "identifier": "linkerd_OAlibg/6",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/linkerd/linkerd.git",
+  "relative_path": "linkerd/sbt",
+  "short_name": "sbt",
+  "timestamp": "10/22/2024",
+  "identifier": "linkerd_OAlibg/7",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/linkerd/linkerd.git",
+  "relative_path": "linkerd/namerd/iface/destination/src/main/resources/pull-destination-proto.sh",
+  "short_name": "pull-destination-proto",
+  "timestamp": "10/22/2024",
+  "identifier": "linkerd_OAlibg/8",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

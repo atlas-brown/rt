@@ -1,0 +1,27 @@
+[
+ {
+  "repo": "https://github.com/shiyanhui/Young.git",
+  "relative_path": "Young/scripts/setup_mail.sh",
+  "short_name": "setup_mail",
+  "timestamp": "10/22/2024",
+  "identifier": "Young_wjVmwv/0",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/shiyanhui/Young.git",
+  "relative_path": "Young/scripts/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "Young_wjVmwv/1",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ }
+]

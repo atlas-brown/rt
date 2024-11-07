@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "https://github.com/mgcrea/docker-compose-gitlab-ce.git",
+  "relative_path": "docker-compose-gitlab-ce/scripts/buildEnv.sh",
+  "short_name": "buildEnv",
+  "timestamp": "10/22/2024",
+  "identifier": "docker_AHSazS/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ }
+]

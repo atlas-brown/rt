@@ -1,0 +1,2248 @@
+[
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/bin/brew",
+  "short_name": "brew",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/0",
+  "posix_compliant": false,
+  "line_count": 200,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/cmd/casks.sh",
+  "short_name": "casks",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/1",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/cmd/setup-ruby.sh",
+  "short_name": "setup-ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/2",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/cmd/update-reset.sh",
+  "short_name": "update-reset",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/3",
+  "posix_compliant": false,
+  "line_count": 76,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/cmd/shellenv.sh",
+  "short_name": "shellenv",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/4",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/cmd/--version.sh",
+  "short_name": "--version",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/5",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/cmd/vendor-install.sh",
+  "short_name": "vendor-install",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/6",
+  "posix_compliant": false,
+  "line_count": 295,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/cmd/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/7",
+  "posix_compliant": false,
+  "line_count": 744,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/cmd/--repository.sh",
+  "short_name": "--repository",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/8",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/cmd/formulae.sh",
+  "short_name": "formulae",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/9",
+  "posix_compliant": false,
+  "line_count": 17,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/tap.sh",
+  "short_name": "tap",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/10",
+  "posix_compliant": false,
+  "line_count": 20,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/test/support/fixtures/cask/naked_executable",
+  "short_name": "naked_executable",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/11",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/test/support/fixtures/cask/naked_non_executable",
+  "short_name": "naked_non_executable",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/12",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/help.sh",
+  "short_name": "help",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/13",
+  "posix_compliant": false,
+  "line_count": 33,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/brew.sh",
+  "short_name": "brew",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/14",
+  "posix_compliant": false,
+  "line_count": 762,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/utils/lock.sh",
+  "short_name": "lock",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/15",
+  "posix_compliant": false,
+  "line_count": 51,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/utils/shfmt.sh",
+  "short_name": "shfmt",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/16",
+  "posix_compliant": false,
+  "line_count": 330,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/utils/analytics.sh",
+  "short_name": "analytics",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/17",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/utils/helpers.sh",
+  "short_name": "helpers",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/18",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/utils/ruby.sh",
+  "short_name": "ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/19",
+  "posix_compliant": false,
+  "line_count": 119,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/command_path.sh",
+  "short_name": "command_path",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/20",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/items.sh",
+  "short_name": "items",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/21",
+  "posix_compliant": false,
+  "line_count": 40,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/formula_path.sh",
+  "short_name": "formula_path",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/22",
+  "posix_compliant": false,
+  "line_count": 75,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/utils.sh",
+  "short_name": "utils",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/23",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/shared/svn",
+  "short_name": "svn",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/24",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/shared/curl",
+  "short_name": "curl",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/25",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/shared/git",
+  "short_name": "git",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/26",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/ant",
+  "short_name": "ant",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/27",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/pkg-config",
+  "short_name": "pkg-config",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/28",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/svn",
+  "short_name": "svn",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/29",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++",
+  "short_name": "g++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/30",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gmake",
+  "short_name": "gmake",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/31",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gcc-13",
+  "short_name": "gcc-13",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/32",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gcc-14",
+  "short_name": "gcc-14",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/33",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-4.2",
+  "short_name": "g++-4.2",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/34",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/c++",
+  "short_name": "c++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/35",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gcc-12",
+  "short_name": "gcc-12",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/36",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/clang",
+  "short_name": "clang",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/37",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-8",
+  "short_name": "g++-8",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/38",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/c99",
+  "short_name": "c99",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/39",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-6",
+  "short_name": "g++-6",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/40",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-12",
+  "short_name": "g++-12",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/41",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-7",
+  "short_name": "g++-7",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/42",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-9",
+  "short_name": "g++-9",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/43",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-14",
+  "short_name": "g++-14",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/44",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-13",
+  "short_name": "g++-13",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/45",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/ld",
+  "short_name": "ld",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/46",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/xcrun",
+  "short_name": "xcrun",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/47",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/rake",
+  "short_name": "rake",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/48",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gcc",
+  "short_name": "gcc",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/49",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/bsdmake",
+  "short_name": "bsdmake",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/50",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/ninja",
+  "short_name": "ninja",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/51",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gcc-10",
+  "short_name": "gcc-10",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/52",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/curl",
+  "short_name": "curl",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/53",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gcc-11",
+  "short_name": "gcc-11",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/54",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/llvm_clang",
+  "short_name": "llvm_clang",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/55",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-4.9",
+  "short_name": "g++-4.9",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/56",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/apr-1-config",
+  "short_name": "apr-1-config",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/57",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/cpp",
+  "short_name": "cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/58",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/swift",
+  "short_name": "swift",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/59",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/make",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/60",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-11",
+  "short_name": "g++-11",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/61",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-5",
+  "short_name": "g++-5",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/62",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/g++-10",
+  "short_name": "g++-10",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/63",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/clang++",
+  "short_name": "clang++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/64",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/swiftc",
+  "short_name": "swiftc",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/65",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gnumake",
+  "short_name": "gnumake",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/66",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gcc-8",
+  "short_name": "gcc-8",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/67",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/cc",
+  "short_name": "cc",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/68",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/c89",
+  "short_name": "c89",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/69",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gcc-7",
+  "short_name": "gcc-7",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/70",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gcc-9",
+  "short_name": "gcc-9",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/71",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/llvm_clang++",
+  "short_name": "llvm_clang++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/72",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/mig",
+  "short_name": "mig",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/73",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/ruby",
+  "short_name": "ruby",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/74",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/git",
+  "short_name": "git",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/75",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/mac/super/gem",
+  "short_name": "gem",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/76",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/svn",
+  "short_name": "svn",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/77",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++",
+  "short_name": "g++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/78",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/gcc-13",
+  "short_name": "gcc-13",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/79",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/gcc-14",
+  "short_name": "gcc-14",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/80",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-4.2",
+  "short_name": "g++-4.2",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/81",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/c++",
+  "short_name": "c++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/82",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/gcc-12",
+  "short_name": "gcc-12",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/83",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/clang",
+  "short_name": "clang",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/84",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-8",
+  "short_name": "g++-8",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/85",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/c99",
+  "short_name": "c99",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/86",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-6",
+  "short_name": "g++-6",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/87",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-12",
+  "short_name": "g++-12",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/88",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-7",
+  "short_name": "g++-7",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/89",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-9",
+  "short_name": "g++-9",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/90",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-14",
+  "short_name": "g++-14",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/91",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-13",
+  "short_name": "g++-13",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/92",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/ld",
+  "short_name": "ld",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/93",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/gcc",
+  "short_name": "gcc",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/94",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/ninja",
+  "short_name": "ninja",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/95",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/gcc-10",
+  "short_name": "gcc-10",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/96",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/curl",
+  "short_name": "curl",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/97",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/gcc-11",
+  "short_name": "gcc-11",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/98",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/llvm_clang",
+  "short_name": "llvm_clang",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/99",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-4.9",
+  "short_name": "g++-4.9",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/100",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/cpp",
+  "short_name": "cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/101",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/swift",
+  "short_name": "swift",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/102",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-11",
+  "short_name": "g++-11",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/103",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-5",
+  "short_name": "g++-5",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/104",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/g++-10",
+  "short_name": "g++-10",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/105",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/clang++",
+  "short_name": "clang++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/106",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/swiftc",
+  "short_name": "swiftc",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/107",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/gcc-8",
+  "short_name": "gcc-8",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/108",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/cc",
+  "short_name": "cc",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/109",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/c89",
+  "short_name": "c89",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/110",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/gcc-7",
+  "short_name": "gcc-7",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/111",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/gcc-9",
+  "short_name": "gcc-9",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/112",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/llvm_clang++",
+  "short_name": "llvm_clang++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/113",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/super/git",
+  "short_name": "git",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/114",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/svn",
+  "short_name": "svn",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/115",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++",
+  "short_name": "g++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/116",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gmake",
+  "short_name": "gmake",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/117",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gcc-13",
+  "short_name": "gcc-13",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/118",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gcc-14",
+  "short_name": "gcc-14",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/119",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-4.2",
+  "short_name": "g++-4.2",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/120",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/c++",
+  "short_name": "c++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/121",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gcc-12",
+  "short_name": "gcc-12",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/122",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/clang",
+  "short_name": "clang",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/123",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-8",
+  "short_name": "g++-8",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/124",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/c99",
+  "short_name": "c99",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/125",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-6",
+  "short_name": "g++-6",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/126",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-12",
+  "short_name": "g++-12",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/127",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-7",
+  "short_name": "g++-7",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/128",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-9",
+  "short_name": "g++-9",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/129",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-14",
+  "short_name": "g++-14",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/130",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-13",
+  "short_name": "g++-13",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/131",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/ld",
+  "short_name": "ld",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/132",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gcc",
+  "short_name": "gcc",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/133",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/x86_64-linux-gnu-gcc",
+  "short_name": "x86_64-linux-gnu-gcc",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/134",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/ninja",
+  "short_name": "ninja",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/135",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gcc-10",
+  "short_name": "gcc-10",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/136",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gold",
+  "short_name": "gold",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/137",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/curl",
+  "short_name": "curl",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/138",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gcc-11",
+  "short_name": "gcc-11",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/139",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/llvm_clang",
+  "short_name": "llvm_clang",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/140",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-4.9",
+  "short_name": "g++-4.9",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/141",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/ld.gold",
+  "short_name": "ld.gold",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/142",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/cpp",
+  "short_name": "cpp",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/143",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/swift",
+  "short_name": "swift",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/144",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/make",
+  "short_name": "make",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/145",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-11",
+  "short_name": "g++-11",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/146",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-5",
+  "short_name": "g++-5",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/147",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/g++-10",
+  "short_name": "g++-10",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/148",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/clang++",
+  "short_name": "clang++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/149",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/swiftc",
+  "short_name": "swiftc",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/150",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gnumake",
+  "short_name": "gnumake",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/151",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gcc-8",
+  "short_name": "gcc-8",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/152",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/cc",
+  "short_name": "cc",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/153",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/c89",
+  "short_name": "c89",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/154",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gcc-7",
+  "short_name": "gcc-7",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/155",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/gcc-9",
+  "short_name": "gcc-9",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/156",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/llvm_clang++",
+  "short_name": "llvm_clang++",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/157",
+  "posix_compliant": false,
+  "line_count": 443,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/linux/super/git",
+  "short_name": "git",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/158",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/scm/svn",
+  "short_name": "svn",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/159",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/scm/curl",
+  "short_name": "curl",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/160",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/scm/git",
+  "short_name": "git",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/161",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/gems/rdbg",
+  "short_name": "rdbg",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/162",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/shims/gems/rubocop",
+  "short_name": "rubocop",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/163",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/list.sh",
+  "short_name": "list",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/164",
+  "posix_compliant": false,
+  "line_count": 70,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/cask/utils/rmdir.sh",
+  "short_name": "rmdir",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/165",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/Library/Homebrew/dev-cmd/rubocop.sh",
+  "short_name": "rubocop",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/166",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/.devcontainer/on-create-command.sh",
+  "short_name": "on-create-command",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/167",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/.vscode/ruby-lsp-activate.sh",
+  "short_name": "ruby-lsp-activate",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/168",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/package/scripts/postinstall",
+  "short_name": "postinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/169",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Homebrew/brew.git",
+  "relative_path": "brew/package/scripts/preinstall",
+  "short_name": "preinstall",
+  "timestamp": "10/22/2024",
+  "identifier": "brew_OAPDlP/170",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

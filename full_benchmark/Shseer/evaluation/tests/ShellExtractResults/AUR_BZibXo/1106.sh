@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# arg 1:  the old package version
+pre_remove() {
+	pre_upgrade
+}
+
+# arg 1:  the new package version
+# arg 2:  the old package version
+pre_upgrade() {
+	for theme in etc/splash/arch-banner-*; do
+		SPLASH_THEME=${theme##*/} etc/splash/arch-banner-icons/scripts/cache-icons uninstall
+	done
+
+	pre_install
+}
+
+# arg 1:  the new package version
+pre_install() {
+	[[ -h lib ]] && return
+	local error=0 output="" d dd
+	for d in lib/splash/cache; do
+		[[ -d $d ]] || continue
+		# Try hard to unmount any stale tmpfs
+		for dd in $d usr/$d; do
+			while findmnt -t tmpfs $dd >/dev/null; do
+				output+=$'\n> '$( umount -l $dd 2>&1 && echo "Unmounted '$dd'"  ) && continue
+				error=1
+				break 3
+			done
+		done
+		output+=$'\n> '$( mv -v -T $d usr/$d 2>&1 ) || error=1
+	done
+	local dir_list
+	dir_list=$( [[ -d lib/splash ]] && find lib/splash -type d | tac ) &&
+	while read -r d; do
+		output+=$'\n> '$( rmdir -v "${d}" 2>&1 ) || error=1
+	done <<< "${dir_list}"
+	if [[ $output ]]; then
+		cat <<-EOT
+		-------------------------------------------------------------------------------
+		> Move cache directory to new location and remove /lib/splash:${output}
+		-------------------------------------------------------------------------------
+		EOT
+	fi
+	return $error
+}
+
+# arg 1:  the new package version
+post_install() {
+	echo "> ---------------------------------------------------------------------------"
+	echo "> Configuration: /etc/splash/arch-banner-icons/icons.conf"
+	post_upgrade
+}
+
+# arg 1:  the new package version
+# arg 2:  the old package version
+post_upgrade() {
+	# Unmount any stale theme cache tmpfs and install dummy icons
+	# needed to silence fbcondecor_helper when not using SPLASH_DAEMON=early
+	# and splash daemon when theme hook scripts not supported.
+	# This also removes any old crap in the working directory.
+	for theme in etc/splash/arch-banner-*; do
+		SPLASH_THEME=${theme##*/} etc/splash/arch-banner-icons/scripts/cache-icons install
+	done
+
+	post_remove
+}
+
+# arg 1:  the old package version
+post_remove() {
+	echo "> ---------------------------------------------------------------------------"
+	echo "> Remember to rebuild the initcpio (if any) !"
+	echo "> ---------------------------------------------------------------------------"
+}

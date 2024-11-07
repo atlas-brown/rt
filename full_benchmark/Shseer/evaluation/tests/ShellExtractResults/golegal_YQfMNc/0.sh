@@ -1,0 +1,59 @@
+#!/bin/bash
+
+if (( $# < 2 ))
+then echo "usage: golegal width modulus [y [ x [incpus [memsize [height [ncpus]]]]]]"; exit
+fi
+
+width=$1
+modidx=$2
+if (( $# >= 3 )); then      y=$3; else y=0; fi
+if (( $# >= 4 )); then      x=$4; else x=0; fi
+if (( $# >= 5 )); then incpus=$5; else incpus=1; fi
+if (( $# >= 6 )); then  msize=$6; else msize=500M; fi
+if (( $# >= 7 )); then height=$7; else height=$width; fi
+if (( $# >= 8 )); then  ncpus=$8; else ncpus=$incpus; fi
+
+obsolete=""
+bin="$(dirname "${BASH_SOURCE[0]}")"
+
+wm="$width.$modidx"
+pincpus=$incpus
+if ((x == 0 && y == 0)); then
+  echo "mkdir -p $wm/yx.00.00/fromto.0.0"
+  mkdir -p "$wm/yx.00.00/fromto.0.0"
+  echo "$bin/start $width $modidx &> $wm/yx.00.00/cpu.0"
+  $bin/start $width $modidx &> "$wm/yx.00.00/cpu.0" || exit 1
+  incpus=1
+  pincpus=1
+fi
+if (( x < 10 )); then showx="0$x"; else showx=$x; fi
+if (( y < 10 )); then showy="0$y"; else showy=$y; fi
+nextyx="$wm/yx.$showy.$showx"
+while ((y < height)); do
+  yx=$nextyx
+  nextx=$x
+  nexty=$y
+  ((nextx += 1))
+  if ((nextx == width)); then ((nextx = 0)); ((nexty += 1)); fi
+  if (( nextx < 10 )); then shownextx="0$nextx"; else shownextx=$nextx; fi
+  if (( nexty < 10 )); then shownexty="0$nexty"; else shownexty=$nexty; fi
+  nextyx="$wm/yx.$shownexty.$shownextx"
+  echo "mkdir $nextyx"
+  mkdir $nextyx
+
+  date > "$nextyx/start"
+  if (( incpus < ncpus )); then mincpus=$incpus; else mincpus=$ncpus; fi
+  for (( cpu=0; cpu < mincpus; cpu++ )); do
+    echo "time $bin/legal $width $modidx $y $x $pincpus $ncpus $cpu $msize &>  $nextyx/cpu.$cpu"
+          time $bin/legal $width $modidx $y $x $pincpus $ncpus $cpu $msize &> "$nextyx/cpu.$cpu" || kill -9 $$ &
+  done
+  wait
+  date > "$nextyx/end"
+
+  if [[ $obsolete != "" ]]; then echo "rm -rf $obsolete/fromto.*"; rm -rf $obsolete/fromto.*; fi
+  if (( x != 0 )); then obsolete=$yx; else obsolete=""; fi
+  x=$nextx
+  y=$nexty
+  if (( ncpus < incpus )); then pincpus=$ncpus; else pincpus=$incpus; fi
+  incpus=$ncpus
+done

@@ -1,0 +1,40 @@
+[
+ {
+  "repo": "https://github.com/square/leakcanary.git",
+  "relative_path": "leakcanary/config/hooks/pre-push",
+  "short_name": "pre-push",
+  "timestamp": "10/22/2024",
+  "identifier": "leakcanary_fdwKDJ/0",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/square/leakcanary.git",
+  "relative_path": "leakcanary/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "leakcanary_fdwKDJ/1",
+  "posix_compliant": true,
+  "line_count": 98,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/square/leakcanary.git",
+  "relative_path": "leakcanary/shark-cli.sh",
+  "short_name": "shark-cli",
+  "timestamp": "10/22/2024",
+  "identifier": "leakcanary_fdwKDJ/2",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ }
+]

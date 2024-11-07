@@ -1,0 +1,45 @@
+[
+ {
+  "repo": "https://github.com/evilhero/mylar.git",
+  "relative_path": "mylar/post-processing/torrent-auto-snatch/getlftp.sh",
+  "short_name": "getlftp",
+  "timestamp": "10/22/2024",
+  "identifier": "mylar_qDCvOV/0",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/evilhero/mylar.git",
+  "relative_path": "mylar/init-scripts/centos.init.d",
+  "short_name": "centos.init.d",
+  "timestamp": "10/22/2024",
+  "identifier": "mylar_qDCvOV/1",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/evilhero/mylar.git",
+  "relative_path": "mylar/init-scripts/init.d/ubuntu.init.d",
+  "short_name": "ubuntu.init.d",
+  "timestamp": "10/22/2024",
+  "identifier": "mylar_qDCvOV/2",
+  "posix_compliant": true,
+  "line_count": 114,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ }
+]

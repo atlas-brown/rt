@@ -1,0 +1,56 @@
+#!/bin/bash
+#
+# cloudtrail-functions
+
+cloudtrails() {
+
+  # List Cloudtrails
+  #
+  #     $ cloudtrails
+  #     failmode	failmode-cloudtrail	ap-southeast-2	IsMultiRegionTrail=true	IncludeGlobalServiceEvents=true
+
+  local cloudtrails=$(skim-stdin)
+  local filters=$(__bma_read_filters "$@")
+
+  aws cloudtrail describe-trails          \
+    ${cloudtrails/#/'--trail-name-list '} \
+    --output text                         \
+    --query "
+      trailList[].[
+        Name,
+        S3BucketName,
+        HomeRegion,
+        join('=', [
+          'IsMultiRegionTrail',
+          to_string(IsMultiRegionTrail)
+        ]),
+        join('=', [
+          'IncludeGlobalServiceEvents',
+          to_string(IncludeGlobalServiceEvents)
+        ])
+      ] "               |
+  grep -E -- "$filters"
+
+}
+
+cloudtrail-status() {
+
+  # List logging status of Cloudtrails
+  #
+  #     USAGE: cloudtrail-status cloudtrail [cloudtrail]
+
+  local cloudtrails=$(skim-stdin "$@")
+  [[ -z "$cloudtrails" ]] && __bma_usage "cloudtrail [cloudtrail]" && return 1
+
+  local cloudtrail
+  for cloudtrail in $cloudtrails; do
+    aws cloudtrail get-trail-status              \
+      --name "$cloudtrail"                       \
+      --output text                              \
+      --query "[
+       '$cloudtrail',
+        join('=', ['IsLogging', to_string(IsLogging)])
+      ]"
+  done              |
+    columnise
+}

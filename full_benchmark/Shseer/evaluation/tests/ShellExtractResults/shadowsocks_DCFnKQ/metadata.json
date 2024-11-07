@@ -1,0 +1,125 @@
+[
+ {
+  "repo": "https://github.com/nekolab/shadowsocks-comment.git",
+  "relative_path": "shadowsocks-comment/debian/init.d",
+  "short_name": "init.d",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_DCFnKQ/0",
+  "posix_compliant": true,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nekolab/shadowsocks-comment.git",
+  "relative_path": "shadowsocks-comment/tests/socksify/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_DCFnKQ/1",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nekolab/shadowsocks-comment.git",
+  "relative_path": "shadowsocks-comment/tests/jenkins.sh",
+  "short_name": "jenkins",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_DCFnKQ/2",
+  "posix_compliant": false,
+  "line_count": 62,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nekolab/shadowsocks-comment.git",
+  "relative_path": "shadowsocks-comment/tests/setup_tc.sh",
+  "short_name": "setup_tc",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_DCFnKQ/3",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nekolab/shadowsocks-comment.git",
+  "relative_path": "shadowsocks-comment/tests/test_command.sh",
+  "short_name": "test_command",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_DCFnKQ/4",
+  "posix_compliant": false,
+  "line_count": 29,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/nekolab/shadowsocks-comment.git",
+  "relative_path": "shadowsocks-comment/tests/test_large_file.sh",
+  "short_name": "test_large_file",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_DCFnKQ/5",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nekolab/shadowsocks-comment.git",
+  "relative_path": "shadowsocks-comment/tests/libsodium/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_DCFnKQ/6",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/nekolab/shadowsocks-comment.git",
+  "relative_path": "shadowsocks-comment/tests/test_daemon.sh",
+  "short_name": "test_daemon",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_DCFnKQ/7",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/nekolab/shadowsocks-comment.git",
+  "relative_path": "shadowsocks-comment/tests/assert.sh",
+  "short_name": "assert",
+  "timestamp": "10/22/2024",
+  "identifier": "shadowsocks_DCFnKQ/8",
+  "posix_compliant": false,
+  "line_count": 112,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

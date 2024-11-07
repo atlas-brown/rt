@@ -1,0 +1,41 @@
+[
+ {
+  "repo": "https://github.com/bregman-arie/devops-exercises.git",
+  "relative_path": "devops-exercises/scripts/count_questions.sh",
+  "short_name": "count_questions",
+  "timestamp": "10/22/2024",
+  "identifier": "devops_ohmeJK/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/bregman-arie/devops-exercises.git",
+  "relative_path": "devops-exercises/scripts/run_ci.sh",
+  "short_name": "run_ci",
+  "timestamp": "10/22/2024",
+  "identifier": "devops_ohmeJK/1",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/bregman-arie/devops-exercises.git",
+  "relative_path": "devops-exercises/scripts/aws s3 event triggering/aws_s3_event_trigger.sh",
+  "short_name": "aws_s3_event_trigger",
+  "timestamp": "10/22/2024",
+  "identifier": "devops_ohmeJK/2",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

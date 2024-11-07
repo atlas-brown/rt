@@ -1,0 +1,613 @@
+[
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/generate-contents.sh",
+  "short_name": "generate-contents",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/supercede-existing-adr.sh",
+  "short_name": "supercede-existing-adr",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/1",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/init-adr-repository.sh",
+  "short_name": "init-adr-repository",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/2",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/must-provide-a-title-when-creating-new-adr.sh",
+  "short_name": "must-provide-a-title-when-creating-new-adr",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/3",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/generate-contents-with-header-and-footer.sh",
+  "short_name": "generate-contents-with-header-and-footer",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/4",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/linking.sh",
+  "short_name": "linking",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/5",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/generate-graph.sh",
+  "short_name": "generate-graph",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/6",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/autocomplete.sh",
+  "short_name": "autocomplete",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/7",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/funny-characters.sh",
+  "short_name": "funny-characters",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/8",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/linking-new-records.sh",
+  "short_name": "linking-new-records",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/9",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/avoid-octal-numbers.sh",
+  "short_name": "avoid-octal-numbers",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/10",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/alternative-adr-directory.sh",
+  "short_name": "alternative-adr-directory",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/11",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/search-for-custom-adr-dir.sh",
+  "short_name": "search-for-custom-adr-dir",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/12",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/generate-contents-with-prefix.sh",
+  "short_name": "generate-contents-with-prefix",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/13",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/fake-editor",
+  "short_name": "fake-editor",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/14",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/create-first-record.sh",
+  "short_name": "create-first-record",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/15",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/edit-adr-on-creation.sh",
+  "short_name": "edit-adr-on-creation",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/16",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/fake-visual",
+  "short_name": "fake-visual",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/17",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/create-mutiple-records.sh",
+  "short_name": "create-mutiple-records",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/18",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/migrate-date-format.sh",
+  "short_name": "migrate-date-format",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/19",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/list-records.sh",
+  "short_name": "list-records",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/20",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/supercede-multiple-adrs.sh",
+  "short_name": "supercede-multiple-adrs",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/21",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/project-specific-template.sh",
+  "short_name": "project-specific-template",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/22",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tests/search-for-adr-dir.sh",
+  "short_name": "search-for-adr-dir",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/23",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/approve",
+  "short_name": "approve",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/24",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/new-test",
+  "short_name": "new-test",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/25",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/tag-release",
+  "short_name": "tag-release",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/26",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_title",
+  "short_name": "_adr_title",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/27",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_remove_status",
+  "short_name": "_adr_remove_status",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/28",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/adr",
+  "short_name": "adr",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/29",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_help",
+  "short_name": "_adr_help",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/30",
+  "posix_compliant": false,
+  "line_count": 35,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_status",
+  "short_name": "_adr_status",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/31",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/adr-help",
+  "short_name": "adr-help",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/32",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_help_new",
+  "short_name": "_adr_help_new",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/33",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/adr-new",
+  "short_name": "adr-new",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/34",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_add_link",
+  "short_name": "_adr_add_link",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/35",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_commands",
+  "short_name": "_adr_commands",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/36",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/adr-link",
+  "short_name": "adr-link",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/37",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/adr-list",
+  "short_name": "adr-list",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/38",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_generate_graph",
+  "short_name": "_adr_generate_graph",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/39",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_generate_toc",
+  "short_name": "_adr_generate_toc",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/40",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_links",
+  "short_name": "_adr_links",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/41",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_dir",
+  "short_name": "_adr_dir",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/42",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/adr-init",
+  "short_name": "adr-init",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/43",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/adr-config",
+  "short_name": "adr-config",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/44",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_autocomplete",
+  "short_name": "_adr_autocomplete",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/45",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/adr-generate",
+  "short_name": "adr-generate",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/46",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/adr-upgrade-repository",
+  "short_name": "adr-upgrade-repository",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/47",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/npryce/adr-tools.git",
+  "relative_path": "adr-tools/src/_adr_file",
+  "short_name": "_adr_file",
+  "timestamp": "10/22/2024",
+  "identifier": "adr_WtMxQW/48",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "io",
+   "text"
+  ]
+ }
+]

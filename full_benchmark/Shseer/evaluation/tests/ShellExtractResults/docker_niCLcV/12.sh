@@ -1,0 +1,46 @@
+#!/bin/bash
+
+_puid=$(printenv PUID)
+_pgid=$(printenv PGID)
+
+cloud_encrypt_dir="/cloud-encrypt"
+cloud_decrypt_dir="/cloud-decrypt"
+
+local_decrypt_dir="/local-decrypt"
+local_media_dir="/local-media"
+
+rclone_config="--config=/config/rclone.conf"
+rclone_options="${rclone_config} --buffer-size $(printenv BUFFER_SIZE) --checkers $(printenv CHECKERS)"
+rclone_mount_options="${rclone_options} --allow-non-empty --allow-other --max-read-ahead $(printenv MAX_READ_AHEAD) --uid ${_puid:-911} --gid ${_pgid:-911}"
+
+plexdrive_temp_dir="/chunks"
+plexdrive_options="--config=/config --temp=${plexdrive_temp_dir} --chunk-size=$(printenv CHUNK_SIZE) --clear-chunk-age=$(printenv CLEAR_CHUNK_AGE) --uid=${_puid:-911} --gid=${_pgid:-911} -o allow_other"
+if [ ! -z $(printenv CLEAR_CHUNK_MAX_SIZE) ]; then
+    plexdrive_options="${plexdrive_options} --clear-chunk-max-size=$(printenv CLEAR_CHUNK_MAX_SIZE)"
+fi
+
+if [ "$(printenv READ_ONLY)" != "0" ]; then
+    rclone_mount_options="${rclone_mount_options} --read-only"
+    plexdrive_options="${plexdrive_options} -o read_only"
+fi
+
+mongo="--mongo-database=$(printenv MONGO_DATABASE) --mongo-host=localhost"
+
+ufs_options="-o uid=${_puid:-911} -o gid=${_pgid:-911} -o cow,allow_other,direct_io,nonempty,auto_cache,sync_read"
+
+rclone_cloud_endpoint=$(printenv RCLONE_CLOUD_ENDPOINT | tr -d '"' | tr -d "'")
+rclone_local_endpoint=$(printenv RCLONE_LOCAL_ENDPOINT | tr -d '"' | tr -d "'")
+
+log_dir="/log"
+if [ ! -d "${log_dir}" ]; then
+	mkdir -p "${log_dir}"
+fi
+
+secrets_dir="/secrets"
+if [ -d "${secrets_dir}" ]; then
+    cp ${secrets_dir}/* /config/
+fi
+
+cloud_upload_time=$(printenv CLOUDUPLOADTIME)
+rm_delete_time=$(printenv RMDELETETIME)
+cron_log=/log/cron.log

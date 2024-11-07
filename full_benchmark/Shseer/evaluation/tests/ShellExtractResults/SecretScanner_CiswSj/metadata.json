@@ -1,0 +1,37 @@
+[
+ {
+  "repo": "https://github.com/deepfence/SecretScanner.git",
+  "relative_path": "SecretScanner/itests/check_server_image_scan.sh",
+  "short_name": "check_server_image_scan",
+  "timestamp": "10/22/2024",
+  "identifier": "SecretScanner_CiswSj/0",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepfence/SecretScanner.git",
+  "relative_path": "SecretScanner/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "SecretScanner_CiswSj/1",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/deepfence/SecretScanner.git",
+  "relative_path": "SecretScanner/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "SecretScanner_CiswSj/2",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

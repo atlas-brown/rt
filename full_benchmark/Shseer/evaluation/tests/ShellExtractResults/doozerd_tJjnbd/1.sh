@@ -1,0 +1,52 @@
+#!/bin/bash
+
+set -e
+
+# Members
+n=$1
+[ -z "$n" ] || shift
+[ -z "$n" ] && n=3
+
+# CALs
+c=$1
+[ -z "$c" ] || shift
+[ -z "$c" ] && c=0
+
+waitall() {
+    while test $running -ge 1
+    do
+        wait
+        running=$(expr $running - 1)
+    done
+}
+
+quit() {
+    killall doozerd
+    waitall
+}
+
+trap quit INT
+
+running=0
+i=1
+while test $i -le $n
+do
+    bin/light $i $* 2>&1 | sed "s/^/$i: /" &
+    running=$(expr $running + 1)
+
+    sleep 1
+    i=$(expr $i + 1)
+done
+
+sk=
+test "$DOOZER_ROSECRET" && sk=$DOOZER_ROSECRET
+test "$DOOZER_RWSECRET" && sk=$DOOZER_RWSECRET
+
+i=2
+while test $i -le $c
+do
+    true | doozer -a "doozer:?ca=127.0.0.1:8041&sk=$sk" set /ctl/cal/$i 0
+    i=$(expr $i + 1)
+done
+
+waitall

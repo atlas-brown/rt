@@ -1,0 +1,79 @@
+[
+ {
+  "repo": "https://github.com/borjapazr/mars-server.git",
+  "relative_path": "mars-server/core/_main.sh",
+  "short_name": "_main",
+  "timestamp": "10/22/2024",
+  "identifier": "mars_sGiMdJ/0",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/borjapazr/mars-server.git",
+  "relative_path": "mars-server/core/log.sh",
+  "short_name": "log",
+  "timestamp": "10/22/2024",
+  "identifier": "mars_sGiMdJ/1",
+  "posix_compliant": false,
+  "line_count": 58,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/borjapazr/mars-server.git",
+  "relative_path": "mars-server/core/checks.sh",
+  "short_name": "checks",
+  "timestamp": "10/22/2024",
+  "identifier": "mars_sGiMdJ/2",
+  "posix_compliant": false,
+  "line_count": 21,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/borjapazr/mars-server.git",
+  "relative_path": "mars-server/server.sh",
+  "short_name": "server",
+  "timestamp": "10/22/2024",
+  "identifier": "mars_sGiMdJ/3",
+  "posix_compliant": false,
+  "line_count": 157,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/borjapazr/mars-server.git",
+  "relative_path": "mars-server/services/calibre-web/mods/fix-cloudflare-login.sh",
+  "short_name": "fix-cloudflare-login",
+  "timestamp": "10/22/2024",
+  "identifier": "mars_sGiMdJ/4",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/borjapazr/mars-server.git",
+  "relative_path": "mars-server/services/centreon/scripts/enable-monitoring.sh",
+  "short_name": "enable-monitoring",
+  "timestamp": "10/22/2024",
+  "identifier": "mars_sGiMdJ/5",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": []
+ }
+]

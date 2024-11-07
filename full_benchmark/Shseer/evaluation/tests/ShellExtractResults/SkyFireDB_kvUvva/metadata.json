@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/SkyFireArchives/SkyFireDB.git",
+  "relative_path": "SkyFireDB/linux_installer.sh",
+  "short_name": "linux_installer",
+  "timestamp": "10/22/2024",
+  "identifier": "SkyFireDB_kvUvva/0",
+  "posix_compliant": false,
+  "line_count": 109,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ }
+]

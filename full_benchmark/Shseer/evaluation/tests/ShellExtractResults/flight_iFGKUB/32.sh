@@ -1,0 +1,5 @@
+#!/bin/bash
+
+killall synergyc
+#synergyc abarry.csail.mit.edu
+synergyc AAAZZZA

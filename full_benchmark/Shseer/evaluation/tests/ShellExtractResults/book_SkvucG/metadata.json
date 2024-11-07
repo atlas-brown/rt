@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/HappyCerberus/book-cpp-algorithms.git",
+  "relative_path": "book-cpp-algorithms/code_examples/verify.sh",
+  "short_name": "verify",
+  "timestamp": "10/22/2024",
+  "identifier": "book_SkvucG/0",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

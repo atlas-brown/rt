@@ -1,0 +1,136 @@
+[
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/bin/ssh-via-tor",
+  "short_name": "ssh-via-tor",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/0",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/sh/07_setup_dotfiles.sh",
+  "short_name": "07_setup_dotfiles",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/1",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/sh/09_modern_tools.sh",
+  "short_name": "09_modern_tools",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/2",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/sh/08_setup_dirs.sh",
+  "short_name": "08_setup_dirs",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/3",
+  "posix_compliant": true,
+  "line_count": 3,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/sh/02_install_deps_dev.sh",
+  "short_name": "02_install_deps_dev",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/4",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/sh/01_install_deps_core.sh",
+  "short_name": "01_install_deps_core",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/5",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/sh/06_install_funtools.sh",
+  "short_name": "06_install_funtools",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/6",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/sh/05_install_utils.sh",
+  "short_name": "05_install_utils",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/7",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/sh/03_setup_zsh.sh",
+  "short_name": "03_setup_zsh",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/8",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/sh/04_install_binwalk.sh",
+  "short_name": "04_install_binwalk",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/9",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/kwketh/dev-env.git",
+  "relative_path": "dev-env/dev-env.sh",
+  "short_name": "dev-env",
+  "timestamp": "10/22/2024",
+  "identifier": "dev_qOMMWs/10",
+  "posix_compliant": false,
+  "line_count": 61,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

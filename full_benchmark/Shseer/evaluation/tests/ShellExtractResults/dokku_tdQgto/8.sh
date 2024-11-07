@@ -1,0 +1,32 @@
+#!/bin/bash
+set -eo pipefail
+[[ $TRACE ]] && set -x
+
+if [[ -e /usr/share/debconf/confmodule ]]; then
+  . /usr/share/debconf/confmodule
+fi
+
+case "$1" in
+  install)
+    db_get "dokku/skip_key_file"
+    if [ -z "${DEBCONF_RECONFIGURE}" ] && [ "$RET" != "true" ]; then
+      db_get "dokku/key_file"
+      if [ ! -f "$RET" ]; then
+        echo "Error: keyfile '$RET' not found." >&2
+        echo "       To deploy, you will need to generate a keypair and add with 'dokku ssh-keys:add'." >&2
+        db_reset "dokku/key_file"
+      fi
+    fi
+    ;;
+
+  upgrade) ;;
+
+  abort-upgrade) ;;
+
+  *)
+    echo "preinst called with unknown argument \`$1'" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

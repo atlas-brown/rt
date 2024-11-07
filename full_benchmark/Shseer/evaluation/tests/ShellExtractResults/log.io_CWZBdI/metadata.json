@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/NarrativeScience-old/log.io.git",
+  "relative_path": "log.io/server/bin/build-ui.sh",
+  "short_name": "build-ui",
+  "timestamp": "10/22/2024",
+  "identifier": "log.io_CWZBdI/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

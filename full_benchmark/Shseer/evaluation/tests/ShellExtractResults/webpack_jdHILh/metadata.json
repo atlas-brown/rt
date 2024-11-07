@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/ryanflorence/webpack-skel.git",
+  "relative_path": "webpack-skel/bin/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "webpack_jdHILh/0",
+  "posix_compliant": true,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

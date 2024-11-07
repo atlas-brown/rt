@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/kschiess/parslet.git",
+  "relative_path": "parslet/website/publish-gh-pages.sh",
+  "short_name": "publish-gh-pages",
+  "timestamp": "10/22/2024",
+  "identifier": "parslet_hnkUii/0",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

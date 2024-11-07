@@ -1,0 +1,30 @@
+[
+ {
+  "repo": "https://github.com/juruen/rmapi.git",
+  "relative_path": "rmapi/script/prepare-release.sh",
+  "short_name": "prepare-release",
+  "timestamp": "10/22/2024",
+  "identifier": "rmapi_leZWXN/0",
+  "posix_compliant": false,
+  "line_count": 45,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/juruen/rmapi.git",
+  "relative_path": "rmapi/annotations/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "rmapi_leZWXN/1",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

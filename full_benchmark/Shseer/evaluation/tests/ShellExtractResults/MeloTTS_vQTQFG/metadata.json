@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/myshell-ai/MeloTTS.git",
+  "relative_path": "MeloTTS/melo/train.sh",
+  "short_name": "train",
+  "timestamp": "10/22/2024",
+  "identifier": "MeloTTS_vQTQFG/0",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

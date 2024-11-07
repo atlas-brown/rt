@@ -1,0 +1,19 @@
+[
+ {
+  "repo": "https://github.com/jakuta-tech/underhanded.git",
+  "relative_path": "underhanded/underhanded.sh",
+  "short_name": "underhanded",
+  "timestamp": "10/22/2024",
+  "identifier": "underhanded_HVUhdH/0",
+  "posix_compliant": false,
+  "line_count": 172,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

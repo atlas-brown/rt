@@ -1,0 +1,436 @@
+[
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/reproducibility/oak/make-graph-mean-all.sh",
+  "short_name": "make-graph-mean-all",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/0",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/reproducibility/oak/make-graph-mean.sh",
+  "short_name": "make-graph-mean",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/1",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/reproducibility/build-all.sh",
+  "short_name": "build-all",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/2",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/reproducibility/fetch-mean.sh",
+  "short_name": "fetch-mean",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/3",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/graphs/build-all.sh",
+  "short_name": "build-all",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/4",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/graphs/make-graph-errbar.sh",
+  "short_name": "make-graph-errbar",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/5",
+  "posix_compliant": false,
+  "line_count": 19,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/graphs/make-graph-stat.sh",
+  "short_name": "make-graph-stat",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/6",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/graphs/make-graph-mean.sh",
+  "short_name": "make-graph-mean",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/7",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/graphs/fetch-mean.sh",
+  "short_name": "fetch-mean",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/8",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/oak/make-graph-overhead-min.sh",
+  "short_name": "make-graph-overhead-min",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/9",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/oak/make-graph-overhead-stabilized.sh",
+  "short_name": "make-graph-overhead-stabilized",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/10",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/oak/make-graph-overhead-rse.sh",
+  "short_name": "make-graph-overhead-rse",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/11",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/jet/make-graph-overhead-min.sh",
+  "short_name": "make-graph-overhead-min",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/12",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/jet/make-graph-overhead-stabilized.sh",
+  "short_name": "make-graph-overhead-stabilized",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/13",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/jet/make-graph-overhead-rse.sh",
+  "short_name": "make-graph-overhead-rse",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/14",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-off-runlevel5-root/make-graph-overhead-min.sh",
+  "short_name": "make-graph-overhead-min",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/15",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-off-runlevel5-root/make-graph-overhead-stabilized.sh",
+  "short_name": "make-graph-overhead-stabilized",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/16",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-off-runlevel5-root/make-graph-overhead-rse.sh",
+  "short_name": "make-graph-overhead-rse",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/17",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-off-runlevel5/make-graph-overhead-min.sh",
+  "short_name": "make-graph-overhead-min",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/18",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-off-runlevel5/make-graph-overhead-stabilized.sh",
+  "short_name": "make-graph-overhead-stabilized",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/19",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-off-runlevel5/make-graph-overhead-rse.sh",
+  "short_name": "make-graph-overhead-rse",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/20",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-off-runlevel3/make-graph-overhead-min.sh",
+  "short_name": "make-graph-overhead-min",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/21",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-off-runlevel3/make-graph-overhead-stabilized.sh",
+  "short_name": "make-graph-overhead-stabilized",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/22",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-off-runlevel3/make-graph-overhead-rse.sh",
+  "short_name": "make-graph-overhead-rse",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/23",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-on-runlevel3/make-graph-overhead-min.sh",
+  "short_name": "make-graph-overhead-min",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/24",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-on-runlevel3/make-graph-overhead-stabilized.sh",
+  "short_name": "make-graph-overhead-stabilized",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/25",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-on-runlevel3/make-graph-overhead-rse.sh",
+  "short_name": "make-graph-overhead-rse",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/26",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-on-runlevel5/make-graph-overhead-min.sh",
+  "short_name": "make-graph-overhead-min",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/27",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-on-runlevel5/make-graph-overhead-stabilized.sh",
+  "short_name": "make-graph-overhead-stabilized",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/28",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/mktpx/power-mgmt-on-runlevel5/make-graph-overhead-rse.sh",
+  "short_name": "make-graph-overhead-rse",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/29",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/build-all.sh",
+  "short_name": "build-all",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/30",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/algorithms/fetch-overhead.sh",
+  "short_name": "fetch-overhead",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/31",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/read_method/build-all.sh",
+  "short_name": "build-all",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/32",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/read_method/make-graph-overhead.sh",
+  "short_name": "make-graph-overhead",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/33",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/experiments/overhead/read_method/fetch-overhead.sh",
+  "short_name": "fetch-overhead",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/34",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/mkurnosov/tscbench.git",
+  "relative_path": "tscbench/run-benchmark.sh",
+  "short_name": "run-benchmark",
+  "timestamp": "10/22/2024",
+  "identifier": "tscbench_zSMQOq/35",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": [
+   "variables",
+   "io",
+   "text"
+  ]
+ }
+]

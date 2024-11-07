@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/kelektiv/node.bcrypt.js.git",
+  "relative_path": "node.bcrypt.js/build-all.sh",
+  "short_name": "build-all",
+  "timestamp": "10/22/2024",
+  "identifier": "node.bcrypt.js_HqDdrh/0",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,27 @@
+[
+ {
+  "repo": "https://github.com/nextcloud/notes-android.git",
+  "relative_path": "notes-android/gradlew",
+  "short_name": "gradlew",
+  "timestamp": "10/22/2024",
+  "identifier": "notes_omKfbm/0",
+  "posix_compliant": true,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/nextcloud/notes-android.git",
+  "relative_path": "notes-android/scripts/analysis/analysis-wrapper.sh",
+  "short_name": "analysis-wrapper",
+  "timestamp": "10/22/2024",
+  "identifier": "notes_omKfbm/1",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ }
+]

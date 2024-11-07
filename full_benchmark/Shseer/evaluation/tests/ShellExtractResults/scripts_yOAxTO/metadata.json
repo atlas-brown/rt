@@ -1,0 +1,320 @@
+[
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/vm_start.sh",
+  "short_name": "vm_start",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/0",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/rsync_photolib_to_cloud.sh",
+  "short_name": "rsync_photolib_to_cloud",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/1",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/check_if_process_running.sh",
+  "short_name": "check_if_process_running",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/2",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/dotfiles/vim/get_display_dimensions.sh",
+  "short_name": "get_display_dimensions",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/3",
+  "posix_compliant": true,
+  "line_count": 1,
+  "keywords": [
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/vm_stop.sh",
+  "short_name": "vm_stop",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/4",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/vm_suspend.sh",
+  "short_name": "vm_suspend",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/5",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/linux_toggle_touchpad.sh",
+  "short_name": "linux_toggle_touchpad",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/6",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/utils/generate_cmake.sh",
+  "short_name": "generate_cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/7",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/utils/run_nvim.sh",
+  "short_name": "run_nvim",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/8",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/macos/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/9",
+  "posix_compliant": false,
+  "line_count": 26,
+  "keywords": [
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/macos/nvim_core.sh",
+  "short_name": "nvim_core",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/10",
+  "posix_compliant": false,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/macos/nvim_gui.sh",
+  "short_name": "nvim_gui",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/11",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/common/fonts.sh",
+  "short_name": "fonts",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/12",
+  "posix_compliant": true,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/common/setup_links.sh",
+  "short_name": "setup_links",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/13",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/common/install_vim_plugins.sh",
+  "short_name": "install_vim_plugins",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/14",
+  "posix_compliant": true,
+  "line_count": 33,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/common/setup_zshrc.sh",
+  "short_name": "setup_zshrc",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/15",
+  "posix_compliant": true,
+  "line_count": 32,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/common/setup_custom_script_helpers.sh",
+  "short_name": "setup_custom_script_helpers",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/16",
+  "posix_compliant": true,
+  "line_count": 9,
+  "keywords": [
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/bootstrap.sh",
+  "short_name": "bootstrap",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/17",
+  "posix_compliant": false,
+  "line_count": 73,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/ubuntu/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/18",
+  "posix_compliant": false,
+  "line_count": 88,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/ubuntu/nvim_core.sh",
+  "short_name": "nvim_core",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/19",
+  "posix_compliant": true,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/ubuntu/nvim_gui.sh",
+  "short_name": "nvim_gui",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/20",
+  "posix_compliant": true,
+  "line_count": 11,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/deployment/ubuntu/build_tools.sh",
+  "short_name": "build_tools",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/21",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/setup_min_vim_config.sh",
+  "short_name": "setup_min_vim_config",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/22",
+  "posix_compliant": false,
+  "line_count": 115,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/f-squirrel/scripts.git",
+  "relative_path": "scripts/quit.sh",
+  "short_name": "quit",
+  "timestamp": "10/22/2024",
+  "identifier": "scripts_yOAxTO/23",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ }
+]

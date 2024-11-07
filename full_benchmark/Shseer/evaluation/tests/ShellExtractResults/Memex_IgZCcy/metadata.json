@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/WorldBrain/Memex.git",
+  "relative_path": "Memex/crxmake.sh",
+  "short_name": "crxmake",
+  "timestamp": "10/22/2024",
+  "identifier": "Memex_IgZCcy/0",
+  "posix_compliant": false,
+  "line_count": 28,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

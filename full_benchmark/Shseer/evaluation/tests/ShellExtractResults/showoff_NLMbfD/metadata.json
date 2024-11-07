@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/binford2k/showoff.git",
+  "relative_path": "showoff/script/build_pdf.sh",
+  "short_name": "build_pdf",
+  "timestamp": "10/22/2024",
+  "identifier": "showoff_NLMbfD/0",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ }
+]

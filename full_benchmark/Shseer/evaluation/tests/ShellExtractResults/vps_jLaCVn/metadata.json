@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/nullenc0de/vps_setup.git",
+  "relative_path": "vps_setup/offensive_script.sh",
+  "short_name": "offensive_script",
+  "timestamp": "10/22/2024",
+  "identifier": "vps_jLaCVn/0",
+  "posix_compliant": false,
+  "line_count": 218,
+  "keywords": [
+   "variables",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/standard/standard.git",
+  "relative_path": "standard/tools/update-authors.sh",
+  "short_name": "update-authors",
+  "timestamp": "10/22/2024",
+  "identifier": "standard_vikqgP/0",
+  "posix_compliant": true,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

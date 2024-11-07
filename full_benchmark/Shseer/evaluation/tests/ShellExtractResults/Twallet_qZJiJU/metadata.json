@@ -1,0 +1,18 @@
+[
+ {
+  "repo": "https://github.com/ThinkiumGroup/Twallet.git",
+  "relative_path": "Twallet/patch_to_github.sh",
+  "short_name": "patch_to_github",
+  "timestamp": "10/22/2024",
+  "identifier": "Twallet_qZJiJU/0",
+  "posix_compliant": false,
+  "line_count": 32,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ }
+]

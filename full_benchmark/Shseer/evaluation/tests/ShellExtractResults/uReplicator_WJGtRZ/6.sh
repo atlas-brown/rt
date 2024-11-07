@@ -1,0 +1,209 @@
+#!/bin/bash -e
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# This script will download, setup, start, and stop servers for Kafka and ZooKeeper.
+
+if [ -z "$JAVA_HOME" ]; then
+  if [ -x /usr/libexec/java_home ]; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+  else
+    echo "JAVA_HOME not set. Exiting."
+    exit 1
+  fi
+fi
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+BASE_DIR=$(dirname $DIR)
+DEPLOY_ROOT_DIR=$BASE_DIR/deploy
+DOWNLOAD_CACHE_DIR=$HOME/.kafkamirrormaker/download
+COMMAND=$1
+SYSTEM=$2
+
+DOWNLOAD_KAFKA=https://archive.apache.org/dist/kafka/1.1.1/kafka_2.11-1.1.1.tgz
+DOWNLOAD_ZOOKEEPER=http://archive.apache.org/dist/zookeeper/zookeeper-3.4.3/zookeeper-3.4.3.tar.gz
+
+bootstrap() {
+  echo "Bootstrapping the system..."
+  stop_all
+  rm -rf /tmp/zookeeper/
+  rm -rf /tmp/kafka-logs/
+  rm -rf "$DEPLOY_ROOT_DIR"
+  rm -rf "$BASE_DIR/config/certs"
+  mkdir "$DEPLOY_ROOT_DIR"
+  install_all
+  start_all
+  exit 0
+}
+
+install_all() {
+  $DIR/grid install zookeeper
+  $DIR/grid install kafka
+}
+
+install_zookeeper() {
+  mkdir -p "$DEPLOY_ROOT_DIR"
+  install zookeeper $DOWNLOAD_ZOOKEEPER zookeeper-3.4.3
+  cp "$DEPLOY_ROOT_DIR/zookeeper/conf/zoo_sample.cfg" "$DEPLOY_ROOT_DIR/zookeeper/conf/zoo.cfg"
+}
+
+install_kafka() {
+  mkdir -p "$DEPLOY_ROOT_DIR"
+  install kafka $DOWNLOAD_KAFKA kafka_2.11-1.1.1
+  # have to use SIGTERM since nohup on appears to ignore SIGINT
+  # and Kafka switched to SIGINT in KAFKA-1031.
+  sed -i.bak 's/SIGINT/SIGTERM/g' $DEPLOY_ROOT_DIR/kafka/bin/kafka-server-stop.sh
+  # in order to simplify the wikipedia-stats example job, set topic to have just 1 partition by default
+  sed -i.bak 's/^num\.partitions *=.*/num.partitions=1/' $DEPLOY_ROOT_DIR/kafka/config/server.properties
+  # Add secure certs
+  rm -rf "$BASE_DIR/config/certs"
+  mkdir -p "$BASE_DIR/config/certs"
+  cd "$BASE_DIR/config/certs"
+  export PASS=foobar
+
+  keytool -keystore kafka.server.keystore.jks -alias localhost -validity 365 -genkey -storepass $PASS -keypass $PASS -noprompt -dname "CN=localhost, OU=EE, O=DD, L=CC, S=AA, C=BB"
+
+  openssl req -new -x509 -keyout ca-key -out ca-cert -days 365 -passout pass:$PASS -subj '/CN=www.myurep.com/O=MyURep/C=US'
+  keytool -keystore kafka.server.truststore.jks -alias CARoot -import -file ca-cert -storepass $PASS -noprompt
+  keytool -keystore kafka.server.keystore.jks -alias localhost -certreq -file cert-file -storepass $PASS -noprompt
+
+  openssl x509 -req -CA ca-cert -CAkey ca-key -in cert-file -out cert-signed -days 365 -CAcreateserial -passin pass:$PASS
+
+  keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass $PASS -noprompt
+  keytool -keystore kafka.server.keystore.jks -alias localhost -import -file cert-signed -storepass $PASS -noprompt
+  keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass $PASS -noprompt
+
+  rm ca-* cert-*
+  cd - > /dev/null
+}
+
+install() {
+  DESTINATION_DIR="$DEPLOY_ROOT_DIR/$1"
+  DOWNLOAD_URL=$2
+  PACKAGE_DIR="$DOWNLOAD_CACHE_DIR/$3"
+  PACKAGE_FILE="$DOWNLOAD_CACHE_DIR/$(basename $DOWNLOAD_URL)"
+  if [ -f "$PACKAGE_FILE" ]; then
+    echo "Using previously downloaded file $PACKAGE_FILE"
+  else
+    echo "Downloading $(basename $DOWNLOAD_URL)..."
+    mkdir -p $DOWNLOAD_CACHE_DIR
+    curl "$DOWNLOAD_URL" > "${PACKAGE_FILE}.tmp"
+    mv "${PACKAGE_FILE}.tmp" "$PACKAGE_FILE"
+  fi
+  rm -rf "$DESTINATION_DIR" "$PACKAGE_DIR"
+  echo "$PACKAGE_FILE"  $DOWNLOAD_CACHE_DIR
+  tar -xf "$PACKAGE_FILE" -C $DOWNLOAD_CACHE_DIR
+  mv "$PACKAGE_DIR" "$DESTINATION_DIR"
+}
+
+start_all() {
+  $DIR/grid start zookeeper
+  $DIR/grid start kafka1
+  $DIR/grid start kafka2
+}
+
+start_zookeeper() {
+  if [ -f $DEPLOY_ROOT_DIR/$SYSTEM/bin/zkServer.sh ]; then
+    cd $DEPLOY_ROOT_DIR/$SYSTEM
+    bin/zkServer.sh start
+    cd - > /dev/null
+  else
+    echo 'Zookeeper is not installed. Run: bin/grid install zookeeper'
+  fi
+}
+
+start_kafka() {
+  if [ -f $DEPLOY_ROOT_DIR/$SYSTEM/bin/kafka-server-start.sh ]; then
+    mkdir -p $DEPLOY_ROOT_DIR/$SYSTEM/logs
+    cd $DEPLOY_ROOT_DIR/$SYSTEM
+    nohup bin/kafka-server-start.sh config/server.properties > logs/kafka.log 2>&1 &
+    cd - > /dev/null
+  else
+    echo 'Kafka is not installed. Run: bin/grid install kafka'
+  fi
+}
+
+start_kafka1() {
+  if [ -f $DEPLOY_ROOT_DIR/kafka/bin/kafka-server-start.sh ]; then
+    mkdir -p $DEPLOY_ROOT_DIR/kafka/logs
+    cd $DEPLOY_ROOT_DIR/kafka
+    cp -r $BASE_DIR/config/certs $DEPLOY_ROOT_DIR/kafka
+    nohup bin/kafka-server-start.sh $BASE_DIR/bin/server1.properties > logs/kafka1.log 2>&1 &
+    cd - > /dev/null
+  else
+    echo 'Kafka is not installed. Run: bin/grid install kafka'
+  fi
+}
+
+start_kafka2() {
+  if [ -f $DEPLOY_ROOT_DIR/kafka/bin/kafka-server-start.sh ]; then
+    mkdir -p $DEPLOY_ROOT_DIR/kafka/logs
+    cd $DEPLOY_ROOT_DIR/kafka
+    cp -r $BASE_DIR/config/certs $DEPLOY_ROOT_DIR/kafka
+    nohup bin/kafka-server-start.sh $BASE_DIR/bin/server2.properties > logs/kafka2.log 2>&1 &
+    cd - > /dev/null
+  else
+    echo 'Kafka is not installed. Run: bin/grid install kafka'
+  fi
+}
+
+stop_all() {
+  $DIR/grid stop kafka
+  $DIR/grid stop zookeeper
+}
+
+stop_zookeeper() {
+  if [ -f $DEPLOY_ROOT_DIR/$SYSTEM/bin/zkServer.sh ]; then
+    cd $DEPLOY_ROOT_DIR/$SYSTEM
+    bin/zkServer.sh stop
+    cd - > /dev/null
+  else
+    echo 'Zookeeper is not installed. Run: bin/grid install zookeeper'
+  fi
+}
+
+stop_kafka() {
+  if [ -f $DEPLOY_ROOT_DIR/$SYSTEM/bin/kafka-server-stop.sh ]; then
+    cd $DEPLOY_ROOT_DIR/$SYSTEM
+    bin/kafka-server-stop.sh || true # tolerate nonzero exit status if Kafka isn't running
+    cd - > /dev/null
+  else
+    echo 'Kafka is not installed. Run: bin/grid install kafka'
+  fi
+}
+
+# Check arguments
+if [ "$COMMAND" == "bootstrap" ] && test -z "$SYSTEM"; then
+  bootstrap
+  exit 0
+elif (test -z "$COMMAND" && test -z "$SYSTEM") \
+  || ( [ "$COMMAND" == "help" ] || test -z "$COMMAND" || test -z "$SYSTEM"); then
+  echo
+  echo "  Usage.."
+  echo
+  echo "  $ grid"
+  echo "  $ grid bootstrap"
+  echo "  $ grid install [kafka|zookeeper|all]"
+  echo "  $ grid start [kafka|kafka1|kafka2|zookeeper|all]"
+  echo "  $ grid stop [kafka|zookeeper|all]"
+  echo
+  exit 1
+else
+  echo "EXECUTING: $COMMAND $SYSTEM"
+
+  "$COMMAND"_"$SYSTEM"
+fi

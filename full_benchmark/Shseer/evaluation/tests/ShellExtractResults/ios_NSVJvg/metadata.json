@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/ewanmellor/ios-sim-manager.git",
+  "relative_path": "ios-sim-manager/ios-sim-manager",
+  "short_name": "ios-sim-manager",
+  "timestamp": "10/22/2024",
+  "identifier": "ios_NSVJvg/0",
+  "posix_compliant": false,
+  "line_count": 129,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/jeremykenedy/laravel-auth.git",
+  "relative_path": "laravel-auth/.scripts/deploy.sh",
+  "short_name": "deploy",
+  "timestamp": "10/22/2024",
+  "identifier": "laravel_GHMaKO/0",
+  "posix_compliant": false,
+  "line_count": 54,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ }
+]

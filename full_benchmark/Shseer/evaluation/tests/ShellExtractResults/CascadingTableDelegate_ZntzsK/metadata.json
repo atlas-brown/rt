@@ -1,0 +1,14 @@
+[
+ {
+  "repo": "https://github.com/edopelawi/CascadingTableDelegate.git",
+  "relative_path": "CascadingTableDelegate/run_tests.sh",
+  "short_name": "run_tests",
+  "timestamp": "10/22/2024",
+  "identifier": "CascadingTableDelegate_ZntzsK/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

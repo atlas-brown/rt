@@ -1,0 +1,17 @@
+[
+ {
+  "repo": "https://github.com/junegunn/fzf.git",
+  "relative_path": "fzf/bin/fzf-preview.sh",
+  "short_name": "fzf-preview",
+  "timestamp": "10/22/2024",
+  "identifier": "fzf_armBFE/0",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ }
+]

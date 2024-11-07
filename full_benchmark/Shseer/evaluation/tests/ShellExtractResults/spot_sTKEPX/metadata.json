@@ -1,0 +1,15 @@
+[
+ {
+  "repo": "https://github.com/lila/spot_price_history.git",
+  "relative_path": "spot_price_history/bin/download.sh",
+  "short_name": "download",
+  "timestamp": "10/22/2024",
+  "identifier": "spot_sTKEPX/0",
+  "posix_compliant": true,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ }
+]

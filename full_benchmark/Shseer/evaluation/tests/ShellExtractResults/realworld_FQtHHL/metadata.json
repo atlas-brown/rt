@@ -1,0 +1,24 @@
+[
+ {
+  "repo": "https://github.com/gothinkster/realworld.git",
+  "relative_path": "realworld/.husky/pre-commit",
+  "short_name": "pre-commit",
+  "timestamp": "10/22/2024",
+  "identifier": "realworld_FQtHHL/0",
+  "posix_compliant": true,
+  "line_count": 2,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/gothinkster/realworld.git",
+  "relative_path": "realworld/api/run-api-tests.sh",
+  "short_name": "run-api-tests",
+  "timestamp": "10/22/2024",
+  "identifier": "realworld_FQtHHL/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables"
+  ]
+ }
+]

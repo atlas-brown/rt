@@ -1,0 +1,72 @@
+[
+ {
+  "repo": "https://github.com/kstenerud/iOS-Universal-Framework.git",
+  "relative_path": "iOS-Universal-Framework/Real Framework/uninstall.sh",
+  "short_name": "uninstall",
+  "timestamp": "10/22/2024",
+  "identifier": "iOS_ghOAlg/0",
+  "posix_compliant": false,
+  "line_count": 90,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kstenerud/iOS-Universal-Framework.git",
+  "relative_path": "iOS-Universal-Framework/Real Framework/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "iOS_ghOAlg/1",
+  "posix_compliant": false,
+  "line_count": 96,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kstenerud/iOS-Universal-Framework.git",
+  "relative_path": "iOS-Universal-Framework/Real Framework/uninstall_legacy.sh",
+  "short_name": "uninstall_legacy",
+  "timestamp": "10/22/2024",
+  "identifier": "iOS_ghOAlg/2",
+  "posix_compliant": false,
+  "line_count": 170,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kstenerud/iOS-Universal-Framework.git",
+  "relative_path": "iOS-Universal-Framework/Fake Framework/uninstall.sh",
+  "short_name": "uninstall",
+  "timestamp": "10/22/2024",
+  "identifier": "iOS_ghOAlg/3",
+  "posix_compliant": false,
+  "line_count": 43,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/kstenerud/iOS-Universal-Framework.git",
+  "relative_path": "iOS-Universal-Framework/Fake Framework/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "iOS_ghOAlg/4",
+  "posix_compliant": false,
+  "line_count": 48,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

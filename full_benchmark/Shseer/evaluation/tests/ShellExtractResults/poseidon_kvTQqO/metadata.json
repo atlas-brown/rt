@@ -1,0 +1,421 @@
+[
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/common/proto/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/0",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/1",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/searcher/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/2",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/searcher/serverctl",
+  "short_name": "serverctl",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/3",
+  "posix_compliant": false,
+  "line_count": 124,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/hdfsreader/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/4",
+  "posix_compliant": true,
+  "line_count": 14,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/hdfsreader/watchdog.sh",
+  "short_name": "watchdog",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/5",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/hdfsreader/src/main/script/hdfsReader.sh",
+  "short_name": "hdfsReader",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/6",
+  "posix_compliant": false,
+  "line_count": 41,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/proxy/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/7",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/proxy/serverctl",
+  "short_name": "serverctl",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/8",
+  "posix_compliant": false,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/meta/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/9",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/meta/serverctl",
+  "short_name": "serverctl",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/10",
+  "posix_compliant": false,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/allinone/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/11",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/allinone/serverctl",
+  "short_name": "serverctl",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/12",
+  "posix_compliant": false,
+  "line_count": 123,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/13",
+  "posix_compliant": false,
+  "line_count": 11,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/idgenerator/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/14",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/service/idgenerator/serverctl",
+  "short_name": "serverctl",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/15",
+  "posix_compliant": false,
+  "line_count": 122,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/16",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/index/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/17",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/index/src/main/bin/demo.sh",
+  "short_name": "demo",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/18",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/index/src/main/bin/mock_start.sh",
+  "short_name": "mock_start",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/19",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/index/src/main/bin/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/20",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/docformat/script/common/demo.sh",
+  "short_name": "demo",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/21",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/docformat/script/common/install.sh",
+  "short_name": "install",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/22",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/docformat/script/common/dummy-hadoop.sh",
+  "short_name": "dummy-hadoop",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/23",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/docformat/script/common/local-hadoop.sh",
+  "short_name": "local-hadoop",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/24",
+  "posix_compliant": false,
+  "line_count": 30,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/docformat/script/common/clean.sh",
+  "short_name": "clean",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/25",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/docformat/script/common/real-hadoop.sh",
+  "short_name": "real-hadoop",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/26",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/docformat/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/27",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/builder/docformat/src/github.com/bitly/go-nsq/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/28",
+  "posix_compliant": false,
+  "line_count": 27,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/Qihoo360/poseidon.git",
+  "relative_path": "poseidon/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "poseidon_kvTQqO/29",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ }
+]

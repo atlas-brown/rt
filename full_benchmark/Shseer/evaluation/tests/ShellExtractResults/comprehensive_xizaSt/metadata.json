@@ -1,0 +1,46 @@
+[
+ {
+  "repo": "https://github.com/google/comprehensive-rust.git",
+  "relative_path": "comprehensive-rust/.github/workflows/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "comprehensive_xizaSt/0",
+  "posix_compliant": false,
+  "line_count": 24,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/comprehensive-rust.git",
+  "relative_path": "comprehensive-rust/src/android/build_all.sh",
+  "short_name": "build_all",
+  "timestamp": "10/22/2024",
+  "identifier": "comprehensive_xizaSt/1",
+  "posix_compliant": false,
+  "line_count": 77,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/google/comprehensive-rust.git",
+  "relative_path": "comprehensive-rust/src/android/bpfmt.sh",
+  "short_name": "bpfmt",
+  "timestamp": "10/22/2024",
+  "identifier": "comprehensive_xizaSt/2",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "control_flow",
+   "text"
+  ]
+ }
+]

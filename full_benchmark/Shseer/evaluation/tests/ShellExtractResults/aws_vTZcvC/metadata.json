@@ -1,0 +1,179 @@
+[
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/validate.sh",
+  "short_name": "validate",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/0",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/test_infra/scripts/security-group-databases-add-local-ip.sh",
+  "short_name": "security-group-databases-add-local-ip",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/1",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/test_infra/scripts/deploy-stack.sh",
+  "short_name": "deploy-stack",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/2",
+  "posix_compliant": false,
+  "line_count": 6,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/test_infra/scripts/security-group-databases-check.sh",
+  "short_name": "security-group-databases-check",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/3",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/test_infra/scripts/delete-stack.sh",
+  "short_name": "delete-stack",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/4",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/fix.sh",
+  "short_name": "fix",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/5",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/6",
+  "posix_compliant": false,
+  "line_count": 12,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/building/update-glue-lib.sh",
+  "short_name": "update-glue-lib",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/7",
+  "posix_compliant": false,
+  "line_count": 7,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/building/publish.sh",
+  "short_name": "publish",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/8",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/building/build-lambda-layers.sh",
+  "short_name": "build-lambda-layers",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/9",
+  "posix_compliant": false,
+  "line_count": 59,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/building/build-docs.sh",
+  "short_name": "build-docs",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/10",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/building/lambda/build-lambda-layer.sh",
+  "short_name": "build-lambda-layer",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/11",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/building/lambda/build-docker-images.sh",
+  "short_name": "build-docker-images",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/12",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/aws/aws-sdk-pandas.git",
+  "relative_path": "aws-sdk-pandas/building/build-wheel.sh",
+  "short_name": "build-wheel",
+  "timestamp": "10/22/2024",
+  "identifier": "aws_vTZcvC/13",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "io"
+  ]
+ }
+]

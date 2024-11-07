@@ -1,0 +1,286 @@
+[
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/utils.sh",
+  "short_name": "utils",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/0",
+  "posix_compliant": false,
+  "line_count": 57,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/piholeLogFlush.sh",
+  "short_name": "piholeLogFlush",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/1",
+  "posix_compliant": false,
+  "line_count": 39,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/updatecheck.sh",
+  "short_name": "updatecheck",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/2",
+  "posix_compliant": false,
+  "line_count": 71,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/piholeCheckout.sh",
+  "short_name": "piholeCheckout",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/3",
+  "posix_compliant": false,
+  "line_count": 156,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/update.sh",
+  "short_name": "update",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/4",
+  "posix_compliant": false,
+  "line_count": 149,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/chronometer.sh",
+  "short_name": "chronometer",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/5",
+  "posix_compliant": false,
+  "line_count": 430,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/piholeDebug.sh",
+  "short_name": "piholeDebug",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/6",
+  "posix_compliant": false,
+  "line_count": 1027,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/query.sh",
+  "short_name": "query",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/7",
+  "posix_compliant": false,
+  "line_count": 163,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/webpage.sh",
+  "short_name": "webpage",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/8",
+  "posix_compliant": false,
+  "line_count": 639,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/list.sh",
+  "short_name": "list",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/9",
+  "posix_compliant": false,
+  "line_count": 224,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/version.sh",
+  "short_name": "version",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/10",
+  "posix_compliant": false,
+  "line_count": 113,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/pihole-reenable.sh",
+  "short_name": "pihole-reenable",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/11",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/piholeARPTable.sh",
+  "short_name": "piholeARPTable",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/12",
+  "posix_compliant": false,
+  "line_count": 36,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Scripts/database_migration/gravity-db.sh",
+  "short_name": "gravity-db",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/13",
+  "posix_compliant": false,
+  "line_count": 82,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Templates/pihole-FTL-prestart.sh",
+  "short_name": "pihole-FTL-prestart",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/14",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/advanced/Templates/pihole-FTL-poststop.sh",
+  "short_name": "pihole-FTL-poststop",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/15",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "variables",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/gravity.sh",
+  "short_name": "gravity",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/16",
+  "posix_compliant": false,
+  "line_count": 650,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/automated install/uninstall.sh",
+  "short_name": "uninstall",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/17",
+  "posix_compliant": false,
+  "line_count": 195,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/pi-hole/pi-hole.git",
+  "relative_path": "pi-hole/automated install/basic-install.sh",
+  "short_name": "basic-install",
+  "timestamp": "10/22/2024",
+  "identifier": "pi_OYeBls/18",
+  "posix_compliant": false,
+  "line_count": 1819,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ }
+]

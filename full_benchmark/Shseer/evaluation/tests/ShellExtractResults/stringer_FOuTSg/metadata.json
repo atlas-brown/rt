@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "https://github.com/stringer-rss/stringer.git",
+  "relative_path": "stringer/docker/start.sh",
+  "short_name": "start",
+  "timestamp": "10/22/2024",
+  "identifier": "stringer_FOuTSg/0",
+  "posix_compliant": false,
+  "line_count": 14,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]
