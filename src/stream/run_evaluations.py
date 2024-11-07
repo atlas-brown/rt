@@ -50,7 +50,7 @@ def extract_pipelines_from_file(file_path: str) -> list[str]:
             return pipelines if pipelines else []
     
     elif file_ext == '.sh':
-        with open(file_path, 'r') as f:
+        with open(file_path, encoding="utf8", errors='ignore') as f:
             content = f.read()
             pipelines = []
             for line in content.split('\n'):

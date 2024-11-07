@@ -7,7 +7,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "seq 2 100 | xargs -n 1 expr 1 + | grep grep",
-            "evaluation_time": 0.021623611450195312,
+            "evaluation_time": 0.03494429588317871,
             "notes": ""
         },
         {
@@ -17,7 +17,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "seq 1 10 | sed \"s;^;http://data\\\\.com/chunk/;\" | xargs curl | wc -l",
-            "evaluation_time": 0.03609418869018555,
+            "evaluation_time": 0.05830740928649902,
             "notes": ""
         },
         {
@@ -27,7 +27,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "docker network inspect $network_id | grep \"EndpointIP\\|VIP\" | cut -d':' -f2 | sort | uniq -c | sort -rn",
-            "evaluation_time": 0.04340791702270508,
+            "evaluation_time": 0.03966951370239258,
             "notes": ""
         },
         {
@@ -37,7 +37,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat a.txt | tr -cs A-Za-z '\\n' | tr A-Z a-z | sort | uniq -c | sort -rn",
-            "evaluation_time": 0.03842616081237793,
+            "evaluation_time": 0.04181241989135742,
             "notes": ""
         },
         {
@@ -47,7 +47,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "seq 10 | grep -oE '[0-9a-f]+' | head -n 5 | sort -n",
-            "evaluation_time": 0.021738767623901367,
+            "evaluation_time": 0.03090691566467285,
             "notes": ""
         },
         {
@@ -57,7 +57,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat foo | xargs cp bar",
-            "evaluation_time": 0.007202863693237305,
+            "evaluation_time": 0.011686086654663086,
             "notes": ""
         },
         {
@@ -67,7 +67,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "echo -n $PATH | xargs -d : stat -c %x",
-            "evaluation_time": 0.009754180908203125,
+            "evaluation_time": 0.006372928619384766,
             "notes": ""
         },
         {
@@ -77,7 +77,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "find | xargs stat -c %Y | sort -n | head -3",
-            "evaluation_time": 0.018459320068359375,
+            "evaluation_time": 0.014618873596191406,
             "notes": ""
         },
         {
@@ -87,7 +87,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | cut -d ' ' -f 2",
-            "evaluation_time": 0.01641249656677246,
+            "evaluation_time": 0.011532306671142578,
             "notes": ""
         },
         {
@@ -97,7 +97,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr ' ' '\\n' | grep 'x' | grep '\\.' | cut -d '.' -f 2 | grep '[KQRBN]' | cut -c 1-1 | sort | uniq -c | sort -nr",
-            "evaluation_time": 0.08742547035217285,
+            "evaluation_time": 0.09424924850463867,
             "notes": ""
         },
         {
@@ -107,7 +107,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr ' ' '\\n' | grep 'x' | grep '\\.' | cut -d '.' -f 2 | cut -c 1-1 | tr '[a-z]' 'P' | sort | uniq -c | sort -nr",
-            "evaluation_time": 0.09536981582641602,
+            "evaluation_time": 0.0941014289855957,
             "notes": ""
         },
         {
@@ -117,7 +117,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr ' ' '\\n' | grep '\\.' | cut -d '.' -f 2 | cut -c 1-1 | tr '[a-z]' 'P' | sort -r | uniq | head -n 3 | tail -n 1",
-            "evaluation_time": 0.07837677001953125,
+            "evaluation_time": 0.07857275009155273,
             "notes": ""
         },
         {
@@ -127,7 +127,7 @@
             "error message generated": "Input type '{(.*print.*)}&{.*}' is not compatible with expected input '.*((\"+).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | grep 'print' | cut -d \"\\\"\" -f 2 | cut -c 1-12",
-            "evaluation_time": 0.01887202262878418,
+            "evaluation_time": 0.02826094627380371,
             "notes": ""
         },
         {
@@ -137,7 +137,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
             "tool runtime error": null,
             "content": "cat $1 | awk \"{print \\$2, \\$0}\" | sort -nr | cut -d ' ' -f 2",
-            "evaluation_time": 0.013879060745239258,
+            "evaluation_time": 0.015170812606811523,
             "notes": ""
         },
         {
@@ -147,7 +147,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | cut -f 1 | grep 'AT&T' | wc -l",
-            "evaluation_time": 0.01200556755065918,
+            "evaluation_time": 0.020751953125,
             "notes": ""
         },
         {
@@ -157,7 +157,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s ' ' '\\n' | tail -n 1",
-            "evaluation_time": 0.010526418685913086,
+            "evaluation_time": 0.01634049415588379,
             "notes": ""
         },
         {
@@ -167,7 +167,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '.*((\\s+).*){3}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | cut -f 4 | sort -n | cut -c 3-3 | uniq | sed s/\\$/'0s'/",
-            "evaluation_time": 0.013092279434204102,
+            "evaluation_time": 0.018878459930419922,
             "notes": ""
         },
         {
@@ -177,7 +177,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr ' ' '\\n' | grep 1969 | wc -l",
-            "evaluation_time": 0.024372577667236328,
+            "evaluation_time": 0.023821353912353516,
             "notes": ""
         },
         {
@@ -187,7 +187,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '.*((,+).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | grep 'Bell' | awk 'length <= 45' | cut -d ',' -f 2 | awk \"{\\$1=\\$1};1\"",
-            "evaluation_time": 0.017101287841796875,
+            "evaluation_time": 0.025505542755126953,
             "notes": ""
         },
         {
@@ -197,7 +197,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | cut -d ' ' -f 2 | sort",
-            "evaluation_time": 0.009896516799926758,
+            "evaluation_time": 0.019769668579101562,
             "notes": ""
         },
         {
@@ -217,7 +217,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr -c \"[a-z][A-Z]\" '\\n' | sort | awk \"length >= 16\"",
-            "evaluation_time": 0.02295994758605957,
+            "evaluation_time": 0.017314910888671875,
             "notes": ""
         },
         {
@@ -227,7 +227,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr ' ' '\\n' | grep '[A-Z]' | tr '[a-z]' '\\n' | grep '[A-Z]' | tr -d '\\n' | cut -c 1-4",
-            "evaluation_time": 0.060872793197631836,
+            "evaluation_time": 0.055370330810546875,
             "notes": ""
         },
         {
@@ -237,7 +237,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | cut -c 1-1 | tr -d '\\n'",
-            "evaluation_time": 0.00754237174987793,
+            "evaluation_time": 0.011897802352905273,
             "notes": ""
         },
         {
@@ -247,7 +247,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | cut -c 1-2 | tr -d '\\n'",
-            "evaluation_time": 0.010901212692260742,
+            "evaluation_time": 0.007619619369506836,
             "notes": ""
         },
         {
@@ -257,7 +257,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr ' ' '\\n' | grep \"\\\"\" | sed 4d | cut -d \"\\\"\" -f 2 | tr -d '\\n'",
-            "evaluation_time": 0.03555774688720703,
+            "evaluation_time": 0.039968252182006836,
             "notes": ""
         },
         {
@@ -267,7 +267,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr ' ' '\\n' | grep '[A-Z]' | sed 1d | sed 3d | sed 3d | tr '[a-z]' '\\n' | grep '[A-Z]' | sed 3d | tr -c '[A-Z]' '\\n' | tr -d '\\n'",
-            "evaluation_time": 0.08491706848144531,
+            "evaluation_time": 0.0917363166809082,
             "notes": ""
         },
         {
@@ -277,7 +277,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | sed 2d | sed 2d | tr -c '[A-Z]' '\\n' | tr -d '\\n'",
-            "evaluation_time": 0.020437002182006836,
+            "evaluation_time": 0.012888908386230469,
             "notes": ""
         },
         {
@@ -287,7 +287,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | head -n 2 | cut -d ' ' -f 2",
-            "evaluation_time": 0.010704517364501953,
+            "evaluation_time": 0.011219024658203125,
             "notes": ""
         },
         {
@@ -297,7 +297,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr -c '[a-z][A-Z]' '\\n' | grep '[A-Z]' | sed 1d | sed 2d | sed 3d | sed 4d | tr -c '[A-Z]' '\\n' | tr -d '\\n'",
-            "evaluation_time": 0.06965374946594238,
+            "evaluation_time": 0.07168102264404297,
             "notes": ""
         },
         {
@@ -307,7 +307,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr -c '[a-z][A-Z]' '\\n' | grep '[A-Z]' | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr -c '[A-Z]' '\\n' | tr -d '\\n'",
-            "evaluation_time": 0.0739898681640625,
+            "evaluation_time": 0.06538057327270508,
             "notes": ""
         },
         {
@@ -317,7 +317,7 @@
             "error message generated": "Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | sed 1d | grep 'Bell' | cut -f 2 | wc -l",
-            "evaluation_time": 0.028790950775146484,
+            "evaluation_time": 0.020091772079467773,
             "notes": ""
         },
         {
@@ -327,7 +327,7 @@
             "error message generated": "Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | sed 1d | grep 'Bell' | cut -f 2",
-            "evaluation_time": 0.028035402297973633,
+            "evaluation_time": 0.02036595344543457,
             "notes": ""
         },
         {
@@ -337,7 +337,7 @@
             "error message generated": "Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | grep 'Bell' | cut -f 2 | head -n 1 | fmt -w1 | cut -c 1-1 | tr -d '\\n' | tr '[A-Z]' '[a-z]'",
-            "evaluation_time": 0.02532339096069336,
+            "evaluation_time": 0.01911139488220215,
             "notes": ""
         },
         {
@@ -347,7 +347,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | grep 'UNIX' | cut -f 1",
-            "evaluation_time": 0.01783609390258789,
+            "evaluation_time": 0.010642528533935547,
             "notes": ""
         },
         {
@@ -357,7 +357,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | cut -f 2 | cut -d ' ' -f 1 | sort | uniq -c | sort -nr | head -n 1 | fmt -w1 | sed 1d",
-            "evaluation_time": 0.018314361572265625,
+            "evaluation_time": 0.013690471649169922,
             "notes": ""
         },
         {
@@ -367,7 +367,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | cut -d ' ' -f 1 | sort | uniq -c | sort -r",
-            "evaluation_time": 0.014664888381958008,
+            "evaluation_time": 0.01196432113647461,
             "notes": ""
         },
         {
@@ -377,7 +377,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '.*(( +).*){3}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | cut -d ' ' -f 4 | tr -d ','",
-            "evaluation_time": 0.01748061180114746,
+            "evaluation_time": 0.011705875396728516,
             "notes": ""
         },
         {
@@ -387,7 +387,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'",
             "tool runtime error": null,
             "content": "cat $1 | cut -d ' ' -f 2 | cut -c 1-1 | tr -d '\\n' | tr '[A-Z]' '[a-z]'",
-            "evaluation_time": 0.009680747985839844,
+            "evaluation_time": 0.009148359298706055,
             "notes": ""
         },
         {
@@ -397,7 +397,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr ' ' '\\n' | grep '\\.' | wc -l",
-            "evaluation_time": 0.01838088035583496,
+            "evaluation_time": 0.018378257751464844,
             "notes": ""
         },
         {
@@ -407,7 +407,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr ' ' '\\n' | grep 'x' | grep '\\.' | wc -l",
-            "evaluation_time": 0.030303955078125,
+            "evaluation_time": 0.034749746322631836,
             "notes": ""
         },
         {
@@ -417,7 +417,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat $1 | tr ' ' '\\n' | grep 'x' | grep '\\.' | cut -d '.' -f 2 | grep -v '[KQRBN]' | wc -l",
-            "evaluation_time": 0.050537824630737305,
+            "evaluation_time": 0.04541420936584473,
             "notes": ""
         },
         {
@@ -427,7 +427,7 @@
             "error message generated": "Input type '{[0-9A-Fa-f]+}&{(?!.*[A-F].*)}' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
             "tool runtime error": null,
             "content": "grep -oE '[0-9A-Fa-f]+' a.txt | tr A-F a-f | sort -n",
-            "evaluation_time": 0.018031597137451172,
+            "evaluation_time": 0.025170326232910156,
             "notes": ""
         },
         {
@@ -437,7 +437,7 @@
             "error message generated": "Input type '{(?!{(.*0.*)}&{(()|(.*\\W))0(()|(\\W.*))})}&{[0-9a-f]+}' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
             "tool runtime error": null,
             "content": "grep -oE '[0-9a-f]+' a.txt | grep -vwE '0' | sort -n",
-            "evaluation_time": 0.028800010681152344,
+            "evaluation_time": 0.024390697479248047,
             "notes": ""
         },
         {
@@ -447,7 +447,7 @@
             "error message generated": "Input type '[0-9a-f]+' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
             "tool runtime error": null,
             "content": "grep -oE '[0-9a-f]+' a.txt | sort -n",
-            "evaluation_time": 0.010998725891113281,
+            "evaluation_time": 0.019583702087402344,
             "notes": ""
         },
         {
@@ -457,7 +457,7 @@
             "error message generated": "Input type '-?[0-9]+' is not compatible with expected input '(.+\\..+)|(localhost(:[0-9]+)?)' for command 'xargs_curl'",
             "tool runtime error": null,
             "content": "seq 1 10 | sed \"s;^;;\" | xargs curl | wc -l",
-            "evaluation_time": 0.015967607498168945,
+            "evaluation_time": 0.01584625244140625,
             "notes": ""
         },
         {
@@ -467,7 +467,7 @@
             "error message generated": "Input type '{(.*EndpointIP\\\\|VIP.*)}&{.*}' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
             "tool runtime error": null,
             "content": "docker network inspect $network_id | grep \"EndpointIP\\|VIP\" | cut -d':' -f2 | sort | uniq | sort -rn",
-            "evaluation_time": 0.036017417907714844,
+            "evaluation_time": 0.0363619327545166,
             "notes": ""
         },
         {
@@ -477,7 +477,7 @@
             "error message generated": "Input type '{{.*}&{(?!.*[^A-Za-z].*)}}&{(?!.*[A-Z].*)}' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
             "tool runtime error": null,
             "content": "cat a.txt | tr -cs A-Za-z '\\n' | tr A-Z a-z | sort | uniq | sort -rn",
-            "evaluation_time": 0.0371706485748291,
+            "evaluation_time": 0.04264259338378906,
             "notes": ""
         },
         {
@@ -487,7 +487,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "cat foo | cp bar",
-            "evaluation_time": 0.006709575653076172,
+            "evaluation_time": 0.009529352188110352,
             "notes": ""
         },
         {
@@ -497,7 +497,7 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "echo -n $PATH | xargs stat -c %x",
-            "evaluation_time": 0.011356830596923828,
+            "evaluation_time": 0.009660959243774414,
             "notes": ""
         },
         {
@@ -507,7 +507,7 @@
             "error message generated": "Input type '.*' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
             "tool runtime error": null,
             "content": "find | xargs stat -c %y | sort -n | head -3",
-            "evaluation_time": 0.010518074035644531,
+            "evaluation_time": 0.016120195388793945,
             "notes": ""
         },
         {
@@ -517,12 +517,12 @@
             "error message generated": null,
             "tool runtime error": null,
             "content": "find | xargs stat -c %Y | sort | head -3",
-            "evaluation_time": 0.016561031341552734,
+            "evaluation_time": 0.01471257209777832,
             "notes": ""
         }
     ],
     "statistics": {
-        "total_evaluation_time": "1.50s",
+        "total_evaluation_time": "1.56s",
         "timeout_count": 0,
         "correct_valid_pipelines": 27,
         "correct_pipelines_handled": "27/42",
@@ -536,53 +536,53 @@
     },
     "logs": [
         "INFO:root:Pipeline is well-typed.",
-        "INFO:root:Pipeline from ./evaluation_pipelines/valid/1.sh evaluated as True in 0.02s",
+        "INFO:root:Pipeline from ./evaluation_pipelines/valid/1.sh evaluated as True in 0.03s",
         "INFO:root:Pipeline is well-typed.",
-        "INFO:root:Pipeline from ./evaluation_pipelines/valid/3.sh evaluated as True in 0.04s",
+        "INFO:root:Pipeline from ./evaluation_pipelines/valid/3.sh evaluated as True in 0.06s",
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./evaluation_pipelines/valid/4.sh evaluated as True in 0.04s",
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./evaluation_pipelines/valid/5.sh evaluated as True in 0.04s",
         "INFO:root:Pipeline is well-typed.",
-        "INFO:root:Pipeline from ./evaluation_pipelines/valid/6.sh evaluated as True in 0.02s",
+        "INFO:root:Pipeline from ./evaluation_pipelines/valid/6.sh evaluated as True in 0.03s",
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./evaluation_pipelines/valid/ladder1.sh evaluated as True in 0.01s",
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./evaluation_pipelines/valid/ladder3.sh evaluated as True in 0.01s",
         "INFO:root:Pipeline is well-typed.",
-        "INFO:root:Pipeline from ./evaluation_pipelines/valid/ladder4.sh evaluated as True in 0.02s",
+        "INFO:root:Pipeline from ./evaluation_pipelines/valid/ladder4.sh evaluated as True in 0.01s",
         "INFO:root:Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/1.sh evaluated as False in 0.02s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/1.sh evaluated as False in 0.01s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/1.sh: Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'",
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/10.sh evaluated as True in 0.09s",
         "INFO:root:Pipeline is well-typed.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/11.sh evaluated as True in 0.10s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/11.sh evaluated as True in 0.09s",
         "WARNING:root:No matching signature found for command tail",
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/12.sh evaluated as True in 0.08s",
         "INFO:root:Input type '{(.*print.*)}&{.*}' is not compatible with expected input '.*((\"+).*){1}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/13.sh evaluated as False in 0.02s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/13.sh evaluated as False in 0.03s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/13.sh: Input type '{(.*print.*)}&{.*}' is not compatible with expected input '.*((\"+).*){1}' for command 'cut'",
         "INFO:root:Input type '.*' is not compatible with expected input '-?[0-9]+.*' for command 'sort'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/14.sh evaluated as False in 0.01s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/14.sh evaluated as False in 0.02s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/14.sh: Input type '.*' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
         "INFO:root:Pipeline is well-typed.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/15.sh evaluated as True in 0.01s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/15.sh evaluated as True in 0.02s",
         "WARNING:root:No matching signature found for command tail",
         "INFO:root:Input type '.*' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/16.sh evaluated as False in 0.01s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/16.sh evaluated as False in 0.02s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/16.sh: Input type '.*' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'",
         "INFO:root:Input type '.*' is not compatible with expected input '.*((\\s+).*){3}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/17.sh evaluated as False in 0.01s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/17.sh evaluated as False in 0.02s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/17.sh: Input type '.*' is not compatible with expected input '.*((\\s+).*){3}' for command 'cut'",
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/18.sh evaluated as True in 0.02s",
         "INFO:root:Input type '.*' is not compatible with expected input '.*((,+).*){1}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/19.sh evaluated as False in 0.02s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/19.sh evaluated as False in 0.03s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/19.sh: Input type '.*' is not compatible with expected input '.*((,+).*){1}' for command 'cut'",
         "INFO:root:Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/2.sh evaluated as False in 0.01s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/2.sh evaluated as False in 0.02s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/2.sh: Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'",
         "ERROR:root:Tool runtime error while evaluating pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/20.sh: missing ), unterminated subpattern at position 0",
         "INFO:root:Pipeline is well-typed.",
@@ -596,9 +596,9 @@
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/26.sh evaluated as True in 0.04s",
         "INFO:root:Pipeline is well-typed.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/28.sh evaluated as True in 0.08s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/28.sh evaluated as True in 0.09s",
         "INFO:root:Pipeline is well-typed.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/29.sh evaluated as True in 0.02s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/29.sh evaluated as True in 0.01s",
         "INFO:root:Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'.",
         "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/3.sh evaluated as False in 0.01s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/3.sh: Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'",
@@ -607,25 +607,25 @@
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/31.sh evaluated as True in 0.07s",
         "INFO:root:Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/32.sh evaluated as False in 0.03s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/32.sh evaluated as False in 0.02s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/32.sh: Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'",
         "INFO:root:Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/33.sh evaluated as False in 0.03s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/33.sh evaluated as False in 0.02s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/33.sh: Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'",
         "WARNING:root:No matching signature found for command fmt",
         "INFO:root:Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/34.sh evaluated as False in 0.03s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/34.sh evaluated as False in 0.02s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/34.sh: Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'",
         "INFO:root:Pipeline is well-typed.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/35.sh evaluated as True in 0.02s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/35.sh evaluated as True in 0.01s",
         "WARNING:root:No matching signature found for command fmt",
         "INFO:root:Input type '.*' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/36.sh evaluated as False in 0.02s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/36.sh evaluated as False in 0.01s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/36.sh: Input type '.*' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'",
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/4.sh evaluated as True in 0.01s",
         "INFO:root:Input type '.*' is not compatible with expected input '.*(( +).*){3}' for command 'cut'.",
-        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/5.sh evaluated as False in 0.02s",
+        "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/5.sh evaluated as False in 0.01s",
         "INFO:root:Error detected in pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/5.sh: Input type '.*' is not compatible with expected input '.*(( +).*){3}' for command 'cut'",
         "INFO:root:Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'.",
         "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/6.sh evaluated as False in 0.01s",
@@ -637,13 +637,13 @@
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/9.sh evaluated as True in 0.05s",
         "INFO:root:Input type '{[0-9A-Fa-f]+}&{(?!.*[A-F].*)}' is not compatible with expected input '-?[0-9]+.*' for command 'sort'.",
-        "INFO:root:Pipeline from ./evaluation_pipelines/invalid/0.sh evaluated as False in 0.02s",
+        "INFO:root:Pipeline from ./evaluation_pipelines/invalid/0.sh evaluated as False in 0.03s",
         "INFO:root:Error detected in pipeline from ./evaluation_pipelines/invalid/0.sh: Input type '{[0-9A-Fa-f]+}&{(?!.*[A-F].*)}' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
         "INFO:root:Input type '{(?!{(.*0.*)}&{(()|(.*\\W))0(()|(\\W.*))})}&{[0-9a-f]+}' is not compatible with expected input '-?[0-9]+.*' for command 'sort'.",
-        "INFO:root:Pipeline from ./evaluation_pipelines/invalid/2.sh evaluated as False in 0.03s",
+        "INFO:root:Pipeline from ./evaluation_pipelines/invalid/2.sh evaluated as False in 0.02s",
         "INFO:root:Error detected in pipeline from ./evaluation_pipelines/invalid/2.sh: Input type '{(?!{(.*0.*)}&{(()|(.*\\W))0(()|(\\W.*))})}&{[0-9a-f]+}' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
         "INFO:root:Input type '[0-9a-f]+' is not compatible with expected input '-?[0-9]+.*' for command 'sort'.",
-        "INFO:root:Pipeline from ./evaluation_pipelines/invalid/2_1.sh evaluated as False in 0.01s",
+        "INFO:root:Pipeline from ./evaluation_pipelines/invalid/2_1.sh evaluated as False in 0.02s",
         "INFO:root:Error detected in pipeline from ./evaluation_pipelines/invalid/2_1.sh: Input type '[0-9a-f]+' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
         "INFO:root:Input type '-?[0-9]+' is not compatible with expected input '(.+\\..+)|(localhost(:[0-9]+)?)' for command 'xargs_curl'.",
         "INFO:root:Pipeline from ./evaluation_pipelines/invalid/3.sh evaluated as False in 0.02s",
@@ -659,10 +659,10 @@
         "INFO:root:Pipeline is well-typed.",
         "INFO:root:Pipeline from ./evaluation_pipelines/invalid/ladder3.sh evaluated as True in 0.01s",
         "INFO:root:Input type '.*' is not compatible with expected input '-?[0-9]+.*' for command 'sort'.",
-        "INFO:root:Pipeline from ./evaluation_pipelines/invalid/ladder4_1.sh evaluated as False in 0.01s",
+        "INFO:root:Pipeline from ./evaluation_pipelines/invalid/ladder4_1.sh evaluated as False in 0.02s",
         "INFO:root:Error detected in pipeline from ./evaluation_pipelines/invalid/ladder4_1.sh: Input type '.*' is not compatible with expected input '-?[0-9]+.*' for command 'sort'",
         "INFO:root:Pipeline is well-typed.",
-        "INFO:root:Pipeline from ./evaluation_pipelines/invalid/ladder4_2.sh evaluated as True in 0.02s",
+        "INFO:root:Pipeline from ./evaluation_pipelines/invalid/ladder4_2.sh evaluated as True in 0.01s",
         "INFO:root:Correct predictions: 34",
         "INFO:root:TP (True Positives for buggy pipelines): 7",
         "INFO:root:Recall: 0.7",
