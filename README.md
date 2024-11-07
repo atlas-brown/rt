@@ -11,3 +11,9 @@ PYTHONPATH=src python3 src/stream/run_evaluations.py
 ```bash
 PYTHONPATH=src pytest
 ```
+
+## Debug
+
+```bash
+PYTHONPATH=src python3 src/stream/debug.py
+```

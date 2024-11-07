@@ -16,6 +16,14 @@ class SignatureLoader:
             "cut": CutSignature
         }
         self.signatures = self.load_all_signatures()
+        self.unknown_signature = CommandSignature(
+                                    command_name="unknown",
+                                    default_input_type=".*",
+                                    default_output_type=".*",
+                                    args=[],
+                                    flags=[],
+                                    rules=[]
+                                )
 
     def load_signature(self, command_name: str) -> CommandSignature:
         file_path = os.path.join(self.signature_dir, f'{command_name}.json')
@@ -46,3 +54,6 @@ class SignatureLoader:
                 command_name = os.path.splitext(file_name)[0]
                 signatures.append(self.load_signature(command_name))
         return signatures
+    
+    def get_unknown_sigature(self) -> CommandSignature:
+        return self.unknown_signature
