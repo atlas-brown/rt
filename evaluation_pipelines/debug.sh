@@ -1,1 +1,1 @@
-opt="$(echo "${1/#--/-}" | tr "[:upper:]" "[:lower:]")"
+run_test \"$data_file\" | tee >($results_filter | ${0:A:h}/tap-colorizer.zsh) | grep -v '^not ok.*# TODO' | grep -Eq '^not ok|^ok.*# TODO' && (( something_failed=1 ))

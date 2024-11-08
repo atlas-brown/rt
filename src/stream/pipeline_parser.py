@@ -28,13 +28,21 @@ class PipelineParser:
         
 
     def parse_pipeline(self) -> List[Tuple[CommandSignature, CommandInvocationInitial]]:
-        assert len(self.ast) == 1
+        if self.ast is None:
+            raise ValueError("Parsing failed")
+        if len(self.ast) != 1:
+            raise ValueError("The input is not a pipeline")
         pipe_node = self.ast[0][0]
+
+        # process assignments
+        if (isinstance(pipe_node, CommandNode)) and pipe_node.assignments is not None and len(pipe_node.assignments) > 0:
+            pipe_node = pipe_node.assignments[0].val[0].node
+
         assert(isinstance(pipe_node, PipeNode))
         
         commands_in_pipe : list[CommandInvocationInitial] = []
         for command_node in pipe_node.items:
-            assert (isinstance(command_node, CommandNode))
+            # assert (isinstance(command_node, CommandNode))
             cmd_raw = command_node.pretty()
             commands_in_pipe.append(annot_parse(cmd_raw))
         
