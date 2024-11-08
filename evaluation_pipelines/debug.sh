@@ -1,1 +1,1 @@
-grep -rl 'Hello' /testbed | xargs -I {} dirname {} | sort | uniq
+opt="$(echo "${1/#--/-}" | tr "[:upper:]" "[:lower:]")"

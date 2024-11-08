@@ -10,16 +10,19 @@ class RegularType:
     def is_subtype(self, other: 'RegularType') -> bool:
         logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
         s = z3.Solver()
-        x = z3.String('x')
         self_regex = regex_to_z3_expr(sre_parse.parse(preprocess(self.pattern)))
         logging.debug(f"self_regex: {self_regex}")
         other_regex = regex_to_z3_expr(sre_parse.parse(preprocess(other.pattern)))
         logging.debug(f"other_regex: {other_regex}")
         logging.debug("-"*60)
         intersection_regex = z3.Intersect(self_regex, z3.Complement(other_regex))
-        s.add(z3.InRe(x, intersection_regex))
+        s.add(z3.Distinct(intersection_regex, z3.Empty(z3.ReSort(z3.StringSort()))))
         result = s.check() == z3.unsat
         if not result:
+            s = z3.Solver()
+            x = z3.String('x')
+            s.add(z3.InRe(x, intersection_regex))
+            s.check()
             logging.debug(f"counterexample: {s.model()}")
         return result
     
