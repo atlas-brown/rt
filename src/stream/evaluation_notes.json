@@ -1,0 +1,12 @@
+[
+    {
+	"pipeline_id": ["./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/31.sh", 0],
+	"category": "hard tr",
+	"notes": "reverses letters, input lang is [A-Z] output should ideally be [Z-A]"
+    },
+    {
+	"pipeline_id": ["./full_benchmark/intercode/InterCode-ALFA-Data/nl2bash_fs_5.json", 3],
+	"category": "hard sed",
+	"notes": "**TODO** replace both of these notes with real ones!"
+    }
+]
