@@ -1,1 +1,1 @@
-find /testbed -type f -exec grep -l 'Hello' {} + | xargs -I {} dirname {} | sort | uniq
+grep -rl 'Hello' /testbed | xargs -I {} dirname {} | sort | uniq

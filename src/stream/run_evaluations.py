@@ -220,7 +220,7 @@ if __name__ == "__main__":
     run_all_evaluations(
         valid_dirs=[
                     "./evaluation_pipelines/valid", 
-                    # "./full_benchmark/intercode/InterCode-ALFA-Data", 
+                    "./full_benchmark/intercode/InterCode-ALFA-Data", 
                     # "./full_benchmark/Shseer",
                     "./full_benchmark/pash_benchmark/benchmarks/unix50"
         ],

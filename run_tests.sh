@@ -1,5 +1,1 @@
-#!/bin/sh
-cd src
-pip3 install -e .
-cd stream
-true
+PYTHONPATH=src pytest --ignore=./full_benchmark
