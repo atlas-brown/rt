@@ -1,14 +1,71 @@
+import multiprocessing
 import os
 import json
 import logging
+from queue import Empty
 import re
 import time
+import signal
+from functools import wraps
 from typing import Optional, List, Tuple
 from stream.type_checker import TypeChecker
 
 pipeline_pattern = re.compile(r'(\bgrep\b|\bawk\b|\bsed\b|\bcut\b|\bsort\b|\buniq\b|\btr\b|\bxargs\b|\becho\b|\bcat\b).*\|\s*')
 temp_pipeline_address = './temp.sh'
 TIMEOUT_SECONDS = 2
+
+class TimeoutError(Exception):
+    pass
+
+def timeout_handler(signum, frame):
+    raise TimeoutError("Evaluation timed out")
+
+def with_timeout(seconds):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            result_queue = multiprocessing.Queue()
+            
+            def worker(queue):
+                try:
+                    os.setpgrp()
+                    result = func(*args, **kwargs)
+                    queue.put(result)
+                except Exception as e:
+                    queue.put(e)
+
+            process = multiprocessing.Process(target=worker, args=(result_queue,))
+            process.start()
+            
+            try:
+                result = result_queue.get(timeout=seconds)
+                
+                if isinstance(result, Exception):
+                    raise result
+                    
+                return result
+            except Empty:
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except:
+                    pass
+                raise TimeoutError(f"Function timed out after {seconds} seconds")
+            finally:
+                if process.is_alive():
+                    process.terminate()
+                    process.join(timeout=0.1)
+                    try:
+                        os.killpg(process.pid, signal.SIGKILL)
+                    except:
+                        pass
+                while not result_queue.empty():
+                    try:
+                        result_queue.get_nowait()
+                    except:
+                        pass
+
+        return wrapper
+    return decorator
 
 class LogHandler(logging.Handler):
     def __init__(self):
@@ -95,6 +152,10 @@ def calculate_fail_rate(labels, preds):
     logging.info(f'Failed predictions: {fail_count}')
     return fail_count / len(labels)
 
+@with_timeout(TIMEOUT_SECONDS)
+def evaluate_pipeline_with_timeout(type_checker: TypeChecker) -> Tuple[bool, str]:
+    return type_checker.check_pipeline()
+
 def evaluate_pipeline_content(pipeline: str, original_path: str) -> dict:
     pipeline_data = {
         "path": original_path,
@@ -113,22 +174,25 @@ def evaluate_pipeline_content(pipeline: str, original_path: str) -> dict:
         
         start_time = time.time()
         type_checker = TypeChecker(temp_pipeline_address)
-        result, err_msg = type_checker.check_pipeline()
-        end_time = time.time()
-        elapsed_time = end_time - start_time
         
-        if elapsed_time > TIMEOUT_SECONDS:
-            pipeline_data["notes"] = f"Evaluation timeout after {elapsed_time:.2f}s"
+        try:
+            result, err_msg = evaluate_pipeline_with_timeout(type_checker)
+            end_time = time.time()
+            elapsed_time = end_time - start_time
+            
+            pipeline_data["evaluation_time"] = elapsed_time
+            pipeline_data["prediction"] = result
+            logging.info(f'Pipeline from {original_path} evaluated as {result} in {elapsed_time:.2f}s')
+            
+            if not result:
+                pipeline_data["error message generated"] = err_msg
+                logging.info(f'Error detected in pipeline from {original_path}: {err_msg}')
+                
+        except TimeoutError:
+            pipeline_data["notes"] = f"Evaluation timeout after {TIMEOUT_SECONDS}s"
             pipeline_data["tool runtime error"] = "Timeout"
-            return pipeline_data
-        
-        pipeline_data["evaluation_time"] = elapsed_time
-        pipeline_data["prediction"] = result
-        logging.info(f'Pipeline from {original_path} evaluated as {result} in {elapsed_time:.2f}s')
-        
-        if not result:
-            pipeline_data["error message generated"] = err_msg
-            logging.info(f'Error detected in pipeline from {original_path}: {err_msg}')
+            pipeline_data["prediction"] = None
+            logging.warning(f'Pipeline evaluation timed out for {original_path}')
             
     except Exception as e:
         logging.error(f'Tool runtime error while evaluating pipeline from {original_path}: {e}')
@@ -171,16 +235,19 @@ def run_all_evaluations(valid_dirs: list[str], invalid_dirs: list[str], output_j
         preds = [result["prediction"] for result in results if result["tool runtime error"] != "Timeout"]
         labels = [result["ground_truth"] for result in results if result["tool runtime error"] != "Timeout"]
         
+        statistics = {}
         if preds and labels:
-            accuracy = calculate_accuracy(labels, preds)
-            precision = calculate_precision(labels, preds)
-            recall = calculate_recall(labels, preds)
-            fail_rate = calculate_fail_rate(labels, preds)
+            statistics.update({
+                "accuracy": calculate_accuracy(labels, preds),
+                "precision": calculate_precision(labels, preds),
+                "recall": calculate_recall(labels, preds),
+                "fail_rate": calculate_fail_rate(labels, preds)
+            })
 
-            logging.info(f'Accuracy: {accuracy}')
-            logging.info(f'Precision: {precision}')
-            logging.info(f'Recall: {recall}')
-            logging.info(f'Fail rate: {fail_rate}')
+            logging.info(f'Accuracy: {statistics["accuracy"]}')
+            logging.info(f'Precision: {statistics["precision"]}')
+            logging.info(f'Recall: {statistics["recall"]}')
+            logging.info(f'Fail rate: {statistics["fail_rate"]}')
             logging.info(f'Total correct valid pipelines: {correct_valid_count}')
             logging.info(f'Total buggy pipelines detected: {correct_invalid_count}')
             logging.info(f'Total timeouts: {timeout_count}')
@@ -191,6 +258,7 @@ def run_all_evaluations(valid_dirs: list[str], invalid_dirs: list[str], output_j
         output_data = {
             "evaluation_results": results,
             "statistics": {
+                **statistics,
                 "total_evaluation_time": f"{total_time:.2f}s",
                 "timeout_count": timeout_count,
                 "correct_valid_pipelines": correct_valid_count,
@@ -198,10 +266,6 @@ def run_all_evaluations(valid_dirs: list[str], invalid_dirs: list[str], output_j
                 "buggy_pipelines_detected": f"{correct_invalid_count}/{sum(1 for label in labels if not label)}",
                 "wrong_predictions": sum(1 for label, pred in zip(labels, preds) if label != pred and pred is not None),
                 "failed_predictions": sum(1 for _, pred in zip(labels, preds) if pred is None),
-                "accuracy": accuracy if preds and labels else None,
-                "precision": precision if preds and labels else None,
-                "recall": recall if preds and labels else None,
-                "fail_rate": fail_rate if preds and labels else None,
             },
             "logs": log_handler.log_entries
         }
