@@ -188,18 +188,4 @@ def combine_maps(ls_m : list[NodeMap]) -> NodeMap:
         )
 
     return result
-
-
-def check_traversal(orig_map : NodeMap):
-    comb_map = combine_maps(NodeSymMaps.getallmaps())
-    all_keys = orig_map.keys()
-    for key in all_keys:
-        if key not in comb_map:
-            reporter.REPORTER.add_error_message(error_report.UnreachableCode(orig_map[key].raw_text))
-        else:
-            key_item = comb_map[key]
-            if not key_item.visited:
-                reporter.REPORTER.add_error_message(error_report.UnreachableCode(key_item.raw_text))
-            if key_item.conditional is not None and (not key_item.conditional.true_followed or not key_item.conditional.false_followed):
-                reporter.REPORTER.add_error_message(error_report.ConstantConditional(key_item.raw_text))
     

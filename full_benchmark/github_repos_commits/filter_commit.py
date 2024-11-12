@@ -155,9 +155,20 @@ def load_existing_results(results_path, repo_name):
     return commits, filtered_commits
 
 def save_summary(results_path, summary_data):
+    commits_array = []
+    
+    for repo_name, repo_data in summary_data.items():
+        if repo_data.get("commits"):
+            for commit in repo_data["commits"]:
+                commit_copy = commit.copy()
+                commit_copy["repo"] = repo_name
+                commit_copy["category"] = ""
+                commit_copy["notes"] = ""
+                commits_array.append(commit_copy)
+    
     summary_path = os.path.join(results_path, "summary.json")
     with open(summary_path, "w", encoding="utf-8") as f:
-        json.dump(summary_data, f, ensure_ascii=False, indent=4)
+        json.dump(commits_array, f, ensure_ascii=False, indent=4)
     print(f"Summary saved to {summary_path}")
 
 def main():
