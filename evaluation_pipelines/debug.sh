@@ -1,1 +1,5 @@
-run_test \"$data_file\" | tee >($results_filter | ${0:A:h}/tap-colorizer.zsh) | grep -v '^not ok.*# TODO' | grep -Eq '^not ok|^ok.*# TODO' && (( something_failed=1 ))
+#!/bin/bash
+
+# 1.2: extract names and sort
+grep -Eo [0-9]+ $1 | sort -n
+cat $1 | head -n 2 | cut -d ' ' -f 2

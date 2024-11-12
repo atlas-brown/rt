@@ -15,7 +15,7 @@ pipeline_pattern = re.compile(r'(\bgrep\b|\bawk\b|\bsed\b|\bcut\b|\bsort\b|\buni
 debug_commit_hash = "6f994715d6e86297d1c9851666221cd2eb09ac3c"
 client = OpenAI(api_key=OPENAI_API_KEY, base_url="https://api.deepseek.com")
 
-def get_popular_repos(language="Shell", max_size_kb=15000, top_n=50, min_results=15):
+def get_popular_repos(language="Shell", max_size_kb=15000, top_n=50, min_results=10):
     if not GITHUB_TOKEN:
         raise ValueError("GITHUB_TOKEN environment variable not set.")
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
@@ -135,6 +135,30 @@ def filter_commits_with_openai_analysis(commits, repo_name, save_path):
     with open(save_path, "w", encoding="utf-8") as f:
         json.dump({repo_name: filtered_commits}, f, ensure_ascii=False, indent=4)
     print(f"Filtered results saved to {save_path}.")
+    return filtered_commits
+
+def load_existing_results(results_path, repo_name):
+    save_path = os.path.join(results_path, f"{repo_name.replace('/', '_')}_pipeline_commits.json")
+    openai_save_path = os.path.join(results_path, f"{repo_name.replace('/', '_')}_filtered_commits.json")
+    
+    commits = None
+    filtered_commits = None
+    
+    if os.path.exists(save_path):
+        with open(save_path, "r", encoding="utf-8") as f:
+            commits = json.load(f)[repo_name]
+    
+    if os.path.exists(openai_save_path):
+        with open(openai_save_path, "r", encoding="utf-8") as f:
+            filtered_commits = json.load(f)[repo_name]
+            
+    return commits, filtered_commits
+
+def save_summary(results_path, summary_data):
+    summary_path = os.path.join(results_path, "summary.json")
+    with open(summary_path, "w", encoding="utf-8") as f:
+        json.dump(summary_data, f, ensure_ascii=False, indent=4)
+    print(f"Summary saved to {summary_path}")
 
 def main():
     repos = get_popular_repos()
@@ -142,6 +166,8 @@ def main():
     results_path = os.path.dirname(os.path.abspath(__file__)) + "/results"
     os.makedirs(base_path, exist_ok=True)
     os.makedirs(results_path, exist_ok=True)
+    
+    summary = {}
 
     for repo_info in repos:
         repo_name = repo_info["full_name"]
@@ -150,27 +176,36 @@ def main():
         save_path = os.path.join(results_path, f"{repo_name.replace('/', '_')}_pipeline_commits.json")
         openai_save_path = os.path.join(results_path, f"{repo_name.replace('/', '_')}_filtered_commits.json")
 
-        # Check if results already exist
-        if os.path.exists(save_path) and not UPDATE:
-            print(f"Skipping {repo_name}, results already exist.")
-            continue
-
-        print(f"\nProcessing repository: {repo_name}...")
-
-        clone_repo(repo_url, local_path)
-
-        repo = git.Repo(local_path)
-        commits = find_pipeline_commits(repo, repo_url)
-
-        if commits:
-            print(f"Found {len(commits)} commits with pipeline changes in {repo_name}.")
-            filter_commits_with_openai_analysis(commits, repo_name, openai_save_path)
-            
-            with open(save_path, "w", encoding="utf-8") as f:
-                json.dump({repo_name: commits}, f, ensure_ascii=False, indent=4)
-            print(f"\nResults saved to {save_path}.")
+        if not UPDATE and os.path.exists(save_path) and os.path.exists(openai_save_path):
+            print(f"Loading existing results for {repo_name}...")
+            commits, filtered_commits = load_existing_results(results_path, repo_name)
         else:
-            print(f"No pipeline changes found in {repo_name}.")
+            print(f"\nProcessing repository: {repo_name}...")
+            clone_repo(repo_url, local_path)
+            repo = git.Repo(local_path)
+            commits = find_pipeline_commits(repo, repo_url)
+
+            if commits:
+                print(f"Found {len(commits)} commits with pipeline changes in {repo_name}.")
+                filtered_commits = filter_commits_with_openai_analysis(commits, repo_name, openai_save_path)
+                
+                with open(save_path, "w", encoding="utf-8") as f:
+                    json.dump({repo_name: commits}, f, ensure_ascii=False, indent=4)
+                print(f"\nResults saved to {save_path}.")
+            else:
+                print(f"No pipeline changes found in {repo_name}.")
+                commits = []
+                filtered_commits = []
+
+        if commits is not None:
+            summary[repo_name] = {
+                "total_commits": len(commits),
+                "filtered_commits": len(filtered_commits) if filtered_commits else 0,
+                "commits": commits,
+                "filtered_commits_data": filtered_commits
+            }
+    
+    save_summary(results_path, summary)
 
 if __name__ == "__main__":
     main()

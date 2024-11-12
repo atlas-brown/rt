@@ -3,6 +3,7 @@ from typing import Any, Dict, List, Tuple
 from stream.command_signature import CommandSignature
 from stream.signature_loader import SignatureLoader
 from stream.shell_parser import parse_shell_to_asts
+from stream.symb import nodes_from_file
 from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
@@ -12,10 +13,10 @@ class PipelineParser:
     def __init__(self, pipeline_address: str) -> None:
         self.signature_loader = SignatureLoader()
         self.pipeline_address = pipeline_address
-        self.ast : list[AstNode] = self.parse_shell_script()
+        self.pipeline_nodes : list[AstNode] = self.parse_shell_script()
 
     def parse_shell_script(self) -> List[AstNode]:
-        return parse_shell_to_asts(self.pipeline_address)
+        return nodes_from_file(self.pipeline_address)
 
     def parse_command_node(self, node: CommandInvocationInitial) -> Tuple[CommandSignature, CommandInvocationInitial]:
         assert isinstance(node, CommandInvocationInitial)
@@ -27,23 +28,16 @@ class PipelineParser:
         return (self.signature_loader.get_unknown_sigature(), node)
         
 
-    def parse_pipeline(self) -> List[Tuple[CommandSignature, CommandInvocationInitial]]:
-        if self.ast is None:
+    def parse_pipeline(self) -> List[List[Tuple[CommandSignature, CommandInvocationInitial]]]:
+        if self.pipeline_nodes is None:
             raise ValueError("Parsing failed")
-        if len(self.ast) != 1:
-            raise ValueError("The input is not a pipeline")
-        pipe_node = self.ast[0][0]
-
-        # process assignments
-        if (isinstance(pipe_node, CommandNode)) and pipe_node.assignments is not None and len(pipe_node.assignments) > 0:
-            pipe_node = pipe_node.assignments[0].val[0].node
-
-        assert(isinstance(pipe_node, PipeNode))
         
-        commands_in_pipe : list[CommandInvocationInitial] = []
-        for command_node in pipe_node.items:
-            # assert (isinstance(command_node, CommandNode))
-            cmd_raw = command_node.pretty()
-            commands_in_pipe.append(annot_parse(cmd_raw))
-        
-        return [self.parse_command_node(command) for command in commands_in_pipe]
+        pipelines: List[List[Tuple[CommandSignature, CommandInvocationInitial]]] = []
+        for node in self.pipeline_nodes:
+            commands_in_pipe : list[CommandInvocationInitial] = []
+            for command_node in node.items:
+                # assert (isinstance(command_node, CommandNode))
+                cmd_raw = command_node.pretty()
+                commands_in_pipe.append(annot_parse(cmd_raw))
+            pipelines.append([self.parse_command_node(command) for command in commands_in_pipe])
+        return pipelines
