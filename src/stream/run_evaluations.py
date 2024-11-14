@@ -12,7 +12,7 @@ from stream.checking_result import CheckingResult
 from stream.type_checker import TypeChecker
 
 pipeline_pattern = re.compile(r'(\bgrep\b|\bawk\b|\bsed\b|\bcut\b|\bsort\b|\buniq\b|\btr\b|\bxargs\b|\becho\b|\bcat\b).*\|\s*')
-temp_pipeline_address = './temp.sh'
+# temp_pipeline_address = './temp.sh'
 TIMEOUT_SECONDS = 2
 
 IS_BUGGY_LABEL="is buggy?"
@@ -130,22 +130,17 @@ logger = logging.getLogger()
 
 # listof(directory-path) bool -> listof((PipelineID, bool, str))
 #                          is_valid == not is_buggy? ^     ^ pipeline content
-def find_pipelines(directories: list[str], is_valid: bool) -> List[Tuple[str, bool, str]]:
-    all_pipelines = []
+def find_scripts(directories: list[str]) -> str:
+    script_addresses = []
     
     for directory in directories:
         for root, _, files in os.walk(directory):
             for file in files:
                 if file.endswith(('.sh')):
                     file_path = os.path.join(root, file)
-                    pipelines = extract_pipelines_from_file(file_path)
-                    if pipelines:
-                        i = 0
-                        for pipeline in pipelines:
-                            all_pipelines.append(((file_path, i), is_valid, pipeline))
-                            i += 1
+                    script_addresses.append(file_path)
     
-    return all_pipelines
+    return script_addresses
 
 def calculate_accuracy(labels, preds):
     correct_count = sum(1 for label, pred in zip(labels, preds) if label == pred)
@@ -227,8 +222,8 @@ def run_all_evaluations(valid_dirs: list[str],
         pipelines = []
         start_time_total = time.time()
         
-        valid_pipelines = find_pipelines(valid_dirs, True)
-        invalid_pipelines = find_pipelines(invalid_dirs, False)
+        valid_pipelines = find_scripts(valid_dirs)
+        invalid_pipelines = find_scripts(invalid_dirs)
         total_correct_pipelines = len(valid_pipelines)
         total_buggy_pipelines = len(invalid_pipelines)
 

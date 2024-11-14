@@ -9,7 +9,7 @@
             "+$CONVERT_CMD \"$IMG\" -resize $COLS\\> +dither `echo $REMAP` txt:- 2>/dev/null |"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a pipeline",
+        "category": "",
         "notes": ""
     },
     {
@@ -22,7 +22,7 @@
             "+  local _to_print=\"$(cat /run/.containerenv | awk -F\\\" '/name/ { print$2 }')\""
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "",
         "notes": ""
     },
     {
@@ -50,7 +50,7 @@
             "+      local nvmrc_node_version=$(nvm version $(command cat \"$nvmrc_path\" | tr -dc '[:print:]'))"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "custom command",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -79,7 +79,7 @@
             "+  echo \"$(rvm_prompt_info || rbenv_prompt_info || chruby_prompt_info)\""
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -92,7 +92,7 @@
             "+    aws ec2 describe-regions --region $region |grep RegionName | awk -F ':' '{gsub(/\"/, \"\", $2);gsub(/,/, \"\", $2);gsub(/ /, \"\", $2);  print $2}'"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "",
         "notes": ""
     },
     {
@@ -107,7 +107,7 @@
             "+\techo \"$__git_config_vars\" |"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "",
         "notes": ""
     },
     {
@@ -159,7 +159,7 @@
             "+  awk '{if($9~/200|30|404/)COUNT[$4]++}END{for( a in COUNT) print a,COUNT[a]}' \"$(retlog)\" | sort -k 2 -nr | head -n10"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "",
         "notes": ""
     },
     {
@@ -172,7 +172,7 @@
             "+  git branch --no-color --merged | command grep -vE \"^([+*]|\\s*($(git_main_branch)|$(git_develop_branch))\\s*$)\" | command xargs git branch --delete 2>/dev/null"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "semantic mistake - others",
         "notes": ""
     },
     {
@@ -185,7 +185,7 @@
             "+        sed -E $'s|#([0-9]+)|\\e]8;;https://github.com/ohmyzsh/ohmyzsh/issues/\\\\1\\a\\e[32m#\\\\1\\e[0m\\e]8;;\\a|g;s|`([^`]+)`|`\\e[2m\\\\1\\e[0m`|g' <<< \"$subject\""
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "",
         "notes": ""
     },
     {
@@ -200,7 +200,7 @@
             "+    alias | grep -E \"$filter\" | grep -E \"=$finder\""
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a pipeline",
+        "category": "",
         "notes": ""
     },
     {
@@ -215,7 +215,7 @@
             "+alias gbgD='LANG=C git branch --no-color -vv | grep \": gone\\]\" | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -D'"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "semantic mistake - others",
         "notes": ""
     },
     {
@@ -230,7 +230,7 @@
             "+alias gbgD='git branch --no-color -vv | grep \": gone\\]\" | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -D'"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "",
         "notes": ""
     },
     {
@@ -243,7 +243,7 @@
             "+    | sed \"s/^rake //\" | sed \"s/\\:/\\\\\\:/g\" \\"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -647,7 +647,7 @@
             "+    | grep -v \"./\" | sort -nr | head -n 20 | column -c3 -s \" \" -t | nl"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "not a composition mistake",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -1257,7 +1257,7 @@
             "+alias pscpu10='ps -e -o pcpu,cpu,nice,state,cputime,args|sort -k1,1n -nr | head -10'"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "semantic mistake",
+        "category": "semantic mistake- key of sort",
         "notes": "key of sort"
     },
     {
@@ -1870,7 +1870,7 @@
             "+  mix help | grep -v 'iex -S' | tail -n +2 | cut -d \" \" -f 2 > .mix_tasks"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -2295,7 +2295,7 @@
             "+  echo $($_omz_git_git_cmd remote -v | cut -d':' -f 2)"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "",
+        "category": "about variables",
         "notes": ""
     },
     {
@@ -2773,7 +2773,7 @@
             "+  reply=($(ls $MARKPATH/**/*(-) | grep : | sed -E 's/(.*)\\/([_\\da-zA-Z\\-]*):$/\\2/g'))"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "",
+        "category": "hard sed",
         "notes": ""
     },
     {
@@ -2800,7 +2800,7 @@
             "+\tls -l \"$MARKPATH\" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\\t-/g' && echo"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -2813,7 +2813,7 @@
             "+    php symfony | sed \"1,/Available tasks/d\" | awk 'BEGIN { cat=null; } /^[A-Za-z]+$/ { cat = $1; } /^  :[a-z]+/ { print cat $1; }'"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "",
+        "category": "hard awk",
         "notes": ""
     },
     {
@@ -2936,7 +2936,7 @@
             "+decode64(){ echo -n $1 | base64 --decode }"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -3252,7 +3252,7 @@
             "+    _GET_PATH='echo $PWD | sed \"s/^\\/Users\\//~/;s/^\\/home\\//~/;s/^~$USER/~/\"'"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "",
+        "category": "hard sed",
         "notes": ""
     },
     {
@@ -3407,7 +3407,7 @@
             "+    echo \"${DEFAULT_PACKAGES}\" | command xargs"
         ],
         "repo": "nvm-sh/nvm",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -4115,7 +4115,7 @@
             "+        INSTALLS=$(nvm use \"$VERSION\" > /dev/null && npm list -g --depth=0 | command tail -n +2 | command grep -o -e ' [^@]*' | command cut -c 2- | command grep -vx npm | command xargs)"
         ],
         "repo": "nvm-sh/nvm",
-        "category": "",
+        "category": "may be detected by annotations",
         "notes": ""
     },
     {
@@ -4924,8 +4924,8 @@
             "+        VERSION=`(cd $NVM_DIR; \\ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 1.2,1n -k 2,2n -k 3,3n | tail -n1`"
         ],
         "repo": "nvm-sh/nvm",
-        "category": "",
-        "notes": ""
+        "category": "semantic mistake - key of sort",
+        "notes": "key of sort"
     },
     {
         "message": "Added a fix for issue #59",
@@ -6182,7 +6182,7 @@
             "+        CONNECTION_NAME=$(nmcli dev show \"${PIHOLE_INTERFACE}\" | grep 'GENERAL.CONNECTION' | cut -d: -f2 | sed 's/^System//' | xargs | tr ' ' '_')"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -6195,7 +6195,7 @@
             "+        CONNECTION_NAME=$(nmcli dev show \"${PIHOLE_INTERFACE}\" | grep 'GENERAL.CONNECTION' | cut -d: -f2 | xargs | tr ' ' '_')"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -6235,7 +6235,7 @@
             "+        net_gateway=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1)"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "semantic mistake",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -6569,7 +6569,7 @@
             "+      validDomain=$(grep -P \"^((-|_)*[a-z\\\\d]((-|_)*[a-z\\\\d])*(-|_)*)(\\\\.(-|_)*([a-z\\\\d]((-|_)*[a-z\\\\d])*))*$\" <<< \"${domain}\") # Valid chars check"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "",
+        "category": "regex in grep",
         "notes": ""
     },
     {
@@ -6784,7 +6784,7 @@
             "+  done < <( lsof -i -P -n | awk -F' ' '/LISTEN/ {print $1, $9}' | sort -n | tr -d '[*]\\r' | uniq | awk '{print $2, $1}' )"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "semantic mistake",
+        "category": "semantic mistake - others",
         "notes": ""
     },
     {
@@ -7443,7 +7443,7 @@
             "+  echo \"Usage: pihole -v [repo | option] [option]"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "not a pipeline",
+        "category": "",
         "notes": ""
     },
     {
@@ -7501,7 +7501,7 @@
             "+\t\treturn=$(echo -n ${return} | sha256sum | sed 's/\\s.*$//')"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "not a composition mistake",
+        "category": "about variables",
         "notes": ""
     },
     {
@@ -8019,8 +8019,8 @@
             "+    if iptables -S INPUT | head -n1 | grep -qv 'ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '(^-A\\|^-P).*ACCEPT$'; then"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "semantic mistake",
-        "notes": ""
+        "category": "may be detected by annotations",
+        "notes": "grep operands"
     },
     {
         "message": "Add blacklisting wildcard support",
@@ -8092,7 +8092,7 @@
             "+\t\tqueriesToday=$(cat \"${piLog}\" | awk '/query/ {print $6}' | wc -l)"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "semantic refactor",
+        "category": "semantic mistake - others",
         "notes": ""
     },
     {
@@ -8442,7 +8442,7 @@
             "+  process=$(echo ${1} | cut -f 2 -d ' ' | cut -c 2-)"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "no changes",
+        "category": "",
         "notes": ""
     },
     {
@@ -10192,7 +10192,7 @@
             "+\tdomain=$(echo \"$url\" | cut -d'/' -f3)"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "",
+        "category": "about variables",
         "notes": ""
     },
     {
@@ -10771,7 +10771,7 @@
             "+  _record_name=$(printf \"%s\" \"$fulldomain\" | cut -d . -f 1 | _lower_case)"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -10945,7 +10945,7 @@
             "+        _key=\"$(echo \"${_line%%:*}\" | tr -d '\\\"')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -11401,7 +11401,7 @@
             "+  _sub_domain=\"$(echo \"$_sub_domain\" | tr '[:upper:]' '[:lower:]')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -11742,7 +11742,7 @@
             "+    if [ \"$(echo \"$seg\" | tr -d '[0-9]')\" ]; then"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "semantic refactor",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -11777,7 +11777,7 @@
             "+  _idn_temp=$(printf \"%s\" \"$_is_idn_d\" | tr -d [0-9] | tr -d [a-z] | tr -d [A-Z] | tr -d '*.,-_')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -11934,7 +11934,7 @@
             "+    rootZone=$(echo \"$result\" | _egrep_o '\"name\":\"[^\"]*' | cut -d'\"' -f4)"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -12267,7 +12267,7 @@
             "+  \"certificates\": \"$(tr '\\n' ':' < \"$_cfullchain\" | sed 's/:/\\\\n/g' -e 's/+/\\+/g')\","
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations",
         "notes": ""
     },
     {
@@ -12321,7 +12321,7 @@
             "+  \"key\": \"$(tr '\\n' ':' < \"$_ckey\" |sed 's/:/\\\\n/g')\","
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -12398,7 +12398,7 @@
             "+  _record_seg=\"$(echo \"$response\" | _egrep_o \"[^{]*\\\"content\\\" *: *\\\"$txtvalue\\\"[^}]*}\")\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations",
         "notes": ""
     },
     {
@@ -13159,7 +13159,7 @@
             "+  _zone_id=\"$(echo \"$_response\" | _egrep_o 'zone\\/[0-9]+' | _head_n 1)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -13185,7 +13185,7 @@
             "+  _zone_id=\"$(echo \"$_response\" | _egrep_o 'zone\\/[0-9]+')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "out of the scope",
         "notes": ""
     },
     {
@@ -13214,7 +13214,7 @@
             "+    One984HOSTING_CSRFTOKEN_COOKIE=\"$(grep -io 'csrftoken=[^;]*;' \"$HTTP_HEADER\"  | tr -d ';')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "out of the scope",
         "notes": ""
     },
     {
@@ -13227,7 +13227,7 @@
             "+    One984HOSTING_COOKIE=\"$(grep -io 'sessionid=[^;]*;' \"$HTTP_HEADER\"  | tr -d ';')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "simplify",
         "notes": ""
     },
     {
@@ -13240,7 +13240,7 @@
             "+    One984HOSTING_COOKIE=\"$(grep -i '^set-cookie:' \"$HTTP_HEADER\" | _head_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -13283,7 +13283,7 @@
             "+      for included in $(cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include *.*;\" | sed \"s/include //\" | tr -d \" ;\"); do"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations",
         "notes": ""
     },
     {
@@ -13326,7 +13326,7 @@
             "+        netprc=\"$(echo \"$_netprc\" | grep \"$LOCAL_ANY_ADDRESS:$_checkport\")\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations",
         "notes": ""
     },
     {
@@ -13444,7 +13444,7 @@
             "+  _record_id=\"$(echo \"$response\" | tr '{}' '\\n' | grep '\"TXT\"' | grep -- \"$txtvalue\" | tr ',' '\\n' | grep -i 'RECORDID' | cut -d : -f 2)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -13563,7 +13563,7 @@
             "+    record_id=$(echo \"$response\" | tr '{' '\\n' | grep -- \"$txtvalue\" | cut -d, -f1 | cut -d: -f2 | tr -d \\\")"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -13614,7 +13614,7 @@
             "+    _access_token=$(echo \"$_subclient_token_result\" | sed -n \"s/\\\"//p\")"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -13627,7 +13627,7 @@
             "+  _hostaddress=$(echo \"$_host\" | _egrep_o ' Address=\"[^\"]*' | cut -d '\"' -f 2 | _xml_decode)"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -13640,7 +13640,7 @@
             "+  echo \"$raw_message\" | \"$SMTP_BIN\" \"$@\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "about variables",
         "notes": ""
     },
     {
@@ -13737,7 +13737,7 @@
             "+  _hostaddress=$(echo \"$_host\" | _egrep_o ' Address=\"[^\"]*' | cut -d '\"' -f 2 | _xml_decode)"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -13866,7 +13866,7 @@
             "+  record_id=$(echo \"$response\" | tr \"{\" \"\\n\" | grep -- \"$txtvalue\" | grep '^\"id\"' | cut -d : -f 2 | cut -d '\"' -f 2)"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -13937,7 +13937,7 @@
             "+  _response=$(echo \"$_response\" | sed \"s/$_regex/$_regex\\n/g\")"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -13996,7 +13996,7 @@
             "+  PAKETNR=$(echo \"$form\" | grep \"data-textfilter=\\\".* $domain \" | _head_n 1 | sed 's/^.* \\([0-9]*\\) .*$/\\1/')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "hard sed",
         "notes": ""
     },
     {
@@ -14072,7 +14072,7 @@
             "+  PAKETNR=$(echo \"$form\" | grep \"data-textfilter=\\\" $domain \" | _head_n 1 | sed 's/^.* \\([0-9]*\\) .*$/\\1/')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -14085,7 +14085,7 @@
             "+  PAKETNR=$(echo \"$form\" | _egrep_o \"data-textfilter=\\\" $domain .* [0-9]*\" | _head_n 1 | _egrep_o \"[0-9]*\")"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -14098,7 +14098,7 @@
             "+  PAKETNR=$(echo \"$form\" | _egrep_o \"data-textfilter=\\\" $domain .* [0-9]*\" | head_n 1 | _egrep_o \"[0-9]*\")"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -14235,7 +14235,7 @@
             "+  tld=$(echo \"$fqdn\" | _egrep_o '[^.]*\\.[^.]*$')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -14316,7 +14316,7 @@
             "+    if $(echo \"$domain\" | grep -q \"$tld\\$\"); then"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "syntax error",
         "notes": ""
     },
     {
@@ -14372,7 +14372,7 @@
             "+  tld=$(echo \"$fqdn\" | _egrep_o '[^.]*\\.[^.]*$')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -14549,7 +14549,7 @@
             "+  entries=\"$(echo \"$response\" | tr '][' '==' | _egrep_o \"challenges\\\": *=[^=]*=\" | tr '}{' '\\n' | grep \"\\\"status\\\": *\\\"valid\\\"\")\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -14564,7 +14564,7 @@
             "+    uri=\"$(echo \"$entry\" | _egrep_o \"\\\"$_URL_NAME\\\":\\\"[^\\\"]*\\\"\" | tr -d '\" ' | cut -d : -f 2-)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -14659,7 +14659,7 @@
             "+  data_sig=\"$(echo \"$encoded_data\" | tr -d \"\\n\\r\" | _hmac sha256 \"$encoded_key_hex\" | _base64)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -14685,7 +14685,7 @@
             "+  _access_token=$(echo \"$_auth_result\" | _json_decode | sed -n \"s/$_regex/\\1/p\")"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -14724,7 +14724,7 @@
             "+  digest=\"$(echo \"$trg\" | tr -d \"\\n\\r\" | _digest \"sha256\")\" "
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -14844,7 +14844,7 @@
             "+  digest=\"$(echo \"$trg\" | tr -d \"\\n\\r\" | _digest \"sha256\")\" "
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -14899,7 +14899,7 @@
             "+      Le_LinkOrder=\"$(echo \"$responseHeaders\" | grep -i '^Location.*$' | _tail_n 1 | tr -d \"\\r\\n \\t\" | cut -d \":\" -f 2-)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -14931,7 +14931,7 @@
             "+  _your_hosts=\"$(echo \"$_your_hosts\" | awk '/\\./ {print $1}')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -14960,7 +14960,7 @@
             "+    _nonce=$(echo \"EDGEDNS$(_time)\" | _digest sha1 hex | cut -c 1-32)"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -15010,7 +15010,7 @@
             "+    response=$(echo \"$response\" | _json_decode)"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -15269,7 +15269,7 @@
             "+        _retryafter=$(echo \"$responseHeaders\" | grep -i \"^Retry-After *:\" | cut -d : -f 2 | tr -d ' ' | tr -d '\\r')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -15282,7 +15282,7 @@
             "+  nonce=$(echo \"TRANSIP$(_time)\" | _digest sha1 hex | cut -c 1-32)"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -15441,7 +15441,7 @@
             "+    _color=$(echo \"${TEAMS_THEME_COLOR:-$_color_muted}\" | tr -cd 'a-fA-F0-9')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -15467,7 +15467,7 @@
             "+  _color=\"$(echo \"${_color:-$TEAMS_THEME_COLOR}\" | tr -cd 'a-fA-F0-9')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -15506,7 +15506,7 @@
             "+    response=\"$(_get \"$url\" | sed 's/<[a-zA-Z\\/][^>]*>//g' | tr -s \"\\n\" | _tail_n 1)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -15519,7 +15519,7 @@
             "+      _authorizations_seg=\"$(echo \"$response\" | _json_decode | _egrep_o '\"authorizations\" *: *\\[[^\\[]*\\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '\"')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -15590,7 +15590,7 @@
             "+      _domain_id=$(printf \"%s\\n\" \"$response\" | sed 's/^{//; s/}$//; s/{.*}//' | sed -r 's/^.*\"id\":([0-9]+).*$/\\1/')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -15603,7 +15603,7 @@
             "+      _domain_id=$(printf \"%s\\n\" \"$response\" | sed 's/^{//; s/}$//; s/{.*}//' | sed -E 's/^.*\"id\":([0-9]+).*$/\\1/')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "hard sed",
         "notes": ""
     },
     {
@@ -15667,7 +15667,7 @@
             "+      _domain_id=$(printf \"%s\\n\" \"$response\" | cut -c 2- | head -c -2 | sed 's/{.*}//' | sed -r 's/^.*\"id\":([0-9]+).*$/\\1/')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "hard sed",
         "notes": ""
     },
     {
@@ -15719,7 +15719,7 @@
             "+  id=$(echo \"$cert\" | jq -r \".id\")"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -15732,7 +15732,7 @@
             "+      _domain_id=$(printf \"%s\\n\" \"$response\" | _egrep_o \"\\\"id\\\":[0-9]+}$\" | head -n 1 | cut -d : -f 2 | tr -d '}')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -16011,7 +16011,7 @@
             "+        _candindates=\"$(echo \"$_authorizations_map\" | grep -i \"^$_idn_d,\")\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations",
         "notes": ""
     },
     {
@@ -16050,7 +16050,7 @@
             "+  _domain_id=$(printf \"%s\" \"$response\" | grep \"$_sub_domain\" | grep -- \"$txtvalue\" | sed -r \"s/.*<rr id=\\\"(.*)\\\".*/\\1/g\")"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -16063,7 +16063,7 @@
             "+  _value \"$1\" | tr -dc '.' | wc -c | sed 's/ //g'"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -16178,7 +16178,7 @@
             "+      hostedzone=\"$(echo \"$response\" | tr \"{\" \"\\n\" | _egrep_o \"\\\"name\\\":\\s*\\\"$h\\\".*}\")\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -16191,7 +16191,7 @@
             "+  _record_id=\"$(echo \"$response\" | cut -d '[' -f2 | cut -d']' -f1 | sed 's/},[ \\t]*{/\\},§\\{/g' | tr § '\\n' | grep \"$_sub_domain\" | grep \"$txtvalue\" | sed 's/^{//;s/}[,]?$//' | tr , '\\n' | tr -d '\\\"' | grep ^id | cut -d : -f2 | tr -d ' ')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "hard sed",
         "notes": ""
     },
     {
@@ -16297,7 +16297,7 @@
             "+  _record_id=\"$(echo $response | cut -d '[' -f2 | cut -d']' -f1  | sed 's/},[ \\t]*{/\\},§\\{/g' | tr § '\\n' | grep $_sub_domain | grep $txtvalue | sed 's/^{//;s/}[,]?$//' | tr , '\\n' | tr -d '\\\"' | grep ^id | cut -d : -f2 | tr -d ' ')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "hard sed",
         "notes": ""
     },
     {
@@ -16476,7 +16476,7 @@
             "+    line_num=\"$(echo \"$_zone_names\" | grep -n \"^$_attempted_zone\\$\" | _head_n 1 | cut -d : -f 1)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -16489,7 +16489,7 @@
             "+    line_num=\"$(echo \"$_zone_names\" | grep -n \"^$_attempted_zone\\$\" | _head_n 1 | cut -d : -f 1)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "semantic mistake - add/drop commands",
         "notes": ""
     },
     {
@@ -16832,7 +16832,7 @@
             "+  _idn_temp=$(printf \"%s\" \"$_is_idn_d\" | tr -d '0-9' | tr -d 'a-z' | tr -d 'A-Z' | tr -d '*.,-_')"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -16858,7 +16858,7 @@
             "+        response=\"$(echo \"$_authorizations_map\" | grep \"^$(_idn $d),\" | sed \"s/$d,//\")\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "about variables",
         "notes": ""
     },
     {
@@ -16871,7 +16871,7 @@
             "+    response=\"$(_get \"$url\" | sed 's/<[^>]*>//g;/</N;//ba' | _tail_n 1)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "hard sed",
         "notes": ""
     },
     {
@@ -16897,7 +16897,7 @@
             "+    response=\"$(_get \"$url\" | sed :a -e 's/<[^>]*>//g;/</N;//ba' | _tail_n 1 )\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -16962,7 +16962,7 @@
             "+  fulldomain=\"$(echo \"$1\" | _lower_case)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -17092,7 +17092,7 @@
             "+    _sdv=\"$(grep \"^$_sdkey *=\" \"$_r_c_f\" | cut -d = -f 2-1000 | tr -d \"'\")\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -17105,7 +17105,7 @@
             "+  _token=\"$(printf \"%s\\n\" \"$1\" | _hmac \"sha1\" \"$(printf \"%s\" \"$QINIU_SK\" | _hex_dump | tr -d \" \")\" | _base64 | tr -- '+/' '-_')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -17494,7 +17494,7 @@
             "+  cookie=\"$(grep -i '^set-cookie:' \"$HTTP_HEADER\" | _head_n 1 | cut -d \" \" -f 2)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -17651,7 +17651,7 @@
             "+    | sort -n -r | _head_n 1 | cut -f2,3 | grep '^.*'); then"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -18071,7 +18071,7 @@
             "+      _body=\"$(echo \"$_body\" | _dbase64 | tr -d '\\0')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -18336,7 +18336,7 @@
             "+        curSubdomain=\"$(echo \"$fulldomain\" | cut -d . -f \"1-$p\")\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "more secure code",
         "notes": ""
     },
     {
@@ -18439,7 +18439,7 @@
             "+        for _listen_i in $(echo \"$_seg_n\" | tr \"\\t\" ' ' | grep \"^ *listen\" | tr -d \" \"); do"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -18802,7 +18802,7 @@
             "+    record_id=$(echo \"$response\" | grep -B 1 \"$_sub_domain\" | _head_n -1 | _egrep_o \"[0-9]{1,}\")"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -18968,7 +18968,7 @@
             "+    response=\"$(echo \"$response\" | tr -d \"\\n\"  | tr '{' \"|\" | sed 's/|/&{/g' | tr \"|\" \"\\n\")\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -19089,7 +19089,7 @@
             "+    response=\"$(echo \"$response\" | tr -d \"\\n\" | sed 's/{/\\"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -19482,7 +19482,7 @@
             "+  DuckDNS_domain=$(printf \"%s\\n\" \"$fulldomain\" | rev | cut -d . -f 3 | rev)"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -19522,7 +19522,7 @@
             "+  _ACME_SERVER_HOST=\"$(echo \"$ACME_DIRECTORY\" | cut -d : -f 2 | tr -s / | cut -d / -f 2)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -19571,7 +19571,7 @@
             "+  _ACME_SERVER_HOST=\"$(echo \"$ACME_DIRECTORY\" | cut -d : -f 2 | tr -s / | cut -d / -f 2)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -19602,7 +19602,7 @@
             "+  ${ACME_OPENSSL_BIN:-openssl} req -noout -in \"$_csrfile\" -subject | tr ',' \"\\n\" | _egrep_o \"CN *=.*\" | cut -d = -f 2 | cut -d / -f 1 | tr -d ' \\n'"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -19646,7 +19646,7 @@
             "+  if echo \"$result\" | egrep \"record:txt/.*:.*/$Infoblox_View\"; then"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "about variables",
         "notes": ""
     },
     {
@@ -19787,7 +19787,7 @@
             "+    echo \"$_outcsr\" | tr \"\\t\" \" \" | (_egrep_o \"^ *Public.Key:.*\" || _egrep_o \"RSA Public.Key:.*\") | cut -d '(' -f 2 | cut -d ' ' -f 1"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -19891,7 +19891,7 @@
             "+  for f in $(echo \"$_str\" | tr \"$_sep\" ' '); do"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "about variables",
         "notes": ""
     },
     {
@@ -19904,7 +19904,7 @@
             "+    echo \"$response\" | cut -d '\"' -f 2"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "hard awk",
         "notes": ""
     },
     {
@@ -20254,7 +20254,7 @@
             "+  printf \"Cookie: %s\" \"$(grep \"cyon=\" \"$HTTP_HEADER\" | grep \"^Set-Cookie:\" | _tail_n 1 | _egrep_o 'cyon=[^;]*;' | tr -d ';')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "refactor",
         "notes": ""
     },
     {
@@ -21285,7 +21285,7 @@
             "+         error=\"$(echo \"$response\" | tr -d \"\\r\\n\" | _egrep_o '\"error\":\\{[^\\}]*\\}')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -21388,7 +21388,7 @@
             "+    authzUri=\"$(echo \"$responseHeaders\" | grep \"^Location:\" | cut -d ' ' -f 2 | tr -d \"\\r\\n\")\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -21418,7 +21418,7 @@
             "+      openssl dgst -$alg -hex | cut -d = -f 2 | tr -d ' '"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -21431,7 +21431,7 @@
             "+      echo $(openssl dgst -$alg -hex | cut -d = -f 2)"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "",
+        "category": "about variables",
         "notes": ""
     },
     {
@@ -22889,7 +22889,7 @@
             "+  echo \"${BREW_PREFIX}/bin/bash\" | sudo tee -a /etc/shells;"
         ],
         "repo": "mathiasbynens/dotfiles",
-        "category": "",
+        "category": "about variables",
         "notes": ""
     }
 ]
