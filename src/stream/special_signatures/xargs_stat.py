@@ -5,7 +5,7 @@ class XargsStatSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def inference_output_type(self, previous_output_type, parsed_command_node):
+    def output_type_inference(self, previous_output_type, parsed_command_node):
         operands = super().get_operands(parsed_command_node)
         for operand, next_operand in zip(operands, operands[1:]):
             if operand == '-c':
@@ -19,5 +19,5 @@ class XargsStatSignature(CommandSignature):
                     # stat -c %x need to modify the regex
                     return RegularType(".*")
                 
-        return super().inference_output_type(previous_output_type, parsed_command_node)
+        return super().output_type_inference(previous_output_type, parsed_command_node)
         

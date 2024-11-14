@@ -2,12 +2,13 @@ import z3
 from stream.regex_to_z3 import regex_to_z3_expr
 import sre_parse
 import logging
+from checking_result import CheckingResult
 
 class RegularType:
     def __init__(self, pattern: str):
         self.pattern = pattern
     
-    def is_subtype(self, other: 'RegularType') -> bool:
+    def is_subtype(self, other: 'RegularType') -> CheckingResult:
         logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
         s = z3.Solver()
         self_regex = regex_to_z3_expr(sre_parse.parse(preprocess(self.pattern)))
@@ -17,14 +18,14 @@ class RegularType:
         logging.debug("-"*60)
         intersection_regex = z3.Intersect(self_regex, z3.Complement(other_regex))
         s.add(z3.Distinct(intersection_regex, z3.Empty(z3.ReSort(z3.StringSort()))))
-        result = s.check() == z3.unsat
-        if not result:
+        checking_result = CheckingResult(s.check() == z3.unsat)
+        if not checking_result.status:
             s = z3.Solver()
             x = z3.String('x')
             s.add(z3.InRe(x, intersection_regex))
             s.check()
-            logging.debug(f"counterexample: {s.model()}")
-        return result
+            checking_result.setCounterexample(s.model())
+        return checking_result
     
     def __le__(self, other: 'RegularType') -> bool:
         return self.is_subtype(other)

@@ -1,0 +1,1208 @@
+[
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/msbuild.sh",
+  "short_name": "msbuild",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/0",
+  "posix_compliant": false,
+  "line_count": 47,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/darc-init.sh",
+  "short_name": "darc-init",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/1",
+  "posix_compliant": false,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/native/init-os-and-arch.sh",
+  "short_name": "init-os-and-arch",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/2",
+  "posix_compliant": true,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/native/install-cmake.sh",
+  "short_name": "install-cmake",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/3",
+  "posix_compliant": false,
+  "line_count": 97,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/native/init-compiler.sh",
+  "short_name": "init-compiler",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/4",
+  "posix_compliant": true,
+  "line_count": 103,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/native/common-library.sh",
+  "short_name": "common-library",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/5",
+  "posix_compliant": false,
+  "line_count": 132,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/native/init-distro-rid.sh",
+  "short_name": "init-distro-rid",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/6",
+  "posix_compliant": true,
+  "line_count": 66,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/native/install-cmake-test.sh",
+  "short_name": "install-cmake-test",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/7",
+  "posix_compliant": false,
+  "line_count": 97,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/generate-sbom-prep.sh",
+  "short_name": "generate-sbom-prep",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/8",
+  "posix_compliant": false,
+  "line_count": 22,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/init-tools-native.sh",
+  "short_name": "init-tools-native",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/9",
+  "posix_compliant": false,
+  "line_count": 192,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/cross/tizen-build-rootfs.sh",
+  "short_name": "tizen-build-rootfs",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/10",
+  "posix_compliant": false,
+  "line_count": 69,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/cross/tizen-fetch.sh",
+  "short_name": "tizen-fetch",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/11",
+  "posix_compliant": false,
+  "line_count": 145,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/cross/build-rootfs.sh",
+  "short_name": "build-rootfs",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/12",
+  "posix_compliant": false,
+  "line_count": 690,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "permissions",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/cross/build-android-rootfs.sh",
+  "short_name": "build-android-rootfs",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/13",
+  "posix_compliant": false,
+  "line_count": 105,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/cibuild.sh",
+  "short_name": "cibuild",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/14",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/dotnet-install.sh",
+  "short_name": "dotnet-install",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/15",
+  "posix_compliant": false,
+  "line_count": 81,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/16",
+  "posix_compliant": false,
+  "line_count": 227,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/internal-feed-operations.sh",
+  "short_name": "internal-feed-operations",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/17",
+  "posix_compliant": false,
+  "line_count": 101,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/tools.sh",
+  "short_name": "tools",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/18",
+  "posix_compliant": false,
+  "line_count": 420,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "text",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/SetupNugetSources.sh",
+  "short_name": "SetupNugetSources",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/19",
+  "posix_compliant": false,
+  "line_count": 108,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "text"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/common/pipeline-logging-functions.sh",
+  "short_name": "pipeline-logging-functions",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/20",
+  "posix_compliant": false,
+  "line_count": 178,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/21",
+  "posix_compliant": false,
+  "line_count": 321,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/scripts/prepare-sourcebuild-globaljson.sh",
+  "short_name": "prepare-sourcebuild-globaljson",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/22",
+  "posix_compliant": false,
+  "line_count": 18,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/scripts/KillProcesses.sh",
+  "short_name": "KillProcesses",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/23",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/scripts/install-nginx-linux.sh",
+  "short_name": "install-nginx-linux",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/24",
+  "posix_compliant": false,
+  "line_count": 9,
+  "keywords": [
+   "variables",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/scripts/install-nginx-mac.sh",
+  "short_name": "install-nginx-mac",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/25",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/scripts/upload-cores.sh",
+  "short_name": "upload-cores",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/26",
+  "posix_compliant": false,
+  "line_count": 31,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/configure-toolset.sh",
+  "short_name": "configure-toolset",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/27",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/helix/content/runtests.sh",
+  "short_name": "runtests",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/28",
+  "posix_compliant": false,
+  "line_count": 64,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "permissions"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/helix/content/installjdk.sh",
+  "short_name": "installjdk",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/29",
+  "posix_compliant": false,
+  "line_count": 37,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/eng/helix/content/installnode.sh",
+  "short_name": "installnode",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/30",
+  "posix_compliant": false,
+  "line_count": 34,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/startvscode.sh",
+  "short_name": "startvscode",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/31",
+  "posix_compliant": false,
+  "line_count": 15,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/activate.sh",
+  "short_name": "activate",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/32",
+  "posix_compliant": false,
+  "line_count": 60,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/restore.sh",
+  "short_name": "restore",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/33",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/.devcontainer/scripts/container-creation.sh",
+  "short_name": "container-creation",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/34",
+  "posix_compliant": false,
+  "line_count": 5,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/clean.sh",
+  "short_name": "clean",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/35",
+  "posix_compliant": false,
+  "line_count": 25,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Middleware/WebSockets/setup-wstest.sh",
+  "short_name": "setup-wstest",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/36",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Middleware/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/37",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/SiteExtensions/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/38",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Analyzers/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/39",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Razor/startvscode.sh",
+  "short_name": "startvscode",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/40",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Razor/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/41",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/ProjectTemplates/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/42",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/FileProviders/Embedded/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/43",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/FileProviders/Manifest.MSBuildTask/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/44",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Tools/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/45",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/DefaultBuilder/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/46",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Logging.AzureAppServices/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/47",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Identity/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/48",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/ObjectPool/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/49",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/HealthChecks/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/50",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Mvc/startvscode.sh",
+  "short_name": "startvscode",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/51",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Mvc/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/52",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Grpc/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/53",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Framework/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/54",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Security/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/55",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Azure/startvscode.sh",
+  "short_name": "startvscode",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/56",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Azure/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/57",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/SignalR/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/58",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/JSInterop/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/59",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Features/JsonPatch/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/60",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Configuration.KeyPerFile/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/61",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Shared/TestCertificates/make-test-certs.sh",
+  "short_name": "make-test-certs",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/62",
+  "posix_compliant": false,
+  "line_count": 38,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Shared/runtime/CopyToAspNetCore.sh",
+  "short_name": "CopyToAspNetCore",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/63",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Shared/runtime/CopyToRuntime.sh",
+  "short_name": "CopyToRuntime",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/64",
+  "posix_compliant": false,
+  "line_count": 13,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Shared/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/65",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/WebEncoders/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/66",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/OpenApi/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/67",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Html.Abstractions/startvscode.sh",
+  "short_name": "startvscode",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/68",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Html.Abstractions/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/69",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Testing/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/70",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/HttpClientFactory/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/71",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Components/benchmarkapps/Wasm.Performance/exec.sh",
+  "short_name": "exec",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/72",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Components/startvscode.sh",
+  "short_name": "startvscode",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/73",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Components/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/74",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/DataProtection/startvscode.sh",
+  "short_name": "startvscode",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/75",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/DataProtection/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/76",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Antiforgery/startvscode.sh",
+  "short_name": "startvscode",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/77",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Antiforgery/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/78",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Http/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/79",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Hosting/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/80",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Caching/startvscode.sh",
+  "short_name": "startvscode",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/81",
+  "posix_compliant": false,
+  "line_count": 3,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Caching/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/82",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Servers/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/83",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Servers/Kestrel/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/84",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Localization/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/85",
+  "posix_compliant": false,
+  "line_count": 4,
+  "keywords": [
+   "variables"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Installers/Debian/tools/test/integration_tests/test_package.bats",
+  "short_name": "test_package.bats",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/86",
+  "posix_compliant": false,
+  "line_count": 52,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io",
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Installers/Debian/tools/test/test_assets/test_package_layout/package_root/test_called.sh",
+  "short_name": "test_called",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/87",
+  "posix_compliant": false,
+  "line_count": 1,
+  "keywords": []
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Installers/Debian/tools/test/test_assets/test_package_layout/package_root/path_relative_to_package_root/test_exe.sh",
+  "short_name": "test_exe",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/88",
+  "posix_compliant": false,
+  "line_count": 8,
+  "keywords": [
+   "variables",
+   "control_flow"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Installers/Debian/tools/setup/build_setup.sh",
+  "short_name": "build_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/89",
+  "posix_compliant": false,
+  "line_count": 10,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Installers/Debian/tools/setup/test_setup.sh",
+  "short_name": "test_setup",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/90",
+  "posix_compliant": false,
+  "line_count": 16,
+  "keywords": [
+   "difficult"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Installers/Debian/tools/build.sh",
+  "short_name": "build",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/91",
+  "posix_compliant": false,
+  "line_count": 202,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Installers/Debian/tools/scripts/debian_build_lib.sh",
+  "short_name": "debian_build_lib",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/92",
+  "posix_compliant": false,
+  "line_count": 88,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ },
+ {
+  "repo": "https://github.com/dotnet/aspnetcore.git",
+  "relative_path": "aspnetcore/src/Installers/Debian/tools/test.sh",
+  "short_name": "test",
+  "timestamp": "10/22/2024",
+  "identifier": "aspnetcore_LBOTlo/93",
+  "posix_compliant": false,
+  "line_count": 23,
+  "keywords": [
+   "variables",
+   "control_flow",
+   "io"
+  ]
+ }
+]

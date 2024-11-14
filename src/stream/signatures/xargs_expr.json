@@ -4,12 +4,5 @@
     "default_output_type": "-?[0-9]+",
     "args": [],
     "flags": [],
-    "rules": [
-        {
-            "condition": {},
-            "update": {
-                "output_type": "{{{actual_input_type}}}&{-?[0-9]+}"
-            }
-        }
-    ]
+    "rules": []
 }

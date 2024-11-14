@@ -31,8 +31,8 @@ class CutSignature(CommandSignature):
             
         return super().determine_input_type(parsed_command_node)
 
-    def inference_output_type(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> RegularType:
-        return super().inference_output_type(previous_output_type, parsed_command_node)
+    def output_type_inference(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> RegularType:
+        return super().output_type_inference(previous_output_type, parsed_command_node)
         # if '-f' in flags:
         #     field_num = int(flag_args.get('-f', '1'))
         #     pattern = previous_output_type.pattern

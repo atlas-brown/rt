@@ -8,6 +8,7 @@ import time
 import signal
 from functools import wraps
 from typing import Optional, List, Tuple
+from stream.checking_result import CheckingResult
 from stream.type_checker import TypeChecker
 
 pipeline_pattern = re.compile(r'(\bgrep\b|\bawk\b|\bsed\b|\bcut\b|\bsort\b|\buniq\b|\btr\b|\bxargs\b|\becho\b|\bcat\b).*\|\s*')
@@ -89,43 +90,43 @@ log_handler = LogHandler()
 logging.basicConfig(level=logging.INFO, handlers=[log_handler, logging.StreamHandler()])
 logger = logging.getLogger()
 
-# TODO: parse pipelines properly using shasta & libdash!
-def extract_pipelines_in_json(obj, pipelines=None):
-    if pipelines is None:
-        pipelines = []
+# # TODO: parse pipelines properly using shasta & libdash!
+# def extract_pipelines_in_json(obj, pipelines=None):
+#     if pipelines is None:
+#         pipelines = []
     
-    if isinstance(obj, dict):
-        for value in obj.values():
-            if isinstance(value, str):
-                value = value.strip()
-                if pipeline_pattern.search(value) and not value.strip().startswith('#'):
-                    pipelines.append(value.strip())
-            else:
-                extract_pipelines_in_json(value, pipelines)
-    elif isinstance(obj, list):
-        for item in obj:
-            extract_pipelines_in_json(item, pipelines)
-    return pipelines
+#     if isinstance(obj, dict):
+#         for value in obj.values():
+#             if isinstance(value, str):
+#                 value = value.strip()
+#                 if pipeline_pattern.search(value) and not value.strip().startswith('#'):
+#                     pipelines.append(value.strip())
+#             else:
+#                 extract_pipelines_in_json(value, pipelines)
+#     elif isinstance(obj, list):
+#         for item in obj:
+#             extract_pipelines_in_json(item, pipelines)
+#     return pipelines
 
-def extract_pipelines_from_file(file_path: str) -> list[str]:
-    file_ext = os.path.splitext(file_path)[1].lower()
+# def extract_pipelines_from_file(file_path: str) -> list[str]:
+#     file_ext = os.path.splitext(file_path)[1].lower()
     
-    if file_ext == '.json':
-        with open(file_path, 'r') as f:
-            data = json.load(f)
-            pipelines = extract_pipelines_in_json(data)
-            return pipelines if pipelines else []
+#     if file_ext == '.json':
+#         with open(file_path, 'r') as f:
+#             data = json.load(f)
+#             pipelines = extract_pipelines_in_json(data)
+#             return pipelines if pipelines else []
     
-    elif file_ext == '.sh':
-        with open(file_path, encoding="utf8", errors='ignore') as f:
-            content = f.read()
-            pipelines = []
-            for line in content.split('\n'):
-                line = line.strip()
-                if pipeline_pattern.search(line) and not line.startswith('#'):
-                    pipelines.append(line)
-            return pipelines if pipelines else []
-    return []
+#     elif file_ext == '.sh':
+#         with open(file_path, encoding="utf8", errors='ignore') as f:
+#             content = f.read()
+#             pipelines = []
+#             for line in content.split('\n'):
+#                 line = line.strip()
+#                 if pipeline_pattern.search(line) and not line.startswith('#'):
+#                     pipelines.append(line)
+#             return pipelines if pipelines else []
+#     return []
 
 # listof(directory-path) bool -> listof((PipelineID, bool, str))
 #                          is_valid == not is_buggy? ^     ^ pipeline content
@@ -135,7 +136,7 @@ def find_pipelines(directories: list[str], is_valid: bool) -> List[Tuple[str, bo
     for directory in directories:
         for root, _, files in os.walk(directory):
             for file in files:
-                if file.endswith(('.json', '.sh')):
+                if file.endswith(('.sh')):
                     file_path = os.path.join(root, file)
                     pipelines = extract_pipelines_from_file(file_path)
                     if pipelines:
@@ -167,7 +168,7 @@ def calculate_fail_rate(labels, preds):
     return fail_count / len(labels)
 
 @with_timeout(TIMEOUT_SECONDS)
-def evaluate_pipeline_with_timeout(type_checker: TypeChecker) -> Tuple[bool, str]:
+def evaluate_pipeline_with_timeout(type_checker: TypeChecker) -> list[CheckingResult]:
     return type_checker.check_pipeline()
 
 def evaluate_pipeline_content(pipeline: str, ID: 'PipelineID') -> dict:
@@ -191,7 +192,7 @@ def evaluate_pipeline_content(pipeline: str, ID: 'PipelineID') -> dict:
         type_checker = TypeChecker(temp_pipeline_address)
         
         try:
-            result, err_msg = evaluate_pipeline_with_timeout(type_checker)
+            checking_results = evaluate_pipeline_with_timeout(type_checker)
             end_time = time.time()
             elapsed_time = end_time - start_time
             
