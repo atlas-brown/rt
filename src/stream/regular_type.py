@@ -2,7 +2,7 @@ import z3
 from stream.regex_to_z3 import regex_to_z3_expr
 import sre_parse
 import logging
-from checking_result import CheckingResult
+from stream.checking_result import CheckingResult
 
 class RegularType:
     def __init__(self, pattern: str):
@@ -24,7 +24,7 @@ class RegularType:
             x = z3.String('x')
             s.add(z3.InRe(x, intersection_regex))
             s.check()
-            checking_result.setCounterexample(s.model())
+            checking_result.setCouterexample(s.model()[x].as_string())
         return checking_result
     
     def __le__(self, other: 'RegularType') -> bool:

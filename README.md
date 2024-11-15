@@ -3,13 +3,13 @@
 ## Run evaluations
 
 ```bash
-PYTHONPATH=src python3 src/stream/run_evaluations.py
+sh run_evaluations.sh
 ```
 
 ## Run unit tests
 
 ```bash
-PYTHONPATH=src pytest --ignore=./full_benchmark
+sh run_tests.sh
 ```
 
 ## Debug

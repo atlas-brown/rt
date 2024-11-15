@@ -1257,7 +1257,7 @@
             "+alias pscpu10='ps -e -o pcpu,cpu,nice,state,cputime,args|sort -k1,1n -nr | head -10'"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "semantic mistake- key of sort",
+        "category": "semantic mistake - key of sort",
         "notes": "key of sort"
     },
     {
@@ -6235,7 +6235,7 @@
             "+        net_gateway=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1)"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "semantic mistake - add/drop commands",
+        "category": "semantic mistake - add/drop head/tail",
         "notes": ""
     },
     {
@@ -13159,7 +13159,7 @@
             "+  _zone_id=\"$(echo \"$_response\" | _egrep_o 'zone\\/[0-9]+' | _head_n 1)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "semantic mistake - add/drop commands",
+        "category": "semantic mistake - add/drop head/tail",
         "notes": ""
     },
     {
@@ -13240,7 +13240,7 @@
             "+    One984HOSTING_COOKIE=\"$(grep -i '^set-cookie:' \"$HTTP_HEADER\" | _head_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "semantic mistake - add/drop commands",
+        "category": "semantic mistake - add/drop head/tail",
         "notes": ""
     },
     {
@@ -16476,7 +16476,7 @@
             "+    line_num=\"$(echo \"$_zone_names\" | grep -n \"^$_attempted_zone\\$\" | _head_n 1 | cut -d : -f 1)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "semantic mistake - add/drop commands",
+        "category": "semantic mistake - add/drop head/tail",
         "notes": ""
     },
     {
@@ -16489,7 +16489,7 @@
             "+    line_num=\"$(echo \"$_zone_names\" | grep -n \"^$_attempted_zone\\$\" | _head_n 1 | cut -d : -f 1)\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "semantic mistake - add/drop commands",
+        "category": "semantic mistake - add/drop head/tail",
         "notes": ""
     },
     {
