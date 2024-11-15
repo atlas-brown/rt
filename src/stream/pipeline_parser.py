@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Tuple
 from stream.command_signature import CommandSignature
 from stream.signature_loader import SignatureLoader
 from stream.shell_parser import parse_shell_to_asts
-from stream.symb import nodes_from_file
+from stream.symb import extract_pipe_nodes_from_file
 from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
@@ -16,7 +16,7 @@ class PipelineParser:
         self.pipeline_nodes : list[AstNode] = self.parse_shell_script()
 
     def parse_shell_script(self) -> List[AstNode]:
-        return nodes_from_file(self.pipeline_address)
+        return extract_pipe_nodes_from_file(self.pipeline_address)
 
     def parse_command_node(self, node: CommandInvocationInitial) -> Tuple[CommandSignature, CommandInvocationInitial]:
         assert isinstance(node, CommandInvocationInitial)

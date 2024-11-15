@@ -41,4 +41,4 @@ class CheckingResult:
             self.type_derivation_trace = type_derivation_trace 
 
     def __repr__(self):
-        return f"CheckingResult(\n{self.pipeline_content}\n{self.status}\n{self.message}\n{self.counterexample}\n{self.type_derivation_trace}\n)"
+        return f"CheckingResult(\npipeline content: {self.pipeline_content}\nresult: {self.status}\nerror message: {self.message}\ncounterexample: {self.counterexample}\nderivation trace: {self.type_derivation_trace}\n)"

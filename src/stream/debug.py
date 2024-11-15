@@ -2,7 +2,7 @@ from stream.shell_parser import parse_shell_to_asts
 from stream.pipeline_parser import PipelineParser
 from stream.regular_type import RegularType
 from stream.type_checker import TypeChecker
-from stream.symb import get_raw_nodes, nodes_from_file
+from stream.symb import get_raw_nodes, extract_pipe_nodes_from_file
 import logging
 
 def main():
