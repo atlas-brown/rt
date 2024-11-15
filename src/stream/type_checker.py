@@ -18,6 +18,7 @@ class TypeChecker:
         checking_results = []
 
         for parsed_commands, pipeline_node in zip(pipelines, pipeline_nodes):
+            checking_result = CheckingResult(True, pipeline_node)
             for parsed_command in parsed_commands:
 
                 signature, parsed_command_node = parsed_command
@@ -27,8 +28,7 @@ class TypeChecker:
                 
                 input_type = signature.determine_input_type(parsed_command_node)
 
-                checking_result = input_type.is_subtype(previous_output_type)
-                checking_result.setPipeNode(pipeline_node)
+                checking_result.set(previous_output_type.is_subtype(input_type))
 
                 if not checking_result.status:
                     checking_result.setMessage(
@@ -39,5 +39,6 @@ class TypeChecker:
 
                 current_output_type = signature.determine_output_type(previous_output_type, parsed_command_node)
                 previous_output_type = current_output_type
+            checking_results.append(checking_result)
 
         return checking_results

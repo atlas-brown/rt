@@ -99,7 +99,16 @@ class ASTNodeVisit:
 NodeMap = dict[int,ASTNodeVisit]
 
 
-
+# class AstNodeWithContent:
+#     def __init__(self, node: AstNode, content: str = None):
+#         self.node = node
+#         if content:
+#             self.content = content
+#         else:
+#             self.get_content()
+    
+#     def get_content(self):
+#         self.content = self.node.pretty()
 
 def traverse_node(nd : AstNode, pipelines_nodes : list[AstNode]):
     match nd:

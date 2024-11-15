@@ -12,7 +12,6 @@ from stream.checking_result import CheckingResult
 from stream.type_checker import TypeChecker
 
 pipeline_pattern = re.compile(r'(\bgrep\b|\bawk\b|\bsed\b|\bcut\b|\bsort\b|\buniq\b|\btr\b|\bxargs\b|\becho\b|\bcat\b).*\|\s*')
-# temp_pipeline_address = './temp.sh'
 TIMEOUT_SECONDS = 2
 
 IS_BUGGY_LABEL="is buggy?"
@@ -20,9 +19,7 @@ SIGNALED_LABEL="warning signaled?"
 PIPELINE_ID_LABEL="id"
 CATEGORY_LABEL="category"
 CRASH_REASON_LABEL="tool runtime error"
-TIMEOUT_REASON="Timeout"
-
-# PipelineID := (path-string, natural)
+TIMEOUT_REASON=f"Timeout after {TIMEOUT_SECONDS}s"
 
 class TimeoutError(Exception):
     pass
@@ -90,47 +87,7 @@ log_handler = LogHandler()
 logging.basicConfig(level=logging.INFO, handlers=[log_handler, logging.StreamHandler()])
 logger = logging.getLogger()
 
-# # TODO: parse pipelines properly using shasta & libdash!
-# def extract_pipelines_in_json(obj, pipelines=None):
-#     if pipelines is None:
-#         pipelines = []
-    
-#     if isinstance(obj, dict):
-#         for value in obj.values():
-#             if isinstance(value, str):
-#                 value = value.strip()
-#                 if pipeline_pattern.search(value) and not value.strip().startswith('#'):
-#                     pipelines.append(value.strip())
-#             else:
-#                 extract_pipelines_in_json(value, pipelines)
-#     elif isinstance(obj, list):
-#         for item in obj:
-#             extract_pipelines_in_json(item, pipelines)
-#     return pipelines
-
-# def extract_pipelines_from_file(file_path: str) -> list[str]:
-#     file_ext = os.path.splitext(file_path)[1].lower()
-    
-#     if file_ext == '.json':
-#         with open(file_path, 'r') as f:
-#             data = json.load(f)
-#             pipelines = extract_pipelines_in_json(data)
-#             return pipelines if pipelines else []
-    
-#     elif file_ext == '.sh':
-#         with open(file_path, encoding="utf8", errors='ignore') as f:
-#             content = f.read()
-#             pipelines = []
-#             for line in content.split('\n'):
-#                 line = line.strip()
-#                 if pipeline_pattern.search(line) and not line.startswith('#'):
-#                     pipelines.append(line)
-#             return pipelines if pipelines else []
-#     return []
-
-# listof(directory-path) bool -> listof((PipelineID, bool, str))
-#                          is_valid == not is_buggy? ^     ^ pipeline content
-def find_scripts(directories: list[str]) -> str:
+def find_scripts(directories: list[str]) -> list[str]:
     script_addresses = []
     
     for directory in directories:
@@ -166,159 +123,157 @@ def calculate_fail_rate(labels, preds):
 def evaluate_pipeline_with_timeout(type_checker: TypeChecker) -> list[CheckingResult]:
     return type_checker.check_pipeline()
 
-def evaluate_pipeline_content(pipeline: str, ID: 'PipelineID') -> dict:
-    pipeline_data = {
-        PIPELINE_ID_LABEL: ID,
+def evaluate_pipeline_content(address: str) -> dict:
+    script_data = {
         IS_BUGGY_LABEL: None,
         SIGNALED_LABEL: None,
-        "error message generated": None,
         CRASH_REASON_LABEL: None,
-        "content": pipeline,
+        "address": address,
         "evaluation_time": None,
+        "pipeline_data_list": []
+    }
+    pipeline_data_template = {
+        SIGNALED_LABEL: None,
+        "error message generated": None,
+        "content": None,
         "notes": ""
     }
     
-    try:
-        # TODO: why doesn't typechecker accept parsed pipeline?
-        with open(temp_pipeline_address, 'w') as f:
-            f.write(pipeline)
-        
+    try:        
         start_time = time.time()
-        type_checker = TypeChecker(temp_pipeline_address)
+        type_checker = TypeChecker(address)
         
         try:
             checking_results = evaluate_pipeline_with_timeout(type_checker)
             end_time = time.time()
             elapsed_time = end_time - start_time
-            
-            pipeline_data["evaluation_time"] = elapsed_time
-            pipeline_data[SIGNALED_LABEL] = result
-            logging.info(f'Pipeline from {ID} evaluated as {result} in {elapsed_time:.2f}s')
-            
-            if not result:
-                pipeline_data["error message generated"] = err_msg
-                logging.info(f'Error detected in pipeline from {ID}: {err_msg}')
+            script_data["evaluation_time"] = f"{elapsed_time:.2f}s"
+            for checking_result in checking_results:
+                pipeline_data = pipeline_data_template.copy()
+                pipeline_data[SIGNALED_LABEL] = checking_result.status
+                pipeline_data["content"] = checking_result.pipeline_content
+                logging.info(f'Pipeline {checking_result.pipeline_content} evaluated as {checking_result.status} in {elapsed_time:.2f}s')
+                if not checking_result.status:
+                    pipeline_data["error message generated"] = checking_result.message
+                    logging.info(f'Error detected in pipeline {checking_result.pipeline_content}: {checking_result.message}')
+                script_data["pipeline_data_list"].append(pipeline_data)
+
+            script_data[SIGNALED_LABEL] = all(result.status for result in checking_results)
                 
         except TimeoutError:
-            pipeline_data["notes"] = f"Evaluation timeout after {TIMEOUT_SECONDS}s"
-            pipeline_data[CRASH_REASON_LABEL] = TIMEOUT_REASON
-            logging.warning(f'Pipeline evaluation timed out for {ID}')
+            script_data[CRASH_REASON_LABEL] = TIMEOUT_REASON
+            logging.warning(f'Pipeline evaluation timed out for {address}')
             
     except Exception as e:
-        logging.error(f'Tool runtime error while evaluating pipeline from {ID}: {e}')
-        pipeline_data[CRASH_REASON_LABEL] = str(e)
+        logging.error(f'Tool runtime error while evaluating pipeline from {address}: {e}')
+        script_data[CRASH_REASON_LABEL] = str(e)
     
-    return pipeline_data
+    return script_data
 
 def run_all_evaluations(valid_dirs: list[str],
                         invalid_dirs: list[str],
                         output_json='evaluation_results/evaluation_results.json',
                         output_summary_csv='evaluation_results/summary.csv',
                         evaluation_notes_json='src/stream/evaluation_notes.json'):
-    try:
-        with open(evaluation_notes_json, 'r') as f:
-            evaluation_notes = json.load(f)
+    with open(evaluation_notes_json, 'r') as f:
+        evaluation_notes = json.load(f)
 
-        pipelines = []
-        start_time_total = time.time()
-        
-        valid_pipelines = find_scripts(valid_dirs)
-        invalid_pipelines = find_scripts(invalid_dirs)
-        total_correct_pipelines = len(valid_pipelines)
-        total_buggy_pipelines = len(invalid_pipelines)
+    pipelines: list[tuple[str, bool]] = []
+    start_time_total = time.time()
+    
+    valid_pipelines = find_scripts(valid_dirs)
+    invalid_pipelines = find_scripts(invalid_dirs)
+    total_correct_pipelines = len(valid_pipelines)
+    total_buggy_pipelines = len(invalid_pipelines)
 
-        pipelines.extend(valid_pipelines)
-        pipelines.extend(invalid_pipelines)
-        
-        if not pipelines:
-            logging.error("No pipelines found")
-            return
+    pipelines.extend(zip(valid_pipelines, [True] * len(valid_pipelines)))
+    pipelines.extend(zip(invalid_pipelines, [False] * len(invalid_pipelines)))
+    
+    if not pipelines:
+        logging.error("No pipelines found")
+        return
 
-        results = []
+    results = []
 
-        for ID, label, pipeline in pipelines:
-            notes = notes_lookup(evaluation_notes, ID) or {CATEGORY_LABEL: "<missing>", "notes": ""}
-            pipeline_result = evaluate_pipeline_content(pipeline, ID)
-            pipeline_result[IS_BUGGY_LABEL] = not label
-            pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
-            pipeline_result["notes"] = notes["notes"]
-            results.append(pipeline_result)
+    for address, label in pipelines:
+        notes = notes_lookup(evaluation_notes, address) or {CATEGORY_LABEL: "<missing>", "notes": ""}
+        pipeline_result = evaluate_pipeline_content(address)
+        pipeline_result[IS_BUGGY_LABEL] = not label
+        pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
+        pipeline_result["notes"] = notes["notes"]
+        results.append(pipeline_result)
 
-        failures = [result for result in results if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL]]
-        crash_pipelines = [r for r in failures if r[SIGNALED_LABEL] == None]
-        timeout_pipelines =      [r for r in crash_pipelines if r[CRASH_REASON_LABEL] == TIMEOUT_REASON]
-        valid_pipeline_crashes = [r for r in crash_pipelines if not r[IS_BUGGY_LABEL] and r[CRASH_REASON_LABEL] != None]
-        buggy_pipeline_crashes = [r for r in crash_pipelines if     r[IS_BUGGY_LABEL] and r[CRASH_REASON_LABEL] != None]
-        false_positive_pipelines = [r for r in failures if not r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
-        false_negative_pipelines = [r for r in failures if     r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
+    failures = [result for result in results if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL]]
+    crash_pipelines = [r for r in failures if r[SIGNALED_LABEL] == None]
+    timeout_pipelines =      [r for r in crash_pipelines if r[CRASH_REASON_LABEL] == TIMEOUT_REASON]
+    valid_pipeline_crashes = [r for r in crash_pipelines if not r[IS_BUGGY_LABEL] and r[CRASH_REASON_LABEL] != None]
+    buggy_pipeline_crashes = [r for r in crash_pipelines if     r[IS_BUGGY_LABEL] and r[CRASH_REASON_LABEL] != None]
+    false_positive_pipelines = [r for r in failures if not r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
+    false_negative_pipelines = [r for r in failures if     r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
 
-        total_false_positives = len(false_positive_pipelines)
-        total_false_negatives = len(false_negative_pipelines)
-        total_correct_pipeline_crashes = len(valid_pipeline_crashes)
-        total_buggy_pipeline_crashes = len(buggy_pipeline_crashes)
-        total_timeouts = len(timeout_pipelines)
-        assert len(failures) == (total_correct_pipeline_crashes + total_buggy_pipeline_crashes + \
-                                 total_false_positives + total_false_negatives)
+    total_false_positives = len(false_positive_pipelines)
+    total_false_negatives = len(false_negative_pipelines)
+    total_correct_pipeline_crashes = len(valid_pipeline_crashes)
+    total_buggy_pipeline_crashes = len(buggy_pipeline_crashes)
+    total_timeouts = len(timeout_pipelines)
+    assert len(failures) == (total_correct_pipeline_crashes + total_buggy_pipeline_crashes + \
+                                total_false_positives + total_false_negatives)
 
-        preds = [result[SIGNALED_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
-        labels = [result[IS_BUGGY_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
-        
-        statistics = {}
-        if preds and labels:
-            statistics.update({
-                "accuracy": calculate_accuracy(labels, preds),
-                "precision": calculate_precision(labels, preds),
-                "recall": calculate_recall(labels, preds),
-                "fail_rate": calculate_fail_rate(labels, preds)
-            })
+    preds = [result[SIGNALED_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
+    labels = [result[IS_BUGGY_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
+    
+    statistics = {}
+    if preds and labels:
+        statistics.update({
+            "accuracy": calculate_accuracy(labels, preds),
+            "precision": calculate_precision(labels, preds),
+            "recall": calculate_recall(labels, preds),
+            "fail_rate": calculate_fail_rate(labels, preds)
+        })
 
-            logging.info(f'Accuracy: {statistics["accuracy"]}')
-            logging.info(f'Precision: {statistics["precision"]}')
-            logging.info(f'Recall: {statistics["recall"]}')
-            logging.info(f'Fail rate: {statistics["fail_rate"]}')
-            logging.info(f'Total correct valid pipelines: {total_correct_pipelines - total_false_positives - total_correct_pipeline_crashes}')
-            logging.info(f'Total buggy pipelines detected: {total_buggy_pipelines - total_false_negatives - total_buggy_pipeline_crashes}')
-            logging.info(f'Total timeouts: {total_timeouts}')
+        logging.info(f'Accuracy: {statistics["accuracy"]}')
+        logging.info(f'Precision: {statistics["precision"]}')
+        logging.info(f'Recall: {statistics["recall"]}')
+        logging.info(f'Fail rate: {statistics["fail_rate"]}')
+        logging.info(f'Total correct valid pipelines: {total_correct_pipelines - total_false_positives - total_correct_pipeline_crashes}')
+        logging.info(f'Total buggy pipelines detected: {total_buggy_pipelines - total_false_negatives - total_buggy_pipeline_crashes}')
+        logging.info(f'Total timeouts: {total_timeouts}')
 
-        end_time_total = time.time()
-        total_time = end_time_total - start_time_total
+    end_time_total = time.time()
+    total_time = end_time_total - start_time_total
 
-        output_data = {
-            "evaluation_results": results,
-            "statistics": {
-                **statistics,
+    output_data = {
+        "evaluation_results": results,
+        "statistics": {
+            **statistics,
 
-                "total_pipelines": len(results),
+            "total_pipelines": len(results),
 
-                "crashes": total_buggy_pipeline_crashes + total_correct_pipeline_crashes,
-                "correct_crashes": total_correct_pipeline_crashes,
-                "buggy_crashes": total_buggy_pipeline_crashes,
-                "total_correct_pipelines": total_correct_pipelines,
-                "false_positives": total_false_positives,
-                "false_positive_categories": categorize(false_positive_pipelines),
-                "total_buggy_pipelines": total_buggy_pipelines,
-                "false_negatives": total_false_negatives,
-                "false_negative_categories": categorize(false_negative_pipelines),
-                "total_wrong_predictions": total_false_positives + total_false_negatives,
+            "crashes": total_buggy_pipeline_crashes + total_correct_pipeline_crashes,
+            "correct_crashes": total_correct_pipeline_crashes,
+            "buggy_crashes": total_buggy_pipeline_crashes,
+            "total_correct_pipelines": total_correct_pipelines,
+            "false_positives": total_false_positives,
+            "false_positive_categories": categorize(false_positive_pipelines),
+            "total_buggy_pipelines": total_buggy_pipelines,
+            "false_negatives": total_false_negatives,
+            "false_negative_categories": categorize(false_negative_pipelines),
+            "total_wrong_predictions": total_false_positives + total_false_negatives,
 
-                "total_evaluation_time": f"{total_time:.2f}s",
-                "timeout_count": total_timeouts,
-            },
-            "logs": log_handler.log_entries
-        }
+            "total_evaluation_time": f"{total_time:.2f}s",
+            "timeout_count": total_timeouts,
+        },
+        "logs": log_handler.log_entries
+    }
 
-        os.makedirs(os.path.dirname(output_json), exist_ok=True)
-        with open(output_json, 'w') as json_file:
-            json.dump(output_data, json_file, indent=4)
-        logging.info(f"Results written to {output_json}")
-        with open(output_summary_csv, 'w') as csv:
-            tabulate(output_data['statistics'], csv)
-        logging.info(f"Summary table written to {output_summary_csv}; format with `column -s, -t {output_summary_csv}`")
-        logging.info(f"Total evaluation time: {total_time:.2f}s")
-        
-    finally:
-        if os.path.exists(temp_pipeline_address):
-            os.remove(temp_pipeline_address)
+    os.makedirs(os.path.dirname(output_json), exist_ok=True)
+    with open(output_json, 'w') as json_file:
+        json.dump(output_data, json_file, indent=4)
+    logging.info(f"Results written to {output_json}")
+    with open(output_summary_csv, 'w') as csv:
+        tabulate(output_data['statistics'], csv)
+    logging.info(f"Summary table written to {output_summary_csv}; format with `column -s, -t {output_summary_csv}`")
+    logging.info(f"Total evaluation time: {total_time:.2f}s")
 
 def categorize(results):
     categories = {}
@@ -345,11 +300,10 @@ def tabulate(result_stats, f):
     f.write("========,=====,=====,========,===============,========\n")
     f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']}, \n")
 
-# listof(Note) PipelineID -> Optional(Note)
-def notes_lookup(notes, pipeline_id):
-    ID = list(pipeline_id)
+# listof(Note) address -> Optional(Note)
+def notes_lookup(notes, adress):
     for note in notes:
-        if note["pipeline_id"] == ID:
+        if note["adress"] == adress:
             return note
     return None
 

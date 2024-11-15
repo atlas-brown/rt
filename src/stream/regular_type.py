@@ -24,7 +24,7 @@ class RegularType:
             x = z3.String('x')
             s.add(z3.InRe(x, intersection_regex))
             s.check()
-            checking_result.setCouterexample(s.model()[x].as_string())
+            checking_result.setCounterexample(s.model()[x].as_string())
         return checking_result
     
     def __le__(self, other: 'RegularType') -> bool:

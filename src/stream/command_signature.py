@@ -35,7 +35,7 @@ class CommandSignature:
         # if user annotation is available, use it
         # otherwise, use inference
         if len(parsed_command_node.operand_list) > 0 and parsed_command_node.operand_list[-1].name.startswith("-->"):
-            annotated_output_type = parsed_command_node.operand_list[-1].name[1:]
+            annotated_output_type = parsed_command_node.operand_list[-1].name[3:]
             return RegularType(annotated_output_type)
         else:
             return self.output_type_inference(previous_output_type, parsed_command_node)

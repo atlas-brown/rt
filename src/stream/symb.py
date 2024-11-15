@@ -33,7 +33,7 @@ from shasta.ast_node import (
     WhileNode,
 )
 from stream.shell_parser import parse_shell_to_asts
-from stream.symb_datatypes import NodeMap, RawNode, check_traversal, traverse_raw_nodes
+from stream.symb_datatypes import RawNode, traverse_raw_nodes
 from typing import Set, Literal, List, Dict
 
 from pash_annotations.datatypes.BasicDatatypes import FlagOption, Flag, Option, Operand, FileName, ArgStringType

@@ -1,0 +1,16 @@
+{
+    "command_name": "tail",
+    "default_input_type": ".*",
+    "default_output_type": ".*",
+    "args": [],
+    "flags": [],
+    "rules": [
+        {
+            "condition": {
+            },
+            "update": {
+                "output_type": "{{actual_input_type}}"
+            }
+        }
+    ]
+}
