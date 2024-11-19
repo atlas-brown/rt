@@ -137,16 +137,18 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
     pipeline_data_list = []
     
     try:        
-        start_time = time.time()
         type_checker = TypeChecker(address)
-        
+
         try:
             while True:
+                start_time = time.time()
                 checking_result = evaluate_pipeline_with_timeout(type_checker)
                 if checking_result is None:
                     break
+
                 end_time = time.time()
                 elapsed_time = end_time - start_time
+
                 pipeline_data = pipeline_data_template.copy()
                 pipeline_data[SIGNALED_LABEL] = not checking_result.status
                 pipeline_data["content"] = checking_result.pipeline_content
