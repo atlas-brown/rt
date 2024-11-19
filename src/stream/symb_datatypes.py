@@ -17,6 +17,8 @@ from shasta.ast_node import (
     SemiNode,
     SubshellNode,
     WhileNode,
+    BArgChar,
+    BackgroundNode,
 )
 # from shseer import reporter,error_report
     
@@ -32,9 +34,14 @@ class RawNode:
 def traverse_node(nd : AstNode, pipelines_nodes : list[AstNode]):
     match nd:
         case CommandNode():
-            return
+            for assig in nd.assignments:
+                traverse_node(assig.value, pipelines_nodes)
+            for ls_arg in nd.arguments:
+                for arg in ls_arg:
+                    if isinstance(arg,BArgChar):
+                        traverse_node(arg.node, pipelines_nodes)
         case DefunNode():
-            return
+            traverse_node(nd.body,pipelines_nodes)
         case IfNode():
             traverse_node(nd.cond, pipelines_nodes)
             traverse_node(nd.then_b, pipelines_nodes)
@@ -62,6 +69,8 @@ def traverse_node(nd : AstNode, pipelines_nodes : list[AstNode]):
             traverse_node(nd.right_operand, pipelines_nodes)
         case SubshellNode():
             traverse_node(nd.body, pipelines_nodes)
+        case BackgroundNode():
+            traverse_node(nd.node, pipelines_nodes)
         case RedirectionNode():
             return
         case _:
