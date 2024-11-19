@@ -330,7 +330,7 @@ if __name__ == "__main__":
         valid_dirs=[
                     "./evaluation_pipelines/valid", 
                     "./full_benchmark/intercode/pipelines", 
-                    # "./full_benchmark/Shseer",
+                    "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
                     "./full_benchmark/pash_benchmark/benchmarks/unix50"
         ],
         invalid_dirs=["./evaluation_pipelines/invalid"]

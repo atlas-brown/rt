@@ -62,4 +62,7 @@ class TypeChecker:
         return result
 
     def get_current_pipeline_content_when_error(self) -> str:
-        return self.pipeline_nodes[self.current_index - 1].pretty()
+        try:
+            return self.pipeline_nodes[self.current_index - 1].pretty()
+        except Exception:
+            return "No pipeline content available."
