@@ -127,7 +127,7 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
     pipeline_data_template = {
         "address": address,
         "content": None,
-        # IS_BUGGY_LABEL: None,
+        IS_BUGGY_LABEL: None,
         SIGNALED_LABEL: None,
         CRASH_REASON_LABEL: None,
         "error message generated": None,
