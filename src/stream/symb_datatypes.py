@@ -36,7 +36,7 @@ def traverse_node(nd : AstNode, pipelines_nodes : list[AstNode]):
     match nd:
         case CommandNode():
             for assig in nd.assignments:
-                traverse_node(assig.value, pipelines_nodes)
+                traverse_node(assig, pipelines_nodes)
             for ls_arg in nd.arguments:
                 for arg in ls_arg:
                     if isinstance(arg,QArgChar):

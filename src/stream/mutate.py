@@ -1,10 +1,9 @@
 import logging
 from typing import Any, Dict, List, Tuple
 from shasta.ast_node import *
-from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 import itertools as it
 
-# Pipeline := List[CommandInvocationInitial]
+# Pipeline := PipeNode
 
 def mutate(pipeline: 'Pipeline') -> 'iterator[Pipeline]':
     return it.chain(mutator_swap(pipeline),
@@ -12,8 +11,10 @@ def mutate(pipeline: 'Pipeline') -> 'iterator[Pipeline]':
                     mutator_arg_drop(pipeline))
 
 def mutator_swap(pipeline: 'Pipeline') -> 'iterator[Pipeline]':
-    for i in range(len(pipeline) - 1):
-        yield pipeline[:i] + [pipeline[i+1], pipeline[i]] + pipeline[i+2:]
+    items = pipeline.items
+    for i in range(len(items) - 1):
+        new_items = items[:i] + [items[i+1], items[i]] + items[i+2:]
+        yield PipeNode(pipeline.is_background, new_items)
 
 def yield_drops(l):
     for i in range(len(l)):
@@ -22,17 +23,20 @@ def yield_drops(l):
         yield new
 
 def mutator_drop(pipeline: 'Pipeline') -> 'iterator[Pipeline]':
-    return yield_drops(pipeline)
+    for new_items in yield_drops(pipeline.items):
+        yield PipeNode(pipeline.is_background, new_items)
 
 def mutator_arg_drop(pipeline: 'Pipeline') -> 'iterator[Pipeline]':
     def replace_cmd_args(cmd, new_args):
-        c = cmd.copy()
-        c.operand_list = new_args
-        return c
+        return CommandNode(cmd.line_number,
+                           cmd.assignments,
+                           new_args,
+                           cmd.redir_list)
 
-    for i in range(len(pipeline)):
-        cmd = pipeline[i]
-        for new_args in yield_drops(cmd.operand_list):
-            yield pipeline[:i] + [replace_cmd_args(cmd, new_args)] + pipeline[i+1:]
+    for i in range(len(pipeline.items)):
+        cmd = pipeline.items[i]
+        for new_args in yield_drops(cmd.arguments):
+            new_items = pipeline.items[:i] + [replace_cmd_args(cmd, new_args)] + pipeline.items[i+1:]
+            yield PipeNode(pipeline.is_background, new_items)
 
 
