@@ -119,56 +119,60 @@ def calculate_fail_rate(labels, preds):
     logging.info(f'Failed predictions: {fail_count}')
     return fail_count / len(labels)
 
-@with_timeout(TIMEOUT_SECONDS)
-def evaluate_pipeline_with_timeout(type_checker: TypeChecker) -> list[CheckingResult]:
-    return type_checker.check_pipeline()
+# @with_timeout(TIMEOUT_SECONDS)
+def evaluate_pipeline_with_timeout(type_checker: TypeChecker) -> Optional[CheckingResult]:
+    return type_checker.check_next()
 
-def evaluate_pipeline_content(address: str) -> dict:
-    script_data = {
-        IS_BUGGY_LABEL: None,
+def evaluate_pipeline_content(address: str) -> list[dict]:
+    pipeline_data_template = {
+        "address": address,
+        "content": None,
+        # IS_BUGGY_LABEL: None,
         SIGNALED_LABEL: None,
         CRASH_REASON_LABEL: None,
-        "address": address,
-        "evaluation_time": None,
-        "pipeline_data_list": []
-    }
-    pipeline_data_template = {
-        SIGNALED_LABEL: None,
         "error message generated": None,
-        "content": None,
-        "notes": ""
+        "evaluation_time": None,
+        # "notes": ""
     }
+    pipeline_data_list = []
     
     try:        
         start_time = time.time()
         type_checker = TypeChecker(address)
         
         try:
-            checking_results = evaluate_pipeline_with_timeout(type_checker)
-            end_time = time.time()
-            elapsed_time = end_time - start_time
-            script_data["evaluation_time"] = f"{elapsed_time:.2f}s"
-            for checking_result in checking_results:
+            while True:
+                checking_result = evaluate_pipeline_with_timeout(type_checker)
+                if checking_result is None:
+                    break
+                end_time = time.time()
+                elapsed_time = end_time - start_time
                 pipeline_data = pipeline_data_template.copy()
                 pipeline_data[SIGNALED_LABEL] = checking_result.status
                 pipeline_data["content"] = checking_result.pipeline_content
-                logging.info(f'Pipeline {checking_result.pipeline_content} evaluated as {checking_result.status} in {elapsed_time:.2f}s')
+                pipeline_data["evaluation_time"] = f"{elapsed_time:.2f}s"
                 if not checking_result.status:
                     pipeline_data["error message generated"] = checking_result.message
                     logging.info(f'Error detected in pipeline {checking_result.pipeline_content}: {checking_result.message}')
-                script_data["pipeline_data_list"].append(pipeline_data)
 
-            script_data[SIGNALED_LABEL] = all(result.status for result in checking_results)
+                logging.info(f'Pipeline {checking_result.pipeline_content} evaluated as {checking_result.status} in {elapsed_time:.2f}s')
+                pipeline_data_list.append(pipeline_data)
                 
         except TimeoutError:
-            script_data[CRASH_REASON_LABEL] = TIMEOUT_REASON
+            pipeline_data = pipeline_data_template.copy()
+            pipeline_data[CRASH_REASON_LABEL] = TIMEOUT_REASON
+            pipeline_data["content"] = type_checker.get_current_pipeline_content_when_error()
+            pipeline_data_list.append(pipeline_data)
             logging.warning(f'Pipeline evaluation timed out for {address}')
             
     except Exception as e:
+        pipeline_data = pipeline_data_template.copy()
+        pipeline_data[CRASH_REASON_LABEL] = str(e)
+        pipeline_data["content"] = type_checker.get_current_pipeline_content_when_error()
+        pipeline_data_list.append(pipeline_data)
         logging.error(f'Tool runtime error while evaluating pipeline from {address}: {e}')
-        script_data[CRASH_REASON_LABEL] = str(e)
     
-    return script_data
+    return pipeline_data_list
 
 def run_all_evaluations(valid_dirs: list[str],
                         invalid_dirs: list[str],
@@ -196,12 +200,12 @@ def run_all_evaluations(valid_dirs: list[str],
     results = []
 
     for address, label in pipelines:
-        notes = notes_lookup(evaluation_notes, address) or {CATEGORY_LABEL: "<missing>", "notes": ""}
-        pipeline_result = evaluate_pipeline_content(address)
-        pipeline_result[IS_BUGGY_LABEL] = not label
-        pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
-        pipeline_result["notes"] = notes["notes"]
-        results.append(pipeline_result)
+        for pipeline_result in evaluate_pipeline_content(address):
+            notes = notes_lookup(evaluation_notes, pipeline_result["address"], pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
+            pipeline_result[IS_BUGGY_LABEL] = not label
+            pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
+            pipeline_result["notes"] = notes["notes"]
+            results.append(pipeline_result)
 
     failures = [result for result in results if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL]]
     crash_pipelines = [r for r in failures if r[SIGNALED_LABEL] == None]
@@ -300,10 +304,10 @@ def tabulate(result_stats, f):
     f.write("========,=====,=====,========,===============,========\n")
     f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']}, \n")
 
-# listof(Note) address -> Optional(Note)
-def notes_lookup(notes, adress):
+# listof(Note) address content -> Optional(Note)
+def notes_lookup(notes, address, content):
     for note in notes:
-        if note["adress"] == adress:
+        if note["address"] == address and note["content"] == content:
             return note
     return None
 

@@ -12,6 +12,8 @@ def symb_engine(nodes: list[RawNode]) -> list[AstNode]:
 
 def get_raw_nodes(filename) -> list[RawNode]:
     typed_ast_object = parse_shell_to_asts(filename)
+    if not typed_ast_object:
+        return []
     nodes = [RawNode(*x) for x in typed_ast_object]
     return nodes
 

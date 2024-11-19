@@ -172,7 +172,7 @@
             "+  git branch --no-color --merged | command grep -vE \"^([+*]|\\s*($(git_main_branch)|$(git_develop_branch))\\s*$)\" | command xargs git branch --delete 2>/dev/null"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "semantic mistake - others",
+        "category": "completely out of the scope",
         "notes": ""
     },
     {
@@ -215,7 +215,7 @@
             "+alias gbgD='LANG=C git branch --no-color -vv | grep \": gone\\]\" | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -D'"
         ],
         "repo": "ohmyzsh/ohmyzsh",
-        "category": "semantic mistake - others",
+        "category": "completely out of the scope",
         "notes": ""
     },
     {
@@ -6569,7 +6569,7 @@
             "+      validDomain=$(grep -P \"^((-|_)*[a-z\\\\d]((-|_)*[a-z\\\\d])*(-|_)*)(\\\\.(-|_)*([a-z\\\\d]((-|_)*[a-z\\\\d])*))*$\" <<< \"${domain}\") # Valid chars check"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "regex in grep",
+        "category": "may be detected by annotations",
         "notes": ""
     },
     {
@@ -6784,7 +6784,7 @@
             "+  done < <( lsof -i -P -n | awk -F' ' '/LISTEN/ {print $1, $9}' | sort -n | tr -d '[*]\\r' | uniq | awk '{print $2, $1}' )"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "semantic mistake - others",
+        "category": "hard awk",
         "notes": ""
     },
     {
@@ -8092,7 +8092,7 @@
             "+\t\tqueriesToday=$(cat \"${piLog}\" | awk '/query/ {print $6}' | wc -l)"
         ],
         "repo": "pi-hole/pi-hole",
-        "category": "semantic mistake - others",
+        "category": "completely out of the scope",
         "notes": ""
     },
     {
@@ -13227,7 +13227,7 @@
             "+    One984HOSTING_COOKIE=\"$(grep -io 'sessionid=[^;]*;' \"$HTTP_HEADER\"  | tr -d ';')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "about simplification",
+        "category": "about refactor",
         "notes": ""
     },
     {
@@ -13283,7 +13283,7 @@
             "+      for included in $(cat \"$2\" | tr \"\\t\" \" \" | grep \"^ *include *.*;\" | sed \"s/include //\" | tr -d \" ;\"); do"
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "may be detected by annotations",
+        "category": "may be detected by annotations + cut/tr/sed procedures",
         "notes": ""
     },
     {
@@ -14343,7 +14343,7 @@
         ],
         "repo": "acmesh-official/acme.sh",
         "category": "may be detected by annotations",
-        "notes": ""
+        "notes": "can be detected by shell check, an annotation should be an empty string"
     },
     {
         "message": "World4You posix shell",
@@ -14931,7 +14931,7 @@
             "+  _your_hosts=\"$(echo \"$_your_hosts\" | awk '/\\./ {print $1}')\""
         ],
         "repo": "acmesh-official/acme.sh",
-        "category": "semantic mistake - others",
+        "category": "completely out of the scope",
         "notes": ""
     },
     {

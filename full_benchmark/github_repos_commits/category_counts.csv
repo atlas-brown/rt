@@ -1,16 +1,13 @@
 Category, Count
-hard awk, 4
-about refactor, 26
+hard awk, 5
+about refactor, 27
 more secure code, 14
-semantic mistake - others, 5
-may be detected by annotations + cut/tr/sed procedures, 26
+completely out of the scope, 10
+may be detected by annotations + cut/tr/sed procedures, 27
 semantic mistake - key of sort, 2
 about variables, 9
 hard sed, 10
 may be detected by annotations, 8
 semantic mistake - add/drop head/tail, 5
-regex in grep, 1
-completely out of the scope, 6
-about simplification, 1
 about custom commands, 10
 syntax error, 1

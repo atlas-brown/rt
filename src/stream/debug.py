@@ -21,7 +21,9 @@ def main():
         logging.debug(command)
         logging.debug("-"*60)
     
-    print(type_checker.check_pipeline())
+    for checking_result in type_checker:
+        logging.debug(checking_result)
+        logging.debug("-"*60)
 
 if __name__ == "__main__":
     main()
