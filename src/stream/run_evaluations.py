@@ -148,7 +148,7 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
                 end_time = time.time()
                 elapsed_time = end_time - start_time
                 pipeline_data = pipeline_data_template.copy()
-                pipeline_data[SIGNALED_LABEL] = checking_result.status
+                pipeline_data[SIGNALED_LABEL] = not checking_result.status
                 pipeline_data["content"] = checking_result.pipeline_content
                 pipeline_data["evaluation_time"] = f"{elapsed_time:.2f}s"
                 if not checking_result.status:
@@ -201,11 +201,21 @@ def run_all_evaluations(valid_dirs: list[str],
 
     for address, label in pipelines:
         for pipeline_result in evaluate_pipeline_content(address):
-            notes = notes_lookup(evaluation_notes, pipeline_result["address"], pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
+            notes = notes_lookup(evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
             pipeline_result[IS_BUGGY_LABEL] = not label
             pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
             pipeline_result["notes"] = notes["notes"]
             results.append(pipeline_result)
+
+    unlabeled_inconsistent_results = [
+        result for result in results 
+        if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL] and result[CATEGORY_LABEL] == "<missing>"
+    ]
+
+    labeled_inconsistent_results = [
+        result for result in results 
+        if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL] and result[CATEGORY_LABEL] != "<missing>"
+    ]
 
     failures = [result for result in results if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL]]
     crash_pipelines = [r for r in failures if r[SIGNALED_LABEL] == None]
@@ -247,6 +257,8 @@ def run_all_evaluations(valid_dirs: list[str],
     total_time = end_time_total - start_time_total
 
     output_data = {
+        "unlabeled_inconsistent_results": unlabeled_inconsistent_results,
+        "labeled_inconsistent_results": labeled_inconsistent_results,
         "evaluation_results": results,
         "statistics": {
             **statistics,
@@ -304,10 +316,10 @@ def tabulate(result_stats, f):
     f.write("========,=====,=====,========,===============,========\n")
     f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']}, \n")
 
-# listof(Note) address content -> Optional(Note)
-def notes_lookup(notes, address, content):
+# listof(Note) content -> Optional(Note)
+def notes_lookup(notes, content):
     for note in notes:
-        if note["address"] == address and note["content"] == content:
+        if note["content"] == content:
             return note
     return None
 
@@ -315,7 +327,7 @@ if __name__ == "__main__":
     run_all_evaluations(
         valid_dirs=[
                     "./evaluation_pipelines/valid", 
-                    "./full_benchmark/intercode/InterCode-ALFA-Data", 
+                    "./full_benchmark/intercode/pipelines", 
                     # "./full_benchmark/Shseer",
                     "./full_benchmark/pash_benchmark/benchmarks/unix50"
         ],

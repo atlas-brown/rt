@@ -19,3 +19,4 @@ logic.log
 **/localtest.py
 **/rebase.sh
 full_benchmark/github_repos_commits/repos
+evaluation_results/evaluation_results.json

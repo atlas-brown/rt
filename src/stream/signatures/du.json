@@ -1,0 +1,17 @@
+{
+    "command_name": "du",
+    "default_input_type": ".*",
+    "default_output_type": ".*",
+    "args": [],
+    "flags": [],
+    "rules": [
+        {
+            "condition": {
+                "flags": ["-a"]
+            },
+            "update": {
+                "output_type": "[0-9]+( )+.*"
+            }
+        }
+    ]
+}

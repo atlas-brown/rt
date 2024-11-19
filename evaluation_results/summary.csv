@@ -1,10 +1,16 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,53,1,31,31, 
- , , , ,30,<missing>
+correct,256,11,30,30, 
+ , , , ,1,parser mistake
+ , , , ,4,hard awk
+ , , , ,11,unsopported options/flags/operands - about find
  , , , ,1,hard tr
+ , , , ,6,need assume annotation
+ , , , ,7,need assume annotation and cut/tr/sed procedures
 --------,-----,-----,--------,---------------,--------
-buggy,13,0,6,7, 
- , , , ,7,<missing>
+buggy,13,0,8,5, 
+ , , , ,3,semantic mistake - about cp/rm/stat
+ , , , ,1,semantic mistake - sort
+ , , , ,1,semantic mistake - about date
 ========,=====,=====,========,===============,========
-total,58,1, ,38, 
+total,254,11, ,35, 
