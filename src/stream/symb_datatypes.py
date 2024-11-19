@@ -19,6 +19,7 @@ from shasta.ast_node import (
     WhileNode,
     BArgChar,
     BackgroundNode,
+    QArgChar
 )
 # from shseer import reporter,error_report
     
@@ -38,6 +39,10 @@ def traverse_node(nd : AstNode, pipelines_nodes : list[AstNode]):
                 traverse_node(assig.value, pipelines_nodes)
             for ls_arg in nd.arguments:
                 for arg in ls_arg:
+                    if isinstance(arg,QArgChar):
+                        for arg in arg.arg:
+                            if isinstance(arg,BArgChar):
+                                traverse_node(arg.node, pipelines_nodes)
                     if isinstance(arg,BArgChar):
                         traverse_node(arg.node, pipelines_nodes)
         case DefunNode():
