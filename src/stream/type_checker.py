@@ -1,19 +1,19 @@
 from stream.regular_type import RegularType
-from stream.pipeline_parser import PipelineParser
+from stream.shell_parser import ShellParser
 from typing import Optional
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 from stream.checking_result import CheckingResult
 
 class TypeChecker:
     def __init__(self, pipeline_address: str) -> None:
-        self.pipeline_parser = PipelineParser(pipeline_address)
+        self.shell_parser = ShellParser(pipeline_address)
         self.pipelines = None
         self.pipeline_nodes = None
         self.current_index = 0
 
     def initialize_check(self):
-        self.pipelines = self.pipeline_parser.parse_pipeline()
-        self.pipeline_nodes = self.pipeline_parser.pipeline_nodes
+        self.pipelines = self.shell_parser.parse_pipeline()
+        self.pipeline_nodes = self.shell_parser.pipeline_nodes
         self.current_index = 0
 
     def check_next(self) -> Optional[CheckingResult]:
@@ -61,8 +61,8 @@ class TypeChecker:
             raise StopIteration
         return result
 
-    def get_current_pipeline_content_when_error(self) -> str:
+    def get_current_pipeline_content_when_error(self) -> Optional[str]:
         try:
             return self.pipeline_nodes[self.current_index - 1].pretty()
         except Exception:
-            return "No pipeline content available."
+            return None

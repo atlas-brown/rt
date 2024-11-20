@@ -1,4 +1,4 @@
-from stream.shell_parser import parse_shell_to_asts
+from stream.shell_parser_util import parse_shell_to_asts
 from sys import argv
 
 if __name__ == "__main__":

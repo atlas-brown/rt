@@ -2,7 +2,7 @@ import logging
 from typing import Any, Dict, List, Tuple
 from shasta.ast_node import *
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
-from stream.pipeline_parser import PipelineParser
+from stream.shell_parser import ShellParser
 from stream.mutate import mutate
 from stream.run_evaluations import find_scripts
 import itertools as it
@@ -40,7 +40,7 @@ def pipeline_to_str(pipeline: PipeNode) -> str:
 def parse(pipeline_str: str) -> PipeNode | AstNode:
     with open(temp_file, 'w') as f:
         f.write(pipeline_str)
-    parser = PipelineParser(temp_file)
+    parser = ShellParser(temp_file)
     if parser.ast is not None and len(parser.ast) == 1 and len(parser.ast[0]) > 0 and isinstance(parser.ast[0][0], PipeNode):
         return parser.ast[0][0]
     elif parser.ast is not None and len(parser.ast) > 0:
@@ -55,7 +55,7 @@ def dump_mutants(scripts: List['PathStr'], outdir: str) -> Dict['PipelineID', Li
     mapping = {}
     total = 0
     for script in scripts:
-        parser = PipelineParser(script)
+        parser = ShellParser(script)
         for pipeline in parser.pipeline_nodes:
             ID = (script, pipeline.pretty())
             match pipeline:

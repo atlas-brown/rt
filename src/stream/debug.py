@@ -1,8 +1,4 @@
-from stream.shell_parser import parse_shell_to_asts
-from stream.pipeline_parser import PipelineParser
-from stream.regular_type import RegularType
 from stream.type_checker import TypeChecker
-from stream.symb import get_raw_nodes, extract_pipe_nodes_from_file
 import logging
 
 def main():
@@ -15,7 +11,7 @@ def main():
         logging.debug("-"*60)
 
     type_checker = TypeChecker(pipeline_address)
-    parsed_pipeline = type_checker.pipeline_parser.parse_pipeline()
+    parsed_pipeline = type_checker.shell_parser.parse_pipeline()
     logging.debug("-"*60)
     for command in parsed_pipeline:
         logging.debug(command)

@@ -1,43 +1,39 @@
-import sys
-
-from shasta.json_to_ast import to_ast_node
 import logging
-import libdash.parser
-import libdash
-import os
-import traceback
-INITIALIZE_LIBDASH = True
-## Parses straight a shell script to an AST
-## through python without calling it as an executable
-def parse_shell_to_asts(input_script_path : str):
-    global INITIALIZE_LIBDASH
-    try:
-        if not os.path.isfile(input_script_path):
-            raise libdash.parser.ParsingException(f"File {input_script_path} does not exist")
-        logging.debug(f"Calling libdash parser initialization={INITIALIZE_LIBDASH} on {input_script_path}")
-        new_ast_objects = libdash.parser.parse(input_script_path,init=INITIALIZE_LIBDASH)
-        INITIALIZE_LIBDASH = False
-        logging.debug(f"Finished libdash parser on {input_script_path}")
-        ## Transform the untyped ast objects to typed ones
-        new_ast_objects = list(new_ast_objects)
-        logging.debug("Calling shasta")
-        typed_ast_objects = []
-        for (
-            untyped_ast,
-            original_text,
-            linno_before,
-            linno_after,
-        ) in new_ast_objects:
-            typed_ast = to_ast_node(untyped_ast)
-            typed_ast_objects.append(
-                (typed_ast, original_text, linno_before, linno_after)
-            )
-        logging.debug("Returning typed Shasta objects")
-        return typed_ast_objects
-    except Exception as e:
-        logging.debug("Parsing error!", traceback.format_exc())
+from typing import List, Tuple
+from stream.command_signature import CommandSignature
+from stream.signature_loader import SignatureLoader
+from stream.shell_parser_util import extract_pipe_nodes_from_file
+from shasta.ast_node import *
+from pash_annotations.parser.parser import parse as annot_parse
+from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
+
+
+class ShellParser:
+    def __init__(self, pipeline_address: str) -> None:
+        self.signature_loader = SignatureLoader()
+        self.pipeline_address = pipeline_address
+        self.pipeline_nodes = extract_pipe_nodes_from_file(self.pipeline_address)
+
+    def parse_command_node(self, node: CommandInvocationInitial) -> Tuple[CommandSignature, CommandInvocationInitial]:
+        assert isinstance(node, CommandInvocationInitial)
+        for signature in self.signature_loader.signatures:
+            if signature.matches_command(node):
+                return (signature, node)
+        # raise ValueError(f'No matching signature found for command {node.cmd_name if node.cmd_name != "xargs" else "xargs_" + node.operand_list[0].name}')
+        logging.warning(f'No matching signature found for command {node.cmd_name if node.cmd_name != "xargs" else "xargs_" + node.operand_list[0].name}')
+        return (self.signature_loader.get_unknown_sigature(), node)
         
 
-
-def parse_shell_to_asts_interactive(input_script_path: str):
-    return libdash.parser.parse(input_script_path)
+    def parse_pipeline(self) -> List[List[Tuple[CommandSignature, CommandInvocationInitial]]]:
+        if self.pipeline_nodes is None:
+            raise ValueError("Parsing failed")
+        
+        pipelines: List[List[Tuple[CommandSignature, CommandInvocationInitial]]] = []
+        for node in self.pipeline_nodes:
+            commands_in_pipe : list[CommandInvocationInitial] = []
+            for command_node in node.items:
+                # assert (isinstance(command_node, CommandNode))
+                cmd_raw = command_node.pretty()
+                commands_in_pipe.append(annot_parse(cmd_raw))
+            pipelines.append([self.parse_command_node(command) for command in commands_in_pipe])
+        return pipelines
