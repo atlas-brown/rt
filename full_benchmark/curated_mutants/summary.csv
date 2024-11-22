@@ -1,87 +1,87 @@
-group;count;category
-=====;=====;========
-detectable;19; 
- ;13;input to cmd that expects none
- ;3;nice and self-contained, cut expects delimiter, mutant won't have it
- ;1;nice and self-contained, dup of an earlier one
- ;1;with useless no-op warning
- ;1;dropped grep, should be detectable
------;-----;--------
-maybe;141; 
- ;35;with output annotations
- ;6;with empty output warning
- ;1;with output annotations, or empty output warning
- ;1;with output annotations, or even input annotations?
- ;10;with output annotations, or input annotations
- ;1;with output annotations, could specify no newline?
- ;7;with output annotations, we could perfectly model the contents here
- ;2;with empty output warning, or output annotations
- ;1;with annotations/pre-execution analysis for /etc/group format, or output annotations
- ;1;with a warning about stdin arbitrary format?
- ;1;with annotations/pre-execution analysis for /etc/group format
- ;2;with input annotations, or possibly output annotations
- ;4;with input annotations
- ;2;with special case for expr?
- ;1;with input annotations, or warning about arbitrary stdin format
- ;1;dropped awk, should be detectable with input annotations and tr/sed/cut procedures
- ;12;dropped tr, should be detectable with assert annotations
- ;2;dropped operands in tr, can be detected with assert annotations and tr/sed/cut procedures
- ;2;dropped uniq, should be detectable with assert annotations
- ;1;dropped flags in uniq, should be detectable with assert annotations
- ;1;swap sort and cut, should be detectable with input annotations and assert annotations
- ;1;dropped cut, should be detectable with input annotations and assert annotations
- ;1;swap sort and cut, may be detectable with input annotations
- ;1;dropped grep, should be detectable with input annotations
- ;4;dropped cut, should be detectable with assert annotations
- ;1;dropped sed, should be detectable with assert annotations
- ;1;dropped flags in wc, should be detectable with assert annotations
- ;6;dropped cut, should be detectable with assert annotations and tr/sed/cut procedures
- ;6;dropped grep, should be detectable with assert annotations and tr/sed/cut procedures
- ;1;dropped grep, should be detectable with assert annotations
- ;1;drop tr, should be detectable with assert annotations and tr/sed/cut procedures
- ;1;drop cut, should be detectable with assert annotations and tr/sed/cut procedures
- ;4;dropped tr, should be detectable with assert annotations and tr/sed/cut procedures
- ;2;swap tr and grep, should be detectable with assert annotations and tr/sed/cut procedures
- ;3;dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures
- ;1;swap tr, should be detectable with assert annotations
- ;2;dropped -c in tr, should be detectable with assert annotations
- ;1;dropped wc, should be detectable with assert annotations
- ;1;drop grep, should be detectable with assert annotations and tr/sed/cut procedures
- ;4;dropped -l in wc, should be detectable with assert annotations
- ;1;dropped cut -d, should be detectable with assert annotations
- ;1;swapped sort and uniq, should be detectable with input annotations, composition mistake at (sort -n)
- ;1;dropped -c in uniq, should be detectable with assert annotations
- ;2;swap cut and tr, should be detectable with input annotations, composition mistake at (cut -c 1-1)
------;-----;--------
-uninteresting;73; 
- ;2;awk
- ;1;hard sed
- ;8;semantically wrong but not format
- ;2;equivalent?
- ;3;semantically wrong input to sort -n but still valid! kind of interesting
- ;1;interesting mistake but out of scope?
- ;2;interesting mistake but not something we could catch
- ;1;nice potential bad input to sort -n, but it's actually fine
- ;1;not a pipeline
- ;8;dropped sort, cannot be detected
- ;5;hard awk
- ;4;dropped grep, cannot be detected
- ;4;dropped head, cannot be detected
- ;2;dropped tail, cannot be detected
- ;3;dropped flags in sort, cannot be detected
- ;1;swap head and tr, cannot be detected
- ;1;dropped flags in wc, should be detectable with assert annotations
- ;7;dropped sed nd, cannot be detected
- ;2;no difference?
- ;2;swap tr and cut, cannot be detected
- ;3;swap sed and grep, cannot be detected
- ;1;dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures
- ;1;swap sed nd, cannot be detected
- ;1;same as previous
- ;1;dropped -nr in sort, cannot be detected
- ;1;swap sort and cut, cannot be detected
- ;3;swap sort and uniq, cannot be detected
- ;1;dropped -r in sort, cannot be detected
- ;1;dropped sort -r, cannot be detected
-=====;=====;========
-total;233; 
+group,count,category
+=====,=====,========
+detectable,19, 
+ ,13,input to cmd that expects none
+ ,3,nice and self-contained; cut expects delimiter; mutant won't have it
+ ,1,nice and self-contained; dup of an earlier one
+ ,1,with useless no-op warning
+ ,1,dropped grep; should be detectable
+-----,-----,--------
+maybe,141, 
+ ,35,with output annotations
+ ,6,with empty output warning
+ ,1,with output annotations; or empty output warning
+ ,1,with output annotations; or even input annotations?
+ ,10,with output annotations; or input annotations
+ ,1,with output annotations; could specify no newline?
+ ,7,with output annotations; we could perfectly model the contents here
+ ,2,with empty output warning; or output annotations
+ ,1,with annotations/pre-execution analysis for /etc/group format; or output annotations
+ ,1,with a warning about stdin arbitrary format?
+ ,1,with annotations/pre-execution analysis for /etc/group format
+ ,2,with input annotations; or possibly output annotations
+ ,4,with input annotations
+ ,2,with special case for expr?
+ ,1,with input annotations; or warning about arbitrary stdin format
+ ,1,dropped awk; should be detectable with input annotations and tr/sed/cut procedures
+ ,12,dropped tr; should be detectable with assert annotations
+ ,2,dropped operands in tr; can be detected with assert annotations and tr/sed/cut procedures
+ ,2,dropped uniq; should be detectable with assert annotations
+ ,1,dropped flags in uniq; should be detectable with assert annotations
+ ,1,swap sort and cut; should be detectable with input annotations and assert annotations
+ ,1,dropped cut; should be detectable with input annotations and assert annotations
+ ,1,swap sort and cut; may be detectable with input annotations
+ ,1,dropped grep; should be detectable with input annotations
+ ,4,dropped cut; should be detectable with assert annotations
+ ,1,dropped sed; should be detectable with assert annotations
+ ,1,dropped flags in wc; should be detectable with assert annotations
+ ,6,dropped cut; should be detectable with assert annotations and tr/sed/cut procedures
+ ,6,dropped grep; should be detectable with assert annotations and tr/sed/cut procedures
+ ,1,dropped grep; should be detectable with assert annotations
+ ,1,drop tr; should be detectable with assert annotations and tr/sed/cut procedures
+ ,1,drop cut; should be detectable with assert annotations and tr/sed/cut procedures
+ ,4,dropped tr; should be detectable with assert annotations and tr/sed/cut procedures
+ ,2,swap tr and grep; should be detectable with assert annotations and tr/sed/cut procedures
+ ,3,dropped -c in tr; should be detectable with assert annotations and tr/sed/cut procedures
+ ,1,swap tr; should be detectable with assert annotations
+ ,2,dropped -c in tr; should be detectable with assert annotations
+ ,1,dropped wc; should be detectable with assert annotations
+ ,1,drop grep; should be detectable with assert annotations and tr/sed/cut procedures
+ ,4,dropped -l in wc; should be detectable with assert annotations
+ ,1,dropped cut -d; should be detectable with assert annotations
+ ,1,swapped sort and uniq; should be detectable with input annotations; composition mistake at (sort -n)
+ ,1,dropped -c in uniq; should be detectable with assert annotations
+ ,2,swap cut and tr; should be detectable with input annotations; composition mistake at (cut -c 1-1)
+-----,-----,--------
+uninteresting,73, 
+ ,2,awk
+ ,1,hard sed
+ ,8,semantically wrong but not format
+ ,2,equivalent?
+ ,3,semantically wrong input to sort -n but still valid! kind of interesting
+ ,1,interesting mistake but out of scope?
+ ,2,interesting mistake but not something we could catch
+ ,1,nice potential bad input to sort -n; but it's actually fine
+ ,1,not a pipeline
+ ,8,dropped sort; cannot be detected
+ ,5,hard awk
+ ,4,dropped grep; cannot be detected
+ ,4,dropped head; cannot be detected
+ ,2,dropped tail; cannot be detected
+ ,3,dropped flags in sort; cannot be detected
+ ,1,swap head and tr; cannot be detected
+ ,1,dropped flags in wc; should be detectable with assert annotations
+ ,7,dropped sed nd; cannot be detected
+ ,2,no difference?
+ ,2,swap tr and cut; cannot be detected
+ ,3,swap sed and grep; cannot be detected
+ ,1,dropped -c in tr; should be detectable with assert annotations and tr/sed/cut procedures
+ ,1,swap sed nd; cannot be detected
+ ,1,same as previous
+ ,1,dropped -nr in sort; cannot be detected
+ ,1,swap sort and cut; cannot be detected
+ ,3,swap sort and uniq; cannot be detected
+ ,1,dropped -r in sort; cannot be detected
+ ,1,dropped sort -r; cannot be detected
+=====,=====,========
+total,233, 

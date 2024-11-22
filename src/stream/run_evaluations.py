@@ -309,12 +309,12 @@ def tabulate(result_stats, f):
     f.write("========,=====,=====,========,===============,========\n")
     f.write(f"correct,{s['total_correct_pipelines']},{s['correct_crashes']},{s['false_positives']},{s['false_positives']}, \n")
     for category, count in s['false_positive_categories'].items():
-        f.write(f" , , , ,{count},{category}\n")
+        f.write(f" , , , ,{count},{category.replace(',', ';')}\n")
     f.write("--------,-----,-----,--------,---------------,--------\n")
     buggy_signals = s['total_buggy_pipelines'] - s['false_negatives'] - s['buggy_crashes']
     f.write(f"buggy,{s['total_buggy_pipelines']},{s['buggy_crashes']},{buggy_signals},{s['false_negatives']}, \n")
     for category, count in s['false_negative_categories'].items():
-        f.write(f" , , , ,{count},{category}\n")
+        f.write(f" , , , ,{count},{category.replace(',', ';')}\n")
     f.write("========,=====,=====,========,===============,========\n")
     f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']}, \n")
 
