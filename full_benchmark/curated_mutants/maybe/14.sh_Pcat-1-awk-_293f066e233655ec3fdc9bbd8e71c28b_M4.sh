@@ -1,0 +1,1 @@
+cat ${1} | sort -nr | cut -d " " -f 2

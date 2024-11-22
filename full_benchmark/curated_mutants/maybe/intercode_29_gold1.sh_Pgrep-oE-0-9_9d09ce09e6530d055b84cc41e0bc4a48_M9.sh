@@ -1,0 +1,1 @@
+grep -oE /etc/networks | sort | uniq -c | sort -nr

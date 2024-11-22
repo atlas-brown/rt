@@ -1,0 +1,1 @@
+cat ${1} | sed 2d | sed 2d | tr -d "\\n" | tr -c "[A-Z]" "\\n"

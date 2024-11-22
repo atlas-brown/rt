@@ -1,0 +1,1 @@
+yes | head -n10 | grep -n . | paste -sd: | cut -d: -f1

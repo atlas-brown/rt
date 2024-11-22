@@ -1,0 +1,1 @@
+sed "s/[^0-9;]//g" | echo "  Hello world;876     "

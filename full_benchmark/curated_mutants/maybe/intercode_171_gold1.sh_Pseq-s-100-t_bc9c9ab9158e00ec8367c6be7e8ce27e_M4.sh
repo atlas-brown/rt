@@ -1,0 +1,1 @@
+seq 100 | tr -d "[:digit:]"

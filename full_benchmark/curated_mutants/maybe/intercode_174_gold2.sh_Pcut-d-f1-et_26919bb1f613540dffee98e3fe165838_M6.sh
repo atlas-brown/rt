@@ -1,0 +1,1 @@
+cut -f1 /etc/group | sort | uniq

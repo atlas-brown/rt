@@ -1,0 +1,1 @@
+cat ${1} | tr " " "\\n" | grep "[A-Z]" | tr "[a-z]" "\\n" | tr -d "\\n" | cut -c 1-4

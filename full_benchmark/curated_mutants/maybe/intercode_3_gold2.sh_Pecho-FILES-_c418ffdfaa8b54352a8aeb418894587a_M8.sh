@@ -1,0 +1,1 @@
+echo "${FILES}" | tr " " "\\n" | sort | xargs cat

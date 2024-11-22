@@ -1,0 +1,1 @@
+find ${DIRECTORY} -type f -print | sed -e "s@^.*/@@" | grep "[aeiouyAEIOUY]"

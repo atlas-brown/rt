@@ -1,0 +1,1 @@
+cat ${1} | cut -d " " -f 2 | tr -d "\\n" | tr "[A-Z]" "[a-z]"

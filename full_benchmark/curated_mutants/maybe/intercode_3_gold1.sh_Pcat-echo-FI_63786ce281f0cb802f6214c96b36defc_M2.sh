@@ -1,0 +1,1 @@
+cat $(echo ${FILES} | tr " " "\\n" | sort)
