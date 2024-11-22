@@ -3,9 +3,12 @@ from openai import OpenAI
 from pathlib import Path
 from tqdm import tqdm
 
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=OPENAI_API_KEY)
+
 class PipelineModifier:
     def __init__(self, api_key):
-        self.client = OpenAI(api_key=api_key, base_url="https://api.deepseek.com")
+        self.client = OpenAI(api_key=api_key)
         
     def extract_pipelines(self, content):
         lines = content.split('\n')
@@ -14,50 +17,6 @@ class PipelineModifier:
             if '|' in line and not line.strip().startswith('#'):
                 pipelines.append((line.strip(), i))
         return pipelines
-
-    def modify_pipeline(self, pipeline):
-        system_prompt = """Given a shell pipeline, introduce a composition mistake that can be detected through syntactic analysis by modifying flags, options, or arguments. Also provide a brief explanation of why this modification causes a type/format mismatch. Respond in format:
-        PIPELINE: <modified_pipeline>
-        EXPLAIN: <explanation>
-        
-        If you cannot introduce a syntactically detectable composition error, return "SKIP".
-
-        Examples:
-        Input: grep -oE [0-9A-Z]+ file.txt | sort
-        Output: 
-        PIPELINE: grep -oE [A-Z]+ file.txt | sort -n
-        EXPLAIN: grep now only outputs letters but sort -n expects numbers, causing type mismatch
-
-        Input: cat file.txt | sort | uniq -c | sort -n
-        Output: 
-        PIPELINE: cat file.txt | sort | uniq | sort -n
-        EXPLAIN: Removed -c flag from uniq means output will not start with counts, making sort -n expect numeric prefix that doesn't exist
-
-        Input: cat file.txt | wc -l
-        Output: SKIP"""
-        
-        try:
-            response = self.client.chat.completions.create(
-                model="deepseek-chat",
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": f"Original pipeline: {pipeline}"}
-                ],
-                temperature=0,
-                max_tokens=100
-            )
-            result = response.choices[0].message.content.strip()
-            if result == "SKIP":
-                return "SKIP", ""
-            
-            lines = result.split('\n')
-            if len(lines) >= 2:
-                pipeline = lines[0].replace('PIPELINE:', '').strip()
-                explanation = lines[1].replace('EXPLAIN:', '').strip()
-                return pipeline, explanation
-            return "SKIP", ""
-        except Exception as e:
-            return "SKIP", ""
 
     def process_file(self, file_path):
         with open(file_path, 'r') as f:
@@ -110,5 +69,71 @@ def main():
     
     modifier.process_directory(src_dir, dest_dir)
 
+
+def modify_pipeline():
+    # system_prompt = """
+    #     Please give me 10 buggy Unix pipelines, each using combinations of these commands: 'cat', 'grep', 'sort', 'cut', 'tr', 'uniq', 'wc', 'xargs', 'find', 'sed', 'seq'.
+    #     Requirements:
+
+    #     1. Each pipeline must contain 5-10 commands.
+    #     2. The pipelines should execute without generating standard error messages, but produce incorrect results.
+    #     3. Focus on data flow incompatibility between pipeline stages, not simple mistakes like omitting patterns for 'grep' or commands for 'xargs'.
+    #     4. You may start pipelines with 'cat file.txt' (you can assume the file format), but this is not required.
+
+    #     Response format:
+    #     EXPLAIN: <explanation>
+    #     PIPELINE: <pipeline>
+    # """
+    #     The buggy pipelines should not generate any errors in standard error, but the behavior of the pipelines should be incorrect.
+    #     The mistakes should be deterministic, i.e., the explanations should not contain 'may' or 'might'.
+    #     Ensure the diversity, i.e., the pipelines and the mistakes should not be similar to each other.
+    #     You are encouraged to try any combinations of flags and options for these commands, especially for grep.
+    #     Remember a single number is suitable for text substitution, e.g., 'tr' and 'sed'.
+    #     Remember 'tr' is used to substitude text in lines of text.
+    #     Please **Do not focus on** the incompatible betweem a single number output and the expected input of the next stage.
+
+    system_prompt = """Please give me 20 buggy Unix pipelines using any combinations of following commands: cat, grep, sort, cut, tr, uniq, wc, xargs, find, sed.
+    Also provide a brief explanation of it.
+    The pipelines should contain the commonly-made mistakes where the output of one stage of the pipeline is not compatible with the input of the next stage.
+    Ensure no simple mistakes in a single stage like omitting patterns for 'grep' or commands for 'xargs', or meaningless combinations of 'xargs' and other commands.
+    The mistakes should be deterministic, i.e., the explanations should not contain 'may' or 'might'.
+    Ensure the diversity, i.e., the pipelines and the mistakes should not be similar to each other.
+    Each pipeline should contain at least 6 stages.
+    
+    Respond in format (repeat for each pipeline):
+    <number>.
+    EXPLAIN: <explanation>
+    PIPELINE: <pipeline>
+    """
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": system_prompt}
+                # {"role": "user", "content": f"Original pipeline: {pipeline}"}
+            ],
+            temperature=0,
+            # max_tokens=100
+        )
+        result = response.choices[0].message.content.strip()
+        print(system_prompt)
+        print("-" * 80)
+        print(result)
+        # if result == "SKIP":
+        #     return "SKIP", ""
+        
+        # lines = result.split('\n')
+        # if len(lines) >= 2:
+        #     pipeline = lines[0].replace('PIPELINE:', '').strip()
+        #     explanation = lines[1].replace('EXPLAIN:', '').strip()
+        #     return pipeline, explanation
+        # return "SKIP", ""
+    except Exception as e:
+        # return "SKIP", ""
+        print(e)
+
+
 if __name__ == "__main__":
-    main()
+    # main()
+    modify_pipeline()
