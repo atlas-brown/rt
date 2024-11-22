@@ -11,6 +11,9 @@ import os
 import subprocess
 import hashlib
 import re
+import json
+from run_evaluations import categorize
+import argparse
 
 valid_dirs=[
     "./evaluation_pipelines/valid",
@@ -147,11 +150,84 @@ more
     except subprocess.TimeoutExpired:
         return True, "Script execution timed out"
 
+def mutant_is_definitely_interesting(info: Dict[str, Any]) -> bool:
+    return info["detectable"] == True and "annotation" not in info["notes"]
+def mutant_is_maybe_interesting(info: Dict[str, Any]) -> bool:
+    return info["detectable"] == "maybe" or info["detectable"] == True and "annotation" in info["notes"]
+
+def curate_mutants(keyfile_path, mutant_dir, yesdir, maybedir):
+    with open(keyfile_path) as f:
+        key = json.load(f)
+    for script, info in key.items():
+        if info["detectable"]:
+            outdir = yesdir if mutant_is_definitely_interesting(info) else maybedir
+            subprocess.run(['find', mutant_dir, '-type', 'f', '-name', script, '-exec', 'cp', '{}', outdir, ';'])
+            if not os.path.exists(os.path.join(outdir, script)):
+                logging.warning(f"Found note for nonexistant mutant: {script}")
+            else:
+                with open(os.path.join(outdir, script), 'r') as f:
+                    script_content = f.read()
+                note = {
+                    "address": os.path.join(outdir, script),
+                    "content": script_content,
+                    "category": info["notes"],
+                    "notes": info["notes"]
+                        }
+                print(f"{json.dumps(note, indent=4)},")
+        # could delete the uninteresting ones, but let's leave for now
+        # else:
+        #     subprocess.run(['find', mutant_dir, '-type', 'f', '-name', script, "-delete"])
+
+def tabulate_mutants(keyfile_path, output_csv):
+    with open(keyfile_path) as f:
+        key = json.load(f)
+    definitely_interesting = [info for mutant, info in key.items() if mutant_is_definitely_interesting(info)]
+    maybe_interesting = [info for mutant, info in key.items() if mutant_is_maybe_interesting(info)]
+    uninteresting = [info for mutant, info in key.items() if not info["detectable"]]
+    assert len(key) == len(definitely_interesting) + len(maybe_interesting) + len(uninteresting)
+    def write_group(f, group, name):
+        f.write(f"{name};{len(group)}; \n")
+        for category, count in categorize(group, "notes").items():
+            f.write(f" ;{count};{category}\n")
+    with open(output_csv, 'w') as f:
+        f.write("group;count;category\n")
+        f.write("=====;=====;========\n")
+        write_group(f, definitely_interesting, "detectable")
+        f.write("-----;-----;--------\n")
+        write_group(f, maybe_interesting, "maybe")
+        f.write("-----;-----;--------\n")
+        write_group(f, uninteresting, "uninteresting")
+        f.write("=====;=====;========\n")
+        f.write(f"total;{len(key)}; \n")
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Generate and filter mutants, tabulate results, or curate mutants.")
+    parser.add_argument('--mode', choices=['generate', 'tabulate', 'curate'], required=True, help="Mode of operation")
+    parser.add_argument('--keyfile', type=str, help="Path to the keyfile for tabulate or curate mode")
+    parser.add_argument('--output_csv', type=str, help="Path to the output CSV file for tabulate mode")
+    parser.add_argument('--yesdir', type=str, help="Directory to move interesting mutants for curate mode")
+    parser.add_argument('--maybedir', type=str, help="Directory to move maybe interesting mutants for curate mode")
+    return parser.parse_args()
+
 def main():
-    Path(temp_file).parent.mkdir(parents=True, exist_ok=True)
-    scripts = find_scripts(valid_dirs)
-    mapping = dump_mutants(scripts, output_dir)
-    filter_mutants(mapping)
+    args = parse_args()
+    if args.mode == 'generate':
+        Path(temp_file).parent.mkdir(parents=True, exist_ok=True)
+        scripts = find_scripts(valid_dirs)
+        mapping = dump_mutants(scripts, output_dir)
+        filter_mutants(mapping)
+    elif args.mode == 'tabulate':
+        if not args.keyfile or not args.output_csv:
+            raise ValueError("Both --keyfile and --output_csv must be provided for tabulate mode")
+        tabulate_mutants(args.keyfile, args.output_csv)
+    elif args.mode == 'curate':
+        if not args.keyfile or not args.yesdir or not args.maybedir:
+            raise ValueError("All of --keyfile, --yesdir, and --maybedir must be provided for curate mode")
+        Path(args.yesdir).mkdir(parents=True, exist_ok=True)
+        Path(args.maybedir).mkdir(parents=True, exist_ok=True)
+        curate_mutants(args.keyfile, output_dir, args.yesdir, args.maybedir)
+    return 0
 
 if __name__ == '__main__':
     exit(main())

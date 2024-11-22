@@ -293,13 +293,13 @@ def run_all_evaluations(valid_dirs: list[str],
     logging.info(f"Summary table written to {output_summary_csv}; format with `column -s, -t {output_summary_csv}`")
     logging.info(f"Total evaluation time: {total_time:.2f}s")
 
-def categorize(results):
+def categorize(results, category_label=CATEGORY_LABEL):
     categories = {}
     for r in results:
-        if r[CATEGORY_LABEL] in categories:
-            categories[r[CATEGORY_LABEL]] += 1
+        if r[category_label] in categories:
+            categories[r[category_label]] += 1
         else:
-            categories[r[CATEGORY_LABEL]]  = 1
+            categories[r[category_label]]  = 1
     return categories
 
 # TODO: might be nice to put this in a separate module to tabulate already-existing results
@@ -333,5 +333,6 @@ if __name__ == "__main__":
                     "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
                     "./full_benchmark/pash_benchmark/benchmarks/unix50"
         ],
-        invalid_dirs=["./evaluation_pipelines/invalid"]
+        invalid_dirs=["./evaluation_pipelines/invalid",
+                      "./full_benchmark/curated_mutants"]
     )
