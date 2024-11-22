@@ -1,7 +1,7 @@
 from __future__ import annotations
 class CheckingResult:
-    def __init__(self, status, pipeNode = None, message: str = None, counterexample: str = None, type_derivation_trace = None):
-        self.status = status
+    def __init__(self, ill_typed, pipeNode = None, message: str = None, counterexample: str = None, type_derivation_trace = None):
+        self.ill_typed: bool = ill_typed
 
         self.pipe_node = None
         self.message = None
@@ -16,7 +16,7 @@ class CheckingResult:
         self.setTypeDerivationTrace(type_derivation_trace)
     
     def set(self, other: CheckingResult):
-        self.status = other.status
+        self.ill_typed = other.ill_typed
         self.setPipeNode(other.pipe_node)
         self.setMessage(other.message)
         self.setCounterexample(other.counterexample)
@@ -41,4 +41,4 @@ class CheckingResult:
             self.type_derivation_trace = type_derivation_trace 
 
     def __repr__(self):
-        return f"CheckingResult(\npipeline content: {self.pipeline_content}\nresult: {self.status}\nerror message: {self.message}\ncounterexample: {self.counterexample}\nderivation trace: {self.type_derivation_trace}\n)"
+        return f"CheckingResult(\npipeline content: {self.pipeline_content}\nill_typed?: {self.ill_typed}\nerror message: {self.message}\ncounterexample: {self.counterexample}\nderivation trace: {self.type_derivation_trace}\n)"

@@ -1,17 +1,59 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,45432,682,111,111, 
- , , , ,1,parser mistake
- , , , ,4,hard awk
- , , , ,11,unsopported options/flags/operands - about find
- , , , ,1,hard tr
- , , , ,6,need assume annotation
- , , , ,81,<missing>
- , , , ,7,need assume annotation and cut/tr/sed procedures
+correct,45432,104,0,0, 
 --------,-----,-----,--------,---------------,--------
-buggy,13,0,8,5, 
+buggy,173,0,21,152, 
+ , , , ,8,<missing>
  , , , ,3,semantic mistake - about cp/rm/stat
  , , , ,1,semantic mistake - sort
  , , , ,1,semantic mistake - about date
+ , , , ,13,input to cmd that expects none
+ , , , ,1,dropped grep, should be detectable
+ , , , ,3,nice and self-contained, cut expects delimiter, mutant won't have it
+ , , , ,1,nice and self-contained, dup of an earlier one
+ , , , ,1,with useless no-op warning
+ , , , ,6,dropped grep, should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,1,dropped awk, should be detectable with input annotations and tr/sed/cut procedures
+ , , , ,2,dropped uniq, should be detectable with assert annotations
+ , , , ,12,dropped tr, should be detectable with assert annotations
+ , , , ,1,dropped flags in uniq, should be detectable with assert annotations
+ , , , ,2,dropped operands in tr, can be detected with assert annotations and tr/sed/cut procedures
+ , , , ,1,dropped sed, should be detectable with assert annotations
+ , , , ,1,swap sort and cut, should be detectable with input annotations and assert annotations
+ , , , ,1,dropped cut, should be detectable with input annotations and assert annotations
+ , , , ,1,swap sort and cut, may be detectable with input annotations
+ , , , ,4,dropped cut, should be detectable with assert annotations
+ , , , ,6,dropped cut, should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,1,dropped grep, should be detectable with input annotations
+ , , , ,1,drop tr, should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,1,drop cut, should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,2,swap tr and grep, should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,4,dropped tr, should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,3,dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,1,dropped flags in wc, should be detectable with assert annotations
+ , , , ,2,dropped -c in tr, should be detectable with assert annotations
+ , , , ,22,with output annotations
+ , , , ,5,with output annotations, or input annotations
+ , , , ,4,with input annotations
+ , , , ,1,swap tr, should be detectable with assert annotations
+ , , , ,4,dropped -l in wc, should be detectable with assert annotations
+ , , , ,1,need assume annotation
+ , , , ,1,drop grep, should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,1,dropped grep, should be detectable with assert annotations
+ , , , ,1,dropped cut -d, should be detectable with assert annotations
+ , , , ,1,swapped sort and uniq, should be detectable with input annotations, composition mistake at (sort -n)
+ , , , ,1,dropped -c in uniq, should be detectable with assert annotations
+ , , , ,2,swap cut and tr, should be detectable with input annotations, composition mistake at (cut -c 1-1)
+ , , , ,6,with empty output warning
+ , , , ,1,with output annotations, or empty output warning
+ , , , ,1,with output annotations, could specify no newline?
+ , , , ,5,with output annotations, we could perfectly model the contents here
+ , , , ,2,with empty output warning, or output annotations
+ , , , ,1,with annotations/pre-execution analysis for /etc/group format, or output annotations
+ , , , ,1,with a warning about stdin arbitrary format?
+ , , , ,1,with annotations/pre-execution analysis for /etc/group format
+ , , , ,2,with input annotations, or possibly output annotations
+ , , , ,2,with special case for expr?
+ , , , ,1,with input annotations, or warning about arbitrary stdin format
 ========,=====,=====,========,===============,========
-total,11515,682, ,116, 
+total,45189,104, ,152, 

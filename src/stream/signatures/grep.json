@@ -19,7 +19,7 @@
                 "no_flags": ["-o"]
             },
             "update": {
-                "pattern": "(.*{{pattern}}.*)"
+                "pattern": "(.*({{pattern}}).*)"
             }
         },
         {
@@ -27,7 +27,7 @@
                 "flags": ["-w"]
             },
             "update": {
-                "pattern": "{{{pattern}}}&{(()|(.*\\W)){{arg_pattern}}(()|(\\W.*))}"
+                "pattern": "{({{pattern}})}&{(()|(.*\\W)){{arg_pattern}}(()|(\\W.*))}"
             }
         },
         {
@@ -35,7 +35,7 @@
                 "flags": ["-v"]
             },
             "update": {
-                "pattern": "(?!{{pattern}})"
+                "pattern": "(?!({{pattern}}))"
             }
         },
         {
@@ -43,13 +43,13 @@
                 "no_args": ["file"]
             },
             "update": {
-                "pattern": "{{{pattern}}}&{{{actual_input_type}}}"
+                "pattern": "{({{pattern}})}&{({{actual_input_type}})}"
             }
         },
         {
             "condition": {},
             "update": {
-                "output_type": "{{pattern}}"
+                "output_type": "({{pattern}})"
             }
         }
     ]

@@ -92,13 +92,13 @@ def modify_pipeline():
     #     Remember 'tr' is used to substitude text in lines of text.
     #     Please **Do not focus on** the incompatible betweem a single number output and the expected input of the next stage.
 
-    system_prompt = """Please give me 20 buggy Unix pipelines using any combinations of following commands: cat, grep, sort, cut, tr, uniq, wc, xargs, find, sed.
+    system_prompt = """Please give me 20 buggy Unix pipelines using any combinations of following commands: cat, grep, sort, cut, tr, uniq, wc, xargs, find, sed, seq.
     Also provide a brief explanation of it.
-    The pipelines should contain the commonly-made mistakes where the output of one stage of the pipeline is not compatible with the input of the next stage.
-    Ensure no simple mistakes in a single stage like omitting patterns for 'grep' or commands for 'xargs', or meaningless combinations of 'xargs' and other commands.
-    The mistakes should be deterministic, i.e., the explanations should not contain 'may' or 'might'.
-    Ensure the diversity, i.e., the pipelines and the mistakes should not be similar to each other.
-    Each pipeline should contain at least 6 stages.
+    You are required to add flags and options for the commands at each stage for each pipeline, including but not limited to grep, sort, uniq, tr.
+    The pipelines should contain the **commonly-made** mistakes where the output of one stage of the pipeline is not compatible with the format of the next stage.
+    Ensure no simple mistakes in a single stage like omitting patterns for 'grep' or commands for 'xargs'.
+    Ensure the diversity, i.e., the pipelines and the mistakes **should not** be similar to each other.
+    Each pipeline should contain at least 5 stages.
     
     Respond in format (repeat for each pipeline):
     <number>.

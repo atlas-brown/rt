@@ -100,7 +100,7 @@ def traverse_node(nd : AstNode) -> list[PipeNode]:
             pipeline_nodes += traverse_node(nd.left_operand)
             pipeline_nodes += traverse_node(nd.right_operand)
         case SubshellNode():
-            pipeline_nodes += traverse_node(nd.bodys)
+            pipeline_nodes += traverse_node(nd.body)
         case BackgroundNode():
             pipeline_nodes += traverse_node(nd.node)
         case RedirectionNode():

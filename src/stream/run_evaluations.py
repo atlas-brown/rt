@@ -83,9 +83,9 @@ class LogHandler(logging.Handler):
         log_entry = self.format(record)
         self.log_entries.append(log_entry)
 
-log_handler = LogHandler()
-logging.basicConfig(level=logging.INFO, handlers=[log_handler, logging.StreamHandler()])
-logger = logging.getLogger()
+# log_handler = LogHandler()
+# logging.basicConfig(level=logging.INFO, handlers=[log_handler, logging.StreamHandler()])
+# logger = logging.getLogger()
 
 def find_scripts(directories: list[str]) -> list[str]:
     script_addresses = []
@@ -142,6 +142,7 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
         try:
             while True:
                 start_time = time.time()
+                logging.debug(f'Evaluating pipeline from {address}')
                 checking_result = evaluate_pipeline_with_timeout(type_checker)
                 if checking_result is None:
                     break
@@ -150,14 +151,17 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
                 elapsed_time = end_time - start_time
 
                 pipeline_data = pipeline_data_template.copy()
-                pipeline_data[SIGNALED_LABEL] = not checking_result.status
+                pipeline_data[SIGNALED_LABEL] = checking_result.ill_typed
                 pipeline_data["content"] = checking_result.pipeline_content
                 pipeline_data["evaluation_time"] = f"{elapsed_time:.2f}s"
-                if not checking_result.status:
+                if checking_result.ill_typed:
                     pipeline_data["error message generated"] = checking_result.message
                     logging.info(f'Error detected in pipeline {checking_result.pipeline_content}: {checking_result.message}')
 
-                logging.info(f'Pipeline {checking_result.pipeline_content} evaluated as {checking_result.status} in {elapsed_time:.2f}s')
+                if checking_result.ill_typed:
+                    logging.info(f'Pipeline {checking_result.pipeline_content} evaluated as ill-typed in {elapsed_time:.2f}s')
+                else:
+                    logging.info(f'Pipeline {checking_result.pipeline_content} evaluated as well-typed in {elapsed_time:.2f}s')
                 pipeline_data_list.append(pipeline_data)
                 
         except TimeoutError:
@@ -281,7 +285,7 @@ def run_all_evaluations(valid_dirs: list[str],
             "total_evaluation_time": f"{total_time:.2f}s",
             "timeout_count": total_timeouts,
         },
-        "logs": log_handler.log_entries
+        # "logs": log_handler.log_entries
     }
 
     os.makedirs(os.path.dirname(output_json), exist_ok=True)
@@ -326,6 +330,7 @@ def notes_lookup(notes, content):
     return None
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG)
     run_all_evaluations(
         valid_dirs=[
                     "./evaluation_pipelines/valid", 

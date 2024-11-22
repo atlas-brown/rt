@@ -1,3 +1,4 @@
+import logging
 from stream.regular_type import RegularType
 from stream.shell_parser import ShellParser
 from typing import Optional
@@ -15,6 +16,9 @@ class TypeChecker:
         self.pipelines = self.shell_parser.parse_pipeline()
         self.pipeline_nodes = self.shell_parser.pipeline_nodes
         self.current_index = 0
+        
+        for pipeline in self.pipeline_nodes:
+            logging.debug(f"Pipeline: {pipeline.pretty()}")
 
     def check_next(self) -> Optional[CheckingResult]:
         if not self.pipelines:
@@ -27,7 +31,7 @@ class TypeChecker:
         parsed_commands = self.pipelines[self.current_index]
         pipeline_node = self.pipeline_nodes[self.current_index]
         self.current_index += 1
-        
+        logging.debug(f"Checking pipeline: {pipeline_node.pretty()}")
         checking_result = CheckingResult(True, pipeline_node)
         
         for parsed_command in parsed_commands:
@@ -39,7 +43,7 @@ class TypeChecker:
             
             checking_result.set(previous_output_type.is_subtype(input_type))
             
-            if not checking_result.status:
+            if not checking_result.ill_typed:
                 checking_result.setMessage(
                     f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type.pattern}' for command '{signature.command_name}'."
                 )

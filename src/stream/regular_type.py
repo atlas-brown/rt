@@ -10,6 +10,8 @@ class RegularType:
     
     def is_subtype(self, other: 'RegularType') -> CheckingResult:
         logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
+        if (other.pattern == ".*"):
+            return CheckingResult(False)
         s = z3.Solver()
         self_regex = regex_to_z3_expr(sre_parse.parse(preprocess(self.pattern)))
         logging.debug(f"self_regex: {self_regex}")
@@ -17,9 +19,9 @@ class RegularType:
         logging.debug(f"other_regex: {other_regex}")
         logging.debug("-"*60)
         intersection_regex = z3.Intersect(self_regex, z3.Complement(other_regex))
-        s.add(z3.Distinct(intersection_regex, z3.Empty(z3.ReSort(z3.StringSort()))))
-        checking_result = CheckingResult(s.check() == z3.unsat)
-        if not checking_result.status:
+        s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
+        checking_result = CheckingResult(s.check() == z3.sat)
+        if checking_result.ill_typed:
             s = z3.Solver()
             x = z3.String('x')
             s.add(z3.InRe(x, intersection_regex))
