@@ -186,19 +186,19 @@ def tabulate_mutants(keyfile_path, output_csv):
     uninteresting = [info for mutant, info in key.items() if not info["detectable"]]
     assert len(key) == len(definitely_interesting) + len(maybe_interesting) + len(uninteresting)
     def write_group(f, group, name):
-        f.write(f"{name};{len(group)}; \n")
+        f.write(f"{name},{len(group)}, \n")
         for category, count in categorize(group, "notes").items():
-            f.write(f" ;{count};{category}\n")
+            f.write(f" ,{count},{category.replace(',', ';')}\n")
     with open(output_csv, 'w') as f:
-        f.write("group;count;category\n")
-        f.write("=====;=====;========\n")
+        f.write("group,count,category\n")
+        f.write("=====,=====,========\n")
         write_group(f, definitely_interesting, "detectable")
-        f.write("-----;-----;--------\n")
+        f.write("-----,-----,--------\n")
         write_group(f, maybe_interesting, "maybe")
-        f.write("-----;-----;--------\n")
+        f.write("-----,-----,--------\n")
         write_group(f, uninteresting, "uninteresting")
-        f.write("=====;=====;========\n")
-        f.write(f"total;{len(key)}; \n")
+        f.write("=====,=====,========\n")
+        f.write(f"total,{len(key)}, \n")
 
 
 def parse_args():
