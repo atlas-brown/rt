@@ -1,0 +1,1 @@
+echo "http://www.google.com" | cut -f3

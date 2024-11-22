@@ -1,0 +1,1 @@
+sed -E "s|https?://([^/]+).*|\\1|" | echo "http://www.google.com"

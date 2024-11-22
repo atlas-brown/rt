@@ -1,0 +1,1 @@
+cat ${1} | grep "(" | cut -d ")" -f 1 | head -n 1

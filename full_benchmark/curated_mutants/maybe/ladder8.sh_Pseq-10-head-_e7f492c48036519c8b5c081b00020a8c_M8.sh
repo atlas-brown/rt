@@ -1,0 +1,1 @@
+seq 10 | head | xargs -n 1 expr 2 +

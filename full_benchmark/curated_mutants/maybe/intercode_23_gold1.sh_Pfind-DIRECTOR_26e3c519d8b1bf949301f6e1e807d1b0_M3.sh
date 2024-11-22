@@ -1,0 +1,1 @@
+sed -e "s@^.*/@@" | grep "[aeiouyAEIOUY]" | wc -l

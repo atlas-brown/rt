@@ -1,0 +1,1 @@
+sed -e "s/^[ \\t]*//" | echo "  Hello world!	  " | sed -e "s/[ \\t]*\$//"

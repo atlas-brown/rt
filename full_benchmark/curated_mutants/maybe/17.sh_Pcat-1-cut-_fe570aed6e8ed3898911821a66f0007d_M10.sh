@@ -1,0 +1,1 @@
+cat ${1} | cut -f 4 | sort -n | cut -c 3-3 | uniq

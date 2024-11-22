@@ -1,0 +1,1 @@
+echo 987654321 | rev | rev | cut -c 4-

@@ -1,0 +1,1 @@
+cat ${1} | cut -f 2 | sort | uniq -c | sort -nr | head -n 1 | fmt -w1 | sed 1d
