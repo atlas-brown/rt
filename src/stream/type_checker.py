@@ -23,6 +23,9 @@ class TypeChecker:
     def check_next(self) -> Optional[CheckingResult]:
         if not self.pipelines:
             self.initialize_check()
+
+        if self.pipeline_nodes is None:
+            return None
             
         if self.current_index >= len(self.pipelines):
             return None
@@ -32,7 +35,7 @@ class TypeChecker:
         pipeline_node = self.pipeline_nodes[self.current_index]
         self.current_index += 1
         logging.debug(f"Checking pipeline: {pipeline_node.pretty()}")
-        checking_result = CheckingResult(True, pipeline_node)
+        checking_result = CheckingResult(False, pipeline_node)
         
         for parsed_command in parsed_commands:
             signature, parsed_command_node = parsed_command
@@ -43,7 +46,7 @@ class TypeChecker:
             
             checking_result.set(previous_output_type.is_subtype(input_type))
             
-            if not checking_result.ill_typed:
+            if checking_result.ill_typed:
                 checking_result.setMessage(
                     f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type.pattern}' for command '{signature.command_name}'."
                 )

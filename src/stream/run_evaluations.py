@@ -330,14 +330,15 @@ def notes_lookup(notes, content):
     return None
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
     run_all_evaluations(
         valid_dirs=[
                     "./evaluation_pipelines/valid", 
                     "./full_benchmark/intercode/pipelines", 
-                    # "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
+                    "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
                     "./full_benchmark/pash_benchmark/benchmarks/unix50"
         ],
         invalid_dirs=["./evaluation_pipelines/invalid",
-                      "./full_benchmark/curated_mutants"]
+                      "./full_benchmark/curated_mutants"
+        ]
     )
