@@ -1,10 +1,53 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,12,0,0,0, 
+correct,45636,535,543,543, 
+ , , , ,1,parser mistake
+ , , , ,4,hard awk
+ , , , ,11,unsopported options/flags/operands - about find
+ , , , ,1,hard tr
+ , , , ,6,need assume annotation
+ , , , ,513,<missing>
+ , , , ,7,need assume annotation and cut/tr/sed procedures
 --------,-----,-----,--------,---------------,--------
-buggy,13,0,8,5, 
+buggy,173,3,52,118, 
  , , , ,3,semantic mistake - about cp/rm/stat
  , , , ,1,semantic mistake - sort
  , , , ,1,semantic mistake - about date
+ , , , ,13,input to cmd that expects none
+ , , , ,3,nice and self-contained; cut expects delimiter; mutant won't have it
+ , , , ,1,nice and self-contained; dup of an earlier one
+ , , , ,1,with useless no-op warning
+ , , , ,3,dropped cut; should be detectable with assert annotations
+ , , , ,3,dropped cut; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,3,dropped grep; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,1,drop tr; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,1,drop cut; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,2,swap tr and grep; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,3,dropped tr; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,10,dropped tr; should be detectable with assert annotations
+ , , , ,3,dropped -c in tr; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,1,dropped flags in wc; should be detectable with assert annotations
+ , , , ,2,dropped -c in tr; should be detectable with assert annotations
+ , , , ,22,with output annotations
+ , , , ,5,with output annotations; or input annotations
+ , , , ,4,with input annotations
+ , , , ,1,swap tr; should be detectable with assert annotations
+ , , , ,1,dropped grep; should be detectable with assert annotations
+ , , , ,1,dropped -c in uniq; should be detectable with assert annotations
+ , , , ,1,dropped uniq; should be detectable with assert annotations
+ , , , ,1,swap cut and tr; should be detectable with input annotations; composition mistake at (cut -c 1-1)
+ , , , ,3,dropped -l in wc; should be detectable with assert annotations
+ , , , ,6,with empty output warning
+ , , , ,1,with output annotations; or empty output warning
+ , , , ,1,with output annotations; could specify no newline?
+ , , , ,5,with output annotations; we could perfectly model the contents here
+ , , , ,2,with empty output warning; or output annotations
+ , , , ,1,with annotations/pre-execution analysis for /etc/group format; or output annotations
+ , , , ,1,with a warning about stdin arbitrary format?
+ , , , ,1,with annotations/pre-execution analysis for /etc/group format
+ , , , ,2,with input annotations; or possibly output annotations
+ , , , ,1,<missing>
+ , , , ,2,with special case for expr?
+ , , , ,1,with input annotations; or warning about arbitrary stdin format
 ========,=====,=====,========,===============,========
-total,23,0, ,5, 
+total,43566,538, ,661, 
