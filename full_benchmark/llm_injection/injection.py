@@ -102,7 +102,7 @@ def generate_pipelines():
     ## Requirements
     * No 'echo' or 'xargs echo'.
     * Each pipeline should contain at least 8 stages.
-    * No simple mistakes like omitting patterns for 'grep' or commands for 'xargs'. 
+    * No syntax mistakes like omitting patterns for 'grep' or commands for 'xargs'. 
     * No mistakes relared to file not found
     * No similar pipelines.
     * The mistakes should be diverse.
