@@ -137,7 +137,7 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
     pipeline_data_list = []
     
     try:        
-        type_checker = TypeChecker(address)
+        type_checker = TypeChecker(address, enable_user_annotations=False, enable_rule_empty_output=False)
 
         try:
             while True:

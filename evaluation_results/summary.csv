@@ -1,12 +1,12 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,45636,535,543,543, 
+correct,45636,523,586,586, 
  , , , ,1,parser mistake
  , , , ,4,hard awk
  , , , ,11,unsopported options/flags/operands - about find
  , , , ,1,hard tr
  , , , ,6,need assume annotation
- , , , ,513,<missing>
+ , , , ,556,<missing>
  , , , ,7,need assume annotation and cut/tr/sed procedures
 --------,-----,-----,--------,---------------,--------
 buggy,173,3,52,118, 
@@ -50,4 +50,4 @@ buggy,173,3,52,118,
  , , , ,2,with special case for expr?
  , , , ,1,with input annotations; or warning about arbitrary stdin format
 ========,=====,=====,========,===============,========
-total,43566,538, ,661, 
+total,44746,526, ,704, 

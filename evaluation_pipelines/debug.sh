@@ -1,6 +1,8 @@
 #!/bin/bash
 
 
+printf "%s" "${3}" | cut -d . -f "${1}-${2}"
+
 # @assume "cat $1" --> ".* .*"
 # @assume "cut -f 2" --> "[0-9]+"
 # @assert "head -n 1" --> ".* .* .*"
