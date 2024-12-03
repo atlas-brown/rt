@@ -21,25 +21,17 @@ class CutSignature(CommandSignature):
             delimiter = f"({flag_args['-d']}+)"
 
         if '-f' in flags:
-            args: list[str] = flag_args.get('-f').split('-')
-            if len(args) == 1:
-                if "${" in args[0]:
-                    return RegularType(".*")
-                field_num = int(flag_args.get('-f', '1'))
-            elif len(args) == 2:
-                if "${" in args[0] and "${" in args[1]:
-                    return RegularType(".*")
-            
-                if "${" in args[0]:
-                    field_num = int(args[1])
-                else:
-                    field_num = int(args[0])
-            else:
+            args: list[str] = re.split(",|-", flag_args.get('-f'))
+            if len(args) == 0:
                 raise ValueError(f"invalid field number arguments: {args}")
+            args = map(lambda arg: int(arg) if len(arg) >= 1 and "${" not in arg else -1, args)
+            field_num = max(args)
+            # every arg is a variable or default value
+            if field_num == -1:
+                return RegularType(".*")
             if field_num < 1:
                 raise ValueError(f"field number must be greater than 0: {field_num}")
-            
-            if field_num <= 1:
+            if field_num == 1:
                 return RegularType(".*")
             
             pattern = f".*({delimiter}.*){{{field_num-1}}}"

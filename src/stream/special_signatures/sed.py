@@ -5,8 +5,8 @@ class SedSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def output_type_inference(self, previous_output_type, parsed_command_node):
-        operands = super().get_operands(parsed_command_node)
+    def output_type_inference(self, previous_output_type, parsed_command_invocation):
+        operands = super().get_operands(parsed_command_invocation)
         operand = operands[0]
         parts = operand.split(";")
         if parts[0] == 's':
@@ -17,5 +17,5 @@ class SedSignature(CommandSignature):
             else:
                 return RegularType("{" + previous_output_type.pattern + "}&{(?!" + parts[2] + ")}")
             
-        return super().output_type_inference(previous_output_type, parsed_command_node)
+        return super().output_type_inference(previous_output_type, parsed_command_invocation)
         

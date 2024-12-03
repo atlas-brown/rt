@@ -1,7 +1,11 @@
 #!/bin/bash
 
 
-printf "%s" "${3}" | cut -d . -f "${1}-${2}"
+echo "${_record_seg}" | tr "}" "a" | cut -d : -f 2
+
+# cat "${dist_dir}"/*.js | grep -q -e "from 'env'" -e "aaa"
+
+# printf "%s" "${3}" | cut -d . -f "2-"
 
 # @assume "cat $1" --> ".* .*"
 # @assume "cut -f 2" --> "[0-9]+"

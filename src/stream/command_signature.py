@@ -53,22 +53,22 @@ class CommandSignature:
             return [operand.name for operand in operand_list[1:]]
         return [operand.name for operand in operand_list]
 
-    def output_type_inference(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> RegularType:
+    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
         assert isinstance(previous_output_type, RegularType)
-        assert isinstance(parsed_command_node, CommandInvocationInitial)
+        assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
         env: Dict[str, str] = {}
         for i, arg in enumerate(self.args):
             arg_name: str = arg['name']
-            if i < len(parsed_command_node.operand_list):
-                env[arg_name] = parsed_command_node.operand_list[i].name
-                env[f"arg_{arg_name}"] = parsed_command_node.operand_list[i].name # add constant arg_{arg_name} to env
+            if i < len(parsed_command_invocation.operand_list):
+                env[arg_name] = parsed_command_invocation.operand_list[i].name
+                env[f"arg_{arg_name}"] = parsed_command_invocation.operand_list[i].name # add constant arg_{arg_name} to env
 
         # add predefined variables to env
         env["actual_input_type"] = previous_output_type.pattern
         env["output_type"] = self.default_output_type.pattern
 
-        parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_node.flag_option_list))
+        parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         parsed_args = set(env.keys())
 
         for rule in self.rules: # iterate over all rules, from top to bottom

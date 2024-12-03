@@ -1,8 +1,21 @@
 {
     "command_name": "echo",
     "default_input_type": ".*",
+    "ignore_input": true,
     "default_output_type": ".*",
-    "args": [],
+    "args": [
+        {
+            "name": "pattern",
+            "type": ".+"
+        }
+    ],
     "flags": [],
-    "rules": []
+    "rules": [
+        {
+            "condition": {},
+            "update": {
+                "output_type": "({{pattern}})"
+            }
+        }
+    ]
 }
