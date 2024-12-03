@@ -22,6 +22,8 @@ class CheckingResult:
         self.setCounterexample(other.counterexample)
         self.setTypeDerivationTrace(other.type_derivation_trace)
 
+    def setIllTyped(self, ill_typed: bool):
+        self.ill_typed = ill_typed
         
     def setPipeNode(self, pipe_node):
         if pipe_node is not None:

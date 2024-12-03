@@ -1,3 +1,4 @@
+import re
 import z3
 from stream.regex_to_z3 import regex_to_z3_expr
 import sre_parse
@@ -7,18 +8,24 @@ from stream.checking_result import CheckingResult
 class RegularType:
     def __init__(self, pattern: str):
         self.pattern = pattern
+        self._regex = None
+
+    @property
+    def regex(self):
+        if self._regex is None:
+            self._regex = regex_to_z3_expr(sre_parse.parse(preprocess(self.pattern)))
+        return self._regex
     
     def is_subtype(self, other: 'RegularType') -> CheckingResult:
+        logging.debug("-"*60)
         logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
         if (other.pattern == ".*"):
             return CheckingResult(False)
         s = z3.Solver()
-        self_regex = regex_to_z3_expr(sre_parse.parse(preprocess(self.pattern)))
-        logging.debug(f"self_regex: {self_regex}")
-        other_regex = regex_to_z3_expr(sre_parse.parse(preprocess(other.pattern)))
-        logging.debug(f"other_regex: {other_regex}")
+        logging.debug(f"self_regex: {self.regex}")
+        logging.debug(f"other_regex: {other.regex}")
         logging.debug("-"*60)
-        intersection_regex = z3.Intersect(self_regex, z3.Complement(other_regex))
+        intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
         s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
         checking_result = CheckingResult(s.check() == z3.sat)
         if checking_result.ill_typed:
@@ -28,6 +35,12 @@ class RegularType:
             s.check()
             checking_result.setCounterexample(s.model()[x].as_string())
         return checking_result
+    
+    def is_empty(self) -> bool:
+        s = z3.Solver()
+        logging.debug(f"self_regex: {self.regex}")
+        s.add(z3.Distinct(self.regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
+        return s.check() == z3.unsat
     
     def __le__(self, other: 'RegularType') -> bool:
         return self.is_subtype(other)
@@ -39,7 +52,14 @@ class RegularType:
 # intersection {A}&{B} -> (?!(?!A)|(?!B)) by De Morgan's law
 # Q: Why dont directly use z3.Intersect e.g., return Z3.Intersect(A, B) directly instead of (?!A)|(?!B)
 # A: If there are operations out of the intersection, it will be problematic, e.g., (?!{A}&{B})
+
+# replace ${A} with (.*) 
 def preprocess(pattern: str) -> str:
+    # process replacement(${A} to (.*)) 
+    replace_pattern = r'\$\{[^}]*\}'
+    pattern = re.sub(replace_pattern, r'(.*)', pattern)
+
+
     if "}&{" not in pattern:
         return pattern
     

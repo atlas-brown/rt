@@ -7,11 +7,17 @@ from stream.checking_result import CheckingResult
 from stream.user_annotation import AnnotationType
 
 class TypeChecker:
-    def __init__(self, pipeline_address: str) -> None:
-        self.shell_parser = ShellParser(pipeline_address)
+    def __init__(self, 
+                 pipeline_address: str, 
+                 enable_user_annotations: bool = True,
+                 enable_rule_empty_output: bool = True,
+        ) -> None:
         self.pipelines = None
         self.pipeline_nodes = None
         self.current_index = 0
+        self.enable_user_annotations = enable_user_annotations
+        self.enable_rule_empty_output = enable_rule_empty_output
+        self.shell_parser = ShellParser(pipeline_address, enable_user_annotations)
 
     def initialize_check(self):
         self.pipelines = self.shell_parser.parse_pipeline()
@@ -57,6 +63,15 @@ class TypeChecker:
                 return checking_result
                 
             current_output_type = signature.determine_output_type(previous_output_type, parsed_command_invocation, corresponding_annotations)
+
+            # check if the output is empty
+            if self.enable_rule_empty_output:
+                if current_output_type.is_empty():
+                    checking_result.setIllTyped(True)
+                    checking_result.setMessage(
+                        f"Output type '{current_output_type.pattern}' is empty for command '{signature.command_name}'."
+                    )
+                    return checking_result
 
             # process assert annotation
             for annotation in corresponding_annotations:

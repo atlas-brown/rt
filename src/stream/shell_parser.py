@@ -15,11 +15,15 @@ from stream.user_annotation import AnnotationType, UserAnnotation
 ANNOTATION_PATTERN = re.compile(r'^\s*#\s*@(assume|assert|expect)\s+"(.+)"\s*-->\s*"(.+)"\s*$')
 
 class ShellParser:
-    def __init__(self, pipeline_address: str) -> None:
+    def __init__(self, pipeline_address: str, enable_user_annotations: bool = True) -> None:
         self.signature_loader = SignatureLoader()
         self.pipeline_address = pipeline_address
         self.pipeline_nodes = extract_pipe_nodes_from_file(self.pipeline_address)
-        self.annotations = self.extract_annotations_from_file()
+
+        if enable_user_annotations:
+            self.annotations = self.extract_annotations_from_file()
+        else:
+            self.annotations = {}
 
     def parse_command_node(self, node: CommandInvocationInitial) -> Tuple[CommandSignature, CommandInvocationInitial]:
         assert isinstance(node, CommandInvocationInitial)
