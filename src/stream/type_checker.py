@@ -57,7 +57,7 @@ class TypeChecker:
             checking_result.set(previous_output_type.is_subtype(input_type))
             
             if checking_result.ill_typed:
-                checking_result.setMessage(
+                checking_result.set_message(
                     f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type.pattern}' for command '{signature.command_name}'."
                 )
                 return checking_result
@@ -67,8 +67,8 @@ class TypeChecker:
             # check if the output is empty
             if self.enable_rule_empty_output:
                 if current_output_type.is_empty():
-                    checking_result.setIllTyped(True)
-                    checking_result.setMessage(
+                    checking_result.set_ill_typed(True)
+                    checking_result.set_message(
                         f"Output type '{current_output_type.pattern}' is empty for command '{signature.command_name}'."
                     )
                     return checking_result
@@ -78,7 +78,7 @@ class TypeChecker:
                 if annotation.annotation_type == AnnotationType.ASSERT:
                     checking_result.set(previous_output_type.is_subtype(RegularType(annotation.pattern)))
                     if checking_result.ill_typed:
-                        checking_result.setMessage(
+                        checking_result.set_message(
                             f"Output type '{previous_output_type.pattern}' is not compatible with asserted output '{annotation.pattern}' for command '{signature.command_name}'."
                         )
                         return checking_result

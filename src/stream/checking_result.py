@@ -10,35 +10,35 @@ class CheckingResult:
 
         self.pipeline_content = None
 
-        self.setPipeNode(pipeNode)
-        self.setMessage(message)
-        self.setCounterexample(counterexample)
-        self.setTypeDerivationTrace(type_derivation_trace)
+        self.set_pipe_node(pipeNode)
+        self.set_message(message)
+        self.set_counterexample(counterexample)
+        self.set_type_derivation_trace(type_derivation_trace)
     
     def set(self, other: CheckingResult):
         self.ill_typed = other.ill_typed
-        self.setPipeNode(other.pipe_node)
-        self.setMessage(other.message)
-        self.setCounterexample(other.counterexample)
-        self.setTypeDerivationTrace(other.type_derivation_trace)
+        self.set_pipe_node(other.pipe_node)
+        self.set_message(other.message)
+        self.set_counterexample(other.counterexample)
+        self.set_type_derivation_trace(other.type_derivation_trace)
 
-    def setIllTyped(self, ill_typed: bool):
+    def set_ill_typed(self, ill_typed: bool):
         self.ill_typed = ill_typed
         
-    def setPipeNode(self, pipe_node):
+    def set_pipe_node(self, pipe_node):
         if pipe_node is not None:
             self.pipe_node = pipe_node
             self.pipeline_content = pipe_node.pretty()
 
-    def setCounterexample(self, counterexample: str):
+    def set_counterexample(self, counterexample: str):
         if counterexample is not None:
             self.counterexample = counterexample
 
-    def setMessage(self, message: str):
+    def set_message(self, message: str):
         if message is not None:
             self.message = message
 
-    def setTypeDerivationTrace(self, type_derivation_trace):
+    def set_type_derivation_trace(self, type_derivation_trace):
         if type_derivation_trace is not None:
             self.type_derivation_trace = type_derivation_trace 
 

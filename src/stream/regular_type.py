@@ -33,7 +33,7 @@ class RegularType:
             x = z3.String('x')
             s.add(z3.InRe(x, intersection_regex))
             s.check()
-            checking_result.setCounterexample(s.model()[x].as_string())
+            checking_result.set_counterexample(s.model()[x].as_string())
         return checking_result
     
     def is_empty(self) -> bool:
