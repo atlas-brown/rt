@@ -6,6 +6,8 @@ from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
+from stream.user_annotation import AnnotationType, UserAnnotation
+
 class CommandSignature:
     def __init__(
         self, 
@@ -31,14 +33,15 @@ class CommandSignature:
             return True
         return False
     
-    def determine_output_type(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> RegularType:
-        # if user annotation is available, use it
+    # dont override this method, override output_type_inference instead
+    def determine_output_type(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation]) -> RegularType:
+        # if user annotation (assume) is available, use it
         # otherwise, use inference
-        if len(parsed_command_node.operand_list) > 0 and parsed_command_node.operand_list[-1].name.startswith("-->"):
-            annotated_output_type = parsed_command_node.operand_list[-1].name[3:]
-            return RegularType(annotated_output_type)
-        else:
-            return self.output_type_inference(previous_output_type, parsed_command_node)
+        for annotation in user_annotations:
+            if annotation.annotation_type == AnnotationType.ASSUME:
+                return RegularType(annotation.pattern)
+
+        return self.output_type_inference(previous_output_type, parsed_command_invocation)
 
 
     def get_operands(self, parsed_command_node: CommandInvocationInitial) -> List[str]:
@@ -46,9 +49,6 @@ class CommandSignature:
         operand_list = parsed_command_node.operand_list.copy()
         if len(operand_list) == 0:
             return []
-        if operand_list[-1].name.startswith("-->"):
-            # ignore the user annotation
-            operand_list.pop()
         if parsed_command_node.cmd_name == "xargs":
             return [operand.name for operand in operand_list[1:]]
         return [operand.name for operand in operand_list]
@@ -100,14 +100,24 @@ class CommandSignature:
         
         return RegularType(env['output_type'])
     
-    def determine_input_type(self, parsed_command_node: CommandInvocationInitial) -> RegularType:
-        assert isinstance(parsed_command_node, CommandInvocationInitial)
+    # dont override this method, override get_input_type instead
+    def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation]) -> RegularType:
+        assert isinstance(parsed_command_invocation, CommandInvocationInitial)
+
+        # if user annotation (expect) is available, use it
+        for annotation in user_annotations:
+            if annotation.annotation_type == AnnotationType.EXPECT:
+                return RegularType(annotation.pattern)
+            
+        return self.get_input_type(parsed_command_invocation)
+    
+    def get_input_type(self, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
 
         input_type = self.default_input_type.pattern
 
-        parsed_args = set(map(lambda arg: arg['name'], self.args[:len(self.get_operands(parsed_command_node))]))
+        parsed_args = set(map(lambda arg: arg['name'], self.args[:len(self.get_operands(parsed_command_invocation))]))
 
-        parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_node.flag_option_list))
+        parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
 
         for rule in self.rules: # iterate over all rules, from top to bottom
             required_flags = set(rule['condition'].get('flags', []))

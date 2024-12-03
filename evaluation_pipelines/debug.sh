@@ -1,5 +1,18 @@
 #!/bin/bash
 
+
+# @assume "cat $1" --> ".* .*"
+# @assume "cut -f 2" --> "[0-9]+"
+# @assert "head -n 1" --> ".* .* .*"
+# @expect "[0-9]+" --> "sort -n"
+cat $1 | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s ' ' '\n' | tail -n 1
+
+# @assume "cat $1" --> ".* .*"
+# @assume "cut -f 2" --> "[0-9]+"
+# @assert "head -n 1" --> ".* .*"
+# @expect "[0-9]+" --> "sort -n"
+cat $1 | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s ' ' '\n' | tail -n 1
+
 # Pipeline in assignment - counts number of text files in current directory
 # and stores result in a variable
 file_count=$(find . -type f -name "*.txt" | wc -l)

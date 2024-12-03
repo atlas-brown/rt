@@ -7,10 +7,10 @@ class CutSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def determine_input_type(self, parsed_command_node: CommandInvocationInitial) -> RegularType:
+    def get_input_type(self, parsed_command_invocation) -> RegularType:
         flags = set()
         flag_args = {}
-        for flag in parsed_command_node.flag_option_list:
+        for flag in parsed_command_invocation.flag_option_list:
             name = flag.get_name()
             flags.add(name)
             if hasattr(flag, 'get_arg') and flag.get_arg():
@@ -29,10 +29,10 @@ class CutSignature(CommandSignature):
             pattern = f".*({delimiter}.*){{{field_num-1}}}"
             return RegularType(pattern)
             
-        return super().determine_input_type(parsed_command_node)
+        return super().get_input_type(parsed_command_invocation)
 
-    def output_type_inference(self, previous_output_type: RegularType, parsed_command_node: CommandInvocationInitial) -> RegularType:
-        return super().output_type_inference(previous_output_type, parsed_command_node)
+    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
+        return super().output_type_inference(previous_output_type, parsed_command_invocation)
         # if '-f' in flags:
         #     field_num = int(flag_args.get('-f', '1'))
         #     pattern = previous_output_type.pattern

@@ -16,7 +16,11 @@ from shasta.ast_node import (
     WhileNode,
     BArgChar,
     BackgroundNode,
-    QArgChar
+    QArgChar,
+    CArgChar,
+    EArgChar,
+    VArgChar,
+    AArgChar
 )
 
 from shasta.json_to_ast import to_ast_node
@@ -96,6 +100,8 @@ def traverse_node(nd : AstNode) -> list[PipeNode]:
                 pipeline_nodes += traverse_node(case["cbody"])
         case PipeNode():
             pipeline_nodes.append(nd)
+            for item in nd.items:
+                pipeline_nodes += traverse_node(item)
         case SemiNode():
             pipeline_nodes += traverse_node(nd.left_operand)
             pipeline_nodes += traverse_node(nd.right_operand)
@@ -105,8 +111,10 @@ def traverse_node(nd : AstNode) -> list[PipeNode]:
             pipeline_nodes += traverse_node(nd.node)
         case RedirectionNode():
             pass
+        case CArgChar() | EArgChar() | VArgChar() | AArgChar():
+            pass
         case _:
-            logging.debug(f"Node not handled: {nd}")
+            logging.debug(f"Node not handled: {type(nd)}")
     return pipeline_nodes
 
 def extract_pipe_nodes_from_file(filename: str) -> list[PipeNode]:
