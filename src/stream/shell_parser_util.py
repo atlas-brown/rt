@@ -1,4 +1,5 @@
 
+from typing import Dict, List, Optional, Set
 from shasta.ast_node import (
     AndNode,
     AstNode,
@@ -20,9 +21,13 @@ from shasta.ast_node import (
     CArgChar,
     EArgChar,
     VArgChar,
-    AArgChar
+    AArgChar,
+    RedirNode
 )
-
+from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
+from pash_annotations.datatypes.BasicDatatypes import FlagOption, Flag, Option, Operand
+from pash_annotations.parser.parser import get_dict_flag_to_primary_repr, get_dict_option_to_primary_repr, get_set_of_all_flags, get_set_of_all_options, are_all_individually_flags
+from pash_annotations.parser.util_parser import get_json_data
 from shasta.json_to_ast import to_ast_node
 import logging
 import libdash.parser
@@ -109,7 +114,7 @@ def traverse_node(nd : AstNode) -> list[PipeNode]:
             pipeline_nodes += traverse_node(nd.body)
         case BackgroundNode():
             pipeline_nodes += traverse_node(nd.node)
-        case RedirectionNode():
+        case RedirectionNode() | RedirNode():
             pass
         case CArgChar() | EArgChar() | VArgChar() | AArgChar():
             pass
@@ -125,3 +130,90 @@ def extract_pipe_nodes_from_file(filename: str) -> list[PipeNode]:
     for nd in typed_ast_object:
         pipeline_nodes += traverse_node(nd[0])
     return pipeline_nodes
+
+
+def string_of_arg(args):
+    i = 0
+    text = []
+    while i < len(args):
+        if isinstance(args[i],str):
+            text.append(args[i])
+            i = i+1
+            continue
+        c = args[i].pretty()
+        if c == "$" and (i+1 < len(args)) and isinstance(args[i+1],EArgChar):
+            c = "\\$"
+        text.append(c)
+
+        i = i+1
+    
+    text = "".join(text)
+
+    return text
+
+def annot_parser_wrapper(str_ls_args: list[str]) -> CommandInvocationInitial:
+
+    # split all terms (command, flags, options, arguments, operands)
+    parsed_elements_list : list[str] = str_ls_args
+
+    cmd_name: str = parsed_elements_list[0]
+    json_data = get_json_data(cmd_name)
+    # TODO: if there is an element "\n", we lose the quotation marks currently
+
+    set_of_all_flags: Set[str] = get_set_of_all_flags(json_data)
+    dict_flag_to_primary_repr: Dict[str, str] = get_dict_flag_to_primary_repr(json_data)
+    set_of_all_options: Set[str] = get_set_of_all_options(json_data)
+    dict_option_to_primary_repr: Dict[str, str] = get_dict_option_to_primary_repr(json_data)
+    # dict_option_to_class_for_arg: Dict[str, WhichClassForArg] = get_dict_option_to_class_for_arg(json_data)
+
+    # parse list of command invocation terms
+    flag_option_list: List[FlagOption] = []
+    i = 1
+    while i < len(parsed_elements_list):
+        potential_flag_or_option = parsed_elements_list[i]
+        if potential_flag_or_option in set_of_all_flags:
+            flag_name_as_string: str = dict_flag_to_primary_repr.get(potential_flag_or_option, potential_flag_or_option)
+            flag: Flag = Flag(flag_name_as_string)
+            flag_option_list.append(flag)
+        elif (potential_flag_or_option in set_of_all_options) and ((i+1) < len(parsed_elements_list)):
+            option_name_as_string: str = dict_option_to_primary_repr.get(potential_flag_or_option, potential_flag_or_option)
+            option_arg_as_string: str = parsed_elements_list[i+1]
+            option = Option(option_name_as_string, option_arg_as_string)
+            flag_option_list.append(option)
+            i += 1  # since we consumed another term for the argument
+        elif are_all_individually_flags(potential_flag_or_option, set_of_all_flags):
+            for split_el in list(potential_flag_or_option[1:]):
+                flag: Flag = Flag(f'-{split_el}')
+                flag_option_list.append(flag)
+        else:
+            break  # next one is Operand, and we keep these in separate list
+        i += 1
+
+    # we would probably want to skip '--' but then the unparsed command could have a different meaning so we'd need to keep it
+    # for now, omitted
+    # if parsed_elements_list[i] == '--':
+    #     i += 1
+
+    # operand_list = [Operand(operand_name) for operand_name in parsed_elements_list[i:]]
+    operand_list = []
+    idx_list = []
+    for idx in range(i,len(parsed_elements_list)):
+        operand_list.append(Operand(parsed_elements_list[idx]))
+        idx_list.append(idx)
+
+    return CommandInvocationInitial(cmd_name, flag_option_list, operand_list)
+
+def string_of_ls_args(args) -> list[str]:
+    s : list[str] = []
+    for idx,a in enumerate(args):
+        x = string_of_arg(a)
+        s.append(x)
+    return s
+
+def get_command_invocation(cnd: CommandNode) -> CommandInvocationInitial:
+    try:
+        str_ls_args = string_of_ls_args(cnd.arguments)
+        return  annot_parser_wrapper(str_ls_args)
+    except Exception:
+        logging.warning(f"Failed to parse command: {cnd.pretty()}")
+    return CommandInvocationInitial("parsed_fail_command", [], [])

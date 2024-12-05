@@ -25,11 +25,11 @@ class CommandSignature:
         self.flags = flags
         self.rules = rules
 
-    def matches_command(self, node: CommandInvocationInitial) -> bool:
-        assert isinstance(node, CommandInvocationInitial)
-        if node.cmd_name == self.command_name:
+    def matches_command(self, command_invocation: CommandInvocationInitial) -> bool:
+        assert isinstance(command_invocation, CommandInvocationInitial)
+        if command_invocation.cmd_name == self.command_name:
             return True
-        if node.cmd_name == "xargs" and "xargs_" + node.operand_list[0].name == self.command_name:
+        if command_invocation.cmd_name == "xargs" and "xargs_" + command_invocation.operand_list[0].name == self.command_name:
             return True
         return False
     

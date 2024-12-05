@@ -4,7 +4,7 @@ import re
 from typing import Dict, List, Optional, Tuple
 from stream.command_signature import CommandSignature
 from stream.signature_loader import SignatureLoader
-from stream.shell_parser_util import extract_pipe_nodes_from_file, parse_shell_to_asts
+from stream.shell_parser_util import extract_pipe_nodes_from_file, get_command_invocation, parse_shell_to_asts
 from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
@@ -42,9 +42,10 @@ class ShellParser:
         for node in self.pipeline_nodes:
             commands_in_pipe : list[CommandInvocationInitial] = []
             for command_node in node.items:
-                # assert (isinstance(command_node, CommandNode))
-                cmd_raw = command_node.pretty()
-                commands_in_pipe.append(annot_parse(cmd_raw))
+                # cmd_raw = command_node.pretty()
+                # parsed_command_invocation = annot_parse(cmd_raw)
+                parsed_command_invocation = get_command_invocation(command_node)
+                commands_in_pipe.append(parsed_command_invocation)
             pipelines.append([self.parse_command_node(command) for command in commands_in_pipe])
         return pipelines
     

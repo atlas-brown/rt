@@ -1,7 +1,9 @@
 #!/bin/bash
 
 
-echo "${_record_seg}" | tr "}" "a" | cut -d : -f 2
+# curl -s https://api.github.com/repos/Flutterando/slidy/releases | grep browser_download_url | grep "linux-x64[.]tar[.]gz" | head -n 1 | cut -d "\"" -f 4
+
+# echo "${_record_seg}" | tr "}" "a" | cut -d : -f 2
 
 # cat "${dist_dir}"/*.js | grep -q -e "from 'env'" -e "aaa"
 
