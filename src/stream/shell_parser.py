@@ -8,6 +8,7 @@ from stream.shell_parser_util import extract_pipe_nodes_from_file, get_command_i
 from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
+import tempfile
 
 from stream.user_annotation import AnnotationType, UserAnnotation
 
@@ -52,13 +53,16 @@ class ShellParser:
     # to handle the difference between the original command and the parsed command (pretty version)
     # current solution is using a temp file to parse the command and get the pretty version
     def refine_command(self, command: str) -> str:
-        with open("temp.sh", "w") as f:
-            f.write(command)
-        ast_nodes = parse_shell_to_asts("temp.sh")
-        os.remove("temp.sh")
-        if ast_nodes is None or len(ast_nodes) == 0:
-            raise ValueError(f"Parsing failed: {command}")
-        return ast_nodes[0][0].pretty()
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.sh', delete=True) as temp_file:
+            temp_file.write(command)
+            temp_file.flush()
+            
+            ast_nodes = parse_shell_to_asts(temp_file.name)
+            
+            if ast_nodes is None or len(ast_nodes) == 0:
+                raise ValueError(f"Parsing failed: {command}")
+                
+            return ast_nodes[0][0].pretty()
 
     def extract_annotations_from_file(self) -> Dict[CommandNode, list[UserAnnotation]]:
         annotations: Dict[CommandNode, list[UserAnnotation]] = {}
