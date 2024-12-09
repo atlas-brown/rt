@@ -467,7 +467,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless grep",
         "reason": "10. EXPLAIN: First uniq makes second uniq redundant, wasting processing",
         "user_annotations": []
     },
@@ -476,7 +476,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of grep",
         "reason": "11. EXPLAIN: tr removes characters needed by grep pattern",
         "user_annotations": []
     },
@@ -485,7 +485,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of sed",
         "reason": "13. EXPLAIN: sed removes all input before grep can process it",
         "user_annotations": []
     },
@@ -494,7 +494,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless cut",
         "reason": "14. EXPLAIN: Multiple tr commands conflict in character transformations",
         "user_annotations": []
     },
@@ -503,7 +503,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of grep",
         "reason": "15. EXPLAIN: First grep removes all lines that second grep needs",
         "user_annotations": []
     },
@@ -521,7 +521,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless grep",
         "reason": "17. EXPLAIN: Second sort makes first sort and uniq ineffective",
         "user_annotations": []
     },
@@ -548,7 +548,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of grep",
         "reason": "20. EXPLAIN: Multiple conflicting character transformations",
         "user_annotations": []
     },
@@ -557,7 +557,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of grep",
         "reason": "21. EXPLAIN: Second grep negates first grep's output",
         "user_annotations": []
     },
@@ -566,7 +566,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless cut",
         "reason": "22. EXPLAIN: tr removes delimiter needed by cut",
         "user_annotations": []
     },
@@ -575,7 +575,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless sed",
         "reason": "23. EXPLAIN: Multiple sorts conflict, making uniq ineffective",
         "user_annotations": []
     },
@@ -584,7 +584,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of grep",
         "reason": "24. EXPLAIN: tr removes characters needed for grep pattern matching",
         "user_annotations": []
     },
@@ -593,7 +593,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless grep",
         "reason": "25. EXPLAIN: Second uniq is redundant after first uniq and sort",
         "user_annotations": []
     },
@@ -602,7 +602,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of sed",
         "reason": "26. EXPLAIN: sed removes all lines before sort can process them",
         "user_annotations": []
     },
@@ -656,7 +656,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "cut does not have enough fields",
         "reason": "3. EXPLAIN: Double sorting negates the count of unique entries, making the final count incorrect",
         "user_annotations": []
     },
@@ -665,7 +665,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of tr",
         "reason": "5. EXPLAIN: Multiple sed operations conflict, resulting in mangled output",
         "user_annotations": []
     },
@@ -683,7 +683,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless grep",
         "reason": "7. EXPLAIN: Incorrect order of operations - sorting before tr causes wrong grouping",
         "user_annotations": []
     },
@@ -692,7 +692,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless grep",
         "reason": "8. EXPLAIN: Multiple sort operations with different keys conflict",
         "user_annotations": []
     },
@@ -701,7 +701,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "sort without -n heuristic",
         "reason": "11. EXPLAIN: Sorting after uniq -c breaks the count format",
         "user_annotations": []
     },
@@ -710,7 +710,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of grep",
         "reason": "12. EXPLAIN: Multiple sed substitutions conflict and create invalid input for grep",
         "user_annotations": []
     },
@@ -719,16 +719,16 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "sort without -n heuristic",
         "reason": "14. EXPLAIN: Second sort ruins the numeric sorting of the first sort",
         "user_annotations": []
     },
     {
         "content": "cat /etc/passwd | tr -d ':' | sed 's/:[^:]*$//g' | sort | uniq | grep -v '^$' | tr '/' '\\n' | wc -l",
         "interesting?": true,
-        "detectable": true,
+        "detectable": false,
         "category": "<missing>",
-        "notes": "",
+        "notes": "may not handle regex in sed",
         "reason": "15. EXPLAIN: tr removes characters needed for the subsequent sed pattern matching",
         "user_annotations": []
     },
@@ -755,7 +755,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of grep",
         "reason": "18. EXPLAIN: The second grep conflicts with the first grep's output",
         "user_annotations": []
     },
@@ -764,7 +764,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless grep",
         "reason": "19. EXPLAIN: Multiple cut operations with different delimiters conflict",
         "user_annotations": []
     },
@@ -773,14 +773,14 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless grep",
         "reason": "20. EXPLAIN: The sort -u removes duplicates needed for uniq -c",
         "user_annotations": []
     },
     {
         "content": "ls -l | sed 's/ \\+/ /g' | sed 's/\\n//g' | tr ' ' '\\n' | sort | uniq -c | grep -v '^$' | cut -d' ' -f1 | wc -l",
         "interesting?": true,
-        "detectable": true,
+        "detectable": false,
         "category": "<missing>",
         "notes": "",
         "reason": "21. EXPLAIN: Second sed removes the newlines needed for counting",
@@ -800,7 +800,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless grep",
         "reason": "23. EXPLAIN: Multiple sort operations with different keys make the uniq count incorrect",
         "user_annotations": []
     },
@@ -809,7 +809,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless grep",
         "reason": "25. EXPLAIN: Multiple tr operations conflict in character transformation",
         "user_annotations": []
     },
@@ -818,7 +818,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "dropped tr -s",
         "reason": "26. EXPLAIN: The cut operation removes the field needed for subsequent sorting",
         "user_annotations": []
     },
@@ -843,7 +843,7 @@
     {
         "content": "seq 1 1000 | grep -v '^[0-9]*0$' | sort -n | uniq | sort | uniq -c | sort -nr | uniq | wc -l",
         "interesting?": true,
-        "detectable": true,
+        "detectable": false,
         "category": "<missing>",
         "notes": "",
         "reason": "29. EXPLAIN: Multiple uniq operations with different sort orders conflict",
@@ -854,7 +854,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of grep",
         "reason": "30. EXPLAIN: The sed substitution removes content needed by subsequent grep pattern",
         "user_annotations": []
     },
@@ -863,14 +863,14 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless tr",
         "reason": "1. EXPLAIN: Tries to count words but loses original input by using -l with first wc, making subsequent operations meaningless",
         "user_annotations": []
     },
     {
         "content": "cat /etc/passwd | cut -d: -f1 | sort | uniq -c | sort -n | uniq | sort -r | xargs grep .",
         "interesting?": true,
-        "detectable": true,
+        "detectable": false,
         "category": "<missing>",
         "notes": "",
         "reason": "3. EXPLAIN: Double sort is redundant, and second uniq loses context from first uniq count",
@@ -888,9 +888,9 @@
     {
         "content": "seq 100 | tr '[ ]' '[\\t]' | sort | uniq | cut -d' ' -f1 | xargs grep . | wc -l",
         "interesting?": true,
-        "detectable": true,
+        "detectable": false,
         "category": "<missing>",
-        "notes": "",
+        "notes": "may not handle regex in sed",
         "reason": "5. EXPLAIN: Sorts numerically after converting to text, losing numerical order",
         "user_annotations": []
     },
@@ -917,14 +917,14 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "may be detectable with heuristics of xargs grep",
         "reason": "8. EXPLAIN: Loses file paths by transforming newlines before xargs",
         "user_annotations": []
     },
     {
         "content": "ls -l | sort -k5n | sort -k9 | sort -k6M | tr -s ' ' | cut -d' ' -f9 | xargs grep . | wc -l",
         "interesting?": true,
-        "detectable": true,
+        "detectable": false,
         "category": "<missing>",
         "notes": "",
         "reason": "9. EXPLAIN: Multiple sorts with different keys make final sort meaningless",
@@ -942,7 +942,7 @@
     {
         "content": "find . -name \"*.txt\" | uniq | sort | tr '[/]' '[\\t]' | cut -f2 | sort | uniq -c | xargs grep .",
         "interesting?": true,
-        "detectable": true,
+        "detectable": false,
         "category": "<missing>",
         "notes": "",
         "reason": "12. EXPLAIN: Uniq won't work without sort, but sort is after uniq",
@@ -951,7 +951,7 @@
     {
         "content": "cat /etc/hosts | sed 's/localhost/127.0.0.1/' | sed 's/127.0.0.1/localhost/' | sort | uniq | tr ' ' '\\t' | cut -f1 | xargs grep .",
         "interesting?": true,
-        "detectable": true,
+        "detectable": false,
         "category": "<missing>",
         "notes": "",
         "reason": "13. EXPLAIN: Multiple sed operations cancel each other out",
@@ -960,7 +960,7 @@
     {
         "content": "seq 100 | grep [02468] | sort -n | tr '\\n' ' ' | uniq -c | sort -n | cut -d' ' -f2 | xargs grep .",
         "interesting?": true,
-        "detectable": true,
+        "detectable": false,
         "category": "<missing>",
         "notes": "",
         "reason": "15. EXPLAIN: Sort after uniq breaks the count grouping",
@@ -978,9 +978,9 @@
     {
         "content": "find . -type f | tr '/' ' ' | sort | uniq | tr ' ' '/' | xargs find -name | sort | uniq -c",
         "interesting?": true,
-        "detectable": true,
+        "detectable": false,
         "category": "<missing>",
-        "notes": "",
+        "notes": "file not found if name contains space",
         "reason": "17. EXPLAIN: Removes path separator before find operation",
         "user_annotations": []
     },
@@ -1016,7 +1016,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless tr",
         "reason": "23. EXPLAIN: Sort after count makes grouping meaningless",
         "user_annotations": []
     },
@@ -1025,7 +1025,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "may be detectable with herustics of xargs grep",
         "reason": "24. EXPLAIN: Multiple transformations of newlines break xargs input",
         "user_annotations": []
     },
@@ -1034,7 +1034,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "meaningless tr",
         "reason": "25. EXPLAIN: Removes crucial whitespace before counting",
         "user_annotations": []
     },
@@ -1043,7 +1043,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "sort -k does not have enough fields",
         "reason": "26. EXPLAIN: Sort criteria conflict makes final order unpredictable",
         "user_annotations": []
     },
@@ -1051,8 +1051,8 @@
         "content": "cat /etc/passwd | tr ':' ' ' | tr ' ' ':' | cut -d: -f1,7 | sort | uniq -c | xargs grep .",
         "interesting?": true,
         "detectable": true,
-        "category": "<missing>",
-        "notes": "",
+        "category": "",
+        "notes": "may be detectable with herustics of xargs grep",
         "reason": "27. EXPLAIN: Converts delimiters making field extraction impossible",
         "user_annotations": []
     },
@@ -1061,7 +1061,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "empty output of grep",
         "reason": "28. EXPLAIN: Multiple greps with contradictory patterns",
         "user_annotations": []
     },
@@ -1070,7 +1070,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "cut does not have enough fields",
         "reason": "29. EXPLAIN: Removes spaces needed for proper field cutting",
         "user_annotations": []
     },
@@ -1079,7 +1079,7 @@
         "interesting?": true,
         "detectable": true,
         "category": "<missing>",
-        "notes": "",
+        "notes": "cut does not have enough fields",
         "reason": "30. EXPLAIN: Multiple text transformations break field structure",
         "user_annotations": []
     }
