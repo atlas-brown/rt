@@ -1,5 +1,11 @@
 # StreamTypes
 
+## Install dependencies
+
+```bash
+pip3 install shasta libdash pash_annotations pytest z3-solver
+```
+
 ## Run evaluations
 
 ```bash

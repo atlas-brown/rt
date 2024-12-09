@@ -10,9 +10,10 @@ from functools import wraps
 from typing import Optional, List, Tuple
 from stream.checking_result import CheckingResult
 from stream.type_checker import TypeChecker
+from stream.timeout_util import TimeoutError
 
-pipeline_pattern = re.compile(r'(\bgrep\b|\bawk\b|\bsed\b|\bcut\b|\bsort\b|\buniq\b|\btr\b|\bxargs\b|\becho\b|\bcat\b).*\|\s*')
-TIMEOUT_SECONDS = 2
+ENABLE_TIMEOUT = False
+TIMEOUT_SECONDS = 10
 
 IS_BUGGY_LABEL="is buggy?"
 SIGNALED_LABEL="warning signaled?"
@@ -21,67 +22,14 @@ CATEGORY_LABEL="category"
 CRASH_REASON_LABEL="tool runtime error"
 TIMEOUT_REASON=f"Timeout after {TIMEOUT_SECONDS}s"
 
-class TimeoutError(Exception):
-    pass
+# class LogHandler(logging.Handler):
+#     def __init__(self):
+#         super().__init__()
+#         self.log_entries = []
 
-def timeout_handler(signum, frame):
-    raise TimeoutError("Evaluation timed out")
-
-def with_timeout(seconds):
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            result_queue = multiprocessing.Queue()
-            
-            def worker(queue):
-                try:
-                    os.setpgrp()
-                    result = func(*args, **kwargs)
-                    queue.put(result)
-                except Exception as e:
-                    queue.put(e)
-
-            process = multiprocessing.Process(target=worker, args=(result_queue,))
-            process.start()
-            
-            try:
-                result = result_queue.get(timeout=seconds)
-                
-                if isinstance(result, Exception):
-                    raise result
-                    
-                return result
-            except Empty:
-                try:
-                    os.killpg(process.pid, signal.SIGKILL)
-                except:
-                    pass
-                raise TimeoutError(f"Function timed out after {seconds} seconds")
-            finally:
-                if process.is_alive():
-                    process.terminate()
-                    process.join(timeout=0.1)
-                    try:
-                        os.killpg(process.pid, signal.SIGKILL)
-                    except:
-                        pass
-                while not result_queue.empty():
-                    try:
-                        result_queue.get_nowait()
-                    except:
-                        pass
-
-        return wrapper
-    return decorator
-
-class LogHandler(logging.Handler):
-    def __init__(self):
-        super().__init__()
-        self.log_entries = []
-
-    def emit(self, record):
-        log_entry = self.format(record)
-        self.log_entries.append(log_entry)
+#     def emit(self, record):
+#         log_entry = self.format(record)
+#         self.log_entries.append(log_entry)
 
 # log_handler = LogHandler()
 # logging.basicConfig(level=logging.INFO, handlers=[log_handler, logging.StreamHandler()])
@@ -119,9 +67,6 @@ def calculate_fail_rate(labels, preds):
     logging.info(f'Failed predictions: {fail_count}')
     return fail_count / len(labels)
 
-# @with_timeout(TIMEOUT_SECONDS)
-def evaluate_pipeline_with_timeout(type_checker: TypeChecker) -> Optional[CheckingResult]:
-    return type_checker.check_next()
 
 def evaluate_pipeline_content(address: str) -> list[dict]:
     pipeline_data_template = {
@@ -137,13 +82,13 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
     pipeline_data_list = []
     
     try:        
-        type_checker = TypeChecker(address, enable_user_annotations=False, enable_rule_empty_output=False)
+        type_checker = TypeChecker(address, enable_user_annotations=False, enable_rule_empty_output=False, enable_stage_timeout=ENABLE_TIMEOUT, stage_timeout=TIMEOUT_SECONDS)
 
         try:
             while True:
                 start_time = time.time()
                 logging.debug(f'Evaluating pipeline from {address}')
-                checking_result = evaluate_pipeline_with_timeout(type_checker)
+                checking_result = type_checker.check_next()
                 if checking_result is None:
                     break
 

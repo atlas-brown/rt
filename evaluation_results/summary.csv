@@ -1,7 +1,7 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,45636,250,889,889, 
- , , , ,859,<missing>
+correct,45636,1046,774,774, 
+ , , , ,744,<missing>
  , , , ,1,parser mistake
  , , , ,4,hard awk
  , , , ,11,unsopported options/flags/operands - about find
@@ -9,7 +9,7 @@ correct,45636,250,889,889,
  , , , ,6,need assume annotation
  , , , ,7,need assume annotation and cut/tr/sed procedures
 --------,-----,-----,--------,---------------,--------
-buggy,173,10,52,111, 
+buggy,173,11,52,110, 
  , , , ,3,semantic mistake - about cp/rm/stat
  , , , ,1,semantic mistake - sort
  , , , ,1,semantic mistake - about date
@@ -18,12 +18,12 @@ buggy,173,10,52,111,
  , , , ,1,nice and self-contained; dup of an earlier one
  , , , ,1,with useless no-op warning
  , , , ,3,dropped cut; should be detectable with assert annotations
- , , , ,3,dropped cut; should be detectable with assert annotations and tr/sed/cut procedures
  , , , ,3,dropped grep; should be detectable with assert annotations and tr/sed/cut procedures
  , , , ,1,drop tr; should be detectable with assert annotations and tr/sed/cut procedures
  , , , ,1,drop cut; should be detectable with assert annotations and tr/sed/cut procedures
  , , , ,2,swap tr and grep; should be detectable with assert annotations and tr/sed/cut procedures
  , , , ,3,dropped tr; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,2,dropped cut; should be detectable with assert annotations and tr/sed/cut procedures
  , , , ,10,dropped tr; should be detectable with assert annotations
  , , , ,3,dropped -c in tr; should be detectable with assert annotations and tr/sed/cut procedures
  , , , ,1,dropped flags in wc; should be detectable with assert annotations
@@ -48,4 +48,4 @@ buggy,173,10,52,111,
  , , , ,2,with special case for expr?
  , , , ,1,with input annotations; or warning about arbitrary stdin format
 ========,=====,=====,========,===============,========
-total,46165,260, ,1000, 
+total,42242,1057, ,884, 

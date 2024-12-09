@@ -4,27 +4,31 @@ from stream.regex_to_z3 import regex_to_z3_expr
 import sre_parse
 import logging
 from stream.checking_result import CheckingResult
+from stream.timeout_util import run_with_timeout
 
 class RegularType:
     def __init__(self, pattern: str):
         self.pattern = pattern
         self._regex = None
 
-    @property
-    def regex(self):
+    def init_regex(self):
         if self._regex is None:
             self._regex = regex_to_z3_expr(sre_parse.parse(preprocess(self.pattern)))
+
+    @property
+    def regex(self):
+        self.init_regex()
         return self._regex
     
     def is_subtype(self, other: 'RegularType') -> CheckingResult:
         logging.debug("-"*60)
         logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
-        if (other.pattern == ".*"):
-            return CheckingResult(False)
-        s = z3.Solver()
         logging.debug(f"self_regex: {self.regex}")
         logging.debug(f"other_regex: {other.regex}")
         logging.debug("-"*60)
+        if (other.pattern == ".*"):
+            return CheckingResult(False)
+        s = z3.Solver()
         intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
         s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
         checking_result = CheckingResult(s.check() == z3.sat)
@@ -36,6 +40,12 @@ class RegularType:
             checking_result.set_counterexample(s.model()[x].as_string())
         return checking_result
     
+    # will throw TimeoutError if the function takes too long to run
+    def is_subtype_with_timeout(self, other: 'RegularType', timeout: int) -> CheckingResult:
+        self.init_regex()
+        other.init_regex()
+        return run_with_timeout(self.is_subtype, timeout, other)
+
     def is_empty(self) -> bool:
         s = z3.Solver()
         logging.debug(f"self_regex: {self.regex}")

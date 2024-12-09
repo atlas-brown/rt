@@ -11,10 +11,14 @@ class TypeChecker:
                  pipeline_address: str, 
                  enable_user_annotations: bool = True,
                  enable_rule_empty_output: bool = True,
+                 enable_stage_timeout: bool = False,
+                 stage_timeout: int = 10
         ) -> None:
         self.pipelines = None
         self.pipeline_nodes = None
         self.current_index = 0
+        self.enable_stage_timeout = enable_stage_timeout
+        self.stage_timeout = stage_timeout
         self.enable_user_annotations = enable_user_annotations
         self.enable_rule_empty_output = enable_rule_empty_output
         self.shell_parser = ShellParser(pipeline_address, enable_user_annotations)
@@ -27,6 +31,11 @@ class TypeChecker:
         
         for pipeline in self.pipeline_nodes:
             logging.debug(f"Pipeline: {pipeline.pretty()}")
+
+    def check_subtype(self, type1: RegularType, type2: RegularType) -> CheckingResult:
+        if self.enable_stage_timeout:
+            return type1.is_subtype_with_timeout(type2, self.stage_timeout)
+        return type1.is_subtype(type2)
 
     def check_next(self) -> Optional[CheckingResult]:
         if not self.pipelines:
@@ -42,7 +51,7 @@ class TypeChecker:
         parsed_commands = self.pipelines[self.current_index]
         pipeline_node = self.pipeline_nodes[self.current_index]
         self.current_index += 1
-        logging.debug(f"Checking pipeline: {pipeline_node.pretty()}")
+        logging.info(f"Checking pipeline: {pipeline_node.pretty()}")
         checking_result = CheckingResult(False, pipeline_node)
         
         for command_node, parsed_command in zip(pipeline_node.items, parsed_commands):
@@ -54,7 +63,7 @@ class TypeChecker:
             corresponding_annotations = self.annotations.get(command_node, [])
             input_type = signature.determine_input_type(parsed_command_invocation, corresponding_annotations)
             
-            checking_result.set(previous_output_type.is_subtype(input_type))
+            checking_result.set(self.check_subtype(previous_output_type, input_type))
             
             if checking_result.ill_typed:
                 checking_result.set_message(
@@ -76,7 +85,7 @@ class TypeChecker:
             # process assert annotation
             for annotation in corresponding_annotations:
                 if annotation.annotation_type == AnnotationType.ASSERT:
-                    checking_result.set(previous_output_type.is_subtype(RegularType(annotation.pattern)))
+                    checking_result.set(self.check_subtype(current_output_type, RegularType(annotation.pattern)))
                     if checking_result.ill_typed:
                         checking_result.set_message(
                             f"Output type '{previous_output_type.pattern}' is not compatible with asserted output '{annotation.pattern}' for command '{signature.command_name}'."
