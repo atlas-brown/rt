@@ -9,7 +9,7 @@ correct,45636,1046,774,774,
  , , , ,6,need assume annotation
  , , , ,7,need assume annotation and cut/tr/sed procedures
 --------,-----,-----,--------,---------------,--------
-buggy,173,11,52,110, 
+buggy,296,51,69,176, 
  , , , ,3,semantic mistake - about cp/rm/stat
  , , , ,1,semantic mistake - sort
  , , , ,1,semantic mistake - about date
@@ -44,8 +44,8 @@ buggy,173,11,52,110,
  , , , ,1,with a warning about stdin arbitrary format?
  , , , ,1,with annotations/pre-execution analysis for /etc/group format
  , , , ,2,with input annotations; or possibly output annotations
- , , , ,1,<missing>
+ , , , ,67,<missing>
  , , , ,2,with special case for expr?
  , , , ,1,with input annotations; or warning about arbitrary stdin format
 ========,=====,=====,========,===============,========
-total,42242,1057, ,884, 
+total,42365,1097, ,950, 
