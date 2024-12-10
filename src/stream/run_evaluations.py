@@ -283,7 +283,9 @@ if __name__ == "__main__":
                     "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
                     "./full_benchmark/pash_benchmark/benchmarks"
         ],
-        invalid_dirs=["./evaluation_pipelines/invalid",
-                      "./full_benchmark/curated_mutants"
+        invalid_dirs=[
+                        "./evaluation_pipelines/invalid",
+                      "./full_benchmark/curated_mutants",
+                      "./full_benchmark/llm_injection/pipelines",
         ]
     )

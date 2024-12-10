@@ -6,7 +6,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/1.sh"
     },
     {
         "content": "cat file.txt | wc -l | grep \"pattern\"",
@@ -15,7 +16,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/2.sh"
     },
     {
         "content": "cat file.txt | tr '\\t' ',' | cut -f1",
@@ -24,7 +26,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/3.sh"
     },
     {
         "content": "cat file.txt | tr 'a-z' 'A-Z' | grep 'pattern'",
@@ -33,7 +36,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/4.sh"
     },
     {
         "content": "cat file.txt | sed 's/foo/bar/g' | grep \"foo\"",
@@ -42,7 +46,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/5.sh"
     },
     {
         "content": "cat file.txt | wc -c | tr '\\t' '_'",
@@ -51,7 +56,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/6.sh"
     },
     {
         "content": "grep \"pattern\" file.txt | wc -l | cut -f2",
@@ -60,7 +66,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/7.sh"
     },
     {
         "content": "find . -type f | grep \".txt\" | wc -l | tr 'a-z' '0-9' | sort | uniq",
@@ -69,7 +76,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/8.sh"
     },
     {
         "content": "seq 1 100 | tr '1-9' 'a-i' | sort -n | uniq | grep 'a' | wc -l",
@@ -78,7 +86,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/9.sh"
     },
     {
         "interesting?": true,
@@ -88,7 +97,8 @@
             "# @assume \"cat file.csv\" --> \".*,.*,.*,.*,.*\""
         ],
         "detectable": true,
-        "content": "cat file.csv | grep 'active' | sort | cut -d',' -f10 | uniq | wc -l"
+        "content": "cat file.csv | grep 'active' | sort | cut -d',' -f10 | uniq | wc -l",
+        "address": "full_benchmark/llm_injection/pipelines/10.sh"
     },
     {
         "content": "cat file.txt | xargs cat $1 | grep \"pattern\" | sort | uniq",
@@ -97,7 +107,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/11.sh"
     },
     {
         "content": "ls | tr 'a-z' 'A-Z' | grep \".sh\" | sort | uniq | cut -d'.' -f1 | sed 's/^/File: /' | wc -l | xargs echo",
@@ -106,7 +117,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/12.sh"
     },
     {
         "interesting?": true,
@@ -116,7 +128,8 @@
             "# @assume \"ls\" --> \".*\""
         ],
         "detectable": true,
-        "content": "ls | grep \".txt\" | cut -d' ' -f5 | sort -n | uniq | xargs -I {} find . -name \"{}\" | tr 'a-z' 'A-Z' | wc -l"
+        "content": "ls | grep \".txt\" | cut -d' ' -f5 | sort -n | uniq | xargs -I {} find . -name \"{}\" | tr 'a-z' 'A-Z' | wc -l",
+        "address": "full_benchmark/llm_injection/pipelines/13.sh"
     },
     {
         "content": "ls -l | cut -d' ' -f5 | sort -n | uniq | grep '[0-9]' | wc -l | tr -d '\\n' | sed 's/^/Sizes: /'",
@@ -125,7 +138,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/14.sh"
     },
     {
         "content": "find . -type f | xargs cat | sed 's/$/XX/' | tr 'A-Z' 'a-z' | sed 's/XX/\\n/' | sort | uniq -d | grep \".\" | wc -l | sort -n",
@@ -134,7 +148,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/15.sh"
     },
     {
         "content": "find . -name \"*.txt\" | xargs cat | tr -d ' ' | cut -d' ' -f1 | sort | uniq -c | sort -nr | grep \"[0-9]\" | wc -l",
@@ -143,7 +158,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/16.sh"
     },
     {
         "content": "find . | grep \".*\\.txt\" | xargs cat | tr A-Z a-z | tr -s ' ' '\\n' | sort -n | uniq -c | sort -n | wc -l",
@@ -152,7 +168,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "1. EXPLAIN: Tries to count words but loses data due to unquoted xargs breaking on spaces, and sort -n expects numeric input but gets text",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/17.sh"
     },
     {
         "content": "find . -type f | xargs cat | sed 's/[0-9]//g' | sort | tr A-Z a-z | uniq | grep \"[a-z]\" | wc -l",
@@ -161,7 +178,8 @@
         "category": "unsorted input to uniq",
         "notes": "",
         "reason": "2. EXPLAIN: Incorrect order of operations - tries to sort before converting case, causing duplicates to remain; sed loses multiline context",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/18.sh"
     },
     {
         "content": "cat file.txt | tr ' ' '\\n' | cut -f2 | sort -u | uniq -c | tr -s ' ' | cut -d' ' -f2 | sort -n",
@@ -170,7 +188,8 @@
         "category": "",
         "notes": "no enough fields to cut",
         "reason": "3. EXPLAIN: Cut expects tab delimiter but input has spaces; sort -u removes duplicates before counting frequency",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/19.sh"
     },
     {
         "content": "find . -name \"*.log\" | xargs cat | grep -v \"[0-9]\" | sed 's/error/ERROR/g' | tr -d '\\n' | sort | uniq -c",
@@ -179,7 +198,8 @@
         "category": "single line to sort",
         "notes": "",
         "reason": "4. EXPLAIN: Grep -v removes lines containing numbers before sed can process them; tr deletes newlines causing all content to merge",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/20.sh"
     },
     {
         "content": "cat logs.txt | sed 's/.*ERROR://g' | cut -d' ' -f1 | sort -k2 | uniq | grep \"[A-Z]\" | wc -l",
@@ -188,7 +208,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "5. EXPLAIN: Sort -k2 fails because cut creates single-column output; sed loses line endings in multi-line matches",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/21.sh"
     },
     {
         "content": "find . -type f | xargs cat | tr -s ' ' '\\n' | tr '\\n' ' ' | grep \"[a-z]\" | sort -r | uniq -c | wc -w",
@@ -197,7 +218,8 @@
         "category": "single line to sort",
         "notes": "",
         "reason": "6. EXPLAIN: Multiple tr commands conflict - second tr undoes first tr's work; xargs breaks on filenames with spaces",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/22.sh"
     },
     {
         "content": "seq 100 | sed 's/[0-9]/&,/g' | cut -c1-5 | sort -n | tr ',' ' ' | uniq | grep \"[0-9]\" | wc -l",
@@ -206,7 +228,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "7. EXPLAIN: Cut expects fixed width but gets variable width; sort numeric fails on non-numeric data",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/23.sh"
     },
     {
         "content": "cat data.txt | sed 's/[aeiou]/*/g' | grep \"*\" | sort -r | uniq | tr '*' 'X' | sort -n | wc -l",
@@ -215,7 +238,8 @@
         "category": "unsorted input to uniq",
         "notes": "",
         "reason": "8. EXPLAIN: Uniq fails because input isn't sorted; sed pattern causes unintended matches",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/24.sh"
     },
     {
         "content": "ls -l | tr -s ' ' | cut -d' ' -f9 | tr ' ' '_' | sort -k2 | grep \"^[a-z]\" | grep \"[A-Z]\" | wc -l",
@@ -224,7 +248,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "9. EXPLAIN: Sort -k2 fails after tr removes spaces; multiple greps with conflicting patterns",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/25.sh"
     },
     {
         "content": "find . -name \"*.txt\" | xargs cat | sed '/^$/d' | sort | grep \"^[A-Z]\" | tr A-Z a-z | uniq -c | wc -l",
@@ -233,7 +258,8 @@
         "category": "unsorted input to uniq",
         "notes": "",
         "reason": "10. EXPLAIN: Sed loses line context; sort before grep changes matching patterns",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/26.sh"
     },
     {
         "content": "find . -type f | xargs cat | tr -d '[:punct:]' | sed 's/[0-9]/(&)/g' | grep \"([0-9])\" | sort | uniq -c",
@@ -242,7 +268,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "12. EXPLAIN: Tr removes characters needed for later pattern matching; sed substitution breaks line structure",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/27.sh"
     },
     {
         "content": "seq 50 | sed 's/[0-9]/& /g' | sed 's/^/Line: /' | sort -n | tr ' ' '\\t' | cut -f2 | uniq | wc -l",
@@ -251,7 +278,8 @@
         "category": "<missing>",
         "notes": "sort -n expects numeric input but gets text",
         "reason": "13. EXPLAIN: Sort -n fails on mixed numeric and text; multiple sed commands interfere with each other",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/28.sh"
     },
     {
         "content": "ls -R | grep \"\\.log$\" | xargs cat | tr ' ' '_' | cut -d' ' -f1 | grep \"[a-z]\" | grep \"[A-Z]\" | wc -l",
@@ -260,7 +288,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "14. EXPLAIN: Cut fails because tr changed field delimiter; grep patterns conflict",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/29.sh"
     },
     {
         "content": "find . -type f -print0 | xargs -0 cat | sed 's/0x[0-9a-f]*/\\n&\\n/g' | sort -n | tr '\\n' ' ' | uniq | wc -w",
@@ -269,7 +298,8 @@
         "category": "",
         "notes": "can be detected with heuristic rules (xargs cat)",
         "reason": "16. EXPLAIN: Sort numeric fails on hex values; sed loses multiline patterns",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/30.sh"
     },
     {
         "content": "ls -l | cut -d' ' -f9 | cut -d'.' -f1 | sort | grep \"^[0-9]\" | tr '[:lower:]' '[:upper:]' | uniq -c",
@@ -278,7 +308,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "17. EXPLAIN: Multiple cut commands with incompatible delimiters; sort before grep changes patterns",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/31.sh"
     },
     {
         "content": "cat file.txt | tr -d '[:blank:]' | cut -d',' -f1,2 | sort -k2 | sed 's/,/\\n/g' | uniq | wc -l",
@@ -287,7 +318,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "18. EXPLAIN: Tr removes characters needed for field separation; sort -k fails after field structure is lost",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/32.sh"
     },
     {
         "content": "seq 100 | sed 's/^/Line /' | cut -c1-8 | uniq | sort -n | tr ' ' '\\t' | grep \"[0-9]\" | wc -l",
@@ -296,7 +328,8 @@
         "category": "<missing>",
         "notes": "sort -n expects numeric input but gets text",
         "reason": "20. EXPLAIN: Cut expects fixed columns but gets variable width; uniq before sort loses duplicates",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/33.sh"
     },
     {
         "content": "ls -l | tr -s ' ' | tr ' ' ',' | cut -d',' -f9 | sort -k2 | grep \"[a-z]\" | uniq -c | wc -l",
@@ -305,7 +338,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "21. EXPLAIN: Multiple tr commands destroy field separation; sort -k fails after structure is lost",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/34.sh"
     },
     {
         "content": "cat numbers.txt | sed 's/[0-9]/(&)/g' | tr -d '\\n' | sort -n | tr ')(' '\\n' | uniq | grep \"[0-9]\"",
@@ -314,7 +348,8 @@
         "category": "<missing>",
         "notes": "sort -n expects numeric input but gets text",
         "reason": "22. EXPLAIN: Sed loses line endings; sort numeric fails on transformed data",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/35.sh"
     },
     {
         "content": "find . -type f | xargs cat | grep \"[A-Z]\" | grep \"[a-z]\" | sort | tr A-Z a-z | uniq -c | wc -l",
@@ -323,7 +358,8 @@
         "category": "<missing>",
         "notes": "can be detected with heuristic rules (xargs cat)",
         "reason": "23. EXPLAIN: Multiple grep patterns conflict; sort changes match patterns",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/36.sh"
     },
     {
         "content": "ls -la | tr -s ' ' | tr ' ' ',' | cut -d',' -f5 | sort -n | uniq | grep \"[0-9]\" | wc -l",
@@ -332,7 +368,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "24. EXPLAIN: Cut fails after tr changes field structure; sort numeric on non-numeric data",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/37.sh"
     },
     {
         "content": "cat log.txt | sed 's/ERROR/error/g' | sed 's/error/WARNING/g' | uniq | sort | grep \"WARNING\" | wc -l",
@@ -341,7 +378,8 @@
         "category": "unsorted input to uniq",
         "notes": "",
         "reason": "25. EXPLAIN: Uniq fails because input isn't sorted; multiple sed commands conflict",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/38.sh"
     },
     {
         "content": "find . -name \"*.csv\" | xargs cat | tr -d ',' | sort -k2 | cut -d' ' -f1 | uniq -c | grep \"[0-9]\"",
@@ -350,7 +388,8 @@
         "category": "<missing>",
         "notes": "can be detected with heuristic rules (xargs cat)",
         "reason": "26. EXPLAIN: Sort -k fails after field structure is lost; tr removes needed delimiters",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/39.sh"
     },
     {
         "content": "ls -R | cut -d'/' -f2 | cut -d'.' -f1 | sed 's/[0-9]/(&)/g' | sort -n | uniq | grep \"^(\" | wc -l",
@@ -359,7 +398,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "27. EXPLAIN: Multiple cut commands with conflicting results; sed loses multiline patterns",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/40.sh"
     },
     {
         "content": "cat data.txt | tr -d '[:punct:]' | grep \"[0-9]\" | sort | sed 's/[0-9]/#/g' | uniq -c | wc -l",
@@ -368,7 +408,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "28. EXPLAIN: Tr removes characters needed for later matching; sort before grep changes patterns",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/41.sh"
     },
     {
         "content": "find . -type f | xargs cat | sed 's/[0-9]/#/g' | sed 's/#/*/g' | cut -d'|' -f1 | sort | uniq -c",
@@ -379,7 +420,8 @@
         "reason": "30. EXPLAIN: Cut expects wrong delimiter; multiple sed commands interfere",
         "user_annotations": [
             "# @assume \"xargs cat\" --> \".* .*\""
-        ]
+        ],
+        "address": "full_benchmark/llm_injection/pipelines/42.sh"
     },
     {
         "content": "ls -R | tr -d ' ' | cut -d' ' -f1 | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -nr | sed 's/^[ ]*//' | grep -v '^$' | wc -l",
@@ -388,7 +430,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "1. EXPLAIN: Attempts to count unique words but tr deletes spaces before cut can use them as delimiters",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/43.sh"
     },
     {
         "content": "seq 100 | grep '[0-9]' | sort -n | uniq | tr '0-9' 'a-j' | grep '[k-z]' | wc -l | xargs find . -type f -name",
@@ -397,7 +440,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "2. EXPLAIN: The first grep's output is numerical but second grep expects letters, breaking the pipeline",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/44.sh"
     },
     {
         "content": "find . -type f | sed 'd' | sort -u | cut -d'/' -f2 | tr '[:lower:]' '[:upper:]' | grep '^[A-Z]' | uniq | wc -l | xargs ls",
@@ -406,7 +450,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "3. EXPLAIN: sed removes all lines before sort can process them, making subsequent commands useless",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/45.sh"
     },
     {
         "content": "cat /etc/passwd | tr -d ':' | tr ':' ' ' | cut -d: -f1,6 | sort | uniq | grep -v '^#' | sed 's/$//' | wc -l",
@@ -415,7 +460,8 @@
         "category": "<missing>",
         "notes": "meaningless tr",
         "reason": "4. EXPLAIN: Multiple tr commands conflict - first one removes characters needed by second one",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/46.sh"
     },
     {
         "content": "find . -name \"*.txt\" | sort | sort -r | uniq | tr '.' '_' | sed 's/_txt$//' | grep -v '^\\\\.' | cut -d'/' -f2 | wc -l",
@@ -424,7 +470,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "5. EXPLAIN: Second sort reverses first sort's ordering, making uniq ineffective",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/47.sh"
     },
     {
         "content": "ls -l | tr -d '\\n' | sort -k5,5n | cut -d' ' -f9 | grep . | uniq -c | sed 's/^[ ]*//' | tr ' ' '\\t' | wc -l",
@@ -433,7 +480,8 @@
         "category": "<missing>",
         "notes": "dropped tr -s",
         "reason": "6. EXPLAIN: tr removes newlines before sort can process them properly",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/48.sh"
     },
     {
         "content": "seq 1000 | grep '[0-9]' | grep -v '[0-9]' | sort -n | tr '\\n' ' ' | sed 's/ /\\n/g' | uniq | cut -d' ' -f1 | wc -l",
@@ -442,7 +490,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "7. EXPLAIN: Second grep negates first grep's results, always producing empty output",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/49.sh"
     },
     {
         "content": "find . -type f | tr -d '/' | cut -d'/' -f1 | sort | uniq | grep -v '^\\\\.' | sed 's/$//' | tr '[:lower:]' '[:upper:]' | wc -l",
@@ -451,7 +500,8 @@
         "category": "<missing>",
         "notes": "meaningless cut",
         "reason": "8. EXPLAIN: tr removes delimiter before cut can use it",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/50.sh"
     },
     {
         "content": "seq 100 | sed 's/[0-9]//g' | sort -n | uniq | tr ' ' '\\n' | grep . | cut -d' ' -f1 | wc -l | xargs find . -type f -name",
@@ -460,7 +510,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "9. EXPLAIN: sed removes all numbers before sort -n can sort numerically",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/51.sh"
     },
     {
         "content": "ls -R | sort | uniq | grep -v '^$' | tr '[:upper:]' '[:lower:]' | sort | uniq | cut -d'.' -f1 | wc -l",
@@ -469,7 +520,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "10. EXPLAIN: First uniq makes second uniq redundant, wasting processing",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/52.sh"
     },
     {
         "content": "cat /etc/passwd | tr -d 'a-z' | grep '[a-z]' | sort | uniq | cut -d: -f1 | sed 's/$//' | tr '[:upper:]' '[:lower:]' | wc -l",
@@ -478,7 +530,8 @@
         "category": "<missing>",
         "notes": "empty output of grep",
         "reason": "11. EXPLAIN: tr removes characters needed by grep pattern",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/53.sh"
     },
     {
         "content": "ls -l | sed 'd' | grep '^-' | cut -d' ' -f9 | sort | uniq | tr '[:lower:]' '[:upper:]' | grep '[A-Z]' | wc -l",
@@ -487,7 +540,8 @@
         "category": "<missing>",
         "notes": "empty output of sed",
         "reason": "13. EXPLAIN: sed removes all input before grep can process it",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/54.sh"
     },
     {
         "content": "seq 100 | tr '0-9' 'a-j' | tr 'a-z' 'A-Z' | sort | uniq | grep '[A-J]' | sed 's/$//' | cut -d' ' -f1 | wc -l",
@@ -496,7 +550,8 @@
         "category": "<missing>",
         "notes": "meaningless cut",
         "reason": "14. EXPLAIN: Multiple tr commands conflict in character transformations",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/55.sh"
     },
     {
         "content": "find . -name \"*.txt\" | grep -v \"txt\" | grep \"txt\" | sort | uniq | tr '.' '_' | sed 's/_txt$//' | cut -d'/' -f2 | wc -l",
@@ -505,7 +560,8 @@
         "category": "<missing>",
         "notes": "empty output of grep",
         "reason": "15. EXPLAIN: First grep removes all lines that second grep needs",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/56.sh"
     },
     {
         "content": "ls -l | tr -d ' ' | cut -d' ' -f9 | sort | uniq | grep -v '^\\\\.' | sed 's/$//' | tr '[:lower:]' '[:upper:]' | wc -l",
@@ -514,7 +570,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "16. EXPLAIN: tr removes spaces needed by cut for field separation",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/57.sh"
     },
     {
         "content": "seq 1000 | sort -n | uniq | sort -r | tr '0-9' 'a-j' | grep '[a-j]' | sed 's/$//' | cut -d' ' -f1 | wc -l",
@@ -523,7 +580,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "17. EXPLAIN: Second sort makes first sort and uniq ineffective",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/58.sh"
     },
     {
         "content": "find . -type f | tr -d '\\n' | sort | uniq | cut -d'/' -f2 | grep -v '^\\\\.' | sed 's/$//' | tr '[:lower:]' '[:upper:]' | wc -l",
@@ -532,7 +590,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "18. EXPLAIN: tr removes newlines needed by sort and uniq",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/59.sh"
     },
     {
         "content": "cat /etc/passwd | sed 'd' | grep ':' | cut -d: -f1 | sort | uniq | tr '[:lower:]' '[:upper:]' | grep '[A-Z]' | wc -l",
@@ -541,7 +600,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "19. EXPLAIN: sed removes all content before grep can match",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/60.sh"
     },
     {
         "content": "ls -R | tr '[:lower:]' '[:upper:]' | tr 'A-Z' 'a-z' | sort | uniq | grep '[A-Z]' | sed 's/$//' | cut -d'/' -f2 | wc -l",
@@ -550,7 +610,8 @@
         "category": "<missing>",
         "notes": "empty output of grep",
         "reason": "20. EXPLAIN: Multiple conflicting character transformations",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/61.sh"
     },
     {
         "content": "find . -type f | grep '.' | grep -v '.' | sort | uniq | tr '/' ' ' | cut -d' ' -f2 | sed 's/$//' | wc -l",
@@ -559,7 +620,8 @@
         "category": "<missing>",
         "notes": "empty output of grep",
         "reason": "21. EXPLAIN: Second grep negates first grep's output",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/62.sh"
     },
     {
         "content": "seq 100 | tr -d ' ' | cut -d' ' -f1 | sort -n | uniq | tr '0-9' 'a-j' | grep '[a-j]' | sed 's/$//' | wc -l",
@@ -568,7 +630,8 @@
         "category": "<missing>",
         "notes": "meaningless cut",
         "reason": "22. EXPLAIN: tr removes delimiter needed by cut",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/63.sh"
     },
     {
         "content": "ls -l | sort -k5,5n | sort -k9,9 | uniq | cut -d' ' -f9 | grep -v '^\\\\.' | tr '[:lower:]' '[:upper:]' | sed 's/$//' | wc -l",
@@ -577,7 +640,8 @@
         "category": "<missing>",
         "notes": "meaningless sed",
         "reason": "23. EXPLAIN: Multiple sorts conflict, making uniq ineffective",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/64.sh"
     },
     {
         "content": "cat /etc/passwd | tr -d 'x' | grep 'x:' | cut -d: -f1,6 | sort | uniq | sed 's/$//' | tr '[:lower:]' '[:upper:]' | wc -l",
@@ -586,7 +650,8 @@
         "category": "<missing>",
         "notes": "empty output of grep",
         "reason": "24. EXPLAIN: tr removes characters needed for grep pattern matching",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/65.sh"
     },
     {
         "content": "find . -name \"*.txt\" | sort | uniq | tr '.' '_' | sort | uniq | grep -v '^\\.' | cut -d'/' -f2 | wc -l",
@@ -595,7 +660,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "25. EXPLAIN: Second uniq is redundant after first uniq and sort",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/66.sh"
     },
     {
         "content": "ls -R | sed 'd' | sort -u | cut -d'.' -f1 | tr '[:lower:]' '[:upper:]' | grep '[A-Z]' | uniq | wc -l",
@@ -604,7 +670,8 @@
         "category": "<missing>",
         "notes": "empty output of sed",
         "reason": "26. EXPLAIN: sed removes all lines before sort can process them",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/67.sh"
     },
     {
         "content": "seq 1000 | tr '0-9' 'a-j' | tr 'a-z' '0-9' | sort -n | uniq | grep '[0-9]' | sed 's/$//' | cut -d' ' -f1 | wc -l",
@@ -613,7 +680,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "27. EXPLAIN: Multiple conflicting tr transformations",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/68.sh"
     },
     {
         "content": "ls -l | tr -s ' ' | tr -d ' ' | cut -d' ' -f9 | sort | uniq | grep -v '^\\\\.' | sed 's/$//' | wc -l",
@@ -622,7 +690,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "28. EXPLAIN: tr removes spaces needed by cut for field separation",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/69.sh"
     },
     {
         "content": "find . -type f | grep '.' | grep -v '.' | grep '/' | sort | uniq | tr '/' ' ' | cut -d' ' -f2 | wc -l",
@@ -631,7 +700,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "29. EXPLAIN: Multiple greps that conflict and negate each other",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/70.sh"
     },
     {
         "content": "cat /etc/passwd | sed 'd' | grep ':' | sort | uniq | cut -d: -f1,6 | tr '[:lower:]' '[:upper:]' | grep '[A-Z]' | wc -l",
@@ -640,7 +710,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "30. EXPLAIN: sed removes all content before subsequent commands can process it",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/71.sh"
     },
     {
         "content": "seq 1 100 | tr -d [:alnum:] | sort | uniq | tr [:space:] '\\n' | sort | uniq -c | sort -nr | cut -d' ' -f1 | wc -l",
@@ -649,7 +720,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "1. EXPLAIN: Tries to count unique lines but tr removes all characters, resulting in empty input to uniq",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/72.sh"
     },
     {
         "content": "cat /etc/passwd | tr ':' '\\n' | sort | uniq -c | sort -r | sort -rn | cut -d' ' -f1 | grep -v '^$' | wc -l",
@@ -658,7 +730,8 @@
         "category": "<missing>",
         "notes": "cut does not have enough fields",
         "reason": "3. EXPLAIN: Double sorting negates the count of unique entries, making the final count incorrect",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/73.sh"
     },
     {
         "content": "seq 1 100 | sed 's/[0-9]/X/g' | sed 's/X/#/g' | sed 's/#/*/g' | tr '*' '\\n' | sort | uniq -c | sort -nr | grep -v '^$'",
@@ -667,7 +740,8 @@
         "category": "<missing>",
         "notes": "empty output of tr",
         "reason": "5. EXPLAIN: Multiple sed operations conflict, resulting in mangled output",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/74.sh"
     },
     {
         "content": "find . -type f | grep -v '.' | grep -v '^$' | tr '/' '\\n' | sort | uniq | tr '\\n' ',' | sed 's/,$/\\n/' | wc -l",
@@ -676,7 +750,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "6. EXPLAIN: The first grep removes all lines, making subsequent operations meaningless",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/75.sh"
     },
     {
         "content": "cat /etc/passwd | sort | tr ':' '\\n' | sort | uniq -c | grep -v '^[[:space:]]*$' | cut -d' ' -f2 | wc -l",
@@ -685,7 +760,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "7. EXPLAIN: Incorrect order of operations - sorting before tr causes wrong grouping",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/76.sh"
     },
     {
         "content": "ls -l | tr -s ' ' | cut -d' ' -f5,9 | sort -n | sort -k2 | uniq | grep [0-9] | tr ' ' '\\n' | wc -l",
@@ -694,7 +770,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "8. EXPLAIN: Multiple sort operations with different keys conflict",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/77.sh"
     },
     {
         "content": "cat /etc/passwd | cut -d: -f1,3 | tr ':' '\\n' | sort | uniq -c | sort | grep -v '^$' | cut -d' ' -f1 | wc -l",
@@ -703,7 +780,8 @@
         "category": "<missing>",
         "notes": "sort without -n heuristic",
         "reason": "11. EXPLAIN: Sorting after uniq -c breaks the count format",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/79.sh"
     },
     {
         "content": "find . -type f | sed 's/\\./X/g' | sed 's/X/Y/g' | grep '\\.' | tr '/' '\\n' | sort | uniq -c | sort -nr | wc -l",
@@ -712,7 +790,8 @@
         "category": "<missing>",
         "notes": "empty output of grep",
         "reason": "12. EXPLAIN: Multiple sed substitutions conflict and create invalid input for grep",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/80.sh"
     },
     {
         "content": "seq 1 100 | grep -v '^[0-9]*5$' | sort -n | sort | uniq -c | tr -s ' ' | cut -d' ' -f2 | wc -l",
@@ -721,7 +800,8 @@
         "category": "<missing>",
         "notes": "sort without -n heuristic",
         "reason": "14. EXPLAIN: Second sort ruins the numeric sorting of the first sort",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/81.sh"
     },
     {
         "content": "cat /etc/passwd | tr -d ':' | sed 's/:[^:]*$//g' | sort | uniq | grep -v '^$' | tr '/' '\\n' | wc -l",
@@ -730,7 +810,8 @@
         "category": "<missing>",
         "notes": "may not handle regex in sed",
         "reason": "15. EXPLAIN: tr removes characters needed for the subsequent sed pattern matching",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/82.sh"
     },
     {
         "content": "ls -R | grep -v '^$' | sort | uniq | sort | uniq -c | sort -nr | uniq | cut -d' ' -f1 | wc -l",
@@ -739,7 +820,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "16. EXPLAIN: Multiple uniq operations with intermediate sort break counting",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/83.sh"
     },
     {
         "content": "find . -type f | sed 's/\\///g' | tr '/' '_' | sort | uniq -c | grep -v '^$' | cut -d' ' -f2 | wc -l",
@@ -748,7 +830,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "17. EXPLAIN: sed removes the pattern that the subsequent tr tries to transform",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/84.sh"
     },
     {
         "content": "seq 1 1000 | grep '^[0-9]*[02468]$' | grep '[13579]$' | sort -n | uniq -c | tr -s ' ' | cut -d' ' -f2 | wc -l",
@@ -757,7 +840,8 @@
         "category": "<missing>",
         "notes": "empty output of grep",
         "reason": "18. EXPLAIN: The second grep conflicts with the first grep's output",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/85.sh"
     },
     {
         "content": "cat /etc/passwd | cut -d: -f1,3,7 | cut -d'/' -f1 | sort | uniq -c | grep -v '^$' | tr -s ' ' | cut -d' ' -f2",
@@ -766,7 +850,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "19. EXPLAIN: Multiple cut operations with different delimiters conflict",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/86.sh"
     },
     {
         "content": "find . -type f | sort -u | uniq -c | sort -nr | grep -v '^$' | tr -s ' ' | cut -d' ' -f2 | wc -l",
@@ -775,7 +860,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "20. EXPLAIN: The sort -u removes duplicates needed for uniq -c",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/87.sh"
     },
     {
         "content": "ls -l | sed 's/ \\+/ /g' | sed 's/\\n//g' | tr ' ' '\\n' | sort | uniq -c | grep -v '^$' | cut -d' ' -f1 | wc -l",
@@ -784,7 +870,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "21. EXPLAIN: Second sed removes the newlines needed for counting",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/88.sh"
     },
     {
         "content": "cat /etc/passwd | tr -d ':' | cut -d: -f1,3,7 | sort | uniq | grep -v '^$' | tr '/' '\\n' | wc -l",
@@ -793,7 +880,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "22. EXPLAIN: The tr operation removes characters needed for the cut delimiter",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/89.sh"
     },
     {
         "content": "ls -la | tr -s ' ' | sort -k5 | sort -k9 | uniq -c | grep -v '^$' | cut -d' ' -f1 | wc -l",
@@ -802,7 +890,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "23. EXPLAIN: Multiple sort operations with different keys make the uniq count incorrect",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/90.sh"
     },
     {
         "content": "seq 1 100 | tr '0-9' 'a-j' | tr 'a-j' '0-9' | sort -n | uniq -c | grep -v '^$' | cut -d' ' -f2 | wc -l",
@@ -811,7 +900,8 @@
         "category": "<missing>",
         "notes": "meaningless grep",
         "reason": "25. EXPLAIN: Multiple tr operations conflict in character transformation",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/92.sh"
     },
     {
         "content": "ls -l | cut -d' ' -f9 | sort -n | tr '/' '\\n' | sort | uniq -c | grep -v '^$' | cut -d' ' -f1 | wc -l",
@@ -820,7 +910,8 @@
         "category": "<missing>",
         "notes": "dropped tr -s",
         "reason": "26. EXPLAIN: The cut operation removes the field needed for subsequent sorting",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/93.sh"
     },
     {
         "content": "find . -type f | grep '\\.txt$' | grep -v 'txt$' | sort | uniq -c | tr -s ' ' | cut -d' ' -f2 | wc -l",
@@ -829,7 +920,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "27. EXPLAIN: Second grep negates the first grep's filter",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/94.sh"
     },
     {
         "content": "cat /etc/passwd | tr -d ':' | cut -d: -f1,3 | sort | uniq -c | grep -v '^$' | tr -s ' ' | cut -d' ' -f2",
@@ -838,7 +930,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "28. EXPLAIN: The tr operation removes the delimiter needed by cut",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/95.sh"
     },
     {
         "content": "seq 1 1000 | grep -v '^[0-9]*0$' | sort -n | uniq | sort | uniq -c | sort -nr | uniq | wc -l",
@@ -847,7 +940,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "29. EXPLAIN: Multiple uniq operations with different sort orders conflict",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/96.sh"
     },
     {
         "content": "find . -type f | sed 's/[0-9]//g' | grep '[0-9]' | sort | uniq -c | tr -s ' ' | cut -d' ' -f2 | wc -l",
@@ -856,7 +950,8 @@
         "category": "<missing>",
         "notes": "empty output of grep",
         "reason": "30. EXPLAIN: The sed substitution removes content needed by subsequent grep pattern",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/97.sh"
     },
     {
         "content": "ls -l | wc -l | cut -d' ' -f1 | tr ' ' '\\n' | sort -n | uniq -c | sort -r | wc -l",
@@ -865,7 +960,8 @@
         "category": "<missing>",
         "notes": "meaningless tr",
         "reason": "1. EXPLAIN: Tries to count words but loses original input by using -l with first wc, making subsequent operations meaningless",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/98.sh"
     },
     {
         "content": "cat /etc/passwd | cut -d: -f1 | sort | uniq -c | sort -n | uniq | sort -r | xargs grep .",
@@ -874,7 +970,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "3. EXPLAIN: Double sort is redundant, and second uniq loses context from first uniq count",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/99.sh"
     },
     {
         "content": "ls -l | tr -d ' ' | cut -d' ' -f5 | sort -n | uniq | tr '\\n' ',' | sed 's/,/, /g' | xargs find",
@@ -883,7 +980,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "4. EXPLAIN: tr removes spaces before cut, breaking the field separation",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/100.sh"
     },
     {
         "content": "seq 100 | tr '[ ]' '[\\t]' | sort | uniq | cut -d' ' -f1 | xargs grep . | wc -l",
@@ -892,7 +990,8 @@
         "category": "<missing>",
         "notes": "may not handle regex in sed",
         "reason": "5. EXPLAIN: Sorts numerically after converting to text, losing numerical order",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/101.sh"
     },
     {
         "content": "find . -type f | grep \"\\.txt\" | grep \"^[^.]\" | grep \"a\" | grep -v \"a\" | sort | uniq | wc -l",
@@ -901,7 +1000,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "6. EXPLAIN: Multiple greps cancel each other out due to conflicting patterns",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/102.sh"
     },
     {
         "content": "cat /etc/passwd | sed 's/:/ /g' | cut -d: -f1,7 | sort | uniq -c | sort -n | tr ' ' '\\t' | cut -f2",
@@ -910,7 +1010,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "7. EXPLAIN: sed removes necessary delimiters before cut operation",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/103.sh"
     },
     {
         "content": "find . -type f | tr '\\n' ' ' | xargs grep \"pattern\" | sort | uniq -c | sed 's/^ *//' | cut -d' ' -f1",
@@ -919,7 +1020,8 @@
         "category": "<missing>",
         "notes": "may be detectable with heuristics of xargs grep",
         "reason": "8. EXPLAIN: Loses file paths by transforming newlines before xargs",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/104.sh"
     },
     {
         "content": "ls -l | sort -k5n | sort -k9 | sort -k6M | tr -s ' ' | cut -d' ' -f9 | xargs grep . | wc -l",
@@ -928,7 +1030,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "9. EXPLAIN: Multiple sorts with different keys make final sort meaningless",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/105.sh"
     },
     {
         "content": "cat /etc/passwd | tr ' ' '\\t' | cut -d' ' -f1 | sort | uniq | tr '\\t' ' ' | xargs grep . | wc -l",
@@ -937,7 +1040,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "10. EXPLAIN: Converts spaces to tabs but then uses space as delimiter",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/106.sh"
     },
     {
         "content": "find . -name \"*.txt\" | uniq | sort | tr '[/]' '[\\t]' | cut -f2 | sort | uniq -c | xargs grep .",
@@ -946,7 +1050,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "12. EXPLAIN: Uniq won't work without sort, but sort is after uniq",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/107.sh"
     },
     {
         "content": "cat /etc/hosts | sed 's/localhost/127.0.0.1/' | sed 's/127.0.0.1/localhost/' | sort | uniq | tr ' ' '\\t' | cut -f1 | xargs grep .",
@@ -955,7 +1060,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "13. EXPLAIN: Multiple sed operations cancel each other out",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/108.sh"
     },
     {
         "content": "seq 100 | grep [02468] | sort -n | tr '\\n' ' ' | uniq -c | sort -n | cut -d' ' -f2 | xargs grep .",
@@ -964,7 +1070,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "15. EXPLAIN: Sort after uniq breaks the count grouping",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/110.sh"
     },
     {
         "content": "ls -l | tr ' ' '_' | tr '_' '\\t' | tr '\\t' ',' | cut -d' ' -f5 | sort -n | uniq | xargs find",
@@ -973,7 +1080,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "16. EXPLAIN: Multiple transforms make field cutting impossible",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/111.sh"
     },
     {
         "content": "find . -type f | tr '/' ' ' | sort | uniq | tr ' ' '/' | xargs find -name | sort | uniq -c",
@@ -982,7 +1090,8 @@
         "category": "<missing>",
         "notes": "file not found if name contains space",
         "reason": "17. EXPLAIN: Removes path separator before find operation",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/112.sh"
     },
     {
         "content": "cat /etc/passwd | tr ':' ' ' | cut -d: -f1,7 | sort | uniq | tr ' ' '\\n' | grep \"^/\" | xargs ls",
@@ -991,7 +1100,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "20. EXPLAIN: Converts delimiters making it impossible to properly cut fields",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/113.sh"
     },
     {
         "content": "ls -l | cut -d' ' -f9 | cut -d'.' -f1 | cut -d'_' -f1 | sort | uniq -c | tr ' ' ',' | xargs grep .",
@@ -1000,7 +1110,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "21. EXPLAIN: Multiple field cuts with different delimiters corrupt data",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/114.sh"
     },
     {
         "content": "find . -type f | xargs wc -l | tr -s ' ' | tr ' ' '\\t' | tr -d ' ' | cut -f1 | sort -n | uniq -c",
@@ -1009,7 +1120,8 @@
         "category": "<missing>",
         "notes": "",
         "reason": "22. EXPLAIN: Removes spaces needed for field counting",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/115.sh"
     },
     {
         "content": "seq 100 | grep -v [13579] | uniq -c | sort | tr -s '\\t' | cut -d' ' -f2 | sort -n | xargs grep .",
@@ -1018,7 +1130,8 @@
         "category": "<missing>",
         "notes": "meaningless tr",
         "reason": "23. EXPLAIN: Sort after count makes grouping meaningless",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/116.sh"
     },
     {
         "content": "find . -name \"*.txt\" | tr '\\n' ' ' | tr ' ' '\\n' | sort | uniq | tr '\\n' ' ' | xargs grep \"pattern\"",
@@ -1027,7 +1140,8 @@
         "category": "<missing>",
         "notes": "may be detectable with herustics of xargs grep",
         "reason": "24. EXPLAIN: Multiple transformations of newlines break xargs input",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/117.sh"
     },
     {
         "content": "ls -la | tr -s ' ' | tr ' ' '\\n' | grep -v '^$' | tr -d ' ' | wc -l | xargs find . -name",
@@ -1036,7 +1150,8 @@
         "category": "<missing>",
         "notes": "meaningless tr",
         "reason": "25. EXPLAIN: Removes crucial whitespace before counting",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/118.sh"
     },
     {
         "content": "ls -l | sort -k5n | sort -k9 | cut -d' ' -f9 | tr '.' ' ' | sort -k2 | uniq | xargs grep .",
@@ -1045,7 +1160,8 @@
         "category": "<missing>",
         "notes": "sort -k does not have enough fields",
         "reason": "26. EXPLAIN: Sort criteria conflict makes final order unpredictable",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/119.sh"
     },
     {
         "content": "cat /etc/passwd | tr ':' ' ' | tr ' ' ':' | cut -d: -f1,7 | sort | uniq -c | xargs grep .",
@@ -1054,7 +1170,8 @@
         "category": "",
         "notes": "may be detectable with herustics of xargs grep",
         "reason": "27. EXPLAIN: Converts delimiters making field extraction impossible",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/120.sh"
     },
     {
         "content": "find . -type f | grep \"\\.txt\" | grep -v \"txt\" | grep \"^[^.]\" | sort | uniq | tr '/' ' ' | xargs",
@@ -1063,7 +1180,8 @@
         "category": "<missing>",
         "notes": "empty output of grep",
         "reason": "28. EXPLAIN: Multiple greps with contradictory patterns",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/121.sh"
     },
     {
         "content": "ls -l | tr -s ' ' | tr ' ' '_' | cut -d' ' -f5,9 | sort | uniq | tr '_' ' ' | xargs grep .",
@@ -1072,7 +1190,8 @@
         "category": "<missing>",
         "notes": "cut does not have enough fields",
         "reason": "29. EXPLAIN: Removes spaces needed for proper field cutting",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/122.sh"
     },
     {
         "content": "cat /etc/passwd | tr ':' '\\t' | tr '\\t' ',' | cut -d: -f1,7 | sort | uniq -c | tr ',' ' ' | xargs",
@@ -1081,6 +1200,7 @@
         "category": "<missing>",
         "notes": "cut does not have enough fields",
         "reason": "30. EXPLAIN: Multiple text transformations break field structure",
-        "user_annotations": []
+        "user_annotations": [],
+        "address": "full_benchmark/llm_injection/pipelines/123.sh"
     }
 ]
