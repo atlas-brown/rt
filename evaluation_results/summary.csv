@@ -1,7 +1,7 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,45636,1026,800,800, 
- , , , ,770,<missing>
+correct,45636,925,757,757, 
+ , , , ,727,<missing>
  , , , ,1,parser mistake
  , , , ,4,hard awk
  , , , ,11,unsopported options/flags/operands - about find
@@ -48,4 +48,4 @@ buggy,296,51,69,176,
  , , , ,2,with special case for expr?
  , , , ,1,with input annotations; or warning about arbitrary stdin format
 ========,=====,=====,========,===============,========
-total,42464,1077, ,976, 
+total,43241,976, ,933, 

@@ -5,11 +5,13 @@
     "args": [
         {
             "name": "set1",
-            "type": ".+"
+            "type": ".+",
+            "is_regex": false
         },
         {
             "name": "set2",
-            "type": ".+"
+            "type": ".+",
+            "is_regex": false
         }
     ],
     "flags": [],

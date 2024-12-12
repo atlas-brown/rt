@@ -1,15 +1,17 @@
 #!/bin/bash
 
-grep 'git' go.mod | grep '\.com' | grep -v indirect | grep -v replace | cut -f 2 | cut -d ' ' -f 1 | while read line; do
-  go get -u "$line"
-  make vendor
-  git add .
-  git commit -m "update $line"
-done
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 
-sed --version 2>/dev/null | grep -q GNU
+# grep 'git' go.mod | grep '\.com' | grep -v indirect | grep -v replace | cut -f 2 | cut -d ' ' -f 1 | while read line; do
+#   go get -u "$line"
+#   make vendor
+#   git add .
+#   git commit -m "update $line"
+# done
 
-curl -s https://api.github.com/repos/Flutterando/slidy/releases | grep browser_download_url | grep "linux-x64[.]tar[.]gz" | head -n 1 | cut -d "\"" -f 4
+# sed --version 2>/dev/null | grep -q GNU
+
+# curl -s https://api.github.com/repos/Flutterando/slidy/releases | grep browser_download_url | grep "linux-x64[.]tar[.]gz" | head -n 1 | cut -d "\"" -f 4
 
 # echo "${_record_seg}" | tr "}" "a" | cut -d : -f 2
 

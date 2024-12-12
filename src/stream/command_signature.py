@@ -60,9 +60,13 @@ class CommandSignature:
         env: Dict[str, str] = {}
         for i, arg in enumerate(self.args):
             arg_name: str = arg['name']
+            is_regex: bool = arg.get('is_regex', False)
             if i < len(parsed_command_invocation.operand_list):
-                env[arg_name] = parsed_command_invocation.operand_list[i].name
-                env[f"arg_{arg_name}"] = parsed_command_invocation.operand_list[i].name # add constant arg_{arg_name} to env
+                arg = parsed_command_invocation.operand_list[i].name
+                if not is_regex:
+                    arg = re.escape(arg)
+                env[arg_name] = arg
+                env[f"arg_{arg_name}"] = arg # add constant arg_{arg_name} to env
 
         # add predefined variables to env
         env["actual_input_type"] = previous_output_type.pattern

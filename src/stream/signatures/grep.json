@@ -5,7 +5,8 @@
     "args": [
         {
             "name": "pattern",
-            "type": ".+"
+            "type": ".+",
+            "is_regex": true
         },
         {
             "name": "file",

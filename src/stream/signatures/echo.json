@@ -6,7 +6,8 @@
     "args": [
         {
             "name": "pattern",
-            "type": ".+"
+            "type": ".+",
+            "is_regex": false
         }
     ],
     "flags": [],
