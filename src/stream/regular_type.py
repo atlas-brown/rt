@@ -5,6 +5,7 @@ import sre_parse
 import logging
 from stream.checking_result import CheckingResult
 from stream.timeout_util import run_with_timeout
+from stream.tool_error import ToolError
 
 class RegularType:
     def __init__(self, pattern: str):
@@ -52,6 +53,11 @@ class RegularType:
         s.add(z3.Distinct(self.regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
         return s.check() == z3.unsat
     
+    def is_empty_string(self) -> bool:
+        s = z3.Solver()
+        s.add(z3.Distinct(self.regex, z3.Re("")))
+        return s.check() == z3.unsat
+
     def __le__(self, other: 'RegularType') -> bool:
         return self.is_subtype(other)
     
@@ -63,10 +69,11 @@ class RegularType:
 # Q: Why dont directly use z3.Intersect e.g., return Z3.Intersect(A, B) directly instead of (?!A)|(?!B)
 # A: If there are operations out of the intersection, it will be problematic, e.g., (?!(A)&(B))
 
-# replace ${A} with (.*) 
+# replace ${A} with (.*)  and  $(A) with (.*)
 def preprocess(pattern: str) -> str:
     # process replacement(${A} to (.*)) 
-    replace_pattern = r'\$\{[^}]*\}'
+    # for $(), cannot handle nested brackets, need to be fixed
+    replace_pattern = r'\$\{[^}]*\}|\$\([^)]*\)'
     pattern = re.sub(replace_pattern, r'(.*)', pattern)
 
 
@@ -86,7 +93,7 @@ def preprocess(pattern: str) -> str:
             open_brackets -= 1
     
     if open_brackets != 0:
-        raise Exception("unmatched brackets at the left side of the intersection")
+        raise ToolError("unmatched brackets at the left side of the intersection")
 
     assert pattern[left_index] == "("
     
@@ -101,7 +108,7 @@ def preprocess(pattern: str) -> str:
             open_brackets -= 1
 
     if open_brackets != 0:
-        raise Exception("unmatched brackets at the right side of the intersection")
+        raise ToolError("unmatched brackets at the right side of the intersection")
 
     assert pattern[right_index] == ")"
 

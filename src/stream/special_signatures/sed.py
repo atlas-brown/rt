@@ -16,6 +16,8 @@ class SedSignature(CommandSignature):
                 return RegularType(previous_output_type.pattern + parts[2])
             else:
                 return RegularType("(" + previous_output_type.pattern + ")&((?!" + parts[2] + "))")
+        if parts[0] == "d" and len(parts) == 1:
+            return RegularType("")
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation)
         

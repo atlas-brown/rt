@@ -6,6 +6,7 @@ from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
+from stream.tool_error import ToolError
 from stream.user_annotation import AnnotationType, UserAnnotation
 
 class CommandSignature:
@@ -16,7 +17,8 @@ class CommandSignature:
         default_output_type: str, 
         args: List[Dict[str, Any]], 
         flags: List[Dict[str, Any]],
-        rules: List[Dict[str, Any]]
+        rules: List[Dict[str, Any]],
+        ignore_input: bool = False
     ) -> None:
         self.command_name = command_name
         self.default_input_type = RegularType(default_input_type)
@@ -24,6 +26,7 @@ class CommandSignature:
         self.args = args
         self.flags = flags
         self.rules = rules
+        self.ignore_input = ignore_input
 
     def matches_command(self, command_invocation: CommandInvocationInitial) -> bool:
         assert isinstance(command_invocation, CommandInvocationInitial)
@@ -40,6 +43,9 @@ class CommandSignature:
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.ASSUME:
                 return RegularType(annotation.pattern)
+        
+        if "--version" in set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list)):
+            return RegularType(".*")
 
         return self.output_type_inference(previous_output_type, parsed_command_invocation)
 
@@ -93,7 +99,10 @@ class CommandSignature:
                 for key, value in update_variables.items():
                     # find all {{variable}} in rule_env[key], replace them with env[variable]
                     # { or } are not allowed in variable names
-                    update_variables[key] = re.sub(r"{{([^{}]*)}}", lambda match: env[match.group(1)], value)
+                    try:
+                        update_variables[key] = re.sub(r"{{([^{}]*)}}", lambda match: env[match.group(1)], value)
+                    except KeyError as e:
+                        raise ToolError(f"In {parsed_command_invocation.cmd_name}, Variable {e} not found in env")
                 env.update(update_variables)
                 logging.debug(f"Command: {self.command_name}, Updated env: {env}")
                 if rule.get('stop', False):

@@ -3,6 +3,8 @@ from command_signature import CommandSignature
 from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
+from stream.tool_error import ToolError
+
 class CutSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -18,19 +20,30 @@ class CutSignature(CommandSignature):
 
         delimiter = r"(\t+)"
         if '-d' in flags:
+            flag_args['-d'] = re.escape(flag_args['-d'])
             delimiter = f"({flag_args['-d']}+)"
 
         if '-f' in flags:
             args: list[str] = re.split(",|-", flag_args.get('-f'))
             if len(args) == 0:
-                raise ValueError(f"invalid field number arguments: {args}")
-            args = map(lambda arg: int(arg) if len(arg) >= 1 and "${" not in arg else -1, args)
+                raise ToolError(f"invalid field number arguments: {args}")
+            new_args = []
+            for arg in args:
+                if "${" in arg or "$(" in arg:
+                    new_args.append(-1)
+                elif arg == "":
+                    pass
+                elif not arg.isdigit():
+                    raise ToolError(f"invalid field number: {arg} in {args} in command cut")
+                else:
+                    new_args.append(int(arg))
+            args = new_args
             field_num = max(args)
             # every arg is a variable or default value
             if field_num == -1:
                 return RegularType(".*")
             if field_num < 1:
-                raise ValueError(f"field number must be greater than 0: {field_num}")
+                raise ToolError(f"field number must be greater than 0: {field_num}")
             if field_num == 1:
                 return RegularType(".*")
             

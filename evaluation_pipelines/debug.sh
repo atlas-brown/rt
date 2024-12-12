@@ -1,5 +1,9 @@
 #!/bin/bash
 
+sort .config | grep -f "${TMP_CONFIG}-FOCUS" | grep -v "^#" | sort >"${TMP_CONFIG}-LOCAL"
+
+${LDCONFIG} -p | grep libstdc++.so.6 | grep 64
+
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 
 # grep 'git' go.mod | grep '\.com' | grep -v indirect | grep -v replace | cut -f 2 | cut -d ' ' -f 1 | while read line; do

@@ -10,8 +10,8 @@
                 "flags": ["-n"]
             },
             "update": {
-                "input_type": "-?[0-9]+.*",
-                "output_type": "(-?[0-9]+.*)&({{actual_input_type}})"
+                "input_type": "[-+]?[0-9]+.*",
+                "output_type": "{{actual_input_type}}"
             }
         },
         {
