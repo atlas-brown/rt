@@ -35,7 +35,7 @@
                 "flags": ["-d"]
             },
             "update": {
-                "output_type": "{{{actual_input_type}}}&{(?!.*{{set1}}.*)}"
+                "output_type": "({{actual_input_type}})&((?!.*{{set1}}.*))"
             },
             "stop": true
         },
@@ -44,7 +44,7 @@
                 "flags": ["-s"]
             },
             "update": {
-                "output_type": "{{{actual_input_type}}}&{(?!.*{{set1}}{{set1}}.*)}"
+                "output_type": "({{actual_input_type}})&((?!.*{{set1}}{{set1}}.*))"
             }
         },
         {
@@ -52,7 +52,7 @@
                 "args": ["set2"]
             },
             "update": {
-                "output_type": "{{{actual_input_type}}}&{(?!.*{{set1}}.*)}"
+                "output_type": "({{actual_input_type}})&((?!.*{{set1}}.*))"
             }
         }
     ]

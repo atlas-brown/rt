@@ -27,7 +27,7 @@
                 "flags": ["-w"]
             },
             "update": {
-                "pattern": "{({{pattern}})}&{(()|(.*\\W)){{arg_pattern}}(()|(\\W.*))}"
+                "pattern": "(({{pattern}}))&((()|(.*\\W)){{arg_pattern}}(()|(\\W.*)))"
             }
         },
         {
@@ -43,7 +43,7 @@
                 "no_args": ["file"]
             },
             "update": {
-                "pattern": "{({{pattern}})}&{({{actual_input_type}})}"
+                "pattern": "(({{pattern}}))&(({{actual_input_type}}))"
             }
         },
         {

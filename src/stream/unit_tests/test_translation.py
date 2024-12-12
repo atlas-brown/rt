@@ -9,11 +9,11 @@ def test_preprocess():
     assert preprocess("[0-9]") == "[0-9]"
     assert preprocess("[0-9]+") == "[0-9]+"
     assert preprocess(".*") == ".*"
-    assert preprocess("{[0-9]+}&{[0-9a-z]+}") == "(?!(?![0-9]+)|(?![0-9a-z]+))"
-    assert preprocess("(?!{[0-9]+}&{[0-9a-z]+})") == "(?!(?!(?![0-9]+)|(?![0-9a-z]+)))"
-    assert preprocess("(?!{{A}&{B}}&{{C}&{D}})") == "(?!(?!(?!(?!(?!A)|(?!B)))|(?!(?!(?!C)|(?!D)))))"
-    assert preprocess("{A}&{B\\}}") == "(?!(?!A)|(?!B\\}))"
-    assert preprocess("{\\{A}&{B}ab") == "(?!(?!\\{A)|(?!B))ab"
+    assert preprocess("([0-9]+)&([0-9a-z]+)") == "(?!(?![0-9]+)|(?![0-9a-z]+))"
+    assert preprocess("(?!([0-9]+)&([0-9a-z]+))") == "(?!(?!(?![0-9]+)|(?![0-9a-z]+)))"
+    assert preprocess("(?!((A)&(B))&((C)&(D)))") == "(?!(?!(?!(?!(?!A)|(?!B)))|(?!(?!(?!C)|(?!D)))))"
+    assert preprocess("(A)&(B\\})") == "(?!(?!A)|(?!B\\}))"
+    assert preprocess("(\\{A)&(B)ab") == "(?!(?!\\{A)|(?!B))ab"
 
 
 def run_inre_tests(regex: str, postive: List[str], negative: List[str]):
@@ -46,7 +46,7 @@ def test_negation():
     run_inre_tests("(?!A|B)", ["C", "D", "AB"], ["A", "B"])
 
 def test_negation_1():
-    examples = ["a12345", "", ".*", ".+", ".?", ".", "(?!.*0.*)", "(()|(.*\\W))0", "(?!(()|(.*\\W))0(()|(\\W.*)))", "(?!{(.*0.*)}&{(()|(.*\\W))0(()|(\\W.*)}))"]
+    examples = ["a12345", "", ".*", ".+", ".?", ".", "(?!.*0.*)", "(()|(.*\\W))0", "(?!(()|(.*\\W))0(()|(\\W.*)))", "(?!((.*0.*))&((()|(.*\\W))0(()|(\\W.*))))"]
     # for every example, the intersection with itself should be empty
     for e in examples:
         s = z3.Solver()
@@ -109,7 +109,7 @@ def test_grep_vwE_1():
 
 
 def test_grep_vwE_translation():
-    run_inre_tests("(?!{(.*0.*)}&{(()|(.*\\W))0(()|(\\W.*)}))",
+    run_inre_tests("(?!((.*0.*))&((()|(.*\\W))0(()|(\\W.*))))",
                 [
                     "a12345",
                     "b0c9",

@@ -15,7 +15,7 @@ class SedSignature(CommandSignature):
             elif parts[1] == '$':
                 return RegularType(previous_output_type.pattern + parts[2])
             else:
-                return RegularType("{" + previous_output_type.pattern + "}&{(?!" + parts[2] + ")}")
+                return RegularType("(" + previous_output_type.pattern + ")&((?!" + parts[2] + "))")
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation)
         
