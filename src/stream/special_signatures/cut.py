@@ -42,11 +42,14 @@ class CutSignature(CommandSignature):
             field_num = max(args)
             # every arg is a variable or default value
             if field_num == -1:
-                return RegularType(".*")
+                return RegularType(".*"), None
             if field_num < 1:
                 raise ToolError(f"field number must be greater than 0: {field_num}")
             if field_num == 1:
-                return RegularType(".*")
+                if "no_meaningless_command" not in heuristic_rules:
+                    return RegularType(".*"), None
+                else:
+                    return RegularType(".*"), RegularType("[^" + delimiter + "]*")
             
             pattern = f".*({delimiter}.*){{{field_num-1}}}"
             return RegularType(pattern), None
