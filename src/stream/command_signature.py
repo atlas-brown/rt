@@ -32,8 +32,11 @@ class CommandSignature:
         assert isinstance(command_invocation, CommandInvocationInitial)
         if command_invocation.cmd_name == self.command_name:
             return True
-        if command_invocation.cmd_name == "xargs" and "xargs_" + command_invocation.operand_list[0].name == self.command_name:
-            return True
+        if command_invocation.cmd_name == "xargs":
+            if len(command_invocation.operand_list) == 0:
+                return False
+            if "xargs_" + command_invocation.operand_list[0].name == self.command_name:
+                return True
         return False
     
     # dont override this method, override output_type_inference instead

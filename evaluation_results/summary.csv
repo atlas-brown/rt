@@ -1,12 +1,12 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,45636,204,1078,1078, 
+correct,45636,204,1031,1031, 
  , , , ,1,parser mistake
  , , , ,4,hard awk
  , , , ,11,unsopported options/flags/operands - about find
  , , , ,1,hard tr
  , , , ,6,need assume annotation
- , , , ,1048,<missing>
+ , , , ,1001,<missing>
  , , , ,7,need assume annotation and cut/tr/sed procedures
 --------,-----,-----,--------,---------------,--------
 buggy,296,5,78,213, 
@@ -44,8 +44,11 @@ buggy,296,5,78,213,
  , , , ,1,with a warning about stdin arbitrary format?
  , , , ,1,with annotations/pre-execution analysis for /etc/group format
  , , , ,2,with input annotations; or possibly output annotations
- , , , ,104,<missing>
+ , , , ,98,<missing>
  , , , ,2,with special case for expr?
  , , , ,1,with input annotations; or warning about arbitrary stdin format
+ , , , ,3,unsorted input to uniq
+ , , , ,1,
+ , , , ,2,single line to sort
 ========,=====,=====,========,===============,========
-total,46530,209, ,1291, 
+total,46530,209, ,1244, 

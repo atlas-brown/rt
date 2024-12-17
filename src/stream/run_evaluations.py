@@ -152,7 +152,7 @@ def run_all_evaluations(valid_dirs: list[str],
 
     for address, label in pipelines:
         for pipeline_result in evaluate_pipeline_content(address):
-            notes = notes_lookup(evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
+            notes = notes_lookup(address, evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
             pipeline_result[IS_BUGGY_LABEL] = not label
             pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
             pipeline_result["notes"] = notes["notes"]
@@ -268,7 +268,11 @@ def tabulate(result_stats, f):
     f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']}, \n")
 
 # listof(Note) content -> Optional(Note)
-def notes_lookup(notes, content):
+def notes_lookup(address, notes: List[dict], content):
+    if "full_benchmark/llm_injection" in address:
+        for note in notes:
+            if note.get("address", "") == address:
+                return note
     for note in notes:
         if note["content"] == content:
             return note
