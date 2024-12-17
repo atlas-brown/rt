@@ -1,6 +1,16 @@
 #!/bin/bash
 
-sort .config | grep -f "${TMP_CONFIG}-FOCUS" | grep -v "^#" | sort >"${TMP_CONFIG}-LOCAL"
+cat a.txt | xargs echo
+
+cat a.txt | sort | uniq -c | sort
+
+ls | xargs cat
+
+cat a.txt | grep "a" | grep "a"
+
+cat a.txt | grep "a" | grep -v "a"
+
+cat a.txt | grep -v "a" | grep -v "ab"
 
 ${LDCONFIG} -p | grep libstdc++.so.6 | grep 64
 

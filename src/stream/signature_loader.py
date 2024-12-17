@@ -39,7 +39,6 @@ class SignatureLoader:
                 args=data.get('args', []),
                 flags=data.get('flags', []),
                 rules=data.get('rules', []),
-                ignore_input=data.get('ignore_input', False)
         )
         return CommandSignature(
             command_name=data['command_name'],

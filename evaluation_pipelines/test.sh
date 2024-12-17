@@ -1,0 +1,1 @@
+jexec ${jname} netstat -s -p udp --libxo xml,pretty | grep -E -x -c -f ${HOME}/filter-${jname}.txt

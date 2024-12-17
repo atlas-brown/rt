@@ -1,4 +1,5 @@
 import re
+from typing import Optional, Tuple
 from command_signature import CommandSignature
 from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
@@ -9,7 +10,7 @@ class CutSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def get_input_type(self, parsed_command_invocation) -> RegularType:
+    def get_input_type(self, parsed_command_invocation, heuristic_rules) -> Tuple[RegularType, Optional[RegularType]]:
         flags = set()
         flag_args = {}
         for flag in parsed_command_invocation.flag_option_list:
@@ -48,7 +49,7 @@ class CutSignature(CommandSignature):
                 return RegularType(".*")
             
             pattern = f".*({delimiter}.*){{{field_num-1}}}"
-            return RegularType(pattern)
+            return RegularType(pattern), None
             
         return super().get_input_type(parsed_command_invocation)
 

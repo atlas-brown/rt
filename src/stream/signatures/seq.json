@@ -2,7 +2,6 @@
     "command_name": "seq",
     "default_input_type": ".*",
     "default_output_type": "-?[0-9]+",
-    "ignore_input": true,
     "args": [
         {
             "name": "a",
@@ -14,5 +13,14 @@
         }
     ],
     "flags": [],
-    "rules": []
+    "rules": [
+        {
+            "condition": {
+                "heuristics": ["no_ignore_input"]
+            },
+            "update": {
+                "input_type": ""
+            }
+        }
+    ]
 }

@@ -14,44 +14,5 @@
         }
     ],
     "flags": [],
-    "rules": [
-        {
-            "condition": {
-                "no_flags": ["-o"]
-            },
-            "update": {
-                "pattern": "(.*({{pattern}}).*)"
-            }
-        },
-        {
-            "condition": {
-                "flags": ["-w"]
-            },
-            "update": {
-                "pattern": "(({{pattern}}))&((()|(.*\\W)){{arg_pattern}}(()|(\\W.*)))"
-            }
-        },
-        {
-            "condition": {
-                "flags": ["-v"]
-            },
-            "update": {
-                "pattern": "(?!({{pattern}}))"
-            }
-        },
-        {
-            "condition": {
-                "no_args": ["file"]
-            },
-            "update": {
-                "pattern": "(({{pattern}}))&(({{actual_input_type}}))"
-            }
-        },
-        {
-            "condition": {},
-            "update": {
-                "output_type": "({{pattern}})"
-            }
-        }
-    ]
+    "rules": []
 }

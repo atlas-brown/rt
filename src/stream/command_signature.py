@@ -18,7 +18,6 @@ class CommandSignature:
         args: List[Dict[str, Any]], 
         flags: List[Dict[str, Any]],
         rules: List[Dict[str, Any]],
-        ignore_input: bool = False
     ) -> None:
         self.command_name = command_name
         self.default_input_type = RegularType(default_input_type)
@@ -26,7 +25,6 @@ class CommandSignature:
         self.args = args
         self.flags = flags
         self.rules = rules
-        self.ignore_input = ignore_input
 
     def matches_command(self, command_invocation: CommandInvocationInitial) -> bool:
         assert isinstance(command_invocation, CommandInvocationInitial)
@@ -118,7 +116,7 @@ class CommandSignature:
         return RegularType(env['output_type'])
     
     # dont override this method, override get_input_type instead
-    def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation]) -> RegularType:
+    def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str]) -> Tuple[RegularType, Optional[RegularType]]:
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
         # if user annotation (expect) is available, use it
@@ -126,40 +124,48 @@ class CommandSignature:
             if annotation.annotation_type == AnnotationType.EXPECT:
                 return RegularType(annotation.pattern)
             
-        return self.get_input_type(parsed_command_invocation)
+        return self.get_input_type(parsed_command_invocation, heuristic_rules)
     
-    def get_input_type(self, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
+    def get_input_type(self, parsed_command_invocation: CommandInvocationInitial, heuristic_rules: List[str]) -> Tuple[RegularType, Optional[RegularType]]:
 
         input_type = self.default_input_type.pattern
+
+        no_input_type = None
 
         parsed_args = set(map(lambda arg: arg['name'], self.args[:len(self.get_operands(parsed_command_invocation))]))
 
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
+
+        heuristic_rules = set(heuristic_rules)
 
         for rule in self.rules: # iterate over all rules, from top to bottom
             required_flags = set(rule['condition'].get('flags', []))
             required_args = set(rule['condition'].get('args', []))
             no_flags = set(rule['condition'].get('no_flags', []))
             no_args = set(rule['condition'].get('no_args', []))
+            required_heuristics = set(rule['condition'].get('heuristics', []))
 
             # match the rule, required flags and args are subset of actual flags and args, and no_flags and no_args are not in actual flags and args
             if (required_flags.issubset(parsed_flags) and
                 required_args.issubset(parsed_args) and
                 not any(flag in parsed_flags for flag in no_flags) and
-                not any(arg in parsed_args for arg in no_args)):
+                not any(arg in parsed_args for arg in no_args) and
+                required_heuristics.issubset(heuristic_rules)):
 
                 # update input type
                 update_variables: Dict[str, str] = rule.get('update', {}).copy()
                 for key, value in update_variables.items():
                     if key == 'input_type':
                         input_type = value
+                    if key == "no_input_type":
+                        no_input_type = value
                 logging.debug(f"Command: {self.command_name}, Updated input type: {input_type}")
                 if rule.get('stop', False):
                     break
 
         logging.debug(f"Command: {self.command_name}, Expected input type: {input_type}")
         
-        return RegularType(input_type)
+        return RegularType(input_type), RegularType(no_input_type) if no_input_type is not None else None
     
     def __repr__(self) -> str:
         return f"CommandSignature({self.command_name}, {self.default_input_type}, {self.default_output_type}, {self.args}, {self.flags}, {self.rules})"

@@ -2,7 +2,6 @@
     "command_name": "date",
     "default_input_type": ".*",
     "default_output_type": ".*",
-    "ignore_input": true,
     "args": [
         {
             "name": "format",
@@ -11,6 +10,14 @@
     ],
     "flags": [],
     "rules": [
+        {
+            "condition": {
+                "heuristics": ["no_ignore_input"]
+            },
+            "update": {
+                "input_type": ""
+            }
+        },
         {
             "condition": {
                 "args": ["format"]

@@ -2,10 +2,17 @@
     "command_name": "du",
     "default_input_type": ".*",
     "default_output_type": ".*",
-    "ignore_input": true,
     "args": [],
     "flags": [],
     "rules": [
+        {
+            "condition": {
+                "heuristics": ["no_ignore_input"]
+            },
+            "update": {
+                "input_type": ""
+            }
+        },
         {
             "condition": {
                 "flags": ["-a"]

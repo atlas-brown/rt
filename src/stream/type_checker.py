@@ -13,6 +13,9 @@ class TypeChecker:
                  enable_user_annotations: bool = True,
                  enable_rule_empty_output: bool = True,
                  enable_rule_no_ignored_input: bool = True,
+                 enable_rule_no_space_in_file_name = True,
+                 enable_rule_no_meaningless_command = True,
+                 enable_rule_no_sort_non_numeric_with_numeric_input = True,
                  enable_stage_timeout: bool = False,
                  stage_timeout: int = 10
         ) -> None:
@@ -22,8 +25,21 @@ class TypeChecker:
         self.enable_stage_timeout = enable_stage_timeout
         self.stage_timeout = stage_timeout
         self.enable_user_annotations = enable_user_annotations
+        
+        self.heuristic_rules = []
         self.enable_rule_empty_output = enable_rule_empty_output
-        self.enable_rule_no_ignored_input = enable_rule_no_ignored_input
+        if enable_rule_no_ignored_input:
+            self.heuristic_rules.append("no_ignored_input")
+        
+        if enable_rule_no_space_in_file_name:
+            self.heuristic_rules.append("no_space_in_file_name")
+
+        if enable_rule_no_meaningless_command:
+            self.heuristic_rules.append("no_meaningless_command")
+        
+        if enable_rule_no_sort_non_numeric_with_numeric_input:
+            self.heuristic_rules.append("no_sort_non_numeric_with_numeric_input")
+
         self.shell_parser = ShellParser(pipeline_address, enable_user_annotations)
 
     def initialize_check(self):
@@ -39,6 +55,12 @@ class TypeChecker:
         if self.enable_stage_timeout:
             return type1.is_subtype_with_timeout(type2, self.stage_timeout)
         return type1.is_subtype(type2)
+    
+    def check_not_subtype(self, type1: RegularType, type2: RegularType) -> CheckingResult:
+        result = self.check_subtype(type1, type2)
+        if result.ill_typed:
+            return CheckingResult(False)
+        return CheckingResult(True)
 
     def check_next(self) -> Optional[CheckingResult]:
         if not self.pipelines:
@@ -64,24 +86,31 @@ class TypeChecker:
                 assert isinstance(parsed_command_invocation, CommandInvocationInitial)
                 
                 # process the rule that the input cannot be ignored
-                if self.enable_rule_no_ignored_input and signature.ignore_input and not previous_output_type.is_empty() and not previous_output_type.is_empty_string():
-                    checking_result.set_ill_typed(True)
-                    checking_result.set_message(
-                        f"Input type '{previous_output_type.pattern}' is ignored for command '{signature.command_name}'."
-                    )
-                    return checking_result
+                # if self.enable_rule_no_ignored_input and signature.ignore_input and not previous_output_type.is_empty() and not previous_output_type.is_empty_string():
+                #     checking_result.set_ill_typed(True)
+                #     checking_result.set_message(
+                #         f"Input type '{previous_output_type.pattern}' is ignored for command '{signature.command_name}'."
+                #     )
+                #     return checking_result
 
 
                 corresponding_annotations = self.annotations.get(command_node, [])
-                input_type = signature.determine_input_type(parsed_command_invocation, corresponding_annotations)
+                input_type, no_input_type = signature.determine_input_type(parsed_command_invocation, corresponding_annotations, self.heuristic_rules)
                 
                 checking_result.set(self.check_subtype(previous_output_type, input_type))
-                
                 if checking_result.ill_typed:
                     checking_result.set_message(
                         f"Input type '{previous_output_type.pattern}' is not compatible with expected input '{input_type.pattern}' for command '{signature.command_name}'."
                     )
                     return checking_result
+                
+                if no_input_type is not None:
+                    checking_result.set(self.check_not_subtype(previous_output_type, no_input_type))
+                    if checking_result.ill_typed:
+                        checking_result.set_message(
+                            f"Input type '{previous_output_type.pattern}' is not compatible with expected no input '{no_input_type.pattern}' for command '{signature.command_name}' (caused by heuristic rule)."
+                        )
+                        return checking_result
                     
                 current_output_type = signature.determine_output_type(previous_output_type, parsed_command_invocation, corresponding_annotations)
 

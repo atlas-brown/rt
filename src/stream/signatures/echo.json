@@ -1,7 +1,6 @@
 {
     "command_name": "echo",
     "default_input_type": ".*",
-    "ignore_input": true,
     "default_output_type": ".*",
     "args": [
         {
@@ -12,6 +11,14 @@
     ],
     "flags": [],
     "rules": [
+        {
+            "condition": {
+                "heuristics": ["no_ignore_input"]
+            },
+            "update": {
+                "input_type": ""
+            }
+        },
         {
             "condition": {},
             "update": {
