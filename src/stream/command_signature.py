@@ -47,7 +47,8 @@ class CommandSignature:
             if annotation.annotation_type == AnnotationType.ASSUME:
                 return RegularType(annotation.pattern)
         
-        if "--version" in set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list)):
+        flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
+        if "--version" in flags or "-V" in flags:
             return RegularType(".*")
 
         return self.output_type_inference(previous_output_type, parsed_command_invocation)

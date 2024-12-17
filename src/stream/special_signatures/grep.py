@@ -2,6 +2,7 @@ from command_signature import CommandSignature
 from pash_annotations.datatypes.BasicDatatypes import Operand
 
 from stream.regular_type import RegularType
+from stream.tool_error import ToolError
 
 class GrepSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -27,6 +28,8 @@ class GrepSignature(CommandSignature):
                 else:
                     pattern += f"({arg})"
         else:
+            if len(parsed_command_invocation.operand_list) == 0:
+                raise ToolError("No pattern provided for grep")
             pattern = parsed_command_invocation.operand_list[0].name
             arg_count = len(parsed_command_invocation.operand_list)
         
