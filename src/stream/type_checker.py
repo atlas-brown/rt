@@ -11,7 +11,7 @@ class TypeChecker:
     def __init__(self, 
                  pipeline_address: str, 
                  enable_user_annotations: bool = True,
-                 enable_rule_empty_output: bool = True,
+                 enable_rule_no_empty_output: bool = True,
                  enable_rule_no_ignored_input: bool = True,
                  enable_rule_no_space_in_file_name = True,
                  enable_rule_no_meaningless_command = True,
@@ -27,7 +27,7 @@ class TypeChecker:
         self.enable_user_annotations = enable_user_annotations
         
         self.heuristic_rules = []
-        self.enable_rule_empty_output = enable_rule_empty_output
+        self.enable_rule_no_empty_output = enable_rule_no_empty_output
         if enable_rule_no_ignored_input:
             self.heuristic_rules.append("no_ignored_input")
         
@@ -115,7 +115,7 @@ class TypeChecker:
                 current_output_type = signature.determine_output_type(previous_output_type, parsed_command_invocation, corresponding_annotations)
 
                 # check if the output is empty
-                if self.enable_rule_empty_output:
+                if self.enable_rule_no_empty_output:
                     if current_output_type.is_empty() or current_output_type.is_empty_string():
                         checking_result.set_ill_typed(True)
                         checking_result.set_message(
