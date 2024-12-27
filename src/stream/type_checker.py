@@ -6,6 +6,7 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 from stream.checking_result import CheckingResult
 from stream.tool_error import ToolError
 from stream.user_annotation import AnnotationType
+from stream.timing import Timing
 
 class TypeChecker:
     def __init__(self, 
@@ -92,7 +93,8 @@ class TypeChecker:
 
                 corresponding_annotations = self.annotations.get(command_node, [])
                 print(corresponding_annotations)
-                input_type, no_input_type = signature.determine_input_type(parsed_command_invocation, corresponding_annotations, self.heuristic_rules)
+                with Timing("timing input type creation = "):
+                    input_type, no_input_type = signature.determine_input_type(parsed_command_invocation, corresponding_annotations, self.heuristic_rules)
                 
                 checking_result.set(self.check_subtype(previous_output_type, input_type))
                 if checking_result.ill_typed:
@@ -110,7 +112,8 @@ class TypeChecker:
                         )
                         return checking_result
                     
-                current_output_type = signature.determine_output_type(previous_output_type, parsed_command_invocation, corresponding_annotations)
+                with Timing("timing output type creation = "):
+                    current_output_type = signature.determine_output_type(previous_output_type, parsed_command_invocation, corresponding_annotations)
 
                 # check if the output is empty
                 if self.enable_rule_no_empty_output:

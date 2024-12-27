@@ -6,6 +6,7 @@ import logging
 from stream.checking_result import CheckingResult
 from stream.timeout_util import run_with_timeout
 from stream.tool_error import ToolError
+from stream.timing import Timing
 
 class RegularType:
     def __init__(self, pattern: str):
@@ -30,18 +31,22 @@ class RegularType:
         if (other.pattern == ".*"):
             return CheckingResult(False)
         s = z3.Solver()
-        intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
-        s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
-        checking_result = CheckingResult(s.check() == z3.sat)
+        with Timing("timing z3 intersection creation = "):
+            intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
+        with Timing(f"timing z3 inclusion check {self.pattern} subtype {other.pattern} = "):
+            s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
+            checking_result = CheckingResult(s.check() == z3.sat)
         if checking_result.ill_typed:
-            s = z3.Solver()
-            # s.set(max_memory=15)
-            # s.set(timeout=20000)
-            x = z3.String('x')
-            s.add(z3.InRe(x, intersection_regex))
-            s.check()
-            counterexample = s.model()[x].as_string()
-            checking_result.set_counterexample(counterexample)
+            with Timing(f"timing z3 counterexample gen = "):
+                s = z3.Solver()
+                # s.set(max_memory=15)
+                # s.set(timeout=20000)
+                x = z3.String('x')
+                s.add(z3.InRe(x, intersection_regex))
+                s.check()
+                counterexample = s.model()[x].as_string()
+                checking_result.set_counterexample(counterexample)
+
         return checking_result
     
     # will throw TimeoutError if the function takes too long to run

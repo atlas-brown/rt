@@ -288,7 +288,17 @@ def notes_lookup(address, notes: List[dict], content):
     return None
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    level = logging.INFO
+    match os.getenv("SHTREAMS_LOG", "info").lower():
+        case "info":
+            level = logging.INFO
+        case "debug":
+            print("debug logging enabled")
+            level = logging.DEBUG
+        case "error":
+            print("info logging suppressed")
+            level = logging.WARNING
+    logging.basicConfig(level=level)
     run_all_evaluations(
         valid_dirs=[
                     "./evaluation_pipelines/valid", 
