@@ -1,27 +1,27 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,256,23,53,53, 
- , , , ,23,<missing>
+correct,256,23,50,50, 
+ , , , ,21,<missing>
  , , , ,4,hard awk
  , , , ,11,unsopported options/flags/operands - about find
- , , , ,1,about regex translation
  , , , ,6,need assume annotation
  , , , ,7,need assume annotation and cut/tr/sed procedures
  , , , ,1,hard tr
 --------,-----,-----,--------,---------------,--------
-buggy,296,2,194,100, 
+buggy,296,2,191,103, 
  , , , ,1,semantic mistake - about cp/rm/stat
  , , , ,1,semantic mistake - about date
  , , , ,3,input to cmd that expects none
  , , , ,3,nice and self-contained; cut expects delimiter; mutant won't have it
  , , , ,1,nice and self-contained; dup of an earlier one
+ , , , ,1,with useless no-op warning
  , , , ,1,dropped cut; should be detectable with assert annotations
  , , , ,1,dropped grep; should be detectable with assert annotations and tr/sed/cut procedures
  , , , ,2,dropped cut; should be detectable with assert annotations and tr/sed/cut procedures
  , , , ,9,dropped tr; should be detectable with assert annotations
  , , , ,1,dropped flags in wc; should be detectable with assert annotations
  , , , ,1,dropped -c in tr; should be detectable with assert annotations
- , , , ,14,with output annotations
+ , , , ,15,with output annotations
  , , , ,2,with output annotations; or input annotations
  , , , ,1,swap tr; should be detectable with assert annotations
  , , , ,1,dropped grep; should be detectable with assert annotations
@@ -37,8 +37,8 @@ buggy,296,2,194,100,
  , , , ,1,with a warning about stdin arbitrary format?
  , , , ,1,with annotations/pre-execution analysis for /etc/group format
  , , , ,1,with input annotations; or possibly output annotations
+ , , , ,37,<missing>
  , , , ,2,with special case for expr?
- , , , ,36,<missing>
  , , , ,1,
 ========,=====,=====,========,===============,========
 total,520,25, ,153, 

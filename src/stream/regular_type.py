@@ -38,7 +38,8 @@ class RegularType:
             x = z3.String('x')
             s.add(z3.InRe(x, intersection_regex))
             s.check()
-            checking_result.set_counterexample(s.model()[x].as_string())
+            counterexample = s.model()[x].as_string()
+            checking_result.set_counterexample(counterexample)
         return checking_result
     
     # will throw TimeoutError if the function takes too long to run
@@ -73,8 +74,9 @@ class RegularType:
 def preprocess(pattern: str) -> str:
     # process replacement(${A} to (.*)) 
     # for $(), cannot handle nested brackets, need to be fixed
-    replace_pattern = r'\$\{[^}]*\}|\$\([^)]*\)'
-    pattern = re.sub(replace_pattern, r'(.*)', pattern)
+    replace_pattern = r'\$\{[^}]*\}|\$\([^)]*\)|\\\$\\\{[^}]*\\\}|\\\$\\\([^)]*\\\)'
+    # FIXME: Is this correct?
+    pattern = re.sub(replace_pattern, r'(.+)', pattern)
 
 
     if ")&(" not in pattern:
