@@ -1,16 +1,18 @@
 #!/bin/bash
 
-cat a.txt | xargs echo
+# cat a.txt | xargs echo
+
+cat ${IN}/${input} | tr "[a-z]" "[A-Z]" | tr -sc "BCDFGHJKLMNPQRSTVWXYZ" "[\\012*]" | sort | uniq -c >${OUT}/${input}.out
 
 cat a.txt | sort | uniq -c | sort
 
-ls | xargs cat
+# ls | xargs cat
 
-cat a.txt | grep "a" | grep "a"
+# cat a.txt | grep "a" | grep "a"
 
-cat a.txt | grep "a" | grep -v "a"
+# cat a.txt | grep "a" | grep -v "a"
 
-cat a.txt | grep -v "a" | grep -v "ab"
+# cat a.txt | grep -v "a" | grep -v "ab"
 
 ${LDCONFIG} -p | grep libstdc++.so.6 | grep 64
 

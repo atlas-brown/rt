@@ -15,47 +15,5 @@
         }
     ],
     "flags": [],
-    "rules": [
-        {
-            "condition": {
-                "flags": ["-c"]
-            },
-            "update": {
-                "set1": "[^{{set1}}]"
-            }
-        },
-        {
-            "condition": {
-                "no_flags": ["-c"]
-            },
-            "update": {
-                "set1": "[{{set1}}]"
-            }
-        },
-        {
-            "condition": {
-                "flags": ["-d"]
-            },
-            "update": {
-                "output_type": "({{actual_input_type}})&((?!.*{{set1}}.*))"
-            },
-            "stop": true
-        },
-        {
-            "condition": {
-                "flags": ["-s"]
-            },
-            "update": {
-                "output_type": "({{actual_input_type}})&((?!.*{{set1}}{{set1}}.*))"
-            }
-        },
-        {
-            "condition": {
-                "args": ["set2"]
-            },
-            "update": {
-                "output_type": "({{actual_input_type}})&((?!.*{{set1}}.*))"
-            }
-        }
-    ]
+    "rules": []
 }
