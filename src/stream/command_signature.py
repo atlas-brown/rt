@@ -127,7 +127,7 @@ class CommandSignature:
         # if user annotation (expect) is available, use it
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.EXPECT:
-                return RegularType(annotation.pattern)
+                return RegularType(annotation.pattern), None
             
         return self.get_input_type(parsed_command_invocation, heuristic_rules)
     

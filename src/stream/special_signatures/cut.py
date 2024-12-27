@@ -22,7 +22,7 @@ class CutSignature(CommandSignature):
         delimiter = r"(\t+)"
         if '-d' in flags:
             flag_args['-d'] = re.escape(flag_args['-d'])
-            delimiter = f"({flag_args['-d']}+)"
+            delimiter = f"({flag_args['-d']})"
 
         if '-f' in flags:
             args: list[str] = re.split(",|-", flag_args.get('-f'))

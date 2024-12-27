@@ -7,6 +7,8 @@ class AnnotationType(Enum):
     ASSUME = "assume"
     ASSERT = "assert"
     EXPECT = "expect"
+    INPUT = "input"
+    OUTPUT = "output"
 
 class UserAnnotation:
     def __init__(self, annotation_type: AnnotationType, pattern: str, pipeline_node: PipeNode, command_node: CommandNode):
@@ -14,4 +16,7 @@ class UserAnnotation:
         self.pattern = pattern
         self.pipeline_node = pipeline_node
         self.command_node = command_node
+    
+    def __repr__(self):
+        return f"{self.annotation_type.name} {self.pattern} {self.command_node.pretty()}"
     

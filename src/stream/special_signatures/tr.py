@@ -18,10 +18,7 @@ class TrSignature(CommandSignature):
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation):
         return RegularType(f"({previous_output_type.pattern})&({get_output_pattern(parsed_command_invocation)})")
-    
-def escape_except_dash(s: str) -> str:
-    # return a string
-    return ''.join(map(lambda c: re.escape(c) if c != "-" else c, s))
+
 
 def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> str:
     if len(parsed_command_invocation.operand_list) == 0:
@@ -33,8 +30,6 @@ def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> s
 
     if set1.startswith("[") and set1.endswith("]"):
         set1 = set1[1:-1]
-    
-    set1 = escape_except_dash(set1)
         
     if "-c" in parsed_flags:
         return f"[{set1}]+"
@@ -58,7 +53,7 @@ def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> s
 
         pattern = ""
         for i, c in enumerate(set1):
-            c = escape_except_dash(c)
+            c = re.escape(c)
             pattern = pattern + c + c
             if i < len(set1) - 1:
                 pattern += "|"

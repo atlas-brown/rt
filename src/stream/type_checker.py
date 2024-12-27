@@ -46,6 +46,7 @@ class TypeChecker:
         self.pipelines = self.shell_parser.parse_pipeline()
         self.pipeline_nodes = self.shell_parser.pipeline_nodes
         self.annotations = self.shell_parser.annotations
+        self.input_pattern = self.shell_parser.input_pattern
         self.current_index = 0
         
         for pipeline in self.pipeline_nodes:
@@ -72,7 +73,11 @@ class TypeChecker:
         if self.current_index >= len(self.pipelines):
             return None
         
-        previous_output_type = RegularType("") # start with empty string type
+        if self.input_pattern is not None:
+            previous_output_type = RegularType(self.input_pattern)
+        else:
+            previous_output_type = RegularType("") # start with empty string type by default
+
         parsed_commands = self.pipelines[self.current_index]
         pipeline_node = self.pipeline_nodes[self.current_index]
         self.current_index += 1
@@ -84,17 +89,9 @@ class TypeChecker:
                 signature, parsed_command_invocation = parsed_command
                 
                 assert isinstance(parsed_command_invocation, CommandInvocationInitial)
-                
-                # process the rule that the input cannot be ignored
-                # if self.enable_rule_no_ignored_input and signature.ignore_input and not previous_output_type.is_empty() and not previous_output_type.is_empty_string():
-                #     checking_result.set_ill_typed(True)
-                #     checking_result.set_message(
-                #         f"Input type '{previous_output_type.pattern}' is ignored for command '{signature.command_name}'."
-                #     )
-                #     return checking_result
-
 
                 corresponding_annotations = self.annotations.get(command_node, [])
+                print(corresponding_annotations)
                 input_type, no_input_type = signature.determine_input_type(parsed_command_invocation, corresponding_annotations, self.heuristic_rules)
                 
                 checking_result.set(self.check_subtype(previous_output_type, input_type))

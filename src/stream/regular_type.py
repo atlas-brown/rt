@@ -75,8 +75,7 @@ def preprocess(pattern: str) -> str:
     # process replacement(${A} to (.*)) 
     # for $(), cannot handle nested brackets, need to be fixed
     replace_pattern = r'\$\{[^}]*\}|\$\([^)]*\)|\\\$\\\{[^}]*\\\}|\\\$\\\([^)]*\\\)'
-    # FIXME: Is this correct?
-    pattern = re.sub(replace_pattern, r'(.+)', pattern)
+    pattern = re.sub(replace_pattern, r'(.*)', pattern)
 
 
     if ")&(" not in pattern:

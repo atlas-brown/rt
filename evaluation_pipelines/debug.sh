@@ -1,7 +1,16 @@
 #!/bin/bash
 
-# cat a.txt | xargs echo
+# @assume "cat $1" --> ".*\t.*"
+# @assume "cut -f 2" --> "[0-9]+"
+# @assert "head -n 1" --> ".* .*"
+# @expect "[0-9]+" --> "sort -n"
+# @input ""
+# @output "(?!.*  .*)"
+cat $1 | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s ' ' '\n' | tail -n 1
 
+
+# cat a.txt | xargs echo
+echo "${FILES}" | tr " " "\n" | sort | xargs cat | md5sum
 
 cat ${IN}/${input} | tr "[a-z]" "[A-Z]" | tr -sc "BCDFGHJKLMNPQRSTVWXYZ" "[\\012*]" | sort | uniq -c >${OUT}/${input}.out
 
