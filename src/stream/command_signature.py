@@ -6,7 +6,7 @@ from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
-from stream.tool_error import ToolError
+from stream.tool_error import ToolError, PashAnnotationParsingError
 from stream.user_annotation import AnnotationType, UserAnnotation
 
 class CommandSignature:
@@ -44,6 +44,11 @@ class CommandSignature:
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.ASSUME:
                 return RegularType(annotation.pattern)
+            
+        if parsed_command_invocation.cmd_name != "xargs" and len(parsed_command_invocation.operand_list) > 1:
+            operand = parsed_command_invocation.operand_list[0].name
+            if operand.startswith("-") and len(operand) == 2:
+                raise PashAnnotationParsingError(f"pash_annotations.parser might be wrong, command: {parsed_command_invocation}, operand: {operand}")
         
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "--version" in flags or "-V" in flags:

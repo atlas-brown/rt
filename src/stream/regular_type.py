@@ -117,8 +117,19 @@ def preprocess(pattern: str) -> str:
     left_rest = pattern[:left_index]
     right_rest = pattern[right_index+1:]
 
+    if is_dot_star(left):
+        return preprocess(f"{left_rest}({right}){right_rest}")
+    if is_dot_star(right):
+        return preprocess(f"{left_rest}({left}){right_rest}")
+
     # )&( reduces, so the recursive call will eventually terminate
     return preprocess(f"{left_rest}(?!(?!{left})|(?!{right})){right_rest}")
+
+def is_dot_star(s: str) -> bool:
+    while len(s) > 0 and s.startswith("(") and s.endswith(")"):
+        s = s[1:-1]
+    return s == ".*"
+    
     
 
         

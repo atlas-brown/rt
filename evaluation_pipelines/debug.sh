@@ -2,6 +2,7 @@
 
 # cat a.txt | xargs echo
 
+
 cat ${IN}/${input} | tr "[a-z]" "[A-Z]" | tr -sc "BCDFGHJKLMNPQRSTVWXYZ" "[\\012*]" | sort | uniq -c >${OUT}/${input}.out
 
 cat a.txt | sort | uniq -c | sort

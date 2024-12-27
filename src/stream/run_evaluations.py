@@ -11,6 +11,7 @@ from typing import Optional, List, Tuple
 from stream.checking_result import CheckingResult
 from stream.type_checker import TypeChecker
 from stream.timeout_util import TimeoutError
+from stream.tool_error import PashAnnotationParsingError
 
 ENABLE_TIMEOUT = False
 TIMEOUT_SECONDS = 10
@@ -75,6 +76,7 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
         IS_BUGGY_LABEL: None,
         SIGNALED_LABEL: None,
         CRASH_REASON_LABEL: None,
+        "pash annotations error": None,
         "error message generated": None,
         "evaluation_time": None,
         # "notes": ""
@@ -115,6 +117,13 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
             pipeline_data["content"] = type_checker.get_current_pipeline_content_when_error()
             pipeline_data_list.append(pipeline_data)
             logging.warning(f'Pipeline evaluation timed out for {address}')
+        except PashAnnotationParsingError as e:
+            pipeline_data = pipeline_data_template.copy()
+            pipeline_data["pash annotations error"] = str(e)
+            pipeline_data["content"] = None
+            pipeline_data_list.append(pipeline_data)
+            logging.error(f'Error while parsing annotations from {address}: {e}')
+
             
     except Exception as e:
         pipeline_data = pipeline_data_template.copy()
@@ -171,7 +180,7 @@ def run_all_evaluations(valid_dirs: list[str],
     failures = [result for result in results if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL]]
     crash_pipelines = [r for r in failures if r[SIGNALED_LABEL] == None]
     timeout_pipelines =      [r for r in crash_pipelines if r[CRASH_REASON_LABEL] == TIMEOUT_REASON]
-    valid_pipeline_crashes = [r for r in crash_pipelines if not r[IS_BUGGY_LABEL] and r[CRASH_REASON_LABEL] != None]
+    valid_pipeline_crashes = [r for r in crash_pipelines if not r[IS_BUGGY_LABEL] and r[CRASH_REASON_LABEL] != None] + [r for r in crash_pipelines if r["pash annotations error"] != None]
     buggy_pipeline_crashes = [r for r in crash_pipelines if     r[IS_BUGGY_LABEL] and r[CRASH_REASON_LABEL] != None]
     false_positive_pipelines = [r for r in failures if not r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
     false_negative_pipelines = [r for r in failures if     r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
@@ -284,8 +293,9 @@ if __name__ == "__main__":
         valid_dirs=[
                     "./evaluation_pipelines/valid", 
                     "./full_benchmark/intercode/pipelines", 
-                    "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
-                    "./full_benchmark/pash_benchmark/benchmarks"
+                    # "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
+                    # "./full_benchmark/pash_benchmark/benchmarks",
+                    "./full_benchmark/pash_benchmark/benchmarks/unix50"
         ],
         invalid_dirs=[
                         "./evaluation_pipelines/invalid",

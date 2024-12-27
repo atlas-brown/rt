@@ -1,3 +1,4 @@
+import re
 from command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
@@ -19,6 +20,8 @@ class SedSignature(CommandSignature):
         if len(parts) < 3:
             return input_type, no_input_type
         if parts[0] == 's' and not parts[1].startswith('^') and not parts[1].startswith('$'):
+            # FIXME: using re.escape is not totally correct
+            parts[2] = re.escape(parts[2])  
             return input_type, RegularType(f"(?!.*{parts[2]}).*")
         return input_type, no_input_type
 
@@ -30,6 +33,8 @@ class SedSignature(CommandSignature):
         operand = operands[0]
         if operand == "d":
             return RegularType("")
+        if operand[-1] == "d" and operand[:-1].isdigit():
+            return RegularType(previous_output_type.pattern)
         parts = operand.split("/")
         if len(parts) < 3:
             return super().output_type_inference(previous_output_type, parsed_command_invocation)
@@ -39,9 +44,9 @@ class SedSignature(CommandSignature):
             elif parts[1] == '$':
                 return RegularType(previous_output_type.pattern + parts[2])
             else:
+                # FIXME: using re.escape is not totally correct
+                parts[2] = re.escape(parts[2])
                 return RegularType("(" + previous_output_type.pattern + ")&((?!" + parts[2] + "))")
-        if parts[0] == "d" and len(parts) == 1:
-            return RegularType("")
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation)
         

@@ -54,7 +54,7 @@ class CutSignature(CommandSignature):
             pattern = f".*({delimiter}.*){{{field_num-1}}}"
             return RegularType(pattern), None
             
-        return super().get_input_type(parsed_command_invocation)
+        return super().get_input_type(parsed_command_invocation, heuristic_rules)
 
     def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
         return super().output_type_inference(previous_output_type, parsed_command_invocation)
