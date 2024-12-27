@@ -54,7 +54,7 @@
                 "args": ["set2"]
             },
             "update": {
-                "output_type": "({{actual_input_type}})&((?!.*[{{set1}}].*))"
+                "output_type": "({{actual_input_type}})&((?!.*{{set1}}.*))"
             }
         }
     ]
