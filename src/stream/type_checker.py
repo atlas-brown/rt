@@ -108,7 +108,8 @@ class TypeChecker:
                     checking_result.set(self.check_not_subtype(previous_output_type, no_input_type))
                     if checking_result.ill_typed:
                         checking_result.set_message(
-                            f"Input type '{previous_output_type.pattern}' is not compatible with expected no input '{no_input_type.pattern}' for command '{signature.command_name}' (caused by heuristic rule)."
+                            f"Command '{signature.command_name}' received input '{previous_output_type.pattern}' "
+                            f"but it should not accept input of type '{no_input_type.pattern}' according to heuristic rules."
                         )
                         return checking_result
                     
