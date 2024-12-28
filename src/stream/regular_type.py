@@ -35,6 +35,8 @@ class RegularType:
         checking_result = CheckingResult(s.check() == z3.sat)
         if checking_result.ill_typed:
             s = z3.Solver()
+            # s.set(max_memory=15)
+            # s.set(timeout=20000)
             x = z3.String('x')
             s.add(z3.InRe(x, intersection_regex))
             s.check()

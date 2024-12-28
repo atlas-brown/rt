@@ -32,8 +32,11 @@ def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> s
         set1 = set1[1:-1]
         
     if "-c" in parsed_flags:
-        return f"[{set1}]+"
+        return f"[{set1}]*"
     
+    if len(parsed_command_invocation.operand_list) == 2:
+        return f"(?!.*[{set1}].*)"
+
     if "-s" in parsed_flags:
         while "-" in set1:
             index = set1.index("-")
