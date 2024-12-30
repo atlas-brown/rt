@@ -308,7 +308,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '.*' is not compatible with expected input '-?[0-9]+.*' for command 'sort'.",
 		"evaluation_time": "0.02s",
-		"category": "need assume annotation",
+		"category": "ANN'D need assume annotation",
 		"notes": ""
 	},
 	{
@@ -330,7 +330,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'.",
 		"evaluation_time": "0.02s",
-		"category": "need assume annotation",
+		"category": "ANN'D need assume annotation",
 		"notes": ""
 	},
 	{
@@ -341,8 +341,8 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '{(.*print.*)}&{.*}' is not compatible with expected input '.*((\"+).*){1}' for command 'cut'.",
 		"evaluation_time": "0.05s",
-		"category": "need assume annotation and cut/tr/sed procedures",
-		"notes": ""
+		"category": "ANN'D need assume annotation and cut/tr/sed procedures",
+		"notes": "annotation is a bit absurd"
 	},
 	{
 		"address": "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/14.sh",
@@ -363,8 +363,8 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '.*' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'.",
 		"evaluation_time": "0.01s",
-		"category": "need assume annotation and cut/tr/sed procedures",
-		"notes": ""
+		"category": "violates our assumption about sort -n usage",
+		"notes": "input to a sort -n does *not* start with numbers!"
 	},
 	{
 		"address": "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts/17.sh",
@@ -374,7 +374,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '.*' is not compatible with expected input '.*((\\s+).*){3}' for command 'cut'.",
 		"evaluation_time": "0.01s",
-		"category": "need assume annotation and cut/tr/sed procedures",
+		"category": "ANN'D need assume annotation and cut/tr/sed procedures",
 		"notes": ""
 	},
 	{
@@ -396,7 +396,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'.",
 		"evaluation_time": "0.01s",
-		"category": "need assume annotation",
+		"category": "ANN'D need assume annotation",
 		"notes": ""
 	},
 	{
@@ -418,7 +418,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'.",
 		"evaluation_time": "0.02s",
-		"category": "need assume annotation",
+		"category": "ANN'D need assume annotation",
 		"notes": ""
 	},
 	{
@@ -429,7 +429,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'.",
 		"evaluation_time": "0.19s",
-		"category": "need assume annotation",
+		"category": "ANN'D need assume annotation",
 		"notes": ""
 	},
 	{
@@ -440,7 +440,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'.",
 		"evaluation_time": "0.03s",
-		"category": "need assume annotation",
+		"category": "ANN'D need assume annotation",
 		"notes": ""
 	},
 	{
@@ -451,7 +451,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '{(.*Bell.*)}&{.*}' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'.",
 		"evaluation_time": "0.33s",
-		"category": "need assume annotation and cut/tr/sed procedures",
+		"category": "ANN'D need assume annotation and cut/tr/sed procedures",
 		"notes": ""
 	},
 	{
@@ -462,7 +462,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '.*' is not compatible with expected input '.*((\\s+).*){1}' for command 'cut'.",
 		"evaluation_time": "0.01s",
-		"category": "need assume annotation and cut/tr/sed procedures",
+		"category": "ANN'd need assume annotation and cut/tr/sed procedures",
 		"notes": ""
 	},
 	{
@@ -473,7 +473,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '.*' is not compatible with expected input '.*(( +).*){3}' for command 'cut'.",
 		"evaluation_time": "0.01s",
-		"category": "need assume annotation and cut/tr/sed procedures",
+		"category": "ANN'd need assume annotation and cut/tr/sed procedures",
 		"notes": ""
 	},
 	{
@@ -484,7 +484,7 @@
 		"tool runtime error": null,
 		"error message generated": "Input type '.*' is not compatible with expected input '.*(( +).*){1}' for command 'cut'.",
 		"evaluation_time": "0.01s",
-		"category": "need assume annotation and cut/tr/sed procedures",
+		"category": "ANN'd need assume annotation and cut/tr/sed procedures",
 		"notes": ""
 	},
 	{
@@ -501,20 +501,20 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_153_gold1.sh_Puname-v-grep_00344b7d97f4125065e34d3ce1e46794_M0.sh",
 	"content": "grep -o \"#[0-9]\\\\+\" | uname -v",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_153_gold1.sh_Puname-v-grep_00344b7d97f4125065e34d3ce1e46794_M2.sh",
 	"content": "uname -v",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_153_gold1.sh_Puname-v-grep_00344b7d97f4125065e34d3ce1e46794_M6.sh",
 	"content": "uname -v | grep \"#[0-9]\\\\+\"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_153_gold2.sh_Puname-r-awk-_ddcc04941a5c82adcd12dc0b0dc83023_M7.sh",
@@ -531,26 +531,26 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_156_gold1.sh_Pecho-http-ww_f50c102f66c147024f85c1b1ba6817fa_M1.sh",
 	"content": "cut -d\"/\" -f3",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_156_gold1.sh_Pecho-http-ww_f50c102f66c147024f85c1b1ba6817fa_M2.sh",
 	"content": "echo \"http://www.google.com\"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_156_gold1.sh_Pecho-http-ww_f50c102f66c147024f85c1b1ba6817fa_M4.sh",
 	"content": "echo | cut -d\"/\" -f3",
-	"category": "with output annotations, or empty output warning",
-	"notes": "with output annotations, or empty output warning"
+	"category": "ANN'd with output annotations, or empty output warning",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_156_gold1.sh_Pecho-http-ww_f50c102f66c147024f85c1b1ba6817fa_M6.sh",
 	"content": "echo \"http://www.google.com\" | cut -f3",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_156_gold2.sh_Pecho-http-ww_02c4a63ceddd2addf37a03f1fb293390_M0.sh",
@@ -561,8 +561,8 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_156_gold2.sh_Pecho-http-ww_02c4a63ceddd2addf37a03f1fb293390_M2.sh",
 	"content": "echo \"http://www.google.com\"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_156_gold2.sh_Pecho-http-ww_02c4a63ceddd2addf37a03f1fb293390_M4.sh",
@@ -573,8 +573,8 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_157_gold1.sh_Penv-sed-s-_1c1cfbf6b7077b784945360ce06ef417_M1.sh",
 	"content": "sed \"s/;/\\\\\\\\;/g\"",
-	"category": "with output annotations, or even input annotations?",
-	"notes": "with output annotations, or even input annotations?"
+	"category": "ANN'd with output annotations, or even input annotations?",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_160_gold1.sh_Pyes-head-n10_7a4005c43ecf3fe5ff51ee4633d934a9_M13.sh",
@@ -591,8 +591,8 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_160_gold1.sh_Pyes-head-n10_7a4005c43ecf3fe5ff51ee4633d934a9_M19.sh",
 	"content": "yes | head -n10 | grep -n . | cut -d: -f1 | paste",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_160_gold1.sh_Pyes-head-n10_7a4005c43ecf3fe5ff51ee4633d934a9_M2.sh",
@@ -603,14 +603,14 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_160_gold1.sh_Pyes-head-n10_7a4005c43ecf3fe5ff51ee4633d934a9_M3.sh",
 	"content": "yes | head -n10 | grep -n . | paste -sd: | cut -d: -f1",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_160_gold1.sh_Pyes-head-n10_7a4005c43ecf3fe5ff51ee4633d934a9_M4.sh",
 	"content": "head -n10 | grep -n . | cut -d: -f1 | paste -sd:",
-	"category": "with output annotations, or input annotations",
-	"notes": "with output annotations, or input annotations"
+	"category": "ANN'd with output annotations, or input annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_160_gold1.sh_Pyes-head-n10_7a4005c43ecf3fe5ff51ee4633d934a9_M6.sh",
@@ -621,14 +621,14 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_160_gold1.sh_Pyes-head-n10_7a4005c43ecf3fe5ff51ee4633d934a9_M7.sh",
 	"content": "yes | head -n10 | grep -n . | paste -sd:",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_160_gold1.sh_Pyes-head-n10_7a4005c43ecf3fe5ff51ee4633d934a9_M8.sh",
 	"content": "yes | head -n10 | grep -n . | cut -d: -f1",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_164_gold1.sh_Pecho-Hello-w_c9ec3c3d481dca015a14816cb0e84673_M0.sh",
@@ -639,14 +639,14 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_164_gold1.sh_Pecho-Hello-w_c9ec3c3d481dca015a14816cb0e84673_M1.sh",
 	"content": "tr -cd \";0-9\"",
-	"category": "with output annotations, or input annotations",
-	"notes": "with output annotations, or input annotations"
+	"category": "ANN'd with output annotations, or input annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_164_gold1.sh_Pecho-Hello-w_c9ec3c3d481dca015a14816cb0e84673_M2.sh",
 	"content": "echo \"  Hello world;876\t  \"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_164_gold1.sh_Pecho-Hello-w_c9ec3c3d481dca015a14816cb0e84673_M4.sh",
@@ -663,14 +663,14 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_164_gold2.sh_Pecho-Hello-w_fa4852946002af878f2a6fede3f9123a_M1.sh",
 	"content": "sed \"s/[^0-9;]//g\"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_164_gold2.sh_Pecho-Hello-w_fa4852946002af878f2a6fede3f9123a_M2.sh",
 	"content": "echo \"  Hello world;876     \"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_164_gold2.sh_Pecho-Hello-w_fa4852946002af878f2a6fede3f9123a_M4.sh",
@@ -687,20 +687,20 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_165_gold1.sh_Pecho-Hello-w_96f21bc281f02ee23fd8960bc2182331_M2.sh",
 	"content": "sed -e \"s/^[ \\\\t]*//\" | sed -e \"s/[ \\\\t]*\\$//\"",
-	"category": "with output annotations, or input annotations",
-	"notes": "with output annotations, or input annotations"
+	"category": "ANN'd with output annotations, or input annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_165_gold1.sh_Pecho-Hello-w_96f21bc281f02ee23fd8960bc2182331_M3.sh",
 	"content": "echo \"  Hello world!\t  \" | sed -e \"s/[ \\\\t]*\\$//\"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_165_gold1.sh_Pecho-Hello-w_96f21bc281f02ee23fd8960bc2182331_M4.sh",
 	"content": "echo \"  Hello world!\t  \" | sed -e \"s/^[ \\\\t]*//\"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_165_gold1.sh_Pecho-Hello-w_96f21bc281f02ee23fd8960bc2182331_M6.sh",
@@ -717,20 +717,20 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_165_gold2.sh_Pecho-n-Hell_52100d70d8adb9ee20caef7d874a7501_M1.sh",
 	"content": "sed \"s/^[ \\\\t]*//;s/[ \\\\t]*\\$//\"",
-	"category": "with output annotations, or input annotations",
-	"notes": "with output annotations, or input annotations"
+	"category": "ANN'd with output annotations, or input annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_165_gold2.sh_Pecho-n-Hell_52100d70d8adb9ee20caef7d874a7501_M2.sh",
 	"content": "echo -n \"  Hello world!    \"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_165_gold2.sh_Pecho-n-Hell_52100d70d8adb9ee20caef7d874a7501_M4.sh",
 	"content": "echo \"  Hello world!    \" | sed \"s/^[ \\\\t]*//;s/[ \\\\t]*\\$//\"",
-	"category": "with output annotations, could specify no newline?",
-	"notes": "with output annotations, could specify no newline?"
+	"category": "ANN'd with output annotations, could specify no newline?",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_165_gold2.sh_Pecho-n-Hell_52100d70d8adb9ee20caef7d874a7501_M5.sh",
@@ -747,44 +747,44 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_166_gold1.sh_Pecho-987654321-_7ca77aa3fa6fb0dc449962855c84c07c_M1.sh",
 	"content": "echo 987654321 | cut -c 4- | rev | rev",
-	"category": "with output annotations, we could perfectly model the contents here",
-	"notes": "with output annotations, we could perfectly model the contents here"
+	"category": "ANN'd with output annotations, we could perfectly model the contents here",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_166_gold1.sh_Pecho-987654321-_7ca77aa3fa6fb0dc449962855c84c07c_M2.sh",
 	"content": "echo 987654321 | rev | rev | cut -c 4-",
-	"category": "with output annotations, we could perfectly model the contents here",
-	"notes": "with output annotations, we could perfectly model the contents here"
+	"category": "ANN'd with output annotations, we could perfectly model the contents here",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_166_gold1.sh_Pecho-987654321-_7ca77aa3fa6fb0dc449962855c84c07c_M3.sh",
 	"content": "rev | cut -c 4- | rev",
-	"category": "with output annotations, or input annotations",
-	"notes": "with output annotations, or input annotations"
+	"category": "ANN'd with output annotations, or input annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_166_gold1.sh_Pecho-987654321-_7ca77aa3fa6fb0dc449962855c84c07c_M4.sh",
 	"content": "echo 987654321 | cut -c 4- | rev",
-	"category": "with output annotations, we could perfectly model the contents here",
-	"notes": "with output annotations, we could perfectly model the contents here"
+	"category": "ANN'd with output annotations, we could perfectly model the contents here",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_166_gold1.sh_Pecho-987654321-_7ca77aa3fa6fb0dc449962855c84c07c_M5.sh",
 	"content": "echo 987654321 | rev | rev",
-	"category": "with output annotations, we could perfectly model the contents here",
-	"notes": "with output annotations, we could perfectly model the contents here"
+	"category": "ANN'd with output annotations, we could perfectly model the contents here",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_166_gold1.sh_Pecho-987654321-_7ca77aa3fa6fb0dc449962855c84c07c_M6.sh",
 	"content": "echo 987654321 | rev | cut -c 4-",
-	"category": "with output annotations, we could perfectly model the contents here",
-	"notes": "with output annotations, we could perfectly model the contents here"
+	"category": "ANN'd with output annotations, we could perfectly model the contents here",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_166_gold1.sh_Pecho-987654321-_7ca77aa3fa6fb0dc449962855c84c07c_M8.sh",
 	"content": "echo | rev | cut -c 4- | rev",
-	"category": "with empty output warning, or output annotations",
-	"notes": "with empty output warning, or output annotations"
+	"category": "ANN'd with empty output warning, or output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_166_gold2.sh_Pecho-987654321_8ef437b93e4de9ebba36e8fc9da9cb0d_M0.sh",
@@ -795,26 +795,26 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_166_gold2.sh_Pecho-987654321_8ef437b93e4de9ebba36e8fc9da9cb0d_M1.sh",
 	"content": "sed \"s/...\\$//\"",
-	"category": "with output annotations, we could perfectly model the contents here",
-	"notes": "with output annotations, we could perfectly model the contents here"
+	"category": "ANN'd with output annotations, we could perfectly model the contents here",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_166_gold2.sh_Pecho-987654321_8ef437b93e4de9ebba36e8fc9da9cb0d_M2.sh",
 	"content": "echo \"987654321\"",
-	"category": "with output annotations, we could perfectly model the contents here",
-	"notes": "with output annotations, we could perfectly model the contents here"
+	"category": "ANN'd with output annotations, we could perfectly model the contents here",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_166_gold2.sh_Pecho-987654321_8ef437b93e4de9ebba36e8fc9da9cb0d_M4.sh",
 	"content": "echo | sed \"s/...\\$//\"",
-	"category": "with empty output warning, or output annotations",
-	"notes": "with empty output warning, or output annotations"
+	"category": "ANN'd with empty output warning, or output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_169_gold1.sh_Pwho-cut-d-_f1996e5c67ea4c45129a7b877e5dde6f_M3.sh",
 	"content": "cut -d\" \" -f1 | sort | uniq",
-	"category": "with output annotations, or input annotations",
-	"notes": "with output annotations, or input annotations"
+	"category": "ANN'd with output annotations, or input annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_171_gold1.sh_Pseq-s-100-t_bc9c9ab9158e00ec8367c6be7e8ce27e_M0.sh",
@@ -825,20 +825,20 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_171_gold1.sh_Pseq-s-100-t_bc9c9ab9158e00ec8367c6be7e8ce27e_M1.sh",
 	"content": "tr -d \"[:digit:]\"",
-	"category": "with output annotations, or input annotations",
-	"notes": "with output annotations, or input annotations"
+	"category": "ANN'd with output annotations, or input annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_171_gold1.sh_Pseq-s-100-t_bc9c9ab9158e00ec8367c6be7e8ce27e_M2.sh",
 	"content": "seq -s= 100",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_171_gold1.sh_Pseq-s-100-t_bc9c9ab9158e00ec8367c6be7e8ce27e_M4.sh",
 	"content": "seq 100 | tr -d \"[:digit:]\"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_172_gold2.sh_Pwho-wc-l_f3210b0dc480488b7af9b0a999297af5_M0.sh",
@@ -849,20 +849,20 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_172_gold2.sh_Pwho-wc-l_f3210b0dc480488b7af9b0a999297af5_M1.sh",
 	"content": "wc -l",
-	"category": "with output annotations, or input annotations",
-	"notes": "with output annotations, or input annotations"
+	"category": "input annotations should be enough",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_172_gold2.sh_Pwho-wc-l_f3210b0dc480488b7af9b0a999297af5_M2.sh",
 	"content": "who",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_172_gold2.sh_Pwho-wc-l_f3210b0dc480488b7af9b0a999297af5_M5.sh",
 	"content": "who | wc",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_174_gold1.sh_Pcut-d-f1-et_13abdb6bca8e8d86aac90a579be3b150_M0.sh",
@@ -873,14 +873,14 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_174_gold1.sh_Pcut-d-f1-et_13abdb6bca8e8d86aac90a579be3b150_M1.sh",
 	"content": "sort",
-	"category": "with output annotations, or input annotations",
-	"notes": "with output annotations, or input annotations"
+	"category": "ANN'd with output annotations, or input annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_174_gold1.sh_Pcut-d-f1-et_13abdb6bca8e8d86aac90a579be3b150_M4.sh",
 	"content": "cut -f1 /etc/group | sort",
-	"category": "with annotations/pre-execution analysis for /etc/group format, or output annotations",
-	"notes": "with annotations/pre-execution analysis for /etc/group format, or output annotations"
+	"category": "ANN'd with annotations/pre-execution analysis for /etc/group format, or output annotations",
+	"notes": "without knowledge about /etc/group not possible -- annotation for file contents?"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_174_gold1.sh_Pcut-d-f1-et_13abdb6bca8e8d86aac90a579be3b150_M6.sh",
@@ -897,38 +897,38 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_174_gold2.sh_Pcut-d-f1-et_26919bb1f613540dffee98e3fe165838_M2.sh",
 	"content": "sort | uniq",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_174_gold2.sh_Pcut-d-f1-et_26919bb1f613540dffee98e3fe165838_M6.sh",
 	"content": "cut -f1 /etc/group | sort | uniq",
-	"category": "with annotations/pre-execution analysis for /etc/group format",
-	"notes": "with annotations/pre-execution analysis for /etc/group format"
+	"category": "ANN'd with annotations/pre-execution analysis for /etc/group format",
+	"notes": "without knowledge about /etc/group not possible -- annotation for file contents?"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_174_gold2.sh_Pcut-d-f1-et_26919bb1f613540dffee98e3fe165838_M8.sh",
 	"content": "cut -d: -f1 | sort | uniq",
-	"category": "with input annotations, or possibly output annotations",
-	"notes": "with input annotations, or possibly output annotations"
+	"category": "input default should be enough",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_17_gold1.sh_Pfind-type-f-_aff83cde3701f1adf4120936b5ab445a_M14.sh",
 	"content": "find . -type f -name \"*php\" | xargs cat | wc",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_17_gold1.sh_Pfind-type-f-_aff83cde3701f1adf4120936b5ab445a_M4.sh",
 	"content": "find . -type f -name \"*php\" | xargs cat",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_184_gold2.sh_Pfind-testbed-d_3b64f899373e1b22161102c97e22d7ba_M2.sh",
 	"content": "sort -rh -k5 | head -n 3",
-	"category": "with output annotations, or input annotations",
-	"notes": "with output annotations, or input annotations"
+	"category": "input default should be enough",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_23_gold1.sh_Pfind-DIRECTOR_26e3c519d8b1bf949301f6e1e807d1b0_M0.sh",
@@ -939,44 +939,44 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_23_gold1.sh_Pfind-DIRECTOR_26e3c519d8b1bf949301f6e1e807d1b0_M18.sh",
 	"content": "find ${DIRECTORY} -type f -print | sed -e \"s@^.*/@@\" | grep \"[aeiouyAEIOUY]\" | wc",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_23_gold1.sh_Pfind-DIRECTOR_26e3c519d8b1bf949301f6e1e807d1b0_M3.sh",
 	"content": "sed -e \"s@^.*/@@\" | grep \"[aeiouyAEIOUY]\" | wc -l",
-	"category": "with input annotations",
-	"notes": "with input annotations"
+	"category": "input default should be enough",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_23_gold1.sh_Pfind-DIRECTOR_26e3c519d8b1bf949301f6e1e807d1b0_M6.sh",
 	"content": "find ${DIRECTORY} -type f -print | sed -e \"s@^.*/@@\" | grep \"[aeiouyAEIOUY]\"",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_29_gold1.sh_Pgrep-oE-0-9_9d09ce09e6530d055b84cc41e0bc4a48_M10.sh",
 	"content": "grep -oE \"([0-9]{1,3}\\\\.){3}[0-9]{1,3}\" | sort | uniq -c | sort -nr",
-	"category": "with input annotations",
-	"notes": "with input annotations"
+	"category": "input default should be enough",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_29_gold1.sh_Pgrep-oE-0-9_9d09ce09e6530d055b84cc41e0bc4a48_M3.sh",
 	"content": "sort | uniq -c | sort -nr",
-	"category": "with input annotations, or possibly output annotations",
-	"notes": "with input annotations, or possibly output annotations"
+	"category": "ANN'd for output, but input default should be enough",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_29_gold1.sh_Pgrep-oE-0-9_9d09ce09e6530d055b84cc41e0bc4a48_M9.sh",
 	"content": "grep -oE /etc/networks | sort | uniq -c | sort -nr",
-	"category": "with input annotations",
-	"notes": "with input annotations"
+	"category": "ANN'd output annotation should be good, but input default also should work",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_3_gold1.sh_Pcat-echo-FI_63786ce281f0cb802f6214c96b36defc_M2.sh",
 	"content": "cat $(echo ${FILES} | tr \" \" \"\\\\n\" | sort)",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/intercode_3_gold2.sh_Pecho-FILES-_c418ffdfaa8b54352a8aeb418894587a_M15.sh",
@@ -987,74 +987,74 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/intercode_3_gold2.sh_Pecho-FILES-_c418ffdfaa8b54352a8aeb418894587a_M8.sh",
 	"content": "echo \"${FILES}\" | tr \" \" \"\\\\n\" | sort | xargs cat",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/6.sh_Pseq-10-grep-_cedaee4c850a81d1280c03da7e4b4427_M3.sh",
 	"content": "grep -oE \"[0-9a-f]+\" | head -n 5 | sort -n",
-	"category": "with input annotations",
-	"notes": "with input annotations"
+	"category": "ANN'd, but input default should be enough",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/6.sh_Pseq-10-grep-_cedaee4c850a81d1280c03da7e4b4427_M5.sh",
 	"content": "seq 10 | grep -oE \"[0-9a-f]+\" | sort -n",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "needs whole-stream annotation for number of lines",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/ladder3.sh_Pecho-n-PATH-_cde0c7e39cf86c1b0796d8292a8ae89a_M11.sh",
 	"content": "echo -n ${PATH} | xargs -d : stat -c",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "UNINTERESTING",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/ladder3.sh_Pecho-n-PATH-_cde0c7e39cf86c1b0796d8292a8ae89a_M2.sh",
 	"content": "echo -n ${PATH}",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/ladder7.sh_Pdate-s-xarg_29b37f4d8e79a36d588f693169e05bb3_M2.sh",
 	"content": "date +%s",
-	"category": "with output annotations",
+	"category": "UNINTERESTING",
 	"notes": "with output annotations"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/ladder7.sh_Pdate-s-xarg_29b37f4d8e79a36d588f693169e05bb3_M7.sh",
 	"content": "date +%s | xargs expr +",
-	"category": "with special case for expr?",
+	"category": "UNINTERESTING",
 	"notes": "with special case for expr?"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/ladder8.sh_Pseq-10-head-_e7f492c48036519c8b5c081b00020a8c_M0.sh",
 	"content": "head -3 | seq 10 | xargs -n 1 expr 2 +",
-	"category": "with input annotations, or warning about arbitrary stdin format",
-	"notes": "with input annotations, or warning about arbitrary stdin format"
+	"category": "input to cmd that expects none",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/ladder8.sh_Pseq-10-head-_e7f492c48036519c8b5c081b00020a8c_M13.sh",
 	"content": "seq 10 | head -3 | xargs -n 1 expr +",
-	"category": "with special case for expr?",
-	"notes": "with special case for expr?"
+	"category": "UNINTERESTING",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/ladder8.sh_Pseq-10-head-_e7f492c48036519c8b5c081b00020a8c_M3.sh",
 	"content": "seq 10 | xargs -n 1 expr 2 +",
-	"category": "with output annotations",
+	"category": "needs whole-stream annotation for number of lines",
 	"notes": "with output annotations"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/ladder8.sh_Pseq-10-head-_e7f492c48036519c8b5c081b00020a8c_M4.sh",
 	"content": "seq 10 | head -3",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/ladder8.sh_Pseq-10-head-_e7f492c48036519c8b5c081b00020a8c_M8.sh",
 	"content": "seq 10 | head | xargs -n 1 expr 2 +",
-	"category": "with output annotations",
-	"notes": "with output annotations"
+	"category": "ANN'd with output annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/detectable/12.sh_Pcat-1-tr-_e94c7360d146727f8cea61088329242b_M11.sh",
@@ -1065,398 +1065,398 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/14.sh_Pcat-1-awk-_293f066e233655ec3fdc9bbd8e71c28b_M4.sh",
 	"content": "cat ${1} | sort -nr | cut -d \" \" -f 2",
-	"category": "dropped awk, should be detectable with input annotations and tr/sed/cut procedures",
-	"notes": "dropped awk, should be detectable with input annotations and tr/sed/cut procedures"
+	"category": "ANN'd with input annotation",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/16.sh_Pcat-1-cut-_55bce0e0035dce8ef408d3b5b0b6e843_M13.sh",
 	"content": "cat ${1} | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tail -n 1",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "violates our assumption about sort -n usage",
+	"notes": "input to a sort -n does *not* start with numbers!"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/16.sh_Pcat-1-cut-_55bce0e0035dce8ef408d3b5b0b6e843_M31.sh",
 	"content": "cat ${1} | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s \"\\\\n\" | tail -n 1",
-	"category": "dropped operands in tr, can be detected with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped operands in tr, can be detected with assert annotations and tr/sed/cut procedures"
+	"category": "violates our assumption about sort -n usage",
+	"notes": "input to a sort -n does *not* start with numbers!"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/16.sh_Pcat-1-cut-_55bce0e0035dce8ef408d3b5b0b6e843_M32.sh",
 	"content": "cat ${1} | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s \" \" | tail -n 1",
-	"category": "dropped operands in tr, can be detected with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped operands in tr, can be detected with assert annotations and tr/sed/cut procedures"
+	"category": "violates our assumption about sort -n usage",
+	"notes": "input to a sort -n does *not* start with numbers!"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/16.sh_Pcat-1-cut-_55bce0e0035dce8ef408d3b5b0b6e843_M10.sh",
 	"content": "cat ${1} | cut -f 2 | sort -n | sort -nr | head -n 1 | tr -s \" \" \"\\\\n\" | tail -n 1",
-	"category": "dropped uniq, should be detectable with assert annotations",
-	"notes": "dropped uniq, should be detectable with assert annotations"
+	"category": "violates our assumption about sort -n usage",
+	"notes": "input to a sort -n does *not* start with numbers!"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/16.sh_Pcat-1-cut-_55bce0e0035dce8ef408d3b5b0b6e843_M23.sh",
 	"content": "cat ${1} | cut -f 2 | sort -n | uniq | sort -nr | head -n 1 | tr -s \" \" \"\\\\n\" | tail -n 1",
-	"category": "dropped flags in uniq, should be detectable with assert annotations",
-	"notes": "dropped flags in uniq, should be detectable with assert annotations"
+	"category": "violates our assumption about sort -n usage",
+	"notes": "input to a sort -n does *not* start with numbers!"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/17.sh_Pcat-1-cut-_fe570aed6e8ed3898911821a66f0007d_M2.sh",
 	"content": "cat ${1} | cut -f 4 | cut -c 3-3 | sort -n | uniq | sed s/\\$/\"0s\"/",
-	"category": "swap sort and cut, should be detectable with input annotations and assert annotations",
-	"notes": "swap sort and cut, should be detectable with input annotations and assert annotations"
+	"category": "UNINTERESTING",
+	"notes": "equivalent!"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/17.sh_Pcat-1-cut-_fe570aed6e8ed3898911821a66f0007d_M8.sh",
 	"content": "cat ${1} | cut -f 4 | sort -n | uniq | sed s/\\$/\"0s\"/",
-	"category": "dropped cut, should be detectable with input annotations and assert annotations",
-	"notes": "dropped cut, should be detectable with input annotations and assert annotations"
+	"category": "ANN'd dropped cut, should be detectable with input annotations and assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/2.sh_Pcat-1-cut-_6c673a461ed201453a954dd4ad363952_M1.sh",
 	"content": "cat ${1} | sort | cut -d \" \" -f 2",
-	"category": "swap sort and cut, may be detectable with input annotations",
-	"notes": "swap sort and cut, may be detectable with input annotations"
+	"category": "UNDETECTABLE",
+	"notes": "swap sort and cut -- result is that output may be in wrong order but language of all lines is the same - ie out of scope"
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/20.sh_Pcat-1-grep_0c28f6b9a0c141679a62ec7f46eb2368_M5.sh",
 	"content": "cat ${1} | cut -d \"(\" -f 2 | cut -d \")\" -f 1 | head -n 1",
-	"category": "dropped grep, should be detectable with input annotations",
-	"notes": "dropped grep, should be detectable with input annotations"
+	"category": "ANN'd dropped grep, should be detectable with input annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/20.sh_Pcat-1-grep_0c28f6b9a0c141679a62ec7f46eb2368_M7.sh",
 	"content": "cat ${1} | grep \"(\" | cut -d \"(\" -f 2 | head -n 1",
-	"category": "dropped cut, should be detectable with assert annotations",
-	"notes": "dropped cut, should be detectable with assert annotations"
+	"category": "ANN'd dropped cut, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/17.sh_Pcat-1-cut-_fe570aed6e8ed3898911821a66f0007d_M10.sh",
 	"content": "cat ${1} | cut -f 4 | sort -n | cut -c 3-3 | uniq",
-	"category": "dropped sed, should be detectable with assert annotations",
-	"notes": "dropped sed, should be detectable with assert annotations"
+	"category": "ANN'd dropped sed, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/18.sh_Pcat-1-tr-_727246379ae4b59e5e6536bf17727fe0_M15.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep 1969 | wc",
-	"category": "dropped flags in wc, should be detectable with assert annotations",
-	"notes": "dropped flags in wc, should be detectable with assert annotations"
+	"category": "ANN'd dropped flags in wc, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/2.sh_Pcat-1-cut-_6c673a461ed201453a954dd4ad363952_M3.sh",
 	"content": "cat ${1} | sort",
-	"category": "dropped cut, should be detectable with assert annotations",
-	"notes": "dropped cut, should be detectable with assert annotations"
+	"category": "ANN'd dropped cut, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/20.sh_Pcat-1-grep_0c28f6b9a0c141679a62ec7f46eb2368_M1.sh",
 	"content": "cat ${1} | cut -d \"(\" -f 2 | grep \"(\" | cut -d \")\" -f 1 | head -n 1",
-	"category": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/13.sh_Pcat-1-grep_7ddc1567612fc9aa38bf48bec86c2827_M4.sh",
 	"content": "cat ${1} | cut -d \"\\\"\" -f 2 | cut -c 1-12",
-	"category": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/20.sh_Pcat-1-grep_0c28f6b9a0c141679a62ec7f46eb2368_M6.sh",
 	"content": "cat ${1} | grep \"(\" | cut -d \")\" -f 1 | head -n 1",
-	"category": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/30.sh_Pcat-1-tr-_947a5730e531b8197467769724b0d343_M7.sh",
 	"content": "cat ${1} | tr -c \"[a-z][A-Z]\" \"\\\\n\" | grep \"[A-Z]\" | sed 1d | sed 2d | sed 3d | sed 4d | tr -d \"\\\\n\" | tr -c \"[A-Z]\" \"\\\\n\"",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/35.sh_Pcat-1-grep_0677ba9418ec80d4be5984ccff49897f_M3.sh",
 	"content": "cat ${1} | cut -f 1",
-	"category": "dropped grep, should be detectable with assert annotations",
-	"notes": "dropped grep, should be detectable with assert annotations"
+	"category": "needs whole-stream annotation for number of lines",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/23.sh_Pcat-1-tr-_bce81de52b8e9f18c36035999af2fdf8_M11.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"[A-Z]\" | tr \"[a-z]\" \"\\\\n\" | grep \"[A-Z]\" | cut -c 1-4",
-	"category": "drop tr, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "drop tr, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd drop tr, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/23.sh_Pcat-1-tr-_bce81de52b8e9f18c36035999af2fdf8_M12.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"[A-Z]\" | tr \"[a-z]\" \"\\\\n\" | grep \"[A-Z]\" | tr -d \"\\\\n\"",
-	"category": "drop cut, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "drop cut, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd drop cut, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/23.sh_Pcat-1-tr-_bce81de52b8e9f18c36035999af2fdf8_M5.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"[A-Z]\" | tr \"[a-z]\" \"\\\\n\" | grep \"[A-Z]\" | cut -c 1-4 | tr -d \"\\\\n\"",
-	"category": "dropped cut, should be detectable with assert annotations",
-	"notes": "dropped cut, should be detectable with assert annotations"
+	"category": "ANN'd dropped cut, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/23.sh_Pcat-1-tr-_bce81de52b8e9f18c36035999af2fdf8_M7.sh",
 	"content": "cat ${1} | grep \"[A-Z]\" | tr \"[a-z]\" \"\\\\n\" | grep \"[A-Z]\" | tr -d \"\\\\n\" | cut -c 1-4",
-	"category": "dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped tr, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/23.sh_Pcat-1-tr-_bce81de52b8e9f18c36035999af2fdf8_M9.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"[A-Z]\" | grep \"[A-Z]\" | tr -d \"\\\\n\" | cut -c 1-4",
-	"category": "dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped tr, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/24.sh_Pcat-1-cut-_56d7e61d429fdefa75084dd552b1b6d2_M4.sh",
 	"content": "cat ${1} | cut -c 1-1",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/25.sh_Pcat-1-cut-_8a9b7c8e1035a4273cdcffd32ddbbd01_M4.sh",
 	"content": "cat ${1} | cut -c 1-2",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/28.sh_Pcat-1-tr-_64b8eb7f4376a0cb6f71b21a4ba7b5d3_M1.sh",
 	"content": "cat ${1} | grep \"[A-Z]\" | tr \" \" \"\\\\n\" | sed 1d | sed 3d | sed 3d | tr \"[a-z]\" \"\\\\n\" | grep \"[A-Z]\" | sed 3d | tr -c \"[A-Z]\" \"\\\\n\" | tr -d \"\\\\n\"",
-	"category": "swap tr and grep, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "swap tr and grep, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd swap tr and grep, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/28.sh_Pcat-1-tr-_64b8eb7f4376a0cb6f71b21a4ba7b5d3_M20.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"[A-Z]\" | sed 1d | sed 3d | sed 3d | tr \"[a-z]\" \"\\\\n\" | grep \"[A-Z]\" | sed 3d | tr -c \"[A-Z]\" \"\\\\n\"",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/23.sh_Pcat-1-tr-_bce81de52b8e9f18c36035999af2fdf8_M10.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"[A-Z]\" | tr \"[a-z]\" \"\\\\n\" | tr -d \"\\\\n\" | cut -c 1-4",
-	"category": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/23.sh_Pcat-1-tr-_bce81de52b8e9f18c36035999af2fdf8_M3.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"[A-Z]\" | grep \"[A-Z]\" | tr \"[a-z]\" \"\\\\n\" | tr -d \"\\\\n\" | cut -c 1-4",
-	"category": "swap tr and grep, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "swap tr and grep, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd swap tr and grep, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/24.sh_Pcat-1-cut-_56d7e61d429fdefa75084dd552b1b6d2_M3.sh",
 	"content": "cat ${1} | tr -d \"\\\\n\"",
-	"category": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/25.sh_Pcat-1-cut-_8a9b7c8e1035a4273cdcffd32ddbbd01_M3.sh",
 	"content": "cat ${1} | tr -d \"\\\\n\"",
-	"category": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/26.sh_Pcat-1-tr-_85d245e0ddfc6e2b9ed5149bae9dd65a_M7.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | sed 4d | cut -d \"\\\"\" -f 2 | tr -d \"\\\\n\"",
-	"category": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/28.sh_Pcat-1-tr-_64b8eb7f4376a0cb6f71b21a4ba7b5d3_M42.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"[A-Z]\" | sed 1d | sed 3d | sed 3d | tr \"[a-z]\" \"\\\\n\" | grep \"[A-Z]\" | sed 3d | tr \"[A-Z]\" \"\\\\n\" | tr -d \"\\\\n\"",
-	"category": "dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/29.sh_Pcat-1-sed-_09cef0ae6aeeb5416c119485342b0c0d_M3.sh",
 	"content": "cat ${1} | sed 2d | sed 2d | tr -d \"\\\\n\" | tr -c \"[A-Z]\" \"\\\\n\"",
-	"category": "swap tr, should be detectable with assert annotations",
-	"notes": "swap tr, should be detectable with assert annotations"
+	"category": "ANN'd swap tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/29.sh_Pcat-1-sed-_09cef0ae6aeeb5416c119485342b0c0d_M7.sh",
 	"content": "cat ${1} | sed 2d | sed 2d | tr -d \"\\\\n\"",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/29.sh_Pcat-1-sed-_09cef0ae6aeeb5416c119485342b0c0d_M8.sh",
 	"content": "cat ${1} | sed 2d | sed 2d | tr -c \"[A-Z]\" \"\\\\n\"",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/3.sh_Pcat-1-head_1db0c9c78e23ef3620757055f6bb4ae1_M4.sh",
 	"content": "cat ${1} | head -n 2",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/30.sh_Pcat-1-tr-_947a5730e531b8197467769724b0d343_M10.sh",
 	"content": "cat ${1} | tr -c \"[a-z][A-Z]\" \"\\\\n\" | sed 1d | sed 2d | sed 3d | sed 4d | tr -c \"[A-Z]\" \"\\\\n\" | tr -d \"\\\\n\"",
-	"category": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/30.sh_Pcat-1-tr-_947a5730e531b8197467769724b0d343_M15.sh",
 	"content": "cat ${1} | tr -c \"[a-z][A-Z]\" \"\\\\n\" | grep \"[A-Z]\" | sed 1d | sed 2d | sed 3d | sed 4d | tr -d \"\\\\n\"",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/30.sh_Pcat-1-tr-_947a5730e531b8197467769724b0d343_M20.sh",
 	"content": "cat ${1} | tr \"[a-z][A-Z]\" \"\\\\n\" | grep \"[A-Z]\" | sed 1d | sed 2d | sed 3d | sed 4d | tr -c \"[A-Z]\" \"\\\\n\" | tr -d \"\\\\n\"",
-	"category": "dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/29.sh_Pcat-1-sed-_09cef0ae6aeeb5416c119485342b0c0d_M16.sh",
 	"content": "cat ${1} | sed 2d | sed 2d | tr \"[A-Z]\" \"\\\\n\" | tr -d \"\\\\n\"",
-	"category": "dropped -c in tr, should be detectable with assert annotations",
-	"notes": "dropped -c in tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped -c in tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/30.sh_Pcat-1-tr-_947a5730e531b8197467769724b0d343_M16.sh",
 	"content": "cat ${1} | tr -c \"[a-z][A-Z]\" \"\\\\n\" | grep \"[A-Z]\" | sed 1d | sed 2d | sed 3d | sed 4d | tr -c \"[A-Z]\" \"\\\\n\"",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/31.sh_Pcat-1-tr-_6dcef67fd581e3c83a589c37328476f5_M11.sh",
 	"content": "cat ${1} | tr -c \"[a-z][A-Z]\" \"\\\\n\" | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr -c \"[A-Z]\" \"\\\\n\" | tr -d \"\\\\n\"",
-	"category": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/31.sh_Pcat-1-tr-_6dcef67fd581e3c83a589c37328476f5_M18.sh",
 	"content": "cat ${1} | tr -c \"[a-z][A-Z]\" \"\\\\n\" | grep \"[A-Z]\" | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr -c \"[A-Z]\" \"\\\\n\"",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/31.sh_Pcat-1-tr-_6dcef67fd581e3c83a589c37328476f5_M22.sh",
 	"content": "cat ${1} | tr \"[a-z][A-Z]\" \"\\\\n\" | grep \"[A-Z]\" | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr -c \"[A-Z]\" \"\\\\n\" | tr -d \"\\\\n\"",
-	"category": "dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/32.sh_Pcat-1-sed-_3f80257c46b48d4dcaf2092be241a2ee_M6.sh",
 	"content": "cat ${1} | sed 1d | cut -f 2 | wc -l",
-	"category": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped grep, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/32.sh_Pcat-1-sed-_3f80257c46b48d4dcaf2092be241a2ee_M8.sh",
 	"content": "cat ${1} | sed 1d | grep \"Bell\" | cut -f 2",
-	"category": "dropped wc, should be detectable with assert annotations",
-	"notes": "dropped wc, should be detectable with assert annotations"
+	"category": "ANN'd dropped wc, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/33.sh_Pcat-1-sed-_92e226b9bc61f4c3376c4dc5f55f2fa3_M5.sh",
 	"content": "cat ${1} | sed 1d | cut -f 2",
-	"category": "drop grep, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "drop grep, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd drop grep, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/31.sh_Pcat-1-tr-_6dcef67fd581e3c83a589c37328476f5_M38.sh",
 	"content": "cat ${1} | tr -c \"[a-z][A-Z]\" \"\\\\n\" | grep \"[A-Z]\" | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr \"[A-Z]\" \"\\\\n\" | tr -d \"\\\\n\"",
-	"category": "dropped -c in tr, should be detectable with assert annotations",
-	"notes": "dropped -c in tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped -c in tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/32.sh_Pcat-1-sed-_3f80257c46b48d4dcaf2092be241a2ee_M19.sh",
 	"content": "cat ${1} | sed 1d | grep \"Bell\" | cut -f 2 | wc",
-	"category": "dropped -l in wc, should be detectable with assert annotations",
-	"notes": "dropped -l in wc, should be detectable with assert annotations"
+	"category": "ANN'd dropped -l in wc, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/36.sh_Pcat-1-cut-_03913ab64ab449610c91811757d9caa1_M10.sh",
 	"content": "cat ${1} | cut -f 2 | sort | uniq -c | sort -nr | head -n 1 | fmt -w1 | sed 1d",
-	"category": "dropped cut -d, should be detectable with assert annotations",
-	"notes": "dropped cut -d, should be detectable with assert annotations"
+	"category": "ANN'd dropped cut -d, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/4.sh_Pcat-1-cut-_aebd1866bd47b0ba7f5d8344d2b6b37e_M5.sh",
 	"content": "cat ${1} | sort | uniq -c | sort -r",
-	"category": "dropped cut, should be detectable with assert annotations",
-	"notes": "dropped cut, should be detectable with assert annotations"
+	"category": "ANN'd dropped cut, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/4.sh_Pcat-1-cut-_aebd1866bd47b0ba7f5d8344d2b6b37e_M7.sh",
 	"content": "cat ${1} | cut -d \" \" -f 1 | sort | sort -r",
-	"category": "dropped uniq, should be detectable with assert annotations",
-	"notes": "dropped uniq, should be detectable with assert annotations"
+	"category": "ANN'd dropped uniq, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/6.sh_Pcat-1-cut-_dab49b1438bcab40e4c4fccbd93ddcf7_M1.sh",
 	"content": "cat ${1} | cut -c 1-1 | cut -d \" \" -f 2 | tr -d \"\\\\n\" | tr \"[A-Z]\" \"[a-z]\"",
-	"category": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/36.sh_Pcat-1-cut-_03913ab64ab449610c91811757d9caa1_M4.sh",
 	"content": "cat ${1} | cut -f 2 | cut -d \" \" -f 1 | sort | sort -nr | uniq -c | head -n 1 | fmt -w1 | sed 1d",
-	"category": "swapped sort and uniq, should be detectable with input annotations, composition mistake at (sort -n)",
-	"notes": "swapped sort and uniq, should be detectable with input annotations, composition mistake at (sort -n)"
+	"category": "ANN'd swapped sort and uniq, should be detectable with input annotations, composition mistake at (sort -n)",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/4.sh_Pcat-1-cut-_aebd1866bd47b0ba7f5d8344d2b6b37e_M18.sh",
 	"content": "cat ${1} | cut -d \" \" -f 1 | sort | uniq | sort -r",
-	"category": "dropped -c in uniq, should be detectable with assert annotations",
-	"notes": "dropped -c in uniq, should be detectable with assert annotations"
+	"category": "ANN'd dropped -c in uniq, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/5.sh_Pcat-1-cut-_89d8b804d5e14234b94336bf173cece2_M3.sh",
 	"content": "cat ${1} | tr -d \",\"",
-	"category": "dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped tr, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/6.sh_Pcat-1-cut-_dab49b1438bcab40e4c4fccbd93ddcf7_M2.sh",
 	"content": "cat ${1} | cut -d \" \" -f 2 | tr -d \"\\\\n\" | cut -c 1-1 | tr \"[A-Z]\" \"[a-z]\"",
-	"category": "swap cut and tr, should be detectable with input annotations, composition mistake at (cut -c 1-1)",
-	"notes": "swap cut and tr, should be detectable with input annotations, composition mistake at (cut -c 1-1)"
+	"category": "ANN'd swap cut and tr, should be detectable with input annotations, composition mistake at (cut -c 1-1)",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/7.sh_Pcat-1-tr-_0ecc7ea82210624a14849379be471b89_M15.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"\\\\.\" | wc",
-	"category": "dropped -l in wc, should be detectable with assert annotations",
-	"notes": "dropped -l in wc, should be detectable with assert annotations"
+	"category": "ANN'd dropped -l in wc, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/8.sh_Pcat-1-tr-_fb7d49622db88c1ef9588b62750a6bdd_M19.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"x\" | grep \"\\\\.\" | wc",
-	"category": "dropped -l in wc, should be detectable with assert annotations",
-	"notes": "dropped -l in wc, should be detectable with assert annotations"
+	"category": "ANN'd dropped -l in wc, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/6.sh_Pcat-1-cut-_dab49b1438bcab40e4c4fccbd93ddcf7_M5.sh",
 	"content": "cat ${1} | cut -c 1-1 | tr -d \"\\\\n\" | tr \"[A-Z]\" \"[a-z]\"",
-	"category": "swap cut and tr, should be detectable with input annotations, composition mistake at (cut -c 1-1)",
-	"notes": "swap cut and tr, should be detectable with input annotations, composition mistake at (cut -c 1-1)"
+	"category": "ANN'd swap cut and tr, should be detectable with input annotations, composition mistake at (cut -c 1-1)",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/6.sh_Pcat-1-cut-_dab49b1438bcab40e4c4fccbd93ddcf7_M6.sh",
 	"content": "cat ${1} | cut -d \" \" -f 2 | tr -d \"\\\\n\" | tr \"[A-Z]\" \"[a-z]\"",
-	"category": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped cut, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/6.sh_Pcat-1-cut-_dab49b1438bcab40e4c4fccbd93ddcf7_M7.sh",
 	"content": "cat ${1} | cut -d \" \" -f 2 | cut -c 1-1 | tr \"[A-Z]\" \"[a-z]\"",
-	"category": "dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
-	"notes": "dropped tr, should be detectable with assert annotations and tr/sed/cut procedures"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/6.sh_Pcat-1-cut-_dab49b1438bcab40e4c4fccbd93ddcf7_M8.sh",
 	"content": "cat ${1} | cut -d \" \" -f 2 | cut -c 1-1 | tr -d \"\\\\n\"",
-	"category": "dropped tr, should be detectable with assert annotations",
-	"notes": "dropped tr, should be detectable with assert annotations"
+	"category": "ANN'd dropped tr, should be detectable with assert annotations",
+	"notes": ""
     },
     {
 	"address": "full_benchmark/curated_mutants/maybe/9.sh_Pcat-1-tr-_3d9fced8737676e9431971b47dc40f56_M31.sh",
 	"content": "cat ${1} | tr \" \" \"\\\\n\" | grep \"x\" | grep \"\\\\.\" | cut -d \".\" -f 2 | grep -v \"[KQRBN]\" | wc",
-	"category": "dropped -l in wc, should be detectable with assert annotations",
-	"notes": "dropped -l in wc, should be detectable with assert annotations"
+	"category": "ANN'd dropped -l in wc, should be detectable with assert annotations",
+	"notes": ""
     },
 	{
         "content": "cat file.txt | wc -l | xargs echo  # meaningleass xargs echo",

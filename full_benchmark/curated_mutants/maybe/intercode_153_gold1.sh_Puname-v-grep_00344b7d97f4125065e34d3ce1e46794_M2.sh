@@ -1,1 +1,2 @@
+# @output "#[0-9]+"
 uname -v

@@ -1,1 +1,0 @@
-echo -n ${PATH} | xargs -d : stat -c

@@ -1,1 +1,0 @@
-cat ${1} | cut -f 4 | cut -c 3-3 | sort -n | uniq | sed s/\$/"0s"/

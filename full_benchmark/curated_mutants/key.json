@@ -520,9 +520,9 @@
 	"notes": "with output annotations"
     },
     "ladder3.sh_Pecho-n-PATH-_cde0c7e39cf86c1b0796d8292a8ae89a_M11.sh": {
-	"interesting?": "maybe",
+	"interesting?": false,
 	"detectable": "maybe",
-	"notes": "with output annotations"
+	"notes": "stat crashes due to bad flags"
     },
     "ladder3.sh_Pecho-n-PATH-_cde0c7e39cf86c1b0796d8292a8ae89a_M2.sh": {
 	"interesting?": "maybe",
@@ -530,14 +530,14 @@
 	"notes": "with output annotations"
     },
     "ladder7.sh_Pdate-s-xarg_29b37f4d8e79a36d588f693169e05bb3_M2.sh": {
-	"interesting?": "maybe",
-	"detectable": "maybe",
-	"notes": "with output annotations"
+	"interesting?": false,
+	"detectable": false,
+	"notes": "same output format!"
     },
     "ladder7.sh_Pdate-s-xarg_29b37f4d8e79a36d588f693169e05bb3_M7.sh": {
-	"interesting?": "maybe",
-	"detectable": "maybe",
-	"notes": "with special case for expr?"
+	"interesting?": false,
+	"detectable": false,
+	"notes": "same output format!"
     },
     "ladder8.sh_Pseq-10-head-_e7f492c48036519c8b5c081b00020a8c_M0.sh": {
 	"interesting?": "maybe",
@@ -545,9 +545,9 @@
 	"notes": "with input annotations, or warning about arbitrary stdin format"
     },
     "ladder8.sh_Pseq-10-head-_e7f492c48036519c8b5c081b00020a8c_M13.sh": {
-	"interesting?": "maybe",
-	"detectable": "maybe",
-	"notes": "with special case for expr?"
+	"interesting?": false,
+	"detectable": false,
+	"notes": "same output format!"
     },
     "ladder8.sh_Pseq-10-head-_e7f492c48036519c8b5c081b00020a8c_M3.sh": {
 	"interesting?": "maybe",
@@ -778,8 +778,8 @@
 	    "current": "cat ${1} | cut -f 4 | cut -c 3-3 | sort -n | uniq | sed s/\\$/\"0s\"/",
 	    "unix50_original": "#!/bin/bash\n\n# 7.3: all the decades in which a unix version was released\ncat $1 | cut -f 4 | sort -n | cut -c 3-3 | uniq | sed s/\\$/'0s'/\n"
 	},
-	"interesting?": true,
-	"detectable": true
+	"interesting?": false,
+	"detectable": false
     },
     "17.sh_Pcat-1-cut-_fe570aed6e8ed3898911821a66f0007d_M8.sh": {
 	"notes": "dropped cut, should be detectable with input annotations and assert annotations",
@@ -800,13 +800,13 @@
 	"detectable": false
     },
     "2.sh_Pcat-1-cut-_6c673a461ed201453a954dd4ad363952_M1.sh": {
-	"notes": "swap sort and cut, may be detectable with input annotations",
+	"notes": "out of scope: can't be detected, swap sort and cut makes output have wrong order",
 	"versions": {
 	    "current": "cat ${1} | sort | cut -d \" \" -f 2",
 	    "unix50_original": "#!/bin/bash\n\n# 1.1: extract names and sort\ncat $1 | cut -d ' ' -f 2 | sort\n"
 	},
-	"interesting?": true,
-	"detectable": true
+	"interesting?": false,
+	"detectable": false
     },
     "2.sh_Pcat-1-cut-_6c673a461ed201453a954dd4ad363952_M4.sh": {
 	"notes": "dropped sort, cannot be detected",
