@@ -20,5 +20,6 @@
                 "output_type": "{{actual_input_type}}"
             }
         }
-    ]
+    ],
+    "isInteresting": true
 }

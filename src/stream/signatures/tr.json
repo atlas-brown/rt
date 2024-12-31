@@ -15,5 +15,6 @@
         }
     ],
     "flags": [],
-    "rules": []
+    "rules": [],
+    "isInteresting": true
 }

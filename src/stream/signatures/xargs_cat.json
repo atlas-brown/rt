@@ -13,5 +13,6 @@
                 "input_type": "[^ ]*|\".*\"|'.*'"
             }
         }
-    ]
+    ],
+    "isInteresting": true
 }

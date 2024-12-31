@@ -4,5 +4,6 @@
     "default_output_type": ".*",
     "args": [],
     "flags": [],
-    "rules": []
+    "rules": [],
+    "isInteresting": true
 }

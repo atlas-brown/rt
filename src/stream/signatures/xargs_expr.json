@@ -4,5 +4,6 @@
     "default_output_type": "-?[0-9]+",
     "args": [],
     "flags": [],
-    "rules": []
+    "rules": [],
+    "isInteresting": true
 }

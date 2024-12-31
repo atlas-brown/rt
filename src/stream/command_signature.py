@@ -18,6 +18,7 @@ class CommandSignature:
         args: List[Dict[str, Any]], 
         flags: List[Dict[str, Any]],
         rules: List[Dict[str, Any]],
+        isInteresting: bool,
     ) -> None:
         self.command_name = command_name
         self.default_input_type = RegularType(default_input_type)
@@ -25,6 +26,7 @@ class CommandSignature:
         self.args = args
         self.flags = flags
         self.rules = rules
+        self.isInteresting = isInteresting
 
     def matches_command(self, command_invocation: CommandInvocationInitial) -> bool:
         assert isinstance(command_invocation, CommandInvocationInitial)
@@ -45,7 +47,7 @@ class CommandSignature:
             if annotation.annotation_type == AnnotationType.ASSUME:
                 return RegularType(annotation.pattern)
             
-        if parsed_command_invocation.cmd_name != "xargs" and len(parsed_command_invocation.operand_list) > 1:
+        if parsed_command_invocation.cmd_name != "xargs" and len(parsed_command_invocation.operand_list) > 1 and self.isInteresting:
             operand = parsed_command_invocation.operand_list[0].name
             if operand.startswith("-") and len(operand) == 2:
                 raise PashAnnotationParsingError(f"pash_annotations.parser might be wrong, command: {parsed_command_invocation}, operand: {operand}")

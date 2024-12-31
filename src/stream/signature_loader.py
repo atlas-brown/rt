@@ -26,30 +26,27 @@ class SignatureLoader:
                                     default_output_type=".*",
                                     args=[],
                                     flags=[],
-                                    rules=[]
+                                    rules=[],
+                                    isInteresting=False,
                                 )
 
     def load_signature(self, command_name: str) -> CommandSignature:
         file_path = os.path.join(self.signature_dir, f'{command_name}.json')
         with open(file_path, 'r') as f:
             data = json.load(f)
+            signature_params = {
+                'command_name': data['command_name'],
+                'default_input_type': data['default_input_type'],
+                'default_output_type': data['default_output_type'],
+                'args': data.get('args', []),
+                'flags': data.get('flags', []),
+                'rules': data.get('rules', []),
+                'isInteresting': data.get('isInteresting', False),
+        }
+        
         if command_name in self.special_signatures:
-            return self.special_signatures[command_name](
-                command_name=data['command_name'],
-                default_input_type=data['default_input_type'],
-                default_output_type=data['default_output_type'],
-                args=data.get('args', []),
-                flags=data.get('flags', []),
-                rules=data.get('rules', []),
-        )
-        return CommandSignature(
-            command_name=data['command_name'],
-            default_input_type=data['default_input_type'],
-            default_output_type=data['default_output_type'],
-            args=data.get('args', []),
-            flags=data.get('flags', []),
-            rules=data.get('rules', [])
-        )
+            return self.special_signatures[command_name](**signature_params)
+        return CommandSignature(**signature_params)
 
     def load_all_signatures(self) -> List[CommandSignature]:
         signatures: List[CommandSignature] = []

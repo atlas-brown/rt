@@ -13,5 +13,6 @@
                 "output_type": "[0-9]+"
             }
         }
-    ]
+    ],
+    "isInteresting": true
 }

@@ -1,44 +1,46 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,256,23,50,50, 
+correct,256,9,52,52, 
  , , , ,21,<missing>
  , , , ,4,hard awk
  , , , ,11,unsopported options/flags/operands - about find
- , , , ,6,need assume annotation
- , , , ,7,need assume annotation and cut/tr/sed procedures
- , , , ,1,hard tr
+ , , , ,2,hard tr
+ , , , ,1,about regex translation
+ , , , ,6,ANN'D need assume annotation
+ , , , ,3,ANN'D need assume annotation and cut/tr/sed procedures
+ , , , ,1,violates our assumption about sort -n usage
+ , , , ,3,ANN'd need assume annotation and cut/tr/sed procedures
 --------,-----,-----,--------,---------------,--------
-buggy,296,2,191,103, 
+buggy,290,2,190,98, 
  , , , ,1,semantic mistake - about cp/rm/stat
  , , , ,1,semantic mistake - about date
  , , , ,3,input to cmd that expects none
  , , , ,3,nice and self-contained; cut expects delimiter; mutant won't have it
  , , , ,1,nice and self-contained; dup of an earlier one
  , , , ,1,with useless no-op warning
- , , , ,1,dropped cut; should be detectable with assert annotations
- , , , ,1,dropped grep; should be detectable with assert annotations and tr/sed/cut procedures
- , , , ,2,dropped cut; should be detectable with assert annotations and tr/sed/cut procedures
- , , , ,9,dropped tr; should be detectable with assert annotations
- , , , ,1,dropped flags in wc; should be detectable with assert annotations
- , , , ,1,dropped -c in tr; should be detectable with assert annotations
- , , , ,15,with output annotations
- , , , ,2,with output annotations; or input annotations
- , , , ,1,swap tr; should be detectable with assert annotations
- , , , ,1,dropped grep; should be detectable with assert annotations
- , , , ,1,dropped -c in uniq; should be detectable with assert annotations
- , , , ,1,dropped uniq; should be detectable with assert annotations
- , , , ,1,dropped tr; should be detectable with assert annotations and tr/sed/cut procedures
- , , , ,1,swap cut and tr; should be detectable with input annotations; composition mistake at (cut -c 1-1)
- , , , ,3,dropped -l in wc; should be detectable with assert annotations
+ , , , ,1,ANN'd dropped flags in wc; should be detectable with assert annotations
+ , , , ,1,ANN'd dropped grep; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,2,ANN'd dropped cut; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,5,ANN'd dropped tr; should be detectable with assert annotations
+ , , , ,1,ANN'd dropped -c in tr; should be detectable with assert annotations
+ , , , ,1,ANN'd swap tr; should be detectable with assert annotations
+ , , , ,1,ANN'd dropped cut; should be detectable with assert annotations
+ , , , ,5,ANN'd with output annotations; we could perfectly model the contents here
+ , , , ,1,input default should be enough
+ , , , ,2,needs whole-stream annotation for number of lines
+ , , , ,1,ANN'd dropped -c in uniq; should be detectable with assert annotations
+ , , , ,1,ANN'd dropped uniq; should be detectable with assert annotations
+ , , , ,1,ANN'd dropped tr; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,1,ANN'd swap cut and tr; should be detectable with input annotations; composition mistake at (cut -c 1-1)
+ , , , ,2,ANN'd with output annotations; or input annotations
+ , , , ,3,ANN'd dropped -l in wc; should be detectable with assert annotations
+ , , , ,14,ANN'd with output annotations
  , , , ,2,with empty output warning
- , , , ,1,with output annotations; could specify no newline?
- , , , ,5,with output annotations; we could perfectly model the contents here
- , , , ,1,with annotations/pre-execution analysis for /etc/group format; or output annotations
+ , , , ,1,ANN'd with output annotations; could specify no newline?
+ , , , ,1,ANN'd with annotations/pre-execution analysis for /etc/group format; or output annotations
  , , , ,1,with a warning about stdin arbitrary format?
- , , , ,1,with annotations/pre-execution analysis for /etc/group format
- , , , ,1,with input annotations; or possibly output annotations
- , , , ,37,<missing>
- , , , ,2,with special case for expr?
+ , , , ,1,ANN'd with annotations/pre-execution analysis for /etc/group format
+ , , , ,38,<missing>
  , , , ,1,
 ========,=====,=====,========,===============,========
-total,520,25, ,153, 
+total,517,11, ,150, 
