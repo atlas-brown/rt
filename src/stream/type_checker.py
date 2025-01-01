@@ -108,7 +108,7 @@ class TypeChecker:
                     if checking_result.ill_typed:
                         checking_result.set_message(
                             f"Command '{signature.command_name}' received input '{previous_output_type.pattern}' "
-                            f"but it should not accept input of type '{no_input_type.pattern}' according to heuristic rules."
+                            f"but it should not accept input type which is subset of '{no_input_type.pattern}' according to heuristic rules."
                         )
                         return checking_result
                     

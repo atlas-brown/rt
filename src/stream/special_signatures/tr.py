@@ -1,4 +1,5 @@
 import re
+from typing import Optional, Tuple
 from command_signature import CommandSignature
 from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
@@ -10,13 +11,25 @@ class TrSignature(CommandSignature):
         super().__init__(*args, **kwargs)
         
 
-    def get_input_type(self, parsed_command_invocation, heuristic_rules):
+    def get_input_type(self, parsed_command_invocation, heuristic_rules) -> Tuple[RegularType, Optional[RegularType]]:
         input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules)
         if "no_meaningless_command" not in heuristic_rules:
             return input_type, no_input_type
+        set1 = parsed_command_invocation.operand_list[0].name
+        # FIXME: may have some issues
+        if "set1" == "\\n":
+            return input_type, None
+    
         return input_type, RegularType(get_output_pattern(parsed_command_invocation))
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation):
+        # FIXME: may have some issues
+        if "set1" == "\\n":
+            parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
+            if "-d" in parsed_flags:
+                return RegularType(f"({previous_output_type.pattern})+")
+            if "-s" in parsed_flags:
+                return RegularType(f"({previous_output_type.pattern})&(.+)")
         return RegularType(f"({previous_output_type.pattern})&({get_output_pattern(parsed_command_invocation)})")
 
 

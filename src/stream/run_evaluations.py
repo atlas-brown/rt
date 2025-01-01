@@ -63,10 +63,10 @@ def calculate_recall(labels, preds):
     logging.info(f'Recall: {recall}')
     return recall
 
-def calculate_fail_rate(labels, preds):
-    fail_count = sum(1 for _, pred in zip(labels, preds) if pred is None)
-    logging.info(f'Failed predictions: {fail_count}')
-    return fail_count / len(labels)
+def calculate_crash_rate(labels, preds):
+    crash_count = sum(1 for _, pred in zip(labels, preds) if pred is None)
+    logging.info(f'Crash: {crash_count}')
+    return crash_count / len(labels)
 
 
 def evaluate_pipeline_content(address: str) -> list[dict]:
@@ -202,13 +202,13 @@ def run_all_evaluations(valid_dirs: list[str],
             "accuracy": calculate_accuracy(labels, preds),
             "precision": calculate_precision(labels, preds),
             "recall": calculate_recall(labels, preds),
-            "fail_rate": calculate_fail_rate(labels, preds)
+            "crash_rate": calculate_crash_rate(labels, preds)
         })
 
         logging.info(f'Accuracy: {statistics["accuracy"]}')
         logging.info(f'Precision: {statistics["precision"]}')
         logging.info(f'Recall: {statistics["recall"]}')
-        logging.info(f'Fail rate: {statistics["fail_rate"]}')
+        logging.info(f'Crash rate: {statistics["crash_rate"]}')
         logging.info(f'Total correct valid pipelines: {total_correct_pipelines - total_false_positives - total_correct_pipeline_crashes}')
         logging.info(f'Total buggy pipelines detected: {total_buggy_pipelines - total_false_negatives - total_buggy_pipeline_crashes}')
         logging.info(f'Total timeouts: {total_timeouts}')
@@ -276,16 +276,51 @@ def tabulate(result_stats, f):
     f.write("========,=====,=====,========,===============,========\n")
     f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']}, \n")
 
+def merge_notes(notes_to_merge: List[dict]) -> dict:
+    if not notes_to_merge:
+        return {}
+
+    merged_note = {}
+    for note in notes_to_merge:
+        for key, value in note.items():
+            if key not in merged_note or merged_note[key] == None or merged_note[key] == "":
+                merged_note[key] = value
+            else:
+                if key == "category":
+                    if (merged_note[key] == "<missing>" or merged_note[key] == "") and (value == "<missing>" or value == ""):
+                        merged_note[key] = "<missing>"
+                    elif (merged_note[key] == "<missing>" or merged_note[key] == "") or (value == "<missing>" or value == ""):
+                        merged_note[key] = value if (value != "<missing>" and value != "") else merged_note[key]
+                    else:
+                        print(f"Warning: Conflict in 'category' field. Keeping later value. All notes: {notes_to_merge}")
+                        merged_note[key] = value
+                else:
+                    if merged_note[key] != value:
+                        print(f"Warning: Conflict in field '{key}'. Keeping later value. All notes: {notes_to_merge}")
+                    merged_note[key] = value
+
+    return merged_note
+
+
 # listof(Note) content -> Optional(Note)
 def notes_lookup(address, notes: List[dict], content):
+    matching_notes = []
+
     if "full_benchmark/llm_injection" in address:
         for note in notes:
             if note.get("address", "") == address:
-                return note
-    for note in notes:
-        if note["content"] == content:
-            return note
-    return None
+                matching_notes.append(note)
+    else:
+        for note in notes:
+            if note["content"] == content:
+                matching_notes.append(note)
+
+    if not matching_notes:
+        return None
+
+    merged_note = merge_notes(matching_notes)
+    return merged_note
+
 
 if __name__ == "__main__":
     level = logging.INFO

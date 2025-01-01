@@ -1,20 +1,29 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,256,9,52,52, 
- , , , ,21,<missing>
+correct,256,9,50,50, 
+ , , , ,4,Our system is correct
+ , , , ,3,Bad sed
+ , , , ,1,Bad head
  , , , ,4,hard awk
  , , , ,11,unsopported options/flags/operands - about find
+ , , , ,4,Bad find; our system is correct
+ , , , ,2,Bad heuristics: no_sort_non_numeric_with_numeric_input
+ , , , ,2,need tr/sed/cut procedures
  , , , ,2,hard tr
  , , , ,1,about regex translation
- , , , ,6,ANN'D need assume annotation
+ , , , ,5,ANN'D need assume annotation
+ , , , ,1,Bad seq
  , , , ,3,ANN'D need assume annotation and cut/tr/sed procedures
  , , , ,1,violates our assumption about sort -n usage
+ , , , ,1,Bad tr
+ , , , ,1,Bad tr; our system is correct
+ , , , ,1,ANN'd dropped wc; should be detectable with assert annotations
  , , , ,3,ANN'd need assume annotation and cut/tr/sed procedures
 --------,-----,-----,--------,---------------,--------
-buggy,290,2,190,98, 
+buggy,290,2,188,100, 
  , , , ,1,semantic mistake - about cp/rm/stat
  , , , ,1,semantic mistake - about date
- , , , ,3,input to cmd that expects none
+ , , , ,4,input to cmd that expects none
  , , , ,3,nice and self-contained; cut expects delimiter; mutant won't have it
  , , , ,1,nice and self-contained; dup of an earlier one
  , , , ,1,with useless no-op warning
@@ -32,7 +41,7 @@ buggy,290,2,190,98,
  , , , ,1,ANN'd dropped uniq; should be detectable with assert annotations
  , , , ,1,ANN'd dropped tr; should be detectable with assert annotations and tr/sed/cut procedures
  , , , ,1,ANN'd swap cut and tr; should be detectable with input annotations; composition mistake at (cut -c 1-1)
- , , , ,2,ANN'd with output annotations; or input annotations
+ , , , ,3,ANN'd with output annotations; or input annotations
  , , , ,3,ANN'd dropped -l in wc; should be detectable with assert annotations
  , , , ,14,ANN'd with output annotations
  , , , ,2,with empty output warning
@@ -40,7 +49,19 @@ buggy,290,2,190,98,
  , , , ,1,ANN'd with annotations/pre-execution analysis for /etc/group format; or output annotations
  , , , ,1,with a warning about stdin arbitrary format?
  , , , ,1,ANN'd with annotations/pre-execution analysis for /etc/group format
- , , , ,38,<missing>
+ , , , ,1,<missing>
+ , , , ,12,Bad cut
+ , , , ,1,Bad xargs_grep
+ , , , ,5,Bad sort
+ , , , ,1,semantic mistake - uniq
+ , , , ,1,semantic mistake - file not found
+ , , , ,4,need tr/sed/cut procedures
+ , , , ,8,Bad grep
+ , , , ,1,semantic mistake - only one line
+ , , , ,1,Bad sed
+ , , , ,1,Bad find; need tr/sed/cut procedures
+ , , , ,1,may not handle regex in sed
+ , , , ,1,semantic mistake - meaningless uniq
  , , , ,1,
 ========,=====,=====,========,===============,========
 total,517,11, ,150, 
