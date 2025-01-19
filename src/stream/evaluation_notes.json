@@ -3576,6 +3576,18 @@
         "evaluation_time": "0.15s",
         "category": "need tr/sed/cut procedures",
         "notes": "meaningless grep"
+    },
+    {
+        "address": "./full_benchmark/curated_mutants/maybe/intercode_3_gold1.sh_Pcat-echo-FI_63786ce281f0cb802f6214c96b36defc_M2.sh",
+        "content": "echo ${FILES} | tr \" \" \"\\\\n\" | sort",
+        "is buggy?": true,
+        "warning signaled?": false,
+        "tool runtime error": null,
+        "pash annotations error": null,
+        "error message generated": null,
+        "evaluation_time": "0.08s",
+        "category": "semantic mistake - only one line",
+        "notes": ""
     }
 
 ]
