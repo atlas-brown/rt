@@ -49,7 +49,7 @@ buggy,290,2,188,100,
  , , , ,1,ANN'd with annotations/pre-execution analysis for /etc/group format; or output annotations
  , , , ,1,with a warning about stdin arbitrary format?
  , , , ,1,ANN'd with annotations/pre-execution analysis for /etc/group format
- , , , ,1,<missing>
+ , , , ,2,semantic mistake - only one line
  , , , ,12,Bad cut
  , , , ,1,Bad xargs_grep
  , , , ,5,Bad sort
@@ -57,7 +57,6 @@ buggy,290,2,188,100,
  , , , ,1,semantic mistake - file not found
  , , , ,4,need tr/sed/cut procedures
  , , , ,8,Bad grep
- , , , ,1,semantic mistake - only one line
  , , , ,1,Bad sed
  , , , ,1,Bad find; need tr/sed/cut procedures
  , , , ,1,may not handle regex in sed

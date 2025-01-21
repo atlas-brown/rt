@@ -7,7 +7,7 @@
     "rules": [
         {
             "condition": {
-                "flag": ["-l"]
+                "flags": ["-l"]
             },
             "update": {
                 "output_type": "[0-9]+"

@@ -84,7 +84,7 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
     pipeline_data_list = []
     
     try:        
-        type_checker = TypeChecker(address, enable_user_annotations=False, enable_stage_timeout=ENABLE_TIMEOUT, stage_timeout=TIMEOUT_SECONDS)
+        type_checker = TypeChecker(address, enable_user_annotations=True, enable_stage_timeout=ENABLE_TIMEOUT, stage_timeout=TIMEOUT_SECONDS)
 
         try:
             while True:

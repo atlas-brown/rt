@@ -114,7 +114,7 @@ class ShellParser:
                     
                     if annotation_type == AnnotationType.OUTPUT:
                         corresponding_annotations = annotations.get(node.items[-1], [])
-                        corresponding_annotations.append(UserAnnotation(annotation_type, pattern, node, node.items[-1]))
+                        corresponding_annotations.append(UserAnnotation(AnnotationType.ASSERT, pattern, node, node.items[-1]))
                         annotations[node.items[-1]] = corresponding_annotations
                         continue
 

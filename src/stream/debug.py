@@ -4,6 +4,7 @@ import logging
 def main():
     logging.basicConfig(level=logging.DEBUG)
     pipeline_address = './evaluation_pipelines/debug.sh'
+    pipeline_address = './full_benchmark/curated_mutants/maybe/18.sh_Pcat-1-tr-_727246379ae4b59e5e6536bf17727fe0_M15.sh'
 
     with open(pipeline_address, 'r') as f:
         pipeline = f.read()
