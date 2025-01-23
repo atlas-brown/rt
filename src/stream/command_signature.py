@@ -47,9 +47,9 @@ class CommandSignature:
             if annotation.annotation_type == AnnotationType.ASSUME:
                 return RegularType(annotation.pattern)
             
-        if parsed_command_invocation.cmd_name != "xargs" and len(parsed_command_invocation.operand_list) > 1 and self.isInteresting:
+        if parsed_command_invocation.cmd_name != "xargs" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
             operand = parsed_command_invocation.operand_list[0].name
-            if operand.startswith("-") and len(operand) == 2:
+            if operand.startswith("-"):
                 raise PashAnnotationParsingError(f"pash_annotations.parser might be wrong, command: {parsed_command_invocation}, operand: {operand}")
         
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))

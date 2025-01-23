@@ -1,0 +1,33 @@
+category,total,crash,signaled,false (pos/neg),category
+========,=====,=====,========,===============,========
+correct,256,114,54,54, 
+ , , , ,4,Our system is correct
+ , , , ,3,Bad sed
+ , , , ,4,hard awk
+ , , , ,10,unsopported options/flags/operands - about find
+ , , , ,4,Bad find; our system is correct
+ , , , ,2,Bad heuristics: no_sort_non_numeric_with_numeric_input
+ , , , ,1,semantic mistake - only one line
+ , , , ,2,need tr/sed/cut procedures
+ , , , ,2,hard tr
+ , , , ,1,about regex translation
+ , , , ,3,ANN'D need assume annotation
+ , , , ,10,<missing>
+ , , , ,2,ANN'D need assume annotation and cut/tr/sed procedures
+ , , , ,1,violates our assumption about sort -n usage
+ , , , ,1,Bad tr
+ , , , ,1,Bad tr; our system is correct
+ , , , ,3,ANN'd need assume annotation and cut/tr/sed procedures
+--------,-----,-----,--------,---------------,--------
+buggy,290,2,278,10, 
+ , , , ,1,semantic mistake - about cp/rm/stat
+ , , , ,1,semantic mistake - about date
+ , , , ,2,input to cmd that expects none
+ , , , ,1,with useless no-op warning
+ , , , ,1,with empty output warning
+ , , , ,1,needs whole-stream annotation for number of lines
+ , , , ,1,semantic mistake - file not found
+ , , , ,1,Bad find; need tr/sed/cut procedures
+ , , , ,1,may not handle regex in sed
+========,=====,=====,========,===============,========
+total,517,116, ,64, 

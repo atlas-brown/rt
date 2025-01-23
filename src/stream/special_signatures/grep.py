@@ -22,6 +22,9 @@ class GrepSignature(CommandSignature):
         
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
 
+        if "-n" in parsed_flags:
+            return input_type, no_input_type
+
         if "-v" not in parsed_flags:
             return input_type, RegularType(f".*{pattern}.*")
         else:
@@ -74,6 +77,9 @@ class GrepSignature(CommandSignature):
 
         if arg_count == 1:
             pattern = f"(({pattern}))&(({previous_output_type.pattern}))"
+
+        if "-n" in flags:
+            pattern = f"([0-9]+:)({pattern})"
 
         return RegularType(pattern)
         

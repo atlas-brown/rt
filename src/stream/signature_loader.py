@@ -8,6 +8,7 @@ from special_signatures.sed import SedSignature
 from special_signatures.cut import CutSignature
 from special_signatures.grep import GrepSignature
 from special_signatures.tr import TrSignature
+from special_signatures.paste import PasteSignature
 
 class SignatureLoader:
     def __init__(self, signature_dir : str = "./src/stream/signatures") -> None:
@@ -17,7 +18,8 @@ class SignatureLoader:
             "sed": SedSignature,
             "cut": CutSignature,
             "grep": GrepSignature,
-            "tr": TrSignature
+            "tr": TrSignature,
+            "paste": PasteSignature
         }
         self.signatures = self.load_all_signatures()
         self.unknown_signature = CommandSignature(
