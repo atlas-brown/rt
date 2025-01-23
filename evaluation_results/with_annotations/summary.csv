@@ -1,49 +1,33 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,256,9,63,63, 
+correct,256,114,54,54, 
  , , , ,4,Our system is correct
  , , , ,3,Bad sed
- , , , ,1,Bad head
  , , , ,4,hard awk
- , , , ,11,unsopported options/flags/operands - about find
+ , , , ,10,unsopported options/flags/operands - about find
  , , , ,4,Bad find; our system is correct
  , , , ,2,Bad heuristics: no_sort_non_numeric_with_numeric_input
- , , , ,16,<missing>
  , , , ,1,semantic mistake - only one line
  , , , ,2,need tr/sed/cut procedures
  , , , ,2,hard tr
  , , , ,1,about regex translation
  , , , ,3,ANN'D need assume annotation
- , , , ,1,Bad seq
+ , , , ,10,<missing>
  , , , ,2,ANN'D need assume annotation and cut/tr/sed procedures
  , , , ,1,violates our assumption about sort -n usage
  , , , ,1,Bad tr
  , , , ,1,Bad tr; our system is correct
  , , , ,3,ANN'd need assume annotation and cut/tr/sed procedures
 --------,-----,-----,--------,---------------,--------
-buggy,290,2,234,54, 
+buggy,290,2,278,10, 
  , , , ,1,semantic mistake - about cp/rm/stat
  , , , ,1,semantic mistake - about date
- , , , ,4,input to cmd that expects none
- , , , ,3,nice and self-contained; cut expects delimiter; mutant won't have it
- , , , ,1,nice and self-contained; dup of an earlier one
+ , , , ,2,input to cmd that expects none
  , , , ,1,with useless no-op warning
- , , , ,1,input default should be enough
- , , , ,2,with empty output warning
- , , , ,1,with a warning about stdin arbitrary format?
+ , , , ,1,with empty output warning
  , , , ,1,needs whole-stream annotation for number of lines
- , , , ,12,Bad cut
- , , , ,1,Bad xargs_grep
- , , , ,5,Bad sort
- , , , ,1,semantic mistake - uniq
  , , , ,1,semantic mistake - file not found
- , , , ,4,need tr/sed/cut procedures
- , , , ,8,Bad grep
- , , , ,1,semantic mistake - only one line
- , , , ,1,Bad sed
  , , , ,1,Bad find; need tr/sed/cut procedures
  , , , ,1,may not handle regex in sed
- , , , ,1,semantic mistake - meaningless uniq
- , , , ,1,
 ========,=====,=====,========,===============,========
-total,517,11, ,117, 
+total,517,116, ,64, 

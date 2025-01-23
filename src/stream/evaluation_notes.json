@@ -3588,6 +3588,42 @@
         "evaluation_time": "0.08s",
         "category": "semantic mistake - only one line",
         "notes": ""
+    },
+    {
+        "address": "./full_benchmark/intercode/pipelines/intercode_153_gold1.sh",
+        "content": "uname -v | grep -o \"#[0-9]\\\\+\"",
+        "is buggy?": false,
+        "warning signaled?": true,
+        "tool runtime error": null,
+        "pash annotations error": null,
+        "error message generated": "Output type '((#[0-9]\\+))&((.*))' is not compatible with asserted output '#[0-9]+' for command 'grep'.",
+        "evaluation_time": "0.04s",
+        "category": "our system is correct",
+        "notes": ""
+    },
+    {
+        "address": "./full_benchmark/intercode/pipelines/intercode_156_gold1.sh",
+        "content": "echo \"http://www.google.com\" | cut -d\"/\" -f3",
+        "is buggy?": false,
+        "warning signaled?": true,
+        "tool runtime error": null,
+        "pash annotations error": null,
+        "error message generated": "Output type '.*' is not compatible with asserted output 'www.google.com' for command 'cut'.",
+        "evaluation_time": "0.05s",
+        "category": "need tr/sed/cut procedures",
+        "notes": ""
+    },
+    {
+        "address": "./full_benchmark/intercode/pipelines/intercode_156_gold2.sh",
+        "content": "echo \"http://www.google.com\" | sed -E \"s|https?://([^/]+).*|\\\\1|\"",
+        "is buggy?": false,
+        "warning signaled?": true,
+        "tool runtime error": null,
+        "pash annotations error": null,
+        "error message generated": "Output type '(http://www\\.google\\.com)' is not compatible with asserted output 'www.google.com' for command 'sed'.",
+        "evaluation_time": "0.08s",
+        "category": "hard sed",
+        "notes": ""
     }
 
 ]

@@ -120,7 +120,7 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
         except PashAnnotationParsingError as e:
             pipeline_data = pipeline_data_template.copy()
             pipeline_data["pash annotations error"] = str(e)
-            pipeline_data["content"] = None
+            pipeline_data["content"] = type_checker.get_current_pipeline_content_when_error()
             pipeline_data_list.append(pipeline_data)
             logging.error(f'Error while parsing annotations from {address}: {e}')
 
