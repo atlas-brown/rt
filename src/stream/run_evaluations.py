@@ -180,8 +180,8 @@ def run_all_evaluations(valid_dirs: list[str],
     failures = [result for result in results if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL]]
     crash_pipelines = [r for r in failures if r[SIGNALED_LABEL] == None]
     timeout_pipelines =      [r for r in crash_pipelines if r[CRASH_REASON_LABEL] == TIMEOUT_REASON]
-    valid_pipeline_crashes = [r for r in crash_pipelines if not r[IS_BUGGY_LABEL] and r[CRASH_REASON_LABEL] != None] + [r for r in crash_pipelines if r["pash annotations error"] != None]
-    buggy_pipeline_crashes = [r for r in crash_pipelines if     r[IS_BUGGY_LABEL] and r[CRASH_REASON_LABEL] != None]
+    valid_pipeline_crashes = [r for r in crash_pipelines if not r[IS_BUGGY_LABEL] and (r[CRASH_REASON_LABEL] != None or r["pash annotations error"] != None)]
+    buggy_pipeline_crashes = [r for r in crash_pipelines if     r[IS_BUGGY_LABEL] and (r[CRASH_REASON_LABEL] != None or r["pash annotations error"] != None)]
     false_positive_pipelines = [r for r in failures if not r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
     false_negative_pipelines = [r for r in failures if     r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
 

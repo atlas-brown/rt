@@ -169,42 +169,6 @@
             "notes": ""
         },
         {
-            "address": "./full_benchmark/intercode/pipelines/intercode_153_gold1.sh",
-            "content": "uname -v | grep -o \"#[0-9]\\\\+\"",
-            "is buggy?": false,
-            "warning signaled?": true,
-            "tool runtime error": null,
-            "pash annotations error": null,
-            "error message generated": "Output type '((#[0-9]\\+))&((.*))' is not compatible with asserted output '#[0-9]+' for command 'grep'.",
-            "evaluation_time": "0.07s",
-            "category": "<missing>",
-            "notes": ""
-        },
-        {
-            "address": "./full_benchmark/intercode/pipelines/intercode_156_gold1.sh",
-            "content": "echo \"http://www.google.com\" | cut -d\"/\" -f3",
-            "is buggy?": false,
-            "warning signaled?": null,
-            "tool runtime error": null,
-            "pash annotations error": "pash_annotations.parser might be wrong, command: <class 'pash_annotations.datatypes.CommandInvocationInitial.CommandInvocationInitial'>: \n\t cmd_name: cut\n\t flag_option_list: []\n\t operand_list: [-d/, -f3]\n, operand: -d/",
-            "error message generated": null,
-            "evaluation_time": null,
-            "category": "<missing>",
-            "notes": ""
-        },
-        {
-            "address": "./full_benchmark/intercode/pipelines/intercode_156_gold2.sh",
-            "content": "echo \"http://www.google.com\" | sed -E \"s|https?://([^/]+).*|\\\\1|\"",
-            "is buggy?": false,
-            "warning signaled?": true,
-            "tool runtime error": null,
-            "pash annotations error": null,
-            "error message generated": "Output type '(http://www\\.google\\.com)' is not compatible with asserted output 'www.google.com' for command 'sed'.",
-            "evaluation_time": "0.13s",
-            "category": "<missing>",
-            "notes": ""
-        },
-        {
             "address": "./full_benchmark/intercode/pipelines/intercode_160_gold1.sh",
             "content": "yes | head -n10 | grep -n . | cut -d: -f1 | paste -sd:",
             "is buggy?": false,
@@ -260,7 +224,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '987654' for command 'unknown'.",
-            "evaluation_time": "0.08s",
+            "evaluation_time": "0.07s",
             "category": "<missing>",
             "notes": ""
         },
@@ -392,7 +356,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(.*)&((?!.*[\\n].*))' is not compatible with asserted output 'BELL' for command 'tr'.",
-            "evaluation_time": "0.15s",
+            "evaluation_time": "0.14s",
             "category": "<missing>",
             "notes": ""
         },
@@ -404,7 +368,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(.*)&((?!.*[\\n].*))' is not compatible with asserted output 'FLAMINGO' for command 'tr'.",
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.12s",
             "category": "<missing>",
             "notes": ""
         },
@@ -416,7 +380,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(\\\"S\\\"ay it with tec\\\"H\\\"\\nThen answ\\\"E\\\"r the mail!\\n(\\\"File\\\" plus this--)\\n\\\"L\\\"et X cross this trai\\\"L\\\")&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.68s",
+            "evaluation_time": "1.70s",
             "category": "<missing>",
             "notes": ""
         },
@@ -428,7 +392,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '[0-9]{4}' for command 'cut'.",
-            "evaluation_time": "15.25s",
+            "evaluation_time": "15.28s",
             "category": "<missing>",
             "notes": ""
         },
@@ -730,7 +694,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '((.*grep.*))&((-?[0-9]+))' is empty for command 'grep'.",
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.04s",
             "category": "Our system is correct",
             "notes": ""
         },
@@ -742,7 +706,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '-?[0-9]+' is not compatible with expected input '(.+\\..+)|(localhost(:[0-9]+)?)' for command 'xargs_curl'.",
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "Bad sed",
             "notes": ""
         },
@@ -790,7 +754,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "hard awk",
             "notes": ""
         },
@@ -802,7 +766,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "hard awk",
             "notes": ""
         },
@@ -826,7 +790,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[^ ]*|\".*\"|'.*'' for command 'xargs_cat'.",
-            "evaluation_time": "0.01s",
+            "evaluation_time": "0.02s",
             "category": "Bad find, our system is correct",
             "notes": ""
         },
@@ -850,7 +814,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "unsopported options/flags/operands - about find",
             "notes": ""
         },
@@ -970,7 +934,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(((1/2\\ \\[3\\]\\ \\(27/03/2012\\ 19:32:54\\)\\ word\\ word\\ word\\ word\\ 4/5))&((?!)))&([0-9]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.45s",
+            "evaluation_time": "0.46s",
             "category": "need tr/sed/cut procedures",
             "notes": ""
         },
@@ -982,7 +946,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '(((.*/.*))&((.*)))&((?!.*(\\ \\ ).*))' is not compatible with expected input '.*((\\ ).*){3}' for command 'cut'.",
-            "evaluation_time": "0.15s",
+            "evaluation_time": "0.18s",
             "category": "hard tr",
             "notes": ""
         },
@@ -1006,7 +970,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.04s",
             "category": "unsopported options/flags/operands - about find",
             "notes": ""
         },
@@ -1030,7 +994,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.05s",
             "category": "unsopported options/flags/operands - about find",
             "notes": ""
         },
@@ -1047,6 +1011,42 @@
             "notes": ""
         },
         {
+            "address": "./full_benchmark/intercode/pipelines/intercode_153_gold1.sh",
+            "content": "uname -v | grep -o \"#[0-9]\\\\+\"",
+            "is buggy?": false,
+            "warning signaled?": true,
+            "tool runtime error": null,
+            "pash annotations error": null,
+            "error message generated": "Output type '((#[0-9]\\+))&((.*))' is not compatible with asserted output '#[0-9]+' for command 'grep'.",
+            "evaluation_time": "0.07s",
+            "category": "our system is correct",
+            "notes": ""
+        },
+        {
+            "address": "./full_benchmark/intercode/pipelines/intercode_156_gold1.sh",
+            "content": "echo \"http://www.google.com\" | cut -d\"/\" -f3",
+            "is buggy?": false,
+            "warning signaled?": null,
+            "tool runtime error": null,
+            "pash annotations error": "pash_annotations.parser might be wrong, command: <class 'pash_annotations.datatypes.CommandInvocationInitial.CommandInvocationInitial'>: \n\t cmd_name: cut\n\t flag_option_list: []\n\t operand_list: [-d/, -f3]\n, operand: -d/",
+            "error message generated": null,
+            "evaluation_time": null,
+            "category": "need tr/sed/cut procedures",
+            "notes": ""
+        },
+        {
+            "address": "./full_benchmark/intercode/pipelines/intercode_156_gold2.sh",
+            "content": "echo \"http://www.google.com\" | sed -E \"s|https?://([^/]+).*|\\\\1|\"",
+            "is buggy?": false,
+            "warning signaled?": true,
+            "tool runtime error": null,
+            "pash annotations error": null,
+            "error message generated": "Output type '(http://www\\.google\\.com)' is not compatible with asserted output 'www.google.com' for command 'sed'.",
+            "evaluation_time": "0.14s",
+            "category": "hard sed",
+            "notes": ""
+        },
+        {
             "address": "./full_benchmark/intercode/pipelines/intercode_157_gold1.sh",
             "content": "env | sed \"s/;/\\\\\\\\;/g\"",
             "is buggy?": false,
@@ -1054,7 +1054,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'sed' received input '[A-Za-z0-9_]+=.*' but it should not accept input type which is subset of '(?!.*\\\\\\\\;).*' according to heuristic rules.",
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.04s",
             "category": "Bad sed",
             "notes": ""
         },
@@ -1114,7 +1114,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[^ ]*|\".*\"|'.*'' for command 'xargs_cat'.",
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.04s",
             "category": "Bad find, our system is correct",
             "notes": ""
         },
@@ -1126,7 +1126,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output 'hello, world' for command 'cut'.",
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.10s",
             "category": "ANN'D need assume annotation and cut/tr/sed procedures",
             "notes": "annotation is a bit absurd"
         },
@@ -1162,7 +1162,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.12s",
+            "evaluation_time": "0.11s",
             "category": "ANN'D need assume annotation and cut/tr/sed procedures",
             "notes": ""
         },
@@ -1186,7 +1186,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '(?!(.* .*))' for command 'sort'.",
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.10s",
             "category": "ANN'D need assume annotation",
             "notes": ""
         },
@@ -1210,7 +1210,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(  most imPressive\\n     me tO you!\\n do letteRs middle\\n= interneT's glue!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.03s",
+            "evaluation_time": "1.12s",
             "category": "Our system is correct",
             "notes": ""
         },
@@ -1222,7 +1222,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Any Grouping by this fRiend,\\nMakes each sentence quickly clear!\\nTop and bottom, either end,\\nSpacE-in five -- see friend apPear!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "2.75s",
+            "evaluation_time": "2.82s",
             "category": "Our system is correct",
             "notes": ""
         },
@@ -1234,7 +1234,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Under the moon or suN\\nIt's what the whole world picks!\\nFOUR-CORNERED, as the earth:\\nIts varied programs miX!)&([A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "1.18s",
+            "evaluation_time": "1.21s",
             "category": "Bad tr",
             "notes": ""
         },
@@ -1246,7 +1246,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '[A-Za-z-']+' for command 'cut'.",
-            "evaluation_time": "0.10s",
+            "evaluation_time": "0.11s",
             "category": "ANN'D need assume annotation",
             "notes": ""
         },
@@ -1258,7 +1258,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&([a-z][A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.68s",
+            "evaluation_time": "0.70s",
             "category": "Bad tr, our system is correct",
             "notes": ""
         },
@@ -1270,7 +1270,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&([a-z][A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.70s",
+            "evaluation_time": "0.69s",
             "category": "hard tr",
             "notes": "reverses letters, input lang is [A-Z] output should ideally be [Z-A]"
         },
@@ -1306,7 +1306,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '[A-Z] is[A-Za-z,](, and|\\\\.)' is not compatible with expected input '.*((\\ ).*){3}' for command 'cut'.",
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.10s",
             "category": "ANN'd need assume annotation and cut/tr/sed procedures",
             "notes": ""
         },
@@ -1438,7 +1438,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.07s",
+            "evaluation_time": "0.06s",
             "category": "input to cmd that expects none",
             "notes": "input to cmd that expects none"
         },
@@ -1450,7 +1450,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.04s",
             "category": "input to cmd that expects none",
             "notes": "input to cmd that expects none"
         },
@@ -1522,7 +1522,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.03s",
             "category": "with empty output warning",
             "notes": "with empty output warning"
         },
@@ -1762,7 +1762,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.25s",
+            "evaluation_time": "0.24s",
             "category": "semantic mistake - file not found",
             "notes": "file not found if name contains space"
         },
@@ -1930,7 +1930,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.60s",
+            "evaluation_time": "0.61s",
             "category": "Bad find, need tr/sed/cut procedures",
             "notes": "empty output of grep"
         },
@@ -1942,7 +1942,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.38s",
+            "evaluation_time": "0.36s",
             "category": "may not handle regex in sed",
             "notes": "may not handle regex in sed"
         },
@@ -2172,7 +2172,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '((.*grep.*))&((-?[0-9]+))' is empty for command 'grep'.",
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.04s",
             "category": "Our system is correct",
             "notes": ""
         },
@@ -2184,7 +2184,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '-?[0-9]+' is not compatible with expected input '(.+\\..+)|(localhost(:[0-9]+)?)' for command 'xargs_curl'.",
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "Bad sed",
             "notes": ""
         },
@@ -2208,7 +2208,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.09s",
+            "evaluation_time": "0.08s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2280,7 +2280,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.01s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2328,7 +2328,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2388,7 +2388,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2412,7 +2412,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "hard awk",
             "notes": ""
         },
@@ -2424,7 +2424,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "hard awk",
             "notes": ""
         },
@@ -2448,7 +2448,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2496,7 +2496,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[^ ]*|\".*\"|'.*'' for command 'xargs_cat'.",
-            "evaluation_time": "0.01s",
+            "evaluation_time": "0.02s",
             "category": "Bad find, our system is correct",
             "notes": ""
         },
@@ -2520,7 +2520,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2580,7 +2580,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2592,7 +2592,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "unsopported options/flags/operands - about find",
             "notes": ""
         },
@@ -2616,7 +2616,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.01s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2676,7 +2676,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2724,7 +2724,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2736,7 +2736,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.49s",
+            "evaluation_time": "0.48s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2760,7 +2760,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.34s",
+            "evaluation_time": "0.32s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2772,7 +2772,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.14s",
+            "evaluation_time": "0.15s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2784,7 +2784,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.06s",
+            "evaluation_time": "0.07s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2808,7 +2808,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.06s",
+            "evaluation_time": "0.05s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2844,7 +2844,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.07s",
+            "evaluation_time": "0.06s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2892,7 +2892,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.14s",
+            "evaluation_time": "0.15s",
             "category": "<missing>",
             "notes": ""
         },
@@ -2976,7 +2976,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.14s",
+            "evaluation_time": "0.11s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3036,7 +3036,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.46s",
+            "evaluation_time": "0.44s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3048,7 +3048,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.36s",
+            "evaluation_time": "0.37s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3060,7 +3060,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.06s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3072,7 +3072,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.13s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3108,7 +3108,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.05s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3132,7 +3132,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.12s",
+            "evaluation_time": "0.11s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3144,7 +3144,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.40s",
+            "evaluation_time": "0.39s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3168,7 +3168,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.07s",
+            "evaluation_time": "0.08s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3180,7 +3180,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.06s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3204,7 +3204,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3228,7 +3228,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3240,7 +3240,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3252,7 +3252,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.09s",
+            "evaluation_time": "0.10s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3276,7 +3276,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.04s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3300,7 +3300,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.14s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3324,7 +3324,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.05s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3336,7 +3336,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3348,7 +3348,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.05s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3408,7 +3408,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.05s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3420,7 +3420,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.14s",
+            "evaluation_time": "0.15s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3432,7 +3432,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(((1/2\\ \\[3\\]\\ \\(27/03/2012\\ 19:32:54\\)\\ word\\ word\\ word\\ word\\ 4/5))&((?!)))&([0-9]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.45s",
+            "evaluation_time": "0.46s",
             "category": "need tr/sed/cut procedures",
             "notes": ""
         },
@@ -3492,7 +3492,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '(((.*/.*))&((.*)))&((?!.*(\\ \\ ).*))' is not compatible with expected input '.*((\\ ).*){3}' for command 'cut'.",
-            "evaluation_time": "0.15s",
+            "evaluation_time": "0.18s",
             "category": "hard tr",
             "notes": ""
         },
@@ -3504,7 +3504,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3552,7 +3552,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3564,7 +3564,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3624,7 +3624,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3636,7 +3636,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3660,7 +3660,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3672,7 +3672,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3696,7 +3696,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3768,7 +3768,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3792,7 +3792,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.04s",
             "category": "unsopported options/flags/operands - about find",
             "notes": ""
         },
@@ -3816,7 +3816,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.05s",
             "category": "unsopported options/flags/operands - about find",
             "notes": ""
         },
@@ -3840,7 +3840,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.07s",
+            "evaluation_time": "0.06s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3876,7 +3876,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.04s",
             "category": "<missing>",
             "notes": ""
         },
@@ -3960,7 +3960,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4104,7 +4104,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4116,7 +4116,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4129,7 +4129,7 @@
             "pash annotations error": null,
             "error message generated": "Output type '((#[0-9]\\+))&((.*))' is not compatible with asserted output '#[0-9]+' for command 'grep'.",
             "evaluation_time": "0.07s",
-            "category": "<missing>",
+            "category": "our system is correct",
             "notes": ""
         },
         {
@@ -4153,7 +4153,7 @@
             "pash annotations error": "pash_annotations.parser might be wrong, command: <class 'pash_annotations.datatypes.CommandInvocationInitial.CommandInvocationInitial'>: \n\t cmd_name: cut\n\t flag_option_list: []\n\t operand_list: [-d/, -f3]\n, operand: -d/",
             "error message generated": null,
             "evaluation_time": null,
-            "category": "<missing>",
+            "category": "need tr/sed/cut procedures",
             "notes": ""
         },
         {
@@ -4164,8 +4164,8 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(http://www\\.google\\.com)' is not compatible with asserted output 'www.google.com' for command 'sed'.",
-            "evaluation_time": "0.13s",
-            "category": "<missing>",
+            "evaluation_time": "0.14s",
+            "category": "hard sed",
             "notes": ""
         },
         {
@@ -4176,7 +4176,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'sed' received input '[A-Za-z0-9_]+=.*' but it should not accept input type which is subset of '(?!.*\\\\\\\\;).*' according to heuristic rules.",
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.04s",
             "category": "Bad sed",
             "notes": ""
         },
@@ -4212,7 +4212,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4224,7 +4224,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.07s",
+            "evaluation_time": "0.06s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4236,7 +4236,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.06s",
+            "evaluation_time": "0.05s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4296,7 +4296,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '987654' for command 'unknown'.",
-            "evaluation_time": "0.08s",
+            "evaluation_time": "0.07s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4332,7 +4332,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4356,7 +4356,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.07s",
+            "evaluation_time": "0.06s",
             "category": "about regex translation",
             "notes": ""
         },
@@ -4392,7 +4392,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4416,7 +4416,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.08s",
+            "evaluation_time": "0.07s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4464,7 +4464,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.04s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4488,7 +4488,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4500,7 +4500,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4608,7 +4608,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4620,7 +4620,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4656,7 +4656,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[^ ]*|\".*\"|'.*'' for command 'xargs_cat'.",
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.04s",
             "category": "Bad find, our system is correct",
             "notes": ""
         },
@@ -4668,7 +4668,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4680,7 +4680,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4716,7 +4716,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.02s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4728,7 +4728,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.04s",
             "category": "ANN'D need assume annotation",
             "notes": ""
         },
@@ -4740,7 +4740,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.30s",
+            "evaluation_time": "0.27s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4752,7 +4752,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.31s",
+            "evaluation_time": "0.29s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4764,7 +4764,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.24s",
+            "evaluation_time": "0.23s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4776,7 +4776,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output 'hello, world' for command 'cut'.",
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.10s",
             "category": "ANN'D need assume annotation and cut/tr/sed procedures",
             "notes": "annotation is a bit absurd"
         },
@@ -4800,7 +4800,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.12s",
+            "evaluation_time": "0.11s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4824,7 +4824,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.12s",
+            "evaluation_time": "0.11s",
             "category": "ANN'D need assume annotation and cut/tr/sed procedures",
             "notes": ""
         },
@@ -4860,7 +4860,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '(?!(.* .*))' for command 'sort'.",
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.10s",
             "category": "ANN'D need assume annotation",
             "notes": ""
         },
@@ -4896,7 +4896,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(  most imPressive\\n     me tO you!\\n do letteRs middle\\n= interneT's glue!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.03s",
+            "evaluation_time": "1.12s",
             "category": "Our system is correct",
             "notes": ""
         },
@@ -4908,7 +4908,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(.*)&((?!.*[\\n].*))' is not compatible with asserted output 'BELL' for command 'tr'.",
-            "evaluation_time": "0.15s",
+            "evaluation_time": "0.14s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4920,7 +4920,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(.*)&((?!.*[\\n].*))' is not compatible with asserted output 'FLAMINGO' for command 'tr'.",
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.12s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4932,7 +4932,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(\\\"S\\\"ay it with tec\\\"H\\\"\\nThen answ\\\"E\\\"r the mail!\\n(\\\"File\\\" plus this--)\\n\\\"L\\\"et X cross this trai\\\"L\\\")&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.68s",
+            "evaluation_time": "1.70s",
             "category": "<missing>",
             "notes": ""
         },
@@ -4944,7 +4944,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Any Grouping by this fRiend,\\nMakes each sentence quickly clear!\\nTop and bottom, either end,\\nSpacE-in five -- see friend apPear!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "2.75s",
+            "evaluation_time": "2.82s",
             "category": "Our system is correct",
             "notes": ""
         },
@@ -4956,7 +4956,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Under the moon or suN\\nIt's what the whole world picks!\\nFOUR-CORNERED, as the earth:\\nIts varied programs miX!)&([A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "1.18s",
+            "evaluation_time": "1.21s",
             "category": "Bad tr",
             "notes": ""
         },
@@ -4968,7 +4968,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '[A-Za-z-']+' for command 'cut'.",
-            "evaluation_time": "0.10s",
+            "evaluation_time": "0.11s",
             "category": "ANN'D need assume annotation",
             "notes": ""
         },
@@ -4980,7 +4980,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&([a-z][A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.68s",
+            "evaluation_time": "0.70s",
             "category": "Bad tr, our system is correct",
             "notes": ""
         },
@@ -4992,7 +4992,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&([a-z][A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.70s",
+            "evaluation_time": "0.69s",
             "category": "hard tr",
             "notes": "reverses letters, input lang is [A-Z] output should ideally be [Z-A]"
         },
@@ -5004,7 +5004,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "3.39s",
+            "evaluation_time": "3.41s",
             "category": "ANN'D need assume annotation",
             "notes": ""
         },
@@ -5016,7 +5016,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "5.34s",
+            "evaluation_time": "5.29s",
             "category": "ANN'd dropped wc, should be detectable with assert annotations",
             "notes": ""
         },
@@ -5028,7 +5028,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "11.83s",
+            "evaluation_time": "11.74s",
             "category": "ANN'D need assume annotation and cut/tr/sed procedures",
             "notes": ""
         },
@@ -5040,7 +5040,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '[0-9]{4}' for command 'cut'.",
-            "evaluation_time": "15.25s",
+            "evaluation_time": "15.28s",
             "category": "<missing>",
             "notes": ""
         },
@@ -5076,7 +5076,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '[A-Z] is[A-Za-z,](, and|\\\\.)' is not compatible with expected input '.*((\\ ).*){3}' for command 'cut'.",
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.10s",
             "category": "ANN'd need assume annotation and cut/tr/sed procedures",
             "notes": ""
         },
@@ -5124,7 +5124,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.28s",
+            "evaluation_time": "0.27s",
             "category": "<missing>",
             "notes": ""
         },
@@ -5160,7 +5160,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '[0-9a-f]+' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.06s",
             "category": "<missing>",
             "notes": ""
         },
@@ -5172,7 +5172,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '-?[0-9]+' is not compatible with expected input '(.+\\..+)|(localhost(:[0-9]+)?)' for command 'xargs_curl'.",
-            "evaluation_time": "0.08s",
+            "evaluation_time": "0.07s",
             "category": "<missing>",
             "notes": ""
         },
@@ -5196,7 +5196,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '((.*)&([A-Za-z]*))&((?!.*[A-Z].*))' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.23s",
+            "evaluation_time": "0.24s",
             "category": "<missing>",
             "notes": ""
         },
@@ -5232,7 +5232,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.06s",
             "category": "<missing>",
             "notes": ""
         },
@@ -5388,7 +5388,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '()&((?!))' is empty for command 'sed'.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "input to cmd that expects none",
             "notes": "input to cmd that expects none"
         },
@@ -5400,7 +5400,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '()&((?!))' is empty for command 'sed'.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.01s",
             "category": "input to cmd that expects none",
             "notes": "input to cmd that expects none"
         },
@@ -5412,7 +5412,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.07s",
+            "evaluation_time": "0.06s",
             "category": "input to cmd that expects none",
             "notes": "input to cmd that expects none"
         },
@@ -5448,7 +5448,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.03s",
+            "evaluation_time": "0.04s",
             "category": "input to cmd that expects none",
             "notes": "input to cmd that expects none"
         },
@@ -5568,7 +5568,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.12s",
+            "evaluation_time": "0.11s",
             "category": "violates our assumption about sort -n usage",
             "notes": "input to a sort -n does *not* start with numbers!"
         },
@@ -5592,7 +5592,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.31s",
+            "evaluation_time": "0.32s",
             "category": "ANN'd dropped sed, should be detectable with assert annotations",
             "notes": ""
         },
@@ -5616,7 +5616,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '( )+[0-9]+( )+[0-9]+( )+[0-9]+' is not compatible with asserted output '[0-9]+' for command 'wc'.",
-            "evaluation_time": "0.27s",
+            "evaluation_time": "0.26s",
             "category": "ANN'd dropped flags in wc, should be detectable with assert annotations",
             "notes": ""
         },
@@ -5676,7 +5676,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(  most imPressive\\n     me tO you!\\n do letteRs middle\\n= interneT's glue!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.25s",
+            "evaluation_time": "1.23s",
             "category": "ANN'd dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -5688,7 +5688,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(  most imPressive\\n     me tO you!\\n do letteRs middle\\n= interneT's glue!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.27s",
+            "evaluation_time": "1.24s",
             "category": "ANN'd drop tr, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -5700,7 +5700,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(  most imPressive\\n     me tO you!\\n do letteRs middle\\n= interneT's glue!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.15s",
+            "evaluation_time": "1.12s",
             "category": "ANN'd drop cut, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -5712,7 +5712,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(  most imPressive\\n     me tO you!\\n do letteRs middle\\n= interneT's glue!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.27s",
+            "evaluation_time": "1.25s",
             "category": "ANN'd swap tr and grep, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -5724,7 +5724,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(  most imPressive\\n     me tO you!\\n do letteRs middle\\n= interneT's glue!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.08s",
+            "evaluation_time": "1.07s",
             "category": "ANN'd dropped cut, should be detectable with assert annotations",
             "notes": ""
         },
@@ -5748,7 +5748,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Be proud of your joB,\\nEnjoy life's own talE;\\nLive thinking of alL--\\nLog out your emaiL!)&((?!.*[\\n].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.52s",
+            "evaluation_time": "1.47s",
             "category": "ANN'd dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -5772,7 +5772,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(FLying so high,\\nAMong modern net's\\nINspired world-view:\\nGOod as it gets!)&((?!.*[\\n].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.25s",
+            "evaluation_time": "1.22s",
             "category": "ANN'd dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -5784,7 +5784,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output 'FLAMINGO' for command 'cut'.",
-            "evaluation_time": "0.09s",
+            "evaluation_time": "0.08s",
             "category": "ANN'd dropped tr, should be detectable with assert annotations",
             "notes": ""
         },
@@ -5796,7 +5796,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(\\\"S\\\"ay it with tec\\\"H\\\"\\nThen answ\\\"E\\\"r the mail!\\n(\\\"File\\\" plus this--)\\n\\\"L\\\"et X cross this trai\\\"L\\\")&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.89s",
+            "evaluation_time": "1.84s",
             "category": "ANN'd dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -5808,7 +5808,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'grep' received input 'Any Grouping by this fRiend,\\nMakes each sentence quickly clear!\\nTop and bottom, either end,\\nSpacE-in five -- see friend apPear!' but it should not accept input type which is subset of '.*[A-Z].*' according to heuristic rules.",
-            "evaluation_time": "0.12s",
+            "evaluation_time": "0.10s",
             "category": "ANN'd swap tr and grep, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -5820,7 +5820,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Any Grouping by this fRiend,\\nMakes each sentence quickly clear!\\nTop and bottom, either end,\\nSpacE-in five -- see friend apPear!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "3.27s",
+            "evaluation_time": "3.23s",
             "category": "ANN'd dropped tr, should be detectable with assert annotations",
             "notes": ""
         },
@@ -5832,7 +5832,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Any Grouping by this fRiend,\\nMakes each sentence quickly clear!\\nTop and bottom, either end,\\nSpacE-in five -- see friend apPear!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "2.75s",
+            "evaluation_time": "2.73s",
             "category": "ANN'd dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -5844,7 +5844,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Under the moon or suN\\nIt's what the whole world picks!\\nFOUR-CORNERED, as the earth:\\nIts varied programs miX!)&((?!.*[A-Z].*))' is empty for command 'tr'.",
-            "evaluation_time": "2.01s",
+            "evaluation_time": "2.03s",
             "category": "ANN'd dropped -c in tr, should be detectable with assert annotations",
             "notes": ""
         },
@@ -5856,7 +5856,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Under the moon or suN\\nIt's what the whole world picks!\\nFOUR-CORNERED, as the earth:\\nIts varied programs miX!)&((?!.*[\\n].*))' is empty for command 'tr'.",
-            "evaluation_time": "2.11s",
+            "evaluation_time": "2.07s",
             "category": "ANN'd swap tr, should be detectable with assert annotations",
             "notes": ""
         },
@@ -5868,7 +5868,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '[A-Za-z-']+ [A-Za-z-']+' is not compatible with asserted output '(?!(.* .*))' for command 'sort'.",
-            "evaluation_time": "0.20s",
+            "evaluation_time": "0.19s",
             "category": "ANN'd dropped cut, should be detectable with assert annotations",
             "notes": ""
         },
@@ -5880,7 +5880,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(  most imPressive\\n     me tO you!\\n do letteRs middle\\n= interneT's glue!)&((?!.*[ ].*))' is empty for command 'tr'.",
-            "evaluation_time": "1.12s",
+            "evaluation_time": "1.15s",
             "category": "ANN'd dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -5904,7 +5904,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&([a-z][A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.71s",
+            "evaluation_time": "0.69s",
             "category": "ANN'd dropped -c in tr, should be detectable with assert annotations",
             "notes": ""
         },
@@ -6000,7 +6000,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Under the moon or suN\\nIt's what the whole world picks!\\nFOUR-CORNERED, as the earth:\\nIts varied programs miX!)&([A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "1.16s",
+            "evaluation_time": "1.14s",
             "category": "ANN'd dropped tr, should be detectable with assert annotations",
             "notes": ""
         },
@@ -6036,7 +6036,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&([a-z][A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.70s",
+            "evaluation_time": "0.72s",
             "category": "ANN'd dropped tr, should be detectable with assert annotations",
             "notes": ""
         },
@@ -6048,7 +6048,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&([a-z][A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.69s",
+            "evaluation_time": "0.70s",
             "category": "ANN'd dropped tr, should be detectable with assert annotations",
             "notes": ""
         },
@@ -6060,7 +6060,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&((?!.*[a-z][A-Z].*))' is empty for command 'tr'.",
-            "evaluation_time": "2.36s",
+            "evaluation_time": "2.34s",
             "category": "ANN'd dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -6072,7 +6072,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'tr' received input '((.*[A-Z].*))&(((.*)&([a-z][A-Z]*)))' but it should not accept input type which is subset of '(?!.*[\\n].*)' according to heuristic rules.",
-            "evaluation_time": "0.22s",
+            "evaluation_time": "0.21s",
             "category": "ANN'd dropped tr, should be detectable with assert annotations",
             "notes": ""
         },
@@ -6084,7 +6084,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&([a-z][A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.73s",
+            "evaluation_time": "0.70s",
             "category": "ANN'd dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -6096,7 +6096,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&([a-z][A-Z]*)' is empty for command 'tr'.",
-            "evaluation_time": "0.71s",
+            "evaluation_time": "0.70s",
             "category": "ANN'd dropped tr, should be detectable with assert annotations",
             "notes": ""
         },
@@ -6108,7 +6108,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(Communicate fasT,\\nOr you risk being latE...\\nThe party line's fulL,\\nSo quick! grab a platE...)&((?!.*[a-z][A-Z].*))' is empty for command 'tr'.",
-            "evaluation_time": "2.44s",
+            "evaluation_time": "2.40s",
             "category": "ANN'd dropped -c in tr, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -6120,7 +6120,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '( )+[0-9]+( )+[0-9]+( )+[0-9]+' is not compatible with asserted output '[0-9]+' for command 'wc'.",
-            "evaluation_time": "73.84s",
+            "evaluation_time": "73.83s",
             "category": "ANN'd dropped -l in wc, should be detectable with assert annotations",
             "notes": ""
         },
@@ -6132,7 +6132,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '[0-9]{4}\\t[A-Za-z \\\"'-]+\\t(Male|Female)\\t[A-Za-z ]+\\t[A-Za-z ]*\\t[0-9]{4}\\t[A-Za-z ,().'-]+' is not compatible with expected input '.*Bell.*' for command 'cut'.",
-            "evaluation_time": "4.51s",
+            "evaluation_time": "4.48s",
             "category": "ANN'd dropped grep, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -6156,7 +6156,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '[0-9]{4}\\t[A-Za-z \\\"'-]+\\t(Male|Female)\\t[A-Za-z ]+\\t[A-Za-z ]*\\t[0-9]{4}\\t[A-Za-z ,().'-]+' is not compatible with expected input '.*Bell.*' for command 'cut'.",
-            "evaluation_time": "199.95s",
+            "evaluation_time": "198.28s",
             "category": "ANN'd drop grep, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -6168,7 +6168,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '[0-9]{4}' for command 'cut'.",
-            "evaluation_time": "2.13s",
+            "evaluation_time": "2.14s",
             "category": "needs whole-stream annotation for number of lines",
             "notes": ""
         },
@@ -6180,7 +6180,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[A-Z]+' for command 'sort'.",
-            "evaluation_time": "0.09s",
+            "evaluation_time": "0.08s",
             "category": "ANN'd dropped cut -d, should be detectable with assert annotations",
             "notes": ""
         },
@@ -6192,7 +6192,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[-+]?[0-9]+.*' for command 'sort'.",
-            "evaluation_time": "0.18s",
+            "evaluation_time": "0.19s",
             "category": "ANN'd swapped sort and uniq, should be detectable with input annotations, composition mistake at (sort -n)",
             "notes": ""
         },
@@ -6204,7 +6204,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[0-9]+ +[A-Z][a-z]+' for command 'sort'.",
-            "evaluation_time": "0.18s",
+            "evaluation_time": "0.19s",
             "category": "ANN'd dropped -c in uniq, should be detectable with assert annotations",
             "notes": ""
         },
@@ -6240,7 +6240,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '([A-Z] is[A-Za-z,](, and|\\\\.))&((?!.*[,].*))' is not compatible with asserted output '[a-z]+' for command 'tr'.",
-            "evaluation_time": "0.25s",
+            "evaluation_time": "0.24s",
             "category": "ANN'd dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -6252,7 +6252,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '.*((\\ ).*){1}' for command 'cut'.",
-            "evaluation_time": "0.06s",
+            "evaluation_time": "0.07s",
             "category": "ANN'd dropped cut, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -6264,7 +6264,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(.*)&((?!.*[A-Z].*))' is not compatible with asserted output 'awk' for command 'tr'.",
-            "evaluation_time": "0.18s",
+            "evaluation_time": "0.19s",
             "category": "ANN'd swap cut and tr, should be detectable with input annotations, composition mistake at (cut -c 1-1)",
             "notes": ""
         },
@@ -6276,7 +6276,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '((.*)&((?!.*[\\n].*)))&((?!.*[A-Z].*))' is not compatible with asserted output 'awk' for command 'tr'.",
-            "evaluation_time": "0.18s",
+            "evaluation_time": "0.17s",
             "category": "ANN'd swap cut and tr, should be detectable with input annotations, composition mistake at (cut -c 1-1)",
             "notes": ""
         },
@@ -6300,7 +6300,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(.*)&((?!.*[A-Z].*))' is not compatible with asserted output 'awk' for command 'tr'.",
-            "evaluation_time": "0.13s",
+            "evaluation_time": "0.14s",
             "category": "ANN'd dropped tr, should be detectable with assert annotations and tr/sed/cut procedures",
             "notes": ""
         },
@@ -6408,7 +6408,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '( )+[0-9]+( )+[0-9]+( )+[0-9]+' is not compatible with asserted output '[0-9]+' for command 'wc'.",
-            "evaluation_time": "0.34s",
+            "evaluation_time": "0.33s",
             "category": "ANN'd dropped -l in wc, should be detectable with assert annotations",
             "notes": ""
         },
@@ -6456,7 +6456,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.04s",
+            "evaluation_time": "0.03s",
             "category": "with empty output warning",
             "notes": "with empty output warning"
         },
@@ -6588,7 +6588,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '((\\ \\ Hello\\ world!\\\t\\ \\ ))&((?!))' is not compatible with asserted output 'Hello World!' for command 'sed'.",
-            "evaluation_time": "0.15s",
+            "evaluation_time": "0.16s",
             "category": "ANN'd with output annotations",
             "notes": ""
         },
@@ -6600,7 +6600,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '((\\ \\ Hello\\ world!\\ \\ \\ \\ ))&((?!))' is not compatible with asserted output 'Hello World!' for command 'sed'.",
-            "evaluation_time": "0.15s",
+            "evaluation_time": "0.16s",
             "category": "ANN'd with output annotations, could specify no newline?",
             "notes": ""
         },
@@ -6624,7 +6624,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '987654' for command 'unknown'.",
-            "evaluation_time": "0.08s",
+            "evaluation_time": "0.09s",
             "category": "ANN'd with output annotations, we could perfectly model the contents here",
             "notes": ""
         },
@@ -6636,7 +6636,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '987654' for command 'cut'.",
-            "evaluation_time": "0.08s",
+            "evaluation_time": "0.09s",
             "category": "ANN'd with output annotations, we could perfectly model the contents here",
             "notes": ""
         },
@@ -6648,7 +6648,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '987654' for command 'unknown'.",
-            "evaluation_time": "0.07s",
+            "evaluation_time": "0.06s",
             "category": "ANN'd with output annotations, or input annotations",
             "notes": ""
         },
@@ -6660,7 +6660,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '987654' for command 'unknown'.",
-            "evaluation_time": "0.07s",
+            "evaluation_time": "0.06s",
             "category": "ANN'd with output annotations, we could perfectly model the contents here",
             "notes": ""
         },
@@ -6768,7 +6768,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '( )+[0-9]+( )+[0-9]+( )+[0-9]+' is not compatible with asserted output '[0-9]+' for command 'wc'.",
-            "evaluation_time": "0.73s",
+            "evaluation_time": "0.71s",
             "category": "ANN'd with output annotations",
             "notes": ""
         },
@@ -6792,7 +6792,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '((.*[aeiouyAEIOUY].*))&((.*))' is not compatible with asserted output '[0-9]+' for command 'grep'.",
-            "evaluation_time": "1.17s",
+            "evaluation_time": "1.19s",
             "category": "ANN'd with output annotations",
             "notes": ""
         },
@@ -6840,7 +6840,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '.*' is not compatible with asserted output '[a-z0-9]{33} -' for command 'xargs_cat'.",
-            "evaluation_time": "0.16s",
+            "evaluation_time": "0.14s",
             "category": "ANN'd with output annotations",
             "notes": ""
         },
@@ -7020,7 +7020,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'sed' received input '.*' but it should not accept input type which is subset of '(?!.*127\\.0\\.0\\.1).*' according to heuristic rules.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": ""
         },
@@ -7080,7 +7080,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.25s",
+            "evaluation_time": "0.24s",
             "category": "semantic mistake - file not found",
             "notes": "file not found if name contains space"
         },
@@ -7116,7 +7116,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'tr' received input '((.*)&((?!.*(\\ \\ ).*)))&((?!.*[ ].*))' but it should not accept input type which is subset of '(?!.*[ ].*)' according to heuristic rules.",
-            "evaluation_time": "0.14s",
+            "evaluation_time": "0.15s",
             "category": "<missing>",
             "notes": ""
         },
@@ -7128,7 +7128,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'sort' received input '[0-9]+ (((?!(.*[13579].*))))&((-?[0-9]+))' but it should not accept input type which is subset of '[-+]?[0-9]+.*' according to heuristic rules.",
-            "evaluation_time": "0.14s",
+            "evaluation_time": "0.12s",
             "category": "<missing>",
             "notes": "meaningless tr"
         },
@@ -7284,7 +7284,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '((.*pattern.*))&(((.*)&((?!.*[a-z].*))))' is empty for command 'grep'.",
-            "evaluation_time": "0.10s",
+            "evaluation_time": "0.09s",
             "category": "<missing>",
             "notes": ""
         },
@@ -7308,7 +7308,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'sed' received input '((.*[0-9].*))&(((.*)&((?!.*[:punct:].*))))' but it should not accept input type which is subset of '(?!.*\\#).*' according to heuristic rules.",
-            "evaluation_time": "0.23s",
+            "evaluation_time": "0.22s",
             "category": "<missing>",
             "notes": ""
         },
@@ -7428,7 +7428,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'tr' received input '(-?[0-9]+)&((?!))' but it should not accept input type which is subset of '(?!.*[ ].*)' according to heuristic rules.",
-            "evaluation_time": "0.16s",
+            "evaluation_time": "0.17s",
             "category": "<missing>",
             "notes": ""
         },
@@ -7476,7 +7476,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(-?[0-9]+)&((?!.*[0-9].*))' is empty for command 'tr'.",
-            "evaluation_time": "0.06s",
+            "evaluation_time": "0.05s",
             "category": "<missing>",
             "notes": "meaningless cut"
         },
@@ -7488,7 +7488,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '((.*txt.*))&(((((?!(.*txt.*))))&((.*))))' is empty for command 'grep'.",
-            "evaluation_time": "0.11s",
+            "evaluation_time": "0.10s",
             "category": "<missing>",
             "notes": "empty output of grep"
         },
@@ -7512,7 +7512,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'sort' received input '-?[0-9]+' but it should not accept input type which is subset of '[-+]?[0-9]+.*' according to heuristic rules.",
-            "evaluation_time": "0.08s",
+            "evaluation_time": "0.07s",
             "category": "<missing>",
             "notes": "meaningless grep"
         },
@@ -7584,7 +7584,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'tr' received input '-?[0-9]+' but it should not accept input type which is subset of '(?!.*[ ].*)' according to heuristic rules.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": "meaningless cut"
         },
@@ -7668,7 +7668,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(((?!(.*..*))))&((((.*..*))&((.*))))' is empty for command 'grep'.",
-            "evaluation_time": "0.09s",
+            "evaluation_time": "0.08s",
             "category": "<missing>",
             "notes": ""
         },
@@ -7704,7 +7704,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'sort' received input '[0-9]+ (.*)&((?!.*[:].*))' but it should not accept input type which is subset of '[-+]?[0-9]+.*' according to heuristic rules.",
-            "evaluation_time": "0.16s",
+            "evaluation_time": "0.15s",
             "category": "<missing>",
             "notes": "cut does not have enough fields"
         },
@@ -7728,7 +7728,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '(((?!(.*..*))))&((.*))' is empty for command 'grep'.",
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.06s",
             "category": "<missing>",
             "notes": ""
         },
@@ -7764,7 +7764,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.60s",
+            "evaluation_time": "0.61s",
             "category": "Bad find, need tr/sed/cut procedures",
             "notes": "empty output of grep"
         },
@@ -7800,7 +7800,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'sed' received input '.*' but it should not accept input type which is subset of '(?!.*X).*' according to heuristic rules.",
-            "evaluation_time": "0.02s",
+            "evaluation_time": "0.03s",
             "category": "<missing>",
             "notes": "empty output of grep"
         },
@@ -7812,7 +7812,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Command 'sort' received input '(((?!([0-9]*5))))&((-?[0-9]+))' but it should not accept input type which is subset of '[-+]?[0-9]+.*' according to heuristic rules.",
-            "evaluation_time": "0.12s",
+            "evaluation_time": "0.13s",
             "category": "<missing>",
             "notes": "sort without -n heuristic"
         },
@@ -7824,7 +7824,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": null,
-            "evaluation_time": "0.38s",
+            "evaluation_time": "0.36s",
             "category": "may not handle regex in sed",
             "notes": "may not handle regex in sed"
         },
@@ -7860,7 +7860,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Output type '((.*[13579]))&(((([0-9]*[02468]))&((-?[0-9]+))))' is empty for command 'grep'.",
-            "evaluation_time": "0.34s",
+            "evaluation_time": "0.31s",
             "category": "<missing>",
             "notes": "empty output of grep"
         },
@@ -8172,7 +8172,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[^ ]*|\".*\"|'.*'' for command 'xargs_cat'.",
-            "evaluation_time": "0.06s",
+            "evaluation_time": "0.05s",
             "category": "<missing>",
             "notes": ""
         },
@@ -8256,7 +8256,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[^ ]*|\".*\"|'.*'' for command 'xargs_cat'.",
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.06s",
             "category": "single line to sort",
             "notes": ""
         },
@@ -8304,7 +8304,7 @@
             "tool runtime error": null,
             "pash annotations error": null,
             "error message generated": "Input type '.*' is not compatible with expected input '[^ ]*|\".*\"|'.*'' for command 'xargs_cat'.",
-            "evaluation_time": "0.05s",
+            "evaluation_time": "0.06s",
             "category": "unsorted input to uniq",
             "notes": ""
         },
@@ -8376,8 +8376,8 @@
         "crash_rate": 0.22437137330754353,
         "total_pipelines": 517,
         "crashes": 116,
-        "correct_crashes": 114,
-        "buggy_crashes": 2,
+        "correct_crashes": 32,
+        "buggy_crashes": 84,
         "total_correct_pipelines": 256,
         "false_positives": 54,
         "false_positive_categories": {
@@ -8392,7 +8392,9 @@
             "hard tr": 2,
             "about regex translation": 1,
             "ANN'D need assume annotation": 3,
-            "<missing>": 10,
+            "our system is correct": 1,
+            "hard sed": 1,
+            "<missing>": 8,
             "ANN'D need assume annotation and cut/tr/sed procedures": 2,
             "violates our assumption about sort -n usage": 1,
             "Bad tr": 1,
@@ -8413,7 +8415,7 @@
             "may not handle regex in sed": 1
         },
         "total_wrong_predictions": 64,
-        "total_evaluation_time": "402.33s",
+        "total_evaluation_time": "399.93s",
         "timeout_count": 0
     }
 }
