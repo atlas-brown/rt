@@ -1,0 +1,1 @@
+{"flag": [["-0", "--null"], ["-a", "--all"], ["-b", "--bytes"], ["-c", "--total"], ["-h", "--human-readable"], ["-s", "--summarize"], ["--help"], ["--version"]], "option": [["-d", "--max-depth", "NUM"]]}

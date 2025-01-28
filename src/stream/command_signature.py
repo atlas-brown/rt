@@ -53,7 +53,7 @@ class CommandSignature:
                 raise PashAnnotationParsingError(f"pash_annotations.parser might be wrong, command: {parsed_command_invocation}, operand: {operand}")
         
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
-        if "--version" in flags or "-V" in flags:
+        if "--version" in flags or "--help" in flags:
             return RegularType(".*")
 
         return self.output_type_inference(previous_output_type, parsed_command_invocation)

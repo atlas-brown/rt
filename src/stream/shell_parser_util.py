@@ -1,4 +1,5 @@
 
+import json
 from typing import Dict, List, Optional, Set
 from shasta.ast_node import (
     AndNode,
@@ -140,7 +141,7 @@ def string_of_arg(args):
             text.append(args[i])
             i = i+1
             continue
-        c = args[i].pretty()
+        c = args[i].pretty(quote_mode=0)
         if c == "$" and (i+1 < len(args)) and isinstance(args[i+1],EArgChar):
             c = "\\$"
         text.append(c)
@@ -157,7 +158,14 @@ def annot_parser_wrapper(str_ls_args: list[str]) -> CommandInvocationInitial:
     parsed_elements_list : list[str] = str_ls_args
 
     cmd_name: str = parsed_elements_list[0]
-    json_data = get_json_data(cmd_name)
+    # Check if command annotation exists in extra_annotations directory
+    extra_annotation_path = f'./src/stream/extra_annotations/{cmd_name}.json'
+    if os.path.isfile(extra_annotation_path):
+        # FIXME: ls.json is not complete
+        with open(extra_annotation_path, 'r') as file:
+            json_data = json.load(file)
+    else:
+        json_data = get_json_data(cmd_name)
     # TODO: if there is an element "\n", we lose the quotation marks currently
 
     set_of_all_flags: Set[str] = get_set_of_all_flags(json_data)
@@ -203,12 +211,63 @@ def annot_parser_wrapper(str_ls_args: list[str]) -> CommandInvocationInitial:
 
     return CommandInvocationInitial(cmd_name, flag_option_list, operand_list)
 
+def process_special_cases_in_args(s: list[str]) -> list[str]:
+    if len(s) > 0:
+        # handle special cases: head -1 -> head -n 1, tail -1 -> tail -n 1
+        if s[0] in {"head", "tail"}:
+            s2 = [s[0]]
+            for arg in s[1:]:
+                if arg.startswith("-") and arg[1:].isdigit():
+                    s2.append("-n")
+                    s2.append(arg[1:])
+                else:
+                    s2.append(arg)
+            s = s2
+        
+        # handle special cases: du -ha -> du -h -a
+        s2 = [s[0]]
+        for arg in s[1:]:
+            if arg.startswith("-") and len(arg) > 1:
+                arg = arg[1:]
+                while len(arg) > 1 and arg[:2].isalpha():
+                    s2.append("-" + arg[0])
+                    arg = arg[1:]
+                s2.append("-" + arg)
+            else:
+                s2.append(arg)
+        s = s2
+        
+
+        # handle special cases: cut -d/ -> cut -d /, cut -f1 -> cut -f 1
+        s2 = [s[0]]
+        for arg in s[1:]:
+            if arg.startswith("-") and len(arg) > 2 and arg[1].isalpha() and not arg[2].isalpha():
+                s2.append(arg[0:2])
+                s2.append(arg[2:])
+            else:
+                s2.append(arg)
+
+        s = s2
+
+        # FIXME: correctly handle quoted arguments
+        # provisional solution: remove quotes
+        s2 = []
+        for arg in s:
+            if arg.startswith('"') and arg.endswith('"'):
+                s2.append(arg[1:-1])
+            if (arg.startswith('"') and arg.endswith('"')) or (arg.startswith("'") and arg.endswith("'")):
+                s2.append(arg[1:-1])
+            else:
+                s2.append(arg)
+        s = s2
+    return s
+
 def string_of_ls_args(args) -> list[str]:
     s : list[str] = []
-    for idx,a in enumerate(args):
+    for idx, a in enumerate(args):
         x = string_of_arg(a)
         s.append(x)
-    return s
+    return process_special_cases_in_args(s)
 
 def get_command_invocation(cnd: CommandNode) -> CommandInvocationInitial:
     try:
@@ -216,4 +275,4 @@ def get_command_invocation(cnd: CommandNode) -> CommandInvocationInitial:
         return  annot_parser_wrapper(str_ls_args)
     except Exception:
         logging.warning(f"Failed to parse command: {cnd.pretty()}")
-    return CommandInvocationInitial("parsed_fail_command", [], [])
+    return CommandInvocationInitial("unknown", [], [])

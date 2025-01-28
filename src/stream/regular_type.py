@@ -35,6 +35,7 @@ class RegularType:
             intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
         with Timing(f"timing z3 inclusion check {self.pattern} subtype {other.pattern} = "):
             s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
+            print("smt string: ", s.to_smt2())
             checking_result = CheckingResult(s.check() == z3.sat)
         if checking_result.ill_typed:
             with Timing(f"timing z3 counterexample gen = "):

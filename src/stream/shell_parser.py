@@ -45,14 +45,14 @@ class ShellParser:
         for node in self.pipeline_nodes:
             commands_in_pipe : list[CommandInvocationInitial] = []
             for command_node in node.items:
-                try:
-                    cmd_raw = command_node.pretty()
-                    parsed_command_invocation = annot_parse(cmd_raw)
-                except Exception as e:
-                    raise PashAnnotationParsingError(f"Failed to parse command: {cmd_raw}, error: {e}")
-                    # logging.warning(f"Failed to parse command: {cmd_raw}, error: {e}")
-                    # parsed_command_invocation = CommandInvocationInitial("parsed_fail_command", [], [])
-                # parsed_command_invocation = get_command_invocation(command_node)
+                # try:
+                #     cmd_raw = command_node.pretty()
+                #     parsed_command_invocation = annot_parse(cmd_raw)
+                # except Exception as e:
+                #     raise PashAnnotationParsingError(f"Failed to parse command: {cmd_raw}, error: {e}")
+                #     # logging.warning(f"Failed to parse command: {cmd_raw}, error: {e}")
+                #     # parsed_command_invocation = CommandInvocationInitial("parsed_fail_command", [], [])
+                parsed_command_invocation = get_command_invocation(command_node)
                 commands_in_pipe.append(parsed_command_invocation)
             pipelines.append([self.parse_command_node(command) for command in commands_in_pipe])
         return pipelines

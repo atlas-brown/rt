@@ -1,35 +1,50 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,256,32,54,54, 
+correct,256,1,66,66, 
  , , , ,4,Our system is correct
  , , , ,3,Bad sed
- , , , ,4,hard awk
+ , , , ,16,<missing>
+ , , , ,1,Bad head
+ , , , ,3,hard awk
  , , , ,10,unsopported options/flags/operands - about find
  , , , ,4,Bad find; our system is correct
  , , , ,2,Bad heuristics: no_sort_non_numeric_with_numeric_input
  , , , ,1,semantic mistake - only one line
- , , , ,2,need tr/sed/cut procedures
- , , , ,2,hard tr
+ , , , ,3,need tr/sed/cut procedures
  , , , ,1,about regex translation
- , , , ,3,ANN'D need assume annotation
+ , , , ,4,ANN'D need assume annotation
  , , , ,1,our system is correct
  , , , ,1,hard sed
- , , , ,8,<missing>
- , , , ,2,ANN'D need assume annotation and cut/tr/sed procedures
+ , , , ,1,Bad seq
+ , , , ,3,ANN'D need assume annotation and cut/tr/sed procedures
  , , , ,1,violates our assumption about sort -n usage
  , , , ,1,Bad tr
  , , , ,1,Bad tr; our system is correct
+ , , , ,1,hard tr
+ , , , ,1,ANN'd dropped wc; should be detectable with assert annotations
  , , , ,3,ANN'd need assume annotation and cut/tr/sed procedures
 --------,-----,-----,--------,---------------,--------
-buggy,290,84,196,10, 
- , , , ,1,semantic mistake - about cp/rm/stat
+buggy,290,3,244,43, 
+ , , , ,3,semantic mistake - about cp/rm/stat
  , , , ,1,semantic mistake - about date
- , , , ,2,input to cmd that expects none
+ , , , ,1,dropped grep; should be detectable
+ , , , ,3,input to cmd that expects none
  , , , ,1,with useless no-op warning
+ , , , ,1,ANN'd dropped grep; should be detectable with input annotations
+ , , , ,1,ANN'd dropped tr; should be detectable with assert annotations
  , , , ,1,with empty output warning
  , , , ,1,needs whole-stream annotation for number of lines
+ , , , ,5,Bad cut
+ , , , ,9,<missing>
+ , , , ,1,Bad xargs_grep
  , , , ,1,semantic mistake - file not found
+ , , , ,2,need tr/sed/cut procedures
+ , , , ,5,Bad grep
+ , , , ,1,semantic mistake - only one line
+ , , , ,1,Bad sed
  , , , ,1,Bad find; need tr/sed/cut procedures
  , , , ,1,may not handle regex in sed
+ , , , ,1,semantic mistake - meaningless uniq
+ , , , ,2,Bad sort
 ========,=====,=====,========,===============,========
-total,517,116, ,64, 
+total,517,4, ,109, 

@@ -4,7 +4,7 @@ import logging
 def main():
     logging.basicConfig(level=logging.DEBUG)
     pipeline_address = './evaluation_pipelines/debug.sh'
-    pipeline_address = './full_benchmark/intercode/pipelines/intercode_160_gold1.sh'
+    # pipeline_address = './full_benchmark/intercode/pipelines/intercode_160_gold1.sh'
 
     with open(pipeline_address, 'r') as f:
         pipeline = f.read()

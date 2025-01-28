@@ -1,5 +1,5 @@
 #!/bin/bash
-
+yes | head -n10 | grep -n . | cut -d: -f1 | paste -sd:
 # @assume "cat $1" --> ".*\t.*"
 # @assume "cut -f 2" --> "[0-9]+"
 # @assert "head -n 1" --> ".* .*"
