@@ -253,8 +253,6 @@ def process_special_cases_in_args(s: list[str]) -> list[str]:
         # provisional solution: remove quotes
         s2 = []
         for arg in s:
-            if arg.startswith('"') and arg.endswith('"'):
-                s2.append(arg[1:-1])
             if (arg.startswith('"') and arg.endswith('"')) or (arg.startswith("'") and arg.endswith("'")):
                 s2.append(arg[1:-1])
             else:
