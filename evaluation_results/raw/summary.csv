@@ -1,66 +1,53 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,256,9,50,50, 
- , , , ,4,Our system is correct
- , , , ,3,Bad sed
- , , , ,1,Bad head
- , , , ,4,hard awk
- , , , ,11,unsopported options/flags/operands - about find
- , , , ,4,Bad find; our system is correct
- , , , ,2,Bad heuristics: no_sort_non_numeric_with_numeric_input
- , , , ,2,need tr/sed/cut procedures
- , , , ,2,hard tr
- , , , ,1,about regex translation
- , , , ,5,ANN'D need assume annotation
- , , , ,1,Bad seq
- , , , ,3,ANN'D need assume annotation and cut/tr/sed procedures
- , , , ,1,violates our assumption about sort -n usage
- , , , ,1,Bad tr
- , , , ,1,Bad tr; our system is correct
+correct,254,1,59,59, 
+ , , , ,10,need transducer: tr/sed/cut
+ , , , ,1,need better support for command: docker
+ , , , ,5,unsupported command: awk
+ , , , ,11,unsupported options/flags/operands - about find
+ , , , ,4,unsupported options/flags/operands - about find; violates our assumption about xargs cat usage
+ , , , ,3,violates our assumption about sort -n usage
+ , , , ,2,need transducer: rev; need transducer: tr/sed/cut
+ , , , ,1,need better support for command: od; need transducer: tr/sed/cut
+ , , , ,1,need better support for command: seq
+ , , , ,2,need default format of /etc/group; need transducer: tr/sed/cut
+ , , , ,9,ANN'D need assume annotation; need transducer: tr/sed/cut
+ , , , ,1,ANN'D need assume annotation; violates our assumption about sort -n usage; need transducer: tr/sed/cut
+ , , , ,4,need support for tr ' ' '\n'
+ , , , ,1,need transducer: tr/sed/cut; need support for tr -d '\n'
+ , , , ,1,need transducer: tr/sed/cut; need support for tr -d '\n'; need support for tr ' ' '\n'
+ , , , ,1,ANN'D need assume annotation
  , , , ,1,ANN'd dropped wc; should be detectable with assert annotations
- , , , ,3,ANN'd need assume annotation and cut/tr/sed procedures
+ , , , ,1,need transducer: tr/sed/cut; need support for tr ' ' '\n'
 --------,-----,-----,--------,---------------,--------
-buggy,290,2,188,100, 
- , , , ,1,semantic mistake - about cp/rm/stat
+buggy,292,2,229,61, 
+ , , , ,3,semantic mistake - file not found
  , , , ,1,semantic mistake - about date
- , , , ,4,input to cmd that expects none
- , , , ,3,nice and self-contained; cut expects delimiter; mutant won't have it
- , , , ,1,nice and self-contained; dup of an earlier one
- , , , ,1,with useless no-op warning
+ , , , ,1,need better support for command: who
  , , , ,1,ANN'd dropped flags in wc; should be detectable with assert annotations
- , , , ,1,ANN'd dropped grep; should be detectable with assert annotations and tr/sed/cut procedures
- , , , ,2,ANN'd dropped cut; should be detectable with assert annotations and tr/sed/cut procedures
- , , , ,5,ANN'd dropped tr; should be detectable with assert annotations
+ , , , ,1,ANN'd dropped grep; should be detectable with assert annotations; need transducer: tr/sed/cut
+ , , , ,2,ANN'd dropped cut; should be detectable with assert annotations; need transducer: tr/sed/cut
+ , , , ,6,ANN'd dropped tr; should be detectable with assert annotations
  , , , ,1,ANN'd dropped -c in tr; should be detectable with assert annotations
  , , , ,1,ANN'd swap tr; should be detectable with assert annotations
  , , , ,1,ANN'd dropped cut; should be detectable with assert annotations
  , , , ,5,ANN'd with output annotations; we could perfectly model the contents here
- , , , ,1,input default should be enough
  , , , ,2,needs whole-stream annotation for number of lines
  , , , ,1,ANN'd dropped -c in uniq; should be detectable with assert annotations
  , , , ,1,ANN'd dropped uniq; should be detectable with assert annotations
- , , , ,1,ANN'd dropped tr; should be detectable with assert annotations and tr/sed/cut procedures
+ , , , ,1,ANN'd dropped tr; should be detectable with assert annotations; need transducer: tr/sed/cut
  , , , ,1,ANN'd swap cut and tr; should be detectable with input annotations; composition mistake at (cut -c 1-1)
- , , , ,3,ANN'd with output annotations; or input annotations
- , , , ,3,ANN'd dropped -l in wc; should be detectable with assert annotations
- , , , ,14,ANN'd with output annotations
- , , , ,2,with empty output warning
+ , , , ,2,ANN'd dropped -l in wc; should be detectable with assert annotations
+ , , , ,10,ANN'd with output annotations
+ , , , ,1,unsupported command: awk
  , , , ,1,ANN'd with output annotations; could specify no newline?
- , , , ,1,ANN'd with annotations/pre-execution analysis for /etc/group format; or output annotations
- , , , ,1,with a warning about stdin arbitrary format?
- , , , ,1,ANN'd with annotations/pre-execution analysis for /etc/group format
- , , , ,2,semantic mistake - only one line
- , , , ,12,Bad cut
- , , , ,1,Bad xargs_grep
- , , , ,5,Bad sort
- , , , ,1,semantic mistake - uniq
- , , , ,1,semantic mistake - file not found
- , , , ,4,need tr/sed/cut procedures
- , , , ,8,Bad grep
- , , , ,1,Bad sed
- , , , ,1,Bad find; need tr/sed/cut procedures
- , , , ,1,may not handle regex in sed
+ , , , ,1,ANN'd with output annotations; or input annotations
+ , , , ,1,semantic mistake - only one line
+ , , , ,1,need better support for command: xargs
+ , , , ,7,need transducer: tr/sed/cut
+ , , , ,5,regex parsing error in grep - about ^ and $
+ , , , ,1,unsupported options/flags/operands - about find; need transducer: tr/sed/cut
  , , , ,1,semantic mistake - meaningless uniq
- , , , ,1,
+ , , , ,1,need better support for command: sort
 ========,=====,=====,========,===============,========
-total,517,11, ,150, 
+total,517,3, ,120, 
