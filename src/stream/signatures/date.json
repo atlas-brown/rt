@@ -12,7 +12,7 @@
     "rules": [
         {
             "condition": {
-                "heuristics": ["no_ignore_input"]
+                "heuristics": ["no_ignored_input"]
             },
             "update": {
                 "input_type": ""
