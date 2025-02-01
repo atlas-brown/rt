@@ -12,6 +12,7 @@ from stream.checking_result import CheckingResult
 from stream.type_checker import TypeChecker
 from stream.timeout_util import TimeoutError
 from stream.tool_error import PashAnnotationParsingError
+import argparse
 
 ENABLE_TIMEOUT = False
 TIMEOUT_SECONDS = 10
@@ -22,6 +23,9 @@ PIPELINE_ID_LABEL="id"
 CATEGORY_LABEL="category"
 CRASH_REASON_LABEL="tool runtime error"
 TIMEOUT_REASON=f"Timeout after {TIMEOUT_SECONDS}s"
+
+
+enable_user_annotation = True
 
 # class LogHandler(logging.Handler):
 #     def __init__(self):
@@ -84,7 +88,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
     pipeline_data_list = []
     
     try:        
-        type_checker = TypeChecker(address, enable_user_annotations=True, enable_stage_timeout=ENABLE_TIMEOUT, stage_timeout=TIMEOUT_SECONDS, check_all_pipelines=check_all_pipelines)
+        type_checker = TypeChecker(address, enable_user_annotations=enable_user_annotation, enable_stage_timeout=ENABLE_TIMEOUT, stage_timeout=TIMEOUT_SECONDS, check_all_pipelines=check_all_pipelines)
 
         try:
             while True:
@@ -329,6 +333,17 @@ def notes_lookup(address, notes: List[dict], content):
 
 
 if __name__ == "__main__":
+    
+    parser = argparse.ArgumentParser(description='Run evaluations on code pipelines.')
+    parser.add_argument('--user_annotation', action='store_true',
+                        help='Enable user annotation handling. Defaults to True.')
+    args = parser.parse_args()
+
+    if args.user_annotation:
+        enable_user_annotation = True
+    else:
+        enable_user_annotation = False
+
     level = logging.INFO
     match os.getenv("SHTREAMS_LOG", "info").lower():
         case "info":
@@ -359,4 +374,7 @@ if __name__ == "__main__":
             "./full_benchmark/github_repos_commits/output/post_commit",
             "./full_benchmark/github_repos_commits/output/pre_commit",
         ],
+        output_json='evaluation_results/evaluation_results.json' if enable_user_annotation else 'evaluation_results/evaluation_results_unannotated.json',
+        output_summary_csv='evaluation_results/summary.csv' if enable_user_annotation else 'evaluation_results/summary_unannotated.csv',
+
     )
