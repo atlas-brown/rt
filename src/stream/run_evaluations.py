@@ -69,7 +69,7 @@ def calculate_crash_rate(labels, preds):
     return crash_count / len(labels)
 
 
-def evaluate_pipeline_content(address: str) -> list[dict]:
+def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[dict]:
     pipeline_data_template = {
         "address": address,
         "content": None,
@@ -84,7 +84,7 @@ def evaluate_pipeline_content(address: str) -> list[dict]:
     pipeline_data_list = []
     
     try:        
-        type_checker = TypeChecker(address, enable_user_annotations=True, enable_stage_timeout=ENABLE_TIMEOUT, stage_timeout=TIMEOUT_SECONDS)
+        type_checker = TypeChecker(address, enable_user_annotations=True, enable_stage_timeout=ENABLE_TIMEOUT, stage_timeout=TIMEOUT_SECONDS, check_all_pipelines=check_all_pipelines)
 
         try:
             while True:
@@ -138,7 +138,9 @@ def run_all_evaluations(valid_dirs: list[str],
                         invalid_dirs: list[str],
                         output_json='evaluation_results/evaluation_results.json',
                         output_summary_csv='evaluation_results/summary.csv',
-                        evaluation_notes_json='src/stream/evaluation_notes.json'):
+                        evaluation_notes_json='src/stream/evaluation_notes.json',
+                        not_check_all_dirs: list[str] = [],
+                        ):
     with open(evaluation_notes_json, 'r') as f:
         evaluation_notes = json.load(f)
 
@@ -160,7 +162,11 @@ def run_all_evaluations(valid_dirs: list[str],
     results = []
 
     for address, label in pipelines:
-        for pipeline_result in evaluate_pipeline_content(address):
+        check_all_pipelines = True
+        file_dir = "/".join(address.split("/")[:-1])
+        if file_dir in not_check_all_dirs:
+            check_all_pipelines = False
+        for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines):
             notes = notes_lookup(address, evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
             pipeline_result[IS_BUGGY_LABEL] = not label
             pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
@@ -340,11 +346,17 @@ if __name__ == "__main__":
                     "./full_benchmark/intercode/pipelines", 
                     # "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
                     # "./full_benchmark/pash_benchmark/benchmarks",
-                    "./full_benchmark/pash_benchmark/benchmarks/unix50"
+                    "./full_benchmark/pash_benchmark/benchmarks/unix50",
+                    "./full_benchmark/github_repos_commits/output/post_commit",
         ],
         invalid_dirs=[
                         "./evaluation_pipelines/invalid",
                       "./full_benchmark/curated_mutants",
                       "./full_benchmark/llm_injection/pipelines",
-        ]
+                      "./full_benchmark/github_repos_commits/output/pre_commit",
+        ],
+        not_check_all_dirs=[
+            "./full_benchmark/github_repos_commits/output/post_commit",
+            "./full_benchmark/github_repos_commits/output/pre_commit",
+        ],
     )

@@ -1,7 +1,5 @@
+import argparse
 import json
-
-path = './evaluation_results/evaluation_results.json'
-outpath = './evaluation_results/results.csv'
 
 def convert_to_github_address(address):
     parts = address.split('/')
@@ -40,7 +38,15 @@ def results_to_summary_csv(json_path, out_path):
             name, collection = convert_to_github_address(result["address"])
             f.write(f'{name},{collection},{result["is buggy?"]},{result["warning signaled?"] == result["is buggy?"]},{result["evaluation_time"]},{process_runtime_error(result["tool runtime error"])},{process_category(result["category"])}, {result["notes"]},{process_content(result["content"])}\n')
 
-if __name__ == '__main__':
-    results_to_summary_csv(path, outpath)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Process evaluation results from JSON file and generate a CSV summary.')
+    parser.add_argument('--path', type=str, default='./evaluation_results/evaluation_results.json',
+                        help='Input JSON path (default: ./evaluation_results/evaluation_results.json)')
+    parser.add_argument('--outpath', type=str, default='./evaluation_results/results.csv',
+                        help='Output CSV file path (default: ./evaluation_results/results.csv)')
+    
+    args = parser.parse_args()
+    
+    results_to_summary_csv(args.path, args.outpath)
 
 

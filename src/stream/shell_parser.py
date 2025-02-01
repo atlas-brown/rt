@@ -17,10 +17,11 @@ from stream.user_annotation import AnnotationType, UserAnnotation
 ANNOTATION_PATTERN = re.compile(r'^\s*#\s*@(assume|assert|expect)\s*"(.*)"\s*-->\s*"(.*)"\s*$|^\s*#\s*@(input|output)\s*"(.*)"\s*$')
 
 class ShellParser:
-    def __init__(self, pipeline_address: str, enable_user_annotations: bool = True) -> None:
+    def __init__(self, pipeline_address: str, enable_user_annotations: bool = True, extract_all_pipelines: bool = True) -> None:
         self.signature_loader = SignatureLoader()
         self.pipeline_address = pipeline_address
-        self.pipeline_nodes = extract_pipe_nodes_from_file(self.pipeline_address)
+        self.extract_all_pipelines = extract_all_pipelines
+        self.pipeline_nodes = extract_pipe_nodes_from_file(self.pipeline_address, self.extract_all_pipelines)
 
         if enable_user_annotations:
             self.annotations, self.input_pattern = self.extract_annotations_from_file()
@@ -81,6 +82,9 @@ class ShellParser:
         for node in self.pipeline_nodes:
             try:
                 line_number = node.items[0].line_number
+                # if only extranct pipeline with explicit "stream enable", then the annotations (if exist) should be 1 line above "stream enable"
+                if not self.extract_all_pipelines:
+                    line_number -= 1
                 while True:
                     # the possible annotation line should be at least 1 line above the command line, and the 1st line is at script_content[0]
                     if line_number < 2:

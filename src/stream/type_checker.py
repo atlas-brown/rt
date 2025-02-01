@@ -18,7 +18,8 @@ class TypeChecker:
                  enable_rule_no_meaningless_command = True,
                  enable_rule_no_sort_non_numeric_with_numeric_input = True,
                  enable_stage_timeout: bool = False,
-                 stage_timeout: int = 10
+                 stage_timeout: int = 10,
+                 check_all_pipelines: bool = True,
         ) -> None:
         self.pipelines = None
         self.pipeline_nodes = None
@@ -26,6 +27,7 @@ class TypeChecker:
         self.enable_stage_timeout = enable_stage_timeout
         self.stage_timeout = stage_timeout
         self.enable_user_annotations = enable_user_annotations
+        self.check_all_pipelines = check_all_pipelines
         
         self.heuristic_rules = []
         self.enable_rule_no_empty_output = enable_rule_no_empty_output
@@ -41,7 +43,7 @@ class TypeChecker:
         if enable_rule_no_sort_non_numeric_with_numeric_input:
             self.heuristic_rules.append("no_sort_non_numeric_with_numeric_input")
 
-        self.shell_parser = ShellParser(pipeline_address, enable_user_annotations)
+        self.shell_parser = ShellParser(pipeline_address, enable_user_annotations, check_all_pipelines)
 
     def initialize_check(self):
         self.pipelines = self.shell_parser.parse_pipeline()

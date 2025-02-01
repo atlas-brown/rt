@@ -123,13 +123,36 @@ def traverse_node(nd : AstNode) -> list[PipeNode]:
             logging.debug(f"Node not handled: {type(nd)}")
     return pipeline_nodes
 
-def extract_pipe_nodes_from_file(filename: str) -> list[PipeNode]:
+
+def filter_pipeline_nodes(filename: str, pipeline_nodes: list[PipeNode]) -> list[PipeNode]:
+    script_content = []
+    with open(filename) as f:
+        for line in f:
+            script_content.append(line)
+
+    filtered_pipeline_nodes = []
+    for node in pipeline_nodes:
+        line_number = node.items[0].line_number
+        if line_number < 2:
+            continue
+        # if the line above the command line is "# stream enable", then the pipeline will be extracted, otherwise it is ignored
+        if script_content[line_number - 2].strip().startswith("#") and script_content[line_number - 2].replace("#", "").strip().lower() == "stream enable":
+            filtered_pipeline_nodes.append(node)
+
+    return filtered_pipeline_nodes
+
+def extract_pipe_nodes_from_file(filename: str, extract_all_pipelines: bool = True) -> list[PipeNode]:
     typed_ast_object = parse_shell_to_asts(filename)
     if typed_ast_object is None:
         return []
-    pipeline_nodes = []
+    pipeline_nodes: list[PipeNode] = []
     for nd in typed_ast_object:
         pipeline_nodes += traverse_node(nd[0])
+
+    if not extract_all_pipelines:
+        pipeline_nodes = filter_pipeline_nodes(filename, pipeline_nodes)
+        return pipeline_nodes
+
     return pipeline_nodes
 
 

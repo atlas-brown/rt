@@ -19,6 +19,6 @@ def run_parser_on_scripts(directories):
 if __name__ == "__main__":
     logging.basicConfig(filename=os.path.join(os.path.abspath(os.path.dirname(__file__)), 'error.log'), level=logging.INFO)
     directories = [
-        os.path.join(os.path.abspath(os.path.dirname(__file__)), 'evaluation')
+        os.path.join(os.path.abspath(os.path.dirname(__file__)), 'output')
     ]
     run_parser_on_scripts(directories)
