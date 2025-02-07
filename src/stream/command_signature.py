@@ -39,6 +39,7 @@ class CommandSignature:
                 return True
         return False
     
+    # FIXME: simplify the return type
     # dont override this method, override output_type_inference instead
     def determine_output_type(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation]) -> RegularType:
         # if user annotation (assume) is available, use it
@@ -55,7 +56,22 @@ class CommandSignature:
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "--version" in flags or "--help" in flags:
             return RegularType(".*")
+        
+        if r"\n" in previous_output_type.pattern:
+            return self.recursive_output_type_inference(previous_output_type, parsed_command_invocation)
 
+        return self.output_type_inference(previous_output_type, parsed_command_invocation)
+
+
+    # FIXME: should be a top-down recursive function; we need regex parser!!!
+    # provisional implementation: directly split the pattern by \n
+    def recursive_output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
+        pattern = previous_output_type.pattern
+        if r"\n" in pattern:
+            patterns = pattern.split(r"\n")
+            for i, p in enumerate(patterns):
+                patterns[i] = self.output_type_inference(RegularType(p), parsed_command_invocation).pattern
+            return RegularType(r"\n".join(patterns))
         return self.output_type_inference(previous_output_type, parsed_command_invocation)
 
 

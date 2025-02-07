@@ -29,14 +29,18 @@ class RegularType:
         logging.debug(f"other_regex: {other.regex}")
         logging.debug("-"*60)
         if (other.pattern == ".*"):
-            return CheckingResult(False)
+            return CheckingResult(ill_typed=False)
+        if (r"\n" in self.pattern) or (r"\n" in other.pattern):
+            self.to_full_stream_regex()
+            other.to_full_stream_regex()
         s = z3.Solver()
         with Timing("timing z3 intersection creation = "):
             intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
         with Timing(f"timing z3 inclusion check {self.pattern} subtype {other.pattern} = "):
             s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
             print("smt string: ", s.to_smt2())
-            checking_result = CheckingResult(s.check() == z3.sat)
+            # if the intersection is empty, then the subtype relation holds
+            checking_result = CheckingResult(ill_typed=(s.check() == z3.sat))
         if checking_result.ill_typed:
             with Timing(f"timing z3 counterexample gen = "):
                 s = z3.Solver()
@@ -66,6 +70,13 @@ class RegularType:
         s = z3.Solver()
         s.add(z3.Distinct(self.regex, z3.Re("")))
         return s.check() == z3.unsat
+    
+    def to_full_stream_regex(self) -> str:
+        self.init_regex()
+        if r"\n" in self.pattern:
+            return
+        else:
+            self.pattern = "(" + self.pattern + r"\n)*"
 
     def __le__(self, other: 'RegularType') -> bool:
         return self.is_subtype(other)
