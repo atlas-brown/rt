@@ -1,0 +1,27 @@
+[
+    {
+        "category": "semantic mistake",
+        "tag": "out of scope",
+        "priority": 1
+    },
+    {
+        "category": "unsupported",
+        "tag": "out of scope",
+        "priority": 2
+    },
+    {
+        "category": "tr",
+        "tag": "can be improved with FST",
+        "priority": 3
+    },
+    {
+        "category": "regex parsing error",
+        "tag": "can be improved with current model",
+        "priority": 4
+    },
+    {
+        "category": "need better support",
+        "tag": "can be improved with current model",
+        "priority": 5
+    }
+]

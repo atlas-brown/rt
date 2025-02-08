@@ -38,13 +38,14 @@ def results_to_summary_csv(json_path, out_path):
     with open(json_path, 'r', encoding='utf-8') as f:
         results = json.load(f)["evaluation_results"]
     results.sort(key=lambda x: x["address"])
-    header = ['Benchmark', 'Collection', 'Buggy?', 'Correct Result?', 'Time(s)', 'RunTime Error', 'Category', 'Notes', 'Pipeline']
+    header = ['Benchmark', 'Collection', 'Tag', 'Buggy?', 'Correct Result?', 'Time(s)', 'RunTime Error', 'Category', 'Notes', 'Pipeline']
     rows = []
     for result in results:
         benchmark, collection = convert_to_github_address(result["address"])
         row = {
             'Benchmark': benchmark,
             'Collection': collection,
+            'Tag': category_to_tag(compute_correct_result(result), process_category(result["category"])),
             'Buggy?': result["is buggy?"],
             'Correct Result?': compute_correct_result(result),
             'Time(s)': result["evaluation_time"],
@@ -125,6 +126,17 @@ def main():
     if args.mode in ['merged', 'all']:
         print(f"Generating merged CSV file: {args.merged_csv}")
         results_to_merged_csv(args.ann_json, args.raw_json, args.merged_csv)
+
+def category_to_tag(is_correct: bool, category: str):
+    if is_correct:
+        return ""
+    with open("./src/stream/category_to_tag.json", "r") as file:
+        mapping = json.load(file)
+    mapping.sort(key=lambda x: x["priority"])
+    for entry in mapping:
+        if entry["category"] in category:
+            return entry["tag"]
+    return ""
 
 if __name__ == "__main__":
     main()

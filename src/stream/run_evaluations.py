@@ -174,6 +174,7 @@ def run_all_evaluations(valid_dirs: list[str],
             pipeline_result[IS_BUGGY_LABEL] = not label
             pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
             pipeline_result["notes"] = notes["notes"]
+            pipeline_result["tag"] = category_to_tag(notes[CATEGORY_LABEL])
             results.append(pipeline_result)
 
     unlabeled_inconsistent_results = [
@@ -272,16 +273,16 @@ def categorize(results, category_label=CATEGORY_LABEL):
 # TODO: might be nice to put this in a separate module to tabulate already-existing results
 def tabulate(result_stats, f):
     s = result_stats
-    f.write("category,total,crash,signaled,false (pos/neg),category\n")
+    f.write("category,total,crash,signaled,false (pos/neg),category, tag\n")
     f.write("========,=====,=====,========,===============,========\n")
     f.write(f"correct,{s['total_correct_pipelines']},{s['correct_crashes']},{s['false_positives']},{s['false_positives']}, \n")
     for category, count in s['false_positive_categories'].items():
-        f.write(f" , , , ,{count},{category.replace(',', ';')}\n")
+        f.write(f" , , , ,{count},{category.replace(',', ';')},{category_to_tag(category)}\n")
     f.write("--------,-----,-----,--------,---------------,--------\n")
     buggy_signals = s['total_buggy_pipelines'] - s['false_negatives'] - s['buggy_crashes']
     f.write(f"buggy,{s['total_buggy_pipelines']},{s['buggy_crashes']},{buggy_signals},{s['false_negatives']}, \n")
     for category, count in s['false_negative_categories'].items():
-        f.write(f" , , , ,{count},{category.replace(',', ';')}\n")
+        f.write(f" , , , ,{count},{category.replace(',', ';')},{category_to_tag(category)}\n")
     f.write("========,=====,=====,========,===============,========\n")
     f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']}, \n")
 
@@ -337,6 +338,15 @@ def notes_lookup(address, notes: List[dict], content):
         merged_note = merge_notes(matching_notes)
     return merged_note
 
+def category_to_tag(category: str):
+    with open("./src/stream/category_to_tag.json", "r") as file:
+        mapping = json.load(file)
+    mapping.sort(key=lambda x: x["priority"])
+    for entry in mapping:
+        if entry["category"] in category:
+            return entry["tag"]
+    return ""
+
 
 if __name__ == "__main__":
     
@@ -348,7 +358,7 @@ if __name__ == "__main__":
                         help='Set pipeline evaluation timeout in seconds. Defaults to disabled.')
 
     args = parser.parse_args()
-    
+
     user_annotation = args.user_annotation.lower()
     if user_annotation == "false":
         enable_user_annotation = False
