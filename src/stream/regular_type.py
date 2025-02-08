@@ -5,7 +5,7 @@ from stream.regex_to_z3 import regex_to_z3_expr
 import sre_parse
 import logging
 from stream.checking_result import CheckingResult
-from stream.tool_error import ToolError
+from stream.tool_error import ToolError, TimeoutError
 from stream.timing import Timing
 import subprocess
 
@@ -23,7 +23,7 @@ class RegularType:
         self.init_regex()
         return self._regex
     
-    def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 20000) -> CheckingResult:
+    def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 10) -> CheckingResult:
         logging.debug("-"*60)
         logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
         logging.debug(f"self_regex: {self.regex}")
@@ -41,6 +41,8 @@ class RegularType:
             s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
             # checking_result = CheckingResult(ill_typed=(s.check() == z3.sat))
             terminal_output = run_z3_in_terminal(s.to_smt2(), enable_timeout=enable_timeout, timeout=timeout)
+            if terminal_output == "unknown":
+                raise TimeoutError("Timeout in z3")
             checking_result = CheckingResult(ill_typed=(terminal_output == "sat"))
             
         if checking_result.ill_typed:
@@ -83,12 +85,13 @@ class RegularType:
         return f"RegularType({self.pattern})"
 
 
-def run_z3_in_terminal(smt_string: str, get_model: bool = False, enable_timeout: bool = False, timeout: int = 20000) -> str:
+def run_z3_in_terminal(smt_string: str, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> str:
     cmd = ["z3", "-in", "-smt2"]
     if enable_timeout:
-        smt_string = f"(set-option :timeout {timeout})\n{smt_string}"
+        smt_string = f"(set-option :timeout {timeout * 1000})\n{smt_string}"
     if get_model:
-        smt_string = f"{smt_string}\n(get-model)"
+        smt_string = f"{smt_string}(get-model)\n"
+    logging.debug(f"smt2: {smt_string}")
     kwargs = {
         "input": smt_string.encode("utf-8"),
         "stdout": subprocess.PIPE,
@@ -106,6 +109,8 @@ def parse_z3_terminal_output_model(output: str) -> Optional[str]:
         "")
     )
     """
+    if output == "unknown":
+        raise TimeoutError("Timeout in z3")
     pattern = re.compile(
         r'\(define-fun\s+x\s+\(\)\s+String\s+"(.*?)"\)', re.DOTALL)
     match = pattern.search(output)

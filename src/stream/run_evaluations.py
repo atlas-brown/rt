@@ -344,6 +344,8 @@ if __name__ == "__main__":
     parser.add_argument('--user_annotation', default="true", type=str,
                         help='Enable user annotation handling. Defaults to True.')
     parser.add_argument('--log_level', default='info', type=str, help='Set logging level: info, debug, error. Defaults to info.')
+    parser.add_argument('--timeout', default=-1, type=int,
+                        help='Set pipeline evaluation timeout in seconds. Defaults to disabled.')
 
     args = parser.parse_args()
     print(args)
@@ -362,9 +364,18 @@ if __name__ == "__main__":
     else:
         level = logging.INFO
 
+    TIMEOUT_SECONDS = args.timeout
+    if TIMEOUT_SECONDS > 0:
+        ENABLE_TIMEOUT = True
+
     logging.basicConfig(level=logging.INFO)
     logging.info(f"Enable user annotation: {enable_user_annotation}")
     logging.info(f"Logging level: {level_str}")
+    if ENABLE_TIMEOUT:
+        logging.info(f"Timeout set to: {TIMEOUT_SECONDS} seconds")
+    else:
+        logging.info("Timeout disabled")
+
     logging.getLogger().setLevel(level)
 
     run_all_evaluations(
