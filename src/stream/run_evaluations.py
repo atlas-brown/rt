@@ -348,8 +348,7 @@ if __name__ == "__main__":
                         help='Set pipeline evaluation timeout in seconds. Defaults to disabled.')
 
     args = parser.parse_args()
-    print(args)
-
+    
     user_annotation = args.user_annotation.lower()
     if user_annotation == "false":
         enable_user_annotation = False
