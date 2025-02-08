@@ -16,8 +16,7 @@ correct,254,1,59,59,
  , , , ,4,need support for tr ' ' '\n'
  , , , ,1,need transducer: tr/sed/cut; need support for tr -d '\n'
  , , , ,1,need transducer: tr/sed/cut; need support for tr -d '\n'; need support for tr ' ' '\n'
- , , , ,1,ANN'D need assume annotation
- , , , ,1,ANN'd dropped wc; should be detectable with assert annotations
+ , , , ,2,ANN'D need assume annotation
  , , , ,1,need transducer: tr/sed/cut; need support for tr ' ' '\n'
 --------,-----,-----,--------,---------------,--------
 buggy,292,2,229,61, 
@@ -42,7 +41,7 @@ buggy,292,2,229,61,
  , , , ,1,unsupported command: awk
  , , , ,1,ANN'd with output annotations; could specify no newline?
  , , , ,1,ANN'd with output annotations; or input annotations
- , , , ,1,semantic mistake - only one line
+ , , , ,1,problematic annotation design
  , , , ,1,need better support for command: xargs
  , , , ,7,need transducer: tr/sed/cut
  , , , ,5,regex parsing error in grep - about ^ and $

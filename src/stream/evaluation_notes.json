@@ -3239,7 +3239,7 @@
         "pash annotations error": null,
         "error message generated": null,
         "evaluation_time": "0.08s",
-        "category": "semantic mistake - only one line",
+        "category": "problematic annotation design",
         "notes": ""
     },
     {

@@ -10,8 +10,7 @@ from functools import wraps
 from typing import Optional, List, Tuple
 from stream.checking_result import CheckingResult
 from stream.type_checker import TypeChecker
-from stream.timeout_util import TimeoutError
-from stream.tool_error import PashAnnotationParsingError
+from stream.tool_error import PashAnnotationParsingError, TimeoutError
 import argparse
 
 ENABLE_TIMEOUT = False
@@ -315,6 +314,7 @@ def merge_notes(notes_to_merge: List[dict]) -> dict:
 # listof(Note) content -> Optional(Note)
 def notes_lookup(address, notes: List[dict], content):
     matching_notes = []
+    complete_matching_notes = []
 
     if "full_benchmark/llm_injection" in address:
         for note in notes:
@@ -322,39 +322,51 @@ def notes_lookup(address, notes: List[dict], content):
                 matching_notes.append(note)
     else:
         for note in notes:
-            if note["content"] == content:
-                matching_notes.append(note)
+            if note.get("content", "") == content:
+                if note.get("address", "") == address:
+                    complete_matching_notes.append(note)
+                else:
+                    matching_notes.append(note)
 
-    if not matching_notes:
+    if not matching_notes and not complete_matching_notes:
         return None
 
-    merged_note = merge_notes(matching_notes)
+    if complete_matching_notes:
+        merged_note = merge_notes(complete_matching_notes)
+    else:
+        merged_note = merge_notes(matching_notes)
     return merged_note
 
 
 if __name__ == "__main__":
     
-    parser = argparse.ArgumentParser(description='Run evaluations on code pipelines.')
-    parser.add_argument('--user_annotation', action='store_true',
+    parser = argparse.ArgumentParser(description='Run benchmarks.')
+    parser.add_argument('--user_annotation', default="true", type=str,
                         help='Enable user annotation handling. Defaults to True.')
+    parser.add_argument('--log_level', default='info', type=str, help='Set logging level: info, debug, error. Defaults to info.')
+
     args = parser.parse_args()
+    print(args)
 
-    if args.user_annotation:
-        enable_user_annotation = True
-    else:
+    user_annotation = args.user_annotation.lower()
+    if user_annotation == "false":
         enable_user_annotation = False
+    else:
+        enable_user_annotation = True
 
-    level = logging.INFO
-    match os.getenv("SHTREAMS_LOG", "info").lower():
-        case "info":
-            level = logging.INFO
-        case "debug":
-            print("debug logging enabled")
-            level = logging.DEBUG
-        case "error":
-            print("info logging suppressed")
-            level = logging.WARNING
-    logging.basicConfig(level=level)
+    level_str = args.log_level.lower()
+    if level_str == "debug":
+        level = logging.DEBUG
+    elif level_str == "error":
+        level = logging.WARNING
+    else:
+        level = logging.INFO
+
+    logging.basicConfig(level=logging.INFO)
+    logging.info(f"Enable user annotation: {enable_user_annotation}")
+    logging.info(f"Logging level: {level_str}")
+    logging.getLogger().setLevel(level)
+
     run_all_evaluations(
         valid_dirs=[
                     "./evaluation_pipelines/valid", 
@@ -362,19 +374,19 @@ if __name__ == "__main__":
                     # "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
                     # "./full_benchmark/pash_benchmark/benchmarks",
                     "./full_benchmark/pash_benchmark/benchmarks/unix50",
-                    "./full_benchmark/github_repos_commits/output/post_commit",
+                    # "./full_benchmark/github_repos_commits/output/post_commit",
         ],
         invalid_dirs=[
                         "./evaluation_pipelines/invalid",
                       "./full_benchmark/curated_mutants",
                       "./full_benchmark/llm_injection/pipelines",
-                      "./full_benchmark/github_repos_commits/output/pre_commit",
+                    #   "./full_benchmark/github_repos_commits/output/pre_commit",
         ],
         not_check_all_dirs=[
             "./full_benchmark/github_repos_commits/output/post_commit",
             "./full_benchmark/github_repos_commits/output/pre_commit",
         ],
-        output_json='evaluation_results/evaluation_results.json' if enable_user_annotation else 'evaluation_results/evaluation_results_unannotated.json',
-        output_summary_csv='evaluation_results/summary.csv' if enable_user_annotation else 'evaluation_results/summary_unannotated.csv',
+        output_json='evaluation_results/with_annotations/evaluation_results.json' if enable_user_annotation else 'evaluation_results/raw/evaluation_results.json',
+        output_summary_csv='evaluation_results/with_annotations/summary.csv' if enable_user_annotation else 'evaluation_results/raw/summary.csv',
 
     )

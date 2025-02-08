@@ -57,8 +57,8 @@ class CommandSignature:
         if "--version" in flags or "--help" in flags:
             return RegularType(".*")
         
-        if r"\n" in previous_output_type.pattern:
-            return self.recursive_output_type_inference(previous_output_type, parsed_command_invocation)
+        # if r"\n" in previous_output_type.pattern:
+        #     return self.recursive_output_type_inference(previous_output_type, parsed_command_invocation)
 
         return self.output_type_inference(previous_output_type, parsed_command_invocation)
 

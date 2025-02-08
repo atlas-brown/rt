@@ -1,12 +1,13 @@
 import re
+from typing import Optional
 import z3
 from stream.regex_to_z3 import regex_to_z3_expr
 import sre_parse
 import logging
 from stream.checking_result import CheckingResult
-from stream.timeout_util import run_with_timeout
 from stream.tool_error import ToolError
 from stream.timing import Timing
+import subprocess
 
 class RegularType:
     def __init__(self, pattern: str):
@@ -22,7 +23,7 @@ class RegularType:
         self.init_regex()
         return self._regex
     
-    def is_subtype(self, other: 'RegularType') -> CheckingResult:
+    def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 20000) -> CheckingResult:
         logging.debug("-"*60)
         logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
         logging.debug(f"self_regex: {self.regex}")
@@ -30,35 +31,32 @@ class RegularType:
         logging.debug("-"*60)
         if (other.pattern == ".*"):
             return CheckingResult(ill_typed=False)
-        if (r"\n" in self.pattern) or (r"\n" in other.pattern):
-            self.to_full_stream_regex()
-            other.to_full_stream_regex()
+        # if (r"\n" in self.pattern) or (r"\n" in other.pattern):
+        #     self.to_full_stream_regex()
+        #     other.to_full_stream_regex()
         s = z3.Solver()
         with Timing("timing z3 intersection creation = "):
             intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
         with Timing(f"timing z3 inclusion check {self.pattern} subtype {other.pattern} = "):
             s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
-            print("smt string: ", s.to_smt2())
-            # if the intersection is empty, then the subtype relation holds
-            checking_result = CheckingResult(ill_typed=(s.check() == z3.sat))
+            # checking_result = CheckingResult(ill_typed=(s.check() == z3.sat))
+            terminal_output = run_z3_in_terminal(s.to_smt2(), enable_timeout=enable_timeout, timeout=timeout)
+            checking_result = CheckingResult(ill_typed=(terminal_output == "sat"))
+            
         if checking_result.ill_typed:
             with Timing(f"timing z3 counterexample gen = "):
                 s = z3.Solver()
-                # s.set(max_memory=15)
-                # s.set(timeout=20000)
                 x = z3.String('x')
                 s.add(z3.InRe(x, intersection_regex))
-                s.check()
-                counterexample = s.model()[x].as_string()
+                # s.check()
+                # counterexample = s.model()[x].as_string()
+                terminal_output = run_z3_in_terminal(s.to_smt2(), get_model=True, enable_timeout=enable_timeout, timeout=timeout)
+                counterexample = parse_z3_terminal_output_model(terminal_output)
+                if counterexample is None:
+                    raise Exception("Counterexample is None")
                 checking_result.set_counterexample(counterexample)
 
         return checking_result
-    
-    # will throw TimeoutError if the function takes too long to run
-    def is_subtype_with_timeout(self, other: 'RegularType', timeout: int) -> CheckingResult:
-        self.init_regex()
-        other.init_regex()
-        return run_with_timeout(self.is_subtype, timeout, other)
 
     def is_empty(self) -> bool:
         s = z3.Solver()
@@ -83,7 +81,38 @@ class RegularType:
     
     def __repr__(self) -> str:
         return f"RegularType({self.pattern})"
-            
+
+
+def run_z3_in_terminal(smt_string: str, get_model: bool = False, enable_timeout: bool = False, timeout: int = 20000) -> str:
+    cmd = ["z3", "-in", "-smt2"]
+    if enable_timeout:
+        smt_string = f"(set-option :timeout {timeout})\n{smt_string}"
+    if get_model:
+        smt_string = f"{smt_string}\n(get-model)"
+    kwargs = {
+        "input": smt_string.encode("utf-8"),
+        "stdout": subprocess.PIPE,
+        "stderr": subprocess.PIPE,
+    }
+    result = subprocess.run(cmd, **kwargs)
+    return result.stdout.decode("utf-8").strip()
+
+def parse_z3_terminal_output_model(output: str) -> Optional[str]:
+    """
+    Example output:
+    sat
+    (
+    (define-fun x () String
+        "")
+    )
+    """
+    pattern = re.compile(
+        r'\(define-fun\s+x\s+\(\)\s+String\s+"(.*?)"\)', re.DOTALL)
+    match = pattern.search(output)
+    if match:
+        return match.group(1)
+    return None
+
 # provisioanl implementation
 # intersection (A)&(B) -> (?!(?!A)|(?!B)) by De Morgan's law
 # Q: Why dont directly use z3.Intersect e.g., return Z3.Intersect(A, B) directly instead of (?!A)|(?!B)

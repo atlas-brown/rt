@@ -1,15 +1,14 @@
 category,total,crash,signaled,false (pos/neg),category
 ========,=====,=====,========,===============,========
-correct,254,1,70,70, 
+correct,254,1,69,69, 
  , , , ,17,need transducer: tr/sed/cut
  , , , ,1,need better support for command: docker
  , , , ,1,need better support for command: xargs
- , , , ,1,semantic mistake - about calculation
  , , , ,5,unsupported command: awk
  , , , ,11,unsupported options/flags/operands - about find
  , , , ,4,unsupported options/flags/operands - about find; violates our assumption about xargs cat usage
  , , , ,3,violates our assumption about sort -n usage
- , , , ,1,semantic mistake - only one line
+ , , , ,1,problematic annotation design
  , , , ,3,need transducer: rev; need transducer: tr/sed/cut
  , , , ,1,need better support for command: od; need transducer: tr/sed/cut
  , , , ,1,regex parsing error in grep - cannot distinguish -E and without -E
@@ -36,4 +35,4 @@ buggy,292,2,267,23,
  , , , ,1,semantic mistake - meaningless uniq
  , , , ,1,need better support for command: sort
 ========,=====,=====,========,===============,========
-total,517,3, ,93, 
+total,517,3, ,92, 
