@@ -21,8 +21,8 @@ class SedSignature(CommandSignature):
             return input_type, no_input_type
         if parts[0] == 's' and not parts[1].startswith('^') and not parts[1].startswith('$'):
             # FIXME: using re.escape is not totally correct
-            parts[2] = re.escape(parts[2])  
-            return input_type, RegularType(f"(?!.*{parts[2]}).*")
+            # parts[1] = re.escape(parts[1])  
+            return input_type, RegularType(f"(?!.*{parts[1]}.*)")
         return input_type, no_input_type
 
 
@@ -45,8 +45,8 @@ class SedSignature(CommandSignature):
                 return RegularType(previous_output_type.pattern + parts[2])
             else:
                 # FIXME: using re.escape is not totally correct
-                parts[2] = re.escape(parts[2])
-                return RegularType("(" + previous_output_type.pattern + ")&((?!" + parts[2] + "))")
+                parts[1] = re.escape(parts[1])
+                return RegularType("(" + previous_output_type.pattern + ")&((?!.*" + parts[1] + ".*))")
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation)
         

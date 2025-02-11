@@ -11,7 +11,7 @@ def main():
         logging.debug(pipeline)
         logging.debug("-"*60)
 
-    type_checker = TypeChecker(pipeline_address)
+    type_checker = TypeChecker(pipeline_address, enable_stage_timeout=True, stage_timeout=20)
     parsed_pipeline = type_checker.shell_parser.parse_pipeline()
     logging.debug("-"*60)
     for command in parsed_pipeline:

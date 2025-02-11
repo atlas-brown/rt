@@ -376,6 +376,7 @@ if __name__ == "__main__":
     TIMEOUT_SECONDS = args.timeout
     if TIMEOUT_SECONDS > 0:
         ENABLE_TIMEOUT = True
+        TIMEOUT_REASON=f"Timeout after {TIMEOUT_SECONDS}s"
 
     logging.basicConfig(level=logging.INFO)
     logging.info(f"Enable user annotation: {enable_user_annotation}")
