@@ -2,9 +2,7 @@ import re
 import sys
 from typing import Optional, Tuple
 import z3
-# from stream.regex_to_z3 import regex_to_z3_expr
-# import sre_parse
-from stream.regex_parser import RegexParser, ast_to_z3
+from stream.regex_parser import Alternation, Complement, Concat, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_z3, Node, ast_to_regex
 import logging
 from stream.checking_result import CheckingResult
 from stream.tool_error import ToolError, TimeoutError
@@ -13,15 +11,16 @@ import subprocess
 import tempfile
 
 class RegularType:
-    def __init__(self, pattern: str):
+    def __init__(self, pattern: str, mode: str = "extended") -> None:
         self.pattern = pattern
         self._ast = None
         self._regex = None
+        self.mode = mode
 
     @property
     def ast(self):
         if self._ast is None:
-            self._ast = RegexParser(preprocess(self.pattern), mode="extended").parse()
+            self._ast = RegexParser(preprocess(self.pattern), self.mode).parse()
         return self._ast
 
     @property
@@ -122,68 +121,111 @@ def parse_z3_output_model(output: str) -> str:
     # Example output: '[x = "A"]'
     if output.startswith("[x = \""):
         return output[6:-2]
-    # pattern = re.compile(r'\[x = (.*)\]')
-    # match = pattern.search(output)
-    # if match:
-    #     return match.group(1)
     else:
         raise Exception("Model not found in z3 output: " + output)
 
 
-def run_external_z3(solver: z3.Solver, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> str:
-    smt_string = solver.to_smt2()
-    output = run_z3_in_shell(smt_string, get_model, enable_timeout, timeout)
-    # if output.startswith("unknown"):
-    #     output = run_z3_with_file(smt_string, get_model, enable_timeout, timeout)
-    return output
+# def run_external_z3(solver: z3.Solver, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> str:
+#     smt_string = solver.to_smt2()
+#     output = run_z3_in_shell(smt_string, get_model, enable_timeout, timeout)
+#     # if output.startswith("unknown"):
+#     #     output = run_z3_with_file(smt_string, get_model, enable_timeout, timeout)
+#     return output
 
-def run_z3_in_shell(smt_string: str, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> str:
-    cmd = ["z3", "-smt2", "-in"]
-    if enable_timeout:
-        smt_string = f"(set-option :timeout {timeout * 1000})\n{smt_string}"
-    if get_model:
-        smt_string = f"{smt_string}(get-model)\n"
-    logging.debug(f"smt2: {smt_string}")
-    logging.debug("calling z3 in shell")
-    kwargs = {
-        "input": smt_string,
-        "text": True,
-        "stdout": subprocess.PIPE,
-        "stderr": subprocess.PIPE,
-    }
-    result = subprocess.run(cmd, **kwargs)
-    return result.stdout.strip()
+# def run_z3_in_shell(smt_string: str, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> str:
+#     cmd = ["z3", "-smt2", "-in"]
+#     if enable_timeout:
+#         smt_string = f"(set-option :timeout {timeout * 1000})\n{smt_string}"
+#     if get_model:
+#         smt_string = f"{smt_string}(get-model)\n"
+#     logging.debug(f"smt2: {smt_string}")
+#     logging.debug("calling z3 in shell")
+#     kwargs = {
+#         "input": smt_string,
+#         "text": True,
+#         "stdout": subprocess.PIPE,
+#         "stderr": subprocess.PIPE,
+#     }
+#     result = subprocess.run(cmd, **kwargs)
+#     return result.stdout.strip()
 
-def run_z3_with_file(smt_string: str, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> str:
-    with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8") as f:
-        if enable_timeout:
-            smt_string = f"(set-option :timeout {timeout * 1000})\n{smt_string}"
-        if get_model:
-            smt_string = f"{smt_string}(get-model)\n"
-        f.write(smt_string)
-        f.flush()
-        cmd = ["z3", "-smt2", f.name]
-        logging.debug(f"calling z3 with file: {f.name}")
-        result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        return result.stdout.strip()
+# def run_z3_with_file(smt_string: str, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> str:
+#     with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8") as f:
+#         if enable_timeout:
+#             smt_string = f"(set-option :timeout {timeout * 1000})\n{smt_string}"
+#         if get_model:
+#             smt_string = f"{smt_string}(get-model)\n"
+#         f.write(smt_string)
+#         f.flush()
+#         cmd = ["z3", "-smt2", f.name]
+#         logging.debug(f"calling z3 with file: {f.name}")
+#         result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+#         return result.stdout.strip()
 
-def parse_external_z3_output_model(output: str) -> Optional[str]:
-    """
-    Example output:
-    sat
-    (
-    (define-fun x () String
-        "")
-    )
-    """
-    if output == "unknown":
-        raise TimeoutError("Timeout in z3")
-    pattern = re.compile(
-        r'\(define-fun\s+x\s+\(\)\s+String\s+"(.*?)"\)', re.DOTALL)
-    match = pattern.search(output)
-    if match:
-        return match.group(1)
-    return None
+# def parse_external_z3_output_model(output: str) -> Optional[str]:
+#     """
+#     Example output:
+#     sat
+#     (
+#     (define-fun x () String
+#         "")
+#     )
+#     """
+#     if output == "unknown":
+#         raise TimeoutError("Timeout in z3")
+#     pattern = re.compile(
+#         r'\(define-fun\s+x\s+\(\)\s+String\s+"(.*?)"\)', re.DOTALL)
+#     match = pattern.search(output)
+#     if match:
+#         return match.group(1)
+#     return None
+
+
+def ast_to_regular_type(ast: Node) -> RegularType:
+    regular_type = RegularType(ast_to_regex(ast))
+    regular_type._ast = ast
+    regular_type.mode = "extended"
+    return regular_type
+
+def concat(children: list[RegularType]) -> RegularType:
+    final_ast = []
+    for child in children:
+        if isinstance(child.ast, Concat):
+            final_ast.extend(child.ast.nodes)
+        else:
+            final_ast.append(child.ast)
+    return ast_to_regular_type(Concat(final_ast))
+
+def complement(regular_type: RegularType) -> RegularType:
+    if isinstance(regular_type.ast, Complement):
+        return ast_to_regular_type(regular_type.ast.node)
+    return ast_to_regular_type(Complement(regular_type.ast))
+
+def intersect(left: RegularType, right: RegularType) -> RegularType:
+    return ast_to_regular_type(Intersection(left.ast, right.ast))
+
+def union(left: RegularType, right: RegularType) -> RegularType:
+    return ast_to_regex(Alternation([left.ast, right.ast]))
+
+# temporary solution, need to be fixed
+def starts_with_start_anchor(pattern: RegularType) -> bool:
+    if isinstance(pattern.ast, Concat):
+        return isinstance(pattern.ast.nodes[0], StartAnchor)
+    return False
+
+def ends_with_end_anchor(pattern: RegularType) -> bool:
+    if isinstance(pattern.ast, Concat):
+        return isinstance(pattern.ast.nodes[-1], EndAnchor)
+    return False
+
+def remove_anchors(pattern: RegularType) -> RegularType:
+    if isinstance(pattern.ast, Concat):
+        if isinstance(pattern.ast.nodes[0], StartAnchor):
+            pattern.ast.nodes = pattern.ast.nodes[1:]
+        if isinstance(pattern.ast.nodes[-1], EndAnchor):
+            pattern.ast.nodes = pattern.ast.nodes[:-1]
+    return pattern
+
 
 
 # replace ${A} with (.*)  and  $(A) with (.*)

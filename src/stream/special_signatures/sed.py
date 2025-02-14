@@ -1,7 +1,8 @@
 import re
 from command_signature import CommandSignature
-from stream.regular_type import RegularType
+from stream.regular_type import RegularType, concat
 from stream.tool_error import ToolError
+from stream.regular_type import intersect, complement
 
 class SedSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -20,9 +21,7 @@ class SedSignature(CommandSignature):
         if len(parts) < 3:
             return input_type, no_input_type
         if parts[0] == 's' and not parts[1].startswith('^') and not parts[1].startswith('$'):
-            # FIXME: using re.escape is not totally correct
-            # parts[1] = re.escape(parts[1])  
-            return input_type, RegularType(f"(?!.*{parts[1]}.*)")
+            return input_type, complement(concat([RegularType(".*"), RegularType(parts[1]), RegularType(".*")]))
         return input_type, no_input_type
 
 
@@ -44,9 +43,7 @@ class SedSignature(CommandSignature):
             elif parts[1] == '$':
                 return RegularType(previous_output_type.pattern + parts[2])
             else:
-                # FIXME: using re.escape is not totally correct
-                parts[1] = re.escape(parts[1])
-                return RegularType("(" + previous_output_type.pattern + ")&((?!.*" + parts[1] + ".*))")
+                return intersect(previous_output_type, complement(concat([RegularType(".*"), RegularType(parts[1]), RegularType(".*")])))
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation)
         

@@ -491,7 +491,13 @@ def ast_to_z3(node):
     elif isinstance(node, Dot):
         return any_char
     elif isinstance(node, Concat):
-        return z3.Concat([ast_to_z3(child) for child in node.nodes])
+        children = [ast_to_z3(child) for child in node.nodes]
+        children = [child for child in children if child != None]
+        if len(children) == 0:
+            return z3.Re("")
+        if len(children) == 1:
+            return children[0]
+        return z3.Concat(children)
     elif isinstance(node, Quantifier):
         base = ast_to_z3(node.node)
         if node.min == 0 and node.max == 1:
@@ -558,9 +564,9 @@ def ast_to_z3(node):
         else:
             raise ValueError(f"Unknown POSIX character class: {name}")
     elif isinstance(node, StartAnchor):
-        pass
+        return z3.Re("")
     elif isinstance(node, EndAnchor):
-        pass
+        return z3.Re("")
     else:
         raise ValueError(f"Unknown node type: {node}")
 
