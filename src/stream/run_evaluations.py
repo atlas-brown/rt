@@ -2,13 +2,9 @@ import multiprocessing
 import os
 import json
 import logging
-from queue import Empty
-import re
 import time
-import signal
-from functools import wraps
-from typing import Optional, List, Tuple
-from stream.checking_result import CheckingResult
+from functools import partial
+from typing import List, Tuple
 from stream.type_checker import TypeChecker
 from stream.tool_error import PashAnnotationParsingError, TimeoutError
 import argparse
@@ -16,13 +12,12 @@ import argparse
 ENABLE_TIMEOUT = False
 TIMEOUT_SECONDS = 10
 
-IS_BUGGY_LABEL="is buggy?"
-SIGNALED_LABEL="warning signaled?"
-PIPELINE_ID_LABEL="id"
-CATEGORY_LABEL="category"
-CRASH_REASON_LABEL="tool runtime error"
-TIMEOUT_REASON=f"Timeout after {TIMEOUT_SECONDS}s"
-
+IS_BUGGY_LABEL = "is buggy?"
+SIGNALED_LABEL = "warning signaled?"
+PIPELINE_ID_LABEL = "id"
+CATEGORY_LABEL = "category"
+CRASH_REASON_LABEL = "tool runtime error"
+TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
 
 enable_user_annotation = True
 
@@ -30,11 +25,11 @@ enable_user_annotation = True
 #     def __init__(self):
 #         super().__init__()
 #         self.log_entries = []
-
+#
 #     def emit(self, record):
 #         log_entry = self.format(record)
 #         self.log_entries.append(log_entry)
-
+#
 # log_handler = LogHandler()
 # logging.basicConfig(level=logging.INFO, handlers=[log_handler, logging.StreamHandler()])
 # logger = logging.getLogger()
@@ -137,12 +132,29 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
     
     return pipeline_data_list
 
+def process_pipeline(pipeline_info: Tuple[str, bool], evaluation_notes: List[dict], not_check_all_dirs: List[str]) -> List[dict]:
+    address, label = pipeline_info
+    check_all_pipelines = True
+    file_dir = "/".join(address.split("/")[:-1])
+    if file_dir in not_check_all_dirs:
+        check_all_pipelines = False
+    local_results = []
+    for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines):
+        notes = notes_lookup(address, evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
+        pipeline_result[IS_BUGGY_LABEL] = not label
+        pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
+        pipeline_result["notes"] = notes["notes"]
+        pipeline_result["tag"] = category_to_tag(notes[CATEGORY_LABEL])
+        local_results.append(pipeline_result)
+    return local_results
+
 def run_all_evaluations(valid_dirs: list[str],
                         invalid_dirs: list[str],
                         output_json='evaluation_results/evaluation_results.json',
                         output_summary_csv='evaluation_results/summary.csv',
                         evaluation_notes_json='src/stream/evaluation_notes.json',
                         not_check_all_dirs: list[str] = [],
+                        num_workers: int = 1,
                         ):
     with open(evaluation_notes_json, 'r') as f:
         evaluation_notes = json.load(f)
@@ -163,19 +175,26 @@ def run_all_evaluations(valid_dirs: list[str],
         return
 
     results = []
-
-    for address, label in pipelines:
-        check_all_pipelines = True
-        file_dir = "/".join(address.split("/")[:-1])
-        if file_dir in not_check_all_dirs:
-            check_all_pipelines = False
-        for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines):
-            notes = notes_lookup(address, evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
-            pipeline_result[IS_BUGGY_LABEL] = not label
-            pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
-            pipeline_result["notes"] = notes["notes"]
-            pipeline_result["tag"] = category_to_tag(notes[CATEGORY_LABEL])
-            results.append(pipeline_result)
+    if num_workers > 1:
+        logging.info(f"Running in parallel mode with {num_workers} workers")
+        with multiprocessing.Pool(processes=num_workers) as pool:
+            worker_func = partial(process_pipeline, evaluation_notes=evaluation_notes, not_check_all_dirs=not_check_all_dirs)
+            result_lists = pool.map(worker_func, pipelines)
+        results = [r for sublist in result_lists for r in sublist]
+    else:
+        logging.info("Running in sequential mode")
+        for address, label in pipelines:
+            check_all_pipelines = True
+            file_dir = "/".join(address.split("/")[:-1])
+            if file_dir in not_check_all_dirs:
+                check_all_pipelines = False
+            for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines):
+                notes = notes_lookup(address, evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
+                pipeline_result[IS_BUGGY_LABEL] = not label
+                pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
+                pipeline_result["notes"] = notes["notes"]
+                pipeline_result["tag"] = category_to_tag(notes[CATEGORY_LABEL])
+                results.append(pipeline_result)
 
     unlabeled_inconsistent_results = [
         result for result in results 
@@ -356,6 +375,8 @@ if __name__ == "__main__":
     parser.add_argument('--log_level', default='info', type=str, help='Set logging level: info, debug, error. Defaults to info.')
     parser.add_argument('--timeout', default=-1, type=int,
                         help='Set pipeline evaluation timeout in seconds. Defaults to disabled.')
+    parser.add_argument('--num_workers', default=1, type=int,
+                        help='Number of parallel workers (set 1 to disable parallelism).')
 
     args = parser.parse_args()
 
@@ -376,7 +397,7 @@ if __name__ == "__main__":
     TIMEOUT_SECONDS = args.timeout
     if TIMEOUT_SECONDS > 0:
         ENABLE_TIMEOUT = True
-        TIMEOUT_REASON=f"Timeout after {TIMEOUT_SECONDS}s"
+        TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
 
     logging.basicConfig(level=logging.INFO)
     logging.info(f"Enable user annotation: {enable_user_annotation}")
@@ -390,18 +411,18 @@ if __name__ == "__main__":
 
     run_all_evaluations(
         valid_dirs=[
-                    "./evaluation_pipelines/valid", 
-                    "./full_benchmark/intercode/pipelines", 
-                    # "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
-                    # "./full_benchmark/pash_benchmark/benchmarks",
-                    "./full_benchmark/pash_benchmark/benchmarks/unix50",
-                    # "./full_benchmark/github_repos_commits/output/post_commit",
+            "./evaluation_pipelines/valid", 
+            "./full_benchmark/intercode/pipelines", 
+            # "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
+            # "./full_benchmark/pash_benchmark/benchmarks",
+            "./full_benchmark/pash_benchmark/benchmarks/unix50",
+            # "./full_benchmark/github_repos_commits/output/post_commit",
         ],
         invalid_dirs=[
-                        "./evaluation_pipelines/invalid",
-                      "./full_benchmark/curated_mutants",
-                      "./full_benchmark/llm_injection/pipelines",
-                    #   "./full_benchmark/github_repos_commits/output/pre_commit",
+            "./evaluation_pipelines/invalid",
+            "./full_benchmark/curated_mutants",
+            "./full_benchmark/llm_injection/pipelines",
+            # "./full_benchmark/github_repos_commits/output/pre_commit",
         ],
         not_check_all_dirs=[
             "./full_benchmark/github_repos_commits/output/post_commit",
@@ -409,5 +430,5 @@ if __name__ == "__main__":
         ],
         output_json='evaluation_results/with_annotations/evaluation_results.json' if enable_user_annotation else 'evaluation_results/raw/evaluation_results.json',
         output_summary_csv='evaluation_results/with_annotations/summary.csv' if enable_user_annotation else 'evaluation_results/raw/summary.csv',
-
+        num_workers=args.num_workers,
     )
