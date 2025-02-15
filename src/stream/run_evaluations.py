@@ -46,25 +46,27 @@ def find_scripts(directories: list[str]) -> list[str]:
     
     return script_addresses
 
+
 def calculate_accuracy(labels, preds):
     correct_count = sum(1 for label, pred in zip(labels, preds) if label == pred)
-    logging.info(f'Correct predictions: {correct_count}')
-    return correct_count / len(labels)
+    denom = sum(1 for label in labels if label is not None)
+    if denom == 0:
+        return 0.0
+    return correct_count / denom
 
 def calculate_precision(labels, preds):
-    TP = sum(1 for label, pred in zip(labels, preds) if label == pred and not label)
-    logging.info(f'TP (True Positives for buggy pipelines): {TP}')
-    return TP / sum(1 for pred in preds if pred == False)
+    TP = sum(1 for label, pred in zip(labels, preds) if label == pred and label)
+    denom = sum(1 for pred in preds if pred)
+    if denom == 0:
+        return 0.0
+    return TP / denom
 
 def calculate_recall(labels, preds):
-    recall = sum(1 for label, pred in zip(labels, preds) if label == pred and not label) / sum(1 for label in labels if not label)
-    logging.info(f'Recall: {recall}')
+    denom = sum(1 for label in labels if label)
+    if denom == 0:
+        return 0.0
+    recall = sum(1 for label, pred in zip(labels, preds) if label == pred and label) / denom
     return recall
-
-def calculate_crash_rate(labels, preds):
-    crash_count = sum(1 for _, pred in zip(labels, preds) if pred is None)
-    logging.info(f'Crash: {crash_count}')
-    return crash_count / len(labels)
 
 
 def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[dict]:
@@ -231,16 +233,13 @@ def run_all_evaluations(valid_dirs: list[str],
             "accuracy": calculate_accuracy(labels, preds),
             "precision": calculate_precision(labels, preds),
             "recall": calculate_recall(labels, preds),
-            "crash_rate": calculate_crash_rate(labels, preds)
         })
 
         logging.info(f'Accuracy: {statistics["accuracy"]}')
         logging.info(f'Precision: {statistics["precision"]}')
         logging.info(f'Recall: {statistics["recall"]}')
-        logging.info(f'Crash rate: {statistics["crash_rate"]}')
-        logging.info(f'Total correct valid pipelines: {total_correct_pipelines - total_false_positives - total_correct_pipeline_crashes}')
-        logging.info(f'Total buggy pipelines detected: {total_buggy_pipelines - total_false_negatives - total_buggy_pipeline_crashes}')
         logging.info(f'Total timeouts: {total_timeouts}')
+        logging.info(f'Crashes (including timeouts): {total_correct_pipeline_crashes + total_buggy_pipeline_crashes}')
 
     end_time_total = time.time()
     total_time = end_time_total - start_time_total
@@ -254,6 +253,7 @@ def run_all_evaluations(valid_dirs: list[str],
 
             "total_pipelines": len(results),
 
+            "timeout_count": total_timeouts,
             "crashes": total_buggy_pipeline_crashes + total_correct_pipeline_crashes,
             "correct_crashes": total_correct_pipeline_crashes,
             "buggy_crashes": total_buggy_pipeline_crashes,
@@ -266,7 +266,6 @@ def run_all_evaluations(valid_dirs: list[str],
             "total_wrong_predictions": total_false_positives + total_false_negatives,
 
             "total_evaluation_time": f"{total_time:.2f}s",
-            "timeout_count": total_timeouts,
         },
         # "logs": log_handler.log_entries
     }
@@ -293,17 +292,17 @@ def categorize(results, category_label=CATEGORY_LABEL):
 def tabulate(result_stats, f):
     s = result_stats
     f.write("category,total,crash,signaled,false (pos/neg),category, tag\n")
-    f.write("========,=====,=====,========,===============,========\n")
-    f.write(f"correct,{s['total_correct_pipelines']},{s['correct_crashes']},{s['false_positives']},{s['false_positives']}, \n")
+    f.write("========,=====,=====,========,===============,========,========\n")
+    f.write(f"correct,{s['total_correct_pipelines']},{s['correct_crashes']},{s['false_positives']},{s['false_positives']},, \n")
     for category, count in s['false_positive_categories'].items():
         f.write(f" , , , ,{count},{category.replace(',', ';')},{category_to_tag(category)}\n")
     f.write("--------,-----,-----,--------,---------------,--------\n")
     buggy_signals = s['total_buggy_pipelines'] - s['false_negatives'] - s['buggy_crashes']
-    f.write(f"buggy,{s['total_buggy_pipelines']},{s['buggy_crashes']},{buggy_signals},{s['false_negatives']}, \n")
+    f.write(f"buggy,{s['total_buggy_pipelines']},{s['buggy_crashes']},{buggy_signals},{s['false_negatives']},, \n")
     for category, count in s['false_negative_categories'].items():
         f.write(f" , , , ,{count},{category.replace(',', ';')},{category_to_tag(category)}\n")
-    f.write("========,=====,=====,========,===============,========\n")
-    f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']}, \n")
+    f.write("========,=====,=====,========,===============,========,========\n")
+    f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']},, \n")
 
 def merge_notes(notes_to_merge: List[dict]) -> dict:
     if not notes_to_merge:

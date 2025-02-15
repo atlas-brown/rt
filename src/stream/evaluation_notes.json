@@ -3563,7 +3563,7 @@
         "pash annotations error": null,
         "error message generated": null,
         "evaluation_time": "0.15s",
-        "category": "need better support for command: sort",
+        "category": "need better support for command: sort; need transducer: tr/sed/cut",
         "notes": ""
     },
     {
