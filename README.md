@@ -9,9 +9,10 @@ pip3 install shasta libdash pash_annotations pytest z3-solver
 ## Run evaluations
 
 ```bash
-./run_evaluations.sh # with annotations; logging level: INFO
-./run_evaluations.sh --log_level DEBUG # with annotations; logging level: DEBUG
-./run_evaluations.sh --user_annotations false # without annotations; logging level: INFO
+./run_evaluations.sh # with annotations; logging level: INFO; 1 worker
+./run_evaluations.sh --log_level DEBUG # with annotations; logging level: DEBUG; 1 worker
+./run_evaluations.sh --user_annotations false # without annotations; logging level: INFO; 1 worker
+./run_evaluations.sh --num_workers 16 # with annotations; logging level: INFO; 16 workers
 ```
 
 ## Run unit tests
