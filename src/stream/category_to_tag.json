@@ -6,7 +6,7 @@
     },
     {
         "category": "unsupported",
-        "tag": "out of scope",
+        "tag": "need very detailed annotation",
         "priority": 2
     },
     {
@@ -23,5 +23,10 @@
         "category": "need better support",
         "tag": "can be improved with current model",
         "priority": 5
+    },
+    {
+        "category": "ANN'd",
+        "tag": "can be improved with annotation",
+        "priority": 100
     }
 ]

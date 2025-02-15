@@ -21,6 +21,11 @@ class SedSignature(CommandSignature):
         if len(parts) < 3:
             return input_type, no_input_type
         if parts[0] == 's' and not parts[1].startswith('^') and not parts[1].startswith('$'):
+            parts[1] = parts[1].replace("\\\\", "\\")
+            # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
+            match = re.search(r'(\\+)$', parts[1])
+            if match and (len(match.group(1)) % 2 == 1):
+                parts[1] = parts[1] + '/'
             return input_type, complement(concat([RegularType(".*"), RegularType(parts[1]), RegularType(".*")]))
         return input_type, no_input_type
 
@@ -39,10 +44,18 @@ class SedSignature(CommandSignature):
             return super().output_type_inference(previous_output_type, parsed_command_invocation)
         if parts[0] == 's':
             if parts[1] == '^':
-                return RegularType(parts[2] + previous_output_type.pattern)
+                parts[2] = parts[2].replace("\\\\", "\\")
+                return concat([RegularType(parts[2]), previous_output_type])
             elif parts[1] == '$':
-                return RegularType(previous_output_type.pattern + parts[2])
+                parts[2] = parts[2].replace("\\\\", "\\")
+                return concat([previous_output_type, RegularType(parts[2])])
             else:
+                parts[1] = parts[1].replace("\\\\", "\\")
+                # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
+                match = re.search(r'(\\+)$', parts[1])
+                if match and (len(match.group(1)) % 2 == 1):
+                    parts[1] = parts[1] + '/'
+                
                 return intersect(previous_output_type, complement(concat([RegularType(".*"), RegularType(parts[1]), RegularType(".*")])))
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation)

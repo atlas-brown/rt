@@ -43,6 +43,10 @@ def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> s
 
     if set1.startswith("[") and set1.endswith("]"):
         set1 = set1[1:-1]
+
+    set1 = set1.replace("[:lower:]", "a-z")
+    set1 = set1.replace("[:upper:]", "A-Z")
+    set1 = set1.replace("[:alpha:]", "a-zA-Z")
         
     if "-c" in parsed_flags:
         return f"[{set1}]*"

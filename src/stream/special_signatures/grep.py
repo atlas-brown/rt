@@ -25,15 +25,19 @@ class GrepSignature(CommandSignature):
             return input_type, no_input_type
         
         pattern = parsed_command_invocation.operand_list[0].name
+        pattern = pattern.replace("\\\\", "\\")
         
         mode = "extended" if "-E" in parsed_flags else "basic"
-        pattern_type = RegularType(pattern, mode)
+        no_input_type = RegularType(pattern, mode)
 
-        # FIXME: consider ^ and $, for example, grep input is .*a and pattern is ^a, then it is valid
-        pattern_type = remove_anchors(pattern_type)
+        if "-o" not in parsed_flags:
+            # FIXME not completely correct, for example pattern is a|^b
+            if not starts_with_start_anchor(no_input_type):
+                no_input_type = concat([RegularType(".*"), no_input_type])
+            if not ends_with_end_anchor(no_input_type):
+                no_input_type = concat([no_input_type, RegularType(".*")])
 
-        # FIXME: consider -o
-        no_input_type = concat([RegularType(".*"), pattern_type, RegularType(".*")])
+        no_input_type = remove_anchors(no_input_type)
 
         if "-v" not in parsed_flags:
             return input_type, no_input_type
@@ -59,6 +63,7 @@ class GrepSignature(CommandSignature):
             types = []
             arg_count = len(parsed_command_invocation.operand_list) + 1
             for arg in flag_args["-e"]:
+                arg = arg.replace("\\\\", "\\")
                 types.append(RegularType(arg, mode))
             pattern_type = reduce(lambda acc, reg: union([acc, reg]), types)
             
@@ -67,6 +72,7 @@ class GrepSignature(CommandSignature):
             if len(parsed_command_invocation.operand_list) == 0:
                 raise ToolError("No pattern provided for grep")
             pattern = parsed_command_invocation.operand_list[0].name
+            pattern = pattern.replace("\\\\", "\\")
             pattern_type = RegularType(pattern, mode)
             arg_count = len(parsed_command_invocation.operand_list)
 

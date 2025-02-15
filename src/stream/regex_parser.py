@@ -484,8 +484,8 @@ def _ast_to_regex(node, parent_prec=0):
     
 
 def ast_to_z3(node):
-    # any_char = z3.Range(chr(0), chr(127))
-    any_char = z3.Range(chr(0), chr(126))
+    any_char = z3.Range(chr(0), chr(127))
+    # any_char = z3.Range(chr(0), chr(126))
     if isinstance(node, Literal):
         return z3.Re(node.char)
     elif isinstance(node, Dot):

@@ -318,7 +318,7 @@
 		"tool runtime error": "missing ), unterminated subpattern at position 0",
 		"error message generated": null,
 		"evaluation_time": null,
-		"category": "ANN'D need assume annotation; regex parsing crash in grep - about escape character; need transducer: tr/sed/cut",
+		"category": "ANN'D need assume annotation; need transducer: tr/sed/cut",
 		"notes": ""
 	},
 	{
@@ -1030,7 +1030,7 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/20.sh_Pcat-1-grep_0c28f6b9a0c141679a62ec7f46eb2368_M7.sh",
 	"content": "cat ${1} | grep \"(\" | cut -d \"(\" -f 2 | head -n 1",
-	"category": "ANN'd dropped cut, should be detectable with assert annotations; regex parsing error in grep - about escape character; need transducer: tr/sed/cut",
+	"category": "ANN'd dropped cut, should be detectable with assert annotations; need transducer: tr/sed/cut",
 	"notes": ""
     },
     {
@@ -1066,7 +1066,7 @@
     {
 	"address": "full_benchmark/curated_mutants/maybe/20.sh_Pcat-1-grep_0c28f6b9a0c141679a62ec7f46eb2368_M6.sh",
 	"content": "cat ${1} | grep \"(\" | cut -d \")\" -f 1 | head -n 1",
-	"category": "ANN'd dropped cut, should be detectable with assert annotations; regex parsing error in grep - about escape character; need transducer: tr/sed/cut",
+	"category": "ANN'd dropped cut, should be detectable with assert annotations; need transducer: tr/sed/cut",
 	"notes": ""
     },
     {
@@ -3555,78 +3555,6 @@
         "notes": ""
     },
     {
-        "address": "./full_benchmark/intercode/pipelines/intercode_153_gold1.sh",
-        "content": "uname -v | grep -o \"#[0-9]\\\\+\"",
-        "is buggy?": false,
-        "warning signaled?": true,
-        "tool runtime error": null,
-        "pash annotations error": null,
-        "error message generated": "Output type '((#[0-9]\\\\+))&((.*))' is not compatible with asserted output '#[0-9]\\+' for command 'grep'.",
-        "evaluation_time": "0.04s",
-        "category": "regex parsing error in grep - cannot distinguish -E and without -E",
-        "notes": ""
-    },
-    {
-        "address": "./full_benchmark/llm_injection/pipelines/52.sh",
-        "content": "ls -R | sort | uniq | grep -v \"^$\" | tr \"[:upper:]\" \"[:lower:]\" | sort | uniq | cut -d\".\" -f1 | wc -l",
-        "is buggy?": true,
-        "warning signaled?": false,
-        "tool runtime error": null,
-        "pash annotations error": null,
-        "error message generated": null,
-        "evaluation_time": "0.33s",
-        "category": "regex parsing error in grep - about ^ and $",
-        "notes": "meaningless grep"
-    },
-    {
-        "address": "./full_benchmark/llm_injection/pipelines/76.sh",
-        "content": "cat /etc/passwd | sort | tr \":\" \"\\\\n\" | sort | uniq -c | grep -v \"^[[:space:]]*$\" | cut -d\" \" -f2 | wc -l",
-        "is buggy?": true,
-        "warning signaled?": false,
-        "tool runtime error": null,
-        "pash annotations error": null,
-        "error message generated": null,
-        "evaluation_time": "0.23s",
-        "category": "regex parsing error in grep - about ^ and $",
-        "notes": "meaningless grep"
-    },
-    {
-        "address": "./full_benchmark/llm_injection/pipelines/84.sh",
-        "content": "find . -type f | sed \"s/\\\\///g\" | tr \"/\" \"_\" | sort | uniq -c | grep -v \"^$\" | cut -d\" \" -f2 | wc -l",
-        "is buggy?": true,
-        "warning signaled?": false,
-        "tool runtime error": null,
-        "pash annotations error": null,
-        "error message generated": null,
-        "evaluation_time": "0.27s",
-        "category": "regex parsing error in grep - about ^ and $",
-        "notes": ""
-    },
-    {
-        "address": "./full_benchmark/llm_injection/pipelines/87.sh",
-        "content": "find . -type f | sort -u | uniq -c | sort -nr | grep -v \"^$\" | tr -s \" \" | cut -d\" \" -f2 | wc -l",
-        "is buggy?": true,
-        "warning signaled?": false,
-        "tool runtime error": null,
-        "pash annotations error": null,
-        "error message generated": null,
-        "evaluation_time": "0.23s",
-        "category": "regex parsing error in grep - about ^ and $",
-        "notes": "meaningless grep"
-    },
-    {
-        "address": "./full_benchmark/llm_injection/pipelines/90.sh",
-        "content": "ls -la | tr -s \" \" | sort -k5 | sort -k9 | uniq -c | grep -v \"^$\" | cut -d\" \" -f1 | wc -l",
-        "is buggy?": true,
-        "warning signaled?": false,
-        "tool runtime error": null,
-        "pash annotations error": null,
-        "error message generated": null,
-        "evaluation_time": "6.79s",
-        "category": "regex parsing error in grep - about ^ and $",
-        "notes": "meaningless grep"
-    },
-    {
         "address": "./full_benchmark/llm_injection/pipelines/21.sh",
         "content": "cat logs.txt | sed \"s/.*ERROR://g\" | cut -d\" \" -f1 | sort -k2 | uniq | grep \"[A-Z]\" | wc -l",
         "is buggy?": true,
@@ -3650,5 +3578,4 @@
         "category": "problematic annotation design",
         "notes": ""
     }
-
 ]
