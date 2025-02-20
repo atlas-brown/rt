@@ -1,23 +1,13 @@
 {
     "zsh-users/zsh-autosuggestions": [
         {
-            "message": "First pass at async functionality",
-            "commit_url": "https://github.com/zsh-users/zsh-autosuggestions/commit/ab8f29522522007fa22266538af7ef19e2331fa6",
+            "message": "Send only the prefix to the suggestion server",
+            "commit_url": "https://github.com/zsh-users/zsh-autosuggestions/commit/e33eb570c461e4f0c97d7ce1f2c33a15f2a200b7",
             "removed_lines": [
-                "-\techo -E \"${1//(#m)[\\\\()\\[\\]|*?~]/\\\\$MATCH}\""
+                "-\tfc -lnrm \"$1*\" 1 2>/dev/null | head -n 1"
             ],
             "added_lines": [
-                "+\techo -E \"${1//(#m)[\\\"\\'\\\\()\\[\\]|*?~]/\\\\$MATCH}\""
-            ]
-        },
-        {
-            "message": "Fix #168 and #130: Escape tildes when fetching suggestions",
-            "commit_url": "https://github.com/zsh-users/zsh-autosuggestions/commit/b4b3a82ee32732fa250cd76cefceb2db644fce59",
-            "removed_lines": [
-                "-\techo -E \"${1//(#m)[\\\\()\\[\\]|*?]/\\\\$MATCH}\""
-            ],
-            "added_lines": [
-                "+\techo -E \"${1//(#m)[\\\\()\\[\\]|*?~]/\\\\$MATCH}\""
+                "+\tfc -lnrm \"${1//(#m)[\\\\()\\[\\]|*?~]/\\\\$MATCH}*\" 1 2>/dev/null | head -n 1"
             ]
         }
     ]

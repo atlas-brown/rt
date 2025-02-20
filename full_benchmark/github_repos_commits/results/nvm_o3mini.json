@@ -13,6 +13,36 @@
             ]
         },
         {
+            "message": "[shellcheck] double-quote vars in more places",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/e7e28f436ebbee79ba09bf2d452bd1aecd080db4",
+            "removed_lines": [
+                "-        NVM_IOJS_VERSION=\"$(echo \"$NVM_IOJS_VERSION\" | sed \"s/^\"$NVM_IMPLICIT\"-//\" | command grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq | command tail -1)\""
+            ],
+            "added_lines": [
+                "+        NVM_IOJS_VERSION=\"$(echo \"$NVM_IOJS_VERSION\" | sed \"s/^$NVM_IMPLICIT-//\" | command grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq | command tail -1)\""
+            ]
+        },
+        {
+            "message": "Fix `nvm debug` output in `zsh`.",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/c31b0721458410d1f0785206b50589a4898b3d25",
+            "removed_lines": [
+                "-        local NVM_DEBUG_OUTPUT=\"$($NVM_DEBUG_COMMAND | sed \"s#$NVM_DIR#\\$NVM_DIR#g\")\""
+            ],
+            "added_lines": [
+                "+        NVM_DEBUG_OUTPUT=\"$($NVM_DEBUG_COMMAND 2>&1 | sed \"s#$NVM_DIR#\\$NVM_DIR#g\")\""
+            ]
+        },
+        {
+            "message": "When no `io.js` versions are installed, show `N/A`, not `io.js-`, as the resolved default alias.\n\nFixes #822.",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/c9215a127feae213e9b09ca660f27801b0c52611",
+            "removed_lines": [
+                "-      NVM_IOJS_VERSION=\"$($NVM_COMMAND | sed \"s/^\"$NVM_IMPLICIT\"-//\" | command grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq | command tail -1)\""
+            ],
+            "added_lines": [
+                "+        NVM_IOJS_VERSION=\"$(echo \"$NVM_IOJS_VERSION\" | sed \"s/^\"$NVM_IMPLICIT\"-//\" | command grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq | command tail -1)\""
+            ]
+        },
+        {
             "message": "Consistently prefix builtins with `command`",
             "commit_url": "https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b",
             "removed_lines": [
@@ -48,16 +78,6 @@
             ]
         },
         {
-            "message": "Fix `nvm debug` output in `zsh`.",
-            "commit_url": "https://github.com/nvm-sh/nvm/commit/c31b0721458410d1f0785206b50589a4898b3d25",
-            "removed_lines": [
-                "-        local NVM_DEBUG_OUTPUT=\"$($NVM_DEBUG_COMMAND | sed \"s#$NVM_DIR#\\$NVM_DIR#g\")\""
-            ],
-            "added_lines": [
-                "+        NVM_DEBUG_OUTPUT=\"$($NVM_DEBUG_COMMAND 2>&1 | sed \"s#$NVM_DIR#\\$NVM_DIR#g\")\""
-            ]
-        },
-        {
             "message": "`npm ls` has a bug in some versions when \"--parseable --depth=0\" is used together.",
             "commit_url": "https://github.com/nvm-sh/nvm/commit/214ce8853bc19dff38a7bb50a3e8b09986903f8b",
             "removed_lines": [
@@ -65,6 +85,16 @@
             ],
             "added_lines": [
                 "+      INSTALLS=$(nvm use \"$VERSION\" > /dev/null && npm list -g --depth=0 | tail -n +2 | \\grep -o -e ' [^@]*' | cut -c 2- | \\grep -v npm | xargs)"
+            ]
+        },
+        {
+            "message": "Use `nvm_normalize_version` in `nvm_version_greater`",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/f6e010468552fed9d25c24819b6f5e8abe1baa02",
+            "removed_lines": [
+                "-  echo \"$1\" | sed -e 's/^v//' | \\awk -F. '{ printf(\"%d%03d%03d\\n\", $1,$2,$3); }'"
+            ],
+            "added_lines": [
+                "+  echo \"$1\" | sed -e 's/^v//' | \\awk -F. '{ printf(\"%d%06d%06d\\n\", $1,$2,$3); }'"
             ]
         },
         {
@@ -78,13 +108,15 @@
             ]
         },
         {
-            "message": "Should escape grep in copy-packages.",
-            "commit_url": "https://github.com/nvm-sh/nvm/commit/938feca6a96dd63afb063ce0e8574691600bb165",
+            "message": "Use $() instead of backticks; add quotes",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/51f6109f8d23c3a4e3d6711f5b0f3219b3459785",
             "removed_lines": [
-                "-      INSTALLS=$(nvm use $VERSION > /dev/null && npm list --global --parseable --depth=0 2> /dev/null | tail -n +2 | grep -o -e '/[^/]*$' | cut -c 2- | xargs)"
+                "-  VERSION=`nvm_ls $PATTERN | tail -n1`",
+                "-  VERSION=`nvm_ls_remote $PATTERN | tail -n1`"
             ],
             "added_lines": [
-                "+      INSTALLS=$(nvm use $VERSION > /dev/null && npm list --global --parseable --depth=0 2> /dev/null | tail -n +2 | \\grep -o -e '/[^/]*$' | cut -c 2- | xargs)"
+                "+  VERSION=\"$(nvm_ls \"$PATTERN\" | tail -n1)\"",
+                "+  VERSION=\"$(nvm_ls_remote \"$PATTERN\" | tail -n1)\""
             ]
         },
         {
@@ -98,24 +130,13 @@
             ]
         },
         {
-            "message": "Make `nvm ls` support listing the \"versions\" directory when it's present.",
-            "commit_url": "https://github.com/nvm-sh/nvm/commit/5dd2d7e5d429397a89eb27afec3394ae30f9a1d6",
+            "message": "Should escape grep in copy-packages.",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/938feca6a96dd63afb063ce0e8574691600bb165",
             "removed_lines": [
-                "-      | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \\grep -v '^ *\\.' | \\grep -e '^v'`"
+                "-      INSTALLS=$(nvm use $VERSION > /dev/null && npm list --global --parseable --depth=0 2> /dev/null | tail -n +2 | grep -o -e '/[^/]*$' | cut -c 2- | xargs)"
             ],
             "added_lines": [
-                "+        | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \\grep -v '^ *\\.' | \\grep -e '^v'`",
-                "+        | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \\grep -v '^ *\\.' | \\grep -e '^v'`"
-            ]
-        },
-        {
-            "message": "Make sure awk is referenced unaliased, per https://github.com/creationix/nvm/issues/162#issuecomment-50284503",
-            "commit_url": "https://github.com/nvm-sh/nvm/commit/781373f7ceb0a0f6c696350e3c1d79311b47dbd7",
-            "removed_lines": [
-                "-  echo \"$1\" | sed -e 's/^v//' | awk -F. '{ printf(\"%d%03d%03d\\n\", $1,$2,$3); }'"
-            ],
-            "added_lines": [
-                "+  echo \"$1\" | sed -e 's/^v//' | \\awk -F. '{ printf(\"%d%03d%03d\\n\", $1,$2,$3); }'"
+                "+      INSTALLS=$(nvm use $VERSION > /dev/null && npm list --global --parseable --depth=0 2> /dev/null | tail -n +2 | \\grep -o -e '/[^/]*$' | cut -c 2- | xargs)"
             ]
         },
         {
@@ -139,18 +160,6 @@
             ]
         },
         {
-            "message": "Use `nvm_curl` instead of `curl` directly, which has a `wget` fallback.",
-            "commit_url": "https://github.com/nvm-sh/nvm/commit/b9383c9016efbcd4c23b5efa9ebaac4793d7a1f1",
-            "removed_lines": [
-                "-            sum=`curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt | \\grep node-${t}.tar.gz | awk '{print $1}'`",
-                "-        sum=`curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt | \\grep node-$VERSION.tar.gz | awk '{print $1}'`"
-            ],
-            "added_lines": [
-                "+            sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt | \\grep node-${t}.tar.gz | awk '{print $1}'`",
-                "+        sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt | \\grep node-$VERSION.tar.gz | awk '{print $1}'`"
-            ]
-        },
-        {
             "message": "fix nvm_curl arguments for stdout",
             "commit_url": "https://github.com/nvm-sh/nvm/commit/a0de15d0f7b3fa240aaa6b4a2bb0a53fd3b28df8",
             "removed_lines": [
@@ -160,6 +169,16 @@
             "added_lines": [
                 "+            sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \\grep node-${t}.tar.gz | awk '{print $1}'`",
                 "+        sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \\grep node-$VERSION.tar.gz | awk '{print $1}'`"
+            ]
+        },
+        {
+            "message": "Make sure awk is referenced unaliased, per https://github.com/creationix/nvm/issues/162#issuecomment-50284503",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/781373f7ceb0a0f6c696350e3c1d79311b47dbd7",
+            "removed_lines": [
+                "-  echo \"$1\" | sed -e 's/^v//' | awk -F. '{ printf(\"%d%03d%03d\\n\", $1,$2,$3); }'"
+            ],
+            "added_lines": [
+                "+  echo \"$1\" | sed -e 's/^v//' | \\awk -F. '{ printf(\"%d%03d%03d\\n\", $1,$2,$3); }'"
             ]
         },
         {
@@ -219,13 +238,13 @@
             ]
         },
         {
-            "message": "changed shasums file url because in v0.8.6 .txt.asc file is not available.",
-            "commit_url": "https://github.com/nvm-sh/nvm/commit/a6be969403f7d590f9c439d8450deac3199b48d6",
+            "message": "fix copy-packages",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/56e32888ea6e93de1befbda688f9b5ee56c6e620",
             "removed_lines": [
-                "-            sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt.asc | grep node-${t}.tar.gz | awk '{print $1}'`"
+                "-        INSTALLS=`nvm use $VERSION > /dev/null && npm -g -p ll | \\grep \"$ROOT\\/[^/]\\+$\" | cut -d '/' -f 8 | cut -d \":\" -f 2 | \\grep -v npm | tr \"\\n\" \" \"`"
             ],
             "added_lines": [
-                "+            sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | grep node-${t}.tar.gz | awk '{print $1}'`"
+                "+        local INSTALLS=`nvm use $VERSION > /dev/null && npm -g -p ll | \\grep \"$ROOT\\/[^/]\\+$\" | cut -d '/' -f $(($ROOTDEPTH + 2)) | cut -d \":\" -f 2 | \\grep -v npm | tr \"\\n\" \" \"`"
             ]
         },
         {
@@ -239,6 +258,47 @@
             ]
         },
         {
+            "message": "Make `nvm ls` support listing the \"versions\" directory when it's present.",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/5dd2d7e5d429397a89eb27afec3394ae30f9a1d6",
+            "removed_lines": [
+                "-      | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \\grep -v '^ *\\.' | \\grep -e '^v'`"
+            ],
+            "added_lines": [
+                "+        | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \\grep -v '^ *\\.' | \\grep -e '^v'`",
+                "+        | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \\grep -v '^ *\\.' | \\grep -e '^v'`"
+            ]
+        },
+        {
+            "message": "make install use a different nvm_version to make not specifying the v avoid clobbering aliases",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/693abf3173dfd2a4897b83a4c95bcde66dd1fb6f",
+            "removed_lines": [
+                "-            | sort -u -k 1,1n -k 2,2n -k 3,3n -t . \\"
+            ],
+            "added_lines": [
+                "+            | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n`"
+            ]
+        },
+        {
+            "message": "Fixed incorrect sorting of versions",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/6f994715d6e86297d1c9851666221cd2eb09ac3c",
+            "removed_lines": [
+                "-        VERSION=`(cd $NVM_DIR; \\ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 2,1n -k 2,2n -k 3,3n | tail -n1`"
+            ],
+            "added_lines": [
+                "+        VERSION=`(cd $NVM_DIR; \\ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 1.2,1n -k 2,2n -k 3,3n | tail -n1`"
+            ]
+        },
+        {
+            "message": "add support for release directories ( e.g. >= v0.5.1 )",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/fab5db0ec817688aa3e87253358efc435b6c60e6",
+            "removed_lines": [
+                "-        for VER in `curl -s http://nodejs.org/dist/ -o - | grep 'node-v.*\\.tar\\.gz' | sed -e 's/.*node-//' -e 's/\\.tar\\.gz.*//'`; do"
+            ],
+            "added_lines": [
+                "+        for VER in `curl -s http://nodejs.org/dist/ -o - | grep 'v[0-9].*' | sed -e 's/.*node-//' -e 's/\\.tar\\.gz.*//' -e 's/<[^>]*>//' -e 's/\\/<[^>]*>.*//'`; do"
+            ]
+        },
+        {
             "message": "Rewrote version listing system\n\nNow sorts correctly in all instances and prints highlights\neven in sorted views. Also will output a list of matching versions\nfor commands of the form nvm ls 0.4* rather than just printing one\nversion. nvm version 0.4 still prints the single latest matching\nversion, however.",
             "commit_url": "https://github.com/nvm-sh/nvm/commit/fda6e7f8defed84a7b09e563e6a4b1f062c2501a",
             "removed_lines": [
@@ -246,6 +306,56 @@
             ],
             "added_lines": [
                 "+        VERSIONS=`(cd $NVM_DIR; \\ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 1.2,1n -k 2,2n -k 3,3n`"
+            ]
+        },
+        {
+            "message": "Added a fix for issue #59",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/fd1eb7559b2b74233485da4e15202b635ee94762",
+            "removed_lines": [
+                "-        VERSION=`(cd $NVM_DIR; \\ls -d v${~PATTERN}* 2>/dev/null) | sort -t. -k 2,1n -k 2,2n -k 3,3n | tail -n1`"
+            ],
+            "added_lines": [
+                "+        VERSION=`(cd $NVM_DIR; \\ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 2,1n -k 2,2n -k 3,3n | tail -n1`"
+            ]
+        },
+        {
+            "message": "- version detection now works with zsh\n- curl routine now compatible with zsh\n- changed curl to use --progress-bar instead of unsafe shorthand (-#)",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/125168444021e7fc1d951e374a5a43abfe74f4ea",
+            "removed_lines": [
+                "-        VERSION=`(cd $NVM_DIR; \\ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 2,1n -k 2,2n -k 3,3n | tail -n1`"
+            ],
+            "added_lines": [
+                "+        VERSION=`(cd $NVM_DIR; \\ls -d v${~PATTERN}* 2>/dev/null) | sort -t. -k 2,1n -k 2,2n -k 3,3n | tail -n1`"
+            ]
+        },
+        {
+            "message": "Use NVM_PATH instead of NODE_PATH",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/359a83e6c59c607e51efd118f4bf8b98313b9149",
+            "removed_lines": [
+                "-      ls $NODE_PATH | grep -v wafadmin"
+            ],
+            "added_lines": [
+                "+      ls $NVM_PATH | grep -v wafadmin"
+            ]
+        },
+        {
+            "message": "Make the gist work as it's own repo.",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/6c243e502eae9c31e187597259b24c0826b7ba15",
+            "removed_lines": [
+                "-      ls \"$NVM_DIR\" | grep -v src | grep -v nvm.sh"
+            ],
+            "added_lines": [
+                "+      ls \"$NVM_DIR\" | grep -v src | grep -v nvm.sh | grep -v README.markdown"
+            ]
+        },
+        {
+            "message": "fix copy-packages in zsh (without breaking sh and bash)",
+            "commit_url": "https://github.com/nvm-sh/nvm/commit/94fff5c923b57d7d14a4bcf9e782223825f21ac7",
+            "removed_lines": [
+                "-        INSTALLS=`nvm use $VERSION > /dev/null && npm -g -p ll | \\grep \"$ROOT\\/[^/]\\+$\" | cut -d '/' -f 8 | cut -d \":\" -f 2 | \\grep -v npm | tr \"\\n\" \" \"`"
+            ],
+            "added_lines": [
+                "+        INSTALLS=( `nvm use $VERSION > /dev/null && npm -g -p ll | \\grep \"$ROOT\\/[^/]\\+$\" | cut -d '/' -f 8 | cut -d \":\" -f 2 | \\grep -v npm | tr \"\\n\" \" \"` )"
             ]
         },
         {

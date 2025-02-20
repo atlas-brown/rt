@@ -1,0 +1,96 @@
+{
+    "romkatv/powerlevel10k": [
+        {
+            "message": "minor fixes and syntax improvements",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/16cb58d15f5bb602bf7a0d09dcf6011544a8fc0e",
+            "removed_lines": [
+                "-    \tlocal device=\"$(iw dev | grep 'Interface ' | cut -d\\  -f2)\" || return 0"
+            ],
+            "added_lines": [
+                "+    local device=\"$(cut -d\\  -f2 <<< $(iw dev | grep Interface))\" || return 0"
+            ]
+        },
+        {
+            "message": "Fix issues with debug/fonts script in Konsole",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/4b9ccc33bf9279b9bcb575f5088d0a139aeef71e",
+            "removed_lines": [
+                "-                IFS=$'\\n' read -d \"\" -ra konsole_sessions < <(qdbus \"$i\" | grep -F '/Sessions/')"
+            ],
+            "added_lines": [
+                "+                declare -a konsole_sessions; konsole_sessions=( \"${(@f)\"$(qdbus \"$i\" | grep -F '/Sessions/')\"}\" )"
+            ]
+        },
+        {
+            "message": "Fix font issue debugging script",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/856071716e610967843478a3f7732e28cbd3a3a8",
+            "removed_lines": [
+                "-            konsole_instances=($(qdbus | grep 'org.kde.konsole'))",
+                "-                konsole_sessions=($(qdbus \"${i}\" | grep '/Sessions/'))"
+            ],
+            "added_lines": [
+                "+            IFS=$'\\n' read -d \"\" -ra konsole_instances < <(qdbus | grep -F 'org.kde.konsole')",
+                "+                IFS=$'\\n' read -d \"\" -ra konsole_sessions < <(qdbus \"$i\" | grep -F '/Sessions/')"
+            ]
+        },
+        {
+            "message": "Disable alias of grep\n\nIf user defined alias of grep command with '-r' or '--recursive'\noption, it causes a slow response of command line. It is not\nunexpected behavior of vcs info.\n\nThis commit explicitly disables alias of grep to suppress side\neffects.",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/f154e75667aff0801c3d978b44f5e4551d91e240",
+            "removed_lines": [
+                "-            -n $(git status ${FLAGS} | grep -E '^\\?\\?' 2> /dev/null | tail -n1) ]]; then"
+            ],
+            "added_lines": [
+                "+            -n $(git status ${FLAGS} | \\grep -E '^\\?\\?' 2> /dev/null | tail -n1) ]]; then"
+            ]
+        },
+        {
+            "message": "iTerm2 debugger: changed error code, added Source Code Pro to fontcheck",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/c9c0bb940d4d74b1793e1a340582fbcae1858685",
+            "removed_lines": [
+                "-if [[ $(echo \"${normalFont}\" | grep -c -E \"Powerline|Awesome|Nerd\") -eq 0 ]]; then"
+            ],
+            "added_lines": [
+                "+if [[ $(echo \"${normalFont}\" | grep -c -E \"Powerline|Awesome|Nerd|Source Code Pro\") -eq 0 ]]; then"
+            ]
+        },
+        {
+            "message": "fixed svn-detect-changes().. the svn prompt has now the same behaviour as the git prompt..",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/3b0da2c3489fd65543d9b116d4aaa7d1405fff32",
+            "removed_lines": [
+                "-  elif [[ -n \"$(echo \"$svn_status\" | grep \\^\\A)\" ]]; then"
+            ],
+            "added_lines": [
+                "+  if [[ -n \"$(echo \"$svn_status\" | grep \\^\\A)\" ]]; then"
+            ]
+        },
+        {
+            "message": "Fix untracked state of the vcs segment",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/cb5d33affb4fb223ec29f6dfb89ff8b0bb6e9133",
+            "removed_lines": [
+                "-            -n $(git status ${FLAGS} | grep -E '^??' 2> /dev/null | tail -n1) ]]; then"
+            ],
+            "added_lines": [
+                "+            -n $(git status ${FLAGS} | grep -E '^\\?\\?' 2> /dev/null | tail -n1) ]]; then"
+            ]
+        },
+        {
+            "message": "Reflect submodule status in VCS prompty by default.",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/94c87a4d239f770346e510adf46e5844e9023b99",
+            "removed_lines": [
+                "-            -n $(git status ${FLAGS} | grep '^??' 2> /dev/null | tail -n1) ]]; then"
+            ],
+            "added_lines": [
+                "+            -n $(git status ${FLAGS} | grep -E '^??' 2> /dev/null | tail -n1) ]]; then"
+            ]
+        },
+        {
+            "message": "correct half-dirty detection -- restrict to untracked files\n\nSigned-off-by: Sebastien Varrette <Sebastien.Varrette@uni.lu>",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/0fd9d277f93bf45acf6ab0dc280666458c58bd74",
+            "removed_lines": [
+                "-            -n $(git status ${FLAGS} 2> /dev/null | tail -n1) ]]; then"
+            ],
+            "added_lines": [
+                "+            -n $(git status ${FLAGS} | grep '^??' 2> /dev/null | tail -n1) ]]; then"
+            ]
+        }
+    ]
+}

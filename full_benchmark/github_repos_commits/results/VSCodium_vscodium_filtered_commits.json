@@ -1,0 +1,54 @@
+{
+    "VSCodium/vscodium": [
+        {
+            "message": "fix(snap): check correct channel [skip ci]",
+            "commit_url": "https://github.com/VSCodium/vscodium/commit/6cb2291016522d98d0d17d5242e3558d8453f146",
+            "removed_lines": [
+                "-    SNAP_VERSION=$( snapcraft list-revisions \"${SNAP_NAME}\" | grep -F \"stable*\" | grep \"${ARCHITECTURE}\" | tr -s ' ' | cut -d ' ' -f 4 )"
+            ],
+            "added_lines": [
+                "+    SNAP_VERSION=$( snapcraft list-revisions \"${SNAP_NAME}\" | grep -F \"${CHANNEL}*\" | grep \"${ARCHITECTURE}\" | tr -s ' ' | cut -d ' ' -f 4 )"
+            ]
+        },
+        {
+            "message": "fix: remove retry-all-errors option [skip ci]",
+            "commit_url": "https://github.com/VSCodium/vscodium/commit/fc770788681fab2079ee60fe3ad13c979a5dd22d",
+            "removed_lines": [
+                "-VERSION=`curl --retry 12 --retry-delay 30 --retry-all-errors \"https://api.github.com/repos/cli/cli/releases/latest\" | grep '\"tag_name\"' | sed -E 's/.*\"([^\"]+)\".*/\\1/' | cut -c2-`"
+            ],
+            "added_lines": [
+                "+VERSION=`curl --retry 12 --retry-delay 30 \"https://api.github.com/repos/cli/cli/releases/latest\" | grep '\"tag_name\"' | sed -E 's/.*\"([^\"]+)\".*/\\1/' | cut -c2-`"
+            ]
+        },
+        {
+            "message": "ci: add retry to gh install [skip ci]",
+            "commit_url": "https://github.com/VSCodium/vscodium/commit/4ccfb857a42b063482b9c0afece8cc9df422e4af",
+            "removed_lines": [
+                "-VERSION=`curl \"https://api.github.com/repos/cli/cli/releases/latest\" | grep '\"tag_name\"' | sed -E 's/.*\"([^\"]+)\".*/\\1/' | cut -c2-`"
+            ],
+            "added_lines": [
+                "+VERSION=`curl --retry 12 --retry-delay 30 --retry-all-errors \"https://api.github.com/repos/cli/cli/releases/latest\" | grep '\"tag_name\"' | sed -E 's/.*\"([^\"]+)\".*/\\1/' | cut -c2-`"
+            ]
+        },
+        {
+            "message": "build(stores/snapcraft): quote grep pattern so shell won't interpret it (#1108)",
+            "commit_url": "https://github.com/VSCodium/vscodium/commit/add78d6829e868d4be34e8ed26d1b03852aebaa0",
+            "removed_lines": [
+                "-  SNAP_VERSION=$(snapcraft list-revisions codium | grep -F stable* | grep \"${ARCHITECTURE}\" | tr -s ' ' | cut -d ' ' -f 4)"
+            ],
+            "added_lines": [
+                "+  SNAP_VERSION=$(snapcraft list-revisions codium | grep -F \"stable*\" | grep \"${ARCHITECTURE}\" | tr -s ' ' | cut -d ' ' -f 4)"
+            ]
+        },
+        {
+            "message": "fix: rewrite tag search for linux arm (#809)",
+            "commit_url": "https://github.com/VSCodium/vscodium/commit/8aa9de17b1bd06670b8fe9638a8a316d91c4ae91",
+            "removed_lines": [
+                "-    tag_line=$( git ls-remote --tags --sort=-version:refname | grep \"refs\\/tags\\/${MS_TAG}\" | head -1 )"
+            ],
+            "added_lines": [
+                "+    reference=$( git ls-remote --tags | grep -x \".*refs\\/tags\\/${MS_TAG}\" | head -1 )"
+            ]
+        }
+    ]
+}

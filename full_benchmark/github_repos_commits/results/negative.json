@@ -1,0 +1,106 @@
+[
+    {
+        "message": "Fix invocation of gradlew",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/ef4a31563075aa0c0453219fcb66eb3941f2d515",
+        "removed_lines": [
+            "-     gradlew tasks --all | grep \"^[ ]*[a-zA-Z0-9:]*\\ -\\ \" | sed \"s/ - .*$//\" | sed \"s/[\\ ]*//\" > .gradletasknamecache"
+        ],
+        "added_lines": [
+            "+     ./gradlew tasks --all | grep \"^[ ]*[a-zA-Z0-9:]*\\ -\\ \" | sed \"s/ - .*$//\" | sed \"s/[\\ ]*//\" > .gradletasknamecache"
+        ]
+    },
+    {
+        "message": "fix(toolbox): avoid prompt injection",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/3b5f018f7025a347e4888408b566caeaef2fabd7",
+        "removed_lines": [
+            "-  [[ -f /run/.containerenv ]] && cat /run/.containerenv | awk -F\\\" '/name/ { print$2 }'"
+        ],
+        "added_lines": [
+            "+  local _to_print=\"$(cat /run/.containerenv | awk -F\\\" '/name/ { print$2 }')\""
+        ]
+    },
+    {
+        "message": "fix(nvm): use `command cat` to avoid alias (#12410)",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/9af7ebcf36c20e1490a50fa5bab6319275859c17",
+        "removed_lines": [
+            "-      local nvmrc_node_version=$(nvm version $(cat \"$nvmrc_path\" | tr -dc '[:print:]'))"
+        ],
+        "added_lines": [
+            "+      local nvmrc_node_version=$(nvm version $(command cat \"$nvmrc_path\" | tr -dc '[:print:]'))"
+        ]
+    },
+    {
+        "message": "fix(archlinux): make `upgrade` work with non-english\n\nCloses #12316",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/6d0362ef2f355a05cf945fae882ad1fa95428991",
+        "removed_lines": [
+            "-  local installedver=\"$(sudo pacman -Qi archlinux-keyring | grep -Po '(?<=Version         : ).*')\"",
+            "-  local currentver=\"$(sudo pacman -Si archlinux-keyring | grep -Po '(?<=Version         : ).*')\""
+        ],
+        "added_lines": [
+            "+  local installedver=\"$(LANG= sudo pacman -Qi archlinux-keyring | grep -Po '(?<=Version         : ).*')\"",
+            "+  local currentver=\"$(LANG= sudo pacman -Si archlinux-keyring | grep -Po '(?<=Version         : ).*')\""
+        ]
+    },
+    {
+        "message": "fix: use `python3` for all `python` invocations (#10832)",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/0818df057cca59a949ffa88947a6b16dec2411ca",
+        "removed_lines": [
+            "-    local version=\"$(python -V 2>&1 | cut -d' ' -f2)\""
+        ],
+        "added_lines": [
+            "+    local version=\"$(python3 -V 2>&1 | cut -d' ' -f2)\""
+        ]
+    },
+    {
+        "message": "fix(installer): correct check for `sudo` in shell change logic",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/788802af68af9a1adbfdb678086939c89d79d999",
+        "removed_lines": [
+            "-  LANG= sudo -n -v 2>&1 | grep -q \"may not run sudo\""
+        ],
+        "added_lines": [
+            "+  ! LANG= sudo -n -v 2>&1 | grep -q \"may not run sudo\""
+        ]
+    },
+    {
+        "message": "refactor(installer): simplify `user_can_sudo` check",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/c63ba17525b0b4344729762253c9d9e1c0823d49",
+        "removed_lines": [
+            "-  true | LANG= sudo -v -S 2>&1 | grep -q \"may not run sudo\""
+        ],
+        "added_lines": [
+            "+  LANG= sudo -n -v 2>&1 | grep -q \"may not run sudo\""
+        ]
+    },
+    {
+        "message": "style: use `-n` flag in `head` and `tail` commands (#10391)\n\nCo-authored-by: Marc Cornellà <hello@mcornella.com>",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/e86c6f5e7fc9f024a427e2870ab70644b5454725",
+        "removed_lines": [
+            "-    dirs -v | head -10"
+        ],
+        "added_lines": [
+            "+    dirs -v | head -n 10"
+        ]
+    },
+    {
+        "message": "refactor(archlinux): prevent leaking local variables (#9476)\n\nCo-authored-by: Marc Cornellà <marc.cornella@live.com>",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/865d2d8a53f65eba22c8a0436be1ea985aaa2aba",
+        "removed_lines": [
+            "-    repo=\"$(grep -m 1 '^Repo' <<< \"$infos\" | grep -oP '[^ ]+$')\"",
+            "-    arch=\"$(grep -m 1 '^Arch' <<< \"$infos\" | grep -oP '[^ ]+$')\""
+        ],
+        "added_lines": [
+            "+    local repo=\"$(grep -m 1 '^Repo' <<< \"$infos\" | grep -oP '[^ ]+$')\"",
+            "+    local arch=\"$(grep -m 1 '^Arch' <<< \"$infos\" | grep -oP '[^ ]+$')\""
+        ]
+    },
+    {
+        "message": "wd: update to latest version\n\nhttps://github.com/mfaerevaag/wd/commit/3d20d15d58b9349f872a1abab639aae02374f64c\n\nFixes #9002",
+        "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/81eb2089878be5b9cb4a4ba89c2e2f537b14fb7e",
+        "removed_lines": [
+            "-    grep '^[0-9a-zA-Z_-]\\+:' \"$WD_CONFIG\" | sed -e \"s,~,$HOME,\" -e 's/:/=/' | while read warpdir ; do"
+        ],
+        "added_lines": [
+            "+    command grep '^[0-9a-zA-Z_-]\\+:' \"$WD_CONFIG\" | sed -e \"s,~,$HOME,\" -e 's/:/=/' | while read warpdir ; do"
+        ]
+    }
+]

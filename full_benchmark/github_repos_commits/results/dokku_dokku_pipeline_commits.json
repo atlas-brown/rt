@@ -1,0 +1,282 @@
+{
+    "dokku/dokku": [
+        {
+            "message": "fix: choose the correct app when a named remote is specified in the remote ssh client\n\nCloses #4838",
+            "commit_url": "https://github.com/dokku/dokku/commit/b7c71558522d840056ce4455ce34d21c83e640eb",
+            "removed_lines": [
+                "-      APP=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_REMOTE_HOST\" | head -n 1 | cut -f2 -d'@' | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ],
+            "added_lines": [
+                "+      APP=$(git remote -v 2>/dev/null | grep -Ei \"^${DOKKU_GIT_REMOTE}\\s\" | grep -Ei \"dokku@$DOKKU_REMOTE_HOST\" | head -n 1 | cut -f2 -d'@' | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ]
+        },
+        {
+            "message": "tests: remove extra call to list apps",
+            "commit_url": "https://github.com/dokku/dokku/commit/2d180f5e0ff2b223117cf54f8c4ed384bbcdc003",
+            "removed_lines": [
+                "-    dokku --quiet apps:list | xargs -n1 dokku --force apps:destroy"
+            ],
+            "added_lines": [
+                "+  dokku --quiet apps:list | xargs --no-run-if-empty -n1 dokku --force apps:destroy"
+            ]
+        },
+        {
+            "message": "refactor: drop web installer in favor of setup via cli\n\nThis makes the installation a bit more secure by ensuring a user does not accidentally expose a way for unauthorized users to add new ssh keys to the system.\n\nAdditionally, this removes the extra HOSTNAME file to make the initial install process easier (that file was not modifiable by any dokku commands.\n\nCloses #2247",
+            "commit_url": "https://github.com/dokku/dokku/commit/a1c768b9b335d827e43437c9b8147dc992c35fe2",
+            "removed_lines": [
+                "-  run /bin/bash -c \"dokku --quiet urls $TEST_APP | grep -E \\\"${PATTERN}\\\"\""
+            ],
+            "added_lines": [
+                "+  run /bin/bash -c \"dokku urls $TEST_APP | grep -E \\\"${PATTERN}\\\"\""
+            ]
+        },
+        {
+            "message": "chore: drop unused sigil packaging code\n\nThis is now packaged and released in progrium/sigil.",
+            "commit_url": "https://github.com/dokku/dokku/commit/06bdee37ffc385a0f6e69e9fff06ffadc650901a",
+            "removed_lines": [
+                "-  SIGIL_VERSION=$(grep SIGIL_VERSION \"${ROOT_DIR}/deb.mk\" | head -n1 | cut -d' ' -f3)"
+            ],
+            "added_lines": [
+                "+  SIGIL_VERSION=$(grep SIGIL_VERSION \"${ROOT_DIR}/Makefile\" | head -n1 | cut -d' ' -f3)"
+            ]
+        },
+        {
+            "message": "tests: use github actions instead of circleci for test running",
+            "commit_url": "https://github.com/dokku/dokku/commit/a7465f9d81e049d5466c0d1b11ef7803aa432980",
+            "removed_lines": [
+                "-      docker exec -ti dokku ps -ef | grep \"/usr/sbin/sshd -D\" >/dev/null 2>&1"
+            ],
+            "added_lines": [
+                "+      docker exec dokku ps -ef | grep \"/usr/sbin/sshd -D\" >/dev/null 2>&1"
+            ]
+        },
+        {
+            "message": "fix: cleanup apps and containers before each test\n\n- remove all nginx configurations since they may be faulty\n- move cleanup commands to helper functions\n- fix a few shellcheck violations",
+            "commit_url": "https://github.com/dokku/dokku/commit/59a81ad3be92663afcc923b2fd4af9c15301c3f0",
+            "removed_lines": [
+                "-  run /bin/bash -c \"dokku --quiet urls $TEST_APP | grep -E \\\"${1}\\\"\"",
+                "-  echo \"app domains: $(dokku domains:report $TEST_APP --domains-app-vhosts | tr \\\" \\\" \\\"\\n\\\")\""
+            ],
+            "added_lines": [
+                "+  run /bin/bash -c \"dokku --quiet urls $TEST_APP | grep -E \\\"${PATTERN}\\\"\"",
+                "+  echo \"app domains: $(dokku domains:report \"$TEST_APP\" --domains-app-vhosts | tr \\\" \\\" \\\"\\n\\\")\""
+            ]
+        },
+        {
+            "message": "chore: drop herokuish release code\n\nThis is now done upstream in the herokuish project.",
+            "commit_url": "https://github.com/dokku/dokku/commit/96b4ffbf5bad5b7effd9fc723aff9c6da0401bda",
+            "removed_lines": [
+                "-  HEROKUISH_VERSION=$(grep HEROKUISH_VERSION \"${ROOT_DIR}/deb.mk\" | head -n1 | cut -d' ' -f3)"
+            ],
+            "added_lines": [
+                "+  HEROKUISH_VERSION=$(grep HEROKUISH_VERSION \"${ROOT_DIR}/Makefile\" | head -n1 | cut -d' ' -f3)"
+            ]
+        },
+        {
+            "message": "debug: force container removal",
+            "commit_url": "https://github.com/dokku/dokku/commit/676027caf68ea2f6520855fa62e9b8f974c09395",
+            "removed_lines": [
+                "-  docker container ls | xargs -n1 docker container rm || true"
+            ],
+            "added_lines": [
+                "+  docker container ls --quiet | xargs -n1 docker container rm -f || true"
+            ]
+        },
+        {
+            "message": "fix: properly check for app domains",
+            "commit_url": "https://github.com/dokku/dokku/commit/ce275837ac16b7dceb79db6e8010806262961dc9",
+            "removed_lines": [
+                "-  run /bin/bash -c \"dokku domains:report $TEST_APP --domains-app-vhosts | grep -xF ${domain}\""
+            ],
+            "added_lines": [
+                "+  run /bin/bash -c \"dokku domains:report $TEST_APP --domains-app-vhosts | tr \\\" \\\" \\\"\\n\\\" | grep -xF ${domain}\""
+            ]
+        },
+        {
+            "message": "chore: remove all deprecated commands\n\nThis change removes all deprecated commands. In many cases, users have been warned for a number of releases before the commands have been removed. All commands that were removed have existing alternatives.",
+            "commit_url": "https://github.com/dokku/dokku/commit/848373def5edfdea41d736fc3a730e08bff79ff1",
+            "removed_lines": [
+                "-  run /bin/bash -c \"dokku domains $TEST_APP 2>/dev/null | grep -xF ${domain}\""
+            ],
+            "added_lines": [
+                "+  run /bin/bash -c \"dokku domains:report $TEST_APP --domains-app-vhosts | grep -xF ${domain}\""
+            ]
+        },
+        {
+            "message": "refactor: refer to upstream sshcommand package\n\nsshcommand now packages itself.",
+            "commit_url": "https://github.com/dokku/dokku/commit/c66e08041ae10fa983247cede1efdeb0ed839842",
+            "removed_lines": [
+                "-  SSHCOMMAND_VERSION=$(grep SSHCOMMAND_VERSION \"${ROOT_DIR}/deb.mk\" | head -n1 | cut -d' ' -f3)"
+            ],
+            "added_lines": [
+                "+  SSHCOMMAND_VERSION=$(grep SSHCOMMAND_VERSION \"${ROOT_DIR}/Makefile\" | head -n1 | cut -d' ' -f3)"
+            ]
+        },
+        {
+            "message": "chore: drop plugn package building\n\nThe dokku/plugn project now builds and releases it's own packages on release creation.\n\nAlso upgrade to latest plugn version, 0.3.2",
+            "commit_url": "https://github.com/dokku/dokku/commit/7cb0d11b95fd0174a125a457ad6cfbe0221a671b",
+            "removed_lines": [
+                "-  PLUGN_VERSION=$(grep PLUGN_VERSION \"${ROOT_DIR}/deb.mk\" | head -n1 | cut -d' ' -f3)"
+            ],
+            "added_lines": [
+                "+  PLUGN_VERSION=$(grep PLUGN_VERSION \"${ROOT_DIR}/Makefile\" | head -n1 | cut -d' ' -f3)"
+            ]
+        },
+        {
+            "message": "tests: run mvdan/shfmt on test runs\n\nWhile I do not agree with _every_ style change, this will force Dokku to have consistent formatting across all shell scripts, which is arguably a Good Thing™.\n\nThe command used to reprocess everything is:\n\n```shell\nshfmt -l -bn -ci -i 2 -w .\n```",
+            "commit_url": "https://github.com/dokku/dokku/commit/86795ddaccb79d365432c5d277399aaa8080495b",
+            "removed_lines": [
+                "-        while ssh -p \"$DOKKU_PORT\" \"dokku@$DOKKU_REMOTE_HOST\" apps 2>/dev/null| grep -q \"$APP\"; do"
+            ],
+            "added_lines": [
+                "+        while ssh -p \"$DOKKU_PORT\" \"dokku@$DOKKU_REMOTE_HOST\" apps 2>/dev/null | grep -q \"$APP\"; do"
+            ]
+        },
+        {
+            "message": "refactor: rename variable usage to DOKKU_REMOTE_HOST\n\nThis allows us to make it a local variable",
+            "commit_url": "https://github.com/dokku/dokku/commit/0f5dec17978415a6c54238ca23be648a251fd4ce",
+            "removed_lines": [
+                "-      APP=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f2 -d'@' | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)",
+                "-        while ssh -p \"$DOKKU_PORT\" \"dokku@$DOKKU_HOST\" apps 2>/dev/null| grep -q \"$APP\"; do"
+            ],
+            "added_lines": [
+                "+      APP=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_REMOTE_HOST\" | head -n 1 | cut -f2 -d'@' | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)",
+                "+        while ssh -p \"$DOKKU_PORT\" \"dokku@$DOKKU_REMOTE_HOST\" apps 2>/dev/null| grep -q \"$APP\"; do"
+            ]
+        },
+        {
+            "message": "fix: Properly parse flags in the dokku client\n\n- Respect the --app flag\n- Respect the --trace flag\n- Skip the second argument after both --app and --remote flags\n- The `--global` flag should be set as is when specified after a “valid” command\n- Fix issues when checking if the --app flag should be passed via ssh\n- Use APP as the variable name for the current app",
+            "commit_url": "https://github.com/dokku/dokku/commit/6e00064cb39798f9e17bac0492dc5e8ed691d656",
+            "removed_lines": [
+                "-    appname=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f2 -d'@' | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)",
+                "-        while ssh -p \"$DOKKU_PORT\" \"dokku@$DOKKU_HOST\" apps 2>/dev/null| grep -q \"$appname\"; do"
+            ],
+            "added_lines": [
+                "+      APP=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f2 -d'@' | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)",
+                "+        while ssh -p \"$DOKKU_PORT\" \"dokku@$DOKKU_HOST\" apps 2>/dev/null| grep -q \"$APP\"; do"
+            ]
+        },
+        {
+            "message": "feat: add the ability to specify a remote via the `--remote` flag\n\nCloses #2523",
+            "commit_url": "https://github.com/dokku/dokku/commit/5ddcf06ce93011fe9a016debc58ee52cfe4dc868",
+            "removed_lines": [
+                "-    DOKKU_HOST=$(git remote -v 2>/dev/null | grep -Ei \"^dokku\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d '@' | cut -f1 -d':' 2>/dev/null || true)",
+                "-      appname=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f2 -d'@' | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)",
+                "-          while ssh -p \"$DOKKU_PORT\" \"dokku@$DOKKU_HOST\" apps 2>/dev/null| grep -q \"$appname\"; do"
+            ],
+            "added_lines": [
+                "+      DOKKU_HOST=$(git remote -v 2>/dev/null | grep -Ei \"^${DOKKU_GIT_REMOTE}\\s\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d '@' | cut -f1 -d':' 2>/dev/null || true)",
+                "+    appname=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f2 -d'@' | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)",
+                "+        while ssh -p \"$DOKKU_PORT\" \"dokku@$DOKKU_HOST\" apps 2>/dev/null| grep -q \"$appname\"; do"
+            ]
+        },
+        {
+            "message": "Allow customizing ssh port for the default client\n\nCloses #1942",
+            "commit_url": "https://github.com/dokku/dokku/commit/a765789c4d5ae784fc23b64247af7ebc4fb5384c",
+            "removed_lines": [
+                "-        while ssh \"dokku@$DOKKU_HOST\" apps 2>/dev/null| grep -q \"$appname\"; do"
+            ],
+            "added_lines": [
+                "+        while ssh -p \"$DOKKU_PORT\" \"dokku@$DOKKU_HOST\" apps 2>/dev/null| grep -q \"$appname\"; do"
+            ]
+        },
+        {
+            "message": "cleanup shellcheck SC2086",
+            "commit_url": "https://github.com/dokku/dokku/commit/d1b87bd7b79cf7020a148ae89b23af820478e971",
+            "removed_lines": [
+                "-TESTS=$(find \"$(dirname $0)\"/../unit -maxdepth 1 -name \"${BATCH_NUM}0*.bats\" | sort -n | xargs)"
+            ],
+            "added_lines": [
+                "+TESTS=$(find \"$(dirname \"$0\")/../unit\" -maxdepth 1 -name \"${BATCH_NUM}0*.bats\" | sort -n | xargs)"
+            ]
+        },
+        {
+            "message": "Update bootstrap.sh\n\nThis pr makes it slightly easier to support dockerfile installations\r\n\r\n- \"simplifies\" the bootstrap process by dividing it into distinct chunks\r\n- Allows specifying `--no-install-recommends` when a dockerfile installation is detected\r\n- Uses functions everywhere\r\n- Removes global variables where possible\r\n- Fixes shellcheck issues\r\n- Allows specifying debconf via the command-line\r\n\r\n[ci skip]",
+            "commit_url": "https://github.com/dokku/dokku/commit/a4bfb46d6d51757f02a0eb9bed712e6787e32c56",
+            "removed_lines": [
+                "-  major=$(echo $DOKKU_SEMVER | awk '{split($0,a,\".\"); print a[1]}')",
+                "-  minor=$(echo $DOKKU_SEMVER | awk '{split($0,a,\".\"); print a[2]}')",
+                "-  patch=$(echo $DOKKU_SEMVER | awk '{split($0,a,\".\"); print a[3]}')"
+            ],
+            "added_lines": [
+                "+    major=$(echo \"$DOKKU_SEMVER\" | awk '{split($0,a,\".\"); print a[1]}')",
+                "+    minor=$(echo \"$DOKKU_SEMVER\" | awk '{split($0,a,\".\"); print a[2]}')",
+                "+    patch=$(echo \"$DOKKU_SEMVER\" | awk '{split($0,a,\".\"); print a[3]}')"
+            ]
+        },
+        {
+            "message": "Minor lint fixes",
+            "commit_url": "https://github.com/dokku/dokku/commit/5d08b56e3f9b540362751d81e3e36f4f03ad437a",
+            "removed_lines": [
+                "- [[ -z \"$lower_appname\" ]] && lower_appname=$(echo $UPPER_APPNAME | tr '[:upper:]' '[:lower:]')"
+            ],
+            "added_lines": [
+                "+ [[ -z \"$lower_appname\" ]] && lower_appname=$(echo \"$UPPER_APPNAME\" | tr '[:upper:]' '[:lower:]')"
+            ]
+        },
+        {
+            "message": "Hoping Travis to like it this time...",
+            "commit_url": "https://github.com/dokku/dokku/commit/b4b4e266b204d90eca991121a405a4bdcbe36c83",
+            "removed_lines": [
+                "-      appname=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f1 -d' ' | cut -f3 -d':' 2>/dev/null)"
+            ],
+            "added_lines": [
+                "+      appname=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f2 -d'@' | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ]
+        },
+        {
+            "message": "Fix: appname was not correctly detected",
+            "commit_url": "https://github.com/dokku/dokku/commit/ad9d331257e5267ff9c9fe40ee488cf0d706118e",
+            "removed_lines": [
+                "-      appname=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ],
+            "added_lines": [
+                "+      appname=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f1 -d' ' | cut -f3 -d':' 2>/dev/null)"
+            ]
+        },
+        {
+            "message": "[ci skip] fix listing issues in bootstrap.sh",
+            "commit_url": "https://github.com/dokku/dokku/commit/a2ed0ef2b689620b8d173bc8ca908c65098a78d7",
+            "removed_lines": [
+                "-  major=`echo $DOKKU_SEMVER | awk '{split($0,a,\".\"); print a[1]}'`",
+                "-  minor=`echo $DOKKU_SEMVER | awk '{split($0,a,\".\"); print a[2]}'`",
+                "-  patch=`echo $DOKKU_SEMVER | awk '{split($0,a,\".\"); print a[3]}'`"
+            ],
+            "added_lines": [
+                "+  major=$(echo $DOKKU_SEMVER | awk '{split($0,a,\".\"); print a[1]}')",
+                "+  minor=$(echo $DOKKU_SEMVER | awk '{split($0,a,\".\"); print a[2]}')",
+                "+  patch=$(echo $DOKKU_SEMVER | awk '{split($0,a,\".\"); print a[3]}')"
+            ]
+        },
+        {
+            "message": "Better detection of dokku remote\n\nPreviously this script was matching for a remote named 'dokku' even\nwhen DOKKU_HOST is provided and completely custom. I have a case where\nI have 2 remotes with dokku, one on a staging server and another on a\nproduction server.\nSo by matching for 'dokku@$DOKKU_HOST' instead, the script can determine\ncorrectly which remote to use.",
+            "commit_url": "https://github.com/dokku/dokku/commit/61136e2591b983bd406bdbf6978d2dff91bcc0e6",
+            "removed_lines": [
+                "-      appname=$(git remote -v 2>/dev/null | grep -Ei \"^dokku\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ],
+            "added_lines": [
+                "+      appname=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ]
+        },
+        {
+            "message": "lintball client. add tests. add help message",
+            "commit_url": "https://github.com/dokku/dokku/commit/161111aab583dee2fd2976dbfbc430acf9445c69",
+            "removed_lines": [
+                "-    DOKKU_HOST=$(git remote -v 2>/dev/null | grep -Ei \"^dokku\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d '@' | cut -f1 -d':' 2>/dev/null)"
+            ],
+            "added_lines": [
+                "+    DOKKU_HOST=$(git remote -v 2>/dev/null | grep -Ei \"^dokku\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d '@' | cut -f1 -d':' 2>/dev/null || true)"
+            ]
+        },
+        {
+            "message": "Properly retrieve and parse the app name from git remote",
+            "commit_url": "https://github.com/dokku/dokku/commit/aec4543b616435bd822ce403b397479e3c17719a",
+            "removed_lines": [
+                "-\t\tappname=$(git remote -v 2>/dev/null | grep dokku | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ],
+            "added_lines": [
+                "+\t\t\tappname=$(git remote -v 2>/dev/null | grep -Ei \"^dokku\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ]
+        }
+    ]
+}

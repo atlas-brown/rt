@@ -1,0 +1,602 @@
+{
+    "ohmyzsh/ohmyzsh": [
+        {
+            "message": "fix(git): add checked-out branch support to `gbg*` (#12397)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/0fabd5f22f4e0378b09c92607789fdb17cab3c20",
+            "removed_lines": [
+                "-alias gbgd='LANG=C git branch --no-color -vv | grep \": gone\\]\" | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -d'",
+                "-alias gbgD='LANG=C git branch --no-color -vv | grep \": gone\\]\" | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -D'"
+            ],
+            "added_lines": [
+                "+alias gbgd='LANG=C git branch --no-color -vv | grep \": gone\\]\" | cut -c 3- | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -d'",
+                "+alias gbgD='LANG=C git branch --no-color -vv | grep \": gone\\]\" | cut -c 3- | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -D'"
+            ]
+        },
+        {
+            "message": "fix(git): some aliases under non-english LANG (#11855)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/c92af18c36c84cef0c785e1ae9cabc49a61a5c3a",
+            "removed_lines": [
+                "-alias gbgd='git branch --no-color -vv | grep \": gone\\]\" | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -d'",
+                "-alias gbgD='git branch --no-color -vv | grep \": gone\\]\" | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -D'",
+                "-alias gbg='git branch -vv | grep \": gone\\]\"'"
+            ],
+            "added_lines": [
+                "+alias gbgd='LANG=C git branch --no-color -vv | grep \": gone\\]\" | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -d'",
+                "+alias gbgD='LANG=C git branch --no-color -vv | grep \": gone\\]\" | awk '\"'\"'{print $1}'\"'\"' | xargs git branch -D'",
+                "+alias gbg='LANG=C git branch -vv | grep \": gone\\]\"'"
+            ]
+        },
+        {
+            "message": "feat(zsh-interactive-cd): sync version with upstream (#11024)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/3fd63fdf01344bb5f5f13a9c33eb0b7a72fe4771",
+            "removed_lines": [
+                "-        | cut -b $(( ${length} + 2 ))- | sed '/^$/d' | while read -r line; do",
+                "-          2>/dev/null | cut -b $(( ${length} + 2 ))- | sed '/^$/d' \\",
+                "-          2>/dev/null | cut -b $(( ${length} + 2 ))- | sed '/^$/d' \\"
+            ],
+            "added_lines": [
+                "+        | cut -b $(( ${length} + 2 ))- | command sed '/^$/d' | while read -r line; do",
+                "+          2>/dev/null | cut -b $(( ${length} + 2 ))- | command sed '/^$/d' \\",
+                "+          2>/dev/null | cut -b $(( ${length} + 2 ))- | command sed '/^$/d' \\"
+            ]
+        },
+        {
+            "message": "fix(pip): fix `pipupall` error with `freeze` format (#11280)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/0066280c3e971e1e45a9037f6d0b993dabcc3576",
+            "removed_lines": [
+                "-  pip list --outdated --format freeze | cut -d= -f1 | ${=xargs} pip install --upgrade"
+            ],
+            "added_lines": [
+                "+  pip list --outdated | awk 'NR > 2 { print $1 }' | ${=xargs} pip install --upgrade"
+            ]
+        },
+        {
+            "message": "fix(aws): allow non-space characters in profile names (#11040)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/0726c1099fec6599dbf91a260f21d6d45fd8f309",
+            "removed_lines": [
+                "-  grep --color=never -Eo '\\[.*\\]' \"${AWS_CONFIG_FILE:-$HOME/.aws/config}\" | sed -E 's/^[[:space:]]*\\[(profile)?[[:space:]]*([-_[:alnum:]\\.@]+)\\][[:space:]]*$/\\2/g'"
+            ],
+            "added_lines": [
+                "+  grep --color=never -Eo '\\[.*\\]' \"${AWS_CONFIG_FILE:-$HOME/.aws/config}\" | sed -E 's/^[[:space:]]*\\[(profile)?[[:space:]]*([^[:space:]]+)\\][[:space:]]*$/\\2/g'"
+            ]
+        },
+        {
+            "message": "fix(symfony2): silence debug lines in command completion (#10528)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/7546ded93b31ffc3824b3cd63a72bba0a25f5e9b",
+            "removed_lines": [
+                "-   `_symfony_console` --no-ansi | sed \"1,/Available commands/d\" | awk '/^  ?[^ ]+ / { print $1 }'"
+            ],
+            "added_lines": [
+                "+   `_symfony_console` --no-ansi --no-debug | sed \"1,/Available commands/d\" | awk '/^  ?[^ ]+ / { print $1 }'"
+            ]
+        },
+        {
+            "message": "fix: quote % characters in ruby prompt info functions",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/9a3d853481645ae0f961e9cc8421fc5d84e2c3c3",
+            "removed_lines": [
+                "-    echo -n \"system: $(ruby -v | cut -f-2 -d ' ')\""
+            ],
+            "added_lines": [
+                "+    echo -n \"system: $(ruby -v | cut -f-2 -d ' ' | sed 's/%/%%/g')\""
+            ]
+        },
+        {
+            "message": "fix: use `$USERNAME` guaranteed to always be defined in zsh\n\nFixes #9701",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/02d07f3e3dba0d50b1d907a8062bbaca18f88478",
+            "removed_lines": [
+                "-    _GET_PATH='echo $PWD | sed \"s/^\\/Users\\//~/;s/^\\/home\\//~/;s/^~$USER/~/\"'"
+            ],
+            "added_lines": [
+                "+    _GET_PATH='echo $PWD | sed \"s/^\\/Users\\//~/;s/^\\/home\\//~/;s/^~$USERNAME/~/\"'"
+            ]
+        },
+        {
+            "message": "fix(lib): use -N syntax in `head` and `tail` to support Solaris (#6391)\n\nCloses #6391\n\nCo-authored-by: Sergey Mashkov <cy6erGn0m@gmail.com>",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/8b37f817c29715873b91c8a8e7f883eccc240895",
+            "removed_lines": [
+                "-    | grep -v \"./\" | sort -nr | head -n20 | column -c3 -s \" \" -t | nl"
+            ],
+            "added_lines": [
+                "+    | grep -v \"./\" | sort -nr | head -20 | column -c3 -s \" \" -t | nl"
+            ]
+        },
+        {
+            "message": "systemadmin: correct sort order for psmem aliases (#6253)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/1744277a68101916d51cda2c67951f5981f1f216",
+            "removed_lines": [
+                "-alias psmem='ps -e -orss=,args= | sort -b -k1,1n'",
+                "-alias psmem10='ps -e -orss=,args= | sort -b -k1,1n| head -10'"
+            ],
+            "added_lines": [
+                "+alias psmem='ps -e -orss=,args= | sort -b -k1 -nr'",
+                "+alias psmem10='ps -e -orss=,args= | sort -b -k1 -nr | head -10'"
+            ]
+        },
+        {
+            "message": "wd: update to v0.5.1 (#9273)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/2abe4d6a2576f064c09ce78b32005e7437a93ee0",
+            "removed_lines": [
+                "-    echo \"$(echo \"$dir\" | sed \"s:${HOME}:~:g\")\""
+            ],
+            "added_lines": [
+                "+    echo \"$(echo \"$dir\" | sed \"s:~:${HOME}:g\")\""
+            ]
+        },
+        {
+            "message": "wd: update to latest version\n\nhttps://github.com/mfaerevaag/wd/commit/3d20d15d58b9349f872a1abab639aae02374f64c\n\nFixes #9002",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/81eb2089878be5b9cb4a4ba89c2e2f537b14fb7e",
+            "removed_lines": [
+                "-    grep '^[0-9a-zA-Z_-]\\+:' \"$WD_CONFIG\" | sed -e \"s,~,$HOME,\" -e 's/:/=/' | while read warpdir ; do"
+            ],
+            "added_lines": [
+                "+    command grep '^[0-9a-zA-Z_-]\\+:' \"$WD_CONFIG\" | sed -e \"s,~,$HOME,\" -e 's/:/=/' | while read warpdir ; do"
+            ]
+        },
+        {
+            "message": "archlinux: fix pacweb breaking when multiple packages found (#9059)\n\nCo-authored-by: Magnus Boman <Kattus@users.noreply.github.com>",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/cea89f54391c810198a7ace05f1063dd7e596bb7",
+            "removed_lines": [
+                "-    repo=\"$(grep '^Repo' <<< \"$infos\" | grep -oP '[^ ]+$')\"",
+                "-    arch=\"$(grep '^Arch' <<< \"$infos\" | grep -oP '[^ ]+$')\""
+            ],
+            "added_lines": [
+                "+    repo=\"$(grep -m 1 '^Repo' <<< \"$infos\" | grep -oP '[^ ]+$')\"",
+                "+    arch=\"$(grep -m 1 '^Arch' <<< \"$infos\" | grep -oP '[^ ]+$')\""
+            ]
+        },
+        {
+            "message": "rbenv: fix redirect in current_gemset\n\nFixes #8925\nRelated #4688",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/3f245edf1be1592e70d6deca6b3ecb8abf8e1356",
+            "removed_lines": [
+                "-        echo \"$(rbenv gemset active 2&>/dev/null | sed -e \":a\" -e '$ s/\\n/+/gp;N;b a' | head -n1)\""
+            ],
+            "added_lines": [
+                "+        echo \"$(rbenv gemset active 2>/dev/null | sed -e \":a\" -e '$ s/\\n/+/gp;N;b a' | head -n1)\""
+            ]
+        },
+        {
+            "message": "battery: fix Full battery bug on Linux; force 1-char-width on charging symbol",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/3da469be5c9526d4219ce4469e3a1e3fd7685b88",
+            "removed_lines": [
+                "-      acpi 2>/dev/null | command grep -v \"rate information unavailable\" | command grep -E '^Battery.*(Disc|C)harging' | cut -f2 -d ',' | tr -cd '[:digit:]'"
+            ],
+            "added_lines": [
+                "+      acpi 2>/dev/null | command grep -v \"rate information unavailable\" | command grep -E '^Battery.*(Full|(Disc|C)harging)' | cut -f2 -d ',' | tr -cd '[:digit:]'"
+            ]
+        },
+        {
+            "message": "sdk: add support for local versions and optimize sed calls (#7870)\n\n* Added support for local sdk versions\r\n\r\nAdded support for local versions (prefixed by '+'), so they are filtered out in _listInstallableVersions() and they are displayed correctly by _listAllVersion()\r\n\r\n* Optimize sed calls\r\n\r\nCo-authored-by: Marc Cornellà <marc.cornella@live.com>",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/10ab2911d35c84c120bae8f4e103b087fe19ce08",
+            "removed_lines": [
+                "-  __sdkman_list_versions $1 | grep \"^ \" | sed -e \"s/\\* /*/g\" | \\"
+            ],
+            "added_lines": [
+                "+  __sdkman_list_versions $1 | sed -e '/^[^ ]/d;s/[*+>] //g'"
+            ]
+        },
+        {
+            "message": "Remove invalid batteries (#8275)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/15a03744a9e87b8dd371a4fbac456a73d27d32d5",
+            "removed_lines": [
+                "-      acpi 2>/dev/null | command grep -E '^Battery.*(Disc|C)harging' | cut -f2 -d ',' | tr -cd '[:digit:]'"
+            ],
+            "added_lines": [
+                "+      acpi 2>/dev/null | command grep -v \"rate information unavailable\" | command grep -E '^Battery.*(Disc|C)harging' | cut -f2 -d ',' | tr -cd '[:digit:]'"
+            ]
+        },
+        {
+            "message": "Report only active battery (#4726)\n\nOn a system with multiple batteries (like thinkpads) report percentage\nand time remaining only for the active battery (the one being\ndischarged).\n\nIdeally we should report all batteries, but acpi only shows time remaining\nfor the active battery. Also callers of these functions expect a single\nreturn value. This is still better than reporting 596% remaining (like it\ndid on my laptop).\n\nFor the reference, the output of acpi command with multiple batteries looks\nlike this:\n\n    Battery 0: Unknown, 5%\n    Battery 1: Discharging, 86%, 03:14:04 remaining",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/b8b87629157b30fc00d0b4af62dd0cf422896346",
+            "removed_lines": [
+                "-      acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]'"
+            ],
+            "added_lines": [
+                "+      acpi 2>/dev/null | command grep -E '^Battery.*(Disc|C)harging' | cut -f2 -d ',' | tr -cd '[:digit:]'"
+            ]
+        },
+        {
+            "message": "systemadmin: fix header line sorting in pscpu (#6167)\n\nInside `pscpu` and `pscpu10` aliases, remove sorting of the header line.",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/d88fbe625f0a7c6f7296a58e0cd919903cd81511",
+            "removed_lines": [
+                "-alias pscpu10='ps -e -o pcpu,cpu,nice,state,cputime,args|sort -k1 -nr | head -10'"
+            ],
+            "added_lines": [
+                "+alias pscpu10='ps -e -o pcpu,cpu,nice,state,cputime,args|sort -k1,1n -nr | head -10'"
+            ]
+        },
+        {
+            "message": "homestead: repair sed regex (#8103)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/08beebd89f9eec956c126c732a287ec5a5a197a8",
+            "removed_lines": [
+                "-  homestead --no-ansi | sed \"1,/(Available|Common) commands/d\" | awk '/^ +[a-z]+/ { print $1 }'"
+            ],
+            "added_lines": [
+                "+  homestead --no-ansi | sed -E \"1,/(Available|Common) commands/d\" | awk '/^ +[a-z]+/ { print $1 }'"
+            ]
+        },
+        {
+            "message": "feature: add condition for regular expression",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/246e7832ef6f4b77ae998508d0ba90c82961fd0a",
+            "removed_lines": [
+                "-  homestead --no-ansi | sed \"1,/Common commands/d\" | awk '/^ +[a-z]+/ { print $1 }'"
+            ],
+            "added_lines": [
+                "+  homestead --no-ansi | sed \"1,/(Available|Common) commands/d\" | awk '/^ +[a-z]+/ { print $1 }'"
+            ]
+        },
+        {
+            "message": "change key string",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/783dd1504f99bd34aedd1d4a68ae6f14e38606da",
+            "removed_lines": [
+                "-  homestead --no-ansi | sed \"1,/Available commands/d\" | awk '/^ +[a-z]+/ { print $1 }'"
+            ],
+            "added_lines": [
+                "+  homestead --no-ansi | sed \"1,/Common commands/d\" | awk '/^ +[a-z]+/ { print $1 }'"
+            ]
+        },
+        {
+            "message": "debian: fix alias completion, rename ag and clean up README (#7698)\n\n* Use double quotes to cache value of $apt_pref and $apt_upgr\r\n* Clean up and fix syntax of command checks\r\n* Clean up README and document $apt_pref/$apt_upgr overriding mechanism\r\n* Rename `ag` alias (apt upgrade) to `au`\r\n* Clean up README and fix syntax\r\n\r\nFixes #3686 \r\nFixes #4660 \r\nCloses #5906\r\n\r\nCo-authored-by: Noah Vesely <fowlslegs@riseup.net>",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/7f98e1cb52d1bf42837f48ad4727d04a1cc5a4c8",
+            "removed_lines": [
+                "-    alias ail=\"sed -e 's/  */ /g' -e 's/ *//' | cut -s -d ' ' -f 1 | \"' xargs sudo $apt_pref install'"
+            ],
+            "added_lines": [
+                "+    alias ail=\"sed -e 's/  */ /g' -e 's/ *//' | cut -s -d ' ' -f 1 | xargs sudo $apt_pref install\""
+            ]
+        },
+        {
+            "message": "installer: make sure shell in /etc/shells is not commented\n\nOtherwise we risk a situation where a full path to `zsh` is commented, i.e.:\n\n    #/usr/local/bin/zsh",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/8e10ac4d7346ebd4c6cf2815b72fd82c1cf980a0",
+            "removed_lines": [
+                "-\t\t\tif ! chsh -s $(grep /zsh$ /etc/shells | tail -1); then"
+            ],
+            "added_lines": [
+                "+\t\t\tif ! chsh -s $(grep '^/.*/zsh$' /etc/shells | tail -1); then"
+            ]
+        },
+        {
+            "message": "rake-fast: remove brackets from completion entries\n\nFixes #5653",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/c56fa996e7cb1500dca97723d525e4c97af33c75",
+            "removed_lines": [
+                "-  rake --silent --tasks | cut -d \" \" -f 2 > .rake_tasks"
+            ],
+            "added_lines": [
+                "+  rake --silent --tasks | cut -d \" \" -f 2 | sed 's/\\[.*\\]//g' > .rake_tasks"
+            ]
+        },
+        {
+            "message": "mvn: fix and cleanup dynamic profiles logic",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/f4b2e460c77b79f99831cd048eb0004059c96370",
+            "removed_lines": [
+                "-\t\tlocal new_file=`grep -e \"<relativePath>.*</relativePath>\" $file | sed 's/.*<relativePath>//' | sed 's/<\\/relativePath>.*//g'`",
+                "-\t\tprofiles=($profiles `[ -e $item ] && cat $item | sed 's/<!--.*-->//' | sed '/<!--/,/-->/d' | grep -e \"<profile>\" -A 1 | grep -e \"<id>.*</id>\" | sed 's?.*<id>\\(.*\\)<\\/id>.*?-P\\1?'`)"
+            ],
+            "added_lines": [
+                "+\t\tnew_file=$(grep -e \"<relativePath>.*</relativePath>\" \"$file\" | sed -e 's/.*<relativePath>\\(.*\\)<\\/relativePath>.*/\\1/')",
+                "+\t\tprofiles+=($(sed 's/<!--.*-->//' \"$file\" | sed '/<!--/,/-->/d' | grep -e \"<profile>\" -A 1 | grep -e \"<id>.*</id>\" | sed 's?.*<id>\\(.*\\)<\\/id>.*?-P\\1?'))"
+            ]
+        },
+        {
+            "message": "Fixed `fwl` function in `firewalld` plugin when `sources` used (#7011)\n\n`firewall-cmd --get-active-zones` returns something like this:\r\n\r\n```\r\ndmz\r\n  sources: ipset:dmz-hosts\r\npublic\r\n  interfaces: eth0\r\n```\r\n\r\nif zone binding is based on source ips, so strings with `sources: ...` should be excluded along with `interfaces: ...` to get zones list.",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/2b6434e8793a876e5465edd9c75819166878aba6",
+            "removed_lines": [
+                "-  zones=(\"${(@f)$(sudo firewall-cmd --get-active-zones | grep -v interfaces)}\")"
+            ],
+            "added_lines": [
+                "+  zones=(\"${(@f)$(sudo firewall-cmd --get-active-zones | grep -v 'interfaces\\|sources')}\")"
+            ]
+        },
+        {
+            "message": "Fix mix-fast plugin (#6708)\n\nThe mix command for listing all available actions has been changed from\r\n`mix --help` to `mix help`.",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/bf87e99a14320885c506c6b07c9ead8825ee53b9",
+            "removed_lines": [
+                "-  mix --help | grep -v 'iex -S' | tail -n +2 | cut -d \" \" -f 2 > .mix_tasks"
+            ],
+            "added_lines": [
+                "+  mix help | grep -v 'iex -S' | tail -n +2 | cut -d \" \" -f 2 > .mix_tasks"
+            ]
+        },
+        {
+            "message": "ssh-agent: check ssh-agent process w/ ps again\n\nThe alternative is using tools that aren't available everywhere.\nThe latest report is that cygwin/msys2 doesn't have pgrep.\n\nFixes #5418.",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/5bd9500bf4e68bf185db77ad4ecbb728a5b81c01",
+            "removed_lines": [
+                "-\tpgrep ssh-agent | grep -q $SSH_AGENT_PID || {"
+            ],
+            "added_lines": [
+                "+\tps x | grep ssh-agent | grep -q $SSH_AGENT_PID || {"
+            ]
+        },
+        {
+            "message": "Fix git_prompt_status() not showing ahead/behind/diverged status correctly (#5388)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/27fff27253ec7f631f3f9e51f0a9f37214d67f17",
+            "removed_lines": [
+                "-  if $(echo \"$INDEX\" | grep '^## .*ahead' &> /dev/null); then",
+                "-  if $(echo \"$INDEX\" | grep '^## .*behind' &> /dev/null); then",
+                "-  if $(echo \"$INDEX\" | grep '^## .*diverged' &> /dev/null); then"
+            ],
+            "added_lines": [
+                "+  if $(echo \"$INDEX\" | grep '^## [^ ]\\+ .*ahead' &> /dev/null); then",
+                "+  if $(echo \"$INDEX\" | grep '^## [^ ]\\+ .*behind' &> /dev/null); then",
+                "+  if $(echo \"$INDEX\" | grep '^## [^ ]\\+ .*diverged' &> /dev/null); then"
+            ]
+        },
+        {
+            "message": "Simplify PID check of current ssh-agent",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/142ad842d706e16317bcc8b44ef1b19d625d1fb8",
+            "removed_lines": [
+                "-\tps x | grep $SSH_AGENT_PID | grep ssh-agent > /dev/null || {"
+            ],
+            "added_lines": [
+                "+\tps -o cmd -p $SSH_AGENT_PID | grep -q ssh-agent || {"
+            ]
+        },
+        {
+            "message": "Moved git.io url to https\n\ngit.io now redirects to https. So the current function break. Changing it to https fixes the issue.",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/f28c0a81b7041e1c834dd551691ce03d10994192",
+            "removed_lines": [
+                "-  curl -i -s http://git.io -F \"url=$1\" | grep \"Location\" | cut -f 2 -d \" \""
+            ],
+            "added_lines": [
+                "+  curl -i -s https://git.io -F \"url=$1\" | grep \"Location\" | cut -f 2 -d \" \""
+            ]
+        },
+        {
+            "message": "[Composer] redirect stderr to /dev/null for completion commands",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/0d45e771c8d3d1f7c465be465fcbdb4169141347",
+            "removed_lines": [
+                "-    $_comp_command1 --no-ansi | sed \"1,/Available commands/d\" | awk '/^[ \\t]*[a-z]+/ { print $1 }'",
+                "-    $_comp_command1 show -s --no-ansi | sed '1,/requires/d' | awk 'NF > 0 && !/^requires \\(dev\\)/{ print $1 }'"
+            ],
+            "added_lines": [
+                "+    $_comp_command1 --no-ansi 2>/dev/null | sed \"1,/Available commands/d\" | awk '/^[ \\t]*[a-z]+/ { print $1 }'",
+                "+    $_comp_command1 show -s --no-ansi 2>/dev/null | sed '1,/requires/d' | awk 'NF > 0 && !/^requires \\(dev\\)/{ print $1 }'"
+            ]
+        },
+        {
+            "message": "gulp plugin: missing opening double quote & had unneeded parens on function",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/5af52fbc75a07f03f2f796846184e0c2d6ca87b2",
+            "removed_lines": [
+                "-    compls=$(grep -Eo \"gulp.task\\((['\\\"](([a-zA-Z0-9]|-)*)['\\\"],)\" gulpfile.js 2>/dev/null | grep -Eo \"['\\\"](([a-zA-Z0-9]|-)*)['\\\"]\" | sed s/\"['\\\"]\"//g | sort)\""
+            ],
+            "added_lines": [
+                "+    compls=\"$(grep -Eo \"gulp.task\\((['\\\"](([a-zA-Z0-9]|-)*)['\\\"],)\" gulpfile.js 2>/dev/null | grep -Eo \"['\\\"](([a-zA-Z0-9]|-)*)['\\\"]\" | sed s/\"['\\\"]\"//g | sort)\""
+            ]
+        },
+        {
+            "message": "Accept single and double quotes in Gulp plugin",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/0c0450b3035cd4e9fd3f2c07469b933a4d1aa78f",
+            "removed_lines": [
+                "-    compls=$(grep -Eo \"gulp.task\\(('(([a-zA-Z0-9]|-)*)',)\" gulpfile.js 2>/dev/null | grep -Eo \"'(([a-zA-Z0-9]|-)*)'\" | sed s/\"'\"//g | sort)"
+            ],
+            "added_lines": [
+                "+    compls=$(grep -Eo \"gulp.task\\((['\\\"](([a-zA-Z0-9]|-)*)['\\\"],)\" gulpfile.js 2>/dev/null | grep -Eo \"['\\\"](([a-zA-Z0-9]|-)*)['\\\"]\" | sed s/\"['\\\"]\"//g | sort)\""
+            ]
+        },
+        {
+            "message": "Thefuck: fix global variable assignment",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/fb8c446ea4317c391321a29dc97677bc6fdeb0cf",
+            "removed_lines": [
+                "-    FUCK=\"$(THEFUCK_REQUIRE_CONFIRMATION=0 thefuck $(fc -ln -1 | tail -n 1) 2> /dev/null)\""
+            ],
+            "added_lines": [
+                "+    local FUCK=\"$(THEFUCK_REQUIRE_CONFIRMATION=0 thefuck $(fc -ln -1 | tail -n 1) 2> /dev/null)\""
+            ]
+        },
+        {
+            "message": "Fix awk command. \\s only working in gawk",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/de769058b9bb846cdbda8eadfde7ebc1bad3993d",
+            "removed_lines": [
+                "-  n98-magerun.phar --no-ansi | sed \"1,/Available commands/d\" | awk '/^\\s+[a-z]+/ { print $1 }'"
+            ],
+            "added_lines": [
+                "+  n98-magerun.phar --no-ansi | sed \"1,/Available commands/d\" | awk '/^ +[a-z\\-:]+/ { print $1 }'"
+            ]
+        },
+        {
+            "message": "Fixes gradle autocomplete. Regex did not include subproject tasks before.",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/551d68ad11c65ece0ea2af07a58fe971795bb9e6",
+            "removed_lines": [
+                "-     gradle tasks --all | grep \"^[ ]*[a-zA-Z0-9]*\\ -\\ \" | sed \"s/ - .*$//\" | sed \"s/[\\ ]*//\" > .gradletasknamecache",
+                "-     gradlew tasks --all | grep \"^[ ]*[a-zA-Z0-9]*\\ -\\ \" | sed \"s/ - .*$//\" | sed \"s/[\\ ]*//\" > .gradletasknamecache"
+            ],
+            "added_lines": [
+                "+     gradle tasks --all | grep \"^[ ]*[a-zA-Z0-9:]*\\ -\\ \" | sed \"s/ - .*$//\" | sed \"s/[\\ ]*//\" > .gradletasknamecache",
+                "+     gradlew tasks --all | grep \"^[ ]*[a-zA-Z0-9:]*\\ -\\ \" | sed \"s/ - .*$//\" | sed \"s/[\\ ]*//\" > .gradletasknamecache"
+            ]
+        },
+        {
+            "message": "Fix: \"\\s\" is a gawk-specific regexp operator.",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/8b5950b812b56a652ce1101f8d4adc569e516160",
+            "removed_lines": [
+                "-    $_comp_command1 --no-ansi | sed \"1,/Available commands/d\" | awk '/^\\s*[a-z]+/ { print $1 }'"
+            ],
+            "added_lines": [
+                "+    $_comp_command1 --no-ansi | sed \"1,/Available commands/d\" | awk '/^[ \\t]*[a-z]+/ { print $1 }'"
+            ]
+        },
+        {
+            "message": "Laravel 5 support",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/7c73a3aea4861a281bc931a064f13a7c7da3b6be",
+            "removed_lines": [
+                "-\tphp artisan --no-ansi | sed \"1,/Available commands/d\" | awk '/^  [a-z]+/ { print $1 }'"
+            ],
+            "added_lines": [
+                "+\tphp artisan --no-ansi | sed \"1,/Available commands/d\" | awk '/^ +[a-z]+/ { print $1 }'"
+            ]
+        },
+        {
+            "message": "Fix get command list for recent composer versions",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/0cc3afe27788e35d5f72236f41a7e4514c11491d",
+            "removed_lines": [
+                "-\tcomposer --no-ansi | sed \"1,/Available commands/d\" | awk '/^  [a-z]+/ { print $1 }'"
+            ],
+            "added_lines": [
+                "+\tcomposer --no-ansi | sed \"1,/Available commands/d\" | awk '/^\\s*[a-z]+/ { print $1 }'"
+            ]
+        },
+        {
+            "message": "Fixed command autocomplete for Symfony 2.6.x",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/011f25d492ab23b0f1dd50ea0f406892810e781e",
+            "removed_lines": [
+                "-   `_symfony_console` --no-ansi | sed \"1,/Available commands/d\" | awk '/^  [a-z]+/ { print $1 }'"
+            ],
+            "added_lines": [
+                "+   `_symfony_console` --no-ansi | sed \"1,/Available commands/d\" | awk '/^  ?[a-z]+/ { print $1 }'"
+            ]
+        },
+        {
+            "message": "Symfony2 plugin look for files only",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/677d8b1a21c4b1d8cffef4cbfa259797a11f338a",
+            "removed_lines": [
+                "-  echo \"php $(find . -maxdepth 2 -mindepth 1 -name 'console' | head -n 1)\""
+            ],
+            "added_lines": [
+                "+  echo \"php $(find . -maxdepth 2 -mindepth 1 -name 'console' -type f | head -n 1)\""
+            ]
+        },
+        {
+            "message": "[wd] v0.3.1: Improved completion and bug fixes",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/346f6b7d24d6021efa8c5167088f98c10f00ad3f",
+            "removed_lines": [
+                "-    wd_list_all | grep $PWD$"
+            ],
+            "added_lines": [
+                "+    wd_list_all | grep -e \"${cwd}$\""
+            ]
+        },
+        {
+            "message": "Plugin jump: autocompletion for numbers and dots\n\nThis change fixes the autocompletion for marks which contain numbers or dots.\n\nFixes #2578\n\n`\\d` in sed regular expressions doesn't work (see http://stackoverflow.com/questions/14671293/why-does-d-doesnt-work-in-regular-expression-in-sed)",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/75c02dd53e65357658f08bafaec99cc4b15a55ec",
+            "removed_lines": [
+                "-\t\treply=($(ls $MARKPATH/**/*(-) | grep : | sed -E 's/(.*)\\/([_\\da-zA-Z\\-]*):$/\\2/g'))"
+            ],
+            "added_lines": [
+                "+\t\treply=($(ls $MARKPATH/**/*(-) | grep : | sed -E 's/(.*)\\/([_a-zA-Z0-9\\.\\-]*):$/\\2/g'))"
+            ]
+        },
+        {
+            "message": "use ls instead of find to avoid incompatibility with gnu find",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/3cdfdad28a1b7efbcc1cd1282e7811d80f50a730",
+            "removed_lines": [
+                "-  xcode_proj=`find . -name \"*.xc*\" -d 1 | sort -r | head -1`"
+            ],
+            "added_lines": [
+                "+  xcode_proj=`ls | grep \"\\.xc\" | sort -r | head -1`"
+            ]
+        },
+        {
+            "message": "`fc -l 1` instead of `history` in zsh_stats #2501\n\n$HIST_STAMP breaks zsh_stats. see #2501",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/217d8f0540a41b2927caf986561e45634fa1952a",
+            "removed_lines": [
+                "-  history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl |  head -n20"
+            ],
+            "added_lines": [
+                "+  fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl |  head -n20"
+            ]
+        },
+        {
+            "message": "Added further cleanup and svn status information",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/8ede6c6af3b3f11d9b688e4bf9c97be8a54c6c4d",
+            "removed_lines": [
+                "-  echo ${1:-$(svn info 2> /dev/null)} | sed 's/Revision: //p'"
+            ],
+            "added_lines": [
+                "+  echo \"${1:-$(svn info 2> /dev/null)}\" | sed -n 's/Revision: //p'"
+            ]
+        },
+        {
+            "message": "escape dashes",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/d60522c7a290565c9de7594817a9d201732d5dd9",
+            "removed_lines": [
+                "-  if $(git log -n 1 2>/dev/null | grep -q -c \"--wip--\"); then",
+                "-alias gunwip='git log -n 1 | grep -q -c \"--wip--\" && git reset HEAD~1'"
+            ],
+            "added_lines": [
+                "+  if $(git log -n 1 2>/dev/null | grep -q -c \"\\-\\-wip\\-\\-\"); then",
+                "+alias gunwip='git log -n 1 | grep -q -c \"\\-\\-wip\\-\\-\" && git reset HEAD~1'"
+            ]
+        },
+        {
+            "message": "Fix issues with special characters when running mvn\n\nSetting the locale to C will stabilize sed, so it won't stop processing\nthe mvn output when it encounters invalid characters (like binary data)\n\nThis makes it also more viable to add the `alias mvn='mvn-color`, as\nthe coloring is less obtrusive, and there won't be any issues with sed\nbreaking because of an invalid character inside the stream",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/96798c42f046fec7f01f53d10dd63f30ed6a1e07",
+            "removed_lines": [
+                "-  mvn $@ | sed -e \"s/\\(\\[INFO\\]\\ \\-.*\\)/${TEXT_BLUE}${BOLD}\\1/g\" \\"
+            ],
+            "added_lines": [
+                "+  LC_CTYPE=C mvn $@ | sed -e \"s/\\(\\[INFO\\]\\)\\(.*\\)/${TEXT_BLUE}${BOLD}\\1${RESET_FORMATTING}\\2/g\" \\"
+            ]
+        },
+        {
+            "message": "Fix bad ps syntax in ssh-agent plugin",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/dd4f57010cdfaba8c3240b21e138c5b3f8a3607d",
+            "removed_lines": [
+                "-  ps -x | grep ${SSH_AGENT_PID} | grep ssh-agent > /dev/null || {"
+            ],
+            "added_lines": [
+                "+  ps x | grep ${SSH_AGENT_PID} | grep ssh-agent > /dev/null || {"
+            ]
+        },
+        {
+            "message": "randquote plugin\ncorrecting an issue about encoding some people was having\nadded a message when the user doesn't have curl\nadded varibles for colors->easier to customize",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/37be62ffb7856cda96a187f4acf79afe2fed2514",
+            "removed_lines": [
+                "-        Q=$(curl -s --connect-timeout 2 \"http://www.quotationspage.com/random.php3\" | grep -m 1 \"dt \")"
+            ],
+            "added_lines": [
+                "+        Q=$(curl -s --connect-timeout 2 \"http://www.quotationspage.com/random.php3\" | iconv -c -f ISO-8859-1 -t UTF-8 | grep -m 1 \"dt \")"
+            ]
+        },
+        {
+            "message": "Better filename matching",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/a265acee4f991dfd96fb3a9057309e9c1a345a2c",
+            "removed_lines": [
+                "-  reply=($(ls $MARKPATH/**/*(-) | grep : | sed -E 's/(.*)\\/([a-z]*):$/\\2/g'))"
+            ],
+            "added_lines": [
+                "+  reply=($(ls $MARKPATH/**/*(-) | grep : | sed -E 's/(.*)\\/([_\\da-zA-Z\\-]*):$/\\2/g'))"
+            ]
+        },
+        {
+            "message": "Add more capable hg incoming and outgoing count handling\n\nThe original hgic and hgoc aliases worked well for the default path, but attempting to call them with a different path failed. I created functions to handle them instead.",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/f25e2d2856281698914f21f7d22f84ae7e421f39",
+            "removed_lines": [
+                "-alias hgic='hg incoming | grep \"changeset\" | wc -l'",
+                "-alias hgoc='hg outgoing | grep 'changeset' | wc -l'"
+            ],
+            "added_lines": [
+                "+    hg incoming \"$@\" | grep \"changeset\" | wc -l",
+                "+    hg outgoing \"$@\" | grep \"changeset\" | wc -l"
+            ]
+        },
+        {
+            "message": "Only trim remote names; be git-flow friendly\n\n - don't remove everything before the last /\n - do remove <remote_name>/\n - allows flow style feature/foobar branch names",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/d4d8939410edf3b81e6cd6a63b39744262691185",
+            "removed_lines": [
+                "-      compadd `git branch -r | grep -v HEAD | sed \"s/.*\\///\" | sed \"s/ //g\"`"
+            ],
+            "added_lines": [
+                "+      compadd `git branch -r | grep -v HEAD | sed \"s/$remotes\\///\" | sed \"s/ //g\"`"
+            ]
+        },
+        {
+            "message": "gitfast: synchronize with upstream\n\nUp to version 1.8.2.1.\n\nSigned-off-by: Felipe Contreras <felipe.contreras@gmail.com>",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/72a8c08cc897520ea74ae49e811cd9e34501c520",
+            "removed_lines": [
+                "-\t\t\tdone | uniq -u"
+            ],
+            "added_lines": [
+                "+\t\t\tdone | sort | uniq -u"
+            ]
+        },
+        {
+            "message": "This fixes checking for git untracked items\n\nThe grep expression was incorrect for normal grep. Adding\nthe `-E` option fixed the escaping of the question marks.",
+            "commit_url": "https://github.com/ohmyzsh/ohmyzsh/commit/889045068465c3aac25b212b80b07f3f1755d937",
+            "removed_lines": [
+                "-  if $(echo \"$INDEX\" | grep '^\\?\\? ' &> /dev/null); then"
+            ],
+            "added_lines": [
+                "+  if $(echo \"$INDEX\" | grep -E '^\\?\\? ' &> /dev/null); then"
+            ]
+        }
+    ]
+}

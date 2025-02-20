@@ -11,7 +11,6 @@ import difflib
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import argparse
 
-UPDATE = True
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 # OPENAI_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -33,15 +32,19 @@ def normalize_line(line):
     content = re.sub(r'head\s+-n\s*(\d+)', r'head -\1', content)
     content = re.sub(r'tail\s+-n\s*(\d+)', r'tail -\1', content)
     # Remove any redirections
-    content = re.sub(r'\S+>\s*\S+', '', content)
     content = re.sub(r'\S+>>\s*\S+', '', content)
-    content = re.sub(r'\S+<\s*\S+', '', content)
+    content = re.sub(r'\s+>>\s*\S+', '', content)
+    content = re.sub(r'\S+>\s*\S+', '', content)
+    content = re.sub(r'\s+>\s*\S+', '', content)
     content = re.sub(r'\S+<<\s*\S+', '', content)
+    content = re.sub(r'\s+<<\s*\S+', '', content)
+    content = re.sub(r'\S+<\s*\S+', '', content)
+    content = re.sub(r'\s+<\s*\S+', '', content)
     # Remove any spaces
     content = re.sub(r'\s', '', content).strip()
     return content
 
-def get_popular_repos(language="Shell", max_size_kb=150000, top_n=100, min_results=10):
+def get_popular_repos(language="Shell", max_size_kb=150000, top_n=20):
     if not GITHUB_TOKEN:
         raise ValueError("GITHUB_TOKEN environment variable not set.")
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
@@ -58,10 +61,10 @@ def get_popular_repos(language="Shell", max_size_kb=150000, top_n=100, min_resul
         repos = response.json().get("items", [])
         
         filtered_repos = [repo for repo in repos if repo["size"] <= max_size_kb]
-        if len(filtered_repos) < min_results:
-            print(f"Warning: Only found {len(filtered_repos)} repos, fewer than minimum required {min_results}.")
+        if len(filtered_repos) < top_n:
+            print(f"Warning: Only found {len(filtered_repos)} repos, fewer than minimum required {top_n}.")
         
-        return filtered_repos[:min_results]
+        return filtered_repos
     except RequestException as e:
         print(f"Error fetching popular repos: {e}")
         return []
@@ -91,7 +94,7 @@ def analyze_commit_with_openai(commit_data):
     added_lines: [
         "+ local branch=$(echo $info | grep \"* \" | sed 's/* //g')"
     ]
-    Reason: The change is a only a variable name change, so it is not within the UNIX pipeline context.
+    Reason: The change is only a variable name change, so it is not within the UNIX pipeline context.
 
     2.
     message: "fix(installer): correct check for `sudo` in shell change logic"
@@ -103,17 +106,7 @@ def analyze_commit_with_openai(commit_data):
     ]
     Reason: The change is not within the UNIX pipeline context.
 
-    3.
-    message: "fix(toolbox): avoid prompt injection",
-    removed_lines: [
-        "-  [[ -f /run/.containerenv ]] && cat /run/.containerenv | awk -F\\\" '/name/ { print$2 }'"
-    ],
-    added_lines: [
-        "+  local _to_print=\"$(cat /run/.containerenv | awk -F\\\" '/name/ { print$2 }')\""
-    ]
-    Reason: The change is not within the UNIX pipeline context.
-
-    If the commit is qualified according to these guidelines, respond with exactly: "True". Otherwise, respond with: "False". Do not include any additional output or explanation. For the above examples, the correct response would be: "False".
+    If the commit is qualified according to these guidelines, respond with exactly: "True". Otherwise, respond with: "False". Do not include any additional output or explanation. For the above two examples, the correct response would be: "False".
     """
     
     user_prompt = f"Commit message: {commit_data['message']}\n\nRemoved lines:\n{commit_data['removed_lines']}\n\n Added lines:\n{commit_data['added_lines']}"
@@ -239,7 +232,8 @@ def load_existing_results(results_path, repo_name):
     
     if os.path.exists(openai_save_path):
         with open(openai_save_path, "r", encoding="utf-8") as f:
-            filtered_commits = json.load(f)[repo_name]
+            data = json.load(f)
+            filtered_commits = data.get(repo_name)
             
     return commits, filtered_commits
 
@@ -248,7 +242,7 @@ def save_summary(results_path, summary_data):
     
     for repo_name, repo_data in summary_data.items():
         if repo_data.get("commits"):
-            for commit in repo_data["commits"]:
+            for commit in repo_data["filtered_commits_data"]:
                 commit_copy = commit.copy()
                 commit_copy["repo"] = repo_name
                 commit_copy["category"] = ""
@@ -260,8 +254,9 @@ def save_summary(results_path, summary_data):
         json.dump(commits_array, f, ensure_ascii=False, indent=4)
     print(f"Summary saved to {summary_path}")
 
-def main(commit_limit, workers):
+def main(commit_limit, workers, reuse_find, reuse_openai):
     repos = get_popular_repos()
+    time.sleep(2)
     base_path = os.path.dirname(os.path.abspath(__file__)) + "/repos"
     results_path = os.path.dirname(os.path.abspath(__file__)) + "/results"
     os.makedirs(base_path, exist_ok=True)
@@ -277,48 +272,64 @@ def main(commit_limit, workers):
         save_path = os.path.join(results_path, f"{repo_name.replace('/', '_')}_pipeline_commits.json")
         openai_save_path = os.path.join(results_path, f"{repo_name.replace('/', '_')}_filtered_commits.json")
 
-        if not UPDATE and os.path.exists(save_path) and os.path.exists(openai_save_path):
-            print(f"Loading existing results for {repo_name}...")
-            commits, filtered_commits = load_existing_results(results_path, repo_name)
+        if reuse_find and os.path.exists(save_path):
+            print(f"Loading existing find_commits results for {repo_name} from {save_path}...")
+            with open(save_path, "r", encoding="utf-8") as f:
+                commits = json.load(f)[repo_name]
         else:
             print(f"\nProcessing repository: {repo_name}...")
             clone_repo(repo_url, local_path)
             repo = git.Repo(local_path)
             commits = find_pipeline_commits(repo, repo_url)
+            with open(save_path, "w", encoding="utf-8") as f:
+                json.dump({repo_name: commits}, f, ensure_ascii=False, indent=4)
+            print(f"\nResults saved to {save_path}.")
 
+        if reuse_openai and os.path.exists(openai_save_path):
+            print(f"Loading existing openai analysis results for {repo_name} from {openai_save_path}...")
+            with open(openai_save_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                filtered_commits = data.get(repo_name)
+            if filtered_commits is None:
+                print(f"Filtered commits for {repo_name} not found in JSON, running openai analysis...")
+                if commits:
+                    filtered_commits = filter_commits_with_openai_analysis(commits, repo_name, openai_save_path, max_workers=workers)
+                else:
+                    print(f"No pipeline changes found in {repo_name}, but still saving openai analysis file as empty.")
+                    filtered_commits = []
+                    with open(openai_save_path, "w", encoding="utf-8") as wf:
+                        json.dump({repo_name: filtered_commits}, wf, ensure_ascii=False, indent=4)
+        else:
             if commits:
-                print(f"Found {len(commits)} commits with pipeline changes in {repo_name}.")
                 filtered_commits = filter_commits_with_openai_analysis(commits, repo_name, openai_save_path, max_workers=workers)
-                
-                with open(save_path, "w", encoding="utf-8") as f:
-                    json.dump({repo_name: commits}, f, ensure_ascii=False, indent=4)
-                print(f"\nResults saved to {save_path}.")
             else:
-                print(f"No pipeline changes found in {repo_name}.")
-                commits = []
+                print(f"No pipeline changes found in {repo_name}, but still saving openai analysis file as empty.")
                 filtered_commits = []
+                with open(openai_save_path, "w", encoding="utf-8") as f:
+                    json.dump({repo_name: filtered_commits}, f, ensure_ascii=False, indent=4)
 
-        if commits is not None:
-            summary[repo_name] = {
-                "total_commits": len(commits),
-                "filtered_commits": len(filtered_commits) if filtered_commits else 0,
-                "commits": commits,
-                "filtered_commits_data": filtered_commits
-            }
-            total_commits_collected += len(commits)
+        summary[repo_name] = {
+            "total_commits": len(commits),
+            "filtered_commits": len(filtered_commits) if filtered_commits else 0,
+            "commits": commits,
+            "filtered_commits_data": filtered_commits
+        }
+        total_commits_collected += len(filtered_commits)
         
         if total_commits_collected >= commit_limit:
             print(f"Commit limit reached: {total_commits_collected} commits collected, limit is {commit_limit}. Stopping further repo processing.")
             break
-    
+    print(f"\nTotal commits collected: {total_commits_collected}")
     save_summary(results_path, summary)
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Collect pipeline commits from popular repositories")
     parser.add_argument('--workers', type=int, default=6, help='Number of parallel threads to use for LLM analysis')
     parser.add_argument('--commit_limit', type=int, default=1000, help='Total commit limit across repositories')
+    parser.add_argument('--reuse_find', action='store_true', help='Reuse find_commits stored JSON file if exists, otherwise run find_commits')
+    parser.add_argument('--reuse_openai', action='store_true', help='Reuse with_openai stored JSON file if exists, otherwise call API')
     return parser.parse_args()
 
 if __name__ == "__main__":
     args = parse_args()
-    main(commit_limit=args.commit_limit, workers=args.workers)
+    main(commit_limit=args.commit_limit, workers=args.workers, reuse_find=args.reuse_find, reuse_openai=args.reuse_openai)

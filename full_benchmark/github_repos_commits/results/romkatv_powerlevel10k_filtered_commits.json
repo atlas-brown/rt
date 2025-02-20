@@ -1,0 +1,24 @@
+{
+    "romkatv/powerlevel10k": [
+        {
+            "message": "Disable alias of grep\n\nIf user defined alias of grep command with '-r' or '--recursive'\noption, it causes a slow response of command line. It is not\nunexpected behavior of vcs info.\n\nThis commit explicitly disables alias of grep to suppress side\neffects.",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/f154e75667aff0801c3d978b44f5e4551d91e240",
+            "removed_lines": [
+                "-            -n $(git status ${FLAGS} | grep -E '^\\?\\?' 2> /dev/null | tail -n1) ]]; then"
+            ],
+            "added_lines": [
+                "+            -n $(git status ${FLAGS} | \\grep -E '^\\?\\?' 2> /dev/null | tail -n1) ]]; then"
+            ]
+        },
+        {
+            "message": "Fix untracked state of the vcs segment",
+            "commit_url": "https://github.com/romkatv/powerlevel10k/commit/cb5d33affb4fb223ec29f6dfb89ff8b0bb6e9133",
+            "removed_lines": [
+                "-            -n $(git status ${FLAGS} | grep -E '^??' 2> /dev/null | tail -n1) ]]; then"
+            ],
+            "added_lines": [
+                "+            -n $(git status ${FLAGS} | grep -E '^\\?\\?' 2> /dev/null | tail -n1) ]]; then"
+            ]
+        }
+    ]
+}

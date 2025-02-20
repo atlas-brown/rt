@@ -1,14 +1,3 @@
 {
-    "mathiasbynens/dotfiles": [
-        {
-            "message": "Respect non-default brew installation locations\n\nCloses #668.",
-            "commit_url": "https://github.com/mathiasbynens/dotfiles/commit/bb6c76e410bf7b1693edfe60239461fc9205ec02",
-            "removed_lines": [
-                "-  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;"
-            ],
-            "added_lines": [
-                "+  echo \"${BREW_PREFIX}/bin/bash\" | sudo tee -a /etc/shells;"
-            ]
-        }
-    ]
+    "mathiasbynens/dotfiles": []
 }

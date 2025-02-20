@@ -1,0 +1,44 @@
+{
+    "dokku/dokku": [
+        {
+            "message": "debug: force container removal",
+            "commit_url": "https://github.com/dokku/dokku/commit/676027caf68ea2f6520855fa62e9b8f974c09395",
+            "removed_lines": [
+                "-  docker container ls | xargs -n1 docker container rm || true"
+            ],
+            "added_lines": [
+                "+  docker container ls --quiet | xargs -n1 docker container rm -f || true"
+            ]
+        },
+        {
+            "message": "Allow customizing ssh port for the default client\n\nCloses #1942",
+            "commit_url": "https://github.com/dokku/dokku/commit/a765789c4d5ae784fc23b64247af7ebc4fb5384c",
+            "removed_lines": [
+                "-        while ssh \"dokku@$DOKKU_HOST\" apps 2>/dev/null| grep -q \"$appname\"; do"
+            ],
+            "added_lines": [
+                "+        while ssh -p \"$DOKKU_PORT\" \"dokku@$DOKKU_HOST\" apps 2>/dev/null| grep -q \"$appname\"; do"
+            ]
+        },
+        {
+            "message": "Better detection of dokku remote\n\nPreviously this script was matching for a remote named 'dokku' even\nwhen DOKKU_HOST is provided and completely custom. I have a case where\nI have 2 remotes with dokku, one on a staging server and another on a\nproduction server.\nSo by matching for 'dokku@$DOKKU_HOST' instead, the script can determine\ncorrectly which remote to use.",
+            "commit_url": "https://github.com/dokku/dokku/commit/61136e2591b983bd406bdbf6978d2dff91bcc0e6",
+            "removed_lines": [
+                "-      appname=$(git remote -v 2>/dev/null | grep -Ei \"^dokku\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ],
+            "added_lines": [
+                "+      appname=$(git remote -v 2>/dev/null | grep -Ei \"dokku@$DOKKU_HOST\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ]
+        },
+        {
+            "message": "Properly retrieve and parse the app name from git remote",
+            "commit_url": "https://github.com/dokku/dokku/commit/aec4543b616435bd822ce403b397479e3c17719a",
+            "removed_lines": [
+                "-\t\tappname=$(git remote -v 2>/dev/null | grep dokku | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ],
+            "added_lines": [
+                "+\t\t\tappname=$(git remote -v 2>/dev/null | grep -Ei \"^dokku\" | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)"
+            ]
+        }
+    ]
+}
