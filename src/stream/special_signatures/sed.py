@@ -17,7 +17,10 @@ class SedSignature(CommandSignature):
         if len(operands) == 0:
             raise ToolError("No operand provided for sed")
         operand = operands[0]
-        parts = operand.split("/")
+        if not operand.startswith("s"):
+            return input_type, no_input_type
+        delimiter = operand[1]
+        parts = operand.split(delimiter)
         if len(parts) < 3:
             return input_type, no_input_type
         if parts[0] == 's' and not parts[1].startswith('^') and not parts[1].startswith('$'):
@@ -25,7 +28,7 @@ class SedSignature(CommandSignature):
             # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
             match = re.search(r'(\\+)$', parts[1])
             if match and (len(match.group(1)) % 2 == 1):
-                parts[1] = parts[1] + '/'
+                parts[1] = parts[1] + delimiter
             return input_type, complement(concat([RegularType(".*"), RegularType(parts[1]), RegularType(".*")]))
         return input_type, no_input_type
 
@@ -39,7 +42,10 @@ class SedSignature(CommandSignature):
             return RegularType("")
         if operand[-1] == "d" and operand[:-1].isdigit():
             return RegularType(previous_output_type.pattern)
-        parts = operand.split("/")
+        if not operand.startswith("s"):
+            return super().output_type_inference(previous_output_type, parsed_command_invocation)
+        delimiter = operand[1]
+        parts = operand.split(delimiter)
         if len(parts) < 3:
             return super().output_type_inference(previous_output_type, parsed_command_invocation)
         if parts[0] == 's':
@@ -54,7 +60,7 @@ class SedSignature(CommandSignature):
                 # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
                 match = re.search(r'(\\+)$', parts[1])
                 if match and (len(match.group(1)) % 2 == 1):
-                    parts[1] = parts[1] + '/'
+                    parts[1] = parts[1] + delimiter
                 
                 return intersect(previous_output_type, complement(concat([RegularType(".*"), RegularType(parts[1]), RegularType(".*")])))
             

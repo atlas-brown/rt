@@ -11,7 +11,7 @@ import subprocess
 import tempfile
 
 class RegularType:
-    def __init__(self, pattern: str, mode: str = "extended") -> None:
+    def __init__(self, pattern: str, mode: str = "compat") -> None:
         self.pattern = pattern
         self._ast = None
         self._regex = None
@@ -184,7 +184,7 @@ def parse_z3_output_model(output: str) -> str:
 def ast_to_regular_type(ast: Node) -> RegularType:
     regular_type = RegularType(ast_to_regex(ast))
     regular_type._ast = ast
-    regular_type.mode = "extended"
+    regular_type.mode = "compat"
     return regular_type
 
 def concat(children: list[RegularType]) -> RegularType:
@@ -207,7 +207,7 @@ def intersect(left: RegularType, right: RegularType) -> RegularType:
 def union(left: RegularType, right: RegularType) -> RegularType:
     return ast_to_regex(Alternation([left.ast, right.ast]))
 
-# temporary solution, need to be fixed
+# FIXME: temporary solution, need to be fixed, consider a|^b
 def starts_with_start_anchor(pattern: RegularType) -> bool:
     if isinstance(pattern.ast, Concat):
         return isinstance(pattern.ast.nodes[0], StartAnchor)

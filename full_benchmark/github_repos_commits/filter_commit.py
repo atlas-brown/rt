@@ -2,20 +2,46 @@ import os
 import re
 import git
 import json
+import time
 from tqdm import tqdm
 import requests
 from requests.exceptions import RequestException
 from openai import OpenAI
+import difflib
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import argparse
 
-
-UPDATE = False
+UPDATE = True
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+# OPENAI_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-pipeline_pattern = re.compile(r'(\bgrep\b|\bawk\b|\bsed\b|\bcut\b|\bsort\b|\buniq\b|\btr\b|\bxargs\b|\becho\b|\bcat\b).*\|\s*')
-debug_commit_hash = "6f994715d6e86297d1c9851666221cd2eb09ac3c"
-client = OpenAI(api_key=OPENAI_API_KEY, base_url="https://api.deepseek.com")
+pipeline_pattern = re.compile(
+    r'^(?!\s*#).*?(?:(?<!\|)\|\s+\b(?:grep|awk|sed|cut|sort|uniq|tr|xargs|echo|cat|head|tail|wc|find|ls)\b)+'
+)
+# client = OpenAI(api_key=OPENAI_API_KEY, base_url="https://api.deepseek.com")
+client = OpenAI(api_key=OPENAI_API_KEY)
 
-def get_popular_repos(language="Shell", max_size_kb=15000, top_n=50, min_results=10):
+def normalize_line(line):
+    # Remove the diff marker
+    content = line[1:]
+    # Remove any leading "command"
+    content = re.sub(r'\bcommand\s+', '', content)
+    # Remove any assignment
+    content = re.sub(r'\b\w+\s*=\w+', '', content)
+    content = re.sub(r'\b\w+\s*=\s+', '', content)
+    # head/tail -n x -> head/tail -x
+    content = re.sub(r'head\s+-n\s*(\d+)', r'head -\1', content)
+    content = re.sub(r'tail\s+-n\s*(\d+)', r'tail -\1', content)
+    # Remove any redirections
+    content = re.sub(r'\S+>\s*\S+', '', content)
+    content = re.sub(r'\S+>>\s*\S+', '', content)
+    content = re.sub(r'\S+<\s*\S+', '', content)
+    content = re.sub(r'\S+<<\s*\S+', '', content)
+    # Remove any spaces
+    content = re.sub(r'\s', '', content).strip()
+    return content
+
+def get_popular_repos(language="Shell", max_size_kb=150000, top_n=100, min_results=10):
     if not GITHUB_TOKEN:
         raise ValueError("GITHUB_TOKEN environment variable not set.")
     headers = {"Authorization": f"token {GITHUB_TOKEN}"}
@@ -54,29 +80,69 @@ def analyze_commit_with_openai(commit_data):
     if not OPENAI_API_KEY:
         return True
 
-    system_prompt = """Analyze each commit to determine if it modifies any shell pipeline by adjusting flags, options, or arguments to fix a command composition error. Ignore commits with changes only irrelevant to the pipeline, unrelated command modifications, or non-bug-related purposes. Respond with "T" if the commit meets these criteria; otherwise, respond with "F".
+    system_prompt = """Analyze the given commit to decide whether it fixes a bug specifically in the UNIX pipeline. A commit qualifies if it addresses an issue only related to the UNIX pipeline and the issue is self-contained within that pipeline context. In contrast, commits that change variables, perform general refactoring/simplification, or modify behaviors out of the pipeline context should be considered unqualified.
+    
+    There are some examples of unqualified commits:
+    1.
+    message: "fix(fossil): refactor `fossil_prompt_info` and quote % in branch"
+    removed_lines: [
+        "- local _BRANCH=`echo $_OUTPUT | grep \"* \" | sed 's/* //g'`"
+    ]
+    added_lines: [
+        "+ local branch=$(echo $info | grep \"* \" | sed 's/* //g')"
+    ]
+    Reason: The change is a only a variable name change, so it is not within the UNIX pipeline context.
 
-    Examples:
-    - `grep -oE [0-9]+ | sort` → `grep -oE [0-9]+ | sort -n`: 'T' (flag added)
-    - `grep -oE [0-9]+ | sort` → `grep -oE [0-9]+ | uniq`: 'F' (only the command changed)
-    - `grep -oE [0-9A-Z]+ | sort -n` to `grep -oE [0-9A-Z]+`: 'F' (only the command dropped)
-    - `grep -oE [0-9]+ | sort` → `grep -oE [0-9]+ | sort | uniq`: 'F' (only the command added)
-    - `command grep -e '^v' | cut -c2-` → `command grep -e '^v' | command cut -c2-`: 'F' (only the command changed)"""
+    2.
+    message: "fix(installer): correct check for `sudo` in shell change logic"
+    removed_lines: [
+        "- LANG= sudo -n -v 2>&1 | grep -q \"may not run sudo\""
+    ]
+    added_lines: [
+        "+ ! LANG= sudo -n -v 2>&1 | grep -q \"may not run sudo\""
+    ]
+    Reason: The change is not within the UNIX pipeline context.
 
+    3.
+    message: "fix(toolbox): avoid prompt injection",
+    removed_lines: [
+        "-  [[ -f /run/.containerenv ]] && cat /run/.containerenv | awk -F\\\" '/name/ { print$2 }'"
+    ],
+    added_lines: [
+        "+  local _to_print=\"$(cat /run/.containerenv | awk -F\\\" '/name/ { print$2 }')\""
+    ]
+    Reason: The change is not within the UNIX pipeline context.
 
+    If the commit is qualified according to these guidelines, respond with exactly: "True". Otherwise, respond with: "False". Do not include any additional output or explanation. For the above examples, the correct response would be: "False".
+    """
+    
     user_prompt = f"Commit message: {commit_data['message']}\n\nRemoved lines:\n{commit_data['removed_lines']}\n\n Added lines:\n{commit_data['added_lines']}"
     
-    response = client.chat.completions.create(
-        model="deepseek-chat",
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ],
-        stream=False,
-        max_tokens=2,
-        temperature=0
-    )
-    return "T" in response.choices[0].message.content
+    max_retries = 3
+    delay_seconds = 3
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = client.chat.completions.create(
+                # model="deepseek-chat",
+                # model="o3-mini",
+                model="gpt-4o-mini",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                timeout=10,
+                stream=False,
+                max_tokens=10,
+                temperature=0,
+                # reasoning_effort="low",
+            )
+            return "True" in response.choices[0].message.content
+        except Exception as e:
+            print(f"LLM call error on attempt {attempt} for commit {str(commit_data)}: {e}")
+            if attempt < max_retries:
+                time.sleep(delay_seconds)
+    return False
+
 
 def find_pipeline_commits(repo: git.Repo, github_url: str):
     pipeline_commits = []
@@ -84,28 +150,42 @@ def find_pipeline_commits(repo: git.Repo, github_url: str):
 
     with tqdm(total=total_commits, desc="Processing commits") as pbar:
         for commit in repo.iter_commits():
-            if debug_commit_hash and commit.hexsha == debug_commit_hash:
-                print("="*60)
-                print(f"Processing debug commit: {debug_commit_hash}")
-                print(f"Author: {commit.author.name}")
-                print(f"Message: {commit.message.strip()}")
             diff_data = commit.diff(commit.parents or None, create_patch=True)
             for diff in diff_data:
                 if diff.b_path and diff.b_path.endswith(('.sh', '.bash', '.zsh')):
                     diff_text = diff.diff.decode('utf-8', errors='ignore')
                     
-                    matched_lines = [line for line in diff_text.splitlines() if pipeline_pattern.search(line)]
+                    matched_lines = [line for line in diff_text.splitlines() if pipeline_pattern.search(line[1:])]
                     added_lines = [line for line in matched_lines if line.startswith('-')]
                     added_lines = list(map(lambda x: '+' + x[1:], added_lines))
                     removed_lines = [line for line in matched_lines if line.startswith('+')]
                     removed_lines = list(map(lambda x: '-' + x[1:], removed_lines))
+                    SIMILARITY_THRESHOLD = 0.7
+
+                    filtered_added = []
+                    for a in added_lines:
+                        if any(difflib.SequenceMatcher(None, a, r).ratio() >= SIMILARITY_THRESHOLD for r in removed_lines):
+                            filtered_added.append(a)
+
+                    filtered_removed = []
+                    for r in removed_lines:
+                        if any(difflib.SequenceMatcher(None, r, a).ratio() >= SIMILARITY_THRESHOLD for a in added_lines):
+                            filtered_removed.append(r)
+
+                    added_lines = filtered_added
+                    removed_lines = filtered_removed
 
                     if removed_lines and added_lines:
-                        if debug_commit_hash and commit.hexsha == debug_commit_hash:
-                            print(f"\nMatch found in debug commit {debug_commit_hash}")
-                            print("Removed lines:\n" + "\n".join(removed_lines))
-                            print("Added lines:\n" + "\n".join(added_lines))
-                            print("="*60)
+                        if len(added_lines) + len(removed_lines) > 6:
+                            print(f"Skipping commit {commit.hexsha} with {len(added_lines) + len(removed_lines)} lines of changes.")
+                            continue
+
+                        # Skip commit if the changes are trivial modifications
+                        norm_added = [normalize_line(x) for x in added_lines]
+                        norm_removed = [normalize_line(x) for x in removed_lines]
+                        if norm_added and norm_removed and len(norm_added) == len(norm_removed) and sorted(norm_added) == sorted(norm_removed):
+                            print(f"Skipping commit {commit.hexsha} due to trivial modification (simple addition/removal rules).")
+                            continue
 
                         pipeline_commits.append({
                             "message": commit.message.strip(),
@@ -119,15 +199,24 @@ def find_pipeline_commits(repo: git.Repo, github_url: str):
 
     return pipeline_commits
 
-def filter_commits_with_openai_analysis(commits, repo_name, save_path):
+def filter_commits_with_openai_analysis(commits, repo_name, save_path, max_workers=4):
     if OPENAI_API_KEY:
         filtered_commits = []
-        with tqdm(total=len(commits[:200]), desc="LLM Analysis Progress") as pbar:
-            for commit in commits[:200]:
-                if analyze_commit_with_openai(commit):
-                    filtered_commits.append(commit)
-                pbar.update(1)
-                pbar.set_postfix(found=len(filtered_commits))
+        commits_to_process = commits[:1000]
+        total = len(commits_to_process)
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_commit = {executor.submit(analyze_commit_with_openai, commit): commit for commit in commits_to_process}
+            with tqdm(total=total, desc="Analyzing commits") as pbar:
+                for future in as_completed(future_to_commit):
+                    commit = future_to_commit[future]
+                    try:
+                        result = future.result()
+                        if result:
+                            filtered_commits.append(commit)
+                    except Exception as e:
+                        print(f"LLM analysis failed for commit {commit.get('commit_url', 'N/A')}: {e}")
+                    pbar.update(1)
+                    pbar.set_postfix(found=len(filtered_commits))
     else:
         print(f"Skipping LLM analysis for {repo_name} (no API key provided).")
         filtered_commits = commits
@@ -171,7 +260,7 @@ def save_summary(results_path, summary_data):
         json.dump(commits_array, f, ensure_ascii=False, indent=4)
     print(f"Summary saved to {summary_path}")
 
-def main():
+def main(commit_limit, workers):
     repos = get_popular_repos()
     base_path = os.path.dirname(os.path.abspath(__file__)) + "/repos"
     results_path = os.path.dirname(os.path.abspath(__file__)) + "/results"
@@ -179,6 +268,7 @@ def main():
     os.makedirs(results_path, exist_ok=True)
     
     summary = {}
+    total_commits_collected = 0
 
     for repo_info in repos:
         repo_name = repo_info["full_name"]
@@ -198,7 +288,7 @@ def main():
 
             if commits:
                 print(f"Found {len(commits)} commits with pipeline changes in {repo_name}.")
-                filtered_commits = filter_commits_with_openai_analysis(commits, repo_name, openai_save_path)
+                filtered_commits = filter_commits_with_openai_analysis(commits, repo_name, openai_save_path, max_workers=workers)
                 
                 with open(save_path, "w", encoding="utf-8") as f:
                     json.dump({repo_name: commits}, f, ensure_ascii=False, indent=4)
@@ -215,8 +305,20 @@ def main():
                 "commits": commits,
                 "filtered_commits_data": filtered_commits
             }
+            total_commits_collected += len(commits)
+        
+        if total_commits_collected >= commit_limit:
+            print(f"Commit limit reached: {total_commits_collected} commits collected, limit is {commit_limit}. Stopping further repo processing.")
+            break
     
     save_summary(results_path, summary)
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Collect pipeline commits from popular repositories")
+    parser.add_argument('--workers', type=int, default=6, help='Number of parallel threads to use for LLM analysis')
+    parser.add_argument('--commit_limit', type=int, default=1000, help='Total commit limit across repositories')
+    return parser.parse_args()
+
 if __name__ == "__main__":
-    main()
+    args = parse_args()
+    main(commit_limit=args.commit_limit, workers=args.workers)

@@ -76,12 +76,12 @@ class EndAnchor(Node):
         return "EndAnchor()"
 
 class RegexParser:
-    def __init__(self, pattern, mode="extended"):
+    def __init__(self, pattern, mode="compat"):
         self.pattern = pattern
         self.pos = 0
         self.length = len(pattern)
-        if mode not in ("extended", "basic"):
-            raise ValueError("Mode must be either 'extended' or 'basic'")
+        if mode not in ("extended", "compat", "basic"):
+            raise ValueError("Mode must be 'basic', 'extended', or 'compat'")
         self.mode = mode
 
     def current(self):
@@ -114,7 +114,7 @@ class RegexParser:
 
     def parse_union_expr(self):
         node = self.parse_intersect_expr()
-        if self.mode == "extended":
+        if self.mode in ("compat", "extended"):
             while self.current() == '|':
                 self.consume('|')
                 right = self.parse_intersect_expr()
@@ -128,7 +128,7 @@ class RegexParser:
         return node
 
     def parse_intersect_expr(self):
-        if self.mode == "extended":
+        if self.mode == "compat":
             node = self.parse_concat_expr()
             while self.current() == '&':
                 self.consume('&')
@@ -154,8 +154,10 @@ class RegexParser:
     
     def _concat_terminator(self):
         cur = self.current()
-        if self.mode == "extended":
+        if self.mode == "compat":
             return cur in [')', '|', '&']
+        elif self.mode == "extended":
+            return cur in [')', '|']
         else:
             if cur == '\\' and self.peek_next() == '|':
                 return True
@@ -163,7 +165,7 @@ class RegexParser:
 
     def parse_repetition_expr(self):
         node = self.parse_unary_expr()
-        if self.mode == "extended":
+        if self.mode in ("compat", "extended"):
             while True:
                 curr = self.current()
                 if curr is not None and curr in ('*', '+', '?'):
@@ -232,7 +234,7 @@ class RegexParser:
         return (min_val, max_val)
 
     def parse_unary_expr(self):
-        if self.mode == "extended" and self.current() == '!':
+        if self.mode == "compat" and self.current() == '!':
             self.consume('!')
             if self.pos >= self.length or self.current() in [')', '|', '&']:
                 return Complement(Literal(""))
@@ -246,8 +248,7 @@ class RegexParser:
         curr = self.current()
         if curr is None:
             self.error("Unexpected end of expression")
-        
-        if self.mode == "extended":
+        if self.mode in ("compat", "extended"):
             if curr == '(':
                 self.consume('(')
                 node = self.parse_union_expr()
@@ -575,14 +576,16 @@ def ast_to_regex(ast):
 
 if __name__ == "__main__":
     pattern = input("Enter regex: ")
-    mode = "extended"
+    mode = input("Enter mode (basic, extended, compat): ").strip()
+    if mode == "":
+        mode = "compat"
     parser = RegexParser(pattern, mode=mode)
     try:
         ast = parser.parse()
         print("Generated AST:")
         print(ast)
         ext_regex = ast_to_regex(ast)
-        print("\nTranslated Extended Regex:")
+        print("\nTranslated Regex:")
         print(ext_regex)
         z3_regex = ast_to_z3(ast)
         print("\nZ3 Regex:")
