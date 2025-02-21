@@ -19,7 +19,7 @@ class CutSignature(CommandSignature):
             if hasattr(flag, 'get_arg') and flag.get_arg():
                 flag_args[name] = flag.get_arg()
 
-        delimiter = r"(\t+)"
+        delimiter = r"(\t)"
         if '-d' in flags:
             flag_args['-d'] = re.escape(flag_args['-d'])
             delimiter = f"({flag_args['-d']})"

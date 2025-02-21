@@ -369,18 +369,17 @@ def category_to_tag(category: str):
 if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description='Run benchmarks.')
-    parser.add_argument('--user_annotation', default="true", type=str,
-                        help='Enable user annotation handling. Defaults to True.')
+    parser.add_argument('--disable_annotation', action='store_true',
+                        help='Disable user annotation handling. Defaults to enabled.')
     parser.add_argument('--log_level', default='info', type=str, help='Set logging level: info, debug, error. Defaults to info.')
     parser.add_argument('--timeout', default=-1, type=int,
                         help='Set pipeline evaluation timeout in seconds. Defaults to disabled.')
-    parser.add_argument('--num_workers', default=1, type=int,
+    parser.add_argument('--workers', default=1, type=int,
                         help='Number of parallel workers (set 1 to disable parallelism).')
 
     args = parser.parse_args()
 
-    user_annotation = args.user_annotation.lower()
-    if user_annotation == "false":
+    if args.disable_annotation:
         enable_user_annotation = False
     else:
         enable_user_annotation = True
@@ -398,6 +397,8 @@ if __name__ == "__main__":
         ENABLE_TIMEOUT = True
         TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
 
+    workers = args.workers
+
     logging.basicConfig(level=logging.INFO)
     logging.info(f"Enable user annotation: {enable_user_annotation}")
     logging.info(f"Logging level: {level_str}")
@@ -405,8 +406,11 @@ if __name__ == "__main__":
         logging.info(f"Timeout set to: {TIMEOUT_SECONDS} seconds")
     else:
         logging.info("Timeout disabled")
+    logging.info(f"Number of workers: {workers}")
 
     logging.getLogger().setLevel(level)
+
+    time.sleep(3)
 
     run_all_evaluations(
         valid_dirs=[
@@ -429,5 +433,5 @@ if __name__ == "__main__":
         ],
         output_json='evaluation_results/with_annotations/evaluation_results.json' if enable_user_annotation else 'evaluation_results/raw/evaluation_results.json',
         output_summary_csv='evaluation_results/with_annotations/summary.csv' if enable_user_annotation else 'evaluation_results/raw/summary.csv',
-        num_workers=args.num_workers,
+        num_workers=workers,
     )

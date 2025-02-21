@@ -1,6 +1,6 @@
 # StreamTypes
 
-## Install dependencies
+## Install dependencies (Ignore if building from Docker)
 
 ```bash
 pip3 install shasta libdash pash_annotations pytest z3-solver
@@ -9,10 +9,11 @@ pip3 install shasta libdash pash_annotations pytest z3-solver
 ## Run evaluations
 
 ```bash
-./run_evaluations.sh # with annotations; logging level: INFO; 1 worker
-./run_evaluations.sh --log_level DEBUG # with annotations; logging level: DEBUG; 1 worker
-./run_evaluations.sh --user_annotations false # without annotations; logging level: INFO; 1 worker
-./run_evaluations.sh --num_workers 16 # with annotations; logging level: INFO; 16 workers
+./run_evaluations.sh # with annotations; logging level: INFO; 1 worker; no timeout
+./run_evaluations.sh --log_level DEBUG # logging level: DEBUG
+./run_evaluations.sh --disable_annotation # without annotations
+./run_evaluations.sh --workers 16 # 16 workers
+./run_evaluations.sh --timeout 30 # timeout for each z3 query: 30 seconds
 ```
 
 ## Run unit tests
