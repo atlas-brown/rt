@@ -234,8 +234,8 @@ class RegexParser:
         return (min_val, max_val)
 
     def parse_unary_expr(self):
-        if self.mode == "compat" and self.current() == '!':
-            self.consume('!')
+        if self.mode == "compat" and self.current() == '~':
+            self.consume('~')
             if self.pos >= self.length or self.current() in [')', '|', '&']:
                 return Complement(Literal(""))
             else:
@@ -333,7 +333,7 @@ class RegexParser:
             '}': '}',
             '|': '|',
             '&': '&',
-            '!': '!',
+            '~': '~',
             '*': '*',
             '?': '?',
             '.': '.',
@@ -415,7 +415,7 @@ def get_prec(node):
         return 6
 
 def escape_literal(ch):
-    meta = "^$.*+?{}[]()|&!\\"
+    meta = "^$.*+?{}[]()|&~\\"
     if ch in meta:
         return "\\" + ch
     return ch
@@ -428,7 +428,10 @@ def escape_char_class(ch):
 def _ast_to_regex(node, parent_prec=0):
     my_prec = get_prec(node)
     if isinstance(node, Literal):
-        s = escape_literal(node.char)
+        if node.char == "":
+            s = "()"
+        else:
+            s = escape_literal(node.char)
     elif isinstance(node, Dot):
         s = "."
     elif isinstance(node, Concat):
@@ -467,7 +470,7 @@ def _ast_to_regex(node, parent_prec=0):
         right = _ast_to_regex(node.right, get_prec(node)+1)
         s = left + "&" + right
     elif isinstance(node, Complement):
-        s = "!" + _ast_to_regex(node.node, get_prec(node))
+        s = "~" + _ast_to_regex(node.node, get_prec(node))
     elif isinstance(node, Alternation):
         left = _ast_to_regex(node.left, get_prec(node))
         right = _ast_to_regex(node.right, get_prec(node)+1)

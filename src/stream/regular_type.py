@@ -9,6 +9,10 @@ from stream.tool_error import ToolError, TimeoutError
 from stream.timing import Timing
 import subprocess
 import tempfile
+import jpype.imports
+if not jpype.isJVMStarted():
+    jpype.startJVM(classpath=["jars/automaton.jar"])
+from dk.brics.automaton import Automaton, BasicAutomata, BasicOperations, RegExp # type: ignore
 
 class RegularType:
     def __init__(self, pattern: str, mode: str = "compat") -> None:
@@ -43,41 +47,62 @@ class RegularType:
         #     self.to_full_stream_regex()
         #     other.to_full_stream_regex()
         with Timing("timing z3 intersection creation = "):
-            intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
-            # checking_result = CheckingResult(ill_typed=(s.check() == z3.sat))
-            s = z3.Solver()
-            s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
-            output = run_z3(s, enable_timeout=enable_timeout, timeout=timeout)
-            # if output == "unknown":
-            #     raise TimeoutError("Timeout in z3")
-            # checking_result = CheckingResult(ill_typed=(output == "sat"))
-            checking_result = CheckingResult(ill_typed=(output == z3.sat))
+            # intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
+            # # checking_result = CheckingResult(ill_typed=(s.check() == z3.sat))
+            # s = z3.Solver()
+            # s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
+            # output = run_z3(s, enable_timeout=enable_timeout, timeout=timeout)
+            # # if output == "unknown":
+            # #     raise TimeoutError("Timeout in z3")
+            # # checking_result = CheckingResult(ill_typed=(output == "sat"))
+            # checking_result = CheckingResult(ill_typed=(output == z3.sat))
+
+
+            logging.debug("checking subsumption")
+            print(ast_to_regex(self.ast))
+            self_nfa = RegExp(ast_to_regex(self.ast)).toAutomaton()
+            other_nfa = RegExp(ast_to_regex(other.ast)).toAutomaton()
+            checking_result = CheckingResult(ill_typed=not self_nfa.subsetOf(other_nfa))
 
         if checking_result.ill_typed:
             with Timing(f"timing z3 counterexample gen = "):
-                s = z3.Solver()
-                x = z3.String('x')
-                s.add(z3.InRe(x, intersection_regex))
-                # s.check()
-                # counterexample = s.model()[x].as_string()
-                counterexample = run_z3(s, get_model=True, enable_timeout=enable_timeout, timeout=timeout)
+                # s = z3.Solver()
+                # x = z3.String('x')
+                # s.add(z3.InRe(x, intersection_regex))
+                # # s.check()
+                # # counterexample = s.model()[x].as_string()
+                # counterexample = run_z3(s, get_model=True, enable_timeout=enable_timeout, timeout=timeout)
+                # checking_result.set_counterexample(counterexample)
+
+                logging.debug("generating counterexample")
+                diff_nfa = self_nfa.minus(other_nfa)
+                counterexample = diff_nfa.getShortestExample(True)
                 checking_result.set_counterexample(counterexample)
+
 
         return checking_result
 
     def is_empty(self) -> bool:
-        s = z3.Solver()
-        logging.debug(f"checking: {self.pattern} is empty")
-        logging.debug(f"self_regex: {self.regex}")
-        s.add(z3.Distinct(self.regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
-        output = run_z3(s)
-        return output == z3.unsat
+        # s = z3.Solver()
+        # logging.debug(f"checking: {self.pattern} is empty")
+        # logging.debug(f"self_regex: {self.regex}")
+        # s.add(z3.Distinct(self.regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
+        # output = run_z3(s)
+        # return output == z3.unsat
+
+        logging.debug("checking emptiness")
+        nfa = RegExp(ast_to_regex(self.ast)).toAutomaton()
+        return nfa.isEmpty()
     
     def is_empty_string(self) -> bool:
-        s = z3.Solver()
-        s.add(z3.Distinct(self.regex, z3.Re("")))
-        output = run_z3(s)
-        return output == z3.unsat
+        # s = z3.Solver()
+        # s.add(z3.Distinct(self.regex, z3.Re("")))
+        # output = run_z3(s)
+        # return output == z3.unsat
+
+        logging.debug("checking empty string")
+        nfa = RegExp(ast_to_regex(self.ast)).toAutomaton()
+        return nfa.isEmptyString()
     
     def to_full_stream_regex(self) -> str:
         if r"\n" in self.pattern:
@@ -229,15 +254,15 @@ def remove_anchors(pattern: RegularType) -> RegularType:
 
 
 # replace ${A} with (.*)  and  $(A) with (.*)
-# FIXME ?! is not needed currently, provisonal fix: replace ?! with !
+# FIXME ?! is not needed currently, provisonal fix: replace ?! with ~
 def preprocess(pattern: str) -> str:
     # process replacement(${A} to (.*)) 
     # FIXME for $(), cannot handle nested brackets, need to be fixed
     replace_pattern = r'\$\{[^}]*\}|\$\([^)]*\)|\\\$\\\{[^}]*\\\}|\\\$\\\([^)]*\\\)'
     pattern = re.sub(replace_pattern, r'(.*)', pattern)
-    # ?! -> !
+    # ?! -> ~
     replace_pattern = r'\(\?!'
-    pattern = re.sub(replace_pattern, r'!(', pattern)
+    pattern = re.sub(replace_pattern, r'~(', pattern)
     return pattern
 
 

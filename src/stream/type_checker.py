@@ -56,8 +56,6 @@ class TypeChecker:
             logging.debug(f"Pipeline: {pipeline.pretty()}")
 
     def check_subtype(self, type1: RegularType, type2: RegularType) -> CheckingResult:
-        if self.enable_stage_timeout:
-            return type1.is_subtype(type2, enable_timeout=True, timeout=self.stage_timeout)
         return type1.is_subtype(type2)
     
     def check_not_subtype(self, type1: RegularType, type2: RegularType) -> CheckingResult:

@@ -1,10 +1,14 @@
-from stream.type_checker import TypeChecker
 import logging
+import jpype
+import jpype.imports
+if not jpype.isJVMStarted():
+    jpype.startJVM(classpath=["jars/automaton.jar"])
+from stream.type_checker import TypeChecker
 
 def main():
     logging.basicConfig(level=logging.DEBUG)
     pipeline_address = './evaluation_pipelines/debug.sh'
-    pipeline_address = './full_benchmark/llm_injection/pipelines/11.sh'
+    pipeline_address = './full_benchmark/llm_injection/pipelines/17.sh'
 
     with open(pipeline_address, 'r') as f:
         pipeline = f.read()
@@ -22,5 +26,6 @@ def main():
         logging.debug(checking_result)
         logging.debug("-"*60)
 
+    jpype.shutdownJVM()
 if __name__ == "__main__":
     main()

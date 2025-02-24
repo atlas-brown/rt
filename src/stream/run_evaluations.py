@@ -5,6 +5,10 @@ import logging
 import time
 from functools import partial
 from typing import List, Tuple
+import jpype
+import jpype.imports
+if not jpype.isJVMStarted():
+    jpype.startJVM(classpath=["jars/automaton.jar"])
 from stream.type_checker import TypeChecker
 from stream.tool_error import PashAnnotationParsingError, TimeoutError
 import argparse
@@ -435,3 +439,4 @@ if __name__ == "__main__":
         output_summary_csv='evaluation_results/with_annotations/summary.csv' if enable_user_annotation else 'evaluation_results/raw/summary.csv',
         num_workers=workers,
     )
+    jpype.shutdownJVM()
