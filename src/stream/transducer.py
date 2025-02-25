@@ -53,27 +53,25 @@ class FST:
         state = self.add_state(state_id, accept=True)
         state.accept = True
 
-    def add_transition(self, from_state_id: int, start_char: str, end_char: Optional[str], output: str, next_state_id: int) -> None:
+    def add_transition(self, from_state_id: int, min_in: str, max_in: Optional[str], output: str, next_state_id: int) -> None:
         from_state = self.add_state(from_state_id)
         next_state = self.add_state(next_state_id)
-        if start_char == "other":
+        if min_in == "other":
             is_other = True
             start_val, end_val = None, None
         else:
             is_other = False
-            start_val, end_val = start_char, end_char
+            start_val, end_val = min_in, max_in
         if output == "self":
             output_func: Callable[[str], str] = lambda c: c
         elif "-" in output:
             parts = output.split("-")
             if len(parts) != 2:
                 raise ToolError(f"Invalid transition output: {output}")
-            start_out, end_out = parts[0], parts[1]
-            if ord(start_out) > ord(end_out):
+            min_out, max_out = parts[0], parts[1]
+            if ord(min_out) > ord(max_out):
                 raise ToolError(f"Invalid transition output: {output}")
-            if ord(end_out) - ord(start_out) != ord(end_char) - ord(start_char):
-                raise ToolError(f"Invalid transition output: {output}")
-            output_func = lambda c, s=start_char, o=start_out: chr(ord(o) + ord(c) - ord(s))
+            output_func = lambda c, min_in=min_in, min_out=min_out, max_out=max_out: chr(min(ord(min_out) + ord(c) - ord(min_in), ord(max_out)))
         else:
             output_func = lambda c, o=output: o
         trans = FST_Transition(start_val, end_val, output_func, to=next_state, is_other=is_other)
@@ -84,14 +82,14 @@ class FST:
             return []
         intervals.sort(key=lambda x: x[0])
         merged: List[Tuple[int, int]] = []
-        current_start, current_end = intervals[0]
+        current_min, current_max = intervals[0]
         for s, e in intervals[1:]:
-            if s <= current_end + 1:
-                current_end = max(current_end, e)
+            if s <= current_max + 1:
+                current_max = max(current_max, e)
             else:
-                merged.append((current_start, current_end))
-                current_start, current_end = s, e
-        merged.append((current_start, current_end))
+                merged.append((current_min, current_max))
+                current_min, current_max = s, e
+        merged.append((current_min, current_max))
         return merged
 
     def _compute_complement_intervals(self, intervals: List[Tuple[int, int]], min_val: int = 0, max_val: int = 0x10FFFF) -> List[Tuple[int, int]]:
@@ -117,10 +115,10 @@ class FST:
             merged = self._merge_intervals(explicit_intervals)
             complement = self._compute_complement_intervals(merged)
             for other in other_transitions:
-                for comp_start, comp_end in complement:
-                    new_start = chr(comp_start)
-                    new_end = chr(comp_end)
-                    new_trans = FST_Transition(new_start, new_end, other.output_func, to=other.to, is_other=False)
+                for comp_min, comp_max in complement:
+                    new_min = chr(comp_min)
+                    new_max = chr(comp_max)
+                    new_trans = FST_Transition(new_min, new_max, other.output_func, to=other.to, is_other=False)
                     state.add_transition(new_trans)
             state.transitions = [t for t in state.transitions if not t.is_other]
 
@@ -154,11 +152,11 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
                 parts = input_range.split('-')
                 if len(parts) != 2:
                     raise ToolError(f"Invalid input range format: {input_range}")
-                start_char, end_char = parts[0], parts[1]
+                min_in, max_in = parts[0], parts[1]
             else:
-                start_char = input_range
-                end_char = input_range
-            fst.add_transition(from_state, start_char, end_char, output, next_state)
+                min_in = input_range
+                max_in = input_range
+            fst.add_transition(from_state, min_in, max_in, output, next_state)
     for fs in final_states:
         fst.set_accept(fs)
     fst._process_other_transitions()
@@ -231,11 +229,11 @@ if __name__ == '__main__':
     #     print("Transformation failed:", e)
 
 
-    regex = RegExp("[A-Z]+[a-z]")
+    regex = RegExp("[P-Z]+[a-z]")
     automaton = regex.toAutomaton()
     specs = [
         (0, "a-z", "A-Z", 0),
-        (0, 'A-Z', 'XXX', 0),
+        (0, 'A-Z', '0-9', 0),
         (0, "other", "self", 0)
     ]
     fst = create_fst(specs, start_state=0, final_states={0})
