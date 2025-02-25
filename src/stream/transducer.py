@@ -3,7 +3,8 @@ import jpype
 import jpype.imports
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import Automaton, BasicAutomata, BasicOperations, RegExp, State, Transition # type: ignore
+from dk.brics.automaton import Automaton, RegExp, State, Transition # type: ignore
+from stream.tool_error import ToolError
 
 from typing import Deque, List, Callable, Optional, Dict, Set, Tuple
 
@@ -66,12 +67,12 @@ class FST:
         elif "-" in output:
             parts = output.split("-")
             if len(parts) != 2:
-                raise ValueError(f"Invalid transition output: {output}")
+                raise ToolError(f"Invalid transition output: {output}")
             start_out, end_out = parts[0], parts[1]
             if ord(start_out) > ord(end_out):
-                raise ValueError(f"Invalid transition output: {output}")
+                raise ToolError(f"Invalid transition output: {output}")
             if ord(end_out) - ord(start_out) != ord(end_char) - ord(start_char):
-                raise ValueError(f"Invalid transition output: {output}")
+                raise ToolError(f"Invalid transition output: {output}")
             output_func = lambda c, s=start_char, o=start_out: chr(ord(o) + ord(c) - ord(s))
         else:
             output_func = lambda c, o=output: o
@@ -152,7 +153,7 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
             if '-' in input_range:
                 parts = input_range.split('-')
                 if len(parts) != 2:
-                    raise ValueError(f"Invalid input range format: {input_range}")
+                    raise ToolError(f"Invalid input range format: {input_range}")
                 start_char, end_char = parts[0], parts[1]
             else:
                 start_char = input_range
@@ -193,7 +194,7 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                     max_out = t_fst.output_func(max)
                     if len(min_out) > 1 or len(max_out) > 1:
                         if min_out != max_out:
-                            raise ValueError(f"Output range not supported: {min_out}-{max_out}")
+                            raise ToolError(f"Output range not supported: {min_out}-{max_out}")
                         current_state = s_product
                         for i, c in enumerate(min_out):
                             if i != len(min_out) - 1:

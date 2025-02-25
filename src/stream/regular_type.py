@@ -1,24 +1,21 @@
 import re
-import sys
-from typing import Optional, Tuple
 import z3
 from stream.regex_parser import Alternation, Complement, Concat, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_z3, Node, ast_to_regex
 import logging
 from stream.checking_result import CheckingResult
-from stream.tool_error import ToolError, TimeoutError
+from stream.tool_error import TimeoutError
 from stream.timing import Timing
-import subprocess
-import tempfile
 import jpype.imports
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import Automaton, BasicAutomata, BasicOperations, RegExp # type: ignore
+from dk.brics.automaton import RegExp # type: ignore
 
 class RegularType:
     def __init__(self, pattern: str, mode: str = "compat") -> None:
         self.pattern = pattern
         self._ast = None
         self._regex = None
+        self._nfa = None
         self.mode = mode
 
     @property
@@ -32,6 +29,12 @@ class RegularType:
         if self._regex is None:
             self._regex = ast_to_z3(self.ast)
         return self._regex
+    
+    @property
+    def nfa(self):
+        if self._nfa is None:
+            self._nfa = RegExp(ast_to_regex(self.ast)).toAutomaton()
+        return self._nfa
     
     def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 10) -> CheckingResult:
         logging.debug("-"*60)
@@ -60,9 +63,7 @@ class RegularType:
 
             logging.debug("checking subsumption")
             print(ast_to_regex(self.ast))
-            self_nfa = RegExp(ast_to_regex(self.ast)).toAutomaton()
-            other_nfa = RegExp(ast_to_regex(other.ast)).toAutomaton()
-            checking_result = CheckingResult(ill_typed=not self_nfa.subsetOf(other_nfa))
+            checking_result = CheckingResult(ill_typed=not self.nfa.subsetOf(other.nfa))
 
         if checking_result.ill_typed:
             with Timing(f"timing z3 counterexample gen = "):
@@ -75,7 +76,7 @@ class RegularType:
                 # checking_result.set_counterexample(counterexample)
 
                 logging.debug("generating counterexample")
-                diff_nfa = self_nfa.minus(other_nfa)
+                diff_nfa = self.nfa.minus(other.nfa)
                 counterexample = diff_nfa.getShortestExample(True)
                 checking_result.set_counterexample(counterexample)
 
