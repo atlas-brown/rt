@@ -63,6 +63,16 @@ class FST:
             start_val, end_val = start_char, end_char
         if output == "self":
             output_func: Callable[[str], str] = lambda c: c
+        elif "-" in output:
+            parts = output.split("-")
+            if len(parts) != 2:
+                raise ValueError(f"Invalid transition output: {output}")
+            start_out, end_out = parts[0], parts[1]
+            if ord(start_out) > ord(end_out):
+                raise ValueError(f"Invalid transition output: {output}")
+            if ord(end_out) - ord(start_out) != ord(end_char) - ord(start_char):
+                raise ValueError(f"Invalid transition output: {output}")
+            output_func = lambda c, s=start_char, o=start_out: chr(ord(o) + ord(c) - ord(s))
         else:
             output_func = lambda c, o=output: o
         trans = FST_Transition(start_val, end_val, output_func, to=next_state, is_other=is_other)
@@ -181,7 +191,19 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                     max = t_fst.max if ord(t_fst.max) < ord(t_automaton.getMax()) else t_automaton.getMax()
                     min_out = t_fst.output_func(min)
                     max_out = t_fst.output_func(max)
-                    s_product.addTransition(Transition(min_out, max_out, s))
+                    if len(min_out) > 1 or len(max_out) > 1:
+                        if min_out != max_out:
+                            raise ValueError(f"Output range not supported: {min_out}-{max_out}")
+                        current_state = s_product
+                        for i, c in enumerate(min_out):
+                            if i != len(min_out) - 1:
+                                s_1 = State()
+                                current_state.addTransition(Transition(c, c, s_1))
+                                current_state = s_1
+                            else:
+                                current_state.addTransition(Transition(c, c, s))
+                    else:
+                        s_product.addTransition(Transition(min_out, max_out, s))
     product.setDeterministic(False)
     product.removeDeadTransitions()
     product.minimize()
@@ -208,10 +230,11 @@ if __name__ == '__main__':
     #     print("Transformation failed:", e)
 
 
-    regex = RegExp("((a|c)+b|a)+.*")
+    regex = RegExp("[A-Z]+[a-z]")
     automaton = regex.toAutomaton()
     specs = [
-        (0, "a", "b", 0),
+        (0, "a-z", "A-Z", 0),
+        (0, 'A-Z', 'XXX', 0),
         (0, "other", "self", 0)
     ]
     fst = create_fst(specs, start_state=0, final_states={0})
@@ -219,6 +242,7 @@ if __name__ == '__main__':
     # print(fst.transform_all(test_str))
     product = product_fst_automaton(fst, automaton)
     print(product)
+    print(product.run("X"))
 
 
 
