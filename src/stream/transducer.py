@@ -170,6 +170,7 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
     p = (fst.initial, automaton.getInitialState())
     worklist.append(p)
     new_states[p] = product.getInitialState()
+    empty_transtions: Set[Tuple[State, State]] = set()
     while worklist:
         p = worklist.popleft()
         s_product = new_states[p]
@@ -190,7 +191,11 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                     max = t_fst.max if ord(t_fst.max) < ord(t_automaton.getMax()) else t_automaton.getMax()
                     min_out = t_fst.output_func(min)
                     max_out = t_fst.output_func(max)
-                    if len(min_out) > 1 or len(max_out) > 1:
+                    if len(min_out) == 0 or len(max_out) == 0:
+                        if min_out != max_out:
+                            raise ToolError(f"Output range not supported: {min_out}-{max_out}")
+                        empty_transtions.add((s_product, s))
+                    elif len(min_out) > 1 or len(max_out) > 1:
                         if min_out != max_out:
                             raise ToolError(f"Output range not supported: {min_out}-{max_out}")
                         current_state = s_product
@@ -203,6 +208,40 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                                 current_state.addTransition(Transition(c, c, s))
                     else:
                         s_product.addTransition(Transition(min_out, max_out, s))
+
+    # handle empty transitions
+    # Convert empty_transtions to a more usable format
+    empty_closure = {}
+    for src, dst in empty_transtions:
+        if src not in empty_closure:
+            empty_closure[src] = set()
+        empty_closure[src].add(dst)
+    
+    # Compute transitive closure
+    changed = True
+    while changed:
+        changed = False
+        for src, dsts in list(empty_closure.items()):
+            old_size = len(dsts)
+            new_dsts = set()
+            for dst in dsts:
+                if dst in empty_closure:
+                    new_dsts.update(empty_closure[dst])
+            if new_dsts:
+                dsts.update(new_dsts)
+                if len(dsts) > old_size:
+                    changed = True
+    
+    # Now add transitions and update accept states
+    for src, dsts in empty_closure.items():
+        # If any dst is an accept state, make src an accept state too
+        if any(dst.isAccept() for dst in dsts):
+            src.setAccept(True)
+        
+        # Add all transitions from dsts to src
+        for dst in dsts:
+            for trans in dst.getTransitions():
+                src.addTransition(Transition(trans.getMin(), trans.getMax(), trans.getDest()))
     product.setDeterministic(False)
     product.removeDeadTransitions()
     product.minimize()
@@ -229,12 +268,13 @@ if __name__ == '__main__':
     #     print("Transformation failed:", e)
 
 
-    regex = RegExp("[P-Z]+[a-z]")
+    regex = RegExp("[P-Z]+[a-z][0-9]+")
     automaton = regex.toAutomaton()
     specs = [
         (0, "a-z", "A-Z", 0),
         (0, 'A-Z', '0-9', 0),
-        (0, "other", "self", 0)
+        (0, "other", "self", 0),
+        (0, "other", "a", 0),
     ]
     fst = create_fst(specs, start_state=0, final_states={0})
     # test_str = "asdasdasdas"
