@@ -60,8 +60,6 @@ class SedSignature(CommandSignature):
                 match = re.search(r'(\\+)$', parts[1])
                 if match and (len(match.group(1)) % 2 == 1):
                     parts[1] = parts[1] + delimiter
-
-                print((RegularType(".*") + RegularType(parts[1]) + RegularType(".*")).nfa)
                 return previous_output_type & ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation)

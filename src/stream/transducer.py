@@ -157,8 +157,8 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
         if input_range == "other":
             fst.add_transition(from_state, "other", None, output, next_state)
         else:
-            if '-' in input_range:
-                parts = input_range.split('-')
+            if '--' in input_range:
+                parts = input_range.split('--')
                 if len(parts) != 2:
                     raise ToolError(f"Invalid input range format: {input_range}")
                 min_in, max_in = parts[0], parts[1]
@@ -264,6 +264,73 @@ def full_stream_to_line_based_FST() -> FST:
         (100, "other", "", 100),
     ]
     return create_fst(specs, start_state=0, final_states={100})
+
+
+def translation_FST(set1: str, set2: str) -> FST:
+    specs = []
+    for i, c in enumerate(set1):
+        if i < len(set2):
+            c2 = set2[i]
+        else:
+            c2 = set2[-1]
+        specs.append((0, c, c2, 0))
+    specs.append((0, "other", "self", 0))
+    return create_fst(specs, start_state=0, final_states={0})
+
+
+def compression_FST(set1: str) -> FST:
+    specs = []
+    mapping: Dict[str, int] = {}
+    final_states: Set[int] = {0}
+    for i, c in enumerate(set1):
+        mapping[c] = i + 1
+        final_states.add(i + 1)
+    for c, i in mapping.items():
+        specs.append((0, c, c, i))
+        specs.append((i, c, "", i))
+        for c2, i2 in mapping.items():
+            if i2 == i:
+                continue
+            specs.append((i, c2, c2, i2))
+        specs.append((i, "other", "self", 0))
+    return create_fst(specs, start_state=0, final_states=final_states)
+
+
+def delete_FST(set1: str) -> FST:
+    specs = []
+    for c in set1:
+        specs.append((0, c, "", 0))
+    specs.append((0, "other", "self", 0))
+    return create_fst(specs, start_state=0, final_states={0})
+
+def cut_FST(delimiter: str, fields: List[int]) -> FST:
+    # cut -f 1 -> [1]
+    # cut -f 1,3 -> [1, 3]
+    # cut -f 1-3 -> [1, 2, 3]
+    specs = []
+    max_field = max(fields)
+    for i in range(1, max_field + 1):
+        if i in fields and i != max_field:
+            specs.append((i, delimiter, delimiter, i + 1))
+        else:
+            specs.append((i, delimiter, "", i + 1))
+        
+        if i in fields:
+            specs.append((i, "other", "self", i))
+        else:
+            specs.append((i, "other", "", i))
+
+    specs.append((max_field + 1, "other", "", max_field + 1))
+    return create_fst(specs, start_state=1, final_states={i for i in range(1, max_field + 2)})
+        
+
+
+        
+
+
+
+    
+
     
 
 if __name__ == '__main__':
@@ -287,8 +354,8 @@ if __name__ == '__main__':
     regex = RegExp("[P-Z]+[a-z][0-9]+")
     automaton = regex.toAutomaton()
     specs = [
-        (0, "a-z", "A-Z", 0),
-        (0, 'A-Z', '0-9', 0),
+        (0, "a--z", "A--Z", 0),
+        (0, 'A--Z', '0--9', 0),
         (0, "other", "self", 0),
         (0, "other", "a", 0),
     ]

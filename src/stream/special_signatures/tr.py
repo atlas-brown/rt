@@ -5,6 +5,7 @@ from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from stream.tool_error import ToolError
+from stream.transducer import translation_FST, product_fst_automaton, compression_FST, delete_FST
 
 class TrSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -30,7 +31,71 @@ class TrSignature(CommandSignature):
                 return previous_output_type.kleene_plus()
             if "-s" in parsed_flags:
                 return previous_output_type & RegularType(".+")
+        parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
+        if len(parsed_command_invocation.operand_list) == 2:
+            # FIXME: handle flags
+            set1 = parsed_command_invocation.operand_list[0].name
+            set1 = preprocess_set(set1)
+            set2 = parsed_command_invocation.operand_list[1].name
+            set2 = preprocess_set(set2)
+            if "-c" in parsed_flags:
+                set1 = complement_set(set1)
+            fst = translation_FST(set1, set2)
+            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+        
+        if "-s" in parsed_flags:
+            set1 = parsed_command_invocation.operand_list[0].name
+            set1 = preprocess_set(set1)
+            if "-c" in parsed_flags:
+                set1 = complement_set(set1)
+            fst = compression_FST(set1)
+            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+        
+        if "-d" in parsed_flags:
+            set1 = parsed_command_invocation.operand_list[0].name
+            set1 = preprocess_set(set1)
+            if "-c" in parsed_flags:
+                set1 = complement_set(set1)
+            fst = delete_FST(set1)
+            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
         return previous_output_type & RegularType(f"{get_output_pattern(parsed_command_invocation)}")
+
+def replace_POSIX_class(set1: str) -> str:
+    set1 = set1.replace("[:lower:]", "a-z")
+    set1 = set1.replace("[:upper:]", "A-Z")
+    set1 = set1.replace("[:alpha:]", "a-zA-Z")
+    return set1
+
+def expand_ranges(input_set: str) -> str:
+    result = input_set
+    while "-" in result:
+        index = result.index("-")
+        if index == 0 or index == len(result) - 1:
+            raise ToolError("Invalid set for tr (invalid range)")
+        start = result[index - 1]
+        end = result[index + 1]
+        if ord(start) >= ord(end):
+            raise ToolError("Invalid set for tr (invalid range)")
+        new_result = ""
+        if index > 1:
+            new_result += result[:index - 1]
+        new_result += "".join(map(chr, range(ord(start), ord(end) + 1)))
+        if index < len(result) - 2:
+            new_result += result[index + 2:]
+        result = new_result
+    return result
+
+def complement_set(input_set: str) -> str:
+    result = ""
+    for i in range(128):
+        if chr(i) not in input_set:
+            result += chr(i)
+    if result == "":
+        raise ToolError("Invalid set for tr (empty complement)")
+    return result
+
+def preprocess_set(set1: str) -> str:
+    return expand_ranges(replace_POSIX_class(set1))
 
 
 def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> str:
@@ -41,42 +106,9 @@ def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> s
         raise ToolError("No pattern provided for tr")
     set1 = parsed_command_invocation.operand_list[0].name
 
-    if set1.startswith("[") and set1.endswith("]"):
-        set1 = set1[1:-1]
-
-    set1 = set1.replace("[:lower:]", "a-z")
-    set1 = set1.replace("[:upper:]", "A-Z")
-    set1 = set1.replace("[:alpha:]", "a-zA-Z")
+    set1 = replace_POSIX_class(set1)
         
     if "-c" in parsed_flags:
         return f"[{set1}]*"
-    
-    if len(parsed_command_invocation.operand_list) == 2:
-        return f"(?!.*[{set1}].*)"
-
-    if "-s" in parsed_flags:
-        while "-" in set1:
-            index = set1.index("-")
-            if index == 0 or index == len(set1) - 1:
-                raise ToolError("Invalid set1 for tr (invalid range)")
-            start = set1[index - 1]
-            end = set1[index + 1]
-            if ord(start) >= ord(end):
-                raise ToolError("Invalid set1 for tr (invalid range)")
-            new_set1 = ""
-            if index > 1:
-                new_set1 += set1[:index - 1]
-            new_set1 += "".join(map(chr, range(ord(start), ord(end) + 1)))
-            if index < len(set1) - 2:
-                new_set1 += set1[index + 2:]
-            set1 = new_set1
-
-        pattern = ""
-        for i, c in enumerate(set1):
-            c = re.escape(c)
-            pattern = pattern + c + c
-            if i < len(set1) - 1:
-                pattern += "|"
-        return f"(?!.*({pattern}).*)"
 
     return f"(?!.*[{set1}].*)"

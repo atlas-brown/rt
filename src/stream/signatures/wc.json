@@ -12,6 +12,14 @@
             "update": {
                 "output_type": "[0-9]+"
             }
+        },
+        {
+            "condition": {
+                "flags": ["-c"]
+            },
+            "update": {
+                "output_type": "[0-9]+"
+            }
         }
     ],
     "isInteresting": true

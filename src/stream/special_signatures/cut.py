@@ -5,6 +5,7 @@ from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from stream.tool_error import ToolError
+from stream.transducer import cut_FST, product_fst_automaton
 
 class CutSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -53,10 +54,46 @@ class CutSignature(CommandSignature):
             
             pattern = f".*({delimiter}.*){{{field_num-1}}}"
             return RegularType(pattern), None
+            # return RegularType(".*"), None
             
         return super().get_input_type(parsed_command_invocation, heuristic_rules)
 
     def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
+        flags = set()
+        flag_args = {}
+        for flag in parsed_command_invocation.flag_option_list:
+            name = flag.get_name()
+            flags.add(name)
+            if hasattr(flag, 'get_arg') and flag.get_arg():
+                flag_args[name] = flag.get_arg()
+
+        delimiter = "\t"
+        if '-d' in flags:
+            delimiter = f"{flag_args['-d']}"
+
+
+        if '-f' in flags:
+            args: list[str] = re.split(",|-", flag_args.get('-f'))
+            if len(args) == 0:
+                raise ToolError(f"invalid field number arguments: {args}")
+            new_args = []
+            for arg in args:
+                if "${" in arg or "$(" in arg:
+                    new_args.append(-1)
+                elif arg == "":
+                    pass
+                elif not arg.isdigit():
+                    raise ToolError(f"invalid field number: {arg} in {args} in command cut")
+                else:
+                    new_args.append(int(arg))
+            args = new_args
+            field_num = max(args)
+            if field_num == -1:
+                return RegularType(".*")
+            fst = cut_FST(delimiter, args)
+            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+
+        
         return super().output_type_inference(previous_output_type, parsed_command_invocation)
         # if '-f' in flags:
         #     field_num = int(flag_args.get('-f', '1'))
