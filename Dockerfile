@@ -40,7 +40,9 @@ RUN python3 --version && pip3 --version
 # Install Python dependencies
 # RUN sudo apt-get install libtool m4 automake -y
 
-RUN pip3 install --no-cache-dir shasta libdash pash_annotations pytest z3-solver
+RUN pip3 install --no-cache-dir shasta libdash pash_annotations pytest z3-solver jpype1
+
+RUN apt-get update && apt-get install -y openjdk-11-jdk && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container
 WORKDIR /home/stream
