@@ -1,0 +1,8 @@
+{
+    "evaluation_pipelines/.*ladder.*": "Ladder",
+    "evaluation_pipelines/.*/[0-9_]*.sh": "Handwritten",
+    "full_benchmark/curated_mutants/*": "Mutants",
+    "full_benchmark/intercode/.*": "Intercode",
+    "full_benchmark/llm_injection/.*": "LLM",
+    "full_benchmark/pash_benchmark/.*": "Koala"
+}
