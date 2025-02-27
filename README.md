@@ -46,3 +46,9 @@ cat $1 | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s ' ' '\n' | 
 * @expect: The expected input type of the command is given.
 * @input: The input type of the pipeline (default: "")
 * @output: The output type of the pipeline
+
+## Github Commits Benchmark Annotations
+
+* Search for `# stream enable` in the `full_benchmark/github_repos_commits/output_new` directory to locate relevant commits. 
+* If any change falls outside the scope, remove the line `# stream enable` above the change. 
+* If the change is within the scope, replace the line `# put stream annotation here` with the user annotations if necessary.
