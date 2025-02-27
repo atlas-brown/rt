@@ -27,10 +27,10 @@ class TrSignature(CommandSignature):
         if "set1" == "\\n":
             parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
             if "-d" in parsed_flags:
-                return RegularType(f"({previous_output_type.pattern})+")
+                return previous_output_type.kleene_plus()
             if "-s" in parsed_flags:
-                return RegularType(f"({previous_output_type.pattern})&(.+)")
-        return RegularType(f"({previous_output_type.pattern})&({get_output_pattern(parsed_command_invocation)})")
+                return previous_output_type & RegularType(".+")
+        return previous_output_type & RegularType(f"{get_output_pattern(parsed_command_invocation)}")
 
 
 def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> str:

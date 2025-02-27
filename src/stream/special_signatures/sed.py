@@ -1,8 +1,7 @@
 import re
 from command_signature import CommandSignature
-from stream.regular_type import RegularType, concat
+from stream.regular_type import RegularType
 from stream.tool_error import ToolError
-from stream.regular_type import intersect, complement
 
 class SedSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -29,7 +28,7 @@ class SedSignature(CommandSignature):
             match = re.search(r'(\\+)$', parts[1])
             if match and (len(match.group(1)) % 2 == 1):
                 parts[1] = parts[1] + delimiter
-            return input_type, complement(concat([RegularType(".*"), RegularType(parts[1]), RegularType(".*")]))
+            return input_type, ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
         return input_type, no_input_type
 
 
@@ -41,7 +40,7 @@ class SedSignature(CommandSignature):
         if operand == "d":
             return RegularType("")
         if operand[-1] == "d" and operand[:-1].isdigit():
-            return RegularType(previous_output_type.pattern)
+            return previous_output_type
         if not operand.startswith("s"):
             return super().output_type_inference(previous_output_type, parsed_command_invocation)
         delimiter = operand[1]
@@ -51,18 +50,19 @@ class SedSignature(CommandSignature):
         if parts[0] == 's':
             if parts[1] == '^':
                 parts[2] = parts[2].replace("\\\\", "\\")
-                return concat([RegularType(parts[2]), previous_output_type])
+                return RegularType(parts[2]) + previous_output_type
             elif parts[1] == '$':
                 parts[2] = parts[2].replace("\\\\", "\\")
-                return concat([previous_output_type, RegularType(parts[2])])
+                return previous_output_type + RegularType(parts[2])
             else:
                 parts[1] = parts[1].replace("\\\\", "\\")
                 # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
                 match = re.search(r'(\\+)$', parts[1])
                 if match and (len(match.group(1)) % 2 == 1):
                     parts[1] = parts[1] + delimiter
-                
-                return intersect(previous_output_type, complement(concat([RegularType(".*"), RegularType(parts[1]), RegularType(".*")])))
+
+                print((RegularType(".*") + RegularType(parts[1]) + RegularType(".*")).nfa)
+                return previous_output_type & ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation)
         

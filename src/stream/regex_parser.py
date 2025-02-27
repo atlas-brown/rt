@@ -694,7 +694,7 @@ def ast_to_automaton(node: Node, hole_dict: Optional[dict[str, Automaton]] = Non
     return automaton
 
 if __name__ == "__main__":
-    pattern = "~(.*{{a}}.*)&(a{1,3}{{b}}[ab-e[:digit:]]{3,10})"
+    pattern = "~(.*{{a}}.*)&(a{1,3}{{b}}[ab-e[:digit:]]{3,10}[^ab])+"
     mode = "compat"
     hole_dict = {
         "a": RegExp("aa").toAutomaton(),
@@ -715,4 +715,5 @@ if __name__ == "__main__":
     shortest = automaton.getShortestExample(True)
     print(f"\nShortest Example: {shortest!r}")
     print(ord(shortest[0]))
+    print(ord(shortest[-1]))
     jpype.shutdownJVM()

@@ -33,7 +33,7 @@ class PasteSignature(CommandSignature):
             delimiter = r"\t"
             if "-d" in flags:
                 delimiter = flag_args["-d"][0]
-            return RegularType(f"(({previous_output_type.pattern}){delimiter})*({previous_output_type.pattern})")
+            return previous_output_type + RegularType(f"({delimiter})*") + previous_output_type
 
         
             

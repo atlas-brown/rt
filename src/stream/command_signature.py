@@ -56,22 +56,7 @@ class CommandSignature:
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "--version" in flags or "--help" in flags:
             return RegularType(".*")
-        
-        # if r"\n" in previous_output_type.pattern:
-        #     return self.recursive_output_type_inference(previous_output_type, parsed_command_invocation)
 
-        return self.output_type_inference(previous_output_type, parsed_command_invocation)
-
-
-    # FIXME: should be a top-down recursive function; we need regex parser!!!
-    # provisional implementation: directly split the pattern by \n
-    def recursive_output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
-        pattern = previous_output_type.pattern
-        if r"\n" in pattern:
-            patterns = pattern.split(r"\n")
-            for i, p in enumerate(patterns):
-                patterns[i] = self.output_type_inference(RegularType(p), parsed_command_invocation).pattern
-            return RegularType(r"\n".join(patterns))
         return self.output_type_inference(previous_output_type, parsed_command_invocation)
 
 
@@ -88,7 +73,7 @@ class CommandSignature:
         assert isinstance(previous_output_type, RegularType)
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
-        env: Dict[str, str] = {}
+        env: Dict[str, RegularType] = {}
         for i, arg in enumerate(self.args):
             arg_name: str = arg['name']
             is_regex: bool = arg.get('is_regex', False)
@@ -96,12 +81,12 @@ class CommandSignature:
                 arg = parsed_command_invocation.operand_list[i].name
                 if not is_regex:
                     arg = re.escape(arg)
-                env[arg_name] = arg
-                env[f"arg_{arg_name}"] = arg # add constant arg_{arg_name} to env
+                env[arg_name] = RegularType(arg)
+                env[f"arg_{arg_name}"] = RegularType(arg) # add constant arg_{arg_name} to env
 
         # add predefined variables to env
-        env["actual_input_type"] = previous_output_type.pattern
-        env["output_type"] = self.default_output_type.pattern
+        env["actual_input_type"] = previous_output_type
+        env["output_type"] = self.default_output_type
 
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         parsed_args = set(env.keys())
@@ -119,15 +104,15 @@ class CommandSignature:
                 not any(arg in parsed_args for arg in no_args)):
 
                 # update env
-                update_variables: Dict[str, str] = rule.get('update', {}).copy()
+                update_variables: Dict[str, RegularType] = rule.get('update', {}).copy()
                 logging.debug(f"Command: {self.command_name}, Rule: {rule['condition']} -> {rule['update']}")
                 for key, value in update_variables.items():
                     # find all {{variable}} in rule_env[key], replace them with env[variable]
                     # { or } are not allowed in variable names
                     try:
-                        update_variables[key] = re.sub(r"{{([^{}]*)}}", lambda match: env[match.group(1)], value)
-                    except KeyError as e:
-                        raise ToolError(f"In {parsed_command_invocation.cmd_name}, Variable {e} not found in env")
+                        update_variables[key] = RegularType(value, hole_dict=env)
+                    except:
+                        raise ToolError(f"Error in updating env for command, missing argument when updating {key} with {value}")
                 env.update(update_variables)
                 logging.debug(f"Command: {self.command_name}, Updated env: {env}")
                 if rule.get('stop', False):
@@ -136,7 +121,7 @@ class CommandSignature:
         logging.debug(f"Command: {self.command_name}, Output type (if compatible): {env['output_type']}")
         logging.debug("-"*60)
         
-        return RegularType(env['output_type'])
+        return env['output_type']
     
     # dont override this method, override get_input_type instead
     def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str]) -> Tuple[RegularType, Optional[RegularType]]:

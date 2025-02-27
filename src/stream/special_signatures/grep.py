@@ -1,7 +1,7 @@
 from command_signature import CommandSignature
 from pash_annotations.datatypes.BasicDatatypes import Operand
 
-from stream.regular_type import RegularType, concat, complement, ends_with_end_anchor, intersect, remove_anchors, starts_with_start_anchor, union
+from stream.regular_type import RegularType, ends_with_end_anchor, remove_anchors, starts_with_start_anchor
 from stream.tool_error import ToolError
 from functools import reduce
 
@@ -29,20 +29,21 @@ class GrepSignature(CommandSignature):
         
         mode = "extended" if "-E" in parsed_flags else "basic"
         no_input_type = RegularType(pattern, mode)
+        original_no_input_type = RegularType(pattern, mode)
 
         if "-o" not in parsed_flags:
             # FIXME not completely correct, for example pattern is a|^b
-            if not starts_with_start_anchor(no_input_type):
-                no_input_type = concat([RegularType(".*"), no_input_type])
-            if not ends_with_end_anchor(no_input_type):
-                no_input_type = concat([no_input_type, RegularType(".*")])
+            if not starts_with_start_anchor(original_no_input_type):
+                no_input_type = RegularType(".*") + no_input_type
+            if not ends_with_end_anchor(original_no_input_type):
+                no_input_type = no_input_type + RegularType(".*")
 
         no_input_type = remove_anchors(no_input_type)
 
         if "-v" not in parsed_flags:
             return input_type, no_input_type
         else:
-            return input_type, complement(no_input_type)
+            return input_type, ~no_input_type
 
             
 
@@ -60,12 +61,11 @@ class GrepSignature(CommandSignature):
         mode = "extended" if "-E" in flags else "basic"
 
         if "-e" in flags:
-            types = []
             arg_count = len(parsed_command_invocation.operand_list) + 1
-            for arg in flag_args["-e"]:
+            pattern_type = RegularType(flag_args["-e"][0], mode)
+            for arg in flag_args["-e"][1:]:
                 arg = arg.replace("\\\\", "\\")
-                types.append(RegularType(arg, mode))
-            pattern_type = reduce(lambda acc, reg: union([acc, reg]), types)
+                pattern_type = pattern_type | RegularType(arg, mode)
             
             
         else:
@@ -74,31 +74,32 @@ class GrepSignature(CommandSignature):
             pattern = parsed_command_invocation.operand_list[0].name
             pattern = pattern.replace("\\\\", "\\")
             pattern_type = RegularType(pattern, mode)
+            original_pattern_type = RegularType(pattern, mode)
             arg_count = len(parsed_command_invocation.operand_list)
 
 
         # FIXME: -o processing is wrong!
         if "-o" not in flags:
             # FIXME not completely correct, for example pattern is a|^b
-            if not starts_with_start_anchor(pattern_type):
-                pattern_type = concat([RegularType(".*"), pattern_type])
-            if not ends_with_end_anchor(pattern_type):
-                pattern_type = concat([pattern_type, RegularType(".*")])
+            if not starts_with_start_anchor(original_pattern_type):
+                pattern_type = RegularType(".*") + pattern_type
+            if not ends_with_end_anchor(original_pattern_type):
+                pattern_type = pattern_type + RegularType(".*")
         
         # FIXME not completely correct, for example pattern is a|^b
         pattern_type = remove_anchors(pattern_type)
         
         if "-w" in flags:
-            pattern_type = concat([RegularType("(.*[^a-zA-Z0-9_])?"), pattern_type, RegularType("([^a-zA-Z0-9_].*)?")])
+            pattern_type = RegularType("(.*[^a-zA-Z0-9_])?") + pattern_type + RegularType("([^a-zA-Z0-9_].*)?")
 
         if "-v" in flags:
-            pattern_type = complement(pattern_type)
+            pattern_type = ~pattern_type
 
         if arg_count == 1:
-            pattern_type = intersect(previous_output_type, pattern_type)
+            pattern_type = previous_output_type & pattern_type
 
         if "-n" in flags:
-            pattern_type = concat([RegularType("[0-9]+:"), pattern_type])
+            pattern_type = RegularType("[0-9]+:") + pattern_type
 
         return pattern_type
         

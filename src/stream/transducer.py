@@ -17,6 +17,9 @@ class FST_State:
     def add_transition(self, transition: "FST_Transition") -> None:
         self.transitions.append(transition)
 
+    def __repr__(self) -> str:
+        return f"FST_State(id={self.id}, accept={self.accept})\n" + "\n".join(f"  {t}" for t in self.transitions) + "\n"
+
 class FST_Transition:
     def __init__(self, min: Optional[str], max: Optional[str], output_func: Callable[[str], str], to: FST_State, is_other: bool = False) -> None:
         self.min: Optional[str] = min
@@ -32,6 +35,9 @@ class FST_Transition:
 
     def transform(self, c: str) -> str:
         return self.output_func(c)
+    
+    def __repr__(self) -> str:
+        return f"FST_Transition(min={ord(self.min)}, max={ord(self.max)}, to={self.to.id})"
 
 class FST:
     def __init__(self) -> None:
@@ -137,6 +143,9 @@ class FST:
             configurations = next_configurations
         results: Set[str] = {out for state, out in configurations if state.accept}
         return results
+    
+    def __repr__(self) -> str:
+        return "\n".join(f"{state_id}: {state}" for state_id, state in self.states.items())
 
 def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: int = 0, final_states: Optional[Set[int]] = None) -> FST:
     fst = FST()
@@ -170,7 +179,7 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
     p = (fst.initial, automaton.getInitialState())
     worklist.append(p)
     new_states[p] = product.getInitialState()
-    empty_transtions: Set[Tuple[State, State]] = set()
+    empty_transitions: Set[Tuple[State, State]] = set()
     while worklist:
         p = worklist.popleft()
         s_product = new_states[p]
@@ -194,7 +203,7 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                     if len(min_out) == 0 or len(max_out) == 0:
                         if min_out != max_out:
                             raise ToolError(f"Output range not supported: {min_out}-{max_out}")
-                        empty_transtions.add((s_product, s))
+                        empty_transitions.add((s_product, s))
                     elif len(min_out) > 1 or len(max_out) > 1:
                         if min_out != max_out:
                             raise ToolError(f"Output range not supported: {min_out}-{max_out}")
@@ -210,14 +219,13 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                         s_product.addTransition(Transition(min_out, max_out, s))
 
     # handle empty transitions
-    # Convert empty_transtions to a more usable format
     empty_closure = {}
-    for src, dst in empty_transtions:
+    for src, dst in empty_transitions:
         if src not in empty_closure:
             empty_closure[src] = set()
         empty_closure[src].add(dst)
     
-    # Compute transitive closure
+    # compute transitive closure
     changed = True
     while changed:
         changed = False
@@ -232,13 +240,10 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                 if len(dsts) > old_size:
                     changed = True
     
-    # Now add transitions and update accept states
     for src, dsts in empty_closure.items():
-        # If any dst is an accept state, make src an accept state too
         if any(dst.isAccept() for dst in dsts):
             src.setAccept(True)
         
-        # Add all transitions from dsts to src
         for dst in dsts:
             for trans in dst.getTransitions():
                 src.addTransition(Transition(trans.getMin(), trans.getMax(), trans.getDest()))
@@ -247,7 +252,18 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
     product.minimize()
     return product
 
-
+def full_stream_to_line_based_FST() -> FST:
+    specs = [
+        (0, "\n", "", 100),
+        (0, "other", "self", 1),
+        (0, "other", "", 2),
+        (1, "\n", "", 100),
+        (1, "other", "self", 1),
+        (2, "\n", "", 0),
+        (2, "other", "", 2),
+        (100, "other", "", 100),
+    ]
+    return create_fst(specs, start_state=0, final_states={100})
     
 
 if __name__ == '__main__':
