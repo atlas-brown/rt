@@ -5,7 +5,7 @@ from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from stream.tool_error import ToolError
-from stream.transducer import translation_FST, product_fst_automaton, compression_FST, delete_FST
+from stream.transducer import translation_FST, product_fst_automaton, compression_FST, deletion_FST
 
 class TrSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -56,7 +56,7 @@ class TrSignature(CommandSignature):
             set1 = preprocess_set(set1)
             if "-c" in parsed_flags:
                 set1 = complement_set(set1)
-            fst = delete_FST(set1)
+            fst = deletion_FST(set1)
             return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
         return previous_output_type & RegularType(f"{get_output_pattern(parsed_command_invocation)}")
 

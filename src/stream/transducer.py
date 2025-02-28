@@ -293,10 +293,11 @@ def compression_FST(set1: str) -> FST:
                 continue
             specs.append((i, c2, c2, i2))
         specs.append((i, "other", "self", 0))
+    specs.append((0, "other", "self", 0))
     return create_fst(specs, start_state=0, final_states=final_states)
 
 
-def delete_FST(set1: str) -> FST:
+def deletion_FST(set1: str) -> FST:
     specs = []
     for c in set1:
         specs.append((0, c, "", 0))
