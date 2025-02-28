@@ -47,8 +47,8 @@ dns_nsone_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   count=$(printf "%s\n" "$response" | _egrep_o "\"domain\":\"$fulldomain.\",[^{]*\"type\":\"TXT\"" | wc -l | tr -d " ")
-# +   count=$(printf "%s\n" "$response" | _egrep_o "\"domain\":\"$fulldomain\",[^{]*\"type\":\"TXT\"" | wc -l | tr -d " ")
+# - count=$(printf "%s\n" "$response" | _egrep_o "\"domain\":\"$fulldomain.\",[^{]*\"type\":\"TXT\"" | wc -l | tr -d " ")
+# + count=$(printf "%s\n" "$response" | _egrep_o "\"domain\":\"$fulldomain\",[^{]*\"type\":\"TXT\"" | wc -l | tr -d " ")
 ################################################################################
 # put stream annotation here
 # stream enable

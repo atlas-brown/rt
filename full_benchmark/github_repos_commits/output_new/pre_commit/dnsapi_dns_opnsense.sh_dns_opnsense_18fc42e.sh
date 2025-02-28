@@ -233,8 +233,8 @@ _opns_check_auth() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if ! printf '%s' "$OPNs_Port" | grep -q '^[0-9]*$'; then
-# +   if ! printf '%s' "$OPNs_Port" | grep '^[0-9]*$' >/dev/null ; then
+# - if ! printf '%s' "$OPNs_Port" | grep -q '^[0-9]*$'; then
+# + if ! printf '%s' "$OPNs_Port" | grep '^[0-9]*$' >/dev/null ; then
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -253,8 +253,8 @@ _opns_check_auth() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if ! printf '%s' "$OPNs_Api_Insecure" | grep -q '^[01]$'; then
-# +   if ! printf '%s' "$OPNs_Api_Insecure" | grep '^[01]$' >/dev/null ; then
+# - if ! printf '%s' "$OPNs_Api_Insecure" | grep -q '^[01]$'; then
+# + if ! printf '%s' "$OPNs_Api_Insecure" | grep '^[01]$' >/dev/null ; then
 ################################################################################
 # put stream annotation here
 # stream enable

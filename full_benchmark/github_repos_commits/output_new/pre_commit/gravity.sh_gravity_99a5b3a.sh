@@ -71,29 +71,6 @@ if [[ -r $piholeDir/pihole.conf ]];then
         . $piholeDir/pihole.conf
 fi
 
-################################################################################
-# Commit message: remove all mentions of spinner
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/99a5b3a98ab71693426daf15254ad8c64936f867
-# Category: 
-# Notes: 
-# Changed content:
-# - spinner() {
-# -     local pid=$1
-# -     local delay=0.50
-# -     local spinstr='/-|'
-# -     while [ "$(ps a | awk '{print $1}' | grep "$pid")" ]; do
-# -         local temp=${spinstr#?}
-# -         printf " [%c]  " "$spinstr"
-# -         local spinstr=$temp${spinstr%"$temp"}
-# -         sleep $delay
-# -         printf "\b\b\b\b\b\b"
-# -     done
-# -     printf "    \b\b\b\b"
-# - }
-# - 
-################################################################################
-# put stream annotation here
-# stream enable
 spinner() {
     local pid=$1
     local delay=0.50
@@ -331,8 +308,8 @@ function gravity_advanced() {
 # Category: 
 # Notes: 
 # Changed content:
-# - 	awk '($1 !~ /^#/) { if (NF>1) {print $2} else {print $1}}' $piholeDir/$matterandlight | sed -nr -e 's/\.{2,}/./g' -e '/\./p' >  $piholeDir/$supernova & spinner $!
-# + 	awk '($1 !~ /^#/) { if (NF>1) {print $2} else {print $1}}' $piholeDir/$matterandlight | sed -nr -e 's/\.{2,}/./g' -e '/\./p' >  $piholeDir/$supernova
+# - awk '($1 !~ /^#/) { if (NF>1) {print $2} else {print $1}}' $piholeDir/$matterandlight | sed -nr -e 's/\.{2,}/./g' -e '/\./p' >  $piholeDir/$supernova & spinner $!
+# + awk '($1 !~ /^#/) { if (NF>1) {print $2} else {print $1}}' $piholeDir/$matterandlight | sed -nr -e 's/\.{2,}/./g' -e '/\./p' >  $piholeDir/$supernova
 ################################################################################
 # put stream annotation here
 # stream enable

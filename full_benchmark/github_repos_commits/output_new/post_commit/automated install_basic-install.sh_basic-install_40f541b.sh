@@ -126,8 +126,8 @@ verifyFreeDiskSpace() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     existingFreeBytes=`df -lkP / | awk '{print $4}' | tail -1`
-# +     existingFreeBytes=`df -lkP | awk '{print $4}' | tail -1`
+# - existingFreeBytes=`df -lkP / | awk '{print $4}' | tail -1`
+# + existingFreeBytes=`df -lkP | awk '{print $4}' | tail -1`
 ################################################################################
 # put stream annotation here
 # stream enable

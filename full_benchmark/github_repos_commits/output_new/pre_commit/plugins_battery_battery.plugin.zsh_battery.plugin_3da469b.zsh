@@ -124,8 +124,8 @@ elif [[ "$OSTYPE" = linux*  ]]; then
 # Category: 
 # Notes: 
 # Changed content:
-# -       acpi 2>/dev/null | command grep -v "rate information unavailable" | command grep -E '^Battery.*(Disc|C)harging' | cut -f2 -d ',' | tr -cd '[:digit:]'
-# +       acpi 2>/dev/null | command grep -v "rate information unavailable" | command grep -E '^Battery.*(Full|(Disc|C)harging)' | cut -f2 -d ',' | tr -cd '[:digit:]'
+# - acpi 2>/dev/null | command grep -v "rate information unavailable" | command grep -E '^Battery.*(Disc|C)harging' | cut -f2 -d ',' | tr -cd '[:digit:]'
+# + acpi 2>/dev/null | command grep -v "rate information unavailable" | command grep -E '^Battery.*(Full|(Disc|C)harging)' | cut -f2 -d ',' | tr -cd '[:digit:]'
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -356,22 +356,18 @@ _startserver() {
   content="$1"
 
   nchelp="$(nc -h 2>&1)"
+  
 ################################################################################
 # Commit message: fix nc -q param for centos5
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/850c1128dfb52786b546354619a8037b8d817617
 # Category: 
 # Notes: 
 # Changed content:
-# -   #centos
-# -   if echo "$nchelp" | grep "nmap.org/ncat" >/dev/null ; then
-# +   
-# +   if echo "$nchelp" | grep " \-q " >/dev/null ; then
-# +     _NC="nc -q 1 -l"
-# +   else
+# - if echo "$nchelp" | grep "nmap.org/ncat" >/dev/null ; then
+# + if echo "$nchelp" | grep " \-q " >/dev/null ; then
 ################################################################################
 # put stream annotation here
 # stream enable
-  
   if echo "$nchelp" | grep " \-q " >/dev/null ; then
     _NC="nc -q 1 -l"
   else

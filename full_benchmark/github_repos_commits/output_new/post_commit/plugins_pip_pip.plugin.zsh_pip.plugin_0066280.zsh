@@ -105,8 +105,8 @@ function pipupall {
 # Category: 
 # Notes: 
 # Changed content:
-# -   pip list --outdated --format freeze | cut -d= -f1 | ${=xargs} pip install --upgrade
-# +   pip list --outdated | awk 'NR > 2 { print $1 }' | ${=xargs} pip install --upgrade
+# - pip list --outdated --format freeze | cut -d= -f1 | ${=xargs} pip install --upgrade
+# + pip list --outdated | awk 'NR > 2 { print $1 }' | ${=xargs} pip install --upgrade
 ################################################################################
 # put stream annotation here
 # stream enable

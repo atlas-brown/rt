@@ -137,8 +137,8 @@ nvm_normalize_version() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   echo "$1" | sed -e 's/^v//' | awk -F. '{ printf("%d%03d%03d\n", $1,$2,$3); }'
-# +   echo "$1" | sed -e 's/^v//' | \awk -F. '{ printf("%d%03d%03d\n", $1,$2,$3); }'
+# - echo "$1" | sed -e 's/^v//' | awk -F. '{ printf("%d%03d%03d\n", $1,$2,$3); }'
+# + echo "$1" | sed -e 's/^v//' | \awk -F. '{ printf("%d%03d%03d\n", $1,$2,$3); }'
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -245,32 +245,10 @@ nvm_ls_remote() {
 
 nvm_checksum() {
   if nvm_has "shasum"; then
-################################################################################
-# Commit message: Make sure awk is referenced unaliased, per https://github.com/creationix/nvm/issues/162#issuecomment-50284503
-# Commit URL: https://github.com/nvm-sh/nvm/commit/781373f7ceb0a0f6c696350e3c1d79311b47dbd7
-# Category: 
-# Notes: 
-# Changed content:
-# -     checksum=$(shasum $1 | awk '{print $1}')
-# +     checksum=$(shasum $1 | \awk '{print $1}')
-################################################################################
-# put stream annotation here
-# stream enable
     checksum=$(shasum $1 | \awk '{print $1}')
   elif nvm_has "sha1"; then
     checksum=$(sha1 -q $1)
   else
-################################################################################
-# Commit message: Make sure awk is referenced unaliased, per https://github.com/creationix/nvm/issues/162#issuecomment-50284503
-# Commit URL: https://github.com/nvm-sh/nvm/commit/781373f7ceb0a0f6c696350e3c1d79311b47dbd7
-# Category: 
-# Notes: 
-# Changed content:
-# -     checksum=$(sha1sum $1 | awk '{print $1}')
-# +     checksum=$(sha1sum $1 | \awk '{print $1}')
-################################################################################
-# put stream annotation here
-# stream enable
     checksum=$(sha1sum $1 | \awk '{print $1}')
   fi
 
@@ -445,17 +423,6 @@ nvm() {
           if nvm_binary_available "$VERSION"; then
             t="$VERSION-$os-$arch"
             url="$NVM_NODEJS_ORG_MIRROR/$VERSION/node-${t}.tar.gz"
-################################################################################
-# Commit message: Make sure awk is referenced unaliased, per https://github.com/creationix/nvm/issues/162#issuecomment-50284503
-# Commit URL: https://github.com/nvm-sh/nvm/commit/781373f7ceb0a0f6c696350e3c1d79311b47dbd7
-# Category: 
-# Notes: 
-# Changed content:
-# -             sum=`nvm_download -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-${t}.tar.gz | awk '{print $1}'`
-# +             sum=`nvm_download -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-${t}.tar.gz | \awk '{print $1}'`
-################################################################################
-# put stream annotation here
-# stream enable
             sum=`nvm_download -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-${t}.tar.gz | \awk '{print $1}'`
             local tmpdir
             tmpdir="$NVM_DIR/bin/node-${t}"
@@ -495,17 +462,6 @@ nvm() {
       tmptarball="$tmpdir/node-$VERSION.tar.gz"
       if [ "`nvm_download -s -I "$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz" -o - | \grep '200 OK'`" != '' ]; then
         tarball="$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz"
-################################################################################
-# Commit message: Make sure awk is referenced unaliased, per https://github.com/creationix/nvm/issues/162#issuecomment-50284503
-# Commit URL: https://github.com/nvm-sh/nvm/commit/781373f7ceb0a0f6c696350e3c1d79311b47dbd7
-# Category: 
-# Notes: 
-# Changed content:
-# -         sum=`nvm_download -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-$VERSION.tar.gz | awk '{print $1}'`
-# +         sum=`nvm_download -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-$VERSION.tar.gz | \awk '{print $1}'`
-################################################################################
-# put stream annotation here
-# stream enable
         sum=`nvm_download -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-$VERSION.tar.gz | \awk '{print $1}'`
       elif [ "`nvm_download -s -I "$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz" -o - | \grep '200 OK'`" != '' ]; then
         tarball="$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz"

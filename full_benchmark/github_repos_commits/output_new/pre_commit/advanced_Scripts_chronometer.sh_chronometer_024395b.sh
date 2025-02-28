@@ -23,8 +23,8 @@ do
 # Category: 
 # Notes: 
 # Changed content:
-# - 	todaysAdsEliminated=$(cat /var/log/pihole.log | grep "$today" | awk '/\/etc\/hosts/ {print $7}' | wc -l)
-# + 	todaysAdsEliminated=$(cat /var/log/pihole.log | grep "$today" | awk '/\/etc\/pihole\/gravity.list/ {print $7}' | wc -l)
+# - todaysAdsEliminated=$(cat /var/log/pihole.log | grep "$today" | awk '/\/etc\/hosts/ {print $7}' | wc -l)
+# + todaysAdsEliminated=$(cat /var/log/pihole.log | grep "$today" | awk '/\/etc\/pihole\/gravity.list/ {print $7}' | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable

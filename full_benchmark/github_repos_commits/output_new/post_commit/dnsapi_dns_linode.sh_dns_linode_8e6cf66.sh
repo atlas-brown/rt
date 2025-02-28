@@ -74,9 +74,8 @@ dns_linode_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     response="$(echo "$response" | tr -d "\n" | sed 's/{/\
-# - &/g')"
-# +     response="$(echo "$response" | tr -d "\n" | awk '{ gsub("{","\n{",$1); print $1 }')"
+# - response="$(echo "$response" | tr -d "\n" | sed 's/{/\
+# + response="$(echo "$response" | tr -d "\n" | awk '{ gsub("{","\n{",$1); print $1 }')"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -146,9 +145,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     response="$(echo "$response" | tr -d "\n" | sed 's/{/\
-# - &/g')"
-# +     response="$(echo "$response" | tr -d "\n" | awk '{ gsub("{","\n{",$1); print $1 }')"
+# - response="$(echo "$response" | tr -d "\n" | sed 's/{/\
+# + response="$(echo "$response" | tr -d "\n" | awk '{ gsub("{","\n{",$1); print $1 }')"
 ################################################################################
 # put stream annotation here
 # stream enable

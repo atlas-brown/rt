@@ -27,30 +27,20 @@ echo "Getting Mother of All Ad Blocks list..." # 102168 domains!! Thanks Kacy
 curl -A 'Mozilla/5.0 (X11; Linux x86_64; rv:30.0) Gecko/20100101 Firefox/30.0' -e http://forum.xda-developers.com/ http://adblock.mahakala.is/ | grep -v "#" | awk '{print $2}' | sort >> /tmp/matter.txt
 
 # Sort the aggregated results and remove any duplicates
+# Remove entries from the whitelist file if it exists at the root of the current user's home folder
+if [[ -f $whitelist ]];then
+	echo "Removing duplicates, whitelisting, and formatting the list of domains..."
 ################################################################################
 # Commit message: Fixes issue #2 whitelist support  Just put a file named whitelist.txt in your home folder.  This file should contain one domain per line that needs to be whitelisted.  If the file does not exists, the script will continue as normal.
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/b5cf6de4a317647a1ec622dee4e58a361b76b19e
 # Category: 
 # Notes: 
 # Changed content:
-# - echo "Removing duplicates and formatting to address=/<ad domain>/"$piholeIP
 # - cat /tmp/matter.txt | sed $'s/\r$//' | sort | uniq | sed '/^$/d' | awk -v "IP=$piholeIP" '{sub(/\r$/,""); print "address=/"$0"/"IP}' > /tmp/andLight.txt
-# + # Remove entries from the whitelist file if it exists at the root of the current user's home folder
-# + if [[ -f $whitelist ]];then
-# + 	echo "Removing duplicates, whitelisting, and formatting the list of domains..."
-# + 	cat /tmp/matter.txt | sed $'s/\r$//' | sort | uniq | sed '/^$/d' | grep -v -x -f $whitelist | awk -v "IP=$piholeIP" '{sub(/\r$/,""); print "address=/"$0"/"IP}' > /tmp/andLight.txt
-# + 	numberOfSitesWhitelisted=$(cat $whitelist | wc -l | sed 's/^[ \t]*//')
-# + 	echo "$numberOfSitesWhitelisted domains whitelisted."
-# + else
-# + 	echo "Removing duplicates and formatting the list of domains..."
-# + 	cat /tmp/matter.txt | sed $'s/\r$//' | sort | uniq | sed '/^$/d' | awk -v "IP=$piholeIP" '{sub(/\r$/,""); print "address=/"$0"/"IP}' > /tmp/andLight.txt
-# + fi
+# + cat /tmp/matter.txt | sed $'s/\r$//' | sort | uniq | sed '/^$/d' | awk -v "IP=$piholeIP" '{sub(/\r$/,""); print "address=/"$0"/"IP}' > /tmp/andLight.txt
 ################################################################################
 # put stream annotation here
 # stream enable
-# Remove entries from the whitelist file if it exists at the root of the current user's home folder
-if [[ -f $whitelist ]];then
-	echo "Removing duplicates, whitelisting, and formatting the list of domains..."
 	cat /tmp/matter.txt | sed $'s/\r$//' | sort | uniq | sed '/^$/d' | grep -v -x -f $whitelist | awk -v "IP=$piholeIP" '{sub(/\r$/,""); print "address=/"$0"/"IP}' > /tmp/andLight.txt
 	numberOfSitesWhitelisted=$(cat $whitelist | wc -l | sed 's/^[ \t]*//')
 	echo "$numberOfSitesWhitelisted domains whitelisted."

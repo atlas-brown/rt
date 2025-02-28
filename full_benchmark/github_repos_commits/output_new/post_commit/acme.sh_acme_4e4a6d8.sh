@@ -364,28 +364,18 @@ _ascii_hex() {
 #input:"abc"
 #output: " 61 62 63"
 _hex_dump() {
+  if _exists od; then
 ################################################################################
 # Commit message: better hexdump fix https://github.com/Neilpang/acme.sh/issues/595
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/4e4a6d83973fa0580ef8b2f1d7d0312fdd671543
 # Category: 
 # Notes: 
 # Changed content:
-# -   #in wired some system, the od command is missing.
-# -   if ! od -A n -v -t x1 | tr -d "\r\t" | tr -s " " | sed "s/ $//" | tr -d "\n" 2>/dev/null; then
-# +   if _exists od; then
-# +     od -A n -v -t x1 | tr -s " " | sed 's/ $//' | tr -d "\r\t\n"
-# +   elif _exists hexdump; then
-# +     _debug3 "using hexdump"
-# +     hexdump -v -e '/1 ""' -e '/1 " %02x" ""'
-# +   elif _exists xxd; then
-# +     _debug3 "using xxd"
-# +     xxd -ps -c 20 -i | sed "s/ 0x/ /g" | tr -d ",\n" | tr -s " "
-# +   else
-# +     _debug3 "using _ascii_hex"
+# - if ! od -A n -v -t x1 | tr -d "\r\t" | tr -s " " | sed "s/ $//" | tr -d "\n" 2>/dev/null; then
+# + od -A n -v -t x1 | tr -s " " | sed 's/ $//' | tr -d "\r\t\n"
 ################################################################################
 # put stream annotation here
 # stream enable
-  if _exists od; then
     od -A n -v -t x1 | tr -s " " | sed 's/ $//' | tr -d "\r\t\n"
   elif _exists hexdump; then
     _debug3 "using hexdump"

@@ -71,40 +71,6 @@ dns_freedns_add() {
       fi
       return 1
     fi
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1109
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/ceafe389afb406b92f77392fd7fe2005cb6b750f
-# Category: 
-# Notes: 
-# Changed content:
-# +     _debug2 htmlpage "$htmlpage"
-# + 
-# +     subdomain_csv="$(echo "$htmlpage" | tr -d "\n\r" | _egrep_o '<form .*</form>' | sed 's/<tr>/@<tr>/g' | tr '@' '\n' | grep edit.php | grep $top_domain)"
-# +     _debug2 subdomain_csv "$subdomain_csv"
-################################################################################
-# put stream annotation here
-# stream enable
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1109
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/ceafe389afb406b92f77392fd7fe2005cb6b750f
-# Category: 
-# Notes: 
-# Changed content:
-# -     # Now convert the tables in the HTML to CSV.  This litte gem from
-# -     # http://stackoverflow.com/questions/1403087/how-can-i-convert-an-html-table-to-csv
-# -     subdomain_csv="$(echo "$htmlpage" \
-# -       | grep -i -e '</\?TABLE\|</\?TD\|</\?TR\|</\?TH' \
-# -       | sed 's/^[\ \t]*//g' \
-# -       | tr -d '\n' \
-# -       | sed 's/<\/TR[^>]*>/\n/Ig' \
-# -       | sed 's/<\/\?\(TABLE\|TR\)[^>]*>//Ig' \
-# -       | sed 's/^<T[DH][^>]*>\|<\/\?T[DH][^>]*>$//Ig' \
-# -       | sed 's/<\/T[DH][^>]*><T[DH][^>]*>/,/Ig' \
-# -       | grep 'edit.php?' \
-# -       | grep "$top_domain")"
-################################################################################
-# put stream annotation here
-# stream enable
     _debug2 htmlpage "$htmlpage"
 
     subdomain_csv="$(echo "$htmlpage" | tr -d "\n\r" | _egrep_o '<form .*</form>' | sed 's/<tr>/@<tr>/g' | tr '@' '\n' | grep edit.php | grep $top_domain)"
@@ -127,12 +93,8 @@ dns_freedns_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       line="$(echo "$subdomain_csv" | cut -d "$nl" -f "$i")"
-# -       tmp="$(echo "$line" | cut -d ',' -f 1)"
-# -       if [ $found = 0 ] && _startswith "$tmp" "<td>$top_domain"; then
-# +       line="$(echo "$subdomain_csv" | sed -n ${i}p)"
-# +       _debug2 line "$line"
-# +       if [ $found = 0 ] && _contains "$line" "<td>$top_domain</td>"; then
+# - line="$(echo "$subdomain_csv" | cut -d "$nl" -f "$i")"
+# + line="$(echo "$subdomain_csv" | sed -n ${i}p)"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -140,72 +102,22 @@ dns_freedns_add() {
       _debug2 line "$line"
       if [ $found = 0 ] && _contains "$line" "<td>$top_domain</td>"; then
         # this line will contain DNSdomainid for the top_domain
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1109
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/ceafe389afb406b92f77392fd7fe2005cb6b750f
-# Category: 
-# Notes: 
-# Changed content:
-# -         DNSdomainid="$(echo "$line" | cut -d ',' -f 2 | sed 's/^.*domain_id=//;s/>.*//')"
-# +         DNSdomainid="$(echo "$line" | _egrep_o "edit_domain_id *= *.*>" | cut -d = -f 2 | cut -d '>' -f 1)"
-# +         _debug2 DNSdomainid "$DNSdomainid"
-################################################################################
-# put stream annotation here
-# stream enable
         DNSdomainid="$(echo "$line" | _egrep_o "edit_domain_id *= *.*>" | cut -d = -f 2 | cut -d '>' -f 1)"
         _debug2 DNSdomainid "$DNSdomainid"
         found=1
       else
         # lines contain DNS records for all subdomains
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1109
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/ceafe389afb406b92f77392fd7fe2005cb6b750f
-# Category: 
-# Notes: 
-# Changed content:
-# -         DNSname="$(echo "$line" | cut -d ',' -f 2 | sed 's/^[^>]*>//;s/<\/a>.*//')"
-# -         DNStype="$(echo "$line" | cut -d ',' -f 3)"
-# +         DNSname="$(echo "$line" | _egrep_o 'edit.php.*</a>' | cut -d '>' -f 2 | cut -d '<' -f 1)"
-# +         _debug2 DNSname "$DNSname"
-# +         DNStype="$(echo "$line" | sed 's/<td/@<td/g' | tr '@' '\n' | sed -n '4p' | cut -d '>' -f 2 | cut -d '<' -f 1)"
-# +         _debug2 DNStype "$DNStype"
-################################################################################
-# put stream annotation here
-# stream enable
         DNSname="$(echo "$line" | _egrep_o 'edit.php.*</a>' | cut -d '>' -f 2 | cut -d '<' -f 1)"
         _debug2 DNSname "$DNSname"
         DNStype="$(echo "$line" | sed 's/<td/@<td/g' | tr '@' '\n' | sed -n '4p' | cut -d '>' -f 2 | cut -d '<' -f 1)"
         _debug2 DNStype "$DNStype"
         if [ "$DNSname" = "$fulldomain" ] && [ "$DNStype" = "TXT" ]; then
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1109
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/ceafe389afb406b92f77392fd7fe2005cb6b750f
-# Category: 
-# Notes: 
-# Changed content:
-# -           DNSdataid="$(echo "$line" | cut -d ',' -f 2 | sed 's/^.*data_id=//;s/>.*//')"
-# +           DNSdataid="$(echo "$line" | _egrep_o 'data_id=.*' | cut -d = -f 2 | cut -d '>' -f 1)"
-################################################################################
-# put stream annotation here
-# stream enable
           DNSdataid="$(echo "$line" | _egrep_o 'data_id=.*' | cut -d = -f 2 | cut -d '>' -f 1)"
           # Now get current value for the TXT record.  This method may
           # not produce accurate results as the value field is truncated
           # on this webpage. To get full value we would need to load
           # another page. However we don't really need this so long as
           # there is only one TXT record for the acme challenge subdomain.
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1109
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/ceafe389afb406b92f77392fd7fe2005cb6b750f
-# Category: 
-# Notes: 
-# Changed content:
-# -           DNSvalue="$(echo "$line" | cut -d ',' -f 4 | sed 's/^[^&quot;]*&quot;//;s/&quot;.*//;s/<\/td>.*//')"
-# +           DNSvalue="$(echo "$line" | sed 's/<td/@<td/g' | tr '@' '\n' | sed -n '5p' | cut -d '>' -f 2 | cut -d '<' -f 1)"
-# +           _debug2 DNSvalue "$DNSvalue"
-################################################################################
-# put stream annotation here
-# stream enable
           DNSvalue="$(echo "$line" | sed 's/<td/@<td/g' | tr '@' '\n' | sed -n '5p' | cut -d '>' -f 2 | cut -d '<' -f 1)"
           _debug2 DNSvalue "$DNSvalue"
           if [ $found != 0 ]; then
@@ -303,30 +215,6 @@ dns_freedns_rm() {
       return 1
     fi
 
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1109
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/ceafe389afb406b92f77392fd7fe2005cb6b750f
-# Category: 
-# Notes: 
-# Changed content:
-# -     # Now convert the tables in the HTML to CSV.  This litte gem from
-# -     # http://stackoverflow.com/questions/1403087/how-can-i-convert-an-html-table-to-csv
-# -     subdomain_csv="$(echo "$htmlpage" \
-# -       | grep -i -e '</\?TABLE\|</\?TD\|</\?TR\|</\?TH' \
-# -       | sed 's/^[\ \t]*//g' \
-# -       | tr -d '\n' \
-# -       | sed 's/<\/TR[^>]*>/\n/Ig' \
-# -       | sed 's/<\/\?\(TABLE\|TR\)[^>]*>//Ig' \
-# -       | sed 's/^<T[DH][^>]*>\|<\/\?T[DH][^>]*>$//Ig' \
-# -       | sed 's/<\/T[DH][^>]*><T[DH][^>]*>/,/Ig' \
-# -       | grep 'edit.php?' \
-# -       | grep "$fulldomain")"
-# +     subdomain_csv="$(echo "$htmlpage" | tr -d "\n\r" | _egrep_o '<form .*</form>' | sed 's/<tr>/@<tr>/g' | tr '@' '\n' | grep edit.php | grep $fulldomain)"
-# +     _debug2 subdomain_csv "$subdomain_csv"
-# + 
-################################################################################
-# put stream annotation here
-# stream enable
     subdomain_csv="$(echo "$htmlpage" | tr -d "\n\r" | _egrep_o '<form .*</form>' | sed 's/<tr>/@<tr>/g' | tr '@' '\n' | grep edit.php | grep $fulldomain)"
     _debug2 subdomain_csv "$subdomain_csv"
 
@@ -347,15 +235,8 @@ dns_freedns_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       line="$(echo "$subdomain_csv" | cut -d "$nl" -f "$i")"
-# -       DNSname="$(echo "$line" | cut -d ',' -f 2 | sed 's/^[^>]*>//;s/<\/a>.*//')"
-# -       DNStype="$(echo "$line" | cut -d ',' -f 3)"
-# +       line="$(echo "$subdomain_csv" | sed -n ${i}p)"
-# +       _debug2 line "$line"
-# +       DNSname="$(echo "$line" | _egrep_o 'edit.php.*</a>' | cut -d '>' -f 2 | cut -d '<' -f 1)"
-# +       _debug2 DNSname "$DNSname"
-# +       DNStype="$(echo "$line" | sed 's/<td/@<td/g' | tr '@' '\n' | sed -n '4p' | cut -d '>' -f 2 | cut -d '<' -f 1)"
-# +       _debug2 DNStype "$DNStype"
+# - line="$(echo "$subdomain_csv" | cut -d "$nl" -f "$i")"
+# + line="$(echo "$subdomain_csv" | sed -n ${i}p)"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -366,22 +247,6 @@ dns_freedns_rm() {
       DNStype="$(echo "$line" | sed 's/<td/@<td/g' | tr '@' '\n' | sed -n '4p' | cut -d '>' -f 2 | cut -d '<' -f 1)"
       _debug2 DNStype "$DNStype"
       if [ "$DNSname" = "$fulldomain" ] && [ "$DNStype" = "TXT" ]; then
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1109
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/ceafe389afb406b92f77392fd7fe2005cb6b750f
-# Category: 
-# Notes: 
-# Changed content:
-# -         DNSdataid="$(echo "$line" | cut -d ',' -f 2 | sed 's/^.*data_id=//;s/>.*//')"
-# -         DNSvalue="$(echo "$line" | cut -d ',' -f 4 | sed 's/^[^&quot;]*&quot;//;s/&quot;.*//;s/<\/td>.*//')"
-# -         _debug "DNSvalue: $DNSvalue"
-# +         DNSdataid="$(echo "$line" | _egrep_o 'data_id=.*' | cut -d = -f 2 | cut -d '>' -f 1)"
-# +         _debug2 DNSdataid "$DNSdataid"
-# +         DNSvalue="$(echo "$line" | sed 's/<td/@<td/g' | tr '@' '\n' | sed -n '5p' | cut -d '>' -f 2 | cut -d '<' -f 1)"
-# +         _debug2 DNSvalue "$DNSvalue"
-################################################################################
-# put stream annotation here
-# stream enable
         DNSdataid="$(echo "$line" | _egrep_o 'data_id=.*' | cut -d = -f 2 | cut -d '>' -f 1)"
         _debug2 DNSdataid "$DNSdataid"
         DNSvalue="$(echo "$line" | sed 's/<td/@<td/g' | tr '@' '\n' | sed -n '5p' | cut -d '>' -f 2 | cut -d '<' -f 1)"

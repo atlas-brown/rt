@@ -897,8 +897,8 @@ configureFirewall() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     if iptables -S INPUT | head -n1 | grep -qv 'ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '(^-A\|^-P).*ACCEPT$'; then
-# +     if iptables -S INPUT | head -n1 | grep -qv '^-P.*ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '^-\(A\|P\).*ACCEPT$'; then
+# - if iptables -S INPUT | head -n1 | grep -qv 'ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '(^-A\|^-P).*ACCEPT$'; then
+# + if iptables -S INPUT | head -n1 | grep -qv '^-P.*ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '^-\(A\|P\).*ACCEPT$'; then
 ################################################################################
 # put stream annotation here
 # stream enable

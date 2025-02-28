@@ -187,8 +187,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       _domain_id=$(printf "%s\n" "$_cf_zones" | _egrep_o "\[.\"id\":\"[^\"]*\"" | head -n 1 | cut -d : -f 2 | tr -d \")
-# +       _domain_id=$(echo "$_cf_zones" | tr '{' "\n" | grep "\"name\":\"$h\"" | _egrep_o "^\"id\":\"[^\"]*\"" | _head_n 1 | cut -d : -f 2 | tr -d \")
+# - _domain_id=$(printf "%s\n" "$_cf_zones" | _egrep_o "\[.\"id\":\"[^\"]*\"" | head -n 1 | cut -d : -f 2 | tr -d \")
+# + _domain_id=$(echo "$_cf_zones" | tr '{' "\n" | grep "\"name\":\"$h\"" | _egrep_o "^\"id\":\"[^\"]*\"" | _head_n 1 | cut -d : -f 2 | tr -d \")
 ################################################################################
 # put stream annotation here
 # stream enable

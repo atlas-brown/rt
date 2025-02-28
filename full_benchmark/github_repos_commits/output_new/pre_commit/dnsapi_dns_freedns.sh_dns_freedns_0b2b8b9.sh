@@ -311,8 +311,8 @@ _freedns_domain_id() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       | grep -o "edit\.php?edit_domain_id=[0-9a-zA-Z]*" \
-# +       | sed -n 's/.*\(edit\.php?edit_domain_id=[0-9a-zA-Z]*\).*/\1/p' \
+# - | grep -o "edit\.php?edit_domain_id=[0-9a-zA-Z]*" \
+# + | sed -n 's/.*\(edit\.php?edit_domain_id=[0-9a-zA-Z]*\).*/\1/p' \
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -369,8 +369,8 @@ _freedns_data_id() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       | grep -o "edit\.php?data_id=[0-9a-zA-Z]*" \
-# +       | sed -n 's/.*\(edit\.php?data_id=[0-9a-zA-Z]*\).*/\1/p' \
+# - | grep -o "edit\.php?data_id=[0-9a-zA-Z]*" \
+# + | sed -n 's/.*\(edit\.php?data_id=[0-9a-zA-Z]*\).*/\1/p' \
 ################################################################################
 # put stream annotation here
 # stream enable

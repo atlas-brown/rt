@@ -3989,29 +3989,6 @@ _check_dns_entries() {
 
 }
 
-################################################################################
-# Commit message: support "--preferred-chain" to select chain https://github.com/acmesh-official/acme.sh/wiki/Preferred-Chain
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/e3ebd582ec62aacd77c73dbc11b7567492b00c51
-# Category: 
-# Notes: 
-# Changed content:
-# + #file
-# + _get_cert_issuer() {
-# +   _cfile="$1"
-# +   echo $(openssl x509 -in $_cfile -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2)
-# + }
-# + 
-# + #cert  issuer
-# + _match_issuer() {
-# +   _cfile="$1"
-# +   _missuer="$2"
-# +   _fissuer=$(_get_cert_issuer $_cfile)
-# +   [ "$_missuer" = "$_fissuer" ]
-# + }
-# + 
-################################################################################
-# put stream annotation here
-# stream enable
 #file
 _get_cert_issuer() {
   _cfile="$1"
@@ -4792,53 +4769,6 @@ $_authorizations_map"
     fi
 
     echo "$response" >"$CERT_PATH"
-################################################################################
-# Commit message: support "--preferred-chain" to select chain https://github.com/acmesh-official/acme.sh/wiki/Preferred-Chain
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/e3ebd582ec62aacd77c73dbc11b7567492b00c51
-# Category: 
-# Notes: 
-# Changed content:
-# - 
-# -     if [ "$(grep -- "$BEGIN_CERT" "$CERT_PATH" | wc -l)" -gt "1" ]; then
-# -       _debug "Found cert chain"
-# -       cat "$CERT_PATH" >"$CERT_FULLCHAIN_PATH"
-# -       _end_n="$(grep -n -- "$END_CERT" "$CERT_FULLCHAIN_PATH" | _head_n 1 | cut -d : -f 1)"
-# -       _debug _end_n "$_end_n"
-# -       sed -n "1,${_end_n}p" "$CERT_FULLCHAIN_PATH" >"$CERT_PATH"
-# -       _end_n="$(_math $_end_n + 1)"
-# -       sed -n "${_end_n},9999p" "$CERT_FULLCHAIN_PATH" >"$CA_CERT_PATH"
-# +     _split_cert_chain "$CERT_PATH" "$CERT_FULLCHAIN_PATH" "$CA_CERT_PATH"
-# + 
-# +     if [ "$_preferred_chain" ]; then
-# +       _cert_issuer=$(_get_cert_issuer "$CA_CERT_PATH")
-# +       _debug _cert_issuer "$_cert_issuer"
-# +       if ! _match_issuer "$CA_CERT_PATH" "$_preferred_chain"; then
-# +         rels="$(echo "$responseHeaders" | tr -d ' <>' | grep -i "^link:" | grep -i 'rel="alternate"' | cut -d : -f 2- | cut -d ';' -f 1)"
-# +         _debug2 "rels" "$rels"
-# +         for rel in $rels; do
-# +           _info "Try rel: $rel"
-# +           if ! _send_signed_request "$rel"; then
-# +             _err "Sign failed, can not download cert:$rel"
-# +             _err "$response"
-# +             continue
-# +           fi
-# +           _relcert="$CERT_PATH.alt"
-# +           _relfullchain="$CERT_FULLCHAIN_PATH.alt"
-# +           _relca="$CA_CERT_PATH.alt"
-# +           echo "$response" >"$_relcert"
-# +           _split_cert_chain "$_relcert" "$_relfullchain" "$_relca"
-# +           if _match_issuer "$_relca" "$_preferred_chain"; then
-# +             _info "Matched issuer in: $rel"
-# +             cat $_relcert >"$CERT_PATH"
-# +             cat $_relfullchain >"$CERT_FULLCHAIN_PATH"
-# +             cat $_relca >"$CA_CERT_PATH"
-# +             break
-# +           fi
-# +         done
-# +       fi
-################################################################################
-# put stream annotation here
-# stream enable
     _split_cert_chain "$CERT_PATH" "$CERT_FULLCHAIN_PATH" "$CA_CERT_PATH"
 
     if [ "$_preferred_chain" ]; then
@@ -5037,36 +4967,22 @@ $_authorizations_map"
   fi
 }
 
+#in_out_cert   out_fullchain out out_ca
+_split_cert_chain() {
+  _certf="$1"
+  _fullchainf="$2"
+  _caf="$3"
 ################################################################################
 # Commit message: support "--preferred-chain" to select chain https://github.com/acmesh-official/acme.sh/wiki/Preferred-Chain
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/e3ebd582ec62aacd77c73dbc11b7567492b00c51
 # Category: 
 # Notes: 
 # Changed content:
-# + #in_out_cert   out_fullchain out out_ca
-# + _split_cert_chain() {
-# +   _certf="$1"
-# +   _fullchainf="$2"
-# +   _caf="$3"
-# +   if [ "$(grep -- "$BEGIN_CERT" "$_certf" | wc -l)" -gt "1" ]; then
-# +     _debug "Found cert chain"
-# +     cat "$_certf" >"$_fullchainf"
-# +     _end_n="$(grep -n -- "$END_CERT" "$_fullchainf" | _head_n 1 | cut -d : -f 1)"
-# +     _debug _end_n "$_end_n"
-# +     sed -n "1,${_end_n}p" "$_fullchainf" >"$_certf"
-# +     _end_n="$(_math $_end_n + 1)"
-# +     sed -n "${_end_n},9999p" "$_fullchainf" >"$_caf"
-# +   fi
-# + }
-# + 
+# + if [ "$(grep -- "$BEGIN_CERT" "$_certf" | wc -l)" -gt "1" ]; then
+# + _end_n="$(grep -n -- "$END_CERT" "$_fullchainf" | _head_n 1 | cut -d : -f 1)"
 ################################################################################
 # put stream annotation here
 # stream enable
-#in_out_cert   out_fullchain out out_ca
-_split_cert_chain() {
-  _certf="$1"
-  _fullchainf="$2"
-  _caf="$3"
   if [ "$(grep -- "$BEGIN_CERT" "$_certf" | wc -l)" -gt "1" ]; then
     _debug "Found cert chain"
     cat "$_certf" >"$_fullchainf"
@@ -6546,22 +6462,6 @@ Parameters:
                                     See: $_STATELESS_WIKI
 
   --apache                          Use apache mode.
-################################################################################
-# Commit message: support "--preferred-chain" to select chain https://github.com/acmesh-official/acme.sh/wiki/Preferred-Chain
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/e3ebd582ec62aacd77c73dbc11b7567492b00c51
-# Category: 
-# Notes: 
-# Changed content:
-# -   --dns [dns_cf|dns_dp|dns_cx|/path/to/api/file]   Use dns mode or dns api.
-# -   --dnssleep   300                  The time in seconds to wait for all the txt records to take effect in dns api mode. It's not necessary to use this by default, $PROJECT_NAME polls dns status automatically.
-# +   --dns [dns_hook]                  Use dns mode or dns api.
-# +                                     See: $_DNS_API_WIKI
-# + 
-# +   --dnssleep   300                  The time in seconds to wait for all the txt records to propagate in dns api mode.
-# +                                     It's not necessary to use this by default, $PROJECT_NAME polls dns status by DOH automatically.
-################################################################################
-# put stream annotation here
-# stream enable
   --dns [dns_hook]                  Use dns mode or dns api.
                                     See: $_DNS_API_WIKI
 

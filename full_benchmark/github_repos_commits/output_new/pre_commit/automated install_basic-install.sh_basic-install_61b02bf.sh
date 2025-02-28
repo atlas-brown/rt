@@ -79,9 +79,8 @@ if [ -x "$(command -v apt-get)" ];then
 # Category: 
 # Notes: 
 # Changed content:
-# - 	PKG_COUNT="$PKG_MANAGER -s -o Debug::NoLocking=true upgrade | grep -c ^Inst"
-# + 	# grep -c will return 1 retVal on 0 matches, block this throwing the set -e with an OR TRUE
-# + 	PKG_COUNT="$PKG_MANAGER -s -o Debug::NoLocking=true upgrade | grep -c ^Inst || true"
+# - PKG_COUNT="$PKG_MANAGER -s -o Debug::NoLocking=true upgrade | grep -c ^Inst"
+# + PKG_COUNT="$PKG_MANAGER -s -o Debug::NoLocking=true upgrade | grep -c ^Inst || true"
 ################################################################################
 # put stream annotation here
 # stream enable

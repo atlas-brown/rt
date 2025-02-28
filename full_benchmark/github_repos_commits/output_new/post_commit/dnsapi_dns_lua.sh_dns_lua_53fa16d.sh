@@ -52,8 +52,8 @@ dns_lua_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   count=$(printf "%s\n" "$response" | _egrep_o "\"name\":\"$fulldomain\"" | wc -l | tr -d " ")
-# +   count=$(printf "%s\n" "$response" | _egrep_o "\"name\":\"$fulldomain.\",\"type\":\"TXT\"" | wc -l | tr -d " ")
+# - count=$(printf "%s\n" "$response" | _egrep_o "\"name\":\"$fulldomain\"" | wc -l | tr -d " ")
+# + count=$(printf "%s\n" "$response" | _egrep_o "\"name\":\"$fulldomain.\",\"type\":\"TXT\"" | wc -l | tr -d " ")
 ################################################################################
 # put stream annotation here
 # stream enable

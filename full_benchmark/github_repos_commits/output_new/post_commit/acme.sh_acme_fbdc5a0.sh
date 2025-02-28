@@ -3756,9 +3756,7 @@ issue() {
 # Category: 
 # Notes: 
 # Changed content:
-# - 
-# +       Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d " " -f 2)"
-# +       _debug Le_LinkOrder "$Le_LinkOrder"
+# + Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d " " -f 2)"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -4261,16 +4259,6 @@ $_authorizations_map"
       _err "$response"
       _on_issue_err "$_post_hook"
       return 1
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/2179
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/fbdc5a0eb540865b52d4647ac5eda84ecaa9a0be
-# Category: 
-# Notes: 
-# Changed content:
-# -     Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d " " -f 2)"
-################################################################################
-# put stream annotation here
-# stream enable
     fi
     if [ -z "$Le_LinkOrder" ]; then
 ################################################################################
@@ -4279,11 +4267,7 @@ $_authorizations_map"
 # Category: 
 # Notes: 
 # Changed content:
-# -       _err "Sign error, can not get order link location header"
-# -       _err "responseHeaders" "$responseHeaders"
-# -       _on_issue_err "$_post_hook"
-# -       return 1
-# +       Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d " " -f 2)"
+# + Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d " " -f 2)"
 ################################################################################
 # put stream annotation here
 # stream enable

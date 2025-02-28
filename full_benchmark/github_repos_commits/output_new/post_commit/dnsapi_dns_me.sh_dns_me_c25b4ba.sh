@@ -120,8 +120,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       _domain_id=$(printf "%s\n" "$response" | cut -c 2- | head -c -2 | sed 's/{.*}//' | sed -r 's/^.*"id":([0-9]+).*$/\1/')
-# +       _domain_id=$(printf "%s\n" "$response" | sed 's/^{//; s/}$//; s/{.*}//' | sed -E 's/^.*"id":([0-9]+).*$/\1/')
+# - _domain_id=$(printf "%s\n" "$response" | cut -c 2- | head -c -2 | sed 's/{.*}//' | sed -r 's/^.*"id":([0-9]+).*$/\1/')
+# + _domain_id=$(printf "%s\n" "$response" | sed 's/^{//; s/}$//; s/{.*}//' | sed -E 's/^.*"id":([0-9]+).*$/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable

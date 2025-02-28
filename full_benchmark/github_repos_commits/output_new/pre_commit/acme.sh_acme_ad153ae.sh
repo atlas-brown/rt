@@ -1616,8 +1616,8 @@ _setopt() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     echo "$text" | sed "s|^$__opt$__sep.*$|$__opt$__sep$__val$__end|" >"$__conf"
-# +     printf -- "%s" "$text" | sed "s|^$__opt$__sep.*$|$__opt$__sep$__val$__end|" >"$__conf"
+# - echo "$text" | sed "s|^$__opt$__sep.*$|$__opt$__sep$__val$__end|" >"$__conf"
+# + printf -- "%s" "$text" | sed "s|^$__opt$__sep.*$|$__opt$__sep$__val$__end|" >"$__conf"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -1634,8 +1634,8 @@ _setopt() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     echo "$text" | sed "s|^#$__opt$__sep.*$|$__opt$__sep$__val$__end|" >"$__conf"
-# +     printf -- "%s" "$text" | sed "s|^#$__opt$__sep.*$|$__opt$__sep$__val$__end|" >"$__conf"
+# - echo "$text" | sed "s|^#$__opt$__sep.*$|$__opt$__sep$__val$__end|" >"$__conf"
+# + printf -- "%s" "$text" | sed "s|^#$__opt$__sep.*$|$__opt$__sep$__val$__end|" >"$__conf"
 ################################################################################
 # put stream annotation here
 # stream enable

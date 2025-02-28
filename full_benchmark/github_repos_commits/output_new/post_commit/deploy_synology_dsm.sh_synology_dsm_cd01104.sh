@@ -233,8 +233,8 @@ synology_dsm_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   error_code=$(echo "$response" | grep '"error":' | grep '"code":[0-9]*' | grep -o '[0-9]*')
-# +   error_code=$(echo "$response" | grep '"error":' | grep -o '"code":[0-9]*' | grep -o '[0-9]*')
+# - error_code=$(echo "$response" | grep '"error":' | grep '"code":[0-9]*' | grep -o '[0-9]*')
+# + error_code=$(echo "$response" | grep '"error":' | grep -o '"code":[0-9]*' | grep -o '[0-9]*')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -279,8 +279,8 @@ synology_dsm_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     error_code=$(echo "$response" | grep '"error":' | grep '"code":[0-9]*' | grep -o '[0-9]*')
-# +     error_code=$(echo "$response" | grep '"error":' | grep -o '"code":[0-9]*' | grep -o '[0-9]*')
+# - error_code=$(echo "$response" | grep '"error":' | grep '"code":[0-9]*' | grep -o '[0-9]*')
+# + error_code=$(echo "$response" | grep '"error":' | grep -o '"code":[0-9]*' | grep -o '[0-9]*')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -353,8 +353,8 @@ synology_dsm_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   error_code=$(echo "$response" | grep '"error":' | grep '"code":[0-9]*' | grep -o '[0-9]*')
-# +   error_code=$(echo "$response" | grep '"error":' | grep -o '"code":[0-9]*' | grep -o '[0-9]*')
+# - error_code=$(echo "$response" | grep '"error":' | grep '"code":[0-9]*' | grep -o '[0-9]*')
+# + error_code=$(echo "$response" | grep '"error":' | grep -o '"code":[0-9]*' | grep -o '[0-9]*')
 ################################################################################
 # put stream annotation here
 # stream enable

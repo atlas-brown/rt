@@ -4088,8 +4088,8 @@ $_authorizations_map"
 # Category: 
 # Notes: 
 # Changed content:
-# -         _candindates="$(echo "$_authorizations_map" | grep "^$_idn_d,")"
-# +         _candindates="$(echo "$_authorizations_map" | grep -i "^$_idn_d,")"
+# - _candindates="$(echo "$_authorizations_map" | grep "^$_idn_d,")"
+# + _candindates="$(echo "$_authorizations_map" | grep -i "^$_idn_d,")"
 ################################################################################
 # put stream annotation here
 # stream enable

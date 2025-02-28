@@ -64,61 +64,11 @@ wd_warp()
 
 wd_add()
 {
-################################################################################
-# Commit message: [wd] v0.3.1: Improved completion and bug fixes
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/346f6b7d24d6021efa8c5167088f98c10f00ad3f
-# Category: 
-# Notes: 
-# Changed content:
-# -     if [[ $2 =~ "^\.+$" || $2 =~ "^\s*$" ]]
-# +     local force=$1
-# +     local point=$2
-# + 
-# +     if [[ $point =~ "^[\.]+$" ]]
-# +     then
-# +         wd_print_msg $RED "Warp point cannot be just dots"
-# +     elif [[ $point =~ "(\s|\ )+" ]]
-################################################################################
-# put stream annotation here
-# stream enable
     if [[ $2 =~ "^\.+$" || $2 =~ "^\s*$" ]]
     then
-################################################################################
-# Commit message: [wd] v0.3.1: Improved completion and bug fixes
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/346f6b7d24d6021efa8c5167088f98c10f00ad3f
-# Category: 
-# Notes: 
-# Changed content:
-# -         wd_print_msg $RED "Illegal warp point (see README)."
-# -     elif [[ ${points[$2]} == "" ]] || $1
-# +         wd_print_msg $RED "Warp point should not contain whitespace"
-# +     elif [[ $point == *:* ]]
-################################################################################
-# put stream annotation here
-# stream enable
         wd_print_msg $RED "Illegal warp point (see README)."
     elif [[ ${points[$2]} == "" ]] || $1
     then
-################################################################################
-# Commit message: [wd] v0.3.1: Improved completion and bug fixes
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/346f6b7d24d6021efa8c5167088f98c10f00ad3f
-# Category: 
-# Notes: 
-# Changed content:
-# -         wd_remove $2 > /dev/null
-# -         print "$2:$PWD" >> $CONFIG
-# +         wd_print_msg $RED "Warp point cannot contain colons"
-# +     elif [[ $point == "" ]]
-# +     then
-# +         wd_print_msg $RED "Warp point cannot be empty"
-# +     elif [[ ${points[$2]} == "" ]] || $force
-# +     then
-# +         wd_remove $point > /dev/null
-# +         printf "%q:%q\n" "${point}" "${PWD}" >> $CONFIG
-# + 
-################################################################################
-# put stream annotation here
-# stream enable
         wd_remove $2 > /dev/null
         print "$2:$PWD" >> $CONFIG
         wd_print_msg $GREEN "Warp point added"
@@ -145,24 +95,19 @@ wd_remove()
     fi
 }
 
+wd_show()
+{
+    wd_print_msg $BLUE "Warp points to current directory:"
 ################################################################################
 # Commit message: [wd] v0.3.1: Improved completion and bug fixes
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/346f6b7d24d6021efa8c5167088f98c10f00ad3f
 # Category: 
 # Notes: 
 # Changed content:
-# - wd_show()
-# - {
-# -     wd_print_msg $BLUE "Warp points to current directory:"
-# -     wd_list_all | grep $PWD$
-# - }
-# - 
+# - wd_list_all | grep $PWD$
 ################################################################################
 # put stream annotation here
 # stream enable
-wd_show()
-{
-    wd_print_msg $BLUE "Warp points to current directory:"
     wd_list_all | grep $PWD$
 }
 
@@ -179,44 +124,11 @@ wd_list_all()
 
             print "\t" $key "\t -> \t" $val
         fi
-################################################################################
-# Commit message: [wd] v0.3.1: Improved completion and bug fixes
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/346f6b7d24d6021efa8c5167088f98c10f00ad3f
-# Category: 
-# Notes: 
-# Changed content:
-# -     done < $CONFIG
-# +     done <<< $(sed "s:${HOME}:~:g" $CONFIG)
-# + }
-# + 
-# + wd_show()
-# + {
-# +     local cwd=$(print $PWD | sed "s:^${HOME}:~:")
-# + 
-# +     wd_print_msg $BLUE "Warp points to current directory:"
-# +     wd_list_all | grep -e "${cwd}$"
-################################################################################
-# put stream annotation here
-# stream enable
     done < $CONFIG
 }
 
 wd_print_msg()
 {
-################################################################################
-# Commit message: [wd] v0.3.1: Improved completion and bug fixes
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/346f6b7d24d6021efa8c5167088f98c10f00ad3f
-# Category: 
-# Notes: 
-# Changed content:
-# -     if [[ $1 == "" || $2 == "" ]]
-# +     local color=$1
-# +     local msg=$2
-# + 
-# +     if [[ $color == "" || $msg == "" ]]
-################################################################################
-# put stream annotation here
-# stream enable
     if [[ $1 == "" || $2 == "" ]]
     then
         print " $RED*$NOC Could not print message. Sorry!"
@@ -227,34 +139,6 @@ wd_print_msg()
 
 wd_print_usage()
 {
-################################################################################
-# Commit message: [wd] v0.3.1: Improved completion and bug fixes
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/346f6b7d24d6021efa8c5167088f98c10f00ad3f
-# Category: 
-# Notes: 
-# Changed content:
-# -     print "Usage: wd [add|-a|--add] [rm|-r|--remove] [ls|-l|--list] <point>"
-# -     print "\nCommands:"
-# -     print "\t add \t Adds the current working directory to your warp points"
-# -     print "\t add! \t Overwrites existing warp point"
-# -     print "\t rm \t  Removes the given warp point"
-# -     print "\t show \t Outputs warp points to current directory"
-# -     print "\t ls \t Outputs all stored warp points"
-# -     print "\t help \t Show this extremely helpful text"
-# +     cat <<- EOF
-# + Usage: wd [add|-a|--add] [rm|-r|--remove] <point>
-# + 
-# + Commands:
-# + 	add	Adds the current working directory to your warp points
-# + 	add!	Overwrites existing warp point
-# + 	rm	Removes the given warp point
-# + 	show	Outputs warp points to current directory
-# + 	ls	Outputs all stored warp points
-# + 	help	Show this extremely helpful text
-# + EOF
-################################################################################
-# put stream annotation here
-# stream enable
     print "Usage: wd [add|-a|--add] [rm|-r|--remove] [ls|-l|--list] <point>"
     print "\nCommands:"
     print "\t add \t Adds the current working directory to your warp points"

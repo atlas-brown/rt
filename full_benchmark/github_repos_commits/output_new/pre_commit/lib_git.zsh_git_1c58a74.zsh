@@ -1,21 +1,6 @@
 # Outputs current branch info in prompt format
 function git_prompt_info() {
   local ref
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
-# -     ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
-# -     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-# +   if [[ "$(__git_prompt_git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
-# +     ref=$(__git_prompt_git symbolic-ref HEAD 2> /dev/null) || \
-# +     ref=$(__git_prompt_git rev-parse --short HEAD 2> /dev/null) || return 0
-################################################################################
-# put stream annotation here
-# stream enable
   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
     ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
@@ -48,8 +33,8 @@ function parse_git_dirty() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
-# +     STATUS=$(__git_prompt_git status ${FLAGS} 2> /dev/null | tail -n1)
+# - STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
+# + STATUS=$(__git_prompt_git status ${FLAGS} 2> /dev/null | tail -n1)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -73,10 +58,10 @@ function git_remote_status() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         ahead=$(command git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
-# -         behind=$(command git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
-# +         ahead=$(__git_prompt_git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
-# +         behind=$(__git_prompt_git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+# - ahead=$(command git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+# + ahead=$(__git_prompt_git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+# - behind=$(command git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+# + behind=$(__git_prompt_git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -114,17 +99,6 @@ function git_current_branch() {
   local ret=$?
   if [[ $ret != 0 ]]; then
     [[ $ret == 128 ]] && return  # no git repo.
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
-# +     ref=$(__git_prompt_git rev-parse --short HEAD 2> /dev/null) || return
-################################################################################
-# put stream annotation here
-# stream enable
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
   fi
   echo ${ref#refs/heads/}
@@ -189,48 +163,11 @@ function git_prompt_long_sha() {
 # Get the status of the working tree
 function git_prompt_status() {
   local INDEX STATUS
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   INDEX=$(command git status --porcelain -b 2> /dev/null)
-# +   INDEX=$(__git_prompt_git status --porcelain -b 2> /dev/null) || return 0
-################################################################################
-# put stream annotation here
-# stream enable
   INDEX=$(command git status --porcelain -b 2> /dev/null)
   STATUS=""
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   if $(echo "$INDEX" | command grep -E '^\?\? ' &> /dev/null); then
-# +   if [[ "${INDEX}" =~ $'(^|\n)\\?\\? ' ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if $(echo "$INDEX" | command grep -E '^\?\? ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_UNTRACKED$STATUS"
   fi
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   if $(echo "$INDEX" | grep '^A  ' &> /dev/null); then
-# -     STATUS="$ZSH_THEME_GIT_PROMPT_ADDED$STATUS"
-# -   elif $(echo "$INDEX" | grep '^M  ' &> /dev/null); then
-# -     STATUS="$ZSH_THEME_GIT_PROMPT_ADDED$STATUS"
-# -   elif $(echo "$INDEX" | grep '^MM ' &> /dev/null); then
-# +   if [[ "${INDEX}" =~ $'(^|\n)(A |M |MM) ' ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if $(echo "$INDEX" | grep '^A  ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_ADDED$STATUS"
   elif $(echo "$INDEX" | grep '^M  ' &> /dev/null); then
@@ -238,23 +175,6 @@ function git_prompt_status() {
   elif $(echo "$INDEX" | grep '^MM ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_ADDED$STATUS"
   fi
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   if $(echo "$INDEX" | grep '^ M ' &> /dev/null); then
-# -     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
-# -   elif $(echo "$INDEX" | grep '^AM ' &> /dev/null); then
-# -     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
-# -   elif $(echo "$INDEX" | grep '^MM ' &> /dev/null); then
-# -     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
-# -   elif $(echo "$INDEX" | grep '^ T ' &> /dev/null); then
-# +   if [[ "${INDEX}" =~ $'(^|\n)([ AM]M| T) ' ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if $(echo "$INDEX" | grep '^ M ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
   elif $(echo "$INDEX" | grep '^AM ' &> /dev/null); then
@@ -264,35 +184,9 @@ function git_prompt_status() {
   elif $(echo "$INDEX" | grep '^ T ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
   fi
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   if $(echo "$INDEX" | grep '^R  ' &> /dev/null); then
-# +   if [[ "${INDEX}" =~ $'(^|\n)R  ' ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if $(echo "$INDEX" | grep '^R  ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_RENAMED$STATUS"
   fi
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
-# -     STATUS="$ZSH_THEME_GIT_PROMPT_DELETED$STATUS"
-# -   elif $(echo "$INDEX" | grep '^D  ' &> /dev/null); then
-# -     STATUS="$ZSH_THEME_GIT_PROMPT_DELETED$STATUS"
-# -   elif $(echo "$INDEX" | grep '^AD ' &> /dev/null); then
-# +   if [[ "${INDEX}" =~ $'(^|\n)([A ]D|D ) ' ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_DELETED$STATUS"
   elif $(echo "$INDEX" | grep '^D  ' &> /dev/null); then
@@ -303,59 +197,15 @@ function git_prompt_status() {
   if $(command git rev-parse --verify refs/stash >/dev/null 2>&1); then
     STATUS="$ZSH_THEME_GIT_PROMPT_STASHED$STATUS"
   fi
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   if $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
-# +   if [[ "${INDEX}" =~ $'(^|\n)UU ' ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_UNMERGED$STATUS"
   fi
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   if $(echo "$INDEX" | grep '^## [^ ]\+ .*ahead' &> /dev/null); then
-# +   if [[ "${INDEX}" =~ $'(^|\n)## [^ ]\+ .*ahead' ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if $(echo "$INDEX" | grep '^## [^ ]\+ .*ahead' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_AHEAD$STATUS"
   fi
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   if $(echo "$INDEX" | grep '^## [^ ]\+ .*behind' &> /dev/null); then
-# +   if [[ "${INDEX}" =~ $'(^|\n)## [^ ]\+ .*behind' ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if $(echo "$INDEX" | grep '^## [^ ]\+ .*behind' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_BEHIND$STATUS"
   fi
-################################################################################
-# Commit message: lib: safety fix and speed-ups for git.zsh prompt functions (#7804)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/1c58a746af7a67f311ee47f97285a855eaf18b5e
-# Category: 
-# Notes: 
-# Changed content:
-# -   if $(echo "$INDEX" | grep '^## [^ ]\+ .*diverged' &> /dev/null); then
-# +   if [[ "${INDEX}" =~ $'(^|\n)## [^ ]\+ .*diverged' ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if $(echo "$INDEX" | grep '^## [^ ]\+ .*diverged' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_DIVERGED$STATUS"
   fi

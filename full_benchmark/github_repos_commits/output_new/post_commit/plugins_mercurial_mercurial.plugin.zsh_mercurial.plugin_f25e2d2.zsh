@@ -8,30 +8,10 @@ alias hgd='hg diff'
 alias hged='hg diffmerge'
 # pull and update
 alias hgi='hg incoming'
-################################################################################
-# Commit message: Add more capable hg incoming and outgoing count handling  The original hgic and hgoc aliases worked well for the default path, but attempting to call them with a different path failed. I created functions to handle them instead.
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/f25e2d2856281698914f21f7d22f84ae7e421f39
-# Category: 
-# Notes: 
-# Changed content:
-# - alias hgic='hg incoming | grep "changeset" | wc -l'
-################################################################################
-# put stream annotation here
-# stream enable
 alias hgl='hg pull -u'
 alias hglr='hg pull --rebase'
 alias hgo='hg outgoing'
 alias hgp='hg push'
-################################################################################
-# Commit message: Add more capable hg incoming and outgoing count handling  The original hgic and hgoc aliases worked well for the default path, but attempting to call them with a different path failed. I created functions to handle them instead.
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/f25e2d2856281698914f21f7d22f84ae7e421f39
-# Category: 
-# Notes: 
-# Changed content:
-# - alias hgoc='hg outgoing | grep 'changeset' | wc -l'
-################################################################################
-# put stream annotation here
-# stream enable
 alias hgs='hg status'
 # this is the 'git commit --amend' equivalent
 alias hgca='hg qimport -r tip ; hg qrefresh -e ; hg qfinish tip'
@@ -73,25 +53,19 @@ function hg_dirty_choose {
 function hg_dirty {
   hg_dirty_choose $ZSH_THEME_HG_PROMPT_DIRTY $ZSH_THEME_HG_PROMPT_CLEAN
 }
+
+function hgic() {
 ################################################################################
 # Commit message: Add more capable hg incoming and outgoing count handling  The original hgic and hgoc aliases worked well for the default path, but attempting to call them with a different path failed. I created functions to handle them instead.
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/f25e2d2856281698914f21f7d22f84ae7e421f39
 # Category: 
 # Notes: 
 # Changed content:
-# + 
-# + function hgic() {
-# +     hg incoming "$@" | grep "changeset" | wc -l
-# + }
-# + 
-# + function hgoc() {
-# +     hg outgoing "$@" | grep "changeset" | wc -l
-# + }
+# + hg incoming "$@" | grep "changeset" | wc -l
+# + hg outgoing "$@" | grep "changeset" | wc -l
 ################################################################################
 # put stream annotation here
 # stream enable
-
-function hgic() {
     hg incoming "$@" | grep "changeset" | wc -l
 }
 

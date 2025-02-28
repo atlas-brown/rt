@@ -1103,8 +1103,8 @@ renewAll() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   for d in $(ls -F $LE_WORKING_DIR | grep [^.].*[.].*/$ ) ; do
-# +   for d in $(ls -F ${LE_WORKING_DIR}/ | grep [^.].*[.].*/$ ) ; do
+# - for d in $(ls -F $LE_WORKING_DIR | grep [^.].*[.].*/$ ) ; do
+# + for d in $(ls -F ${LE_WORKING_DIR}/ | grep [^.].*[.].*/$ ) ; do
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -5253,17 +5253,6 @@ list() {
     done
   else
     if _exists column; then
-################################################################################
-# Commit message: fix https://github.com/acmesh-official/acme.sh/issues/3103
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/95ef046d0a04836c465e720841cb3811ec7e2a3b
-# Category: 
-# Notes: 
-# Changed content:
-# -       list "raw" | column -t -s "$_sep"
-# +       list "raw" "$_domain" | column -t -s "$_sep"
-################################################################################
-# put stream annotation here
-# stream enable
       list "raw" | column -t -s "$_sep"
     else
 ################################################################################
@@ -5272,8 +5261,8 @@ list() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       list "raw" | tr "$_sep" '\t'
-# +       list "raw" "$_domain" | tr "$_sep" '\t'
+# - list "raw" | tr "$_sep" '\t'
+# + list "raw" "$_domain" | tr "$_sep" '\t'
 ################################################################################
 # put stream annotation here
 # stream enable

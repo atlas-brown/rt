@@ -39,8 +39,8 @@ CalcQueriesToday() {
 # Category: 
 # Notes: 
 # Changed content:
-# - 		queriesToday=$(cat "${piLog}" | grep "${today}" | awk '/query/ {print $6}' | wc -l)
-# + 		queriesToday=$(cat "${piLog}" | awk '/query/ {print $6}' | wc -l)
+# - queriesToday=$(cat "${piLog}" | grep "${today}" | awk '/query/ {print $6}' | wc -l)
+# + queriesToday=$(cat "${piLog}" | awk '/query/ {print $6}' | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -69,8 +69,8 @@ dns_dp_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   record_id=$(echo "$response" | tr "{" "\n" | grep "$txtvalue" | grep '^"id"' | cut -d : -f 2 | cut -d '"' -f 2)
-# +   record_id=$(echo "$response" | tr "{" "\n" | grep -- "$txtvalue" | grep '^"id"' | cut -d : -f 2 | cut -d '"' -f 2)
+# - record_id=$(echo "$response" | tr "{" "\n" | grep "$txtvalue" | grep '^"id"' | cut -d : -f 2 | cut -d '"' -f 2)
+# + record_id=$(echo "$response" | tr "{" "\n" | grep -- "$txtvalue" | grep '^"id"' | cut -d : -f 2 | cut -d '"' -f 2)
 ################################################################################
 # put stream annotation here
 # stream enable

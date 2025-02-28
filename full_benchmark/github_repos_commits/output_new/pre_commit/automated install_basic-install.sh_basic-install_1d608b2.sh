@@ -187,20 +187,18 @@ find_IPv4_information() {
 }
 
 get_available_interfaces() {
+  # Get available interfaces. Consider only getting UP interfaces in the future, and leaving DOWN interfaces out of list.
 ################################################################################
 # Commit message: Only allow UP interfaces to be selected. (DOWN interfaces would have not given IP addresses anyways.)  Signed-off-by: Dan Schaper <dan.schaper@pi-hole.net>
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/1d608b204a75dd9b59a9fac6789b7b96ef62c27e
 # Category: 
 # Notes: 
 # Changed content:
-# -   # Get available interfaces. Consider only getting UP interfaces in the future, and leaving DOWN interfaces out of list.
-# -   availableInterfaces=$(ip -o link | awk '{print $2}' | grep -v "lo" | cut -d':' -f1 | cut -d'@' -f1)
-# +   # Get available UP interfaces.
-# +   availableInterfaces=$(ip -o link | grep "state UP" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
+# - availableInterfaces=$(ip -o link | awk '{print $2}' | grep -v "lo" | cut -d':' -f1 | cut -d'@' -f1)
+# + availableInterfaces=$(ip -o link | grep "state UP" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
 ################################################################################
 # put stream annotation here
 # stream enable
-  # Get available interfaces. Consider only getting UP interfaces in the future, and leaving DOWN interfaces out of list.
   availableInterfaces=$(ip -o link | awk '{print $2}' | grep -v "lo" | cut -d':' -f1 | cut -d'@' -f1)
 }
 

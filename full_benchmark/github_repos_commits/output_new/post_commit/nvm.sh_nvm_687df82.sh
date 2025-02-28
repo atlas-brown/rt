@@ -802,32 +802,22 @@ nvm() {
       fi
 
       local INSTALLS
+      if [ "$PROVIDED_VERSION" = "system" ]; then
+        if ! nvm_has_system_node; then
+          echo 'No system version of node detected.' >&2
+          return 3
+        fi
 ################################################################################
 # Commit message: Make `nvm copy-packages system` work.
 # Commit URL: https://github.com/nvm-sh/nvm/commit/687df82107478d8f37defd0e5a5c7c5f565992ff
 # Category: 
 # Notes: 
 # Changed content:
-# -       INSTALLS=$(nvm use "$VERSION" > /dev/null && npm list -g --depth=0 | tail -n +2 | \grep -o -e ' [^@]*' | cut -c 2- | \grep -v npm | xargs)
-# +       if [ "$PROVIDED_VERSION" = "system" ]; then
-# +         if ! nvm_has_system_node; then
-# +           echo 'No system version of node detected.' >&2
-# +           return 3
-# +         fi
-# +         INSTALLS=$(nvm deactivate > /dev/null && npm list -g --depth=0 | tail -n +2 | \grep -o -e ' [^@]*' | cut -c 2- | \grep -v npm | xargs)
-# +       else
-# +         local VERSION
-# +         VERSION="$(nvm_version "$PROVIDED_VERSION")"
-# +         INSTALLS=$(nvm use "$VERSION" > /dev/null && npm list -g --depth=0 | tail -n +2 | \grep -o -e ' [^@]*' | cut -c 2- | \grep -v npm | xargs)
-# +       fi
+# - INSTALLS=$(nvm use "$VERSION" > /dev/null && npm list -g --depth=0 | tail -n +2 | \grep -o -e ' [^@]*' | cut -c 2- | \grep -v npm | xargs)
+# + INSTALLS=$(nvm use "$VERSION" > /dev/null && npm list -g --depth=0 | tail -n +2 | \grep -o -e ' [^@]*' | cut -c 2- | \grep -v npm | xargs)
 ################################################################################
 # put stream annotation here
 # stream enable
-      if [ "$PROVIDED_VERSION" = "system" ]; then
-        if ! nvm_has_system_node; then
-          echo 'No system version of node detected.' >&2
-          return 3
-        fi
         INSTALLS=$(nvm deactivate > /dev/null && npm list -g --depth=0 | tail -n +2 | \grep -o -e ' [^@]*' | cut -c 2- | \grep -v npm | xargs)
       else
         local VERSION

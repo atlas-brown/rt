@@ -190,8 +190,8 @@ _get_paketnr() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   domains=$(echo "$form" | grep '^ *[A-Za-z0-9_\.-]*\.[A-Za-z0-9_-]*$' | sed 's/^\s*\(\S*\)$/\1/')
-# +   domains=$(echo "$form" | grep '^ *[A-Za-z0-9_\.-]*\.[A-Za-z0-9_-]*$' | sed 's/^ *\(.*\)$/\1/')
+# - domains=$(echo "$form" | grep '^ *[A-Za-z0-9_\.-]*\.[A-Za-z0-9_-]*$' | sed 's/^\s*\(\S*\)$/\1/')
+# + domains=$(echo "$form" | grep '^ *[A-Za-z0-9_\.-]*\.[A-Za-z0-9_-]*$' | sed 's/^ *\(.*\)$/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable

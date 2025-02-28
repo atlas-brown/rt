@@ -10,7 +10,7 @@ import jpype.imports
 from stream.transducer import full_stream_to_line_based_FST, product_fst_automaton
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata # type: ignore
+from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations # type: ignore
 
 class RegularType:
     def __init__(
@@ -169,6 +169,14 @@ class RegularType:
         if self.pattern is not None:
             out.pattern = f"({self.pattern})+"
         return out
+    
+
+    def reverse(self) -> 'RegularType':
+        out = RegularType(automaton=SpecialOperations.reverse(self.nfa))
+        if self.pattern is not None:
+            out.pattern = f"({self.pattern})^R"
+        return out
+
     
     def __repr__(self) -> str:
        if self.pattern is None:

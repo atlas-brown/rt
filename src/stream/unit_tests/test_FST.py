@@ -1,6 +1,6 @@
 import random
 import string
-from stream.transducer import translation_FST, compression_FST, deletion_FST
+from stream.transducer import translation_FST, compression_FST, deletion_FST, cut_FST
 
 
 def random_string(length=10):
@@ -74,4 +74,34 @@ def test_random_deletion_FST():
         fst = deletion_FST(chars_to_delete)
         test_string = random_string(random.randint(1, 100))
         expected = ''.join([c for c in test_string if c not in chars_to_delete])
+        assert fst.transform_all(test_string) == {expected}
+
+def test_cut_FST_1():
+    fst = cut_FST(" ", [3])
+    assert fst.transform_all("h e l l o") == {"l"}
+    assert fst.transform_all("hi") == {""}
+    assert fst.transform_all("1 2 3") == {"3"}
+
+def test_cut_FST_2():
+    fst = cut_FST(" ", [1, 3])
+    assert fst.transform_all("h e l l o") == {"h l"}
+    assert fst.transform_all("hi") == {"hi"}
+    assert fst.transform_all("1 2 3") == {"1 3"}
+
+def test_random_cut_FST():
+    for i in range(100):
+        delimiter = random.choice(string.punctuation)
+        
+        num_fields = random.randint(1, 5)
+        fields_to_extract = sorted(random.sample(range(1, 10), num_fields))
+        print(f"delimiter: {delimiter}, fields_to_extract: {fields_to_extract}")
+        fst = cut_FST(delimiter, fields_to_extract)
+        
+        total_fields = random.randint(max(fields_to_extract) + 1, max(fields_to_extract) + 5)
+        test_parts = [random_string(random.randint(1, 10)) for _ in range(total_fields)]
+        test_string = delimiter.join(test_parts)
+        print(f"test_string: {test_string}")
+        expected_parts = [test_parts[field - 1] for field in fields_to_extract if field <= len(test_parts)]
+        expected = delimiter.join(expected_parts)
+        
         assert fst.transform_all(test_string) == {expected}

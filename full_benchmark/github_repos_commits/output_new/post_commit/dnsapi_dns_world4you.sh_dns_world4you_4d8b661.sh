@@ -160,17 +160,6 @@ _login() {
   username="$WORLD4YOU_USERNAME"
   password="$WORLD4YOU_PASSWORD"
   csrf_token=$(_get "$WORLD4YOU_API/login" | grep '_csrf_token' | sed 's/^.*<input[^>]*value=\"\([^"]*\)\".*$/\1/')
-################################################################################
-# Commit message: dns_world4you: Fix cookie parsing issue  Signed-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/4d8b661d51489d3f9f3ea139cd5844ed1f250ddb
-# Category: 
-# Notes: 
-# Changed content:
-# -   sessid=$(grep 'W4YSESSID' <"$HTTP_HEADER" | sed 's/^.*W4YSESSID=\([^;]*\);.*$/\1/')
-# +   _parse_sessid
-################################################################################
-# put stream annotation here
-# stream enable
   _parse_sessid
 
   export _H1="Cookie: W4YSESSID=$sessid"
@@ -182,17 +171,6 @@ _login() {
   _debug ret "$ret"
   if _contains "$ret" "\"success\":true"; then
     _info "Successfully logged in"
-################################################################################
-# Commit message: dns_world4you: Fix cookie parsing issue  Signed-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/4d8b661d51489d3f9f3ea139cd5844ed1f250ddb
-# Category: 
-# Notes: 
-# Changed content:
-# -     sessid=$(grep 'W4YSESSID' <"$HTTP_HEADER" | sed 's/^.*W4YSESSID=\([^;]*\);.*$/\1/')
-# +     _parse_sessid
-################################################################################
-# put stream annotation here
-# stream enable
     _parse_sessid
   else
     _err "Unable to log in: $(echo "$ret" | sed 's/^.*"message":"\([^\"]*\)".*$/\1/')"
@@ -223,22 +201,18 @@ _get_paketnr() {
   PAKETNR=$(echo "$form" | grep "data-textfilter=\".* $domain " | _tail_n 1 | sed "s|.*$WORLD4YOU_API/\\([0-9]*\\)/.*|\\1|")
   return 0
 }
+
+# Usage: _parse_sessid
+_parse_sessid() {
 ################################################################################
 # Commit message: dns_world4you: Fix cookie parsing issue  Signed-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/4d8b661d51489d3f9f3ea139cd5844ed1f250ddb
 # Category: 
 # Notes: 
 # Changed content:
-# + 
-# + # Usage: _parse_sessid
-# + _parse_sessid() {
-# +   sessid=$(grep 'W4YSESSID' <"$HTTP_HEADER" | _tail_n 1 | sed 's/^.*W4YSESSID=\([^;]*\);.*$/\1/')
-# + }
+# + sessid=$(grep 'W4YSESSID' <"$HTTP_HEADER" | _tail_n 1 | sed 's/^.*W4YSESSID=\([^;]*\);.*$/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable
-
-# Usage: _parse_sessid
-_parse_sessid() {
   sessid=$(grep 'W4YSESSID' <"$HTTP_HEADER" | _tail_n 1 | sed 's/^.*W4YSESSID=\([^;]*\);.*$/\1/')
 }

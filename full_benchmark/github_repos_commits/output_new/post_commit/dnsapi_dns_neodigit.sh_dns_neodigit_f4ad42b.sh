@@ -108,8 +108,8 @@ dns_neodigit_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   record_id=$(printf "%s\n" "$response" | _egrep_o "\"id\":\s*[0-9]+" | _head_n 1 | cut -d: -f2 | cut -d, -f1)
-# +   record_id=$(echo "$response" | _egrep_o "\"id\":\s*[0-9]+" | _head_n 1 | cut -d: -f2 | cut -d, -f1)
+# - record_id=$(printf "%s\n" "$response" | _egrep_o "\"id\":\s*[0-9]+" | _head_n 1 | cut -d: -f2 | cut -d, -f1)
+# + record_id=$(echo "$response" | _egrep_o "\"id\":\s*[0-9]+" | _head_n 1 | cut -d: -f2 | cut -d, -f1)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -157,8 +157,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       _domain_id=$(printf "%s\n" "$response" | _egrep_o "\"id\":\s*[0-9]+" | _head_n 1 | cut -d: -f2 | cut -d, -f1)
-# +       _domain_id=$(echo "$response" | _egrep_o "\"id\":\s*[0-9]+" | _head_n 1 | cut -d: -f2 | cut -d, -f1)
+# - _domain_id=$(printf "%s\n" "$response" | _egrep_o "\"id\":\s*[0-9]+" | _head_n 1 | cut -d: -f2 | cut -d, -f1)
+# + _domain_id=$(echo "$response" | _egrep_o "\"id\":\s*[0-9]+" | _head_n 1 | cut -d: -f2 | cut -d, -f1)
 ################################################################################
 # put stream annotation here
 # stream enable

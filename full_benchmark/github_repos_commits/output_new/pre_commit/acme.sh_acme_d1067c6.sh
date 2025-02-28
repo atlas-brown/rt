@@ -2730,8 +2730,8 @@ _isRealNginxConf() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         for _listen_i in $(echo "$_seg_n" | grep "^ *listen" | tr -d " "); do
-# +         for _listen_i in $(echo "$_seg_n" | tr "\t" ' ' | grep "^ *listen" | tr -d " "); do
+# - for _listen_i in $(echo "$_seg_n" | grep "^ *listen" | tr -d " "); do
+# + for _listen_i in $(echo "$_seg_n" | tr "\t" ' ' | grep "^ *listen" | tr -d " "); do
 ################################################################################
 # put stream annotation here
 # stream enable

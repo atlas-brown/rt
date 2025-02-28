@@ -80,8 +80,8 @@ dns_inwx_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if ! printf "%s" "$response" | grep "count" -q; then
-# +   if ! printf "%s" "$response" | grep "count" >/dev/null; then
+# - if ! printf "%s" "$response" | grep "count" -q; then
+# + if ! printf "%s" "$response" | grep "count" >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -89,17 +89,6 @@ dns_inwx_add() {
     _info "Adding record"
     _inwx_add_record "$_domain" "$_sub_domain" "$txtvalue"
   else
-################################################################################
-# Commit message: Avoid usage of `sed -E` `grep -q` and `printf -v`
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/9a1f769828c426b26589110b70f324bde4e6c7e2
-# Category: 
-# Notes: 
-# Changed content:
-# -     _record_id=$(printf '%s' "$response" | sed -nE 's/.*(<member><name>record){1}(.*)(<name>id<\/name><value><int>)([0-9]+){1}.*/\4/p')
-# +     _record_id=$(printf '%s' "$response" | _egrep_o '.*(<member><name>record){1}(.*)([0-9]+){1}' | _egrep_o '<name>id<\/name><value><int>[0-9]+' | egrep -o '[0-9]+')
-################################################################################
-# put stream annotation here
-# stream enable
     _record_id=$(printf '%s' "$response" | sed -nE 's/.*(<member><name>record){1}(.*)(<name>id<\/name><value><int>)([0-9]+){1}.*/\4/p')
     _info "Updating record"
     _inwx_update_record "$_record_id" "$txtvalue"
@@ -180,25 +169,14 @@ dns_inwx_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if ! printf "%s" "$response" | grep "count" -q; then
-# +   if ! printf "%s" "$response" | grep "count" >/dev/null; then
+# - if ! printf "%s" "$response" | grep "count" -q; then
+# + if ! printf "%s" "$response" | grep "count" >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable
   if ! printf "%s" "$response" | grep "count" -q; then
     _info "Do not need to delete record"
   else
-################################################################################
-# Commit message: Avoid usage of `sed -E` `grep -q` and `printf -v`
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/9a1f769828c426b26589110b70f324bde4e6c7e2
-# Category: 
-# Notes: 
-# Changed content:
-# -     _record_id=$(printf '%s' "$response" | sed -nE 's/.*(<member><name>record){1}(.*)(<name>id<\/name><value><int>)([0-9]+){1}.*/\4/p')
-# +     _record_id=$(printf '%s' "$response" | _egrep_o '.*(<member><name>record){1}(.*)([0-9]+){1}' | _egrep_o '<name>id<\/name><value><int>[0-9]+' | egrep -o '[0-9]+')
-################################################################################
-# put stream annotation here
-# stream enable
     _record_id=$(printf '%s' "$response" | sed -nE 's/.*(<member><name>record){1}(.*)(<name>id<\/name><value><int>)([0-9]+){1}.*/\4/p')
     _info "Deleting record"
     _inwx_delete_record "$_record_id"

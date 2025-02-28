@@ -89,8 +89,8 @@ dns_selectel_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _record_id="$(echo "$_record_seg" | tr ",}" "\n\n" | tr -d " " | grep "\"id\"" | cut -d : -f 2)"
-# +   _record_id="$(echo "$_record_seg" | tr "," "\n" | tr "}" "\n" | tr -d " " | grep "\"id\"" | cut -d : -f 2)"
+# - _record_id="$(echo "$_record_seg" | tr ",}" "\n\n" | tr -d " " | grep "\"id\"" | cut -d : -f 2)"
+# + _record_id="$(echo "$_record_seg" | tr "," "\n" | tr "}" "\n" | tr -d " " | grep "\"id\"" | cut -d : -f 2)"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -144,8 +144,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       _domain_id="$(echo "$response" | tr ",}" "\n\n" | tr -d " " | grep "\"id\":" | cut -d : -f 2)"
-# +       _domain_id="$(echo "$response" | tr "," "\n" | tr "}" "\n" | tr -d " " | grep "\"id\":" | cut -d : -f 2)"
+# - _domain_id="$(echo "$response" | tr ",}" "\n\n" | tr -d " " | grep "\"id\":" | cut -d : -f 2)"
+# + _domain_id="$(echo "$response" | tr "," "\n" | tr "}" "\n" | tr -d " " | grep "\"id\":" | cut -d : -f 2)"
 ################################################################################
 # put stream annotation here
 # stream enable

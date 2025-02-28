@@ -450,8 +450,8 @@ _edgedns_base64_hmac_sha256() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   data_sig="$(echo "$encoded_data" | tr -d "\n\r" | _hmac sha256 $encoded_key_hex | _base64)"
-# +   data_sig="$(echo "$encoded_data" | tr -d "\n\r" | _hmac sha256 "$encoded_key_hex" | _base64)"
+# - data_sig="$(echo "$encoded_data" | tr -d "\n\r" | _hmac sha256 $encoded_key_hex | _base64)"
+# + data_sig="$(echo "$encoded_data" | tr -d "\n\r" | _hmac sha256 "$encoded_key_hex" | _base64)"
 ################################################################################
 # put stream annotation here
 # stream enable

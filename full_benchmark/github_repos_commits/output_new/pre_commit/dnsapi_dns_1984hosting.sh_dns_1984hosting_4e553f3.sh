@@ -109,8 +109,8 @@ dns_1984hosting_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   entry_id="$(echo "$_response" | _egrep_o 'entry_[0-9]+' | sed 's/entry_//' | _head_n 1)"
-# +   entry_id="$(echo "$_response" | grep "$txtvalue" | _egrep_o 'entry_[0-9]+' | sed 's/entry_//')"
+# - entry_id="$(echo "$_response" | _egrep_o 'entry_[0-9]+' | sed 's/entry_//' | _head_n 1)"
+# + entry_id="$(echo "$_response" | grep "$txtvalue" | _egrep_o 'entry_[0-9]+' | sed 's/entry_//')"
 ################################################################################
 # put stream annotation here
 # stream enable

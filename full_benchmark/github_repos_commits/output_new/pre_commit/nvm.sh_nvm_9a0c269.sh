@@ -539,8 +539,8 @@ nvm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         INSTALLS=( `nvm use $VERSION > /dev/null && npm -g -p ll | \grep "$ROOT\/[^/]\+$" | cut -d '/' -f $(($ROOTDEPTH + 2)) | cut -d ":" -f 2 | \grep -v npm | tr "\n" " "` )
-# +         INSTALLS=`nvm use $VERSION > /dev/null && npm -g -p ll | \grep "$ROOT\/[^/]\+$" | cut -d '/' -f $(($ROOTDEPTH + 2)) | cut -d ":" -f 2 | \grep -v npm | tr "\n" " "`
+# - INSTALLS=( `nvm use $VERSION > /dev/null && npm -g -p ll | \grep "$ROOT\/[^/]\+$" | cut -d '/' -f $(($ROOTDEPTH + 2)) | cut -d ":" -f 2 | \grep -v npm | tr "\n" " "` )
+# + INSTALLS=`nvm use $VERSION > /dev/null && npm -g -p ll | \grep "$ROOT\/[^/]\+$" | cut -d '/' -f $(($ROOTDEPTH + 2)) | cut -d ":" -f 2 | \grep -v npm | tr "\n" " "`
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -561,15 +561,4 @@ nvm() {
   esac
 }
 
-################################################################################
-# Commit message: Redo https://github.com/creationix/nvm/pull/345
-# Commit URL: https://github.com/nvm-sh/nvm/commit/9a0c2697137a72b1d7e3aba502654bcee3d2c881
-# Category: 
-# Notes: 
-# Changed content:
-# - nvm ls default &>/dev/null && nvm use default >/dev/null || true
-# + nvm ls default >/dev/null && nvm use default >/dev/null || true
-################################################################################
-# put stream annotation here
-# stream enable
 nvm ls default &>/dev/null && nvm use default >/dev/null || true

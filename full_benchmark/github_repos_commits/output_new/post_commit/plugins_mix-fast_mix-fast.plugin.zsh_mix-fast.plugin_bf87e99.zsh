@@ -18,8 +18,8 @@ _mix_generate () {
 # Category: 
 # Notes: 
 # Changed content:
-# -   mix --help | grep -v 'iex -S' | tail -n +2 | cut -d " " -f 2 > .mix_tasks
-# +   mix help | grep -v 'iex -S' | tail -n +2 | cut -d " " -f 2 > .mix_tasks
+# - mix --help | grep -v 'iex -S' | tail -n +2 | cut -d " " -f 2 > .mix_tasks
+# + mix help | grep -v 'iex -S' | tail -n +2 | cut -d " " -f 2 > .mix_tasks
 ################################################################################
 # put stream annotation here
 # stream enable

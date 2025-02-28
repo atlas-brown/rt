@@ -1194,8 +1194,8 @@ _ss() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     if netstat -h 2>&1 | grep "\-p proto" >/dev/null; then
-# +     if netstat -help 2>&1 | grep "\-p proto" >/dev/null; then
+# - if netstat -h 2>&1 | grep "\-p proto" >/dev/null; then
+# + if netstat -help 2>&1 | grep "\-p proto" >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable

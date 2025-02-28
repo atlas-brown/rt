@@ -2708,8 +2708,8 @@ _isRealNginxConf() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         _start=$(tr "\t" ' ' <"$2" | _head_n "$_fln" | grep -n "^ *server *{" | _tail_n 1)
-# +         _start=$(tr "\t" ' ' <"$2" | _head_n "$_fln" | grep -n "^ *server *" | grep -v server_name | _tail_n 1)
+# - _start=$(tr "\t" ' ' <"$2" | _head_n "$_fln" | grep -n "^ *server *{" | _tail_n 1)
+# + _start=$(tr "\t" ' ' <"$2" | _head_n "$_fln" | grep -n "^ *server *" | grep -v server_name | _tail_n 1)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -2728,10 +2728,10 @@ _isRealNginxConf() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         if echo "$_left" | tr "\t" ' ' | grep -n "^ *server *{" >/dev/null; then
-# -           _end=$(echo "$_left" | tr "\t" ' ' | grep -n "^ *server *{" | _head_n 1)
-# +         if echo "$_left" | tr "\t" ' ' | grep -n "^ *server *" >/dev/null; then
-# +           _end=$(echo "$_left" | tr "\t" ' ' | grep -n "^ *server *" | _head_n 1)
+# - if echo "$_left" | tr "\t" ' ' | grep -n "^ *server *{" >/dev/null; then
+# + if echo "$_left" | tr "\t" ' ' | grep -n "^ *server *" >/dev/null; then
+# - _end=$(echo "$_left" | tr "\t" ' ' | grep -n "^ *server *{" | _head_n 1)
+# + _end=$(echo "$_left" | tr "\t" ' ' | grep -n "^ *server *" | _head_n 1)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -2747,31 +2747,6 @@ _isRealNginxConf() {
 
         _debug "_seg_n" "$_seg_n"
 
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1209
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/04a609b51f38f1db8792d57dbc0af0eadaf108fe
-# Category: 
-# Notes: 
-# Changed content:
-# -         if [ "$(echo "$_seg_n" | _egrep_o "^ *ssl  *on *;")" ] \
-# -           || [ "$(echo "$_seg_n" | _egrep_o "listen .* ssl[ |;]")" ]; then
-# +         _skip_ssl=1
-# +         for _listen_i in $(echo "$_seg_n" | grep "^ *listen" | tr -d " "); do
-# +           if [ "$_listen_i" ]; then
-# +             if [ "$(echo "$_listen_i" | _egrep_o "listen.*ssl[ |;]")" ]; then
-# +               _debug2 "$_listen_i is ssl"
-# +             else
-# +               _debug2 "$_listen_i is plain text"
-# +               _skip_ssl=""
-# +               break;
-# +             fi          
-# +           fi
-# +         done
-# + 
-# +         if [ "$_skip_ssl" = "1" ]; then
-################################################################################
-# put stream annotation here
-# stream enable
         _skip_ssl=1
         for _listen_i in $(echo "$_seg_n" | grep "^ *listen" | tr -d " "); do
           if [ "$_listen_i" ]; then

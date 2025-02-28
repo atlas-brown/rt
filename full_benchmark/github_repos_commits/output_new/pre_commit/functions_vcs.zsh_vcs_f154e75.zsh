@@ -23,8 +23,8 @@ function +vi-git-untracked() {
 # Category: 
 # Notes: 
 # Changed content:
-# -             -n $(git status ${FLAGS} | grep -E '^\?\?' 2> /dev/null | tail -n1) ]]; then
-# +             -n $(git status ${FLAGS} | \grep -E '^\?\?' 2> /dev/null | tail -n1) ]]; then
+# - -n $(git status ${FLAGS} | grep -E '^\?\?' 2> /dev/null | tail -n1) ]]; then
+# + -n $(git status ${FLAGS} | \grep -E '^\?\?' 2> /dev/null | tail -n1) ]]; then
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -148,47 +148,14 @@ function +vi-vcs-detect-changes() {
 
 function +vi-svn-detect-changes() {
   local svn_status="$(svn status)"
-################################################################################
-# Commit message: Disable alias of grep  If user defined alias of grep command with '-r' or '--recursive' option, it causes a slow response of command line. It is not unexpected behavior of vcs info.  This commit explicitly disables alias of grep to suppress side effects.
-# Commit URL: https://github.com/romkatv/powerlevel10k/commit/f154e75667aff0801c3d978b44f5e4551d91e240
-# Category: 
-# Notes: 
-# Changed content:
-# -   if [[ -n "$(echo "$svn_status" | grep \^\?)" ]]; then
-# +   if [[ -n "$(echo "$svn_status" | \grep \^\?)" ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if [[ -n "$(echo "$svn_status" | grep \^\?)" ]]; then
     hook_com[unstaged]+=" $(print_icon 'VCS_UNTRACKED_ICON')"
     VCS_WORKDIR_HALF_DIRTY=true
   fi
-################################################################################
-# Commit message: Disable alias of grep  If user defined alias of grep command with '-r' or '--recursive' option, it causes a slow response of command line. It is not unexpected behavior of vcs info.  This commit explicitly disables alias of grep to suppress side effects.
-# Commit URL: https://github.com/romkatv/powerlevel10k/commit/f154e75667aff0801c3d978b44f5e4551d91e240
-# Category: 
-# Notes: 
-# Changed content:
-# -   if [[ -n "$(echo "$svn_status" | grep \^\M)" ]]; then
-# +   if [[ -n "$(echo "$svn_status" | \grep \^\M)" ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if [[ -n "$(echo "$svn_status" | grep \^\M)" ]]; then
     hook_com[unstaged]+=" $(print_icon 'VCS_UNSTAGED_ICON')"
     VCS_WORKDIR_DIRTY=true
   fi
-################################################################################
-# Commit message: Disable alias of grep  If user defined alias of grep command with '-r' or '--recursive' option, it causes a slow response of command line. It is not unexpected behavior of vcs info.  This commit explicitly disables alias of grep to suppress side effects.
-# Commit URL: https://github.com/romkatv/powerlevel10k/commit/f154e75667aff0801c3d978b44f5e4551d91e240
-# Category: 
-# Notes: 
-# Changed content:
-# -   if [[ -n "$(echo "$svn_status" | grep \^\A)" ]]; then
-# +   if [[ -n "$(echo "$svn_status" | \grep \^\A)" ]]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if [[ -n "$(echo "$svn_status" | grep \^\A)" ]]; then
     hook_com[staged]+=" $(print_icon 'VCS_STAGED_ICON')"
     VCS_WORKDIR_DIRTY=true

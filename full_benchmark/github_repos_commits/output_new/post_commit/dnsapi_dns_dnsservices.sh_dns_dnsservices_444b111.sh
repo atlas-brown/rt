@@ -204,19 +204,18 @@ deleteRecord() {
   fulldomain=$1
   txtvalue=$2
 
+  # Fix for acmetest to limit acme.sh to only work on _acme-challenge and acmeTestXYzRandomName in GitHub actions
 ################################################################################
 # Commit message: Fixed acmetest for domain acmetestXyzRandomName.github-test.<domain> that was explicitly disallowed as it is not _acme-challenge
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/444b111a62ec8e7f48cd93aaefdc78816d7ff32e
 # Category: 
 # Notes: 
 # Changed content:
-# -   if [ "$(echo "$fulldomain" | grep "_acme-challenge")" = "" ]; then
-# +   # Fix for acmetest to limit acme.sh to only work on _acme-challenge and acmeTestXYzRandomName in GitHub actions
-# +   if [ "$(echo "$fulldomain" | grep "_acme-challenge\|acmetestXyzRandomName.github-test")" = "" ]; then
+# - if [ "$(echo "$fulldomain" | grep "_acme-challenge")" = "" ]; then
+# + if [ "$(echo "$fulldomain" | grep "_acme-challenge\|acmetestXyzRandomName.github-test")" = "" ]; then
 ################################################################################
 # put stream annotation here
 # stream enable
-  # Fix for acmetest to limit acme.sh to only work on _acme-challenge and acmeTestXYzRandomName in GitHub actions
   if [ "$(echo "$fulldomain" | grep "_acme-challenge\|acmetestXyzRandomName.github-test")" = "" ]; then
     _err "The script tried to delete the record $fulldomain which is not the above created ACME challenge"
     return 1

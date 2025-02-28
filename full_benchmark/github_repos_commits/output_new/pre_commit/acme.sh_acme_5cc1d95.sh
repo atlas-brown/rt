@@ -3447,8 +3447,8 @@ _on_before_issue() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         netprc="$(echo "$_netprc" | grep "$LOCAL_ANY_ADDRESS")"
-# +         netprc="$(echo "$_netprc" | grep "$LOCAL_ANY_ADDRESS:$_checkport")"
+# - netprc="$(echo "$_netprc" | grep "$LOCAL_ANY_ADDRESS")"
+# + netprc="$(echo "$_netprc" | grep "$LOCAL_ANY_ADDRESS:$_checkport")"
 ################################################################################
 # put stream annotation here
 # stream enable

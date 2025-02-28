@@ -914,8 +914,8 @@ dig_at() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/: <.*//g;")"
-# +     interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/@.*//g;s/: <.*//g;")"
+# - interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/: <.*//g;")"
+# + interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/@.*//g;s/: <.*//g;")"
 ################################################################################
 # put stream annotation here
 # stream enable

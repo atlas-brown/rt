@@ -39,8 +39,8 @@ CalcQueriesToday() {
 # Category: 
 # Notes: 
 # Changed content:
-# - 		queriesToday=$(cat "${piLog}" | awk '/query/ {print $6}' | wc -l)
-# + 		queriesToday=$(awk '/query/ {print $6}' < "${piLog}" | wc -l)
+# - queriesToday=$(cat "${piLog}" | awk '/query/ {print $6}' | wc -l)
+# + queriesToday=$(awk '/query/ {print $6}' < "${piLog}" | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -58,8 +58,8 @@ CalcblockedToday() {
 # Category: 
 # Notes: 
 # Changed content:
-# - 		blockedToday=$(cat ${piLog} | awk '/\/etc\/pihole\/gravity.list/ && !/address/ {print $6}' | wc -l)
-# + 		blockedToday=$(awk '/\/etc\/pihole\/gravity.list/ && !/address/ {print $6}' < "${piLog}" | wc -l)
+# - blockedToday=$(cat ${piLog} | awk '/\/etc\/pihole\/gravity.list/ && !/address/ {print $6}' | wc -l)
+# + blockedToday=$(awk '/\/etc\/pihole\/gravity.list/ && !/address/ {print $6}' < "${piLog}" | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable

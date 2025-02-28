@@ -29,8 +29,8 @@ global_setup() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   docker container ls | xargs -n1 docker container rm || true
-# +   docker container ls --quiet | xargs -n1 docker container rm -f || true
+# - docker container ls | xargs -n1 docker container rm || true
+# + docker container ls --quiet | xargs -n1 docker container rm -f || true
 ################################################################################
 # put stream annotation here
 # stream enable

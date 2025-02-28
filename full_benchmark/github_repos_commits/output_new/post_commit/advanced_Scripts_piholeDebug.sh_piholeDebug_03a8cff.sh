@@ -411,8 +411,8 @@ os_check() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     mapfile -t supportedOS < <(dig +short -t txt ${remote_os_domain} | tr -d '"' | tr ' ' '\n')
-# +     IFS=" "; read -r -a supportedOS < <(dig +short -t txt ${remote_os_domain} | tr -d '"')
+# - mapfile -t supportedOS < <(dig +short -t txt ${remote_os_domain} | tr -d '"' | tr ' ' '\n')
+# + IFS=" "; read -r -a supportedOS < <(dig +short -t txt ${remote_os_domain} | tr -d '"')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -425,17 +425,6 @@ os_check() {
 
         if [[ "${detected_os}" =~ ${os_part} ]]; then
           valid_os=true
-################################################################################
-# Commit message: read > mapfile as suggested by @dschaper  Signed-off-by: Adam Warner <me@adamwarner.co.uk>
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/03a8cff55ee6aa944722378c29de349c0fae903d
-# Category: 
-# Notes: 
-# Changed content:
-# -           mapfile -t supportedVer < <(echo "${versions_part}" | tr ',' '\n')
-# +           IFS=","; read -r -a supportedVer <<<"${versions_part}"
-################################################################################
-# put stream annotation here
-# stream enable
           IFS=","; read -r -a supportedVer <<<"${versions_part}"
           for x in "${supportedVer[@]}"
           do

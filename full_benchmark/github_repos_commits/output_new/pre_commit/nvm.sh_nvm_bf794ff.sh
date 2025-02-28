@@ -201,17 +201,6 @@ nvm_remote_version() {
 }
 
 nvm_normalize_version() {
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -   echo "$1" | command sed -e 's/^v//' | \awk -F. '{ printf("%d%06d%06d\n", $1,$2,$3); }'
-# +   echo "$1" | command sed -e 's/^v//' | command awk -F. '{ printf("%d%06d%06d\n", $1,$2,$3); }'
-################################################################################
-# put stream annotation here
-# stream enable
   echo "$1" | command sed -e 's/^v//' | \awk -F. '{ printf("%d%06d%06d\n", $1,$2,$3); }'
 }
 
@@ -321,17 +310,6 @@ nvm_resolve_alias() {
     fi
 
     if [ -n "$ALIAS_TEMP" ] \
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -       && printf "$SEEN_ALIASES" | \grep -e "^$ALIAS_TEMP$" > /dev/null; then
-# +       && printf "$SEEN_ALIASES" | command grep -e "^$ALIAS_TEMP$" > /dev/null; then
-################################################################################
-# put stream annotation here
-# stream enable
       && printf "$SEEN_ALIASES" | \grep -e "^$ALIAS_TEMP$" > /dev/null; then
       ALIAS="∞"
       break
@@ -392,35 +370,9 @@ nvm_ls() {
       fi
     fi
     if [ -d "$(nvm_version_dir new)" ]; then
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -       VERSIONS=`find "$(nvm_version_dir new)/" "$(nvm_version_dir old)/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
-# -         | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.' | \grep -e '^v' | \grep -v -e '^versions$'`
-# +       VERSIONS=`command find "$(nvm_version_dir new)/" "$(nvm_version_dir old)/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
-# +         | command sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | command grep -v '^ *\.' | command grep -e '^v' | command grep -v -e '^versions$'`
-################################################################################
-# put stream annotation here
-# stream enable
       VERSIONS=`find "$(nvm_version_dir new)/" "$(nvm_version_dir old)/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
         | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.' | \grep -e '^v' | \grep -v -e '^versions$'`
     else
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -       VERSIONS=`find "$(nvm_version_dir old)/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
-# -         | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.' | \grep -e '^v'`
-# +       VERSIONS=`command find "$(nvm_version_dir old)/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
-# +         | command sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | command grep -v '^ *\.' | command grep -e '^v'`
-################################################################################
-# put stream annotation here
-# stream enable
       VERSIONS=`find "$(nvm_version_dir old)/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
         | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.' | \grep -e '^v'`
     fi
@@ -458,17 +410,6 @@ nvm_ls_remote() {
   fi
   VERSIONS=`nvm_download -L -s $NVM_NODEJS_ORG_MIRROR/ -o - \
               | \egrep -o 'v[0-9]+\.[0-9]+\.[0-9]+' \
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -               | \grep -w "${PATTERN}" \
-# +               | command grep -w "${PATTERN}" \
-################################################################################
-# put stream annotation here
-# stream enable
               | \grep -w "${PATTERN}" \
               | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n`
   if [ -z "$VERSIONS" ]; then
@@ -481,32 +422,10 @@ nvm_ls_remote() {
 
 nvm_checksum() {
   if nvm_has "sha1sum"; then
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -     checksum="$(sha1sum "$1" | \awk '{print $1}')"
-# +     checksum="$(sha1sum "$1" | command awk '{print $1}')"
-################################################################################
-# put stream annotation here
-# stream enable
     checksum="$(sha1sum "$1" | \awk '{print $1}')"
   elif nvm_has "sha1"; then
     checksum="$(sha1 -q "$1")"
   else
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -     checksum="$(shasum "$1" | \awk '{print $1}')"
-# +     checksum="$(shasum "$1" | command awk '{print $1}')"
-################################################################################
-# put stream annotation here
-# stream enable
     checksum="$(shasum "$1" | \awk '{print $1}')"
   fi
 
@@ -565,8 +484,8 @@ nvm_print_implicit_alias() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     LAST_TWO=$(nvm_ls | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
-# +     LAST_TWO=$(nvm_ls | command grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
+# - LAST_TWO=$(nvm_ls | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
+# + LAST_TWO=$(nvm_ls | command grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -578,8 +497,8 @@ nvm_print_implicit_alias() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     LAST_TWO=$(nvm_ls_remote | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
-# +     LAST_TWO=$(nvm_ls_remote | command grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
+# - LAST_TWO=$(nvm_ls_remote | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
+# + LAST_TWO=$(nvm_ls_remote | command grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -593,17 +512,6 @@ nvm_print_implicit_alias() {
   local ZHS_HAS_SHWORDSPLIT_UNSET
   ZHS_HAS_SHWORDSPLIT_UNSET=1
   if nvm_has "setopt"; then
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -     ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | \grep shwordsplit > /dev/null ; echo $?)
-# +     ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; echo $?)
-################################################################################
-# put stream annotation here
-# stream enable
     ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | \grep shwordsplit > /dev/null ; echo $?)
     setopt shwordsplit
   fi
@@ -749,35 +657,9 @@ nvm() {
 
       while [ $# -ne 0 ]
       do
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -         if [ "_$(echo "$1" | cut -c 1-26)" = "_--reinstall-packages-from=" ]; then
-# -           PROVIDED_REINSTALL_PACKAGES_FROM="$(echo "$1" | cut -c 27-)"
-# +         if [ "_$(echo "$1" | command cut -c 1-26)" = "_--reinstall-packages-from=" ]; then
-# +           PROVIDED_REINSTALL_PACKAGES_FROM="$(echo "$1" | command cut -c 27-)"
-################################################################################
-# put stream annotation here
-# stream enable
         if [ "_$(echo "$1" | cut -c 1-26)" = "_--reinstall-packages-from=" ]; then
           PROVIDED_REINSTALL_PACKAGES_FROM="$(echo "$1" | cut -c 27-)"
           REINSTALL_PACKAGES_FROM="$(nvm_version "$PROVIDED_REINSTALL_PACKAGES_FROM")"
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -         elif [ "_$(echo "$1" | cut -c 1-21)" = "_--copy-packages-from=" ]; then
-# -           PROVIDED_REINSTALL_PACKAGES_FROM="$(echo "$1" | cut -c 22-)"
-# +         elif [ "_$(echo "$1" | command cut -c 1-21)" = "_--copy-packages-from=" ]; then
-# +           PROVIDED_REINSTALL_PACKAGES_FROM="$(echo "$1" | command cut -c 22-)"
-################################################################################
-# put stream annotation here
-# stream enable
         elif [ "_$(echo "$1" | cut -c 1-21)" = "_--copy-packages-from=" ]; then
           PROVIDED_REINSTALL_PACKAGES_FROM="$(echo "$1" | cut -c 22-)"
           REINSTALL_PACKAGES_FROM="$(nvm_version "$PROVIDED_REINSTALL_PACKAGES_FROM")"
@@ -815,17 +697,6 @@ nvm() {
           if nvm_binary_available "$VERSION"; then
             t="$VERSION-$os-$arch"
             url="$NVM_NODEJS_ORG_MIRROR/$VERSION/node-${t}.tar.gz"
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -             sum=`nvm_download -L -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-${t}.tar.gz | \awk '{print $1}'`
-# +             sum=`nvm_download -L -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | command grep node-${t}.tar.gz | command awk '{print $1}'`
-################################################################################
-# put stream annotation here
-# stream enable
             sum=`nvm_download -L -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-${t}.tar.gz | \awk '{print $1}'`
             local tmpdir
             tmpdir="$NVM_DIR/bin/node-${t}"
@@ -867,32 +738,8 @@ nvm() {
       tmpdir="$NVM_DIR/src"
       local tmptarball
       tmptarball="$tmpdir/node-$VERSION.tar.gz"
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -       if [ "`nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz" -o - 2>&1 | \grep '200 OK'`" != '' ]; then
-# +       if [ "`nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz" -o - 2>&1 | command grep '200 OK'`" != '' ]; then
-################################################################################
-# put stream annotation here
-# stream enable
       if [ "`nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz" -o - 2>&1 | \grep '200 OK'`" != '' ]; then
         tarball="$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz"
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -         sum=`nvm_download -L -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-$VERSION.tar.gz | \awk '{print $1}'`
-# -       elif [ "`nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz" -o - | \grep '200 OK'`" != '' ]; then
-# +         sum=`nvm_download -L -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | command grep node-$VERSION.tar.gz | command awk '{print $1}'`
-# +       elif [ "`nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz" -o - | command grep '200 OK'`" != '' ]; then
-################################################################################
-# put stream annotation here
-# stream enable
         sum=`nvm_download -L -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-$VERSION.tar.gz | \awk '{print $1}'`
       elif [ "`nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz" -o - | \grep '200 OK'`" != '' ]; then
         tarball="$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz"
@@ -1256,47 +1103,14 @@ nvm() {
           echo 'No system version of node detected.' >&2
           return 3
         fi
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -         INSTALLS=$(nvm deactivate > /dev/null && npm list -g --depth=0 | tail -n +2 | \grep -o -e ' [^@]*' | cut -c 2- | \grep -v npm | xargs)
-# +         INSTALLS=$(nvm deactivate > /dev/null && npm list -g --depth=0 | command tail -n +2 | command grep -o -e ' [^@]*' | command cut -c 2- | command grep -v npm | command xargs)
-################################################################################
-# put stream annotation here
-# stream enable
         INSTALLS=$(nvm deactivate > /dev/null && npm list -g --depth=0 | tail -n +2 | \grep -o -e ' [^@]*' | cut -c 2- | \grep -v npm | xargs)
       else
         local VERSION
         VERSION="$(nvm_version "$PROVIDED_VERSION")"
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -         INSTALLS=$(nvm use "$VERSION" > /dev/null && npm list -g --depth=0 | tail -n +2 | \grep -o -e ' [^@]*' | cut -c 2- | \grep -v npm | xargs)
-# +         INSTALLS=$(nvm use "$VERSION" > /dev/null && npm list -g --depth=0 | command tail -n +2 | command grep -o -e ' [^@]*' | command cut -c 2- | command grep -v npm | command xargs)
-################################################################################
-# put stream annotation here
-# stream enable
         INSTALLS=$(nvm use "$VERSION" > /dev/null && npm list -g --depth=0 | tail -n +2 | \grep -o -e ' [^@]*' | cut -c 2- | \grep -v npm | xargs)
       fi
 
       echo "Copying global packages from $VERSION..."
-################################################################################
-# Commit message: Consistently prefix builtins with `command`
-# Commit URL: https://github.com/nvm-sh/nvm/commit/bf794ff8daef07e2167aed58229dfcaac4af398b
-# Category: 
-# Notes: 
-# Changed content:
-# -       echo "$INSTALLS" | xargs npm install -g --quiet
-# +       echo "$INSTALLS" | command xargs npm install -g --quiet
-################################################################################
-# put stream annotation here
-# stream enable
       echo "$INSTALLS" | xargs npm install -g --quiet
     ;;
     "clear-cache" )

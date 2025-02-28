@@ -59,8 +59,8 @@ EscapeRegexp() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     echo $* | sed "s/[]\\.|$(){}?+*^]/\\\\&/g"
-# +     echo $* | sed "s/[]\\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
+# - echo $* | sed "s/[]\\.|$(){}?+*^]/\\\\&/g"
+# + echo $* | sed "s/[]\\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -73,8 +73,8 @@ elif [ -x "$(command -v rpm)" ]; then
 # Category: 
 # Notes: 
 # Changed content:
-# - 		rpm -qa | grep ^$1- > /dev/null
-# + 		rpm -qa | grep "^$1-" > /dev/null
+# - rpm -qa | grep ^$1- > /dev/null
+# + rpm -qa | grep "^$1-" > /dev/null
 ################################################################################
 # put stream annotation here
 # stream enable

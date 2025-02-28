@@ -1131,33 +1131,9 @@ _ss() {
       elif netstat -help 2>&1 | grep -- '-P protocol' >/dev/null; then
         #for solaris
         netstat -an -P tcp | grep "\.$_port " | grep "LISTEN"
-################################################################################
-# Commit message: Handle case of busybox netstat, with no pid support
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/f21dd9117dc470f47668439ede249916d0a8cd2c
-# Category: 
-# Notes: 
-# Changed content:
-# -       else
-# +       elif netstat -help 2>&1 | grep "\-p" > /dev/null; then
-# +         #for full linux
-################################################################################
-# put stream annotation here
-# stream enable
       else
         netstat -ntpl | grep ":$_port "
       fi
-################################################################################
-# Commit message: Handle case of busybox netstat, with no pid support
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/f21dd9117dc470f47668439ede249916d0a8cd2c
-# Category: 
-# Notes: 
-# Changed content:
-# +       else
-# +         #for busybox (embedded linux; no pid support)
-# +         netstat -ntl 2>/dev/null | grep ":$_port "
-################################################################################
-# put stream annotation here
-# stream enable
     fi
     return 0
   fi

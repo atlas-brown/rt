@@ -2743,8 +2743,8 @@ _deactivate() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2)"
-# +     authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2 | tr -d "\r\n")"
+# - authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2)"
+# + authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2 | tr -d "\r\n")"
 ################################################################################
 # put stream annotation here
 # stream enable

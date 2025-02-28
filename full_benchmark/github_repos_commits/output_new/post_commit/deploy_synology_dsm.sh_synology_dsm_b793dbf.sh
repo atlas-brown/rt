@@ -136,26 +136,21 @@ synology_dsm_deploy() {
     fi
 
     response=$(_get "$_base_url/webapi/$api_path?api=SYNO.API.Auth&version=$api_version&method=login&format=sid&account=$encoded_username&passwd=$encoded_password&otp_code=$otp_code&enable_syno_token=yes&enable_device_token=yes&device_name=$SYNO_Device_Name")
+    _secure_debug3 response "$response"
+
+    id_property='device_id'
+    [ "${api_version}" -gt '6' ] || id_property='did'
 ################################################################################
 # Commit message: Fix device ID property name for DSM 6
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/b793dbf977dbf5d6b6829d185e0b2a0fa130941a
 # Category: 
 # Notes: 
 # Changed content:
-# -     _debug3 response "$response"
-# -     SYNO_Device_ID=$(echo "$response" | grep "device_id" | sed -n 's/.*"device_id" *: *"\([^"]*\).*/\1/p')
-# +     _secure_debug3 response "$response"
-# + 
-# +     id_property='device_id'
-# +     [ "${api_version}" -gt '6' ] || id_property='did'
-# +     SYNO_Device_ID=$(echo "$response" | grep "$id_property" | sed -n 's/.*"'$id_property'" *: *"\([^"]*\).*/\1/p')
+# - SYNO_Device_ID=$(echo "$response" | grep "device_id" | sed -n 's/.*"device_id" *: *"\([^"]*\).*/\1/p')
+# + SYNO_Device_ID=$(echo "$response" | grep "$id_property" | sed -n 's/.*"'$id_property'" *: *"\([^"]*\).*/\1/p')
 ################################################################################
 # put stream annotation here
 # stream enable
-    _secure_debug3 response "$response"
-
-    id_property='device_id'
-    [ "${api_version}" -gt '6' ] || id_property='did'
     SYNO_Device_ID=$(echo "$response" | grep "$id_property" | sed -n 's/.*"'$id_property'" *: *"\([^"]*\).*/\1/p')
     _secure_debug2 SYNO_Device_ID "$SYNO_Device_ID"
   else

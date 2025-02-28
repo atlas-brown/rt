@@ -64,8 +64,8 @@ fritzbox_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _fritzbox_challenge="$(wget -q -O - ${_fritzbox_url}/login_sid.lua | sed -e 's/^.*<Challenge>//' -e 's/<\/Challenge>.*$//')"
-# +   _fritzbox_challenge="$(wget --no-check-certificate -q -O - ${_fritzbox_url}/login_sid.lua | sed -e 's/^.*<Challenge>//' -e 's/<\/Challenge>.*$//')"
+# - _fritzbox_challenge="$(wget -q -O - ${_fritzbox_url}/login_sid.lua | sed -e 's/^.*<Challenge>//' -e 's/<\/Challenge>.*$//')"
+# + _fritzbox_challenge="$(wget --no-check-certificate -q -O - ${_fritzbox_url}/login_sid.lua | sed -e 's/^.*<Challenge>//' -e 's/<\/Challenge>.*$//')"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -77,8 +77,8 @@ fritzbox_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _fritzbox_sid="$(wget -q -O - ${_fritzbox_url}/login_sid.lua?sid=0000000000000000\&username=${_fritzbox_username}\&response=${_fritzbox_challenge}-${_fritzbox_hash} | sed -e 's/^.*<SID>//' -e 's/<\/SID>.*$//')"
-# +   _fritzbox_sid="$(wget --no-check-certificate -q -O - ${_fritzbox_url}/login_sid.lua?sid=0000000000000000\&username=${_fritzbox_username}\&response=${_fritzbox_challenge}-${_fritzbox_hash} | sed -e 's/^.*<SID>//' -e 's/<\/SID>.*$//')"
+# - _fritzbox_sid="$(wget -q -O - ${_fritzbox_url}/login_sid.lua?sid=0000000000000000\&username=${_fritzbox_username}\&response=${_fritzbox_challenge}-${_fritzbox_hash} | sed -e 's/^.*<SID>//' -e 's/<\/SID>.*$//')"
+# + _fritzbox_sid="$(wget --no-check-certificate -q -O - ${_fritzbox_url}/login_sid.lua?sid=0000000000000000\&username=${_fritzbox_username}\&response=${_fritzbox_challenge}-${_fritzbox_hash} | sed -e 's/^.*<SID>//' -e 's/<\/SID>.*$//')"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -113,8 +113,8 @@ fritzbox_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   wget -q -O - "${_fritzbox_url}/cgi-bin/firmwarecfg" --header="Content-type: multipart/form-data boundary=${_post_boundary}" --post-file "${_post_request}" | grep SSL
-# +   wget --no-check-certificate -q -O - "${_fritzbox_url}/cgi-bin/firmwarecfg" --header="Content-type: multipart/form-data boundary=${_post_boundary}" --post-file "${_post_request}" | grep SSL
+# - wget -q -O - "${_fritzbox_url}/cgi-bin/firmwarecfg" --header="Content-type: multipart/form-data boundary=${_post_boundary}" --post-file "${_post_request}" | grep SSL
+# + wget --no-check-certificate -q -O - "${_fritzbox_url}/cgi-bin/firmwarecfg" --header="Content-type: multipart/form-data boundary=${_post_boundary}" --post-file "${_post_request}" | grep SSL
 ################################################################################
 # put stream annotation here
 # stream enable

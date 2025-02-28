@@ -93,17 +93,6 @@ nvm_ls_remote() {
     local PATTERN=$1
     local VERSIONS
     if [ "$PATTERN" ]; then
-################################################################################
-# Commit message: fix handle cases of grep aliases as described in to resolve #207
-# Commit URL: https://github.com/nvm-sh/nvm/commit/6690aecc6c53c9cb3dd0475560eaad095be4ee79
-# Category: 
-# Notes: 
-# Changed content:
-# -         if echo "${PATTERN}" | grep -v '^v' ; then
-# +         if echo "${PATTERN}" | \grep -v '^v' ; then
-################################################################################
-# put stream annotation here
-# stream enable
         if echo "${PATTERN}" | \grep -v '^v' ; then
             PATTERN=v$PATTERN
         fi
@@ -111,19 +100,6 @@ nvm_ls_remote() {
         PATTERN=".*"
     fi
     VERSIONS=`curl -s http://nodejs.org/dist/ \
-################################################################################
-# Commit message: fix handle cases of grep aliases as described in to resolve #207
-# Commit URL: https://github.com/nvm-sh/nvm/commit/6690aecc6c53c9cb3dd0475560eaad095be4ee79
-# Category: 
-# Notes: 
-# Changed content:
-# -                   | egrep -o 'v[0-9]+\.[0-9]+\.[0-9]+' \
-# -                   | grep -w "${PATTERN}" \
-# +                   | \egrep -o 'v[0-9]+\.[0-9]+\.[0-9]+' \
-# +                   | \grep -w "${PATTERN}" \
-################################################################################
-# put stream annotation here
-# stream enable
                   | \egrep -o 'v[0-9]+\.[0-9]+\.[0-9]+' \
                   | \grep -w "${PATTERN}" \
                   | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n`
@@ -283,8 +259,8 @@ nvm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -             sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | grep node-${t}.tar.gz | awk '{print $1}'`
-# +             sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | \grep node-${t}.tar.gz | awk '{print $1}'`
+# - sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | grep node-${t}.tar.gz | awk '{print $1}'`
+# + sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | \grep node-${t}.tar.gz | awk '{print $1}'`
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -320,17 +296,6 @@ nvm() {
       fi
       local tmpdir="$NVM_DIR/src"
       local tmptarball="$tmpdir/node-$VERSION.tar.gz"
-################################################################################
-# Commit message: fix handle cases of grep aliases as described in to resolve #207
-# Commit URL: https://github.com/nvm-sh/nvm/commit/6690aecc6c53c9cb3dd0475560eaad095be4ee79
-# Category: 
-# Notes: 
-# Changed content:
-# -       if [ "`curl -Is "http://nodejs.org/dist/$VERSION/node-$VERSION.tar.gz" | grep '200 OK'`" != '' ]; then
-# +       if [ "`curl -Is "http://nodejs.org/dist/$VERSION/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
-################################################################################
-# put stream annotation here
-# stream enable
       if [ "`curl -Is "http://nodejs.org/dist/$VERSION/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
         tarball="http://nodejs.org/dist/$VERSION/node-$VERSION.tar.gz"
 ################################################################################
@@ -339,10 +304,8 @@ nvm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | grep node-$VERSION.tar.gz | awk '{print $1}'`
-# -       elif [ "`curl -Is "http://nodejs.org/dist/node-$VERSION.tar.gz" | grep '200 OK'`" != '' ]; then
-# +         sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | \grep node-$VERSION.tar.gz | awk '{print $1}'`
-# +       elif [ "`curl -Is "http://nodejs.org/dist/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
+# - sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | grep node-$VERSION.tar.gz | awk '{print $1}'`
+# + sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | \grep node-$VERSION.tar.gz | awk '{print $1}'`
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -546,8 +509,8 @@ nvm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         INSTALLS=`nvm use $VERSION > /dev/null && npm -g -p ll | grep "$ROOT\/[^/]\+$" | cut -d '/' -f 8 | cut -d ":" -f 2 | grep -v npm | tr "\n" " "`
-# +         INSTALLS=`nvm use $VERSION > /dev/null && npm -g -p ll | \grep "$ROOT\/[^/]\+$" | cut -d '/' -f 8 | cut -d ":" -f 2 | \grep -v npm | tr "\n" " "`
+# - INSTALLS=`nvm use $VERSION > /dev/null && npm -g -p ll | grep "$ROOT\/[^/]\+$" | cut -d '/' -f 8 | cut -d ":" -f 2 | grep -v npm | tr "\n" " "`
+# + INSTALLS=`nvm use $VERSION > /dev/null && npm -g -p ll | \grep "$ROOT\/[^/]\+$" | cut -d '/' -f 8 | cut -d ":" -f 2 | \grep -v npm | tr "\n" " "`
 ################################################################################
 # put stream annotation here
 # stream enable

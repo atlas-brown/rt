@@ -168,20 +168,18 @@ _sed_i() {
     _err "Usage:_sed_i options filename"
     return 1
   fi
+  _debug2 options "$options"
 ################################################################################
 # Commit message: minor, fix sed_i
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/14f3dbb71aa16cb0c61efc58695dfe09d4ca44c9
 # Category: 
 # Notes: 
 # Changed content:
-# -   
-# -   if sed -h 2>&1 | grep "\-i[SUFFIX]" ; then
-# +   _debug2 options "$options"
-# +   if sed -h 2>&1 | grep "\-i\[SUFFIX]" >/dev/null 2>&1; then
+# - if sed -h 2>&1 | grep "\-i[SUFFIX]" ; then
+# + if sed -h 2>&1 | grep "\-i\[SUFFIX]" >/dev/null 2>&1; then
 ################################################################################
 # put stream annotation here
 # stream enable
-  _debug2 options "$options"
   if sed -h 2>&1 | grep "\-i\[SUFFIX]" >/dev/null 2>&1; then
     _debug "Using sed  -i"
     sed -i "$options" "$filename"

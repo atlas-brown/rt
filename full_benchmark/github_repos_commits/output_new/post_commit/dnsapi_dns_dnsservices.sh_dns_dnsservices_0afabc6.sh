@@ -219,8 +219,8 @@ deleteRecord() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   recordID="$(echo "$recordInfo" | tr ',' '\n' | grep -E "\"id\":\"[0-9]+\"" | cut -d'"' -f4)"
-# +   recordID="$(echo "$recordInfo" | tr ',' '\n' | _egrep_o() "\"id\":\"[0-9]+\"" | cut -d'"' -f4)"
+# - recordID="$(echo "$recordInfo" | tr ',' '\n' | grep -E "\"id\":\"[0-9]+\"" | cut -d'"' -f4)"
+# + recordID="$(echo "$recordInfo" | tr ',' '\n' | _egrep_o() "\"id\":\"[0-9]+\"" | cut -d'"' -f4)"
 ################################################################################
 # put stream annotation here
 # stream enable

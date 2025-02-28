@@ -64,8 +64,8 @@ teams_send() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _color="$(echo "${_color:-$TEAMS_THEME_COLOR}" | tr -cd '[:xdigit:]')"
-# +   _color="$(echo "${_color:-$TEAMS_THEME_COLOR}" | tr -cd 'a-fA-F0-9')"
+# - _color="$(echo "${_color:-$TEAMS_THEME_COLOR}" | tr -cd '[:xdigit:]')"
+# + _color="$(echo "${_color:-$TEAMS_THEME_COLOR}" | tr -cd 'a-fA-F0-9')"
 ################################################################################
 # put stream annotation here
 # stream enable

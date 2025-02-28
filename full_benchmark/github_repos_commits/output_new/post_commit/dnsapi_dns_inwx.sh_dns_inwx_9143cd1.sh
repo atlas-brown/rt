@@ -200,8 +200,8 @@ _inwx_login() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   INWX_Cookie=$(printf "Cookie: %s" "$(grep "domrobot=" "$HTTP_HEADER" | grep "^Set-Cookie:" | _tail_n 1 | _egrep_o 'domrobot=[^;]*;' | tr -d ';')")
-# +   INWX_Cookie=$(printf "Cookie: %s" "$(grep "domrobot=" "$HTTP_HEADER" | grep -i "^Set-Cookie:" | _tail_n 1 | _egrep_o 'domrobot=[^;]*;' | tr -d ';')")
+# - INWX_Cookie=$(printf "Cookie: %s" "$(grep "domrobot=" "$HTTP_HEADER" | grep "^Set-Cookie:" | _tail_n 1 | _egrep_o 'domrobot=[^;]*;' | tr -d ';')")
+# + INWX_Cookie=$(printf "Cookie: %s" "$(grep "domrobot=" "$HTTP_HEADER" | grep -i "^Set-Cookie:" | _tail_n 1 | _egrep_o 'domrobot=[^;]*;' | tr -d ';')")
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -363,8 +363,8 @@ package_manager_detect() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         PKG_COUNT="${PKG_MANAGER} check-update | grep -E '(.i686|.x86|.noarch|.arm|.src)' | wc -l || true"
-# +         PKG_COUNT="${PKG_MANAGER} check-update | grep -E '(.i686|.x86|.noarch|.arm|.src|.riscv64)' | wc -l || true"
+# - PKG_COUNT="${PKG_MANAGER} check-update | grep -E '(.i686|.x86|.noarch|.arm|.src)' | wc -l || true"
+# + PKG_COUNT="${PKG_MANAGER} check-update | grep -E '(.i686|.x86|.noarch|.arm|.src|.riscv64)' | wc -l || true"
 ################################################################################
 # put stream annotation here
 # stream enable

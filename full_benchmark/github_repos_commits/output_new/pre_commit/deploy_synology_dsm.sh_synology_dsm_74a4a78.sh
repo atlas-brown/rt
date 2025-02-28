@@ -66,20 +66,6 @@ synology_dsm_deploy() {
   _getdeployconf SYNO_Certificate
   _debug SYNO_Certificate "${SYNO_Certificate:-}"
 
-################################################################################
-# Commit message: Make certificate descriptions sed safe  This escapes special characters used in POSIX sed to prevent mismatches. e.g. `SYNO_Certficiate=*.example.com` would not match a description of "*.example.com" and would look to match any number of double quotes (the last character in the sed regex prior to certificate description), followed by any single character, followed by "example", followed by any character, followed by "com".  After this change, it will properly match `*.example.com` and not `""zexamplefcom`.  Additionally we now store the certificate description as base64 encoded to prevent issues with single quotes.  Tested on DSM 7.0-41222 (VDSM) and DSM 6.2.4-25556 (DS1515+).
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/74a4a788b142d9febe351da61a86636542aba2f9
-# Category: 
-# Notes: 
-# Changed content:
-# +   if printf "%s" "$SYNO_Certificate" | grep '\\'; then
-# +     _err "Do not use a backslash (\) in your certificate description"
-# +     return 1
-# +   fi
-# + 
-################################################################################
-# put stream annotation here
-# stream enable
   _base_url="$SYNO_Scheme://$SYNO_Hostname:$SYNO_Port"
   _debug _base_url "$_base_url"
 
@@ -130,10 +116,8 @@ synology_dsm_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   id=$(echo "$response" | sed -n "s/.*\"desc\":\"$SYNO_Certificate\",\"id\":\"\([^\"]*\).*/\1/p")
-# +   escaped_certificate="$(printf "%s" "$SYNO_Certificate" | sed 's/\([].*^$[]\)/\\\1/g;s/"/\\\\"/g')"
-# +   _debug escaped_certificate "$escaped_certificate"
-# +   id=$(echo "$response" | sed -n "s/.*\"desc\":\"$escaped_certificate\",\"id\":\"\([^\"]*\).*/\1/p")
+# - id=$(echo "$response" | sed -n "s/.*\"desc\":\"$SYNO_Certificate\",\"id\":\"\([^\"]*\).*/\1/p")
+# + id=$(echo "$response" | sed -n "s/.*\"desc\":\"$escaped_certificate\",\"id\":\"\([^\"]*\).*/\1/p")
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -162,8 +146,8 @@ synology_dsm_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if echo "$response" | sed -n "s/.*\"desc\":\"$SYNO_Certificate\",\([^{]*\).*/\1/p" | grep -- 'is_default":true' >/dev/null; then
-# +   if echo "$response" | sed -n "s/.*\"desc\":\"$escaped_certificate\",\([^{]*\).*/\1/p" | grep -- 'is_default":true' >/dev/null; then
+# - if echo "$response" | sed -n "s/.*\"desc\":\"$SYNO_Certificate\",\([^{]*\).*/\1/p" | grep -- 'is_default":true' >/dev/null; then
+# + if echo "$response" | sed -n "s/.*\"desc\":\"$escaped_certificate\",\([^{]*\).*/\1/p" | grep -- 'is_default":true' >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable

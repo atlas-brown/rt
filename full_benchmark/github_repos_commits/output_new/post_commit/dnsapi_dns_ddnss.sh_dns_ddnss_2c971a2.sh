@@ -125,8 +125,8 @@ _ddnss_rest() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     response="$(_get "$url" | sed 's/<[a-zA-Z\/][^>]*>//g' | _tail_n 1)"
-# +     response="$(_get "$url" | sed 's/<[a-zA-Z\/][^>]*>//g' | tr -s "\n" | _tail_n 1)"
+# - response="$(_get "$url" | sed 's/<[a-zA-Z\/][^>]*>//g' | _tail_n 1)"
+# + response="$(_get "$url" | sed 's/<[a-zA-Z\/][^>]*>//g' | tr -s "\n" | _tail_n 1)"
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -164,8 +164,8 @@ _ws_rest() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   datez="$(date -u -d @"$timestamp" +%Y-%m-%dT%H:%M:%S%z 2>/dev/null || _utc_date | sed "s/ /T/" | sed "s/$/+0000/")"
-# +   datez="$(date -u -d @"$timestamp" +%Y-%m-%dT%H:%M:%S%z 2>/dev/null || date -u -r "$timestamp" +%Y-%m-%dT%H:%M:%S%z 2>/dev/null || _utc_date | sed "s/ /T/" | sed "s/$/+0000/")"
+# - datez="$(date -u -d @"$timestamp" +%Y-%m-%dT%H:%M:%S%z 2>/dev/null || _utc_date | sed "s/ /T/" | sed "s/$/+0000/")"
+# + datez="$(date -u -d @"$timestamp" +%Y-%m-%dT%H:%M:%S%z 2>/dev/null || date -u -r "$timestamp" +%Y-%m-%dT%H:%M:%S%z 2>/dev/null || _utc_date | sed "s/ /T/" | sed "s/$/+0000/")"
 ################################################################################
 # put stream annotation here
 # stream enable

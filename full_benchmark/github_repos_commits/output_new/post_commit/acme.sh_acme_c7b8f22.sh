@@ -554,8 +554,8 @@ _is_idn() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _idn_temp=$(printf "%s" "$_is_idn_d" | tr -d '0-9' | tr -d 'a-z' | tr -d 'A-Z' | tr -d '.,-')
-# +   _idn_temp=$(printf "%s" "$_is_idn_d" | tr -d '[0-9]' | tr -d '[a-z]' | tr -d '[A-Z]' | tr -d '.,-')
+# - _idn_temp=$(printf "%s" "$_is_idn_d" | tr -d '0-9' | tr -d 'a-z' | tr -d 'A-Z' | tr -d '.,-')
+# + _idn_temp=$(printf "%s" "$_is_idn_d" | tr -d '[0-9]' | tr -d '[a-z]' | tr -d '[A-Z]' | tr -d '.,-')
 ################################################################################
 # put stream annotation here
 # stream enable

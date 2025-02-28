@@ -36,8 +36,8 @@ elif [[ -f "$_ssh_env_cache" ]]; then
 # Category: 
 # Notes: 
 # Changed content:
-# - 	pgrep ssh-agent | grep -q $SSH_AGENT_PID || {
-# + 	ps x | grep ssh-agent | grep -q $SSH_AGENT_PID || {
+# - pgrep ssh-agent | grep -q $SSH_AGENT_PID || {
+# + ps x | grep ssh-agent | grep -q $SSH_AGENT_PID || {
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -2327,19 +2327,7 @@ _setNginx() {
 # Category: 
 # Notes: 
 # Changed content:
-# +   _ln=$(grep -n "^ *server_name.* $_d" "$FOUND_REAL_NGINX_CONF" | cut -d : -f 1 | tr -d "\n")
-# +   _debug "_ln" "$_ln"
-# + 
-# +   _lnn=$(_math $_ln + 1)
-# +   _debug _lnn "$_lnn"
-# +   _start_tag="$(sed -n "$_lnn,${_lnn}p" "$FOUND_REAL_NGINX_CONF")"
-# +   _debug "_start_tag" "$_start_tag"
-# +   if [ "$_start_tag" = "$NGINX_START" ]; then
-# +     _info "The domain $_d is already configured, skip"
-# +     FOUND_REAL_NGINX_CONF=""
-# +     return 0
-# +   fi
-# + 
+# + _ln=$(grep -n "^ *server_name.* $_d" "$FOUND_REAL_NGINX_CONF" | cut -d : -f 1 | tr -d "\n")
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -2359,17 +2347,6 @@ _setNginx() {
   mkdir -p "$DOMAIN_BACKUP_PATH"
   _backup_conf="$DOMAIN_BACKUP_PATH/$_d.nginx.conf"
   _debug _backup_conf "$_backup_conf"
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/615
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/03f8d6e946d642c529927668c078df2025f7aa22
-# Category: 
-# Notes: 
-# Changed content:
-# -   _ln=$(grep -n "^ *server_name.* $_d" "$_backup_conf" | cut -d : -f 1 | tr -d "\n")
-# -   _debug "_ln" "$_ln"
-################################################################################
-# put stream annotation here
-# stream enable
   BACKUP_NGINX_CONF="$_backup_conf"
   _info "Backup $FOUND_REAL_NGINX_CONF to $_backup_conf"
   if ! cp "$FOUND_REAL_NGINX_CONF" "$_backup_conf"; then

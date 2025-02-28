@@ -239,8 +239,8 @@ get_available_interfaces() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   availableInterfaces=$(ip -o link | grep -v "state DOWN\|lo" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
-# +   availableInterfaces=$(ip --oneline link show up | grep -v "lo" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
+# - availableInterfaces=$(ip -o link | grep -v "state DOWN\|lo" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
+# + availableInterfaces=$(ip --oneline link show up | grep -v "lo" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
 ################################################################################
 # put stream annotation here
 # stream enable

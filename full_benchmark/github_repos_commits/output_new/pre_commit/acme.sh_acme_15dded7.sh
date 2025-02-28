@@ -4523,8 +4523,8 @@ $_authorizations_map"
 # Category: 
 # Notes: 
 # Changed content:
-# -         _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ')
-# +         _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
+# - _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ')
+# + _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
 ################################################################################
 # put stream annotation here
 # stream enable

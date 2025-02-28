@@ -58,10 +58,8 @@ git_prompt_status() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if $(echo "$INDEX" | grep '^D ' &> /dev/null); then
-# +   if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
-# +     STATUS="$ZSH_THEME_GIT_PROMPT_DELETED$STATUS"
-# +   elif $(echo "$INDEX" | grep '^AD ' &> /dev/null); then
+# - if $(echo "$INDEX" | grep '^D ' &> /dev/null); then
+# + if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
 ################################################################################
 # put stream annotation here
 # stream enable

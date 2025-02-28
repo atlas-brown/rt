@@ -88,8 +88,8 @@ _gradlew_tasks () {
 # Category: 
 # Notes: 
 # Changed content:
-# -      gradlew tasks --all | grep "^[ ]*[a-zA-Z0-9:]*\ -\ " | sed "s/ - .*$//" | sed "s/[\ ]*//" > .gradletasknamecache
-# +      ./gradlew tasks --all | grep "^[ ]*[a-zA-Z0-9:]*\ -\ " | sed "s/ - .*$//" | sed "s/[\ ]*//" > .gradletasknamecache
+# - gradlew tasks --all | grep "^[ ]*[a-zA-Z0-9:]*\ -\ " | sed "s/ - .*$//" | sed "s/[\ ]*//" > .gradletasknamecache
+# + ./gradlew tasks --all | grep "^[ ]*[a-zA-Z0-9:]*\ -\ " | sed "s/ - .*$//" | sed "s/[\ ]*//" > .gradletasknamecache
 ################################################################################
 # put stream annotation here
 # stream enable

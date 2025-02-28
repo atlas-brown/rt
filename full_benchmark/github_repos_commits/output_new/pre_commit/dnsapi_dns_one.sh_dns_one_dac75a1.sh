@@ -19,25 +19,6 @@ dns_one_add() {
   txtvalue=$2
 
   # get credentials
-################################################################################
-# Commit message: rename
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/dac75a1dda7681df3e9cfae93675d93ceca7f574
-# Category: 
-# Notes: 
-# Changed content:
-# -   ONECOM_USER="${ONECOM_USER:-$(_readaccountconf_mutable ONECOM_USER)}"
-# -   ONECOM_PASSWORD="${ONECOM_PASSWORD:-$(_readaccountconf_mutable ONECOM_PASSWORD)}"
-# -   if [ -z "$ONECOM_USER" ] || [ -z "$ONECOM_PASSWORD" ]; then
-# -     ONECOM_USER=""
-# -     ONECOM_PASSWORD=""
-# +   ONECOM_User="${ONECOM_User:-$(_readaccountconf_mutable ONECOM_User)}"
-# +   ONECOM_Password="${ONECOM_Password:-$(_readaccountconf_mutable ONECOM_Password)}"
-# +   if [ -z "$ONECOM_User" ] || [ -z "$ONECOM_Password" ]; then
-# +     ONECOM_User=""
-# +     ONECOM_Password=""
-################################################################################
-# put stream annotation here
-# stream enable
   ONECOM_USER="${ONECOM_USER:-$(_readaccountconf_mutable ONECOM_USER)}"
   ONECOM_PASSWORD="${ONECOM_PASSWORD:-$(_readaccountconf_mutable ONECOM_PASSWORD)}"
   if [ -z "$ONECOM_USER" ] || [ -z "$ONECOM_PASSWORD" ]; then
@@ -89,8 +70,8 @@ dns_one_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   id=$(printf -- "%s" "$response" | sed -n "s/{\"result\":{\"data\":{\"type\":\"dns_custom_records\",\"id\":\"\([^\"]*\)\",\"attributes\":{\"prefix\":\"$mysubdomain\",\"type\":\"TXT\",\"content\":\"$txtvalue\",\"priority\":0,\"ttl\":600}}},\"metadata\":null}/\1/p")
-# +   id=$(echo "$response" | sed -n "s/{\"result\":{\"data\":{\"type\":\"dns_custom_records\",\"id\":\"\([^\"]*\)\",\"attributes\":{\"prefix\":\"$mysubdomain\",\"type\":\"TXT\",\"content\":\"$txtvalue\",\"priority\":0,\"ttl\":600}}},\"metadata\":null}/\1/p")
+# - id=$(printf -- "%s" "$response" | sed -n "s/{\"result\":{\"data\":{\"type\":\"dns_custom_records\",\"id\":\"\([^\"]*\)\",\"attributes\":{\"prefix\":\"$mysubdomain\",\"type\":\"TXT\",\"content\":\"$txtvalue\",\"priority\":0,\"ttl\":600}}},\"metadata\":null}/\1/p")
+# + id=$(echo "$response" | sed -n "s/{\"result\":{\"data\":{\"type\":\"dns_custom_records\",\"id\":\"\([^\"]*\)\",\"attributes\":{\"prefix\":\"$mysubdomain\",\"type\":\"TXT\",\"content\":\"$txtvalue\",\"priority\":0,\"ttl\":600}}},\"metadata\":null}/\1/p")
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -112,25 +93,6 @@ dns_one_rm() {
   txtvalue=$2
 
   # get credentials
-################################################################################
-# Commit message: rename
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/dac75a1dda7681df3e9cfae93675d93ceca7f574
-# Category: 
-# Notes: 
-# Changed content:
-# -   ONECOM_USER="${ONECOM_USER:-$(_readaccountconf_mutable ONECOM_USER)}"
-# -   ONECOM_PASSWORD="${ONECOM_PASSWORD:-$(_readaccountconf_mutable ONECOM_PASSWORD)}"
-# -   if [ -z "$ONECOM_USER" ] || [ -z "$ONECOM_PASSWORD" ]; then
-# -     ONECOM_USER=""
-# -     ONECOM_PASSWORD=""
-# +   ONECOM_User="${ONECOM_User:-$(_readaccountconf_mutable ONECOM_User)}"
-# +   ONECOM_Password="${ONECOM_Password:-$(_readaccountconf_mutable ONECOM_Password)}"
-# +   if [ -z "$ONECOM_User" ] || [ -z "$ONECOM_Password" ]; then
-# +     ONECOM_User=""
-# +     ONECOM_Password=""
-################################################################################
-# put stream annotation here
-# stream enable
   ONECOM_USER="${ONECOM_USER:-$(_readaccountconf_mutable ONECOM_USER)}"
   ONECOM_PASSWORD="${ONECOM_PASSWORD:-$(_readaccountconf_mutable ONECOM_PASSWORD)}"
   if [ -z "$ONECOM_USER" ] || [ -z "$ONECOM_PASSWORD" ]; then

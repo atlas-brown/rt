@@ -58,24 +58,18 @@ if [[ $(uname) == "Darwin" ]] ; then
 
 elif [[ $(uname) == "Linux"  ]] ; then
 
+  function battery_is_charging() {
 ################################################################################
 # Commit message: added the linux implementation to the battery plugin
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/564a708d6af90b1bc5bf4d13e7ad80abca92ad74
 # Category: 
 # Notes: 
 # Changed content:
-# +   function battery_is_charging() {
-# +     ! [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]]
-# +   }
-# + 
-# +   function battery_pct() {
-# +     echo "$(acpi | cut -f2 -d ',' | tr -cd '[:digit:]')" 
-# +   }
-# + 
+# + ! [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]]
+# + echo "$(acpi | cut -f2 -d ',' | tr -cd '[:digit:]')"
 ################################################################################
 # put stream annotation here
 # stream enable
-  function battery_is_charging() {
     ! [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]]
   }
 
@@ -84,21 +78,6 @@ elif [[ $(uname) == "Linux"  ]] ; then
   }
 
   function battery_pct_remaining() {
-################################################################################
-# Commit message: added the linux implementation to the battery plugin
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/564a708d6af90b1bc5bf4d13e7ad80abca92ad74
-# Category: 
-# Notes: 
-# Changed content:
-# -     if [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]] ; then
-# -       echo "$(acpi | cut -f2 -d ',' | tr -cd '[:digit:]')" 
-# +     if [ ! $(battery_is_charging) ] ; then
-# +       battery_pct
-# +     else
-# +       echo "External Power"
-################################################################################
-# put stream annotation here
-# stream enable
     if [ ! $(battery_is_charging) ] ; then
       battery_pct
     else

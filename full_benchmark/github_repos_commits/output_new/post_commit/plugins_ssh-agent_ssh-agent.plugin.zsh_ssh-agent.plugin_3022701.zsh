@@ -30,27 +30,22 @@ if [[ $_agent_forwarding == "yes" && -n "$SSH_AUTH_SOCK" ]]; then
 elif [[ -f "$_ssh_env_cache" ]]; then
 	# Source SSH settings, if applicable
 	. $_ssh_env_cache > /dev/null
+	if [[ $USER == "root" ]]; then
+		FILTER="ax"
+	else
+		FILTER="x"
+	fi
 ################################################################################
 # Commit message: Use existing ssh-agent when invoking a sudo shell (#3891)  When invoking a shell as root using ```sudo -s```, the ssh-agent plugin starts a new agent although it already exists.  The problem boils down to a check if ssh-agent is running using ```ps x```. If that is extended to ```ps ax``` for root, then the existing ssh-agent will still work.
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/302270174d8173be35e8c1b464a0d9e731650c15
 # Category: 
 # Notes: 
 # Changed content:
-# - 	ps x | grep ssh-agent | grep -q $SSH_AGENT_PID || {
-# + 	if [[ $USER == "root" ]]; then
-# + 		FILTER="ax"
-# + 	else
-# + 		FILTER="x"
-# + 	fi
-# + 	ps $FILTER | grep ssh-agent | grep -q $SSH_AGENT_PID || {
+# - ps x | grep ssh-agent | grep -q $SSH_AGENT_PID || {
+# + ps $FILTER | grep ssh-agent | grep -q $SSH_AGENT_PID || {
 ################################################################################
 # put stream annotation here
 # stream enable
-	if [[ $USER == "root" ]]; then
-		FILTER="ax"
-	else
-		FILTER="x"
-	fi
 	ps $FILTER | grep ssh-agent | grep -q $SSH_AGENT_PID || {
 		_start_agent
 	}

@@ -123,8 +123,8 @@ login() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   sid=$(echo "$tmp" | tr '{}' '\n\n' | grep apisessionid | cut -d '"' -f 4)
-# +   sid=$(echo "$tmp" | tr '{}' '\n' | grep apisessionid | cut -d '"' -f 4)
+# - sid=$(echo "$tmp" | tr '{}' '\n\n' | grep apisessionid | cut -d '"' -f 4)
+# + sid=$(echo "$tmp" | tr '{}' '\n' | grep apisessionid | cut -d '"' -f 4)
 ################################################################################
 # put stream annotation here
 # stream enable

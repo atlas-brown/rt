@@ -201,8 +201,8 @@ _get_paketnr() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   domains=$(echo "$form" | grep 'header-paket-domain' | sed 's/<[^>]*>//g' | sed 's/^.*>\([^>]*\)$/\1/')
-# +   domains=$(echo "$form" | grep '<ul class="nav header-paket-list">' | sed 's/<li/\n<li/g' | sed 's/<[^>]*>/ /g' | sed 's/^.*>\([^>]*\)$/\1/')
+# - domains=$(echo "$form" | grep 'header-paket-domain' | sed 's/<[^>]*>//g' | sed 's/^.*>\([^>]*\)$/\1/')
+# + domains=$(echo "$form" | grep '<ul class="nav header-paket-list">' | sed 's/<li/\n<li/g' | sed 's/<[^>]*>/ /g' | sed 's/^.*>\([^>]*\)$/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -221,17 +221,6 @@ _get_paketnr() {
   TLD="$domain"
   _debug domain "$domain"
   RECORD=$(echo "$fqdn" | cut -c"1-$((${#fqdn} - ${#TLD} - 1))")
-################################################################################
-# Commit message: World4You: fix paketnr parsing  Signed-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/5d6d0c6176c1be41c8729478bc7fe5e3fc787823
-# Category: 
-# Notes: 
-# Changed content:
-# -   PAKETNR=$(echo "$form" | grep "data-textfilter=\".* $domain " | _tail_n 1 | sed "s|.*$WORLD4YOU_API/\\([0-9]*\\)/.*|\\1|")
-# +   PAKETNR=$(echo "$domains" | grep "$domain" | sed 's/^[^,]*, *\([0-9]*\).*$/\1/')
-################################################################################
-# put stream annotation here
-# stream enable
   PAKETNR=$(echo "$form" | grep "data-textfilter=\".* $domain " | _tail_n 1 | sed "s|.*$WORLD4YOU_API/\\([0-9]*\\)/.*|\\1|")
   return 0
 }

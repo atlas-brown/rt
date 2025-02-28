@@ -215,17 +215,6 @@ _countdots() {
 # $3 - regex to recognise useful return lines
 _api_response_split() {
   printf '%s' "$1" \
-################################################################################
-# Commit message: [[:space:]] -> " "
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/a32b95544ba8aa385251f757940c93f3fef266c0
-# Category: 
-# Notes: 
-# Changed content:
-# -     | sed -r 's/(^[[:space:]]+|[[:space:]]+$)//g' \
-# +     | sed -r 's/(^ +| +$)//g' \
-################################################################################
-# put stream annotation here
-# stream enable
     | sed -r 's/(^[[:space:]]+|[[:space:]]+$)//g' \
     | tr -d '\n\r' \
     | sed -r "s/<\/?$2>/${NEWLINE}/g" \
@@ -252,17 +241,6 @@ _call_api() {
   # Detect any <status> that isn't "ok". None of the used calls should fail if the API is working correctly.
   # Also detect if there simply aren't any status lines (null result?) and report that, as well.
 
-################################################################################
-# Commit message: [[:space:]] -> " "
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/a32b95544ba8aa385251f757940c93f3fef266c0
-# Category: 
-# Notes: 
-# Changed content:
-# -   statuslines="$(echo "$pleskxml_prettyprint_result" | egrep '^[[:space:]]*<status>[^<]*</status>[[:space:]]*$')"
-# +   statuslines="$(echo "$pleskxml_prettyprint_result" | egrep '^ *<status>[^<]*</status> *$')"
-################################################################################
-# put stream annotation here
-# stream enable
   statuslines="$(echo "$pleskxml_prettyprint_result" | egrep '^[[:space:]]*<status>[^<]*</status>[[:space:]]*$')"
 
   if _value "$statuslines" | grep -qv '<status>ok</status>'; then
@@ -276,10 +254,10 @@ _call_api() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       | sed -r 's/^<(status|errcode|errtext)>/\1: /' \
-# -       | sed -r 's/(^[[:space:]]+|<\/(status|errcode|errtext)>$)//g'
-# +       | sed -r 's/^ *<(status|errcode|errtext)>/\1: /' \
-# +       | sed -r 's/<\/(status|errcode|errtext)>$//g'
+# - | sed -r 's/^<(status|errcode|errtext)>/\1: /' \
+# + | sed -r 's/^ *<(status|errcode|errtext)>/\1: /' \
+# - | sed -r 's/(^[[:space:]]+|<\/(status|errcode|errtext)>$)//g'
+# + | sed -r 's/<\/(status|errcode|errtext)>$//g'
 ################################################################################
 # put stream annotation here
 # stream enable

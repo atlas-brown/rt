@@ -63,34 +63,21 @@ _base64() {
   openssl base64 -e | tr -d '\n'
 }
 
+_ss() {
+  _port="$1"
+  if command -v "netstat" >/dev/null 2>&1 ; then
+    _err "Using: netstat"
 ################################################################################
 # Commit message: fix portable. detect 'ss' or 'netstat'
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/34c27e0995eb49791bdbe24ad6c91fc905fc090c
 # Category: 
 # Notes: 
 # Changed content:
-# + _ss() {
-# +   _port="$1"
-# +   if command -v "netstat" >/dev/null 2>&1 ; then
-# +     _err "Using: netstat"
-# +     netstat -ntpl | grep :$_port" "
-# +     return 0
-# +   fi
-# +   if command -v "ss" >/dev/null 2>&1 ; then
-# +     _err "Using: ss"
-# +     ss -ntpl | grep :$_port" "
-# +     return 0
-# +   fi
-# +   return 1
-# + }
-# + 
+# + netstat -ntpl | grep :$_port" "
+# + ss -ntpl | grep :$_port" "
 ################################################################################
 # put stream annotation here
 # stream enable
-_ss() {
-  _port="$1"
-  if command -v "netstat" >/dev/null 2>&1 ; then
-    _err "Using: netstat"
     netstat -ntpl | grep :$_port" "
     return 0
   fi
@@ -659,17 +646,6 @@ issue() {
     fi
     _setopt "$DOMAIN_CONF"  "Le_HTTPPort"             "="  "$Le_HTTPPort"
     
-################################################################################
-# Commit message: fix portable. detect 'ss' or 'netstat'
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/34c27e0995eb49791bdbe24ad6c91fc905fc090c
-# Category: 
-# Notes: 
-# Changed content:
-# -     netprc="$(ss -ntpl | grep :$Le_HTTPPort" ")"
-# +     netprc="$(_ss "$Le_HTTPPort")"
-################################################################################
-# put stream annotation here
-# stream enable
     netprc="$(_ss "$Le_HTTPPort")"
     if [ "$netprc" ] ; then
       _err "$netprc"

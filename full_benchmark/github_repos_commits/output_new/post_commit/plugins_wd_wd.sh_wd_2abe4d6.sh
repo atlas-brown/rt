@@ -175,17 +175,6 @@ wd_add()
     elif [[ $point =~ "[[:space:]]+" ]]
     then
         wd_exit_fail "Warp point should not contain whitespace"
-################################################################################
-# Commit message: wd: update to v0.5.1 (#9273)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/2abe4d6a2576f064c09ce78b32005e7437a93ee0
-# Category: 
-# Notes: 
-# Changed content:
-# -     elif [[ $point == *:* ]]
-# +     elif [[ $point =~ : ]] || [[ $point =~ / ]]
-################################################################################
-# put stream annotation here
-# stream enable
     elif [[ $point =~ : ]] || [[ $point =~ / ]]
     then
         wd_exit_fail "Warp point contains illegal character (:/)"
@@ -287,8 +276,8 @@ wd_path()
 # Category: 
 # Notes: 
 # Changed content:
-# -     echo "$(echo "$dir" | sed "s:${HOME}:~:g")"
-# +     echo "$(echo "$dir" | sed "s:~:${HOME}:g")"
+# - echo "$(echo "$dir" | sed "s:${HOME}:~:g")"
+# + echo "$(echo "$dir" | sed "s:~:${HOME}:g")"
 ################################################################################
 # put stream annotation here
 # stream enable

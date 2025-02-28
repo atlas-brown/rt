@@ -80,8 +80,8 @@ if [[ ! -z $DOKKU_HOST ]]; then
 # Category: 
 # Notes: 
 # Changed content:
-# -         while ssh "dokku@$DOKKU_HOST" apps 2>/dev/null| grep -q "$appname"; do
-# +         while ssh -p "$DOKKU_PORT" "dokku@$DOKKU_HOST" apps 2>/dev/null| grep -q "$appname"; do
+# - while ssh "dokku@$DOKKU_HOST" apps 2>/dev/null| grep -q "$appname"; do
+# + while ssh -p "$DOKKU_PORT" "dokku@$DOKKU_HOST" apps 2>/dev/null| grep -q "$appname"; do
 ################################################################################
 # put stream annotation here
 # stream enable

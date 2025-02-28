@@ -56,17 +56,6 @@ AddDnsRecordForm[uniqueFormIdTTL]=$formidttl&AddDnsRecordForm[_token]=$form_toke
 
   _ACME_CURL="$_ORIG_ACME_CURL"
 
-################################################################################
-# Commit message: World4You using /dev/null instead of grep -q
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/3d79d78134dd6f19be2e7f6f11be06c08450de79
-# Category: 
-# Notes: 
-# Changed content:
-# -   if _ggrep -q '302\|200' <"$HTTP_HEADER"; then
-# +   if _ggrep '302\|200' >/dev/null <"$HTTP_HEADER"; then
-################################################################################
-# put stream annotation here
-# stream enable
   if _ggrep -q '302\|200' <"$HTTP_HEADER"; then
     return 0
   else
@@ -126,17 +115,6 @@ DeleteDnsRecordForm[_token]=$form_token"
 
   _ACME_CURL="$_ORIG_ACME_CURL"
 
-################################################################################
-# Commit message: World4You using /dev/null instead of grep -q
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/3d79d78134dd6f19be2e7f6f11be06c08450de79
-# Category: 
-# Notes: 
-# Changed content:
-# -   if _ggrep -q '302\|200' <"$HTTP_HEADER"; then
-# +   if _ggrep '302\|200' >/dev/null <"$HTTP_HEADER"; then
-################################################################################
-# put stream annotation here
-# stream enable
   if _ggrep -q '302\|200' <"$HTTP_HEADER"; then
     return 0
   else
@@ -200,8 +178,8 @@ _get_paketnr() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     if echo "$fqdn" | grep -q "$domain\$"; then
-# +     if echo "$fqdn" | grep "$domain\$" >/dev/null; then
+# - if echo "$fqdn" | grep -q "$domain\$"; then
+# + if echo "$fqdn" | grep "$domain\$" >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -1125,8 +1125,8 @@ _createcsr() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       alt="DNS:$(_idn $domain),DNS:$(echo "$domainlist" | sed "s/,,/,/g" | sed "s/,/,DNS:/g")"
-# +       alt="DNS:$(_idn "$domain"),DNS:$(echo "$domainlist" | sed "s/,,/,/g" | sed "s/,/,DNS:/g")"
+# - alt="DNS:$(_idn $domain),DNS:$(echo "$domainlist" | sed "s/,,/,/g" | sed "s/,/,DNS:/g")"
+# + alt="DNS:$(_idn "$domain"),DNS:$(echo "$domainlist" | sed "s/,,/,/g" | sed "s/,/,DNS:/g")"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -3961,8 +3961,8 @@ $_authorizations_map"
 # Category: 
 # Notes: 
 # Changed content:
-# -         response="$(echo "$_authorizations_map" | grep "^$(_idn $d)," | sed "s/$d,//")"
-# +         response="$(echo "$_authorizations_map" | grep "^$(_idn "$d")," | sed "s/$d,//")"
+# - response="$(echo "$_authorizations_map" | grep "^$(_idn $d)," | sed "s/$d,//")"
+# + response="$(echo "$_authorizations_map" | grep "^$(_idn "$d")," | sed "s/$d,//")"
 ################################################################################
 # put stream annotation here
 # stream enable

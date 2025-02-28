@@ -19,8 +19,8 @@ else
 # Category: 
 # Notes: 
 # Changed content:
-# - 	piholeIPCIDR=$(ip -o -f inet addr show dev $IPv4dev | awk '{print $4}')
-# + 	piholeIPCIDR=$(ip -o -f inet addr show dev $IPv4dev | awk '{print $4}') | sed -n '$p'
+# - piholeIPCIDR=$(ip -o -f inet addr show dev $IPv4dev | awk '{print $4}')
+# + piholeIPCIDR=$(ip -o -f inet addr show dev $IPv4dev | awk '{print $4}') | sed -n '$p'
 ################################################################################
 # put stream annotation here
 # stream enable

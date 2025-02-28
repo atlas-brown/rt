@@ -24,25 +24,20 @@ export RESET_FORMATTING=`tput sgr0`
 # Wrapper function for Maven's mvn command.
 mvn-color()
 {
+  (
+  # Filter mvn output using sed. Before filtering set the locale to C, so invalid characters won't break some sed implementations
+  unset LANG
 ################################################################################
 # Commit message: Fix issues with special characters when running mvn  Setting the locale to C will stabilize sed, so it won't stop processing the mvn output when it encounters invalid characters (like binary data)  This makes it also more viable to add the `alias mvn='mvn-color`, as the coloring is less obtrusive, and there won't be any issues with sed breaking because of an invalid character inside the stream
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/96798c42f046fec7f01f53d10dd63f30ed6a1e07
 # Category: 
 # Notes: 
 # Changed content:
-# -   # Filter mvn output using sed
-# -   mvn $@ | sed -e "s/\(\[INFO\]\ \-.*\)/${TEXT_BLUE}${BOLD}\1/g" \
-# -                -e "s/\(\[INFO\]\ \[.*\)/${RESET_FORMATTING}${BOLD}\1${RESET_FORMATTING}/g" \
-# +   (
-# +   # Filter mvn output using sed. Before filtering set the locale to C, so invalid characters won't break some sed implementations
-# +   unset LANG
-# +   LC_CTYPE=C mvn $@ | sed -e "s/\(\[INFO\]\)\(.*\)/${TEXT_BLUE}${BOLD}\1${RESET_FORMATTING}\2/g" \
+# - mvn $@ | sed -e "s/\(\[INFO\]\ \-.*\)/${TEXT_BLUE}${BOLD}\1/g" \
+# + LC_CTYPE=C mvn $@ | sed -e "s/\(\[INFO\]\)\(.*\)/${TEXT_BLUE}${BOLD}\1${RESET_FORMATTING}\2/g" \
 ################################################################################
 # put stream annotation here
 # stream enable
-  (
-  # Filter mvn output using sed. Before filtering set the locale to C, so invalid characters won't break some sed implementations
-  unset LANG
   LC_CTYPE=C mvn $@ | sed -e "s/\(\[INFO\]\)\(.*\)/${TEXT_BLUE}${BOLD}\1${RESET_FORMATTING}\2/g" \
                -e "s/\(\[INFO\]\ BUILD SUCCESSFUL\)/${BOLD}${TEXT_GREEN}\1${RESET_FORMATTING}/g" \
                -e "s/\(\[WARNING\]\)\(.*\)/${BOLD}${TEXT_YELLOW}\1${RESET_FORMATTING}\2/g" \

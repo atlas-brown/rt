@@ -333,17 +333,6 @@ nvm_remote_versions() {
         return 1
       fi
       VERSIONS="$(nvm_echo "$(nvm_ls_remote "$PATTERN")
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# - $(nvm_ls_remote_iojs "$PATTERN")" | command grep -v "N/A" | command sed '/^$/d')"
-# + $(nvm_ls_remote_iojs "$PATTERN")" | nvm_grep -v "N/A" | command sed '/^$/d')"
-################################################################################
-# put stream annotation here
-# stream enable
 $(nvm_ls_remote_iojs "$PATTERN")" | command grep -v "N/A" | command sed '/^$/d')"
     ;;
   esac
@@ -607,17 +596,6 @@ nvm_resolve_alias() {
     fi
 
     if [ -n "$ALIAS_TEMP" ] \
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -       && command printf "$SEEN_ALIASES" | command grep -e "^$ALIAS_TEMP$" > /dev/null; then
-# +       && command printf "$SEEN_ALIASES" | nvm_grep -e "^$ALIAS_TEMP$" > /dev/null; then
-################################################################################
-# put stream annotation here
-# stream enable
       && command printf "$SEEN_ALIASES" | command grep -e "^$ALIAS_TEMP$" > /dev/null; then
       ALIAS="∞"
       break
@@ -763,17 +741,6 @@ nvm_ls() {
     local ZHS_HAS_SHWORDSPLIT_UNSET
     ZHS_HAS_SHWORDSPLIT_UNSET=1
     if nvm_has "setopt"; then
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -       ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
-# +       ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | nvm_grep shwordsplit > /dev/null ; nvm_echo $?)
-################################################################################
-# put stream annotation here
-# stream enable
       ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
       setopt shwordsplit
     fi
@@ -808,45 +775,12 @@ nvm_ls() {
       fi
     fi
 
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -     if ! [ -d "$NVM_DIRS_TO_SEARCH1" ] || ! (command ls -1qA "$NVM_DIRS_TO_SEARCH1" | command grep -q .); then
-# +     if ! [ -d "$NVM_DIRS_TO_SEARCH1" ] || ! (command ls -1qA "$NVM_DIRS_TO_SEARCH1" | nvm_grep -q .); then
-################################################################################
-# put stream annotation here
-# stream enable
     if ! [ -d "$NVM_DIRS_TO_SEARCH1" ] || ! (command ls -1qA "$NVM_DIRS_TO_SEARCH1" | command grep -q .); then
       NVM_DIRS_TO_SEARCH1=''
     fi
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -     if ! [ -d "$NVM_DIRS_TO_SEARCH2" ] || ! (command ls -1qA "$NVM_DIRS_TO_SEARCH2" | command grep -q .); then
-# +     if ! [ -d "$NVM_DIRS_TO_SEARCH2" ] || ! (command ls -1qA "$NVM_DIRS_TO_SEARCH2" | nvm_grep -q .); then
-################################################################################
-# put stream annotation here
-# stream enable
     if ! [ -d "$NVM_DIRS_TO_SEARCH2" ] || ! (command ls -1qA "$NVM_DIRS_TO_SEARCH2" | command grep -q .); then
       NVM_DIRS_TO_SEARCH2="$NVM_DIRS_TO_SEARCH1"
     fi
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -     if ! [ -d "$NVM_DIRS_TO_SEARCH3" ] || ! (command ls -1qA "$NVM_DIRS_TO_SEARCH3" | command grep -q .); then
-# +     if ! [ -d "$NVM_DIRS_TO_SEARCH3" ] || ! (command ls -1qA "$NVM_DIRS_TO_SEARCH3" | nvm_grep -q .); then
-################################################################################
-# put stream annotation here
-# stream enable
     if ! [ -d "$NVM_DIRS_TO_SEARCH3" ] || ! (command ls -1qA "$NVM_DIRS_TO_SEARCH3" | command grep -q .); then
       NVM_DIRS_TO_SEARCH3="$NVM_DIRS_TO_SEARCH2"
     fi
@@ -958,17 +892,6 @@ nvm_ls_remote_index_tab() {
   fi
   ZHS_HAS_SHWORDSPLIT_UNSET=1
   if nvm_has "setopt"; then
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -     ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
-# +     ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | nvm_grep shwordsplit > /dev/null ; nvm_echo $?)
-################################################################################
-# put stream annotation here
-# stream enable
     ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
     setopt shwordsplit
   fi
@@ -977,17 +900,6 @@ nvm_ls_remote_index_tab() {
         1d;
         s/^/$PREFIX/;
         s/[[:blank:]].*//" \
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -     | command grep -w "$PATTERN" \
-# +     | nvm_grep -w "$PATTERN" \
-################################################################################
-# put stream annotation here
-# stream enable
     | command grep -w "$PATTERN" \
     | $SORT_COMMAND)"
   if [ "$ZHS_HAS_SHWORDSPLIT_UNSET" -eq 1 ] && nvm_has "unsetopt"; then
@@ -1126,17 +1038,6 @@ nvm_print_implicit_alias() {
 
       ZHS_HAS_SHWORDSPLIT_UNSET=1
       if nvm_has "setopt"; then
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
-# +         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | nvm_grep shwordsplit > /dev/null ; nvm_echo $?)
-################################################################################
-# put stream annotation here
-# stream enable
         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
         setopt shwordsplit
       fi
@@ -1152,8 +1053,8 @@ nvm_print_implicit_alias() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         NVM_IOJS_VERSION="$(nvm_echo "$NVM_IOJS_VERSION" | command sed "s/^$NVM_IMPLICIT-//" | command grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq | command tail -1)"
-# +         NVM_IOJS_VERSION="$(nvm_echo "$NVM_IOJS_VERSION" | command sed "s/^$NVM_IMPLICIT-//" | nvm_grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq | command tail -1)"
+# - NVM_IOJS_VERSION="$(nvm_echo "$NVM_IOJS_VERSION" | command sed "s/^$NVM_IMPLICIT-//" | command grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq | command tail -1)"
+# + NVM_IOJS_VERSION="$(nvm_echo "$NVM_IOJS_VERSION" | command sed "s/^$NVM_IMPLICIT-//" | nvm_grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq | command tail -1)"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -1183,17 +1084,6 @@ nvm_print_implicit_alias() {
 
       ZHS_HAS_SHWORDSPLIT_UNSET=1
       if nvm_has "setopt"; then
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
-# +         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | nvm_grep shwordsplit > /dev/null ; nvm_echo $?)
-################################################################################
-# put stream annotation here
-# stream enable
         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
         setopt shwordsplit
       fi
@@ -1204,8 +1094,8 @@ nvm_print_implicit_alias() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       LAST_TWO=$($NVM_COMMAND | command grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq)
-# +       LAST_TWO=$($NVM_COMMAND | nvm_grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq)
+# - LAST_TWO=$($NVM_COMMAND | command grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq)
+# + LAST_TWO=$($NVM_COMMAND | nvm_grep -e '^v' | command cut -c2- | command cut -d . -f 1,2 | uniq)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -1224,17 +1114,6 @@ nvm_print_implicit_alias() {
 
   ZHS_HAS_SHWORDSPLIT_UNSET=1
   if nvm_has "setopt"; then
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -     ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
-# +     ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | nvm_grep shwordsplit > /dev/null ; nvm_echo $?)
-################################################################################
-# put stream annotation here
-# stream enable
     ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
     setopt shwordsplit
   fi
@@ -1325,17 +1204,6 @@ nvm_get_minor_version() {
   PREFIXED_VERSION="$(nvm_format_version "$VERSION")"
 
   local MINOR
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -   MINOR="$(nvm_echo "$PREFIXED_VERSION" | command grep -e '^v' | command cut -c2- | command cut -d . -f 1,2)"
-# +   MINOR="$(nvm_echo "$PREFIXED_VERSION" | nvm_grep -e '^v' | command cut -c2- | command cut -d . -f 1,2)"
-################################################################################
-# put stream annotation here
-# stream enable
   MINOR="$(nvm_echo "$PREFIXED_VERSION" | command grep -e '^v' | command cut -c2- | command cut -d . -f 1,2)"
   if [ -z "$MINOR" ]; then
     nvm_err 'invalid version number! (please report this)'
@@ -1408,17 +1276,6 @@ nvm_install_merged_node_binary() {
   if [ -n "$NVM_OS" ]; then
     t="$VERSION-$NVM_OS-$(nvm_get_arch)"
     url="$MIRROR/$VERSION/$NODE_PREFIX-${t}.tar.${compression}"
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -     sum="$(nvm_download -L -s "$MIRROR/$VERSION/SHASUMS256.txt" -o - | command grep "${NODE_PREFIX}-${t}.tar.${compression}" | command awk '{print $1}')"
-# +     sum="$(nvm_download -L -s "$MIRROR/$VERSION/SHASUMS256.txt" -o - | nvm_grep "${NODE_PREFIX}-${t}.tar.${compression}" | command awk '{print $1}')"
-################################################################################
-# put stream annotation here
-# stream enable
     sum="$(nvm_download -L -s "$MIRROR/$VERSION/SHASUMS256.txt" -o - | command grep "${NODE_PREFIX}-${t}.tar.${compression}" | command awk '{print $1}')"
     local tmpdir
     tmpdir="$NVM_DIR/bin/node-${t}"
@@ -1493,17 +1350,6 @@ nvm_install_iojs_binary() {
     if nvm_binary_available "$VERSION"; then
       t="$VERSION-$NVM_OS-$(nvm_get_arch)"
       url="$MIRROR/$VERSION/$(nvm_iojs_prefix)-${t}.tar.${compression}"
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -       sum="$(nvm_download -L -s "$MIRROR/$VERSION/SHASUMS256.txt" -o - | command grep "$(nvm_iojs_prefix)-${t}.tar.${compression}" | command awk '{print $1}')"
-# +       sum="$(nvm_download -L -s "$MIRROR/$VERSION/SHASUMS256.txt" -o - | nvm_grep "$(nvm_iojs_prefix)-${t}.tar.${compression}" | command awk '{print $1}')"
-################################################################################
-# put stream annotation here
-# stream enable
       sum="$(nvm_download -L -s "$MIRROR/$VERSION/SHASUMS256.txt" -o - | command grep "$(nvm_iojs_prefix)-${t}.tar.${compression}" | command awk '{print $1}')"
       local tmpdir
       tmpdir="$NVM_DIR/bin/iojs-${t}"
@@ -1565,17 +1411,6 @@ nvm_install_node_binary() {
       fi
       t="$VERSION-$NVM_OS-$NVM_ARCH"
       url="$NVM_NODEJS_ORG_MIRROR/$VERSION/node-${t}.tar.gz"
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -       sum=$(nvm_download -L -s "$NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt" -o - | command grep "node-${t}.tar.gz" | command awk '{print $1}')
-# +       sum=$(nvm_download -L -s "$NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt" -o - | nvm_grep "node-${t}.tar.gz" | command awk '{print $1}')
-################################################################################
-# put stream annotation here
-# stream enable
       sum=$(nvm_download -L -s "$NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt" -o - | command grep "node-${t}.tar.gz" | command awk '{print $1}')
       local tmpdir
       tmpdir="$NVM_DIR/bin/node-${t}"
@@ -1682,32 +1517,8 @@ nvm_install_node_source() {
   local tmptarball
   tmptarball="$tmpdir/node-$VERSION.tar.gz"
 
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -   if [ "$(nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz" -o - 2>&1 | command grep '200 OK')" != '' ]; then
-# +   if [ "$(nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz" -o - 2>&1 | nvm_grep '200 OK')" != '' ]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if [ "$(nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz" -o - 2>&1 | command grep '200 OK')" != '' ]; then
     tarball="$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz"
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -     sum=$(nvm_download -L -s "$NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt" -o - | command grep "node-${VERSION}.tar.gz" | command awk '{print $1}')
-# -   elif [ "$(nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz" -o - | command grep '200 OK')" != '' ]; then
-# +     sum=$(nvm_download -L -s "$NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt" -o - | nvm_grep "node-${VERSION}.tar.gz" | command awk '{print $1}')
-# +   elif [ "$(nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz" -o - | nvm_grep '200 OK')" != '' ]; then
-################################################################################
-# put stream annotation here
-# stream enable
     sum=$(nvm_download -L -s "$NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt" -o - | command grep "node-${VERSION}.tar.gz" | command awk '{print $1}')
   elif [ "$(nvm_download -L -s -I "$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz" -o - | command grep '200 OK')" != '' ]; then
     tarball="$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz"
@@ -1998,17 +1809,6 @@ nvm() {
       local ZHS_HAS_SHWORDSPLIT_UNSET
       ZHS_HAS_SHWORDSPLIT_UNSET=1
       if nvm_has "setopt"; then
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
-# +         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | nvm_grep shwordsplit > /dev/null ; nvm_echo $?)
-################################################################################
-# put stream annotation here
-# stream enable
         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
         setopt shwordsplit
       fi
@@ -2471,17 +2271,6 @@ nvm() {
       local ZHS_HAS_SHWORDSPLIT_UNSET
       ZHS_HAS_SHWORDSPLIT_UNSET=1
       if nvm_has "setopt"; then
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# -         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
-# +         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | nvm_grep shwordsplit > /dev/null ; nvm_echo $?)
-################################################################################
-# put stream annotation here
-# stream enable
         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; nvm_echo $?)
         setopt shwordsplit
       fi
@@ -2606,17 +2395,6 @@ nvm() {
       local NVM_OUTPUT
       NVM_OUTPUT="$(nvm_echo "$NVM_LS_REMOTE_PRE_MERGED_OUTPUT
 $NVM_LS_REMOTE_IOJS_OUTPUT
-################################################################################
-# Commit message: [Refactor] create `nvm_grep` and remove standalone `GREP_OPTIONS` line.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/e1fdd316b71387ce01579d6595cc262e35f01a9c
-# Category: 
-# Notes: 
-# Changed content:
-# - $NVM_LS_REMOTE_POST_MERGED_OUTPUT" | command grep -v "N/A" | command sed '/^$/d')"
-# + $NVM_LS_REMOTE_POST_MERGED_OUTPUT" | nvm_grep -v "N/A" | command sed '/^$/d')"
-################################################################################
-# put stream annotation here
-# stream enable
 $NVM_LS_REMOTE_POST_MERGED_OUTPUT" | command grep -v "N/A" | command sed '/^$/d')"
       if [ -n "$NVM_OUTPUT" ]; then
         nvm_print_versions "$NVM_OUTPUT"

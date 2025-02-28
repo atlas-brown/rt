@@ -52,8 +52,8 @@ dns_constellix_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         _new_rr_values=$(printf "%s\n" "$response" | _egrep_o "\"roundRobin\":\[.*?\]" | sed "s/\]$/,{\"value\":\"${txtvalue}\"}]/")
-# +         _new_rr_values=$(printf "%s\n" "$response" | _egrep_o '"roundRobin":\[[^]]*\]' | sed "s/\]$/,{\"value\":\"${txtvalue}\"}]/")
+# - _new_rr_values=$(printf "%s\n" "$response" | _egrep_o "\"roundRobin\":\[.*?\]" | sed "s/\]$/,{\"value\":\"${txtvalue}\"}]/")
+# + _new_rr_values=$(printf "%s\n" "$response" | _egrep_o '"roundRobin":\[[^]]*\]' | sed "s/\]$/,{\"value\":\"${txtvalue}\"}]/")
 ################################################################################
 # put stream annotation here
 # stream enable

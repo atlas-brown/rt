@@ -602,8 +602,8 @@ _startserver() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if echo "$nchelp" | grep "\-q " >/dev/null ; then
-# +   if echo "$nchelp" | grep "\-q[ ,]" >/dev/null ; then
+# - if echo "$nchelp" | grep "\-q " >/dev/null ; then
+# + if echo "$nchelp" | grep "\-q[ ,]" >/dev/null ; then
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -66,8 +66,8 @@ fritzbox_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _fritzbox_challenge="$(wget --no-check-certificate -q -O - "${_fritzbox_url}/login_sid.lua" | sed -e 's/^.*<Challenge>//' -e 's/<\/Challenge>.*$//')"
-# +   _fritzbox_challenge="$(_get "${_fritzbox_url}/login_sid.lua" | sed -e 's/^.*<Challenge>//' -e 's/<\/Challenge>.*$//')"
+# - _fritzbox_challenge="$(wget --no-check-certificate -q -O - "${_fritzbox_url}/login_sid.lua" | sed -e 's/^.*<Challenge>//' -e 's/<\/Challenge>.*$//')"
+# + _fritzbox_challenge="$(_get "${_fritzbox_url}/login_sid.lua" | sed -e 's/^.*<Challenge>//' -e 's/<\/Challenge>.*$//')"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -79,8 +79,8 @@ fritzbox_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _fritzbox_sid="$(wget --no-check-certificate -q -O - "${_fritzbox_url}/login_sid.lua?sid=0000000000000000&username=${_fritzbox_username}&response=${_fritzbox_challenge}-${_fritzbox_hash}" | sed -e 's/^.*<SID>//' -e 's/<\/SID>.*$//')"
-# +   _fritzbox_sid="$(_get "${_fritzbox_url}/login_sid.lua?sid=0000000000000000&username=${_fritzbox_username}&response=${_fritzbox_challenge}-${_fritzbox_hash}" | sed -e 's/^.*<SID>//' -e 's/<\/SID>.*$//')"
+# - _fritzbox_sid="$(wget --no-check-certificate -q -O - "${_fritzbox_url}/login_sid.lua?sid=0000000000000000&username=${_fritzbox_username}&response=${_fritzbox_challenge}-${_fritzbox_hash}" | sed -e 's/^.*<SID>//' -e 's/<\/SID>.*$//')"
+# + _fritzbox_sid="$(_get "${_fritzbox_url}/login_sid.lua?sid=0000000000000000&username=${_fritzbox_username}&response=${_fritzbox_challenge}-${_fritzbox_hash}" | sed -e 's/^.*<SID>//' -e 's/<\/SID>.*$//')"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -113,35 +113,6 @@ fritzbox_deploy() {
 
   _info "Upload certificate to the FRITZ!Box"
 
-################################################################################
-# Commit message: Don't use wget directly, but instead use _get and _post.
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/bd8b1a2501a867a373772398b3687ac47341f0f5
-# Category: 
-# Notes: 
-# Changed content:
-# -   wget --no-check-certificate -q -O - "${_fritzbox_url}/cgi-bin/firmwarecfg" --header="Content-type: multipart/form-data boundary=${_post_boundary}" --post-file "${_post_request}" | grep SSL
-################################################################################
-# put stream annotation here
-# stream enable
-################################################################################
-# Commit message: Don't use wget directly, but instead use _get and _post.
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/bd8b1a2501a867a373772398b3687ac47341f0f5
-# Category: 
-# Notes: 
-# Changed content:
-# -   _info "Upload successful"
-# +   export _H1="Content-type: multipart/form-data boundary=${_post_boundary}"
-# +   _post "$(cat ${_post_request})" "${_fritzbox_url}/cgi-bin/firmwarecfg" | grep SSL
-# + 
-# +   retval=$?
-# +   if [ $retval = 0 ] ; then
-# +     _info "Upload successful"
-# +   else
-# +     _err "Upload failed"
-# +   fi
-################################################################################
-# put stream annotation here
-# stream enable
   export _H1="Content-type: multipart/form-data boundary=${_post_boundary}"
   _post "$(cat ${_post_request})" "${_fritzbox_url}/cgi-bin/firmwarecfg" | grep SSL
 

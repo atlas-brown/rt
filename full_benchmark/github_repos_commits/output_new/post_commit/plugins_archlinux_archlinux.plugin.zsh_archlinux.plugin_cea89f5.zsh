@@ -218,10 +218,10 @@ if (( $+commands[xdg-open] )); then
 # Category: 
 # Notes: 
 # Changed content:
-# -     repo="$(grep '^Repo' <<< "$infos" | grep -oP '[^ ]+$')"
-# -     arch="$(grep '^Arch' <<< "$infos" | grep -oP '[^ ]+$')"
-# +     repo="$(grep -m 1 '^Repo' <<< "$infos" | grep -oP '[^ ]+$')"
-# +     arch="$(grep -m 1 '^Arch' <<< "$infos" | grep -oP '[^ ]+$')"
+# - repo="$(grep '^Repo' <<< "$infos" | grep -oP '[^ ]+$')"
+# + repo="$(grep -m 1 '^Repo' <<< "$infos" | grep -oP '[^ ]+$')"
+# - arch="$(grep '^Arch' <<< "$infos" | grep -oP '[^ ]+$')"
+# + arch="$(grep -m 1 '^Arch' <<< "$infos" | grep -oP '[^ ]+$')"
 ################################################################################
 # put stream annotation here
 # stream enable

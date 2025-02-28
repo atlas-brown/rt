@@ -64,8 +64,8 @@ EscapeRegexp() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     echo $* | sed 's/^\.//' | sed "s/[]\\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
-# +     echo $* | sed 's/^\.*//' | sed "s/[]\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
+# - echo $* | sed 's/^\.//' | sed "s/[]\\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
+# + echo $* | sed 's/^\.*//' | sed "s/[]\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -77,18 +77,6 @@ HandleOther(){
 	domain=$(sed -e "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/" <<< "$1")
 
 	#check validity of domain
-################################################################################
-# Commit message: Improved regex: Remove all leading points from domain (.....xyz => .xyz). Return not only a part, but fill validated domain
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/1bf43b04254559896f5e3a59667a18520401cb78
-# Category: 
-# Notes: 
-# Changed content:
-# - 	validDomain=$(echo "${domain}" | perl -lne 'print $1 if /^(?!.*[^a-z0-9-\.].*)\b((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}\b/')
-# + 	validDomain=$(echo "${domain}" | perl -lne 'print if /^(?!.*[^a-z0-9-\.].*)\b((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)*[a-z]{2,63}\b/')
-# + 	echo $validDomain
-################################################################################
-# put stream annotation here
-# stream enable
 	validDomain=$(echo "${domain}" | perl -lne 'print if /^(?!.*[^a-z0-9-\.].*)\b((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)*[a-z]{2,63}\b/')
 	echo $validDomain
 	if [ -z "${validDomain}" ]; then

@@ -212,8 +212,8 @@ _get_zone_id() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   zone_id="$(echo "$response" | tr '}' '\n' | grep "$selected" | tr ',' '\n' | grep id | tr -d '"')"
-# +   zone_id="$(echo "$response" | tr '}' '\n' | grep "$selected" | tr ',' '\n' | grep '"id":' | tr -d '"')"
+# - zone_id="$(echo "$response" | tr '}' '\n' | grep "$selected" | tr ',' '\n' | grep id | tr -d '"')"
+# + zone_id="$(echo "$response" | tr '}' '\n' | grep "$selected" | tr ',' '\n' | grep '"id":' | tr -d '"')"
 ################################################################################
 # put stream annotation here
 # stream enable

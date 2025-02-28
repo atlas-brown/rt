@@ -145,22 +145,18 @@ geteip() {
 
 # determine local IP address
 getip() {
+    if [ "$(which ip)" != "" ]; then
 ################################################################################
 # Commit message: 'ip' command compatibility and much quicker external IP detection
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/a127c4f88e9807c9d5ac58f5424dfc479370c227
 # Category: 
 # Notes: 
 # Changed content:
-# -     ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'
-# +     if [ "$(which ip)" != "" ]; then
-# +         ip addr | grep "inet " | grep -v '127.0.0.1' | awk '{print $2}'
-# +     else
-# +         ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'
-# +     fi
+# - ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'
+# + ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'
 ################################################################################
 # put stream annotation here
 # stream enable
-    if [ "$(which ip)" != "" ]; then
         ip addr | grep "inet " | grep -v '127.0.0.1' | awk '{print $2}'
     else
         ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'

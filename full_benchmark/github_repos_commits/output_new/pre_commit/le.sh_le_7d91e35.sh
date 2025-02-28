@@ -1148,8 +1148,8 @@ issue() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       status=$(echo $response | egrep -o  '"status":"[^"]+"' | cut -d : -f 2 | tr -d '"')
-# +       status=$(echo $response | egrep -o  '"status":"[^"]*' | cut -d : -f 2 | tr -d '"')
+# - status=$(echo $response | egrep -o  '"status":"[^"]+"' | cut -d : -f 2 | tr -d '"')
+# + status=$(echo $response | egrep -o  '"status":"[^"]*' | cut -d : -f 2 | tr -d '"')
 ################################################################################
 # put stream annotation here
 # stream enable

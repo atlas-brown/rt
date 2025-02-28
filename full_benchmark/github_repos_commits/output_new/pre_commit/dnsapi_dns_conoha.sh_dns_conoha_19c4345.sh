@@ -115,22 +115,20 @@ dns_conoha_rm() {
     return 1
   fi
 
+  record_id=$(printf "%s" "$response" | _egrep_o '{[^}]*}' \
 ################################################################################
 # Commit message: fix shfmt
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/19c4345162ddcba0d5c2b985f8739761c361582a
 # Category: 
 # Notes: 
 # Changed content:
-# -   record_id=$(printf "%s" "$response" | _egrep_o '{[^}]*}' \
-# -     | grep '"type":"TXT"' | grep "\"data\":\"$txtvalue\"" | _egrep_o "\"id\":\"[^\"]*\"" \
-# -     | _head_n 1 | cut -d : -f 2 | tr -d \")
-# +   record_id=$(printf "%s" "$response" | _egrep_o '{[^}]*}' |
-# +     grep '"type":"TXT"' | grep "\"data\":\"$txtvalue\"" | _egrep_o "\"id\":\"[^\"]*\"" |
-# +     _head_n 1 | cut -d : -f 2 | tr -d \")
+# - | grep '"type":"TXT"' | grep "\"data\":\"$txtvalue\"" | _egrep_o "\"id\":\"[^\"]*\"" \
+# + grep '"type":"TXT"' | grep "\"data\":\"$txtvalue\"" | _egrep_o "\"id\":\"[^\"]*\"" |
+# - | _head_n 1 | cut -d : -f 2 | tr -d \")
+# + _head_n 1 | cut -d : -f 2 | tr -d \")
 ################################################################################
 # put stream annotation here
 # stream enable
-  record_id=$(printf "%s" "$response" | _egrep_o '{[^}]*}' \
     | grep '"type":"TXT"' | grep "\"data\":\"$txtvalue\"" | _egrep_o "\"id\":\"[^\"]*\"" \
     | _head_n 1 | cut -d : -f 2 | tr -d \")
   if [ -z "$record_id" ]; then

@@ -22,8 +22,8 @@ function svn_get_repo_name {
 # Category: 
 # Notes: 
 # Changed content:
-# -         svn info | sed -n "s/URL:\ .*$SVN_ROOT\///p" | sed "s/\/.*$//"
-# +         svn info | sed -n "s/URL:\ .*$SVN_ROOT\///p"
+# - svn info | sed -n "s/URL:\ .*$SVN_ROOT\///p" | sed "s/\/.*$//"
+# + svn info | sed -n "s/URL:\ .*$SVN_ROOT\///p"
 ################################################################################
 # put stream annotation here
 # stream enable

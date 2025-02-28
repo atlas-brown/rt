@@ -2044,8 +2044,8 @@ _send_signed_request() {
 # Category: 
 # Notes: 
 # Changed content:
-# -           _CACHED_NONCE="$(echo "$_headers" | grep -i "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2)"
-# +           _CACHED_NONCE="$(echo "$_headers" | grep -i "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2 | cut -d , -f 1)"
+# - _CACHED_NONCE="$(echo "$_headers" | grep -i "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2)"
+# + _CACHED_NONCE="$(echo "$_headers" | grep -i "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2 | cut -d , -f 1)"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -2135,8 +2135,8 @@ _send_signed_request() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     _CACHED_NONCE="$(echo "$responseHeaders" | grep -i "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2)"
-# +     _CACHED_NONCE="$(echo "$responseHeaders" | grep -i "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2 | cut -d , -f 1)"
+# - _CACHED_NONCE="$(echo "$responseHeaders" | grep -i "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2)"
+# + _CACHED_NONCE="$(echo "$responseHeaders" | grep -i "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2 | cut -d , -f 1)"
 ################################################################################
 # put stream annotation here
 # stream enable

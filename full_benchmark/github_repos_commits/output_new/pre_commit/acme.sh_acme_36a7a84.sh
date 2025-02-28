@@ -4122,8 +4122,8 @@ $_authorizations_map"
 # Category: 
 # Notes: 
 # Changed content:
-# -     Le_LinkCert="$(grep -i '^Location.*$' "$HTTP_HEADER" | _head_n 1 | tr -d "\r\n" | cut -d " " -f 2)"
-# +     Le_LinkCert="$(grep -i '^Location.*$' "$HTTP_HEADER" | _tail_n 1 | tr -d "\r\n" | cut -d " " -f 2)"
+# - Le_LinkCert="$(grep -i '^Location.*$' "$HTTP_HEADER" | _head_n 1 | tr -d "\r\n" | cut -d " " -f 2)"
+# + Le_LinkCert="$(grep -i '^Location.*$' "$HTTP_HEADER" | _tail_n 1 | tr -d "\r\n" | cut -d " " -f 2)"
 ################################################################################
 # put stream annotation here
 # stream enable

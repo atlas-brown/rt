@@ -13,8 +13,8 @@ _composer_get_command_list () {
 # Category: 
 # Notes: 
 # Changed content:
-# -     $_comp_command1 --no-ansi | sed "1,/Available commands/d" | awk '/^\s*[a-z]+/ { print $1 }'
-# +     $_comp_command1 --no-ansi | sed "1,/Available commands/d" | awk '/^[ \t]*[a-z]+/ { print $1 }'
+# - $_comp_command1 --no-ansi | sed "1,/Available commands/d" | awk '/^\s*[a-z]+/ { print $1 }'
+# + $_comp_command1 --no-ansi | sed "1,/Available commands/d" | awk '/^[ \t]*[a-z]+/ { print $1 }'
 ################################################################################
 # put stream annotation here
 # stream enable

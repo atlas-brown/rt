@@ -210,9 +210,8 @@ deleteRecord() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if [ "$(echo "$fulldomain" | grep "_acme-challenge")" = "" ]; then
-# +   # Fix for acmetest to limit acme.sh to only work on _acme-challenge and acmeTestXYzRandomName in GitHub actions
-# +   if [ "$(echo "$fulldomain" | grep "_acme-challenge\|acmetestXyzRandomName.github-test")" = "" ]; then
+# - if [ "$(echo "$fulldomain" | grep "_acme-challenge")" = "" ]; then
+# + if [ "$(echo "$fulldomain" | grep "_acme-challenge\|acmetestXyzRandomName.github-test")" = "" ]; then
 ################################################################################
 # put stream annotation here
 # stream enable

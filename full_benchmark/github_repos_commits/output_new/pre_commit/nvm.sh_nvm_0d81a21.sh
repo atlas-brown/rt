@@ -104,8 +104,8 @@ nvm_strip_path() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   echo $1 | sed -E "s#$NVM_DIR/[^/]*$2[^:]*:?##g"
-# +   echo "$1" | sed -E "s#$NVM_DIR/[^/]*$2[^:]*:?##g"
+# - echo $1 | sed -E "s#$NVM_DIR/[^/]*$2[^:]*:?##g"
+# + echo "$1" | sed -E "s#$NVM_DIR/[^/]*$2[^:]*:?##g"
 ################################################################################
 # put stream annotation here
 # stream enable

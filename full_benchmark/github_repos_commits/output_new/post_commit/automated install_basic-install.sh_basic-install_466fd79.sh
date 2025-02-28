@@ -531,8 +531,8 @@ find_IPv4_information() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     IPV4_ADDRESS=$(ip -oneline -family inet address show | grep "${IPv4bare}" |  awk '{print $4}' | awk 'END {print}')
-# +     IPV4_ADDRESS=$(ip -oneline -family inet address show | grep "${IPv4bare}/" |  awk '{print $4}' | awk 'END {print}')
+# - IPV4_ADDRESS=$(ip -oneline -family inet address show | grep "${IPv4bare}" |  awk '{print $4}' | awk 'END {print}')
+# + IPV4_ADDRESS=$(ip -oneline -family inet address show | grep "${IPv4bare}/" |  awk '{print $4}' | awk 'END {print}')
 ################################################################################
 # put stream annotation here
 # stream enable

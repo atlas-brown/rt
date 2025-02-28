@@ -60,8 +60,8 @@ function git_prompt_ahead() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if $(echo "$(command git log origin/$(current_branch)..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
-# +   if $(echo "$(command git log @{upstream}..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
+# - if $(echo "$(command git log origin/$(current_branch)..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
+# + if $(echo "$(command git log @{upstream}..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
 ################################################################################
 # put stream annotation here
 # stream enable

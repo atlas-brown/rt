@@ -4018,8 +4018,8 @@ _get_cert_issuers() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
-# +     ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep -i 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
+# - ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
+# + ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep -i 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -4031,38 +4031,8 @@ _get_cert_issuers() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     ${ACME_OPENSSL_BIN:-openssl} x509 -in $_cfile -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
-# +     _cindex=1
-# +     for _startn in $(grep -n -- "$BEGIN_CERT" "$_cfile" | cut -d : -f 1); do
-# +       _endn="$(grep -n -- "$END_CERT" "$_cfile" | cut -d : -f 1 | _head_n $_cindex | _tail_n 1)"
-# +       _debug2 "_startn" "$_startn"
-# +       _debug2 "_endn" "$_endn"
-# +       if [ "$DEBUG" ]; then
-# +         _debug2 "cert$_cindex" "$(sed -n "$_startn,${_endn}p" "$_cfile")"
-# +       fi
-# +       sed -n "$_startn,${_endn}p" "$_cfile" | ${ACME_OPENSSL_BIN:-openssl} x509 -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2 | sed "s/ *\(.*\)/\1/"
-# +       _cindex=$(_math $_cindex + 1)
-# +     done
-# +   fi
-# + }
-# + 
-# + #
-# + _get_chain_subjects() {
-# +   _cfile="$1"
-# +   if _contains "$(${ACME_OPENSSL_BIN:-openssl} help crl2pkcs7 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -help 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 help 2>&1)" "unknown option help"; then
-# +     ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep -i 'Subject:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
-# +   else
-# +     _cindex=1
-# +     for _startn in $(grep -n -- "$BEGIN_CERT" "$_cfile" | cut -d : -f 1); do
-# +       _endn="$(grep -n -- "$END_CERT" "$_cfile" | cut -d : -f 1 | _head_n $_cindex | _tail_n 1)"
-# +       _debug2 "_startn" "$_startn"
-# +       _debug2 "_endn" "$_endn"
-# +       if [ "$DEBUG" ]; then
-# +         _debug2 "cert$_cindex" "$(sed -n "$_startn,${_endn}p" "$_cfile")"
-# +       fi
-# +       sed -n "$_startn,${_endn}p" "$_cfile" | ${ACME_OPENSSL_BIN:-openssl} x509 -text -noout | grep -i 'Subject:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2 | sed "s/ *\(.*\)/\1/"
-# +       _cindex=$(_math $_cindex + 1)
-# +     done
+# - ${ACME_OPENSSL_BIN:-openssl} x509 -in $_cfile -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
+# + sed -n "$_startn,${_endn}p" "$_cfile" | ${ACME_OPENSSL_BIN:-openssl} x509 -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2 | sed "s/ *\(.*\)/\1/"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -4076,21 +4046,6 @@ _match_issuer() {
   _missuer="$2"
   _fissuers="$(_get_cert_issuers $_cfile)"
   _debug2 _fissuers "$_fissuers"
-################################################################################
-# Commit message: Chain (#3408)  * fix https://github.com/acmesh-official/acme.sh/issues/3384 match the issuer to the root CA cert subject  * fix format  * fix https://github.com/acmesh-official/acme.sh/issues/3384  * remove the alt files. https://github.com/acmesh-official/acme.sh/issues/3384
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/12b1916599aa4e58fa4c74aa6d454a7f144eb1f5
-# Category: 
-# Notes: 
-# Changed content:
-# -   if _contains "$_fissuers" "$_missuer"; then
-# -     return 0
-# -   fi
-# -   _fissuers="$(echo "$_fissuers" | _lower_case)"
-# +   _rootissuer="$(echo "$_fissuers" | _lower_case | _tail_n 1)"
-# +   _debug2 _rootissuer "$_rootissuer"
-################################################################################
-# put stream annotation here
-# stream enable
   if _contains "$_fissuers" "$_missuer"; then
     return 0
   fi

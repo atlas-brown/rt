@@ -462,8 +462,8 @@ _h2b() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       echo "$hex" | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/gI' | xargs printf
-# +       echo "$hex" | _upper_case | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/g' | xargs printf
+# - echo "$hex" | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/gI' | xargs printf
+# + echo "$hex" | _upper_case | sed 's/\([0-9A-F]\{2\}\)/\\\\\\x\1/g' | xargs printf
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -475,8 +475,8 @@ _h2b() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       for h in $(echo "$hex" | sed 's/\([0-9A-F]\{2\}\)/ \1/gI'); do
-# +       for h in $(echo "$hex" | _upper_case | sed 's/\([0-9A-F]\{2\}\)/ \1/g'); do
+# - for h in $(echo "$hex" | sed 's/\([0-9A-F]\{2\}\)/ \1/gI'); do
+# + for h in $(echo "$hex" | _upper_case | sed 's/\([0-9A-F]\{2\}\)/ \1/g'); do
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -494,8 +494,8 @@ _h2b() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     for c in $(echo "$hex" | sed 's/\([0-9A-F]\)/ \1/gI'); do
-# +     for c in $(echo "$hex" | _upper_case | sed 's/\([0-9A-F]\)/ \1/g'); do
+# - for c in $(echo "$hex" | sed 's/\([0-9A-F]\)/ \1/gI'); do
+# + for c in $(echo "$hex" | _upper_case | sed 's/\([0-9A-F]\)/ \1/g'); do
 ################################################################################
 # put stream annotation here
 # stream enable

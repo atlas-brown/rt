@@ -36,13 +36,8 @@ elif [[ -f "$_ssh_env_cache" ]]; then
 # Category: 
 # Notes: 
 # Changed content:
-# - 	ps x | grep ssh-agent | grep -q $SSH_AGENT_PID || {
-# + 	if [[ $USER == "root" ]]; then
-# + 		FILTER="ax"
-# + 	else
-# + 		FILTER="x"
-# + 	fi
-# + 	ps $FILTER | grep ssh-agent | grep -q $SSH_AGENT_PID || {
+# - ps x | grep ssh-agent | grep -q $SSH_AGENT_PID || {
+# + ps $FILTER | grep ssh-agent | grep -q $SSH_AGENT_PID || {
 ################################################################################
 # put stream annotation here
 # stream enable

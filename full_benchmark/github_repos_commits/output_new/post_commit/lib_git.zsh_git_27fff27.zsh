@@ -171,8 +171,8 @@ function git_prompt_status() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if $(echo "$INDEX" | grep '^## .*ahead' &> /dev/null); then
-# +   if $(echo "$INDEX" | grep '^## [^ ]\+ .*ahead' &> /dev/null); then
+# - if $(echo "$INDEX" | grep '^## .*ahead' &> /dev/null); then
+# + if $(echo "$INDEX" | grep '^## [^ ]\+ .*ahead' &> /dev/null); then
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -185,8 +185,8 @@ function git_prompt_status() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if $(echo "$INDEX" | grep '^## .*behind' &> /dev/null); then
-# +   if $(echo "$INDEX" | grep '^## [^ ]\+ .*behind' &> /dev/null); then
+# - if $(echo "$INDEX" | grep '^## .*behind' &> /dev/null); then
+# + if $(echo "$INDEX" | grep '^## [^ ]\+ .*behind' &> /dev/null); then
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -199,8 +199,8 @@ function git_prompt_status() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if $(echo "$INDEX" | grep '^## .*diverged' &> /dev/null); then
-# +   if $(echo "$INDEX" | grep '^## [^ ]\+ .*diverged' &> /dev/null); then
+# - if $(echo "$INDEX" | grep '^## .*diverged' &> /dev/null); then
+# + if $(echo "$INDEX" | grep '^## [^ ]\+ .*diverged' &> /dev/null); then
 ################################################################################
 # put stream annotation here
 # stream enable

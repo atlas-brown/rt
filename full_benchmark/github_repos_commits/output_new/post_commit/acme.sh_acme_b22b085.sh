@@ -920,8 +920,8 @@ _readSubjectFromCSR() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   $OPENSSL_BIN req -noout -in "$_csrfile" -subject | _egrep_o "CN=.*" | cut -d = -f 2 | cut -d / -f 1 | tr -d '\n'
-# +   $OPENSSL_BIN req -noout -in "$_csrfile" -subject | _egrep_o "CN *=.*" | cut -d = -f 2 | cut -d / -f 1 | tr -d '\n'
+# - $OPENSSL_BIN req -noout -in "$_csrfile" -subject | _egrep_o "CN=.*" | cut -d = -f 2 | cut -d / -f 1 | tr -d '\n'
+# + $OPENSSL_BIN req -noout -in "$_csrfile" -subject | _egrep_o "CN *=.*" | cut -d = -f 2 | cut -d / -f 1 | tr -d '\n'
 ################################################################################
 # put stream annotation here
 # stream enable

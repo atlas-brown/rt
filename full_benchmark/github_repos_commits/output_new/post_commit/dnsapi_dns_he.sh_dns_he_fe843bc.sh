@@ -149,8 +149,8 @@ _find_zone() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     line_num="$(echo "$_zone_names" | grep -n "$_attempted_zone" | cut -d : -f 1)"
-# +     line_num="$(echo "$_zone_names" | grep -n "^$_attempted_zone" | cut -d : -f 1)"
+# - line_num="$(echo "$_zone_names" | grep -n "$_attempted_zone" | cut -d : -f 1)"
+# + line_num="$(echo "$_zone_names" | grep -n "^$_attempted_zone" | cut -d : -f 1)"
 ################################################################################
 # put stream annotation here
 # stream enable

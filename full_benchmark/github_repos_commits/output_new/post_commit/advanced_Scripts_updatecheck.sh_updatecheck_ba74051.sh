@@ -37,8 +37,8 @@ function get_remote_hash(){
 # Category: 
 # Notes: 
 # Changed content:
-# -     git ls-remote "https://github.com/pi-hole/${1}" --tags "${2}" | awk '{print substr($0, 0,9);}' || return 1
-# +     git ls-remote "https://github.com/pi-hole/${1}" --tags "${2}" | awk '{print substr($0, 0,8);}' || return 1
+# - git ls-remote "https://github.com/pi-hole/${1}" --tags "${2}" | awk '{print substr($0, 0,9);}' || return 1
+# + git ls-remote "https://github.com/pi-hole/${1}" --tags "${2}" | awk '{print substr($0, 0,8);}' || return 1
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -124,17 +124,6 @@ addOrEditKeyValPair "${VERSION_FILE}" "FTL_VERSION" "${FTL_VERSION}"
 FTL_BRANCH="$(pihole-FTL branch)"
 addOrEditKeyValPair "${VERSION_FILE}" "FTL_BRANCH" "${FTL_BRANCH}"
 
-################################################################################
-# Commit message: Grab local FTL hash correctly from FTL's own version output, and grab one digit less for remote hashes (also in debug log)  Signed-off-by: Adam Warner <me@adamwarner.co.uk>
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/ba74051502dd64b8bccc1f4ec1d74587202d902f
-# Category: 
-# Notes: 
-# Changed content:
-# - FTL_HASH="$(pihole-FTL -v | cut -d "-" -f2)"
-# + FTL_HASH="$(pihole-FTL --hash)"
-################################################################################
-# put stream annotation here
-# stream enable
 FTL_HASH="$(pihole-FTL --hash)"
 addOrEditKeyValPair "${VERSION_FILE}" "FTL_HASH" "${FTL_HASH}"
 

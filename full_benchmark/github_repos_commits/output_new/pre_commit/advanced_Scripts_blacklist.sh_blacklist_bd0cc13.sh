@@ -67,17 +67,6 @@ PopBlacklistFile() {
 }
 
 AddDomain() {
-################################################################################
-# Commit message: MERGE FAIL :ashamed_face:
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/bd0cc134bf1687143182e072aa747e1a4d472f4a
-# Category: 
-# Notes: 
-# Changed content:
-# - 	#| sed 's/\./\\./g'
-# + #| sed 's/\./\\./g'
-################################################################################
-# put stream annotation here
-# stream enable
 	#| sed 's/\./\\./g'
 	bool=false
 	grep -Ex -q "$1" ${blacklist} || bool=true
@@ -97,30 +86,6 @@ AddDomain() {
 }
 
 RemoveDomain() {
-################################################################################
-# Commit message: MERGE FAIL :ashamed_face:
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/bd0cc134bf1687143182e072aa747e1a4d472f4a
-# Category: 
-# Notes: 
-# Changed content:
-# - 	bool=false
-# - 	grep -Ex -q "$1" ${blacklist} || bool=true
-# - 	if ${bool}; then
-# - 		#Domain is not in the blacklist file, no need to Remove
-# - 		if ${verbose}; then
-# - 			echo "::: $1 is NOT blacklisted! No need to remove"
-# - 		fi
-# - 	else
-# - 		#Domain is in the blacklist file, remove it
-# - 		if ${verbose}; then
-# - 			echo "::: Un-blacklisting ${dom}..."
-# - 		fi
-# - 		echo "$1" | sed 's/\./\\./g' | xargs -I {} perl -i -ne'print unless /'{}'(?!.)/;' ${blacklist}
-# - 	fi
-# - }
-################################################################################
-# put stream annotation here
-# stream enable
 	bool=false
 	grep -Ex -q "$1" ${blacklist} || bool=true
 	if ${bool}; then
@@ -133,60 +98,20 @@ RemoveDomain() {
 		if ${verbose}; then
 			echo "::: Un-blacklisting ${dom}..."
 		fi
-		echo "$1" | sed 's/\./\\./g' | xargs -I {} perl -i -ne'print unless /'{}'(?!.)/;' ${blacklist}
-	fi
-}
-
 ################################################################################
 # Commit message: MERGE FAIL :ashamed_face:
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/bd0cc134bf1687143182e072aa747e1a4d472f4a
 # Category: 
 # Notes: 
 # Changed content:
-# - ModifyHostFile() {
-# - 	if ${addmode}; then
-# - 		#add domains to the hosts file
-# - 		if [[ -r ${blacklist} ]]; then
-# - 			numberOf=$(cat ${blacklist} | sed '/^\s*$/d' | wc -l)
-# - 			plural=; [[ "${numberOf}" != "1" ]] && plural=s
-# - 			echo ":::"
-# - 			echo -n "::: Modifying HOSTS file to blacklist $numberOf domain${plural}..."
-# - 			if [[ -n ${piholeIPv6} ]]; then
-# - 				cat ${blacklist} | awk -v ipv4addr="$piholeIP" -v ipv6addr="$piholeIPv6" '{sub(/\r$/,""); print ipv4addr" "$0"\n"ipv6addr" "$0}' >> ${adList}
-# - 			else
-# - 				cat ${blacklist} | awk -v ipv4addr="$piholeIP" '{sub(/\r$/,""); print ipv4addr" "$0}' >>${adList}
-# - 			fi
-# - 		fi
-# - 	else
-# - 		echo ":::"
-# - 		for dom in "${domToRemoveList[@]}"; do
-# - 			#we need to remove the domains from the blacklist file and the host file
-# - 			echo "::: ${dom}"
-# - 			echo -n ":::    removing from HOSTS file..."
-# - 			echo "${dom}" | sed 's/\./\\./g' | xargs -I {} perl -i -ne'print unless /[^.]'{}'(?!.)/;' ${adList}
-# - 			echo " done!"
-# - 			echo -n ":::    removing from blackist.txt..."
-# - 			echo "${dom}" | sed 's/\./\\./g' | xargs -I {} perl -i -ne'print unless /'{}'(?!.)/;' ${blacklist}
-# - 			echo " done!"
-# - 		done
-# - 	fi
-# +   bool=false
-# +   grep -Ex -q "$1" ${blacklist} || bool=true
-# +   if ${bool}; then
-# +   	#Domain is not in the blacklist file, no need to Remove
-# +   	if ${verbose}; then
-# +   	echo "::: $1 is NOT blacklisted! No need to remove"
-# +   	fi
-# +   else
-# +     #Domain is in the blacklist file,remove it
-# +     if ${verbose}; then
-# +     echo "::: Un-blacklisting $dom..."
-# +     fi
-# +    echo "$1" | sed 's/\./\\./g' | xargs -I {} perl -i -ne'print unless /'{}'(?!.)/;' ${blacklist}
-# +   fi
+# - echo "$1" | sed 's/\./\\./g' | xargs -I {} perl -i -ne'print unless /'{}'(?!.)/;' ${blacklist}
 ################################################################################
 # put stream annotation here
 # stream enable
+		echo "$1" | sed 's/\./\\./g' | xargs -I {} perl -i -ne'print unless /'{}'(?!.)/;' ${blacklist}
+	fi
+}
+
 ModifyHostFile() {
 	if ${addmode}; then
 		#add domains to the hosts file
@@ -207,6 +132,17 @@ ModifyHostFile() {
 			#we need to remove the domains from the blacklist file and the host file
 			echo "::: ${dom}"
 			echo -n ":::    removing from HOSTS file..."
+################################################################################
+# Commit message: MERGE FAIL :ashamed_face:
+# Commit URL: https://github.com/pi-hole/pi-hole/commit/bd0cc134bf1687143182e072aa747e1a4d472f4a
+# Category: 
+# Notes: 
+# Changed content:
+# - echo "${dom}" | sed 's/\./\\./g' | xargs -I {} perl -i -ne'print unless /[^.]'{}'(?!.)/;' ${adList}
+# + echo "$1" | sed 's/\./\\./g' | xargs -I {} perl -i -ne'print unless /'{}'(?!.)/;' ${blacklist}
+################################################################################
+# put stream annotation here
+# stream enable
 			echo "${dom}" | sed 's/\./\\./g' | xargs -I {} perl -i -ne'print unless /[^.]'{}'(?!.)/;' ${adList}
 			echo " done!"
 			echo -n ":::    removing from blackist.txt..."
@@ -233,34 +169,6 @@ DisplayBlist() {
 
 ###################################################
 
-################################################################################
-# Commit message: MERGE FAIL :ashamed_face:
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/bd0cc134bf1687143182e072aa747e1a4d472f4a
-# Category: 
-# Notes: 
-# Changed content:
-# - for var in "$@"; do
-# - 	case "$var" in
-# - 		"-nr"| "--noreload"  ) reload=false;;
-# - 		"-d" | "--delmode"   ) addmode=false;;
-# - 		"-q" | "--quiet"     ) verbose=false;;
-# - 		"-h" | "--help"      ) helpFunc;;
-# - 		"-l" | "--list"      ) DisplayBlist;;
-# - 		*                    ) HandleOther "$var";;
-# - 	esac
-# + for var in "$@"
-# + do
-# +   case "$var" in
-# +     "-nr"| "--noreload"  ) reload=false;;
-# +     "-d" | "--delmode"   ) addmode=false;;
-# +     "-q" | "--quiet"     ) verbose=false;;
-# +     "-h" | "--help"	     ) helpFunc;;
-# +     "-l" | "--list"      ) DisplayBlist;;
-# +     *                    ) HandleOther "$var";;
-# +   esac
-################################################################################
-# put stream annotation here
-# stream enable
 for var in "$@"; do
 	case "$var" in
 		"-nr"| "--noreload"  ) reload=false;;

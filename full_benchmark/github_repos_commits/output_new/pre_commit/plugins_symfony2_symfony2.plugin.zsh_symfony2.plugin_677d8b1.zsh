@@ -7,8 +7,8 @@ _symfony_console () {
 # Category: 
 # Notes: 
 # Changed content:
-# -   echo "php $(find . -maxdepth 2 -mindepth 1 -name 'console' | head -n 1)"
-# +   echo "php $(find . -maxdepth 2 -mindepth 1 -name 'console' -type f | head -n 1)"
+# - echo "php $(find . -maxdepth 2 -mindepth 1 -name 'console' | head -n 1)"
+# + echo "php $(find . -maxdepth 2 -mindepth 1 -name 'console' -type f | head -n 1)"
 ################################################################################
 # put stream annotation here
 # stream enable

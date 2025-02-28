@@ -3857,8 +3857,8 @@ $_authorizations_map"
 # Category: 
 # Notes: 
 # Changed content:
-# -         response="$(echo "$_authorizations_map" | grep "^$d," | sed "s/$d,//")"
-# +         response="$(echo "$_authorizations_map" | grep "^$(_idn $d)," | sed "s/$d,//")"
+# - response="$(echo "$_authorizations_map" | grep "^$d," | sed "s/$d,//")"
+# + response="$(echo "$_authorizations_map" | grep "^$(_idn $d)," | sed "s/$d,//")"
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -63,8 +63,8 @@ elif [ -f "${_plugin__ssh_env}" ]; then
 # Category: 
 # Notes: 
 # Changed content:
-# -   ps -x | grep ${SSH_AGENT_PID} | grep ssh-agent > /dev/null || {
-# +   ps x | grep ${SSH_AGENT_PID} | grep ssh-agent > /dev/null || {
+# - ps -x | grep ${SSH_AGENT_PID} | grep ssh-agent > /dev/null || {
+# + ps x | grep ${SSH_AGENT_PID} | grep ssh-agent > /dev/null || {
 ################################################################################
 # put stream annotation here
 # stream enable

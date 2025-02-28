@@ -7,8 +7,8 @@ _symfony2_get_command_list () {
 # Category: 
 # Notes: 
 # Changed content:
-# - 	app/console --no-ansi | sed "1,/Available commands/d" | awk '/^  [a-z]+/ { print $1 }'
-# + 	php app/console --no-ansi | sed "1,/Available commands/d" | awk '/^  [a-z]+/ { print $1 }'
+# - app/console --no-ansi | sed "1,/Available commands/d" | awk '/^  [a-z]+/ { print $1 }'
+# + php app/console --no-ansi | sed "1,/Available commands/d" | awk '/^  [a-z]+/ { print $1 }'
 ################################################################################
 # put stream annotation here
 # stream enable

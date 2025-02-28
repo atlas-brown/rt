@@ -125,8 +125,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     h=$(printf "%s" "$domain" | cut -d . -f $i-100)
-# +     h=$(echo "$domain" | cut -d . -f $i-100)
+# - h=$(printf "%s" "$domain" | cut -d . -f $i-100)
+# + h=$(echo "$domain" | cut -d . -f $i-100)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -204,8 +204,8 @@ _loopia_update_record() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if ! printf "%s" "$response" | grep "OK" >/dev/null; then
-# +   if ! echo "$response" | grep "OK" >/dev/null; then
+# - if ! printf "%s" "$response" | grep "OK" >/dev/null; then
+# + if ! echo "$response" | grep "OK" >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -247,8 +247,8 @@ _loopia_add_record() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if ! printf "%s" "$response" | grep "OK" >/dev/null; then
-# +   if ! echo "$response" | grep "OK" >/dev/null; then
+# - if ! printf "%s" "$response" | grep "OK" >/dev/null; then
+# + if ! echo "$response" | grep "OK" >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable

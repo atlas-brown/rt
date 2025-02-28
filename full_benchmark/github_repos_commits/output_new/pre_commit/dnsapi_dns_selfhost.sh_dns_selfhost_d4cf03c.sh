@@ -48,8 +48,8 @@ dns_selfhost_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   rid=$(echo "$SELFHOSTDNS_MAP" | sed -n "s/\(^\|^.*\s\)\($lookupdomain:\|$fulldomain:\)\([0-9][0-9]*\)\(.*\)/\3/Ip")
-# +   rid=$(echo "$SELFHOSTDNS_MAP" | sed -E "s/(^|^.*[[:space:]])($lookupdomain:|$fulldomain:)([0-9][0-9]*)(.*)/\3/")
+# - rid=$(echo "$SELFHOSTDNS_MAP" | sed -n "s/\(^\|^.*\s\)\($lookupdomain:\|$fulldomain:\)\([0-9][0-9]*\)\(.*\)/\3/Ip")
+# + rid=$(echo "$SELFHOSTDNS_MAP" | sed -E "s/(^|^.*[[:space:]])($lookupdomain:|$fulldomain:)([0-9][0-9]*)(.*)/\3/")
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -108,8 +108,8 @@ existing_records() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     count=$(printf "%s" "$response" | grep '<type>TXT</type>' | wc -l)
-# +     count=$(printf "%s" "$response" | grep '<type>TXT</type>' | wc -l | tr -d ' ')
+# - count=$(printf "%s" "$response" | grep '<type>TXT</type>' | wc -l)
+# + count=$(printf "%s" "$response" | grep '<type>TXT</type>' | wc -l | tr -d ' ')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -219,30 +219,8 @@ _rest() {
 
   if [ "$data" ]; then
     _debug2 data "$data"
-################################################################################
-# Commit message: fix for solaris
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/7d1c5fca0b211168bc9e5f9cfe916f92c22f9fed
-# Category: 
-# Notes: 
-# Changed content:
-# -     response="$(_post "$data" "$url")"
-# +     response="$(_post "$data" "$url" | tr -d '\r')"
-################################################################################
-# put stream annotation here
-# stream enable
     response="$(_post "$data" "$url" | tr -d '\r')"
   else
-################################################################################
-# Commit message: fix for solaris
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/7d1c5fca0b211168bc9e5f9cfe916f92c22f9fed
-# Category: 
-# Notes: 
-# Changed content:
-# -     response="$(_get "$url")"
-# +     response="$(_get "$url" | tr -d '\r')"
-################################################################################
-# put stream annotation here
-# stream enable
     response="$(_get "$url" | tr -d '\r')"
   fi
 

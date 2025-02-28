@@ -46,17 +46,6 @@ alias rdb='rails dbconsole'
 alias rgen='rails generate'
 alias rgm='rails generate migration'
 alias rp='rails plugin'
-################################################################################
-# Commit message: Replce 'rake routes' task with 'rails rotues' (#9662)  * Replce 'rake routes' task with 'rails rotues'  Fixes https://github.com/ohmyzsh/ohmyzsh/issues/9661  * Modified 'rake routes|grep' to use rails
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/7a8d89688d080de28acf94fe995694f911e96c73
-# Category: 
-# Notes: 
-# Changed content:
-# + alias rr='rails routes'
-# + alias rrg='rails routes | grep'
-################################################################################
-# put stream annotation here
-# stream enable
 alias ru='rails runner'
 alias rs='rails server'
 alias rsd='rails server --debugger'
@@ -76,18 +65,17 @@ alias rdmtc='rake db:migrate db:test:clone'
 alias rdsl='rake db:schema:load'
 alias rlc='rake log:clear'
 alias rn='rake notes'
+alias rr='rake routes'
 ################################################################################
 # Commit message: Replce 'rake routes' task with 'rails rotues' (#9662)  * Replce 'rake routes' task with 'rails rotues'  Fixes https://github.com/ohmyzsh/ohmyzsh/issues/9661  * Modified 'rake routes|grep' to use rails
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/7a8d89688d080de28acf94fe995694f911e96c73
 # Category: 
 # Notes: 
 # Changed content:
-# - alias rr='rake routes'
 # - alias rrg='rake routes | grep'
 ################################################################################
 # put stream annotation here
 # stream enable
-alias rr='rake routes'
 alias rrg='rake routes | grep'
 alias rt='rake test'
 alias rmd='rake middleware'

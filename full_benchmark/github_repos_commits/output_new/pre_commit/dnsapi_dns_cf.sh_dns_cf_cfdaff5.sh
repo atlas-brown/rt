@@ -54,8 +54,8 @@ dns_cf_add(){
 # Category: 
 # Notes: 
 # Changed content:
-# -       if printf $response | grep $fulldomain > /dev/null ; then
-# +       if printf -- "%s" "$response" | grep $fulldomain > /dev/null ; then
+# - if printf $response | grep $fulldomain > /dev/null ; then
+# + if printf -- "%s" "$response" | grep $fulldomain > /dev/null ; then
 ################################################################################
 # put stream annotation here
 # stream enable

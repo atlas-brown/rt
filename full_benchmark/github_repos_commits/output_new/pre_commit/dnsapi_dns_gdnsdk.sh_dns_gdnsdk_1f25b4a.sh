@@ -143,8 +143,8 @@ _get_domain() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _domains=$(echo "$_result" | grep -o -P ' domain="\K([[:alnum:].-_]+)')
-# +   _domains=$(echo "$_result" | _egrep_o ' domain="[[:alnum:].-_]+' | sed 's/^.*"//')
+# - _domains=$(echo "$_result" | grep -o -P ' domain="\K([[:alnum:].-_]+)')
+# + _domains=$(echo "$_result" | _egrep_o ' domain="[[:alnum:].-_]+' | sed 's/^.*"//')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -170,17 +170,6 @@ _successful_update() {
 _findentry() {
   #returns id of dns entry, if it exists
   _myget "action=dns_primary_changeDNSsetup&user_domain=$_domain"
-################################################################################
-# Commit message: Replacing "grep -o -P" with "_egrep_o" and sed
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/1f25b4a8a94ad14999fd19b87a29ea3d4383c237
-# Category: 
-# Notes: 
-# Changed content:
-# -   _id=$(echo "$_result" | grep -o -P "$1</td>\s*<td>$2.*?id=\K(\d*)")
-# +   _id=$(echo "$_result" | _egrep_o "<td>$1</td>\s*<td>$2</td>[^?]*[^&]*&id=[^&]*" | sed 's/^.*=//')
-################################################################################
-# put stream annotation here
-# stream enable
   _id=$(echo "$_result" | grep -o -P "$1</td>\s*<td>$2.*?id=\K(\d*)")
   if [ -n "$_id" ]; then
     _debug "Entry found with _id=$_id"

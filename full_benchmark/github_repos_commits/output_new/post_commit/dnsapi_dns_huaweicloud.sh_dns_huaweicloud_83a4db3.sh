@@ -150,8 +150,8 @@ _add_record() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _exist_record=$(echo "${response}" | sed -e ':a' -e 'N;$!ba;' -e 's/\n/ /g' | _egrep_o '"records":[^]]*' | sed 's/\"records\"\:\[//g')
-# +   _exist_record=$(echo "${response}" | _egrep_o '"records":[^]]*' | sed 's/\"records\"\:\[//g')
+# - _exist_record=$(echo "${response}" | sed -e ':a' -e 'N;$!ba;' -e 's/\n/ /g' | _egrep_o '"records":[^]]*' | sed 's/\"records\"\:\[//g')
+# + _exist_record=$(echo "${response}" | _egrep_o '"records":[^]]*' | sed 's/\"records\"\:\[//g')
 ################################################################################
 # put stream annotation here
 # stream enable

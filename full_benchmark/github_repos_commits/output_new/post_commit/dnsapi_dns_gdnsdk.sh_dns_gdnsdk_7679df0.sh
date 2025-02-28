@@ -143,8 +143,8 @@ _get_domain() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _domains=$(echo "$_result" | _egrep_o ' domain="[[:alnum:].-_]+' | sed 's/^.*"//')
-# +   _domains=$(echo "$_result" | _egrep_o ' domain="[[:alnum:]._-]+' | sed 's/^.*"//')
+# - _domains=$(echo "$_result" | _egrep_o ' domain="[[:alnum:].-_]+' | sed 's/^.*"//')
+# + _domains=$(echo "$_result" | _egrep_o ' domain="[[:alnum:]._-]+' | sed 's/^.*"//')
 ################################################################################
 # put stream annotation here
 # stream enable

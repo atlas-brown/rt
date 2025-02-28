@@ -334,8 +334,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       _domain_id=$(echo "$response" | _egrep_o "\\{\"id\":\"[^\"]*$h\"" | head -n 1 | cut -d : -f 2 | tr -d \")
-# +       _domain_id=$(echo "$response" | _egrep_o "\\{\"id\":\"[^\"]*\\/$h\"" | head -n 1 | cut -d : -f 2 | tr -d \")
+# - _domain_id=$(echo "$response" | _egrep_o "\\{\"id\":\"[^\"]*$h\"" | head -n 1 | cut -d : -f 2 | tr -d \")
+# + _domain_id=$(echo "$response" | _egrep_o "\\{\"id\":\"[^\"]*\\/$h\"" | head -n 1 | cut -d : -f 2 | tr -d \")
 ################################################################################
 # put stream annotation here
 # stream enable

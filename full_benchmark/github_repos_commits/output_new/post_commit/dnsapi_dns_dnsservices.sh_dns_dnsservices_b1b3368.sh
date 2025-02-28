@@ -152,8 +152,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     rootZone=$(echo "$result" | grep -o '"name":"[^"]*' | cut -d'"' -f4)
-# +     rootZone=$(echo "$result" | _egrep_o '"name":"[^"]*' | cut -d'"' -f4)
+# - rootZone=$(echo "$result" | grep -o '"name":"[^"]*' | cut -d'"' -f4)
+# + rootZone=$(echo "$result" | _egrep_o '"name":"[^"]*' | cut -d'"' -f4)
 ################################################################################
 # put stream annotation here
 # stream enable

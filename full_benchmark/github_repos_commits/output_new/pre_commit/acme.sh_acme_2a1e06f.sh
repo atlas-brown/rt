@@ -534,8 +534,8 @@ _idn() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         idn "$f" | tr -d "\r\n"
-# +         idn --quiet "$f" | tr -d "\r\n"
+# - idn "$f" | tr -d "\r\n"
+# + idn --quiet "$f" | tr -d "\r\n"
 ################################################################################
 # put stream annotation here
 # stream enable

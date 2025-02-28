@@ -13,17 +13,6 @@ dns_yandex_add() {
   fulldomain="${1}"
   txtvalue="${2}"
   _debug "Calling: dns_yandex_add() '${fulldomain}' '${txtvalue}'"
-################################################################################
-# Commit message: fix egrep and exit
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/10cb7585a7140c7f709e2dcdee27913a55503545
-# Category: 
-# Notes: 
-# Changed content:
-# -   _PDD_credentials || exit 1
-# +   _PDD_credentials || return 1
-################################################################################
-# put stream annotation here
-# stream enable
   _PDD_credentials || return 1
   export _H1="PddToken: $PDD_Token"
 
@@ -39,17 +28,6 @@ dns_yandex_add() {
 dns_yandex_rm() {
   fulldomain="${1}"
   _debug "Calling: dns_yandex_rm() '${fulldomain}'"
-################################################################################
-# Commit message: fix egrep and exit
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/10cb7585a7140c7f709e2dcdee27913a55503545
-# Category: 
-# Notes: 
-# Changed content:
-# -   _PDD_credentials || exit 1
-# +   _PDD_credentials || return 1
-################################################################################
-# put stream annotation here
-# stream enable
   _PDD_credentials || return 1
   export _H1="PddToken: $PDD_Token"
   record_id=$(pdd_get_record_id "${fulldomain}")
@@ -88,8 +66,8 @@ pdd_get_record_id() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   echo "$curResult" | grep -o "{[^{]*\"content\":[^{]*\"subdomain\":\"${curSubdomain}\"" | sed -n -e 's#.* "record_id": \(.*\),[^,]*#\1#p'
-# +   echo "$curResult" | _egrep_o "{[^{]*\"content\":[^{]*\"subdomain\":\"${curSubdomain}\"" | sed -n -e 's#.* "record_id": \(.*\),[^,]*#\1#p'
+# - echo "$curResult" | grep -o "{[^{]*\"content\":[^{]*\"subdomain\":\"${curSubdomain}\"" | sed -n -e 's#.* "record_id": \(.*\),[^,]*#\1#p'
+# + echo "$curResult" | _egrep_o "{[^{]*\"content\":[^{]*\"subdomain\":\"${curSubdomain}\"" | sed -n -e 's#.* "record_id": \(.*\),[^,]*#\1#p'
 ################################################################################
 # put stream annotation here
 # stream enable

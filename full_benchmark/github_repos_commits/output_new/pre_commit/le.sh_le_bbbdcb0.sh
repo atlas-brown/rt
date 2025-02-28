@@ -434,34 +434,12 @@ _post() {
     fi
 
     if [ "$needbase64" ] ; then
-################################################################################
-# Commit message: minor
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/bbbdcb091adcf018891a60fe48a7e0a2e81d10f6
-# Category: 
-# Notes: 
-# Changed content:
-# -       response="$($CURL -X POST --data "$body" $url | _base64)"
-# +       response="$($CURL -A "User-Agent: $USER_AGENT" -X POST --data "$body" $url | _base64)"
-################################################################################
-# put stream annotation here
-# stream enable
       response="$($CURL -X POST --data "$body" $url | _base64)"
     else
       response="$($CURL -X POST --data "$body" $url)"
     fi
   else
     if [ "$needbase64" ] ; then
-################################################################################
-# Commit message: minor
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/bbbdcb091adcf018891a60fe48a7e0a2e81d10f6
-# Category: 
-# Notes: 
-# Changed content:
-# -       response="$(wget -q -S -O - --post-data="$body" $url 2>"$HTTP_HEADER" | _base64)"
-# +       response="$($WGET -S -O - --user-agent="$USER_AGENT" --post-data="$body" $url 2>"$HTTP_HEADER" | _base64)"
-################################################################################
-# put stream annotation here
-# stream enable
       response="$(wget -q -S -O - --post-data="$body" $url 2>"$HTTP_HEADER" | _base64)"
     else
       response="$(wget -q -S -O - --post-data="$body" $url 2>"$HTTP_HEADER")"
@@ -485,17 +463,6 @@ _get() {
     fi
   else
     if [ "$onlyheader" ] ; then
-################################################################################
-# Commit message: minor
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/bbbdcb091adcf018891a60fe48a7e0a2e81d10f6
-# Category: 
-# Notes: 
-# Changed content:
-# -       wget -S -q -O /dev/null $url 2>&1 | sed "s/^[ ]*//g"
-# +       eval $WGET --user-agent=\"$USER_AGENT\" -S -O /dev/null $url 2>&1 | sed 's/^[ ]*//g'
-################################################################################
-# put stream annotation here
-# stream enable
       wget -S -q -O /dev/null $url 2>&1 | sed "s/^[ ]*//g"
     else
       wget -q -O - $url
@@ -531,8 +498,8 @@ _send_signed_request() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   nonce="$(_get $nonceurl "onlyheader" | grep -o "Replay-Nonce:.*$" | tr -d "\r\n" | cut -d ' ' -f 2)"
-# +   nonce="$(_get $nonceurl "onlyheader" | grep -o "Replay-Nonce:.*$" | head -1 | tr -d "\r\n" | cut -d ' ' -f 2)"
+# - nonce="$(_get $nonceurl "onlyheader" | grep -o "Replay-Nonce:.*$" | tr -d "\r\n" | cut -d ' ' -f 2)"
+# + nonce="$(_get $nonceurl "onlyheader" | grep -o "Replay-Nonce:.*$" | head -1 | tr -d "\r\n" | cut -d ' ' -f 2)"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -1203,8 +1170,8 @@ issue() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   Le_LinkCert="$(grep -i -o '^Location.*$' $HTTP_HEADER | tr -d "\r\n" | cut -d " " -f 2)"
-# +   Le_LinkCert="$(grep -i -o '^Location.*$' $HTTP_HEADER | head -1 | tr -d "\r\n" | cut -d " " -f 2)"
+# - Le_LinkCert="$(grep -i -o '^Location.*$' $HTTP_HEADER | tr -d "\r\n" | cut -d " " -f 2)"
+# + Le_LinkCert="$(grep -i -o '^Location.*$' $HTTP_HEADER | head -1 | tr -d "\r\n" | cut -d " " -f 2)"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -1237,8 +1204,8 @@ issue() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   Le_LinkIssuer=$(grep -i '^Link' $HTTP_HEADER | cut -d " " -f 2| cut -d ';' -f 1 | tr -d '<>' )
-# +   Le_LinkIssuer=$(grep -i '^Link' $HTTP_HEADER | head -1 | cut -d " " -f 2| cut -d ';' -f 1 | tr -d '<>' )
+# - Le_LinkIssuer=$(grep -i '^Link' $HTTP_HEADER | cut -d " " -f 2| cut -d ';' -f 1 | tr -d '<>' )
+# + Le_LinkIssuer=$(grep -i '^Link' $HTTP_HEADER | head -1 | cut -d " " -f 2| cut -d ';' -f 1 | tr -d '<>' )
 ################################################################################
 # put stream annotation here
 # stream enable

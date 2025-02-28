@@ -259,12 +259,10 @@ _call_api() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   statuslines_count_total="$(echo "$pleskxml_prettyprint_result" | grep -c '^ *<status>[^<]*</status> *$')"
-# -   statuslines_count_okay="$(echo "$pleskxml_prettyprint_result" | grep -c '^ *<status>ok</status> *$')"
-# +   statuslines_count_total="$(echo "$pleskxml_prettyprint_result" | sed '/<data>/,/<\/data>/d' | grep -c '^ *<status>[^<]*</status> *$')"
-# +   statuslines_count_okay="$(echo "$pleskxml_prettyprint_result" | sed '/<data>/,/<\/data>/d' | grep -c '^ *<status>ok</status> *$')"
-# +   _debug "statuslines_count_total=$statuslines_count_total."
-# +   _debug "statuslines_count_okay=$statuslines_count_okay."
+# - statuslines_count_total="$(echo "$pleskxml_prettyprint_result" | grep -c '^ *<status>[^<]*</status> *$')"
+# + statuslines_count_total="$(echo "$pleskxml_prettyprint_result" | sed '/<data>/,/<\/data>/d' | grep -c '^ *<status>[^<]*</status> *$')"
+# - statuslines_count_okay="$(echo "$pleskxml_prettyprint_result" | grep -c '^ *<status>ok</status> *$')"
+# + statuslines_count_okay="$(echo "$pleskxml_prettyprint_result" | sed '/<data>/,/<\/data>/d' | grep -c '^ *<status>ok</status> *$')"
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -114,8 +114,8 @@ _dns_do_soap() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   cat "$HTTP_HEADER" | _egrep_o 'Cookie: [^;]+' | head -1 > "${_cookiejar}"
-# +   _egrep_o 'Cookie: [^;]+' < "$HTTP_HEADER" | head -1 >"${_cookiejar}"
+# - cat "$HTTP_HEADER" | _egrep_o 'Cookie: [^;]+' | head -1 > "${_cookiejar}"
+# + _egrep_o 'Cookie: [^;]+' < "$HTTP_HEADER" | head -1 >"${_cookiejar}"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -136,8 +136,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   echo "${response}" | tr -d "\n\r\t " | _egrep_o 'domain</key><value[^>]+>[^<]+' | sed -e 's/^domain<\/key><value[^>]+>//g' > "${_all_domains}"
-# +   echo "${response}" | tr -d "\n\r\t " | _egrep_o 'domain</key><value[^>]+>[^<]+' | sed -e 's/^domain<\/key><value[^>]+>//g' >"${_all_domains}"
+# - echo "${response}" | tr -d "\n\r\t " | _egrep_o 'domain</key><value[^>]+>[^<]+' | sed -e 's/^domain<\/key><value[^>]+>//g' > "${_all_domains}"
+# + echo "${response}" | tr -d "\n\r\t " | _egrep_o 'domain</key><value[^>]+>[^<]+' | sed -e 's/^domain<\/key><value[^>]+>//g' >"${_all_domains}"
 ################################################################################
 # put stream annotation here
 # stream enable

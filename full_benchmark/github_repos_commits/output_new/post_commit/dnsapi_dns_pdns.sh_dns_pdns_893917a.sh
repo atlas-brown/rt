@@ -91,38 +91,18 @@ set_record() {
   new_challenge=$3
 
   _pdns_rest "GET" "/api/v1/servers/$PDNS_ServerId/zones/$root"
-################################################################################
-# Commit message: Fix travis errors
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/893917a25dac51a5e0354f8122c5043060ecd573
-# Category: 
-# Notes: 
-# Changed content:
-# -   _existing_challenges=($(echo "$response" | _normalizeJson | grep -Po "\"name\":\"$fulldomain\K.*?}]" | grep -Po 'content\":\"\\"\K[^\\]*'))
-################################################################################
-# put stream annotation here
-# stream enable
   _record_string=""
+  _build_record_string "$new_challenge"
 ################################################################################
 # Commit message: Fix travis errors
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/893917a25dac51a5e0354f8122c5043060ecd573
 # Category: 
 # Notes: 
 # Changed content:
-# -   _build_record_string $new_challenge
-# - 
-# -   for i in "${_existing_challenges[@]}"
-# -     do
-# -         _record_string+=", "
-# -         _build_record_string $i
-# +   _build_record_string "$new_challenge"
-# +   _existing_challenges=$(echo "$response" | _normalizeJson | grep -Po "\"name\":\"$fulldomain\\K.*?}]" | grep -Po 'content\":\"\\"\K[^\\]*')
-# +   for oldchallenge in $_existing_challenges; do
-# +     _record_string="${_record_string}, "
-# +     _build_record_string "$oldchallenge"
+# + _existing_challenges=$(echo "$response" | _normalizeJson | grep -Po "\"name\":\"$fulldomain\\K.*?}]" | grep -Po 'content\":\"\\"\K[^\\]*')
 ################################################################################
 # put stream annotation here
 # stream enable
-  _build_record_string "$new_challenge"
   _existing_challenges=$(echo "$response" | _normalizeJson | grep -Po "\"name\":\"$fulldomain\\K.*?}]" | grep -Po 'content\":\"\\"\K[^\\]*')
   for oldchallenge in $_existing_challenges; do
     _record_string="${_record_string}, "

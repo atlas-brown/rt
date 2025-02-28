@@ -52,8 +52,8 @@ dns_lua_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   count=$(printf "%s\n" "$response" | _egrep_o "\"name\":\"$fulldomain\"" | wc -l)
-# +   count=$(printf "%s\n" "$response" | _egrep_o "\"name\":\"$fulldomain\"" | wc -l | tr -s " ")
+# - count=$(printf "%s\n" "$response" | _egrep_o "\"name\":\"$fulldomain\"" | wc -l)
+# + count=$(printf "%s\n" "$response" | _egrep_o "\"name\":\"$fulldomain\"" | wc -l | tr -s " ")
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -62,17 +62,6 @@ dns_lua_add() {
   if [ "$count" = "0" ]; then
     _info "Adding record"
     if _LUA_rest POST "zones/$_domain_id/records" "{\"type\":\"TXT\",\"name\":\"$fulldomain.\",\"content\":\"$txtvalue\",\"ttl\":120}"; then
-################################################################################
-# Commit message: minor
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/5d833336d33ca82eb3f1634d83e21b8d805bf88b
-# Category: 
-# Notes: 
-# Changed content:
-# -       if printf -- "%s" "$response" | grep "$fulldomain" >/dev/null; then
-# +       if _contains "$response" "$fulldomain"; then
-################################################################################
-# put stream annotation here
-# stream enable
       if printf -- "%s" "$response" | grep "$fulldomain" >/dev/null; then
         _info "Added"
         #todo: check if the record takes effect

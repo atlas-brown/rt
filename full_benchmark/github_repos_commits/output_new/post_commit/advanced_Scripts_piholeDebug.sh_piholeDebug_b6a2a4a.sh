@@ -404,18 +404,6 @@ diagnose_operating_system() {
   # If there is a /etc/*release file, it's probably a supported operating system, so we can
   if [[ -r /etc/*release ]]; then
     # display the attributes to the user from the function made earlier
-################################################################################
-# Commit message: more shellcheck fixes
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/b6a2a4ad5a8c67c9f214aa38e69337036417bd23
-# Category: 
-# Notes: 
-# Changed content:
-# -     get_distro_attributes || \
-# +     get_distro_attributes
-# +   else
-################################################################################
-# put stream annotation here
-# stream enable
     get_distro_attributes
   else
     # If it doesn't exist, it's not a system we currently support and link to FAQ
@@ -456,18 +444,6 @@ parse_setup_vars() {
   # If the file exists,
   if [[ -r "${PIHOLE_SETUP_VARS_FILE}" ]]; then
     # parse it
-################################################################################
-# Commit message: more shellcheck fixes
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/b6a2a4ad5a8c67c9f214aa38e69337036417bd23
-# Category: 
-# Notes: 
-# Changed content:
-# -     parse_file "${PIHOLE_SETUP_VARS_FILE}" || \
-# +     parse_file "${PIHOLE_SETUP_VARS_FILE}"
-# +   else
-################################################################################
-# put stream annotation here
-# stream enable
     parse_file "${PIHOLE_SETUP_VARS_FILE}"
   else
     # If not, show an error
@@ -487,8 +463,8 @@ does_ip_match_setup_vars() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   local setup_vars_ip=$(cat ${PIHOLE_SETUP_VARS_FILE} | grep IPV${protocol}_ADDRESS | cut -d '=' -f2)
-# +   local setup_vars_ip=$(< ${PIHOLE_SETUP_VARS_FILE} | grep IPV${protocol}_ADDRESS | cut -d '=' -f2)
+# - local setup_vars_ip=$(cat ${PIHOLE_SETUP_VARS_FILE} | grep IPV${protocol}_ADDRESS | cut -d '=' -f2)
+# + local setup_vars_ip=$(< ${PIHOLE_SETUP_VARS_FILE} | grep IPV${protocol}_ADDRESS | cut -d '=' -f2)
 ################################################################################
 # put stream annotation here
 # stream enable

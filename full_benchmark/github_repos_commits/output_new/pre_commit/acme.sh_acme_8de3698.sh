@@ -4036,63 +4036,20 @@ _check_dns_entries() {
 #file
 _get_chain_issuers() {
   _cfile="$1"
+  if _contains "$(${ACME_OPENSSL_BIN:-openssl} help crl2pkcs7 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -help 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 help 2>&1)" "unknown option help"; then
 ################################################################################
 # Commit message: Revert "Syncing with the original repo (#2)"  This reverts commit c384ed960c138f4449e79293644c4d0ec937cef1.
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/8de3698b230da82f4eac2d5e04a8a754d8d92faa
 # Category: 
 # Notes: 
 # Changed content:
-# -   if _contains "$(${ACME_OPENSSL_BIN:-openssl} help crl2pkcs7 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -help 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 help 2>&1)" "unknown option help"; then
-# -     ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep -i 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
-# +   if _contains "$(${ACME_OPENSSL_BIN:-openssl} help crl2pkcs7 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 help 2>&1)" "unknown option help"; then
-# +     ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
+# - ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep -i 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
+# + ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
 ################################################################################
 # put stream annotation here
 # stream enable
-  if _contains "$(${ACME_OPENSSL_BIN:-openssl} help crl2pkcs7 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -help 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 help 2>&1)" "unknown option help"; then
     ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep -i 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
   else
-################################################################################
-# Commit message: Revert "Syncing with the original repo (#2)"  This reverts commit c384ed960c138f4449e79293644c4d0ec937cef1.
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/8de3698b230da82f4eac2d5e04a8a754d8d92faa
-# Category: 
-# Notes: 
-# Changed content:
-# -     _cindex=1
-# -     for _startn in $(grep -n -- "$BEGIN_CERT" "$_cfile" | cut -d : -f 1); do
-# -       _endn="$(grep -n -- "$END_CERT" "$_cfile" | cut -d : -f 1 | _head_n $_cindex | _tail_n 1)"
-# -       _debug2 "_startn" "$_startn"
-# -       _debug2 "_endn" "$_endn"
-# -       if [ "$DEBUG" ]; then
-# -         _debug2 "cert$_cindex" "$(sed -n "$_startn,${_endn}p" "$_cfile")"
-# -       fi
-# -       sed -n "$_startn,${_endn}p" "$_cfile" | ${ACME_OPENSSL_BIN:-openssl} x509 -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2 | sed "s/ *\(.*\)/\1/"
-# -       _cindex=$(_math $_cindex + 1)
-# -     done
-# -   fi
-# - }
-# - 
-# - #
-# - _get_chain_subjects() {
-# -   _cfile="$1"
-# -   if _contains "$(${ACME_OPENSSL_BIN:-openssl} help crl2pkcs7 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -help 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 help 2>&1)" "unknown option help"; then
-# -     ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep -i 'Subject:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
-# -   else
-# -     _cindex=1
-# -     for _startn in $(grep -n -- "$BEGIN_CERT" "$_cfile" | cut -d : -f 1); do
-# -       _endn="$(grep -n -- "$END_CERT" "$_cfile" | cut -d : -f 1 | _head_n $_cindex | _tail_n 1)"
-# -       _debug2 "_startn" "$_startn"
-# -       _debug2 "_endn" "$_endn"
-# -       if [ "$DEBUG" ]; then
-# -         _debug2 "cert$_cindex" "$(sed -n "$_startn,${_endn}p" "$_cfile")"
-# -       fi
-# -       sed -n "$_startn,${_endn}p" "$_cfile" | ${ACME_OPENSSL_BIN:-openssl} x509 -text -noout | grep -i 'Subject:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2 | sed "s/ *\(.*\)/\1/"
-# -       _cindex=$(_math $_cindex + 1)
-# -     done
-# +     ${ACME_OPENSSL_BIN:-openssl} x509 -in $_cfile -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
-################################################################################
-# put stream annotation here
-# stream enable
     _cindex=1
     for _startn in $(grep -n -- "$BEGIN_CERT" "$_cfile" | cut -d : -f 1); do
       _endn="$(grep -n -- "$END_CERT" "$_cfile" | cut -d : -f 1 | _head_n $_cindex | _tail_n 1)"
@@ -4101,6 +4058,17 @@ _get_chain_issuers() {
       if [ "$DEBUG" ]; then
         _debug2 "cert$_cindex" "$(sed -n "$_startn,${_endn}p" "$_cfile")"
       fi
+################################################################################
+# Commit message: Revert "Syncing with the original repo (#2)"  This reverts commit c384ed960c138f4449e79293644c4d0ec937cef1.
+# Commit URL: https://github.com/acmesh-official/acme.sh/commit/8de3698b230da82f4eac2d5e04a8a754d8d92faa
+# Category: 
+# Notes: 
+# Changed content:
+# - sed -n "$_startn,${_endn}p" "$_cfile" | ${ACME_OPENSSL_BIN:-openssl} x509 -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2 | sed "s/ *\(.*\)/\1/"
+# + ${ACME_OPENSSL_BIN:-openssl} x509 -in $_cfile -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
+################################################################################
+# put stream annotation here
+# stream enable
       sed -n "$_startn,${_endn}p" "$_cfile" | ${ACME_OPENSSL_BIN:-openssl} x509 -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2 | sed "s/ *\(.*\)/\1/"
       _cindex=$(_math $_cindex + 1)
     done
@@ -4133,21 +4101,6 @@ _match_issuer() {
   _missuer="$2"
   _fissuers="$(_get_chain_issuers $_cfile)"
   _debug2 _fissuers "$_fissuers"
-################################################################################
-# Commit message: Revert "Syncing with the original repo (#2)"  This reverts commit c384ed960c138f4449e79293644c4d0ec937cef1.
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/8de3698b230da82f4eac2d5e04a8a754d8d92faa
-# Category: 
-# Notes: 
-# Changed content:
-# -   _rootissuer="$(echo "$_fissuers" | _lower_case | _tail_n 1)"
-# -   _debug2 _rootissuer "$_rootissuer"
-# +   if _contains "$_fissuers" "$_missuer"; then
-# +     return 0
-# +   fi
-# +   _fissuers="$(echo "$_fissuers" | _lower_case)"
-################################################################################
-# put stream annotation here
-# stream enable
   _rootissuer="$(echo "$_fissuers" | _lower_case | _tail_n 1)"
   _debug2 _rootissuer "$_rootissuer"
   _missuer="$(echo "$_missuer" | _lower_case)"

@@ -1145,20 +1145,6 @@ nvm() {
     ;;
 
     "debug" )
-################################################################################
-# Commit message: Fix `nvm debug` output in `zsh`.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/c31b0721458410d1f0785206b50589a4898b3d25
-# Category: 
-# Notes: 
-# Changed content:
-# +       local ZHS_HAS_SHWORDSPLIT_UNSET
-# +       if nvm_has "setopt"; then
-# +         ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | command grep shwordsplit > /dev/null ; echo $?)
-# +         setopt shwordsplit
-# +       fi
-################################################################################
-# put stream annotation here
-# stream enable
       echo >&2 "\$SHELL: $SHELL"
       echo >&2 "\$NVM_DIR: $(echo $NVM_DIR | sed "s#$HOME#\$HOME#g")"
       for NVM_DEBUG_COMMAND in 'nvm current' 'which node' 'which iojs' 'which npm' 'npm config get prefix' 'npm root -g'
@@ -1169,10 +1155,8 @@ nvm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         local NVM_DEBUG_OUTPUT="$($NVM_DEBUG_COMMAND | sed "s#$NVM_DIR#\$NVM_DIR#g")"
-# -         echo >&2 "$NVM_DEBUG_COMMAND: ${NVM_DEBUG_OUTPUT}"
-# +         NVM_DEBUG_OUTPUT="$($NVM_DEBUG_COMMAND 2>&1 | sed "s#$NVM_DIR#\$NVM_DIR#g")"
-# +         echo >&2 "$NVM_DEBUG_COMMAND: $NVM_DEBUG_OUTPUT"
+# - local NVM_DEBUG_OUTPUT="$($NVM_DEBUG_COMMAND | sed "s#$NVM_DIR#\$NVM_DIR#g")"
+# + NVM_DEBUG_OUTPUT="$($NVM_DEBUG_COMMAND 2>&1 | sed "s#$NVM_DIR#\$NVM_DIR#g")"
 ################################################################################
 # put stream annotation here
 # stream enable

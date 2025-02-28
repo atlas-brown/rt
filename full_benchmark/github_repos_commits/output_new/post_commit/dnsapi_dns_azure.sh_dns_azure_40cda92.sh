@@ -178,8 +178,8 @@ dns_azure_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     vlist="$(echo "$response" | _egrep_o "\"value\"\\s*:\\s*\\[\\s*\"[^\"]*\"\\s*]" | cut -d : -f 2 | tr -d "[]\"" | grep -v "$txtvalue")"
-# +     vlist="$(echo "$response" | _egrep_o "\"value\"\\s*:\\s*\\[\\s*\"[^\"]*\"\\s*]" | cut -d : -f 2 | tr -d "[]\"" | grep -v -- "$txtvalue")"
+# - vlist="$(echo "$response" | _egrep_o "\"value\"\\s*:\\s*\\[\\s*\"[^\"]*\"\\s*]" | cut -d : -f 2 | tr -d "[]\"" | grep -v "$txtvalue")"
+# + vlist="$(echo "$response" | _egrep_o "\"value\"\\s*:\\s*\\[\\s*\"[^\"]*\"\\s*]" | cut -d : -f 2 | tr -d "[]\"" | grep -v -- "$txtvalue")"
 ################################################################################
 # put stream annotation here
 # stream enable

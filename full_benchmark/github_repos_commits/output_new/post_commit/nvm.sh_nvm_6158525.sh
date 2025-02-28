@@ -52,17 +52,6 @@ nvm_version()
         PATTERN='*.*.'
     fi
     if [ "$PATTERN" = 'all' ]; then
-################################################################################
-# Commit message: Force unaliased use of ls, for those of us who alias ls in their shell
-# Commit URL: https://github.com/nvm-sh/nvm/commit/61585251f51efdef2ff261429151238f47fb059a
-# Category: 
-# Notes: 
-# Changed content:
-# -         (cd $NVM_DIR; ls -dG v* 2>/dev/null || echo "N/A")
-# +         (cd $NVM_DIR; \ls -dG v* 2>/dev/null || echo "N/A")
-################################################################################
-# put stream annotation here
-# stream enable
         (cd $NVM_DIR; \ls -dG v* 2>/dev/null || echo "N/A")
         return
     fi
@@ -73,8 +62,8 @@ nvm_version()
 # Category: 
 # Notes: 
 # Changed content:
-# -         VERSION=`(cd $NVM_DIR; ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 2,1n -k 2,2n -k 3,3n | tail -n1`
-# +         VERSION=`(cd $NVM_DIR; \ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 2,1n -k 2,2n -k 3,3n | tail -n1`
+# - VERSION=`(cd $NVM_DIR; ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 2,1n -k 2,2n -k 3,3n | tail -n1`
+# + VERSION=`(cd $NVM_DIR; \ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 2,1n -k 2,2n -k 3,3n | tail -n1`
 ################################################################################
 # put stream annotation here
 # stream enable

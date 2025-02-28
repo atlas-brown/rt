@@ -177,8 +177,8 @@ _get_paketnr() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     if $(echo "$domain" | grep -q "$tld\$"); then
-# +     if echo "$domain" | grep -q "$tld\$"; then
+# - if $(echo "$domain" | grep -q "$tld\$"); then
+# + if echo "$domain" | grep -q "$tld\$"; then
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -234,133 +234,6 @@ fi
 # 4: A suffix to be appended to each possible completion word (optional).
 __gitcomp ()
 {
-################################################################################
-# Commit message: gitfast: synchronize with upstream  Up to version 1.8.2.1.  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/72a8c08cc897520ea74ae49e811cd9e34501c520
-# Category: 
-# Notes: 
-# Changed content:
-# + # Generates completion reply with compgen from newline-separated possible
-# + # completion filenames.
-# + # It accepts 1 to 3 arguments:
-# + # 1: List of possible completion filenames, separated by a single newline.
-# + # 2: A directory prefix to be added to each possible completion filename
-# + #    (optional).
-# + # 3: Generate possible completion matches for this word (optional).
-# + __gitcomp_file ()
-# + {
-# + 	local IFS=$'\n'
-# + 
-# + 	# XXX does not work when the directory prefix contains a tilde,
-# + 	# since tilde expansion is not applied.
-# + 	# This means that COMPREPLY will be empty and Bash default
-# + 	# completion will be used.
-# + 	COMPREPLY=($(compgen -P "${2-}" -W "$1" -- "${3-$cur}"))
-# + 
-# + 	# Tell Bash that compspec generates filenames.
-# + 	compopt -o filenames 2>/dev/null
-# + }
-# + 
-# + __git_index_file_list_filter_compat ()
-# + {
-# + 	local path
-# + 
-# + 	while read -r path; do
-# + 		case "$path" in
-# + 		?*/*) echo "${path%%/*}/" ;;
-# + 		*) echo "$path" ;;
-# + 		esac
-# + 	done
-# + }
-# + 
-# + __git_index_file_list_filter_bash ()
-# + {
-# + 	local path
-# + 
-# + 	while read -r path; do
-# + 		case "$path" in
-# + 		?*/*)
-# + 			# XXX if we append a slash to directory names when using
-# + 			# `compopt -o filenames`, Bash will append another slash.
-# + 			# This is pretty stupid, and this the reason why we have to
-# + 			# define a compatible version for this function.
-# + 			echo "${path%%/*}" ;;
-# + 		*)
-# + 			echo "$path" ;;
-# + 		esac
-# + 	done
-# + }
-# + 
-# + # Process path list returned by "ls-files" and "diff-index --name-only"
-# + # commands, in order to list only file names relative to a specified
-# + # directory, and append a slash to directory names.
-# + __git_index_file_list_filter ()
-# + {
-# + 	# Default to Bash >= 4.x
-# + 	__git_index_file_list_filter_bash
-# + }
-# + 
-# + # Execute git ls-files, returning paths relative to the directory
-# + # specified in the first argument, and using the options specified in
-# + # the second argument.
-# + __git_ls_files_helper ()
-# + {
-# + 	(
-# + 		test -n "${CDPATH+set}" && unset CDPATH
-# + 		# NOTE: $2 is not quoted in order to support multiple options
-# + 		cd "$1" && git ls-files --exclude-standard $2
-# + 	) 2>/dev/null
-# + }
-# + 
-# + 
-# + # Execute git diff-index, returning paths relative to the directory
-# + # specified in the first argument, and using the tree object id
-# + # specified in the second argument.
-# + __git_diff_index_helper ()
-# + {
-# + 	(
-# + 		test -n "${CDPATH+set}" && unset CDPATH
-# + 		cd "$1" && git diff-index --name-only --relative "$2"
-# + 	) 2>/dev/null
-# + }
-# + 
-# + # __git_index_files accepts 1 or 2 arguments:
-# + # 1: Options to pass to ls-files (required).
-# + #    Supported options are --cached, --modified, --deleted, --others,
-# + #    and --directory.
-# + # 2: A directory path (optional).
-# + #    If provided, only files within the specified directory are listed.
-# + #    Sub directories are never recursed.  Path must have a trailing
-# + #    slash.
-# + __git_index_files ()
-# + {
-# + 	local dir="$(__gitdir)" root="${2-.}"
-# + 
-# + 	if [ -d "$dir" ]; then
-# + 		__git_ls_files_helper "$root" "$1" | __git_index_file_list_filter |
-# + 			sort | uniq
-# + 	fi
-# + }
-# + 
-# + # __git_diff_index_files accepts 1 or 2 arguments:
-# + # 1) The id of a tree object.
-# + # 2) A directory path (optional).
-# + #    If provided, only files within the specified directory are listed.
-# + #    Sub directories are never recursed.  Path must have a trailing
-# + #    slash.
-# + __git_diff_index_files ()
-# + {
-# + 	local dir="$(__gitdir)" root="${2-.}"
-# + 
-# + 	if [ -d "$dir" ]; then
-# + 		__git_diff_index_helper "$root" "$1" | __git_index_file_list_filter |
-# + 			sort | uniq
-# + 	fi
-# + }
-# + 
-################################################################################
-# put stream annotation here
-# stream enable
 	local cur_="${3-$cur}"
 
 	case "$cur_" in
@@ -454,8 +327,8 @@ __git_refs ()
 # Category: 
 # Notes: 
 # Changed content:
-# - 			done | uniq -u
-# + 			done | sort | uniq -u
+# - done | uniq -u
+# + done | sort | uniq -u
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -721,17 +594,6 @@ __git_compute_all_commands ()
 
 __git_list_porcelain_commands ()
 {
-################################################################################
-# Commit message: gitfast: synchronize with upstream  Up to version 1.8.2.1.  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/72a8c08cc897520ea74ae49e811cd9e34501c520
-# Category: 
-# Notes: 
-# Changed content:
-# - 	for i in $(git help -a|egrep '^  [a-zA-Z0-9]')
-# + 	for i in $(__git_commands)
-################################################################################
-# put stream annotation here
-# stream enable
 	local i IFS=" "$'\n'
 	__git_compute_all_commands
 	for i in "help" $__git_all_commands
@@ -839,24 +701,6 @@ __git_pretty_aliases ()
 	done
 }
 
-################################################################################
-# Commit message: gitfast: synchronize with upstream  Up to version 1.8.2.1.  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/72a8c08cc897520ea74ae49e811cd9e34501c520
-# Category: 
-# Notes: 
-# Changed content:
-# + __git_commands () {
-# + 	if test -n "${GIT_TESTING_COMMAND_COMPLETION:-}"
-# + 	then
-# + 		printf "%s" "${GIT_TESTING_COMMAND_COMPLETION}"
-# + 	else
-# + 		git help -a|egrep '^  [a-zA-Z0-9]'
-# + 	fi
-# + }
-# + 
-################################################################################
-# put stream annotation here
-# stream enable
 __git_aliases ()
 {
 	local i IFS=$'\n'
@@ -1165,29 +1009,6 @@ _git_clone ()
 
 _git_commit ()
 {
-################################################################################
-# Commit message: gitfast: synchronize with upstream  Up to version 1.8.2.1.  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/72a8c08cc897520ea74ae49e811cd9e34501c520
-# Category: 
-# Notes: 
-# Changed content:
-# - 	__git_has_doubledash && return
-# + 	case "$prev" in
-# + 	-c|-C)
-# + 		__gitcomp_nl "$(__git_refs)" "" "${cur}"
-# + 		return
-# + 		;;
-# + 	esac
-# + 
-# + 	case "$prev" in
-# + 	-c|-C)
-# + 		__gitcomp_nl "$(__git_refs)" "" "${cur}"
-# + 		return
-# + 		;;
-# + 	esac
-################################################################################
-# put stream annotation here
-# stream enable
 	__git_has_doubledash && return
 
 	case "$cur" in
@@ -1771,17 +1592,6 @@ __git_config_get_set_variables ()
 	while [ $c -gt 1 ]; do
 		word="${words[c]}"
 		case "$word" in
-################################################################################
-# Commit message: gitfast: synchronize with upstream  Up to version 1.8.2.1.  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/72a8c08cc897520ea74ae49e811cd9e34501c520
-# Category: 
-# Notes: 
-# Changed content:
-# - 		--global|--system|--file=*)
-# + 		--system|--global|--local|--file=*)
-################################################################################
-# put stream annotation here
-# stream enable
 		--global|--system|--file=*)
 			config_file="$word"
 			break
@@ -2640,90 +2450,6 @@ __git_func_wrap ()
 		# variable in versions < 4.3.12
 		typeset -h words
 
-################################################################################
-# Commit message: gitfast: synchronize with upstream  Up to version 1.8.2.1.  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/72a8c08cc897520ea74ae49e811cd9e34501c520
-# Category: 
-# Notes: 
-# Changed content:
-# - 		# workaround zsh's bug that quotes spaces in the COMPREPLY
-# - 		# array if IFS doesn't contain spaces.
-# - 		typeset -h IFS
-# + 	__gitcomp ()
-# + 	{
-# + 		emulate -L zsh
-# + 
-# + 		local cur_="${3-$cur}"
-# + 
-# + 		case "$cur_" in
-# + 		--*=)
-# + 			;;
-# + 		*)
-# + 			local c IFS=$' \t\n'
-# + 			local -a array
-# + 			for c in ${=1}; do
-# + 				c="$c${4-}"
-# + 				case $c in
-# + 				--*=*|*.) ;;
-# + 				*) c="$c " ;;
-# + 				esac
-# + 				array[$#array+1]="$c"
-# + 			done
-# + 			compset -P '*[=:]'
-# + 			compadd -Q -S '' -p "${2-}" -a -- array && _ret=0
-# + 			;;
-# + 		esac
-# + 	}
-# + 
-# + 	__gitcomp_nl ()
-# + 	{
-# + 		emulate -L zsh
-# + 
-# + 		local IFS=$'\n'
-# + 		compset -P '*[=:]'
-# + 		compadd -Q -S "${4- }" -p "${2-}" -- ${=1} && _ret=0
-# + 	}
-# + 
-# + 	__gitcomp_file ()
-# + 	{
-# + 		emulate -L zsh
-# + 
-# + 		local IFS=$'\n'
-# + 		compset -P '*[=:]'
-# + 		compadd -Q -p "${2-}" -f -- ${=1} && _ret=0
-# + 	}
-# + 
-# + 	__git_zsh_helper ()
-# + 	{
-# + 		emulate -L ksh
-# + 		local cur cword prev
-# + 		cur=${words[CURRENT-1]}
-# + 		prev=${words[CURRENT-2]}
-# + 		let cword=CURRENT-1
-# + 		__${service}_main
-# + 	}
-# + 
-# + 	_git ()
-# + 	{
-# + 		emulate -L zsh
-# + 		local _ret=1
-# + 		__git_zsh_helper
-# + 		let _ret && _default -S '' && _ret=0
-# + 		return _ret
-# + 	}
-# + 
-# + 	compdef _git git gitk
-# + 	return
-# + elif [[ -n ${BASH_VERSION-} ]]; then
-# + 	if ((${BASH_VERSINFO[0]} < 4)); then
-# + 		# compopt is not supported
-# + 		__git_index_file_list_filter ()
-# + 		{
-# + 			__git_index_file_list_filter_compat
-# + 		}
-################################################################################
-# put stream annotation here
-# stream enable
 		# workaround zsh's bug that quotes spaces in the COMPREPLY
 		# array if IFS doesn't contain spaces.
 		typeset -h IFS

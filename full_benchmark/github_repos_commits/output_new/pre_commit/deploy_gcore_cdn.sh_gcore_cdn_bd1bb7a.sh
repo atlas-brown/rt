@@ -33,10 +33,10 @@ gcore_cdn_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _fullchain=$(cat "$_cfullchain" | tr '\n\r' '@#' | sed 's/@/\\n/g;s/#/\\r/g')
-# -   _key=$(cat "$_ckey" | tr '\n\r' '@#' | sed 's/@/\\n/g;s/#/\\r/g')
-# +   _fullchain=$(tr '\n\r' '@#' <"$_cfullchain" | sed 's/@/\\n/g;s/#/\\r/g')
-# +   _key=$(tr '\n\r' '@#' <"$_ckey" | sed 's/@/\\n/g;s/#/\\r/g')
+# - _fullchain=$(cat "$_cfullchain" | tr '\n\r' '@#' | sed 's/@/\\n/g;s/#/\\r/g')
+# + _fullchain=$(tr '\n\r' '@#' <"$_cfullchain" | sed 's/@/\\n/g;s/#/\\r/g')
+# - _key=$(cat "$_ckey" | tr '\n\r' '@#' | sed 's/@/\\n/g;s/#/\\r/g')
+# + _key=$(tr '\n\r' '@#' <"$_ckey" | sed 's/@/\\n/g;s/#/\\r/g')
 ################################################################################
 # put stream annotation here
 # stream enable

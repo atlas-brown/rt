@@ -445,8 +445,8 @@ _startswith() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   echo "$_str" | grep "^$_sub" >/dev/null 2>&1
-# +   echo "$_str" | grep -- "^$_sub" >/dev/null 2>&1
+# - echo "$_str" | grep "^$_sub" >/dev/null 2>&1
+# + echo "$_str" | grep -- "^$_sub" >/dev/null 2>&1
 ################################################################################
 # put stream annotation here
 # stream enable

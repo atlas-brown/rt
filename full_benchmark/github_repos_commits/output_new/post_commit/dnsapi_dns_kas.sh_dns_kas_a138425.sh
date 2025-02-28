@@ -115,20 +115,18 @@ _check_and_save() {
 
 # Gets back the base domain/zone and record name.
 # See: https://github.com/Neilpang/acme.sh/wiki/DNS-API-Dev-Guide
+_get_zone_and_record_name() {
 ################################################################################
 # Commit message: Update dns_kas.sh  sorry for this commit.  ;) Fix NewBeMistakes
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/a138425417fe76deb6eade981a6e4c240f9afc41
 # Category: 
 # Notes: 
 # Changed content:
-# - _get_zone_and_record_name()() {
-# -   _zonen="$( cat testfile.txt  | tr -d "\n\r" | tr -d " " | tr '[]' '<>' | sed "s/=>Array/\n=> Array/g" | tr ' ' '\n' | grep "domain_name" | tr '<' '\n' | grep "domain_name" | cut -d '>' -f 3)"
-# + _get_zone_and_record_name() {
-# +   _zonen="$( echo "$response"  | tr -d "\n\r" | tr -d " " | tr '[]' '<>' | sed "s/=>Array/\n=> Array/g" | tr ' ' '\n' | grep "domain_name" | tr '<' '\n' | grep "domain_name" | cut -d '>' -f 3)"
+# - _zonen="$( cat testfile.txt  | tr -d "\n\r" | tr -d " " | tr '[]' '<>' | sed "s/=>Array/\n=> Array/g" | tr ' ' '\n' | grep "domain_name" | tr '<' '\n' | grep "domain_name" | cut -d '>' -f 3)"
+# + _zonen="$( echo "$response"  | tr -d "\n\r" | tr -d " " | tr '[]' '<>' | sed "s/=>Array/\n=> Array/g" | tr ' ' '\n' | grep "domain_name" | tr '<' '\n' | grep "domain_name" | cut -d '>' -f 3)"
 ################################################################################
 # put stream annotation here
 # stream enable
-_get_zone_and_record_name() {
   _zonen="$( echo "$response"  | tr -d "\n\r" | tr -d " " | tr '[]' '<>' | sed "s/=>Array/\n=> Array/g" | tr ' ' '\n' | grep "domain_name" | tr '<' '\n' | grep "domain_name" | cut -d '>' -f 3)"
   _domain="$1"
   if _endswith "$_domain" "."; then

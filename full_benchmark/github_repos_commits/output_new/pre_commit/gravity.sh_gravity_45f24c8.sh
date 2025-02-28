@@ -222,17 +222,6 @@ function gravity_Schwarzchild() {
 	truncate -s 0 $piholeDir/$matterandlight & spinner $!
 	for i in "${activeDomains[@]}"
 	do
-################################################################################
-# Commit message: Readded `cat`s that were originally considered UUOC
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/45f24c8a85edf0162530e785e9b0a2bfea3318a4
-# Category: 
-# Notes: 
-# Changed content:
-# - 		"$i" |tr -d '\r' >> $piholeDir/$matterandlight
-# + 		cat "$i" | tr -d '\r' >> $piholeDir/$matterandlight
-################################################################################
-# put stream annotation here
-# stream enable
 		"$i" |tr -d '\r' >> $piholeDir/$matterandlight
 	done
 	echo " done!"
@@ -299,8 +288,8 @@ function gravity_hostFormat() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     $piholeDir/$eventHorizon | awk -v ipv4addr="$piholeIP" -v ipv6addr="$piholeIPv6" '{sub(/\r$/,""); print ipv4addr" "$0"\n"ipv6addr" "$0}' >> $piholeDir/$accretionDisc
-# +     cat $piholeDir/$eventHorizon | awk -v ipv4addr="$piholeIP" -v ipv6addr="$piholeIPv6" '{sub(/\r$/,""); print ipv4addr" "$0"\n"ipv6addr" "$0}' >> $piholeDir/$accretionDisc
+# - $piholeDir/$eventHorizon | awk -v ipv4addr="$piholeIP" -v ipv6addr="$piholeIPv6" '{sub(/\r$/,""); print ipv4addr" "$0"\n"ipv6addr" "$0}' >> $piholeDir/$accretionDisc
+# + cat $piholeDir/$eventHorizon | awk -v ipv4addr="$piholeIP" -v ipv6addr="$piholeIPv6" '{sub(/\r$/,""); print ipv4addr" "$0"\n"ipv6addr" "$0}' >> $piholeDir/$accretionDisc
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -315,8 +304,8 @@ function gravity_hostFormat() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     $piholeDir/$eventHorizon | awk -v ipv4addr="$piholeIP" '{sub(/\r$/,""); print ipv4addr" "$0}' >> $piholeDir/$accretionDisc
-# +     cat $piholeDir/$eventHorizon | awk -v ipv4addr="$piholeIP" '{sub(/\r$/,""); print ipv4addr" "$0}' >> $piholeDir/$accretionDisc
+# - $piholeDir/$eventHorizon | awk -v ipv4addr="$piholeIP" '{sub(/\r$/,""); print ipv4addr" "$0}' >> $piholeDir/$accretionDisc
+# + cat $piholeDir/$eventHorizon | awk -v ipv4addr="$piholeIP" '{sub(/\r$/,""); print ipv4addr" "$0}' >> $piholeDir/$accretionDisc
 ################################################################################
 # put stream annotation here
 # stream enable

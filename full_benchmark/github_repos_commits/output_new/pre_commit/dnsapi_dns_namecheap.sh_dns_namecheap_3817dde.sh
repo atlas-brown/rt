@@ -214,8 +214,8 @@ _namecheap_parse_host() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _hostaddress=$(echo "$_host" | _egrep_o ' Address="[^"]*' | cut -d '"' -f 2)
-# +   _hostaddress=$(echo "$_host" | _egrep_o ' Address="[^"]*' | cut -d '"' -f 2 | _xml_decode)
+# - _hostaddress=$(echo "$_host" | _egrep_o ' Address="[^"]*' | cut -d '"' -f 2)
+# + _hostaddress=$(echo "$_host" | _egrep_o ' Address="[^"]*' | cut -d '"' -f 2 | _xml_decode)
 ################################################################################
 # put stream annotation here
 # stream enable

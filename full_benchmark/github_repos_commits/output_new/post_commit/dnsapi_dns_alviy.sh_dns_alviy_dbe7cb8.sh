@@ -102,29 +102,21 @@ dns_alviy_rm() {
 # _domain=domain.com
 _get_root() {
   domain=$1
+  i=3
+  a="init"
+  while [ ! -z $a ]
+  do
 ################################################################################
 # Commit message: remove rev command
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/dbe7cb8dbb5650169f8d21f2efce6a06bd9175c6
 # Category: 
 # Notes: 
 # Changed content:
-# -   h=$(printf "%s" "$domain" | rev | cut -d . -f 1-2 | rev)
-# +   i=3
-# +   a="init"
-# +   while [ ! -z $a ]
-# +   do
-# +     a=$(printf "%s" "$domain" | cut -d . -f $i-)
-# +     i=`expr $i + 1`
-# +   done
-# +   num=`expr $i - 3`
-# +   h=$(printf "%s" "$domain" | cut -d . -f $num-)
+# - h=$(printf "%s" "$domain" | rev | cut -d . -f 1-2 | rev)
+# + h=$(printf "%s" "$domain" | cut -d . -f $num-)
 ################################################################################
 # put stream annotation here
 # stream enable
-  i=3
-  a="init"
-  while [ ! -z $a ]
-  do
     a=$(printf "%s" "$domain" | cut -d . -f $i-)
     i=`expr $i + 1`
   done
@@ -144,19 +136,18 @@ _get_root() {
   if _contains "$response" '"code":"NOT_FOUND"'; then
     _debug "$h not found"
   else
+    s_n=`expr $num - 1`
 ################################################################################
 # Commit message: remove rev command
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/dbe7cb8dbb5650169f8d21f2efce6a06bd9175c6
 # Category: 
 # Notes: 
 # Changed content:
-# -     _sub_domain=$(printf "%s" "$domain" | rev | cut -d . -f 3- | rev)
-# +     s_n=`expr $num - 1`
-# +     _sub_domain=$(printf "%s" "$domain" | cut -d . -f -$s_n)
+# - _sub_domain=$(printf "%s" "$domain" | rev | cut -d . -f 3- | rev)
+# + _sub_domain=$(printf "%s" "$domain" | cut -d . -f -$s_n)
 ################################################################################
 # put stream annotation here
 # stream enable
-    s_n=`expr $num - 1`
     _sub_domain=$(printf "%s" "$domain" | cut -d . -f -$s_n)
     _domain="$h"
     return 0

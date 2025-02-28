@@ -43,8 +43,8 @@ function _plugin__start_agent()
 # Category: 
 # Notes: 
 # Changed content:
-# -   /usr/bin/env ssh-agent ${lifetime:+-t} ${lifetime} | sed 's/^echo/#echo/' >! ${_plugin__ssh_env}
-# +   ssh-agent ${lifetime:+-t} ${lifetime} | sed 's/^echo/#echo/' >! ${_plugin__ssh_env}
+# - /usr/bin/env ssh-agent ${lifetime:+-t} ${lifetime} | sed 's/^echo/#echo/' >! ${_plugin__ssh_env}
+# + ssh-agent ${lifetime:+-t} ${lifetime} | sed 's/^echo/#echo/' >! ${_plugin__ssh_env}
 ################################################################################
 # put stream annotation here
 # stream enable

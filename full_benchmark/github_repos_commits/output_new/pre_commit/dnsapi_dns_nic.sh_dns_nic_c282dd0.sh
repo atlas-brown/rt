@@ -95,8 +95,8 @@ dns_nic_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _domain_id=$(printf "%s" "$response" | grep "$_sub_domain" | grep "$txtvalue" | sed -r "s/.*<rr id=\"(.*)\".*/\1/g")
-# +   _domain_id=$(printf "%s" "$response" | grep "$_sub_domain" | grep -- "$txtvalue" | sed -r "s/.*<rr id=\"(.*)\".*/\1/g")
+# - _domain_id=$(printf "%s" "$response" | grep "$_sub_domain" | grep "$txtvalue" | sed -r "s/.*<rr id=\"(.*)\".*/\1/g")
+# + _domain_id=$(printf "%s" "$response" | grep "$_sub_domain" | grep -- "$txtvalue" | sed -r "s/.*<rr id=\"(.*)\".*/\1/g")
 ################################################################################
 # put stream annotation here
 # stream enable

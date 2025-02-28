@@ -53,28 +53,6 @@ __gitdir ()
 
 # The following function is based on code from:
 #
-################################################################################
-# Commit message: gitfast: update to upstream v1.8.4  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/9ebdbec58979b077e4790387b5927c74ce7184ef
-# Category: 
-# Notes: 
-# Changed content:
-# - __gitcomp_1 ()
-# - {
-# - 	local c IFS=$' \t\n'
-# - 	for c in $1; do
-# - 		c="$c$2"
-# - 		case $c in
-# - 		--*=*|*.) ;;
-# - 		*) c="$c " ;;
-# - 		esac
-# - 		printf '%s\n' "$c"
-# - 	done
-# - }
-# - 
-################################################################################
-# put stream annotation here
-# stream enable
 #   bash_completion - programmable completion functions for bash 3.2+
 #
 #   Copyright © 2006-2008, Ian Macdonald <ian@caliban.org>
@@ -227,30 +205,6 @@ __gitcomp ()
 	--*=)
 		;;
 	*)
-################################################################################
-# Commit message: gitfast: update to upstream v1.8.4  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/9ebdbec58979b077e4790387b5927c74ce7184ef
-# Category: 
-# Notes: 
-# Changed content:
-# - 		local IFS=$'\n'
-# - 		COMPREPLY=($(compgen -P "${2-}" \
-# - 			-W "$(__gitcomp_1 "${1-}" "${4-}")" \
-# - 			-- "$cur_"))
-# + 		local c i=0 IFS=$' \t\n'
-# + 		for c in $1; do
-# + 			c="$c${4-}"
-# + 			if [[ $c == "$cur_"* ]]; then
-# + 				case $c in
-# + 				--*=*|*.) ;;
-# + 				*) c="$c " ;;
-# + 				esac
-# + 				COMPREPLY[i++]="${2-}$c"
-# + 			fi
-# + 		done
-################################################################################
-# put stream annotation here
-# stream enable
 		local c i=0 IFS=$' \t\n'
 		for c in $1; do
 			c="$c${4-}"
@@ -298,24 +252,6 @@ __gitcomp_file ()
 	# completion will be used.
 	__gitcompadd "$1" "${2-}" "${3-$cur}" ""
 
-################################################################################
-# Commit message: gitfast: update to upstream v1.8.4  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/9ebdbec58979b077e4790387b5927c74ce7184ef
-# Category: 
-# Notes: 
-# Changed content:
-# - 	while read -r path; do
-# - 		case "$path" in
-# - 		?*/*) echo "${path%%/*}/" ;;
-# - 		*) echo "$path" ;;
-# - 		esac
-# - 	done
-# + 	# use a hack to enable file mode in bash < 4
-# + 	compopt -o filenames +o nospace 2>/dev/null ||
-# + 	compgen -f /non-existing-dir/ > /dev/null
-################################################################################
-# put stream annotation here
-# stream enable
 	# use a hack to enable file mode in bash < 4
 	compopt -o filenames +o nospace 2>/dev/null ||
 	compgen -f /non-existing-dir/ > /dev/null
@@ -351,46 +287,23 @@ __git_index_files ()
 	local dir="$(__gitdir)" root="${2-.}" file
 
 	if [ -d "$dir" ]; then
-################################################################################
-# Commit message: gitfast: update to upstream v1.8.4  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/9ebdbec58979b077e4790387b5927c74ce7184ef
-# Category: 
-# Notes: 
-# Changed content:
-# - 		__git_ls_files_helper "$root" "$1" | __git_index_file_list_filter |
-# - 			sort | uniq
-# - 	fi
-# - }
-# - 
-# - # __git_diff_index_files accepts 1 or 2 arguments:
-# - # 1) The id of a tree object.
-# - # 2) A directory path (optional).
-# - #    If provided, only files within the specified directory are listed.
-# - #    Sub directories are never recursed.  Path must have a trailing
-# - #    slash.
-# - __git_diff_index_files ()
-# - {
-# - 	local dir="$(__gitdir)" root="${2-.}"
-# - 
-# - 	if [ -d "$dir" ]; then
-# - 		__git_diff_index_helper "$root" "$1" | __git_index_file_list_filter |
-# - 			sort | uniq
-# + 		__git_ls_files_helper "$root" "$1" |
-# + 		while read -r file; do
-# + 			case "$file" in
-# + 			?*/*) echo "${file%%/*}" ;;
-# + 			*) echo "$file" ;;
-# + 			esac
-# + 		done | sort | uniq
-################################################################################
-# put stream annotation here
-# stream enable
 		__git_ls_files_helper "$root" "$1" |
 		while read -r file; do
 			case "$file" in
 			?*/*) echo "${file%%/*}" ;;
 			*) echo "$file" ;;
 			esac
+################################################################################
+# Commit message: gitfast: update to upstream v1.8.4  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
+# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/9ebdbec58979b077e4790387b5927c74ce7184ef
+# Category: 
+# Notes: 
+# Changed content:
+# - sort | uniq
+# + done | sort | uniq
+################################################################################
+# put stream annotation here
+# stream enable
 		done | sort | uniq
 	fi
 }
@@ -467,25 +380,6 @@ __git_refs ()
 		done
 		;;
 	*)
-################################################################################
-# Commit message: gitfast: update to upstream v1.8.4  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/9ebdbec58979b077e4790387b5927c74ce7184ef
-# Category: 
-# Notes: 
-# Changed content:
-# - 		git ls-remote "$dir" HEAD ORIG_HEAD 'refs/tags/*' 'refs/heads/*' 'refs/remotes/*' 2>/dev/null | \
-# - 		while read -r hash i; do
-# - 			case "$i" in
-# - 			*^{}) ;;
-# - 			refs/*) echo "${i#refs/*/}" ;;
-# - 			*) echo "$i" ;;
-# - 			esac
-# - 		done
-# + 		echo "HEAD"
-# + 		git for-each-ref --format="%(refname:short)" -- "refs/remotes/$dir/" | sed -e "s#^$dir/##"
-################################################################################
-# put stream annotation here
-# stream enable
 		echo "HEAD"
 		git for-each-ref --format="%(refname:short)" -- "refs/remotes/$dir/" | sed -e "s#^$dir/##"
 		;;
@@ -1299,22 +1193,6 @@ _git_diff ()
 			--base --ours --theirs --no-index
 			$__git_diff_common_options
 			"
-################################################################################
-# Commit message: gitfast: update to upstream v1.8.4  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/9ebdbec58979b077e4790387b5927c74ce7184ef
-# Category: 
-# Notes: 
-# Changed content:
-# - 	case "$prev" in
-# - 	-c|-C)
-# - 		__gitcomp_nl "$(__git_refs)" "" "${cur}"
-# - 		return
-# - 		;;
-# - 	esac
-# - 
-################################################################################
-# put stream annotation here
-# stream enable
 		return
 		;;
 	esac
@@ -1860,17 +1738,6 @@ __git_config_get_set_variables ()
 _git_config ()
 {
 	case "$prev" in
-################################################################################
-# Commit message: gitfast: update to upstream v1.8.4  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/9ebdbec58979b077e4790387b5927c74ce7184ef
-# Category: 
-# Notes: 
-# Changed content:
-# - 	branch.*.remote)
-# + 	branch.*.remote|branch.*.pushremote)
-################################################################################
-# put stream annotation here
-# stream enable
 	branch.*.remote|branch.*.pushremote)
 		__gitcomp_nl "$(__git_remotes)"
 		return
@@ -2637,17 +2504,6 @@ __git_main ()
 		--git-dir)   ((c++)) ; __git_dir="${words[c]}" ;;
 		--bare)      __git_dir="." ;;
 		--help) command="help"; break ;;
-################################################################################
-# Commit message: gitfast: update to upstream v1.8.4  Signed-off-by: Felipe Contreras <felipe.contreras@gmail.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/9ebdbec58979b077e4790387b5927c74ce7184ef
-# Category: 
-# Notes: 
-# Changed content:
-# - 		-c) c=$((++c)) ;;
-# + 		-c|--work-tree|--namespace) ((c++)) ;;
-################################################################################
-# put stream annotation here
-# stream enable
 		-c|--work-tree|--namespace) ((c++)) ;;
 		-*) ;;
 		*) command="$i"; break ;;

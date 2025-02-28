@@ -52,8 +52,8 @@ _hostingde_parse() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     _egrep_o \""${find}\":.*" | grep -v "${notfind}" | cut -d ':' -f 2 | cut -d ',' -f 1 | tr -d '[:space:]'
-# +     _egrep_o \""${find}\":.*" | grep -v "${notfind}" | cut -d ':' -f 2 | cut -d ',' -f 1 | tr -d ' '
+# - _egrep_o \""${find}\":.*" | grep -v "${notfind}" | cut -d ':' -f 2 | cut -d ',' -f 1 | tr -d '[:space:]'
+# + _egrep_o \""${find}\":.*" | grep -v "${notfind}" | cut -d ':' -f 2 | cut -d ',' -f 1 | tr -d ' '
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -65,8 +65,8 @@ _hostingde_parse() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     _egrep_o \""${find}\":.*" | cut -d ':' -f 2 | cut -d ',' -f 1 | tr -d '[:space:]'
-# +     _egrep_o \""${find}\":.*" | cut -d ':' -f 2 | cut -d ',' -f 1 | tr -d ' '
+# - _egrep_o \""${find}\":.*" | cut -d ':' -f 2 | cut -d ',' -f 1 | tr -d '[:space:]'
+# + _egrep_o \""${find}\":.*" | cut -d ':' -f 2 | cut -d ',' -f 1 | tr -d ' '
 ################################################################################
 # put stream annotation here
 # stream enable

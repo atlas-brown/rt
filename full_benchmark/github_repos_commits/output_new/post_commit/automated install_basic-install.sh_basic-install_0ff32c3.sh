@@ -194,8 +194,8 @@ os_check() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         IFS=" " read -r -a supportedOS < <(dig +short -t txt ${remote_os_domain} | tr -d '"')
-# +         IFS=" " read -r -a supportedOS < <(dig +short -t txt ${remote_os_domain} @ns1.pi-hole.net | tr -d '"')
+# - IFS=" " read -r -a supportedOS < <(dig +short -t txt ${remote_os_domain} | tr -d '"')
+# + IFS=" " read -r -a supportedOS < <(dig +short -t txt ${remote_os_domain} @ns1.pi-hole.net | tr -d '"')
 ################################################################################
 # put stream annotation here
 # stream enable

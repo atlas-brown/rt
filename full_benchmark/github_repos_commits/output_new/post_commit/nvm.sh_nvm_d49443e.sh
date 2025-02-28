@@ -418,8 +418,8 @@ nvm_print_implicit_alias() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     LAST_TWO="$(nvm_ls | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)"
-# +     LAST_TWO=$(nvm_ls | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
+# - LAST_TWO="$(nvm_ls | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)"
+# + LAST_TWO=$(nvm_ls | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -431,8 +431,8 @@ nvm_print_implicit_alias() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     LAST_TWO="$(nvm_ls_remote | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)"
-# +     LAST_TWO=$(nvm_ls_remote | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
+# - LAST_TWO="$(nvm_ls_remote | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)"
+# + LAST_TWO=$(nvm_ls_remote | \grep -e '^v' | cut -c2- | cut -d . -f 1,2 | uniq)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -442,22 +442,6 @@ nvm_print_implicit_alias() {
   local STABLE
   local UNSTABLE
   local MOD
-################################################################################
-# Commit message: Properly handle nvm_print_implicit_alias splitting in zsh.  Hopefully fixes #546.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/d49443e1fb54fa27f27e6e5f8d0cd3b8168440ef
-# Category: 
-# Notes: 
-# Changed content:
-# + 
-# +   local ZHS_HAS_SHWORDSPLIT_UNSET
-# +   ZHS_HAS_SHWORDSPLIT_UNSET=1
-# +   if nvm_has "setopt"; then
-# +     ZHS_HAS_SHWORDSPLIT_UNSET=$(setopt | \grep shwordsplit > /dev/null ; echo $?)
-# +     setopt shwordsplit
-# +   fi
-################################################################################
-# put stream annotation here
-# stream enable
 
   local ZHS_HAS_SHWORDSPLIT_UNSET
   ZHS_HAS_SHWORDSPLIT_UNSET=1

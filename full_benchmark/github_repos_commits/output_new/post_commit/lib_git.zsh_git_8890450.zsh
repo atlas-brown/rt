@@ -68,8 +68,8 @@ git_prompt_status() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if $(echo "$INDEX" | grep '^\?\? ' &> /dev/null); then
-# +   if $(echo "$INDEX" | grep -E '^\?\? ' &> /dev/null); then
+# - if $(echo "$INDEX" | grep '^\?\? ' &> /dev/null); then
+# + if $(echo "$INDEX" | grep -E '^\?\? ' &> /dev/null); then
 ################################################################################
 # put stream annotation here
 # stream enable

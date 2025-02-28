@@ -309,8 +309,8 @@ _freedns_domain_id() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     domain_id="$(echo "$htmlpage" | tr -d "\r\n" | sed 's/<tr>/@<tr>/g' | tr '@' '\n' \
-# +     domain_id="$(echo "$htmlpage" | tr -d "\t\r\n\v\f" | sed 's/<tr>/@<tr>/g' | tr '@' '\n' \
+# - domain_id="$(echo "$htmlpage" | tr -d "\r\n" | sed 's/<tr>/@<tr>/g' | tr '@' '\n' \
+# + domain_id="$(echo "$htmlpage" | tr -d "\t\r\n\v\f" | sed 's/<tr>/@<tr>/g' | tr '@' '\n' \
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -366,8 +366,8 @@ _freedns_data_id() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     data_id="$(echo "$htmlpage" | tr -d "\r\n" | sed 's/<tr>/@<tr>/g' | tr '@' '\n' \
-# +     data_id="$(echo "$htmlpage" | tr -d "\t\r\n\v\f" | sed 's/<tr>/@<tr>/g' | tr '@' '\n' \
+# - data_id="$(echo "$htmlpage" | tr -d "\r\n" | sed 's/<tr>/@<tr>/g' | tr '@' '\n' \
+# + data_id="$(echo "$htmlpage" | tr -d "\t\r\n\v\f" | sed 's/<tr>/@<tr>/g' | tr '@' '\n' \
 ################################################################################
 # put stream annotation here
 # stream enable

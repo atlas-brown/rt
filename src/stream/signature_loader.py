@@ -10,6 +10,7 @@ from special_signatures.grep import GrepSignature
 from special_signatures.tr import TrSignature
 from special_signatures.paste import PasteSignature
 from special_signatures.seq import SeqSignature
+from special_signatures.rev import RevSignature
 
 class SignatureLoader:
     def __init__(self, signature_dir : str = "./src/stream/signatures") -> None:
@@ -22,6 +23,7 @@ class SignatureLoader:
             "tr": TrSignature,
             "paste": PasteSignature,
             "seq": SeqSignature,
+            "rev": RevSignature,
         }
         self.signatures = self.load_all_signatures()
         self.unknown_signature = CommandSignature(

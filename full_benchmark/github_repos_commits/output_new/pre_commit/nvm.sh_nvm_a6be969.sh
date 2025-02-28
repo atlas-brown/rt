@@ -236,8 +236,8 @@ nvm()
 # Category: 
 # Notes: 
 # Changed content:
-# -             sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt.asc | grep node-${t}.tar.gz | awk '{print $1}'`
-# +             sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | grep node-${t}.tar.gz | awk '{print $1}'`
+# - sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt.asc | grep node-${t}.tar.gz | awk '{print $1}'`
+# + sum=`curl -s http://nodejs.org/dist/$VERSION/SHASUMS.txt | grep node-${t}.tar.gz | awk '{print $1}'`
 ################################################################################
 # put stream annotation here
 # stream enable

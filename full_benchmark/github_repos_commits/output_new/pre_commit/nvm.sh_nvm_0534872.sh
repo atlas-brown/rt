@@ -165,8 +165,8 @@ nvm_ls() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v '^ *\.'`
-# +       | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.'`
+# - | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v '^ *\.'`
+# + | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.'`
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -148,8 +148,8 @@ function work_in_progress() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if $(git log -n 1 2>/dev/null | grep -q -c "--wip--"); then
-# +   if $(git log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
+# - if $(git log -n 1 2>/dev/null | grep -q -c "--wip--"); then
+# + if $(git log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
 ################################################################################
 # put stream annotation here
 # stream enable

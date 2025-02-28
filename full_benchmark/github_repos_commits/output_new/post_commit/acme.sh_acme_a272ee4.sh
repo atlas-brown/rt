@@ -657,41 +657,25 @@ _send_signed_request() {
   _debug2 payload64 $payload64
   
   nonceurl="$API/directory"
-################################################################################
-# Commit message: fix get nonce
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/a272ee4f59bc19cf5d5bd3449bb79bc09106c297
-# Category: 
-# Notes: 
-# Changed content:
-# -   nonce="$(_get $nonceurl "onlyheader" | grep -o "Replay-Nonce:.*$" | head -1 | tr -d "\r\n" | cut -d ' ' -f 2)"
-# +   _headers="$(_get $nonceurl "onlyheader")"
-# +   
-################################################################################
-# put stream annotation here
-# stream enable
   _headers="$(_get $nonceurl "onlyheader")"
   
   if [ "$?" != "0" ] ; then
     _err "Can not connect to $nonceurl to get nonce."
     return 1
   fi
+  
+  _debug2 _headers "$_headers"
+  
 ################################################################################
 # Commit message: fix get nonce
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/a272ee4f59bc19cf5d5bd3449bb79bc09106c297
 # Category: 
 # Notes: 
 # Changed content:
-# +   
-# +   _debug2 _headers "$_headers"
-# +   
-# +   nonce="$( echo "$_headers" | grep "Replay-Nonce:" | head -1 | tr -d "\r\n " | cut -d ':' -f 2)"
-# + 
+# + nonce="$( echo "$_headers" | grep "Replay-Nonce:" | head -1 | tr -d "\r\n " | cut -d ':' -f 2)"
 ################################################################################
 # put stream annotation here
 # stream enable
-  
-  _debug2 _headers "$_headers"
-  
   nonce="$( echo "$_headers" | grep "Replay-Nonce:" | head -1 | tr -d "\r\n " | cut -d ':' -f 2)"
 
   _debug nonce "$nonce"

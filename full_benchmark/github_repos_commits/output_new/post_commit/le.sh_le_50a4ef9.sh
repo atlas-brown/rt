@@ -191,8 +191,8 @@ _ss() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       netstat -nb -p tcp | grep :$_port" "
-# +       netstat -anb -p tcp | grep "LISTENING" | grep :$_port" "
+# - netstat -nb -p tcp | grep :$_port" "
+# + netstat -anb -p tcp | grep "LISTENING" | grep :$_port" "
 ################################################################################
 # put stream annotation here
 # stream enable

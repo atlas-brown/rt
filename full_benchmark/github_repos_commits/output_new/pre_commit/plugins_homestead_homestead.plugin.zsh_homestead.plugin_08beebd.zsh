@@ -6,8 +6,8 @@ _homestead_get_command_list () {
 # Category: 
 # Notes: 
 # Changed content:
-# -   homestead --no-ansi | sed "1,/(Available|Common) commands/d" | awk '/^ +[a-z]+/ { print $1 }'
-# +   homestead --no-ansi | sed -E "1,/(Available|Common) commands/d" | awk '/^ +[a-z]+/ { print $1 }'
+# - homestead --no-ansi | sed "1,/(Available|Common) commands/d" | awk '/^ +[a-z]+/ { print $1 }'
+# + homestead --no-ansi | sed -E "1,/(Available|Common) commands/d" | awk '/^ +[a-z]+/ { print $1 }'
 ################################################################################
 # put stream annotation here
 # stream enable

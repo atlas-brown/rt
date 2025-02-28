@@ -71,8 +71,8 @@ dns_unoeuro_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     record_id=$(echo "$response" | grep -B 1 "$_sub_domain" | _head_n -1 | _egrep_o "[0-9]{1,}")
-# +     record_id=$(echo "$response" | sed -n -e "/$_sub_domain/{x;p;d;}" -e x | _head_n -1 | _egrep_o "[0-9]{1,}")
+# - record_id=$(echo "$response" | grep -B 1 "$_sub_domain" | _head_n -1 | _egrep_o "[0-9]{1,}")
+# + record_id=$(echo "$response" | sed -n -e "/$_sub_domain/{x;p;d;}" -e x | _head_n -1 | _egrep_o "[0-9]{1,}")
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -137,8 +137,8 @@ dns_unoeuro_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     record_id=$(echo "$response" | grep -B 1 "$_sub_domain" | _head_n -1 | _egrep_o "[0-9]{1,}")
-# +     record_id=$(echo "$response" | sed -n -e "/$_sub_domain/{x;p;d;}" -e x | _head_n -1 | _egrep_o "[0-9]{1,}")
+# - record_id=$(echo "$response" | grep -B 1 "$_sub_domain" | _head_n -1 | _egrep_o "[0-9]{1,}")
+# + record_id=$(echo "$response" | sed -n -e "/$_sub_domain/{x;p;d;}" -e x | _head_n -1 | _egrep_o "[0-9]{1,}")
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -80,17 +80,6 @@ find $origin/ -type f -name "*.$justDomainsExtension" -exec cat {} \; | tr -d '\
 
 # Append blacklist entries if they exist
 if [[ -f $blacklist ]];then
-################################################################################
-# Commit message: resolves #25  Will not count blank lines if they happen to exist.
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/563db80b6d6867b922783e13dda57198e5d29304
-# Category: 
-# Notes: 
-# Changed content:
-# -         numberOf=$(cat $blacklist | wc -l | sed 's/^[ \t]*//')
-# +         numberOf=$(cat $blacklist | sed '/^\s*$/d' | wc -l)
-################################################################################
-# put stream annotation here
-# stream enable
         numberOf=$(cat $blacklist | wc -l | sed 's/^[ \t]*//')
         echo "** Blacklisting $numberOf domain(s)..."
         cat $blacklist >> $origin/$matter
@@ -101,17 +90,6 @@ fi
 function gravity_advanced()
 ###########################
 	{
-################################################################################
-# Commit message: resolves #25  Will not count blank lines if they happen to exist.
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/563db80b6d6867b922783e13dda57198e5d29304
-# Category: 
-# Notes: 
-# Changed content:
-# - 	numberOf=$(cat $origin/$andLight | wc -l | sed 's/^[ \t]*//')
-# + 	numberOf=$(cat $origin/$andLight | sed '/^\s*$/d' | wc -l)
-################################################################################
-# put stream annotation here
-# stream enable
 	numberOf=$(cat $origin/$andLight | wc -l | sed 's/^[ \t]*//')
 	echo "** $numberOf domains being pulled in by gravity..."	
 	# Remove carriage returns and preceding whitespace
@@ -124,8 +102,8 @@ function gravity_advanced()
 # Category: 
 # Notes: 
 # Changed content:
-# - 	numberOf=$(cat $origin/$eventHorizon | wc -l | sed 's/^[ \t]*//')
-# + 	numberOf=$(cat $origin/$eventHorizon | sed '/^\s*$/d' | wc -l)
+# - numberOf=$(cat $origin/$eventHorizon | wc -l | sed 's/^[ \t]*//')
+# + numberOf=$(cat $origin/$eventHorizon | sed '/^\s*$/d' | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -147,17 +125,6 @@ function gravity_advanced()
 # Whitelist (if applicable) then remove duplicates and format for dnsmasq
 if [[ -f $whitelist ]];then
 	# Remove whitelist entries
-################################################################################
-# Commit message: resolves #25  Will not count blank lines if they happen to exist.
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/563db80b6d6867b922783e13dda57198e5d29304
-# Category: 
-# Notes: 
-# Changed content:
-# - 	numberOf=$(cat $whitelist | wc -l | sed 's/^[ \t]*//')
-# + 	numberOf=$(cat $whitelist | sed '/^\s*$/d' | wc -l)
-################################################################################
-# put stream annotation here
-# stream enable
 	numberOf=$(cat $whitelist | wc -l | sed 's/^[ \t]*//')
 	echo "** Whitelisting $numberOf domain(s)..."
 	# Append a "$" to the end of each line so it can be parsed out with grep -w

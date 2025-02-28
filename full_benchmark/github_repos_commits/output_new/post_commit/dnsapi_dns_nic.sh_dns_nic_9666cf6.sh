@@ -174,8 +174,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       _service=$(printf "%s" "$response" | grep "$_domain" | sed -r "s/.*service=\"(.*)\".*$/\1/")
-# +       _service=$(printf "%s" "$response" | grep -F "idn-name=\"$_domain\"" | sed -r "s/.*service=\"(.*)\".*$/\1/")
+# - _service=$(printf "%s" "$response" | grep "$_domain" | sed -r "s/.*service=\"(.*)\".*$/\1/")
+# + _service=$(printf "%s" "$response" | grep -F "idn-name=\"$_domain\"" | sed -r "s/.*service=\"(.*)\".*$/\1/")
 ################################################################################
 # put stream annotation here
 # stream enable

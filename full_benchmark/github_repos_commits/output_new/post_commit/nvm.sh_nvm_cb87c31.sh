@@ -93,8 +93,8 @@ nvm()
 # Category: 
 # Notes: 
 # Changed content:
-# -       ls "$NVM_DIR" | grep -v src
-# +       ls "$NVM_DIR" | grep -v src | grep -v nvm.sh
+# - ls "$NVM_DIR" | grep -v src
+# + ls "$NVM_DIR" | grep -v src | grep -v nvm.sh
 ################################################################################
 # put stream annotation here
 # stream enable

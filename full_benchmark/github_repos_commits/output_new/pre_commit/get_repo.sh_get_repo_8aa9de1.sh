@@ -22,23 +22,8 @@ else
 # Category: 
 # Notes: 
 # Changed content:
-# -     tag_line=$( git ls-remote --tags --sort=-version:refname | grep "refs\/tags\/${MS_TAG}" | head -1 )
-# - 
-# -     [[ "${tag_line}" =~ ^([[:alnum:]]+)[[:space:]]+refs\/tags\/([0-9]+\.[0-9]+\.[0-9]+)$ ]]
-# - 
-# -     export MS_COMMIT="${BASH_REMATCH[1]}"
-# +     reference=$( git ls-remote --tags | grep -x ".*refs\/tags\/${MS_TAG}" | head -1 )
-# +     
-# +     if [[ -z "${reference}" ]]; then
-# +         echo "The following tag can't be found: ${MS_TAG}"
-# +         exit 1
-# +     elif [[ "${reference}" =~ ^([[:alnum:]]+)[[:space:]]+refs\/tags\/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
-# +         export MS_COMMIT="${BASH_REMATCH[1]}"
-# +         export MS_TAG="${BASH_REMATCH[2]}"
-# +     else
-# +         echo "The following reference can't be parsed: ${reference}"
-# +         exit 1
-# +     fi
+# - tag_line=$( git ls-remote --tags --sort=-version:refname | grep "refs\/tags\/${MS_TAG}" | head -1 )
+# + reference=$( git ls-remote --tags | grep -x ".*refs\/tags\/${MS_TAG}" | head -1 )
 ################################################################################
 # put stream annotation here
 # stream enable

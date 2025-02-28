@@ -99,8 +99,8 @@ dns_porkbun_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     echo "$response" | tr -d " " | grep '\"status\":"SUCCESS"' >/dev/null
-# +     echo "$response" | tr -d " " | grep '"status":"SUCCESS"' >/dev/null
+# - echo "$response" | tr -d " " | grep '\"status\":"SUCCESS"' >/dev/null
+# + echo "$response" | tr -d " " | grep '"status":"SUCCESS"' >/dev/null
 ################################################################################
 # put stream annotation here
 # stream enable

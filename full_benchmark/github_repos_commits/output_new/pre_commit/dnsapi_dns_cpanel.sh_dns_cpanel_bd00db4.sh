@@ -121,8 +121,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _domains=$(echo "$_result" | cut -d ':' -f9 | sed -e 's/"//g' -e 's/{//g' )
-# +   _domains=$(echo "$_result" | cut -d ':' -f9 | sed 's/"//g' | sed 's/{//g' )
+# - _domains=$(echo "$_result" | cut -d ':' -f9 | sed -e 's/"//g' -e 's/{//g' )
+# + _domains=$(echo "$_result" | cut -d ':' -f9 | sed 's/"//g' | sed 's/{//g' )
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -112,8 +112,8 @@ proxmoxve_deploy(){
 # Category: 
 # Notes: 
 # Changed content:
-# -   "certificates": "$(tr '\n' ':' < "$_cfullchain" | sed 's/:/\\n/g')",
-# +   "certificates": "$(tr '\n' ':' < "$_cfullchain" | sed 's/:/\\n/g' -e 's/+/\+/g')",
+# - "certificates": "$(tr '\n' ':' < "$_cfullchain" | sed 's/:/\\n/g')",
+# + "certificates": "$(tr '\n' ':' < "$_cfullchain" | sed 's/:/\\n/g' -e 's/+/\+/g')",
 ################################################################################
 # put stream annotation here
 # stream enable

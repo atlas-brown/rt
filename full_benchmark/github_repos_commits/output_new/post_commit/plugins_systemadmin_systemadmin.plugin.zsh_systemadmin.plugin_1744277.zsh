@@ -32,8 +32,8 @@ alias mkdir='mkdir -pv'
 # Notes: 
 # Changed content:
 # - alias psmem='ps -e -orss=,args= | sort -b -k1,1n'
-# - alias psmem10='ps -e -orss=,args= | sort -b -k1,1n| head -10'
 # + alias psmem='ps -e -orss=,args= | sort -b -k1 -nr'
+# - alias psmem10='ps -e -orss=,args= | sort -b -k1,1n| head -10'
 # + alias psmem10='ps -e -orss=,args= | sort -b -k1 -nr | head -10'
 ################################################################################
 # put stream annotation here

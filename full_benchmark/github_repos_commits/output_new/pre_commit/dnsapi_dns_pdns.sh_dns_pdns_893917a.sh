@@ -97,32 +97,12 @@ set_record() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _existing_challenges=($(echo "$response" | _normalizeJson | grep -Po "\"name\":\"$fulldomain\K.*?}]" | grep -Po 'content\":\"\\"\K[^\\]*'))
+# - _existing_challenges=($(echo "$response" | _normalizeJson | grep -Po "\"name\":\"$fulldomain\K.*?}]" | grep -Po 'content\":\"\\"\K[^\\]*'))
 ################################################################################
 # put stream annotation here
 # stream enable
   _existing_challenges=($(echo "$response" | _normalizeJson | grep -Po "\"name\":\"$fulldomain\K.*?}]" | grep -Po 'content\":\"\\"\K[^\\]*'))
   _record_string=""
-################################################################################
-# Commit message: Fix travis errors
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/893917a25dac51a5e0354f8122c5043060ecd573
-# Category: 
-# Notes: 
-# Changed content:
-# -   _build_record_string $new_challenge
-# - 
-# -   for i in "${_existing_challenges[@]}"
-# -     do
-# -         _record_string+=", "
-# -         _build_record_string $i
-# +   _build_record_string "$new_challenge"
-# +   _existing_challenges=$(echo "$response" | _normalizeJson | grep -Po "\"name\":\"$fulldomain\\K.*?}]" | grep -Po 'content\":\"\\"\K[^\\]*')
-# +   for oldchallenge in $_existing_challenges; do
-# +     _record_string="${_record_string}, "
-# +     _build_record_string "$oldchallenge"
-################################################################################
-# put stream annotation here
-# stream enable
   _build_record_string $new_challenge
 
   for i in "${_existing_challenges[@]}"

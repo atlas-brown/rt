@@ -112,17 +112,6 @@ elif [[ "$OSTYPE" = freebsd* ]]; then
 elif [[ "$OSTYPE" = linux*  ]]; then
 
   function battery_is_charging() {
-################################################################################
-# Commit message: Remove invalid batteries (#8275)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/15a03744a9e87b8dd371a4fbac456a73d27d32d5
-# Category: 
-# Notes: 
-# Changed content:
-# -     ! acpi 2>/dev/null | command grep -q '^Battery.*Discharging'
-# +     ! acpi 2>/dev/null | command grep -v "rate information unavailable" | command grep -q '^Battery.*Discharging'
-################################################################################
-# put stream annotation here
-# stream enable
     ! acpi 2>/dev/null | command grep -v "rate information unavailable" | command grep -q '^Battery.*Discharging'
   }
 
@@ -134,8 +123,8 @@ elif [[ "$OSTYPE" = linux*  ]]; then
 # Category: 
 # Notes: 
 # Changed content:
-# -       acpi 2>/dev/null | command grep -E '^Battery.*(Disc|C)harging' | cut -f2 -d ',' | tr -cd '[:digit:]'
-# +       acpi 2>/dev/null | command grep -v "rate information unavailable" | command grep -E '^Battery.*(Disc|C)harging' | cut -f2 -d ',' | tr -cd '[:digit:]'
+# - acpi 2>/dev/null | command grep -E '^Battery.*(Disc|C)harging' | cut -f2 -d ',' | tr -cd '[:digit:]'
+# + acpi 2>/dev/null | command grep -v "rate information unavailable" | command grep -E '^Battery.*(Disc|C)harging' | cut -f2 -d ',' | tr -cd '[:digit:]'
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -153,17 +142,6 @@ elif [[ "$OSTYPE" = linux*  ]]; then
 
   function battery_time_remaining() {
     if ! battery_is_charging; then
-################################################################################
-# Commit message: Remove invalid batteries (#8275)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/15a03744a9e87b8dd371a4fbac456a73d27d32d5
-# Category: 
-# Notes: 
-# Changed content:
-# -       acpi 2>/dev/null | cut -f3 -d ','
-# +       acpi 2>/dev/null | command grep -v "rate information unavailable" | cut -f3 -d ','
-################################################################################
-# put stream annotation here
-# stream enable
       acpi 2>/dev/null | command grep -v "rate information unavailable" | cut -f3 -d ','
     fi
   }

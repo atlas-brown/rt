@@ -193,8 +193,8 @@ _get_paketnr() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   PAKETNR=$(echo "$form" | grep "data-textfilter=\" $domain " | _head_n 1 | sed 's/^.* \([0-9]*\) .*$/\1/')
-# +   PAKETNR=$(echo "$form" | grep "data-textfilter=\".* $domain " | _head_n 1 | sed 's/^.* \([0-9]*\) .*$/\1/')
+# - PAKETNR=$(echo "$form" | grep "data-textfilter=\" $domain " | _head_n 1 | sed 's/^.* \([0-9]*\) .*$/\1/')
+# + PAKETNR=$(echo "$form" | grep "data-textfilter=\".* $domain " | _head_n 1 | sed 's/^.* \([0-9]*\) .*$/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable

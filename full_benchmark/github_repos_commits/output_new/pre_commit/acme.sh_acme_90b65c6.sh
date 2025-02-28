@@ -1259,9 +1259,8 @@ _createcsr() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     for dl in $(echo "$domainlist" | tr "," ' '); do
-# +     for dl in $(echo "'$domainlist'" | sed "s/,/' '/g"); do
-# +       dl=$(echo "$dl" | tr -d "'")
+# - for dl in $(echo "$domainlist" | tr "," ' '); do
+# + for dl in $(echo "'$domainlist'" | sed "s/,/' '/g"); do
 ################################################################################
 # put stream annotation here
 # stream enable

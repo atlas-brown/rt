@@ -156,36 +156,11 @@ _get_root() {
   fi
 
   # Setup variables used by other functions to communicate with DNS.Services API
-################################################################################
-# Commit message: Updated API call for OpenBSD sed and tr as newlines does not work there
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/df199c5788972aec58e40a1e9e05e844bfe15f7c
-# Category: 
-# Notes: 
-# Changed content:
-# -   zoneInfo=$(echo "$result" | sed "s,\"zones,\n&,g" | grep zones | cut -d'[' -f2 | cut -d']' -f1 | tr '}' '\n' | grep "\"$rootZone\"")
-# +   #zoneInfo=$(echo "$result" | sed "s,\"zones,\n&,g" | grep zones | cut -d'[' -f2 | cut -d']' -f1 | tr '}' '\n' | grep "\"$rootZone\"")
-# +   zoneInfo=$(echo -e "$result" | sed -E 's,.*(zones)(.*),\1\2,g' | sed -E 's,^(.*"name":")([^"]*)"(.*)$,\2,g')
-################################################################################
-# put stream annotation here
-# stream enable
   #zoneInfo=$(echo "$result" | sed "s,\"zones,\n&,g" | grep zones | cut -d'[' -f2 | cut -d']' -f1 | tr '}' '\n' | grep "\"$rootZone\"")
   zoneInfo=$(echo -e "$result" | sed -E 's,.*(zones)(.*),\1\2,g' | sed -E 's,^(.*"name":")([^"]*)"(.*)$,\2,g')
   rootZoneName="$rootZone"
   subDomainName="$(echo "$domain" | sed "s,\.$rootZone,,g")"
   subDomainNameClean="$(echo "$domain" | sed "s,_acme-challenge.,,g")"
-################################################################################
-# Commit message: Updated API call for OpenBSD sed and tr as newlines does not work there
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/df199c5788972aec58e40a1e9e05e844bfe15f7c
-# Category: 
-# Notes: 
-# Changed content:
-# -   rootZoneDomainID=$(echo "$zoneInfo" | tr ',' '\n' | grep domain_id | cut -d'"' -f4)
-# -   rootZoneServiceID=$(echo "$zoneInfo" | tr ',' '\n' | grep service_id | cut -d'"' -f4)
-# +   rootZoneDomainID=$(echo -e "$result" | sed -E 's,.*(zones)(.*),\1\2,g' | sed -E 's,^(.*"domain_id":")([^"]*)"(.*)$,\2,g')
-# +   rootZoneServiceID=$(echo -e "$result" | sed -E 's,.*(zones)(.*),\1\2,g' | sed -E 's,^(.*"service_id":")([^"]*)"(.*)$,\2,g')
-################################################################################
-# put stream annotation here
-# stream enable
   rootZoneDomainID=$(echo -e "$result" | sed -E 's,.*(zones)(.*),\1\2,g' | sed -E 's,^(.*"domain_id":")([^"]*)"(.*)$,\2,g')
   rootZoneServiceID=$(echo -e "$result" | sed -E 's,.*(zones)(.*),\1\2,g' | sed -E 's,^(.*"service_id":")([^"]*)"(.*)$,\2,g')
 
@@ -216,17 +191,6 @@ createRecord() {
   result=$(_post "$data" "$DNSServices_API/service/$rootZoneServiceID/dns/$rootZoneDomainID/records" "" "POST")
   _debug2 createRecord "result from API: $result"
 
-################################################################################
-# Commit message: Updated API call for OpenBSD sed and tr as newlines does not work there
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/df199c5788972aec58e40a1e9e05e844bfe15f7c
-# Category: 
-# Notes: 
-# Changed content:
-# -   if [ "$(echo "$result" | grep '"success":true')" = "" ]; then
-# +   if [ "$(echo "$result" | _egrep_o "\"success\":true")" = "" ]; then
-################################################################################
-# put stream annotation here
-# stream enable
   if [ "$(echo "$result" | _egrep_o "\"success\":true")" = "" ]; then
     _err "Failed to create TXT record $fulldomain with content $txtvalue in zone $rootZoneName"
     _err "$result"
@@ -254,8 +218,8 @@ deleteRecord() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   recordInfo="$(echo "$result" | tr '}' '\n' | grep "\"name\":\"${fulldomain}" | grep "\"content\":\"" | grep "${txtvalue}")"
-# +   recordInfo="$(echo "$result" | tr '}' '\n' | _egrep_o "\"name\":\"${fulldomain}" | _egrep_o "\"content\":\"" | grep "${txtvalue}")"
+# - recordInfo="$(echo "$result" | tr '}' '\n' | grep "\"name\":\"${fulldomain}" | grep "\"content\":\"" | grep "${txtvalue}")"
+# + recordInfo="$(echo "$result" | tr '}' '\n' | _egrep_o "\"name\":\"${fulldomain}" | _egrep_o "\"content\":\"" | grep "${txtvalue}")"
 ################################################################################
 # put stream annotation here
 # stream enable

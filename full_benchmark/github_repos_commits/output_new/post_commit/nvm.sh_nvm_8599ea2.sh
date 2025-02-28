@@ -267,20 +267,18 @@ nvm() {
           esac
           if [ $binavail -eq 1 ]; then
             t="$VERSION-$os-$arch"
+            url="$NODEJS_MIRROR/$VERSION/node-${t}.tar.gz"
 ################################################################################
 # Commit message: Add dist to path, add docs
 # Commit URL: https://github.com/nvm-sh/nvm/commit/8599ea29f939ac455c4a912df546bab2b352c345
 # Category: 
 # Notes: 
 # Changed content:
-# -             url="$NODEJS_MIRROR/dist/$VERSION/node-${t}.tar.gz"
-# -             sum=`curl -s $NODEJS_MIRROR/dist/$VERSION/SHASUMS.txt | \grep node-${t}.tar.gz | awk '{print $1}'`
-# +             url="$NODEJS_MIRROR/$VERSION/node-${t}.tar.gz"
-# +             sum=`curl -s $NODEJS_MIRROR/$VERSION/SHASUMS.txt | \grep node-${t}.tar.gz | awk '{print $1}'`
+# - sum=`curl -s $NODEJS_MIRROR/dist/$VERSION/SHASUMS.txt | \grep node-${t}.tar.gz | awk '{print $1}'`
+# + sum=`curl -s $NODEJS_MIRROR/$VERSION/SHASUMS.txt | \grep node-${t}.tar.gz | awk '{print $1}'`
 ################################################################################
 # put stream annotation here
 # stream enable
-            url="$NODEJS_MIRROR/$VERSION/node-${t}.tar.gz"
             sum=`curl -s $NODEJS_MIRROR/$VERSION/SHASUMS.txt | \grep node-${t}.tar.gz | awk '{print $1}'`
             local tmpdir="$NVM_DIR/bin/node-${t}"
             local tmptarball="$tmpdir/node-${t}.tar.gz"
@@ -313,27 +311,19 @@ nvm() {
       fi
       local tmpdir="$NVM_DIR/src"
       local tmptarball="$tmpdir/node-$VERSION.tar.gz"
+      if [ "`curl -Is "$NODEJS_MIRROR/$VERSION/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
+        tarball="$NODEJS_MIRROR/$VERSION/node-$VERSION.tar.gz"
 ################################################################################
 # Commit message: Add dist to path, add docs
 # Commit URL: https://github.com/nvm-sh/nvm/commit/8599ea29f939ac455c4a912df546bab2b352c345
 # Category: 
 # Notes: 
 # Changed content:
-# -       if [ "`curl -Is "$NODEJS_MIRROR/dist/$VERSION/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
-# -         tarball="$NODEJS_MIRROR/dist/$VERSION/node-$VERSION.tar.gz"
-# -         sum=`curl -s $NODEJS_MIRROR/dist/$VERSION/SHASUMS.txt | \grep node-$VERSION.tar.gz | awk '{print $1}'`
-# -       elif [ "`curl -Is "$NODEJS_MIRROR/dist/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
-# -         tarball="$NODEJS_MIRROR/dist/node-$VERSION.tar.gz"
-# +       if [ "`curl -Is "$NODEJS_MIRROR/$VERSION/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
-# +         tarball="$NODEJS_MIRROR/$VERSION/node-$VERSION.tar.gz"
-# +         sum=`curl -s $NODEJS_MIRROR/$VERSION/SHASUMS.txt | \grep node-$VERSION.tar.gz | awk '{print $1}'`
-# +       elif [ "`curl -Is "$NODEJS_MIRROR/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
-# +         tarball="$NODEJS_MIRROR/node-$VERSION.tar.gz"
+# - sum=`curl -s $NODEJS_MIRROR/dist/$VERSION/SHASUMS.txt | \grep node-$VERSION.tar.gz | awk '{print $1}'`
+# + sum=`curl -s $NODEJS_MIRROR/$VERSION/SHASUMS.txt | \grep node-$VERSION.tar.gz | awk '{print $1}'`
 ################################################################################
 # put stream annotation here
 # stream enable
-      if [ "`curl -Is "$NODEJS_MIRROR/$VERSION/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
-        tarball="$NODEJS_MIRROR/$VERSION/node-$VERSION.tar.gz"
         sum=`curl -s $NODEJS_MIRROR/$VERSION/SHASUMS.txt | \grep node-$VERSION.tar.gz | awk '{print $1}'`
       elif [ "`curl -Is "$NODEJS_MIRROR/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
         tarball="$NODEJS_MIRROR/node-$VERSION.tar.gz"

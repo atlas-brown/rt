@@ -84,8 +84,8 @@ dns_vultr_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _record_id="$(echo "$response" | tr '{}' '\n' | grep '"TXT"' | grep -- "$txtvalue" | tr ',' '\n' | grep -i 'id' | cut -d : -f 2)"
-# +   _record_id="$(echo "$response" | tr '{}' '\n' | grep '"TXT"' | grep -- "$txtvalue" | tr ',' '\n' | grep -i 'id' | cut -d : -f 2 | tr -d '"')"
+# - _record_id="$(echo "$response" | tr '{}' '\n' | grep '"TXT"' | grep -- "$txtvalue" | tr ',' '\n' | grep -i 'id' | cut -d : -f 2)"
+# + _record_id="$(echo "$response" | tr '{}' '\n' | grep '"TXT"' | grep -- "$txtvalue" | tr ',' '\n' | grep -i 'id' | cut -d : -f 2 | tr -d '"')"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -133,8 +133,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     if printf "%s\n" "$response" | grep '^\{.*\}' >/dev/null; then
-# +     if printf "%s\n" "$response" | grep -E '^\{.*\}' >/dev/null; then
+# - if printf "%s\n" "$response" | grep '^\{.*\}' >/dev/null; then
+# + if printf "%s\n" "$response" | grep -E '^\{.*\}' >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable

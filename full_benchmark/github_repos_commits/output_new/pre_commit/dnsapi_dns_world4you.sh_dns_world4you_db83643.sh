@@ -54,24 +54,6 @@ dns_world4you_add() {
     if _contains "$res" "successfully"; then
       return 0
     else
-################################################################################
-# Commit message: dns_world4you: fix _parse_paket_nr  Signed-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/db83643c1ec04080edc27c136268edc9b537af95
-# Category: 
-# Notes: 
-# Changed content:
-# -       msg=$(echo "$res" | tr '\n' '\t' | sed 's/.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1/')
-# -       if _contains "$msg" '^<\!DOCTYPE html>'; then
-# -         msg='Unknown error'
-# -       fi
-# -       _err "Unable to add record: $msg"
-# -       if _contains "$msg" '^<\!DOCTYPE html>'; then
-# +       msg=$(echo "$res" | grep -A 15 'data-type="danger"' | grep "<h3[^>]*>[^<]" | sed 's/<[^>]*>\|^\s*//g')
-# +       if [ "$msg" = '' ]; then
-# +         _err "Unable to add record: Unknown error"
-################################################################################
-# put stream annotation here
-# stream enable
       msg=$(echo "$res" | tr '\n' '\t' | sed 's/.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1/')
       if _contains "$msg" '^<\!DOCTYPE html>'; then
         msg='Unknown error'
@@ -137,24 +119,6 @@ dns_world4you_rm() {
     if _contains "$res" "successfully"; then
       return 0
     else
-################################################################################
-# Commit message: dns_world4you: fix _parse_paket_nr  Signed-off-by: Lorenz Stechauner <lorenz.stechauner@necronda.net>
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/db83643c1ec04080edc27c136268edc9b537af95
-# Category: 
-# Notes: 
-# Changed content:
-# -       msg=$(echo "$res" | tr '\n' '\t' | sed 's/.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1/')
-# -       if _contains "$msg" '^<\!DOCTYPE html>'; then
-# -         msg='Unknown error'
-# -       fi
-# -       _err "Unable to remove record: $msg"
-# -       if _contains "$msg" '^<\!DOCTYPE html>'; then
-# +       msg=$(echo "$res" | grep -A 15 'data-type="danger"' | grep "<h3[^>]*>[^<]" | sed 's/<[^>]*>\|^\s*//g')
-# +       if [ "$msg" = '' ]; then
-# +         _err "Unable to remove record: Unknown error"
-################################################################################
-# put stream annotation here
-# stream enable
       msg=$(echo "$res" | tr '\n' '\t' | sed 's/.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1/')
       if _contains "$msg" '^<\!DOCTYPE html>'; then
         msg='Unknown error'
@@ -241,8 +205,8 @@ _get_paketnr() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   PAKETNR=$(echo "$form" | grep "data-textfilter=\".* $domain " | _head_n 1 | sed 's/^.* \([0-9]*\) .*$/\1/')
-# +   PAKETNR=$(echo "$form" | grep "data-textfilter=\".* $domain " | _tail_n 1 | sed "s|.*$WORLD4YOU_API/\\([0-9]*\\)/.*|\\1|")
+# - PAKETNR=$(echo "$form" | grep "data-textfilter=\".* $domain " | _head_n 1 | sed 's/^.* \([0-9]*\) .*$/\1/')
+# + PAKETNR=$(echo "$form" | grep "data-textfilter=\".* $domain " | _tail_n 1 | sed "s|.*$WORLD4YOU_API/\\([0-9]*\\)/.*|\\1|")
 ################################################################################
 # put stream annotation here
 # stream enable

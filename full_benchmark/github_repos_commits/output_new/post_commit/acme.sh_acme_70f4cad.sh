@@ -2235,10 +2235,8 @@ _send_signed_request() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
-# -       if [ "$code" = '503' ] || [ "$_retryafter" ]; then
-# +       _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *: *[0-9]\+ *" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
-# +       if [ "$code" = '503' ]; then
+# - _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
+# + _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *: *[0-9]\+ *" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
 ################################################################################
 # put stream annotation here
 # stream enable

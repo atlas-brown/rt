@@ -73,48 +73,23 @@ synology_dsm_deploy() {
   _base_url="$SYNO_Scheme://$SYNO_Hostname:$SYNO_Port"
   _debug _base_url "$_base_url"
 
-################################################################################
-# Commit message: Fix synology_dsm deployhook for DSM 7
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/cc69285420a49f118acb37c77e3c8f9f73c19f7f
-# Category: 
-# Notes: 
-# Changed content:
-# +   _debug "Getting API version"
-# +   response=$(_get "$_base_url/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&query=SYNO.API.Auth")
-# +   api_version=$(echo "$response" | grep "SYNO.API.Auth" | sed -n 's/.*"maxVersion" *: *\([0-9]*\).*/\1/p')
-# +   _debug3 response "$response"
-# +   _debug3 api_version "$api_version"
-# + 
-################################################################################
-# put stream annotation here
-# stream enable
   # Login, get the token from JSON and session id from cookie
   _info "Logging into $SYNO_Hostname:$SYNO_Port"
   encoded_username="$(printf "%s" "$SYNO_Username" | _url_encode)"
   encoded_password="$(printf "%s" "$SYNO_Password" | _url_encode)"
+  encoded_did="$(printf "%s" "$SYNO_DID" | _url_encode)"
+  response=$(_post "username=$encoded_username&passwd=$encoded_password&device_id=$encoded_did" "$_base_url/webman/login.cgi?enable_syno_token=yes")
 ################################################################################
 # Commit message: Fix synology_dsm deployhook for DSM 7
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/cc69285420a49f118acb37c77e3c8f9f73c19f7f
 # Category: 
 # Notes: 
 # Changed content:
-# -   encoded_did="$(printf "%s" "$SYNO_DID" | _url_encode)"
-# -   response=$(_post "username=$encoded_username&passwd=$encoded_password&device_id=$encoded_did" "$_base_url/webman/login.cgi?enable_syno_token=yes")
-# -   token=$(echo "$response" | grep "SynoToken" | sed -n 's/.*"SynoToken" *: *"\([^"]*\).*/\1/p')
-# + 
-# +   if [ ! -z "$SYNO_DID" ]; then
-# +     _H1="Cookie: did=$SYNO_DID"
-# +     export _H1
-# +     _debug3 H1 "${_H1}"
-# +   fi
-# + 
-# +   response=$(_post "method=login&account=$encoded_username&passwd=$encoded_password&enable_device_token=yes&enable_syno_token=yes" "$_base_url/webapi/entry.cgi?api=SYNO.API.Auth&version=$api_version")
-# +   token=$(echo "$response" | grep "synotoken" | sed -n 's/.*"synotoken" *: *"\([^"]*\).*/\1/p')
+# - token=$(echo "$response" | grep "SynoToken" | sed -n 's/.*"SynoToken" *: *"\([^"]*\).*/\1/p')
+# + token=$(echo "$response" | grep "synotoken" | sed -n 's/.*"synotoken" *: *"\([^"]*\).*/\1/p')
 ################################################################################
 # put stream annotation here
 # stream enable
-  encoded_did="$(printf "%s" "$SYNO_DID" | _url_encode)"
-  response=$(_post "username=$encoded_username&passwd=$encoded_password&device_id=$encoded_did" "$_base_url/webman/login.cgi?enable_syno_token=yes")
   token=$(echo "$response" | grep "SynoToken" | sed -n 's/.*"SynoToken" *: *"\([^"]*\).*/\1/p')
   _debug3 response "$response"
   _debug token "$token"
@@ -136,16 +111,6 @@ synology_dsm_deploy() {
   _savedeployconf SYNO_Username "$SYNO_Username"
   _savedeployconf SYNO_Password "$SYNO_Password"
   _savedeployconf SYNO_DID "$SYNO_DID"
-################################################################################
-# Commit message: Fix synology_dsm deployhook for DSM 7
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/cc69285420a49f118acb37c77e3c8f9f73c19f7f
-# Category: 
-# Notes: 
-# Changed content:
-# +   sid=$(echo "$response" | grep "sid" | sed -n 's/.*"sid" *: *"\([^"]*\).*/\1/p')
-################################################################################
-# put stream annotation here
-# stream enable
 
   _info "Getting certificates in Synology DSM"
   response=$(_post "api=SYNO.Core.Certificate.CRT&method=list&version=1" "$_base_url/webapi/entry.cgi")

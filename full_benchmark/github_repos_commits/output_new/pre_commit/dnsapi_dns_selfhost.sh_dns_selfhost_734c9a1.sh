@@ -33,21 +33,6 @@ dns_selfhost_add() {
     SELFHOSTDNS_LAST_SLOT=1
   fi
 
-################################################################################
-# Commit message: Dns Challenge prefix removed. SELFHOSTDNS_MAP entries must be fullpath incl. prefix
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/734c9a1aa5d697c9ae63a73326d2138ab4f60e65
-# Category: 
-# Notes: 
-# Changed content:
-# -   # cut DNS_CHALLENGE_PREFIX_ESCAPED from fulldomain if present at the beginning of the string
-# -   lookupdomain=$(echo "$fulldomain" | sed "s/^$DNS_CHALLENGE_PREFIX_ESCAPED//")
-# -   _debug lookupdomain "$lookupdomain"
-# - 
-# -   # get the RID for lookupdomain or fulldomain from SELFHOSTDNS_MAP
-# +   # get the RID for fulldomain from SELFHOSTDNS_MAP
-################################################################################
-# put stream annotation here
-# stream enable
   # cut DNS_CHALLENGE_PREFIX_ESCAPED from fulldomain if present at the beginning of the string
   lookupdomain=$(echo "$fulldomain" | sed "s/^$DNS_CHALLENGE_PREFIX_ESCAPED//")
   _debug lookupdomain "$lookupdomain"
@@ -63,8 +48,8 @@ dns_selfhost_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   rid=$(echo "$SELFHOSTDNS_MAP" | sed -E "s/(^|^.*[[:space:]])($lookupdomain:|$fulldomain:)([0-9][0-9]*)(.*)/\3/")
-# +   rid=$(echo "$SELFHOSTDNS_MAP" | sed -E "s/(^|^.*[[:space:]])($fulldomain:)([0-9][0-9]*)(.*)/\3/")
+# - rid=$(echo "$SELFHOSTDNS_MAP" | sed -E "s/(^|^.*[[:space:]])($lookupdomain:|$fulldomain:)([0-9][0-9]*)(.*)/\3/")
+# + rid=$(echo "$SELFHOSTDNS_MAP" | sed -E "s/(^|^.*[[:space:]])($fulldomain:)([0-9][0-9]*)(.*)/\3/")
 ################################################################################
 # put stream annotation here
 # stream enable

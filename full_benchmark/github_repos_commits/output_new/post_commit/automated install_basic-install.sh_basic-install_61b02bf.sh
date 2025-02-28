@@ -73,19 +73,18 @@ if [ -x "$(command -v apt-get)" ];then
 	UPDATE_PKG_CACHE="$PKG_MANAGER -qq update"
 	PKG_UPDATE="$PKG_MANAGER upgrade"
 	PKG_INSTALL="$PKG_MANAGER --yes --quiet install"
+	# grep -c will return 1 retVal on 0 matches, block this throwing the set -e with an OR TRUE
 ################################################################################
 # Commit message: Add OR TRUE to PKG_COUNT so that a 0 package to update doesn't grep -c to an exit value of 1.
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/61b02bf6d32e72b0e16bf4a1c52ce2d5a91fbbaf
 # Category: 
 # Notes: 
 # Changed content:
-# - 	PKG_COUNT="$PKG_MANAGER -s -o Debug::NoLocking=true upgrade | grep -c ^Inst"
-# + 	# grep -c will return 1 retVal on 0 matches, block this throwing the set -e with an OR TRUE
-# + 	PKG_COUNT="$PKG_MANAGER -s -o Debug::NoLocking=true upgrade | grep -c ^Inst || true"
+# - PKG_COUNT="$PKG_MANAGER -s -o Debug::NoLocking=true upgrade | grep -c ^Inst"
+# + PKG_COUNT="$PKG_MANAGER -s -o Debug::NoLocking=true upgrade | grep -c ^Inst || true"
 ################################################################################
 # put stream annotation here
 # stream enable
-	# grep -c will return 1 retVal on 0 matches, block this throwing the set -e with an OR TRUE
 	PKG_COUNT="$PKG_MANAGER -s -o Debug::NoLocking=true upgrade | grep -c ^Inst || true"
 	INSTALLER_DEPS=( apt-utils whiptail git dhcpcd5)
 	PIHOLE_DEPS=( dnsutils bc dnsmasq lighttpd ${phpVer}-common ${phpVer}-cgi curl unzip wget sudo netcat cron iproute2 )

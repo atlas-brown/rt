@@ -4000,8 +4000,8 @@ _get_cert_issuers() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | openssl pkcs7 -print_certs -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
-# +     ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
+# - ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | openssl pkcs7 -print_certs -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
+# + ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
 ################################################################################
 # put stream annotation here
 # stream enable

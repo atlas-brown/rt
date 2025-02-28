@@ -104,17 +104,6 @@ _get_root() {
         return 1
       fi
 
-################################################################################
-# Commit message: dnsapi/ionos: Fixes for Solaris
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/a9d88301064698558ebecc7d45b6e7edad61945a
-# Category: 
-# Notes: 
-# Changed content:
-# -       _zone="$(echo "$response" | _egrep_o "\"name\":\"$h\".*?}")"
-# +       _zone="$(echo "$response" | _egrep_o "\"name\":\"$h\".*\}")"
-################################################################################
-# put stream annotation here
-# stream enable
       _zone="$(echo "$response" | _egrep_o "\"name\":\"$h\".*?}")"
       if [ "$_zone" ]; then
 ################################################################################
@@ -123,8 +112,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         _zone_id=$(printf "%s\n" "$_zone" | _egrep_o "\"id\":\"[a-fA-F0-9-]+\"" | _head_n 1 | cut -d : -f 2 | tr -d '\"')
-# +         _zone_id=$(printf "%s\n" "$_zone" | _egrep_o "\"id\":\"[a-fA-F0-9\-]*\"" | _head_n 1 | cut -d : -f 2 | tr -d '\"')
+# - _zone_id=$(printf "%s\n" "$_zone" | _egrep_o "\"id\":\"[a-fA-F0-9-]+\"" | _head_n 1 | cut -d : -f 2 | tr -d '\"')
+# + _zone_id=$(printf "%s\n" "$_zone" | _egrep_o "\"id\":\"[a-fA-F0-9\-]*\"" | _head_n 1 | cut -d : -f 2 | tr -d '\"')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -160,8 +149,8 @@ _ionos_get_existing_records() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     _existing_records="$(printf "%s\n" "$response" | _egrep_o "\"records\":\[.*?\]" | _head_n 1 | cut -d '[' -f 2 | sed 's/]//')"
-# +     _existing_records="$(printf "%s\n" "$response" | _egrep_o "\"records\":\[.*\]" | _head_n 1 | cut -d '[' -f 2 | sed 's/]//')"
+# - _existing_records="$(printf "%s\n" "$response" | _egrep_o "\"records\":\[.*?\]" | _head_n 1 | cut -d '[' -f 2 | sed 's/]//')"
+# + _existing_records="$(printf "%s\n" "$response" | _egrep_o "\"records\":\[.*\]" | _head_n 1 | cut -d '[' -f 2 | sed 's/]//')"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -177,17 +166,6 @@ _ionos_get_record() {
   if _ionos_rest GET "$IONOS_ROUTE_ZONES/$zone_id?recordName=$fulldomain&recordType=TXT"; then
     response="$(echo "$response" | tr -d "\n")"
 
-################################################################################
-# Commit message: dnsapi/ionos: Fixes for Solaris
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/a9d88301064698558ebecc7d45b6e7edad61945a
-# Category: 
-# Notes: 
-# Changed content:
-# -     _record="$(echo "$response" | _egrep_o "\{\"name\":\"$fulldomain\"[^\}]*?\"type\":\"TXT\"[^\}]*?\"content\":\"\\\\\"$txtrecord\\\\\"\".*?\}")"
-# +     _record="$(echo "$response" | _egrep_o "\"name\":\"$fulldomain\"[^\}]*\"type\":\"TXT\"[^\}]*\"content\":\"\\\\\"$txtrecord\\\\\"\".*\}")"
-################################################################################
-# put stream annotation here
-# stream enable
     _record="$(echo "$response" | _egrep_o "\{\"name\":\"$fulldomain\"[^\}]*?\"type\":\"TXT\"[^\}]*?\"content\":\"\\\\\"$txtrecord\\\\\"\".*?\}")"
     if [ "$_record" ]; then
 ################################################################################
@@ -196,8 +174,8 @@ _ionos_get_record() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       _record_id=$(printf "%s\n" "$_record" | _egrep_o "\"id\":\"[a-fA-F0-9-]+\"" | _head_n 1 | cut -d : -f 2 | tr -d '\"')
-# +       _record_id=$(printf "%s\n" "$_record" | _egrep_o "\"id\":\"[a-fA-F0-9\-]*\"" | _head_n 1 | cut -d : -f 2 | tr -d '\"')
+# - _record_id=$(printf "%s\n" "$_record" | _egrep_o "\"id\":\"[a-fA-F0-9-]+\"" | _head_n 1 | cut -d : -f 2 | tr -d '\"')
+# + _record_id=$(printf "%s\n" "$_record" | _egrep_o "\"id\":\"[a-fA-F0-9\-]*\"" | _head_n 1 | cut -d : -f 2 | tr -d '\"')
 ################################################################################
 # put stream annotation here
 # stream enable

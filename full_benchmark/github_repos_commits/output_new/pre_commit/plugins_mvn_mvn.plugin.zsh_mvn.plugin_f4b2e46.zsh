@@ -94,53 +94,24 @@ function _realpath {
 	return 1 #success
 }
 
-################################################################################
-# Commit message: mvn: fix and cleanup dynamic profiles logic
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/f4b2e460c77b79f99831cd048eb0004059c96370
-# Category: 
-# Notes: 
-# Changed content:
-# - function __pom_hierarchy {
-# - 	local file=`_realpath "pom.xml"`
-# - 	POM_HIERARCHY+=("~/.m2/settings.xml")
-# - 	POM_HIERARCHY+=("$file")
-# - 	while [ -n "$file" ] && grep -q "<parent>" $file; do
-# - 		##look for a new relativePath for parent pom.xml
-# - 		local new_file=`grep -e "<relativePath>.*</relativePath>" $file | sed 's/.*<relativePath>//' | sed 's/<\/relativePath>.*//g'`
-# + 	# POM in the current directory
-# + 	if [[ -f pom.xml ]]; then
-# + 		local file=pom.xml
-# + 		POM_FILES+=("${file:A}")
-# + 	fi
-################################################################################
-# put stream annotation here
-# stream enable
 function __pom_hierarchy {
 	local file=`_realpath "pom.xml"`
 	POM_HIERARCHY+=("~/.m2/settings.xml")
 	POM_HIERARCHY+=("$file")
 	while [ -n "$file" ] && grep -q "<parent>" $file; do
 		##look for a new relativePath for parent pom.xml
-		local new_file=`grep -e "<relativePath>.*</relativePath>" $file | sed 's/.*<relativePath>//' | sed 's/<\/relativePath>.*//g'`
-
 ################################################################################
 # Commit message: mvn: fix and cleanup dynamic profiles logic
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/f4b2e460c77b79f99831cd048eb0004059c96370
 # Category: 
 # Notes: 
 # Changed content:
-# - 		## <parent> is present but not defined. Asume ../pom.xml
-# - 		if [ -z "$new_file" ]; then
-# + 	# Look for POM files in parent directories
-# + 	while [[ -n "$file" ]] && grep -q "<parent>" "$file"; do
-# + 		# look for a new relativePath for parent pom.xml
-# + 		new_file=$(grep -e "<relativePath>.*</relativePath>" "$file" | sed -e 's/.*<relativePath>\(.*\)<\/relativePath>.*/\1/')
-# + 
-# + 		# if <parent> is present but not defined, assume ../pom.xml
-# + 		if [[ -z "$new_file" ]]; then
+# - local new_file=`grep -e "<relativePath>.*</relativePath>" $file | sed 's/.*<relativePath>//' | sed 's/<\/relativePath>.*//g'`
 ################################################################################
 # put stream annotation here
 # stream enable
+		local new_file=`grep -e "<relativePath>.*</relativePath>" $file | sed 's/.*<relativePath>//' | sed 's/<\/relativePath>.*//g'`
+
 		## <parent> is present but not defined. Asume ../pom.xml
 		if [ -z "$new_file" ]; then
 			new_file="../pom.xml"
@@ -161,26 +132,20 @@ function listMavenCompletions {
 	POM_HIERARCHY=()
 	__pom_hierarchy
 
+	profiles=()
+	#current pom profiles
+	for item in ${POM_HIERARCHY[*]}; do
 ################################################################################
 # Commit message: mvn: fix and cleanup dynamic profiles logic
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/f4b2e460c77b79f99831cd048eb0004059c96370
 # Category: 
 # Notes: 
 # Changed content:
-# - 	profiles=()
-# - 	#current pom profiles
-# - 	for item in ${POM_HIERARCHY[*]}; do
-# - 		profiles=($profiles `[ -e $item ] && cat $item | sed 's/<!--.*-->//' | sed '/<!--/,/-->/d' | grep -e "<profile>" -A 1 | grep -e "<id>.*</id>" | sed 's?.*<id>\(.*\)<\/id>.*?-P\1?'`)
-# + 	# Get profiles from found files
-# + 	for file in $POM_FILES; do
-# + 		[[ -e $file ]] || continue
-# + 		profiles+=($(sed 's/<!--.*-->//' "$file" | sed '/<!--/,/-->/d' | grep -e "<profile>" -A 1 | grep -e "<id>.*</id>" | sed 's?.*<id>\(.*\)<\/id>.*?-P\1?'))
+# - profiles=($profiles `[ -e $item ] && cat $item | sed 's/<!--.*-->//' | sed '/<!--/,/-->/d' | grep -e "<profile>" -A 1 | grep -e "<id>.*</id>" | sed 's?.*<id>\(.*\)<\/id>.*?-P\1?'`)
+# + profiles+=($(sed 's/<!--.*-->//' "$file" | sed '/<!--/,/-->/d' | grep -e "<profile>" -A 1 | grep -e "<id>.*</id>" | sed 's?.*<id>\(.*\)<\/id>.*?-P\1?'))
 ################################################################################
 # put stream annotation here
 # stream enable
-	profiles=()
-	#current pom profiles
-	for item in ${POM_HIERARCHY[*]}; do
 		profiles=($profiles `[ -e $item ] && cat $item | sed 's/<!--.*-->//' | sed '/<!--/,/-->/d' | grep -e "<profile>" -A 1 | grep -e "<id>.*</id>" | sed 's?.*<id>\(.*\)<\/id>.*?-P\1?'`)
 	done
 

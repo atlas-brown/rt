@@ -19,17 +19,6 @@ dns_yc_add() {
   YC_SA_Key_File_Path="${YC_SA_Key_File_Path:-$(_readaccountconf_mutable YC_SA_Key_File_Path)}"
 
   if [ "$YC_SA_Key_File_PEM_b64" ]; then
-################################################################################
-# Commit message: Fix shellcheck and shfmt
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/4e5d4b969538094f2d3306a23c84c773e2717f08
-# Category: 
-# Notes: 
-# Changed content:
-# -     echo "$YC_SA_Key_File_PEM_b64" | _dbase64 > private.key
-# +     echo "$YC_SA_Key_File_PEM_b64" | _dbase64 >private.key
-################################################################################
-# put stream annotation here
-# stream enable
     echo "$YC_SA_Key_File_PEM_b64" | _dbase64 >private.key
     YC_SA_Key_File="private.key"
     _savedomainconf YC_SA_Key_File_PEM_b64 "$YC_SA_Key_File_PEM_b64"
@@ -172,8 +161,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       if echo "$response" | tr -d " " | grep \"id\":\"$YC_Zone_ID\" >/dev/null; then
-# +       if echo "$response" | tr -d " " | _egrep_o "\"id\":\"$YC_Zone_ID\"" >/dev/null; then
+# - if echo "$response" | tr -d " " | grep \"id\":\"$YC_Zone_ID\" >/dev/null; then
+# + if echo "$response" | tr -d " " | _egrep_o "\"id\":\"$YC_Zone_ID\"" >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable

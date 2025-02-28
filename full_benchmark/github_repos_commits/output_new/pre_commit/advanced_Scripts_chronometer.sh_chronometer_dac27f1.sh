@@ -249,8 +249,8 @@ get_sys_stats() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         net_gateway=$(ip route | grep default | cut -d ' ' -f 3)
-# +         net_gateway=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1)
+# - net_gateway=$(ip route | grep default | cut -d ' ' -f 3)
+# + net_gateway=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1)
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -4720,8 +4720,8 @@ $_authorizations_map"
 # Category: 
 # Notes: 
 # Changed content:
-# -       Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d ":" -f 2-)"
-# +       Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n \t" | cut -d ":" -f 2-)"
+# - Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d ":" -f 2-)"
+# + Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n \t" | cut -d ":" -f 2-)"
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -30,8 +30,8 @@ dns_world4you_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   paketnr=$(_get "$WORLD4YOU_API/dashboard/paketuebersicht" | grep -B 3 "^\\s*$tld\$" | head -n 1 | sed 's/^.*>\([0-9][0-9]*\)<.*$/\1/')
-# +   paketnr=$(_get "$WORLD4YOU_API/dashboard/paketuebersicht" | _ggrep -B 3 "^\\s*$tld\$" | head -n 1 | sed 's/^.*>\([0-9][0-9]*\)<.*$/\1/')
+# - paketnr=$(_get "$WORLD4YOU_API/dashboard/paketuebersicht" | grep -B 3 "^\\s*$tld\$" | head -n 1 | sed 's/^.*>\([0-9][0-9]*\)<.*$/\1/')
+# + paketnr=$(_get "$WORLD4YOU_API/dashboard/paketuebersicht" | _ggrep -B 3 "^\\s*$tld\$" | head -n 1 | sed 's/^.*>\([0-9][0-9]*\)<.*$/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -95,8 +95,8 @@ dns_world4you_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   paketnr=$(_get "$WORLD4YOU_API/dashboard/paketuebersicht" | grep -B 3 "^\\s*$tld\$" | head -n 1 | sed 's/^.*>\([0-9][0-9]*\).*$/\1/')
-# +   paketnr=$(_get "$WORLD4YOU_API/dashboard/paketuebersicht" | _ggrep -B 3 "^\\s*$tld\$" | head -n 1 | sed 's/^.*>\([0-9][0-9]*\).*$/\1/')
+# - paketnr=$(_get "$WORLD4YOU_API/dashboard/paketuebersicht" | grep -B 3 "^\\s*$tld\$" | head -n 1 | sed 's/^.*>\([0-9][0-9]*\).*$/\1/')
+# + paketnr=$(_get "$WORLD4YOU_API/dashboard/paketuebersicht" | _ggrep -B 3 "^\\s*$tld\$" | head -n 1 | sed 's/^.*>\([0-9][0-9]*\).*$/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable

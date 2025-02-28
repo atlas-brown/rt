@@ -218,8 +218,8 @@ function aws_regions() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     aws ec2 describe-regions |grep RegionName | awk -F ':' '{gsub(/"/, "", $2);gsub(/,/, "", $2);gsub(/ /, "", $2);  print $2}'
-# +     aws ec2 describe-regions --region $region |grep RegionName | awk -F ':' '{gsub(/"/, "", $2);gsub(/,/, "", $2);gsub(/ /, "", $2);  print $2}'
+# - aws ec2 describe-regions |grep RegionName | awk -F ':' '{gsub(/"/, "", $2);gsub(/,/, "", $2);gsub(/ /, "", $2);  print $2}'
+# + aws ec2 describe-regions --region $region |grep RegionName | awk -F ':' '{gsub(/"/, "", $2);gsub(/,/, "", $2);gsub(/ /, "", $2);  print $2}'
 ################################################################################
 # put stream annotation here
 # stream enable

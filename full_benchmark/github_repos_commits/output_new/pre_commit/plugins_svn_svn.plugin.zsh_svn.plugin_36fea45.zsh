@@ -66,8 +66,8 @@ function svn_dirty_choose() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     root=`svn info 2> /dev/null | sed -n 's/^Working Copy Root Path: //p'`
-# +     local root=`svn info 2> /dev/null | sed -n 's/^Working Copy Root Path: //p'`
+# - root=`svn info 2> /dev/null | sed -n 's/^Working Copy Root Path: //p'`
+# + local root=`svn info 2> /dev/null | sed -n 's/^Working Copy Root Path: //p'`
 ################################################################################
 # put stream annotation here
 # stream enable

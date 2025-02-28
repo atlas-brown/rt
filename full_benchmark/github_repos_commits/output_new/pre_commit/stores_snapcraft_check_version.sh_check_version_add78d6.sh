@@ -25,8 +25,8 @@ else
 # Category: 
 # Notes: 
 # Changed content:
-# -   SNAP_VERSION=$(snapcraft list-revisions codium | grep -F stable* | grep "${ARCHITECTURE}" | tr -s ' ' | cut -d ' ' -f 4)
-# +   SNAP_VERSION=$(snapcraft list-revisions codium | grep -F "stable*" | grep "${ARCHITECTURE}" | tr -s ' ' | cut -d ' ' -f 4)
+# - SNAP_VERSION=$(snapcraft list-revisions codium | grep -F stable* | grep "${ARCHITECTURE}" | tr -s ' ' | cut -d ' ' -f 4)
+# + SNAP_VERSION=$(snapcraft list-revisions codium | grep -F "stable*" | grep "${ARCHITECTURE}" | tr -s ' ' | cut -d ' ' -f 4)
 ################################################################################
 # put stream annotation here
 # stream enable

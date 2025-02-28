@@ -121,8 +121,8 @@ function ModifyHostFile(){
 # Category: 
 # Notes: 
 # Changed content:
-# - 	      numberOf=$($blacklist | sed '/^\s*$/d' | wc -l)
-# + 	      numberOf=$(cat $blacklist | sed '/^\s*$/d' | wc -l)
+# - numberOf=$($blacklist | sed '/^\s*$/d' | wc -l)
+# + numberOf=$(cat $blacklist | sed '/^\s*$/d' | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -38,24 +38,6 @@ _z() {
     if [ "$1" = "--add" ]; then
         shift
 
-################################################################################
-# Commit message: Update z to latest version (#7021)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/a24a0b1a8e464fd4c6ab6c2f95ef5a8f025ff093
-# Category: 
-# Notes: 
-# Changed content:
-# +     _z_dirs () {
-# +         local line
-# +         while read line; do
-# +             # only count directories
-# +             [ -d "${line%%\|*}" ] && echo "$line"
-# +         done < "$datafile"
-# +         return 0
-# +     }
-# + 
-################################################################################
-# put stream annotation here
-# stream enable
         # $HOME isn't worth matching
         [ "$*" = "$HOME" ] && return
 
@@ -67,23 +49,20 @@ _z() {
 
         # maintain the data file
         local tempfile="$datafile.$RANDOM"
+        while read line; do
+            # only count directories
+            [ -d "${line%%\|*}" ] && echo $line
 ################################################################################
 # Commit message: Update z to latest version (#7021)
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/a24a0b1a8e464fd4c6ab6c2f95ef5a8f025ff093
 # Category: 
 # Notes: 
 # Changed content:
-# -         while read line; do
-# -             # only count directories
-# -             [ -d "${line%%\|*}" ] && echo $line
-# -         done < "$datafile" | awk -v path="$*" -v now="$(date +%s)" -F"|" '
-# +         _z_dirs | awk -v path="$*" -v now="$(date +%s)" -F"|" '
+# - done < "$datafile" | awk -v path="$*" -v now="$(date +%s)" -F"|" '
+# + _z_dirs | awk -v path="$*" -v now="$(date +%s)" -F"|" '
 ################################################################################
 # put stream annotation here
 # stream enable
-        while read line; do
-            # only count directories
-            [ -d "${line%%\|*}" ] && echo $line
         done < "$datafile" | awk -v path="$*" -v now="$(date +%s)" -F"|" '
             BEGIN {
                 rank[path] = 1
@@ -117,21 +96,19 @@ _z() {
 
     # tab completion
     elif [ "$1" = "--complete" -a -s "$datafile" ]; then
+        while read line; do
+            [ -d "${line%%\|*}" ] && echo $line
 ################################################################################
 # Commit message: Update z to latest version (#7021)
 # Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/a24a0b1a8e464fd4c6ab6c2f95ef5a8f025ff093
 # Category: 
 # Notes: 
 # Changed content:
-# -         while read line; do
-# -             [ -d "${line%%\|*}" ] && echo $line
-# -         done < "$datafile" | awk -v q="$2" -F"|" '
-# +         _z_dirs | awk -v q="$2" -F"|" '
+# - done < "$datafile" | awk -v q="$2" -F"|" '
+# + _z_dirs | awk -v q="$2" -F"|" '
 ################################################################################
 # put stream annotation here
 # stream enable
-        while read line; do
-            [ -d "${line%%\|*}" ] && echo $line
         done < "$datafile" | awk -v q="$2" -F"|" '
             BEGIN {
                 if( q == tolower(q) ) imatch = 1
@@ -151,19 +128,6 @@ _z() {
             --) while [ "$1" ]; do shift; local fnd="$fnd${fnd:+ }$1";done;;
             -*) local opt=${1:1}; while [ "$opt" ]; do case ${opt:0:1} in
                     c) local fnd="^$PWD $fnd";;
-################################################################################
-# Commit message: Update z to latest version (#7021)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/a24a0b1a8e464fd4c6ab6c2f95ef5a8f025ff093
-# Category: 
-# Notes: 
-# Changed content:
-# -                     h) echo "${_Z_CMD:-z} [-chlrtx] args" >&2; return;;
-# -                     x) sed -i -e "\:^${PWD}|.*:d" "$datafile";;
-# +                     e) local echo=1;;
-# +                     h) echo "${_Z_CMD:-z} [-cehlrtx] args" >&2; return;;
-################################################################################
-# put stream annotation here
-# stream enable
                     h) echo "${_Z_CMD:-z} [-chlrtx] args" >&2; return;;
                     x) sed -i -e "\:^${PWD}|.*:d" "$datafile";;
                     l) local list=1;;
@@ -177,16 +141,6 @@ _z() {
         # if we hit enter on a completion just go there
         case "$last" in
             # completions will always start with /
-################################################################################
-# Commit message: Update z to latest version (#7021)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/a24a0b1a8e464fd4c6ab6c2f95ef5a8f025ff093
-# Category: 
-# Notes: 
-# Changed content:
-# +                     x) sed -i -e "\:^${PWD}|.*:d" "$datafile";;
-################################################################################
-# put stream annotation here
-# stream enable
             /*) [ -z "$list" -a -d "$last" ] && cd "$last" && return;;
         esac
 
@@ -194,19 +148,6 @@ _z() {
         [ -f "$datafile" ] || return
 
         local cd
-################################################################################
-# Commit message: Update z to latest version (#7021)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/a24a0b1a8e464fd4c6ab6c2f95ef5a8f025ff093
-# Category: 
-# Notes: 
-# Changed content:
-# -         cd="$(while read line; do
-# -             [ -d "${line%%\|*}" ] && echo $line
-# -         done < "$datafile" | awk -v t="$(date +%s)" -v list="$list" -v typ="$typ" -v q="$fnd" -F"|" '
-# +         cd="$( < <( _z_dirs ) awk -v t="$(date +%s)" -v list="$list" -v typ="$typ" -v q="$fnd" -F"|" '
-################################################################################
-# put stream annotation here
-# stream enable
         cd="$(while read line; do
             [ -d "${line%%\|*}" ] && echo $line
         done < "$datafile" | awk -v t="$(date +%s)" -v list="$list" -v typ="$typ" -v q="$fnd" -F"|" '
@@ -222,21 +163,6 @@ _z() {
                 # list or return the desired directory
                 if( list ) {
                     cmd = "sort -n >&2"
-################################################################################
-# Commit message: Update z to latest version (#7021)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/a24a0b1a8e464fd4c6ab6c2f95ef5a8f025ff093
-# Category: 
-# Notes: 
-# Changed content:
-# -                     for( x in files ) {
-# -                         if( files[x] ) printf "%-10s %s\n", files[x], x | cmd
-# +                     for( x in matches ) {
-# +                         if( matches[x] ) {
-# +                             printf "%-10s %s\n", matches[x], x | cmd
-# +                         }
-################################################################################
-# put stream annotation here
-# stream enable
                     for( x in files ) {
                         if( files[x] ) printf "%-10s %s\n", files[x], x | cmd
                     }
@@ -256,23 +182,6 @@ _z() {
                     }
                 }
                 if( short == "/" ) return
-################################################################################
-# Commit message: Update z to latest version (#7021)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/a24a0b1a8e464fd4c6ab6c2f95ef5a8f025ff093
-# Category: 
-# Notes: 
-# Changed content:
-# -                 # use a copy to escape special characters, as we want to return
-# -                 # the original. yeah, this escaping is awful.
-# -                 clean_short = short
-# -                 gsub(/\[\(\)\[\]\|\]/, "\\\\&", clean_short)
-# -                 for( x in matches ) if( matches[x] && x !~ clean_short ) return
-# +                 for( x in matches ) if( matches[x] && index(x, short) != 1 ) {
-# +                     return
-# +                 }
-################################################################################
-# put stream annotation here
-# stream enable
                 # use a copy to escape special characters, as we want to return
                 # the original. yeah, this escaping is awful.
                 clean_short = short

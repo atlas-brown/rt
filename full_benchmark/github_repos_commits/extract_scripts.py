@@ -2,6 +2,7 @@ import json
 import os
 import re
 import git
+import difflib
 from tqdm import tqdm
 
 def parse_commit_url(commit_url):
@@ -19,13 +20,13 @@ def clone_repository(repo_url, local_path):
         print(f"Clone failed: {e}")
         return None
 
-def get_commit_diff(repo, commit_hash):
+def get_commit_diff(repo, commit_hash, commit_url):
     try:
         commit = repo.commit(commit_hash)
         return commit.parents[0].diff(commit, create_patch=True) if commit.parents else commit.diff(None, create_patch=True)
     except git.exc.BadName:
-        print(f"Commit not found: {commit_hash}")
-        return []
+        print(f"Warning: Commit not found: {commit_url}")
+        return None
 
 def parse_diff_hunk_header(header_line):
     match = re.match(r"@@ \-(\d+)(?:,(\d+))? \+(\d+)(?:,(\d+))? @@", header_line)
@@ -36,6 +37,51 @@ def parse_diff_hunk_header(header_line):
     new_start = int(match.group(3))
     new_len = int(match.group(4) or 1)
     return (old_start, old_len, new_start, new_len)
+
+def pair_pipelines(removed, added):
+    pairs = []
+    used_added = set()
+    for r in removed:
+        best_similarity = 0
+        best_a = None
+        best_index = None
+        for i, a in enumerate(added):
+            if i in used_added:
+                continue
+            sim = difflib.SequenceMatcher(None, r, a).ratio()
+            if sim > best_similarity:
+                best_similarity = sim
+                best_a = a
+                best_index = i
+        if best_a is not None:
+            pairs.append((r, best_a))
+            used_added.add(best_index)
+    return pairs
+
+def build_group_header(group, record):
+    removed_group = [line for (line, t, idx) in group if t == '-']
+    added_group = [line for (line, t, idx) in group if t == '+']
+    header_block = []
+    header_block.append("#" * 80)
+    message = record['message'].replace('\n', ' ')
+    header_block.append(f"# Commit message: {message}")
+    header_block.append(f"# Commit URL: {record['commit_url']}")
+    header_block.append(f"# Category: {record['category']}")
+    header_block.append(f"# Notes: {record['notes']}")
+    header_block.append("# Changed content:")
+    if removed_group and added_group:
+        pairs = pair_pipelines(removed_group, added_group)
+        for r, a in pairs:
+            header_block.append("# - " + r.lstrip('-').strip())
+            header_block.append("# + " + a.lstrip('+').strip())
+    else:
+        for r in removed_group:
+            header_block.append("# - " + r.lstrip('-').strip())
+        for a in added_group:
+            header_block.append("# + " + a.lstrip('+').strip())
+    header_block.append("#" * 80)
+    header_block.extend(["# put stream annotation here", "# stream enable"])
+    return header_block, len(removed_group), len(added_group)
 
 def process_diff(diff, record):
     old_path = diff.a_blob.path if diff.a_blob else None
@@ -71,94 +117,62 @@ def process_diff(diff, record):
     new_line_num = None
     old_offset = 0
     new_offset = 0
+    header_injected = False
 
-    removed_group = None
-    added_group = None
+    group = []
 
-    def flush_groups():
-        nonlocal removed_group, added_group, old_offset, new_offset
-        if removed_group is None and added_group is None:
+    def flush_group():
+        nonlocal old_offset, new_offset, header_injected, group, old_content, new_content
+        if not group:
             return
-        combined_lines = []
-        if removed_group is not None:
-            combined_lines.extend(removed_group['lines'])
-        if added_group is not None:
-            combined_lines.extend(added_group['lines'])
-        if not any(re.search(r'\|', line) or line.rstrip().endswith('|') for line in combined_lines):
-            removed_group = None
-            added_group = None
-            return
-        header = []
-        header.append("#" * 80)
-        message = record['message'].replace('\n', ' ')
-        header.append(f"# Commit message: {message}")
-        header.append(f"# Commit URL: {record['commit_url']}")
-        header.append(f"# Category: {record['category']}")
-        header.append(f"# Notes: {record['notes']}")
-        header.append("# Changed content:")
-        if removed_group is not None:
-            for line in removed_group['lines']:
-                content = line[1:] if line.startswith('-') else line
-                header.append("# - " + content)
-        if added_group is not None:
-            for line in added_group['lines']:
-                content = line[1:] if line.startswith('+') else line
-                header.append("# + " + content)
-        header.append("#" * 80)
-        header.append("# put stream annotation here")
-        header.append("# stream enable")
-        if removed_group is not None:
-            old_insertion = removed_group['start'] - 1 + old_offset
-        else:
-            old_insertion = added_group['start'] - 1 + old_offset
-        if added_group is not None:
-            new_insertion = added_group['start'] - 1 + new_offset
-        else:
-            new_insertion = removed_group['start'] - 1 + new_offset
-        for h_line in header:
-            old_content.insert(old_insertion, h_line)
-            old_insertion += 1
-        old_offset += len(header)
-        for h_line in header:
-            new_content.insert(new_insertion, h_line)
-            new_insertion += 1
-        new_offset += len(header)
-        removed_group = None
-        added_group = None
+        header_block, count_removed, count_added = build_group_header(group, record)
+        if count_removed > 0:
+            idx = min(item[2] for item in group if item[1] == '-')
+            for h in header_block:
+                old_content.insert(idx, h)
+                idx += 1
+            old_offset += len(header_block)
+        if count_added > 0:
+            idx = min(item[2] for item in group if item[1] == '+')
+            for h in header_block:
+                new_content.insert(idx, h)
+                idx += 1
+            new_offset += len(header_block)
+        header_injected = True
+        group = []
 
     for line in diff_text:
         if line.startswith(('diff --git', 'index', '---', '+++')):
-            flush_groups()
             continue
-
         if line.startswith('@@'):
-            flush_groups()
+            flush_group()
             parsed = parse_diff_hunk_header(line)
             if parsed:
                 old_line_num, _, new_line_num, _ = parsed
             continue
-
-        if old_line_num is None or new_line_num is None:
+        if line.startswith(' '):
+            flush_group()
+            old_line_num += 1
+            new_line_num += 1
+            continue
+        # Changed lines.
+        if line.startswith('-'):
+            if line in record.get('removed_lines', []):
+                insertion_index = old_line_num - 1 + old_offset
+                group.append((line, '-', insertion_index))
+            old_line_num += 1
+            continue
+        if line.startswith('+'):
+            if line in record.get('added_lines', []):
+                insertion_index = new_line_num - 1 + new_offset
+                group.append((line, '+', insertion_index))
+            new_line_num += 1
             continue
 
-        if line.startswith(' '):
-            flush_groups()
-            old_line_num += 1
-            new_line_num += 1
-        elif line.startswith('-'):
-            if removed_group is None:
-                removed_group = {'start': old_line_num, 'lines': []}
-            removed_group['lines'].append(line)
-            old_line_num += 1
-        elif line.startswith('+'):
-            if added_group is None:
-                added_group = {'start': new_line_num, 'lines': []}
-            added_group['lines'].append(line)
-            new_line_num += 1
-        else:
-            flush_groups()
+    flush_group()
 
-    flush_groups()
+    if not header_injected:
+        return None
 
     return {
         'file_path': file_path,
@@ -176,7 +190,12 @@ def save_versioned_files(record, file_data, output_dir):
     os.makedirs(pre_dir, exist_ok=True)
     os.makedirs(post_dir, exist_ok=True)
 
-    file_name = file_data['file_path'].replace('/', '_') + "_" + ".".join(base_name.split('.')[:-1]) + "_" + commit_hash[:7] + "." + base_name.split('.')[-1]
+    file_name = (
+        file_data['file_path'].replace('/', '_') +
+        "_" + ".".join(base_name.split('.')[:-1]) +
+        "_" + commit_hash[:7] +
+        "." + base_name.split('.')[-1]
+    )
 
     if file_data['change_type'] != 'A':
         pre_file_path = os.path.join(pre_dir, file_name)
@@ -190,20 +209,24 @@ def save_versioned_files(record, file_data, output_dir):
 
 def process_json_records(input_json, output_dir):
     with open(input_json, 'r', encoding='utf-8') as f:
-        # records = [r for r in json.load(f) if r.get('category')]
         records = [r for r in json.load(f)]
 
+    base_dir = os.path.dirname(os.path.abspath(__file__))
     for record in tqdm(records, desc="Processing commits"):
         owner, repo_name, commit_hash = parse_commit_url(record['commit_url'])
         if not owner:
             continue
 
-        repo = clone_repository(f"https://github.com/{owner}/{repo_name}.git", 
-                                os.path.join("repos", repo_name))
+        repo_path = os.path.join(base_dir, "repos", repo_name)
+        repo = clone_repository(f"https://github.com/{owner}/{repo_name}.git", repo_path)
         if not repo:
             continue
 
-        for diff in get_commit_diff(repo, commit_hash):
+        diffs = get_commit_diff(repo, commit_hash, record['commit_url'])
+        if diffs is None:
+            continue
+
+        for diff in diffs:
             file_data = process_diff(diff, record)
             if file_data:
                 save_versioned_files(record, file_data, output_dir)

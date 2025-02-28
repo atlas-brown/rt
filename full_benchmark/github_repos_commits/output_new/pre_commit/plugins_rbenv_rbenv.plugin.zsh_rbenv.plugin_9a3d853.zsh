@@ -66,8 +66,8 @@ else
 # Category: 
 # Notes: 
 # Changed content:
-# -     echo -n "system: $(ruby -v | cut -f-2 -d ' ')"
-# +     echo -n "system: $(ruby -v | cut -f-2 -d ' ' | sed 's/%/%%/g')"
+# - echo -n "system: $(ruby -v | cut -f-2 -d ' ')"
+# + echo -n "system: $(ruby -v | cut -f-2 -d ' ' | sed 's/%/%%/g')"
 ################################################################################
 # put stream annotation here
 # stream enable

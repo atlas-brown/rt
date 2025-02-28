@@ -1165,12 +1165,8 @@ FTLinstall() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   latesttag=$(curl -s https://api.github.com/repos/pi-hole/FTL/releases/latest | grep "tag_name" | sed "s/.*: \"//;s/\",//;")
-# -   if [ ! "${latesttag}" ]; then
-# -     echo ":::   failed (error in getting latest release tag from GitHub)"
-# +   latestURL=$(curl -sI https://github.com/pi-hole/FTL/releases/latest | grep "Location" | awk '{print $2}')
-# +   if [ ! "${latestURL}" ]; then
-# +     echo ":::   failed (error in getting latest release location from GitHub)"
+# - latesttag=$(curl -s https://api.github.com/repos/pi-hole/FTL/releases/latest | grep "tag_name" | sed "s/.*: \"//;s/\",//;")
+# + latestURL=$(curl -sI https://github.com/pi-hole/FTL/releases/latest | grep "Location" | awk '{print $2}')
 ################################################################################
 # put stream annotation here
 # stream enable

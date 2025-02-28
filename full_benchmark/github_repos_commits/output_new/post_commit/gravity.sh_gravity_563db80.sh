@@ -86,8 +86,7 @@ if [[ -f $blacklist ]];then
 # Category: 
 # Notes: 
 # Changed content:
-# -         numberOf=$(cat $blacklist | wc -l | sed 's/^[ \t]*//')
-# +         numberOf=$(cat $blacklist | sed '/^\s*$/d' | wc -l)
+# + numberOf=$(cat $blacklist | sed '/^\s*$/d' | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -107,8 +106,7 @@ function gravity_advanced()
 # Category: 
 # Notes: 
 # Changed content:
-# - 	numberOf=$(cat $origin/$andLight | wc -l | sed 's/^[ \t]*//')
-# + 	numberOf=$(cat $origin/$andLight | sed '/^\s*$/d' | wc -l)
+# + numberOf=$(cat $origin/$andLight | sed '/^\s*$/d' | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -124,8 +122,8 @@ function gravity_advanced()
 # Category: 
 # Notes: 
 # Changed content:
-# - 	numberOf=$(cat $origin/$eventHorizon | wc -l | sed 's/^[ \t]*//')
-# + 	numberOf=$(cat $origin/$eventHorizon | sed '/^\s*$/d' | wc -l)
+# - numberOf=$(cat $origin/$eventHorizon | wc -l | sed 's/^[ \t]*//')
+# + numberOf=$(cat $origin/$eventHorizon | sed '/^\s*$/d' | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -153,8 +151,7 @@ if [[ -f $whitelist ]];then
 # Category: 
 # Notes: 
 # Changed content:
-# - 	numberOf=$(cat $whitelist | wc -l | sed 's/^[ \t]*//')
-# + 	numberOf=$(cat $whitelist | sed '/^\s*$/d' | wc -l)
+# + numberOf=$(cat $whitelist | sed '/^\s*$/d' | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable

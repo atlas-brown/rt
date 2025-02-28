@@ -23,8 +23,8 @@ function +vi-git-untracked() {
 # Category: 
 # Notes: 
 # Changed content:
-# -             -n $(git status ${FLAGS} | grep -E '^??' 2> /dev/null | tail -n1) ]]; then
-# +             -n $(git status ${FLAGS} | grep -E '^\?\?' 2> /dev/null | tail -n1) ]]; then
+# - -n $(git status ${FLAGS} | grep -E '^??' 2> /dev/null | tail -n1) ]]; then
+# + -n $(git status ${FLAGS} | grep -E '^\?\?' 2> /dev/null | tail -n1) ]]; then
 ################################################################################
 # put stream annotation here
 # stream enable

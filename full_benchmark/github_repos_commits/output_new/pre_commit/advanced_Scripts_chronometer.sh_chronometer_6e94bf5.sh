@@ -34,20 +34,18 @@ CalcBlockedDomains() {
 }
 
 CalcQueriesToday() {
+	if [ -e "$piLog" ];then
 ################################################################################
 # Commit message: Consistency  You know the drill
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/6e94bf5b6dae4324a5e1ee67da71e8292be2b141
 # Category: 
 # Notes: 
 # Changed content:
-# - 	if [ -e "$piLog" ];then
-# - 		queriesToday=$(cat "$piLog" | grep "$today" | awk '/query/ {print $6}' | wc -l)
-# + 	if [ -e "${piLog}" ]; then
-# + 		queriesToday=$(cat "${piLog}" | grep "${today}" | awk '/query/ {print $6}' | wc -l)
+# - queriesToday=$(cat "$piLog" | grep "$today" | awk '/query/ {print $6}' | wc -l)
+# + queriesToday=$(cat "${piLog}" | grep "${today}" | awk '/query/ {print $6}' | wc -l)
 ################################################################################
 # put stream annotation here
 # stream enable
-	if [ -e "$piLog" ];then
 		queriesToday=$(cat "$piLog" | grep "$today" | awk '/query/ {print $6}' | wc -l)
 	else
 		queriesToday="Err."
@@ -63,25 +61,6 @@ CalcblockedToday() {
 }
 
 CalcPercentBlockedToday() {
-################################################################################
-# Commit message: Consistency  You know the drill
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/6e94bf5b6dae4324a5e1ee67da71e8292be2b141
-# Category: 
-# Notes: 
-# Changed content:
-# - 	if [ "$queriesToday" != "Err." ] && [ "$blockedToday" != "Err." ]; then
-# - 		if [ "$queriesToday" != 0 ]; then #Fixes divide by zero error :)
-# - 		 #scale 2 rounds the number down, so we'll do scale 4 and then trim the last 2 zeros
-# - 			percentBlockedToday=$(echo "scale=4; $blockedToday/$queriesToday*100" | bc)
-# - 			percentBlockedToday=$(sed 's/.\{2\}$//' <<< "$percentBlockedToday")
-# + 	if [ "${queriesToday}" != "Err." ] && [ "${blockedToday}" != "Err." ]; then
-# + 		if [ "${queriesToday}" != 0 ]; then #Fixes divide by zero error :)
-# + 			#scale 2 rounds the number down, so we'll do scale 4 and then trim the last 2 zeros
-# + 			percentBlockedToday=$(echo "scale=4; ${blockedToday}/${queriesToday}*100" | bc)
-# + 			percentBlockedToday=$(sed 's/.\{2\}$//' <<< "${percentBlockedToday}")
-################################################################################
-# put stream annotation here
-# stream enable
 	if [ "$queriesToday" != "Err." ] && [ "$blockedToday" != "Err." ]; then
 		if [ "$queriesToday" != 0 ]; then #Fixes divide by zero error :)
 		 #scale 2 rounds the number down, so we'll do scale 4 and then trim the last 2 zeros
@@ -96,20 +75,18 @@ CalcPercentBlockedToday() {
 CheckIPv6() {
 	piholeIPv6file="/etc/pihole/.useIPv6"
 	if [[ -f ${piholeIPv6file} ]];then
+	    # If the file exists, then the user previously chose to use IPv6 in the automated installer
 ################################################################################
 # Commit message: Consistency  You know the drill
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/6e94bf5b6dae4324a5e1ee67da71e8292be2b141
 # Category: 
 # Notes: 
 # Changed content:
-# - 	    # If the file exists, then the user previously chose to use IPv6 in the automated installer
-# - 	    piholeIPv6=$(ip -6 route get 2001:4860:4860::8888 | awk -F " " '{ for(i=1;i<=NF;i++) if ($i == "src") print $(i+1) }')
-# + 		# If the file exists, then the user previously chose to use IPv6 in the automated installer
-# + 		piholeIPv6=$(ip -6 route get 2001:4860:4860::8888 | awk -F " " '{ for(i=1;i<=NF;i++) if ($i == "src") print $(i+1) }')
+# - piholeIPv6=$(ip -6 route get 2001:4860:4860::8888 | awk -F " " '{ for(i=1;i<=NF;i++) if ($i == "src") print $(i+1) }')
+# + piholeIPv6=$(ip -6 route get 2001:4860:4860::8888 | awk -F " " '{ for(i=1;i<=NF;i++) if ($i == "src") print $(i+1) }')
 ################################################################################
 # put stream annotation here
 # stream enable
-	    # If the file exists, then the user previously chose to use IPv6 in the automated installer
 	    piholeIPv6=$(ip -6 route get 2001:4860:4860::8888 | awk -F " " '{ for(i=1;i<=NF;i++) if ($i == "src") print $(i+1) }')
 	fi
 }
@@ -184,28 +161,6 @@ if [[ $# = 0 ]]; then
 	normalChrono
 fi
 
-################################################################################
-# Commit message: Consistency  You know the drill
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/6e94bf5b6dae4324a5e1ee67da71e8292be2b141
-# Category: 
-# Notes: 
-# Changed content:
-# - for var in "$@"
-# - do
-# -   case "$var" in
-# -     "-j" | "--json"  ) outputJSON;;
-# -     "-h" | "--help"  ) displayHelp;;
-# -     *                ) exit 1;;
-# -   esac
-# + for var in "$@"; do
-# + 	case "$var" in
-# + 		"-j" | "--json"  ) outputJSON;;
-# + 		"-h" | "--help"  ) displayHelp;;
-# + 		*                ) exit 1;;
-# + 	esac
-################################################################################
-# put stream annotation here
-# stream enable
 for var in "$@"
 do
   case "$var" in

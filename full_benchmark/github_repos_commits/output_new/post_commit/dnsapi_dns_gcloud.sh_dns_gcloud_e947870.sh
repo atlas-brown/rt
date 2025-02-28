@@ -45,8 +45,8 @@ dns_gcloud_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   echo "$rrdatas" | grep -F -v "\"$txtvalue\"" | _dns_gcloud_add_rrs || return $?
-# +   echo "$rrdatas" | grep -F -v -- "\"$txtvalue\"" | _dns_gcloud_add_rrs || return $?
+# - echo "$rrdatas" | grep -F -v "\"$txtvalue\"" | _dns_gcloud_add_rrs || return $?
+# + echo "$rrdatas" | grep -F -v -- "\"$txtvalue\"" | _dns_gcloud_add_rrs || return $?
 ################################################################################
 # put stream annotation here
 # stream enable

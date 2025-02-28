@@ -2321,8 +2321,8 @@ FTLcheckUpdate() {
 # Category: 
 # Notes: 
 # Changed content:
-# -             localSha1=$(sha1sum "$(which pihole-FTL)" | cut -d ' ' -f 1)
-# +             localSha1=$(sha1sum "$(command -v pihole-FTL)" | cut -d ' ' -f 1)
+# - localSha1=$(sha1sum "$(which pihole-FTL)" | cut -d ' ' -f 1)
+# + localSha1=$(sha1sum "$(command -v pihole-FTL)" | cut -d ' ' -f 1)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -2362,8 +2362,8 @@ FTLcheckUpdate() {
 # Category: 
 # Notes: 
 # Changed content:
-# -                 localSha1=$(sha1sum "$(which pihole-FTL)" | cut -d ' ' -f 1)
-# +                 localSha1=$(sha1sum "$(command -v pihole-FTL)" | cut -d ' ' -f 1)
+# - localSha1=$(sha1sum "$(which pihole-FTL)" | cut -d ' ' -f 1)
+# + localSha1=$(sha1sum "$(command -v pihole-FTL)" | cut -d ' ' -f 1)
 ################################################################################
 # put stream annotation here
 # stream enable

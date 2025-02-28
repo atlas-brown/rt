@@ -156,8 +156,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     id=$(echo "$_domain_response" | _egrep_o "\"uuid\":\"[a-z0-9\-]*\",\"enabled\":\"1\",\"type\":\"master\",[^.]*,\"domainname\":\"${h}\"" | cut -d ':' -f 1 | cut -d '"' -f 2)
-# +     id=$(echo "$_domain_response" | _egrep_o "\"uuid\":\"[a-z0-9\-]*\",\"enabled\":\"1\",\"type\":\"master\",[^.]*,\"domainname\":\"${h}\"" | cut -d ':' -f 2 | cut -d '"' -f 2)
+# - id=$(echo "$_domain_response" | _egrep_o "\"uuid\":\"[a-z0-9\-]*\",\"enabled\":\"1\",\"type\":\"master\",[^.]*,\"domainname\":\"${h}\"" | cut -d ':' -f 1 | cut -d '"' -f 2)
+# + id=$(echo "$_domain_response" | _egrep_o "\"uuid\":\"[a-z0-9\-]*\",\"enabled\":\"1\",\"type\":\"master\",[^.]*,\"domainname\":\"${h}\"" | cut -d ':' -f 2 | cut -d '"' -f 2)
 ################################################################################
 # put stream annotation here
 # stream enable

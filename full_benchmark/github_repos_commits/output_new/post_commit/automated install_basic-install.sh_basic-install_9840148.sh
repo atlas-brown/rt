@@ -2222,8 +2222,8 @@ get_binary_name() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         lib=$(ldd /bin/bash | grep -E '^\s*/lib' | awk '{ print $1 }')
-# +         lib=$(ldd $(which sh) | grep -E '^\s*/lib' | awk '{ print $1 }')
+# - lib=$(ldd /bin/bash | grep -E '^\s*/lib' | awk '{ print $1 }')
+# + lib=$(ldd $(which sh) | grep -E '^\s*/lib' | awk '{ print $1 }')
 ################################################################################
 # put stream annotation here
 # stream enable

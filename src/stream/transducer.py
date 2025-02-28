@@ -70,8 +70,8 @@ class FST:
             start_val, end_val = min_in, max_in
         if output == "self":
             output_func: Callable[[str], str] = lambda c: c
-        elif "-" in output:
-            parts = output.split("-")
+        elif "--" in output:
+            parts = output.split("--")
             if len(parts) != 2:
                 raise ToolError(f"Invalid transition output: {output}")
             min_out, max_out = parts[0], parts[1]

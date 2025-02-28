@@ -1144,13 +1144,8 @@ _readKeyLengthFromCSR() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     echo "$_outcsr" | tr "\t" " " | (_egrep_o "^ *Public.Key:.*" || _egrep_o "RSA Public.Key:.*") | cut -d '(' -f 2 | cut -d ' ' -f 1
-# +     _rkl="$(echo "$_outcsr" | tr "\t" " " | _egrep_o "^ *Public.Key:.*" | cut -d '(' -f 2 | cut -d ' ' -f 1)"
-# +     if [ "$_rkl" ]; then
-# +       echo "$_rkl"
-# +     else
-# +       echo "$_outcsr" | tr "\t" " " | _egrep_o "RSA Public.Key:.*" | cut -d '(' -f 2 | cut -d ' ' -f 1
-# +     fi
+# - echo "$_outcsr" | tr "\t" " " | (_egrep_o "^ *Public.Key:.*" || _egrep_o "RSA Public.Key:.*") | cut -d '(' -f 2 | cut -d ' ' -f 1
+# + echo "$_outcsr" | tr "\t" " " | _egrep_o "RSA Public.Key:.*" | cut -d '(' -f 2 | cut -d ' ' -f 1
 ################################################################################
 # put stream annotation here
 # stream enable

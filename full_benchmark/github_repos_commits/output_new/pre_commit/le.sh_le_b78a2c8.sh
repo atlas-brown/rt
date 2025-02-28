@@ -319,8 +319,8 @@ issue() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     netprc="$(netstat -antpl | grep ':80 ')"
-# +     netprc="$(netstat -ntpl | grep ':80 ')"
+# - netprc="$(netstat -antpl | grep ':80 ')"
+# + netprc="$(netstat -ntpl | grep ':80 ')"
 ################################################################################
 # put stream annotation here
 # stream enable

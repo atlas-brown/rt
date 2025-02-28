@@ -983,8 +983,8 @@ make_array_from_file() {
 # Category: 
 # Notes: 
 # Changed content:
-# -             new_line=$(echo "${line}" | sed -e 's/#.*$//' -e '/^$/d')
-# +             new_line=$(echo "${line}" | sed -e 's/^\s*#.*$//' -e '/^$/d')
+# - new_line=$(echo "${line}" | sed -e 's/#.*$//' -e '/^$/d')
+# + new_line=$(echo "${line}" | sed -e 's/^\s*#.*$//' -e '/^$/d')
 ################################################################################
 # put stream annotation here
 # stream enable

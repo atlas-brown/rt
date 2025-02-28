@@ -151,12 +151,8 @@ getip() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'
-# +     if [ "$(which ip)" != "" ]; then
-# +         ip addr | grep "inet " | grep -v '127.0.0.1' | awk '{print $2}'
-# +     else
-# +         ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'
-# +     fi
+# - ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'
+# + ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'
 ################################################################################
 # put stream annotation here
 # stream enable

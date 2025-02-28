@@ -3365,8 +3365,8 @@ installcronjob() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     if _exists uname && uname -a | grep solaris >/dev/null; then
-# +     if _exists uname && uname -a | grep SunOS >/dev/null; then
+# - if _exists uname && uname -a | grep solaris >/dev/null; then
+# + if _exists uname && uname -a | grep SunOS >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable

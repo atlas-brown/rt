@@ -603,8 +603,8 @@ gravity_DownloadBlocklistFromUrl() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       if [[ $(dig "${domain}" | grep "NOERROR" -c) -ge 1 ]] && [[ -z $(dig +noall +answer "${domain}" |awk '{print $5}') ]]; then
-# +       if [[ $(dig "${domain}" | grep "NOERROR" -c) -ge 1 ]] && [[ -z $(dig +short "${domain}") ]]; then
+# - if [[ $(dig "${domain}" | grep "NOERROR" -c) -ge 1 ]] && [[ -z $(dig +noall +answer "${domain}" |awk '{print $5}') ]]; then
+# + if [[ $(dig "${domain}" | grep "NOERROR" -c) -ge 1 ]] && [[ -z $(dig +short "${domain}") ]]; then
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -84,8 +84,8 @@ dns_cloudns_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   for i in $(echo "$response" | tr '{' "\n" | grep "$record"); do
-# +   for i in $(echo "$response" | tr '{' "\n" | grep -- "$record"); do
+# - for i in $(echo "$response" | tr '{' "\n" | grep "$record"); do
+# + for i in $(echo "$response" | tr '{' "\n" | grep -- "$record"); do
 ################################################################################
 # put stream annotation here
 # stream enable

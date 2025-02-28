@@ -99,8 +99,7 @@ set_record() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   _existing_challenges=$(echo "$response" | _normalizeJson | grep -Po "\"name\":\"$fulldomain\\K.*?}]" | grep -Po 'content\":\"\\"\K[^\\]*')
-# +   _list_existingchallenges
+# - _existing_challenges=$(echo "$response" | _normalizeJson | grep -Po "\"name\":\"$fulldomain\\K.*?}]" | grep -Po 'content\":\"\\"\K[^\\]*')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -203,21 +202,5 @@ _pdns_rest() {
 }
 
 _build_record_string() {
-################################################################################
-# Commit message: Used e_grep_o instead grep -Po, dns_pdns_rm() now deletes only entry with matching txt value
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/a3f7ff90e300379c1acfbe5788d855a9584b82ae
-# Category: 
-# Notes: 
-# Changed content:
-# -   _record_string="${_record_string}{\"content\": \"\\\"$1\\\"\", \"disabled\": false}"
-# +   _record_string="${_record_string:+${_record_string}, }{\"content\": \"\\\"${1}\\\"\", \"disabled\": false}"
-# + }
-# + 
-# + _list_existingchallenges() {
-# +   _pdns_rest "GET" "/api/v1/servers/$PDNS_ServerId/zones/$root"
-# +   _existing_challenges=$(echo "$response" | _normalizeJson | _egrep_o "\"name\":\"${fulldomain}[^]]*}" | _egrep_o 'content\":\"\\"[^\\]*' | sed -n 's/^content":"\\"//p')
-################################################################################
-# put stream annotation here
-# stream enable
   _record_string="${_record_string}{\"content\": \"\\\"$1\\\"\", \"disabled\": false}"
 }

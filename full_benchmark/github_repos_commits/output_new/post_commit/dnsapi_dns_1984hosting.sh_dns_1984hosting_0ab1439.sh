@@ -174,8 +174,8 @@ _1984hosting_login() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     One984HOSTING_COOKIE="$(grep '^Set-Cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"
-# +     One984HOSTING_COOKIE="$(grep '^set-cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"
+# - One984HOSTING_COOKIE="$(grep '^Set-Cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"
+# + One984HOSTING_COOKIE="$(grep '^set-cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"
 ################################################################################
 # put stream annotation here
 # stream enable

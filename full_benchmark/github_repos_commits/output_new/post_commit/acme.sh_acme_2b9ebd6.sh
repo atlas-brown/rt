@@ -1134,22 +1134,6 @@ _readSubjectAltNamesFromCSR() {
 
   if _contains "$_dnsAltnames," "DNS:$_csrsubj,"; then
     _debug "AltNames contains subject"
-################################################################################
-# Commit message: fix showcsr https://github.com/Neilpang/acme.sh/issues/1968
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/2b9ebd666280cc7832bce31d0b282df7f4d276d7
-# Category: 
-# Notes: 
-# Changed content:
-# -     _dnsAltnames="$(printf "%s" "$_dnsAltnames," | sed "s/DNS:$_csrsubj,//g")"
-# +     _excapedAlgnames="$(echo "$_dnsAltnames" | tr '*' '#')"
-# +     _debug _excapedAlgnames "$_excapedAlgnames"
-# +     _escapedSubject="$(echo "$_csrsubj" | tr '*' '#')"
-# +     _debug _escapedSubject "$_escapedSubject"
-# +     _dnsAltnames="$(echo "$_excapedAlgnames," | sed "s/DNS:$_escapedSubject,//g" | tr '#' '*' | sed "s/,\$//g")"
-# +     _debug _dnsAltnames "$_dnsAltnames"
-################################################################################
-# put stream annotation here
-# stream enable
     _excapedAlgnames="$(echo "$_dnsAltnames" | tr '*' '#')"
     _debug _excapedAlgnames "$_excapedAlgnames"
     _escapedSubject="$(echo "$_csrsubj" | tr '*' '#')"
@@ -1166,8 +1150,8 @@ _readSubjectAltNamesFromCSR() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   printf "%s" "$_dnsAltnames" | sed "s/DNS://g"
-# +   echo "$_dnsAltnames" | sed "s/DNS://g"
+# - printf "%s" "$_dnsAltnames" | sed "s/DNS://g"
+# + echo "$_dnsAltnames" | sed "s/DNS://g"
 ################################################################################
 # put stream annotation here
 # stream enable

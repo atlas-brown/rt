@@ -9,19 +9,8 @@ if [[ ! -z $DOKKU_HOST ]]; then
 # Category: 
 # Notes: 
 # Changed content:
-# - 		appname=$(git remote -v 2>/dev/null | grep dokku | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)
-# - 		if [[ "$?" != "0" ]]; then
-# + 		appname=""
-# + 		if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
-# + 			set +e
-# + 			appname=$(git remote -v 2>/dev/null | grep -Ei "^dokku" | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)
-# + 			set -e
-# + 		else
-# + 			echo "This is not a git repository"
-# + 			exit 1
-# + 		fi
-# + 
-# + 		if [[ "$appname" != "" ]]; then
+# - appname=$(git remote -v 2>/dev/null | grep dokku | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)
+# + appname=$(git remote -v 2>/dev/null | grep -Ei "^dokku" | head -n 1 | cut -f1 -d' ' | cut -f2 -d':' 2>/dev/null)
 ################################################################################
 # put stream annotation here
 # stream enable

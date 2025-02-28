@@ -108,8 +108,8 @@ existing_records() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     count=$(printf "%s" "$response" | grep '<type>TXT</type>' | wc -l | tr -d ' ')
-# +     count=$(printf "%s" "$response" | grep -c '<type>TXT</type>' | tr -d ' ')
+# - count=$(printf "%s" "$response" | grep '<type>TXT</type>' | wc -l | tr -d ' ')
+# + count=$(printf "%s" "$response" | grep -c '<type>TXT</type>' | tr -d ' ')
 ################################################################################
 # put stream annotation here
 # stream enable

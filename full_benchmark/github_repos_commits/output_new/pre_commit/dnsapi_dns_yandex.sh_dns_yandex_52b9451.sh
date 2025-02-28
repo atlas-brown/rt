@@ -18,16 +18,6 @@ dns_yandex_add() {
 
   curDomain=$(_PDD_get_domain "$fulldomain")
   _debug "Found suitable domain in pdd: $curDomain"
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1247
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/52b945164cb8d13bd0557d0e2e6177ded2a65369
-# Category: 
-# Notes: 
-# Changed content:
-# -   curSubdomain="$(echo "${fulldomain}" | sed -e "s@.${curDomain}\$@@")"
-################################################################################
-# put stream annotation here
-# stream enable
   curSubdomain="$(echo "${fulldomain}" | sed -e "s@.${curDomain}\$@@")"
   curData="domain=${curDomain}&type=TXT&subdomain=${curSubdomain}&ttl=360&content=${txtvalue}"
   curUri="https://pddimp.yandex.ru/api2/admin/dns/add"
@@ -46,16 +36,6 @@ dns_yandex_rm() {
 
   curDomain=$(_PDD_get_domain "$fulldomain")
   _debug "Found suitable domain in pdd: $curDomain"
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1247
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/52b945164cb8d13bd0557d0e2e6177ded2a65369
-# Category: 
-# Notes: 
-# Changed content:
-# -   curSubdomain="$(echo "${fulldomain}" | sed -e "s@.${curDomain}\$@@")"
-################################################################################
-# put stream annotation here
-# stream enable
   curSubdomain="$(echo "${fulldomain}" | sed -e "s@.${curDomain}\$@@")"
 
   curUri="https://pddimp.yandex.ru/api2/admin/dns/del"
@@ -87,8 +67,8 @@ _PDD_get_domain() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     __all_domains="$__all_domains $(echo "$res1" | sed -e "s@,@\n@g" | grep '"name"' | cut -d: -f2 | sed -e 's@"@@g')"
-# +     __all_domains="$__all_domains $(echo "$res1" | tr "," "\n" | grep '"name"' | cut -d: -f2 | sed -e 's@"@@g')"
+# - __all_domains="$__all_domains $(echo "$res1" | sed -e "s@,@\n@g" | grep '"name"' | cut -d: -f2 | sed -e 's@"@@g')"
+# + __all_domains="$__all_domains $(echo "$res1" | tr "," "\n" | grep '"name"' | cut -d: -f2 | sed -e 's@"@@g')"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -101,17 +81,6 @@ _PDD_get_domain() {
   while [ $k -lt 10 ]; do
     __t=$(echo "$fulldomain" | cut -d . -f $k-100)
     _debug "finding zone for domain $__t"
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1247
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/52b945164cb8d13bd0557d0e2e6177ded2a65369
-# Category: 
-# Notes: 
-# Changed content:
-# +         p=$(_math $k - 1)
-# +         curSubdomain="$(echo "$fulldomain" | cut -d . -f 1-$p)"
-################################################################################
-# put stream annotation here
-# stream enable
     for d in $__all_domains; do
       if [ "$d" = "$__t" ]; then
         echo "$__t"
@@ -140,16 +109,6 @@ pdd_get_record_id() {
 
   curDomain=$(_PDD_get_domain "$fulldomain")
   _debug "Found suitable domain in pdd: $curDomain"
-################################################################################
-# Commit message: fix https://github.com/Neilpang/acme.sh/issues/1247
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/52b945164cb8d13bd0557d0e2e6177ded2a65369
-# Category: 
-# Notes: 
-# Changed content:
-# -   curSubdomain="$(echo "${fulldomain}" | sed -e "s@.${curDomain}\$@@")"
-################################################################################
-# put stream annotation here
-# stream enable
   curSubdomain="$(echo "${fulldomain}" | sed -e "s@.${curDomain}\$@@")"
 
   curUri="https://pddimp.yandex.ru/api2/admin/dns/list?domain=${curDomain}"

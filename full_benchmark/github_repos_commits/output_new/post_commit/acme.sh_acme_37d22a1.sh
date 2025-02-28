@@ -4025,8 +4025,8 @@ issue() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"
-# +       _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"
+# - _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"
+# + _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -26,8 +26,8 @@ _rake_generate () {
 # Category: 
 # Notes: 
 # Changed content:
-# -   rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
-# +   rake --silent --tasks | cut -d " " -f 2 | sed 's/\[.*\]//g' > .rake_tasks
+# - rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
+# + rake --silent --tasks | cut -d " " -f 2 | sed 's/\[.*\]//g' > .rake_tasks
 ################################################################################
 # put stream annotation here
 # stream enable

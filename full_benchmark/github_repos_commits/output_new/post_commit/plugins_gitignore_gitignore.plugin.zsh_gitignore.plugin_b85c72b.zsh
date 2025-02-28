@@ -7,8 +7,8 @@ _gitignoreio_get_command_list() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   curl -sL https://www.gitignore.io/api/list | tr "," "\n"
-# +   curl -fL https://www.gitignore.io/api/list | tr "," "\n"
+# - curl -sL https://www.gitignore.io/api/list | tr "," "\n"
+# + curl -fL https://www.gitignore.io/api/list | tr "," "\n"
 ################################################################################
 # put stream annotation here
 # stream enable

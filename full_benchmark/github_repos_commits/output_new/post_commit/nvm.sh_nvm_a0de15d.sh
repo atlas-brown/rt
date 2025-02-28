@@ -376,8 +376,8 @@ nvm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -             sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt | \grep node-${t}.tar.gz | awk '{print $1}'`
-# +             sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-${t}.tar.gz | awk '{print $1}'`
+# - sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt | \grep node-${t}.tar.gz | awk '{print $1}'`
+# + sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-${t}.tar.gz | awk '{print $1}'`
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -418,17 +418,6 @@ nvm() {
       tmpdir="$NVM_DIR/src"
       local tmptarball
       tmptarball="$tmpdir/node-$VERSION.tar.gz"
-################################################################################
-# Commit message: fix nvm_curl arguments for stdout
-# Commit URL: https://github.com/nvm-sh/nvm/commit/a0de15d0f7b3fa240aaa6b4a2bb0a53fd3b28df8
-# Category: 
-# Notes: 
-# Changed content:
-# -       if [ "`nvm_curl -s -I "$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
-# +       if [ "`nvm_curl -s -I "$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz" -o - | \grep '200 OK'`" != '' ]; then
-################################################################################
-# put stream annotation here
-# stream enable
       if [ "`nvm_curl -s -I "$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz" -o - | \grep '200 OK'`" != '' ]; then
         tarball="$NVM_NODEJS_ORG_MIRROR/$VERSION/node-$VERSION.tar.gz"
 ################################################################################
@@ -437,10 +426,8 @@ nvm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -         sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt | \grep node-$VERSION.tar.gz | awk '{print $1}'`
-# -       elif [ "`nvm_curl -s -I "$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz" | \grep '200 OK'`" != '' ]; then
-# +         sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-$VERSION.tar.gz | awk '{print $1}'`
-# +       elif [ "`nvm_curl -s -I "$NVM_NODEJS_ORG_MIRROR/node-$VERSION.tar.gz" -o - | \grep '200 OK'`" != '' ]; then
+# - sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt | \grep node-$VERSION.tar.gz | awk '{print $1}'`
+# + sum=`nvm_curl -s $NVM_NODEJS_ORG_MIRROR/$VERSION/SHASUMS.txt -o - | \grep node-$VERSION.tar.gz | awk '{print $1}'`
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -470,31 +457,9 @@ nvm() {
             if [ "`expr "$VERSION" : '\(^v0\.2\.[0-2]$\)'`" != '' ]; then
               echo "npm requires node v0.2.3 or higher" >&2
             else
-################################################################################
-# Commit message: fix nvm_curl arguments for stdout
-# Commit URL: https://github.com/nvm-sh/nvm/commit/a0de15d0f7b3fa240aaa6b4a2bb0a53fd3b28df8
-# Category: 
-# Notes: 
-# Changed content:
-# -               nvm_curl https://npmjs.org/install.sh | clean=yes npm_install=0.2.19 sh
-# +               nvm_curl https://npmjs.org/install.sh -o - | clean=yes npm_install=0.2.19 sh
-################################################################################
-# put stream annotation here
-# stream enable
               nvm_curl https://npmjs.org/install.sh -o - | clean=yes npm_install=0.2.19 sh
             fi
           else
-################################################################################
-# Commit message: fix nvm_curl arguments for stdout
-# Commit URL: https://github.com/nvm-sh/nvm/commit/a0de15d0f7b3fa240aaa6b4a2bb0a53fd3b28df8
-# Category: 
-# Notes: 
-# Changed content:
-# -             nvm_curl https://npmjs.org/install.sh | clean=yes sh
-# +             nvm_curl https://npmjs.org/install.sh -o - | clean=yes sh
-################################################################################
-# put stream annotation here
-# stream enable
             nvm_curl https://npmjs.org/install.sh -o - | clean=yes sh
           fi
         fi

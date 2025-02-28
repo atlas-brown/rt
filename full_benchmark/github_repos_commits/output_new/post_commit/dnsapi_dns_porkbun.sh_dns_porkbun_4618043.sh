@@ -84,8 +84,8 @@ dns_porkbun_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     record_id=$(echo "$response" | tr '{' '\n' | grep "$txtvalue" | cut -d, -f1 | cut -d: -f2 | tr -d \")
-# +     record_id=$(echo "$response" | tr '{' '\n' | grep -- "$txtvalue" | cut -d, -f1 | cut -d: -f2 | tr -d \")
+# - record_id=$(echo "$response" | tr '{' '\n' | grep "$txtvalue" | cut -d, -f1 | cut -d: -f2 | tr -d \")
+# + record_id=$(echo "$response" | tr '{' '\n' | grep -- "$txtvalue" | cut -d, -f1 | cut -d: -f2 | tr -d \")
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -3167,8 +3167,8 @@ _checkConf() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     if cat "$2" | tr "\t" " " | grep "^ *include *;" >/dev/null; then
-# +     if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
+# - if cat "$2" | tr "\t" " " | grep "^ *include *;" >/dev/null; then
+# + if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -3180,8 +3180,8 @@ _checkConf() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       for included in $(cat "$2" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"); do
-# +       for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
+# - for included in $(cat "$2" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"); do
+# + for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
 # put stream annotation here
 # stream enable

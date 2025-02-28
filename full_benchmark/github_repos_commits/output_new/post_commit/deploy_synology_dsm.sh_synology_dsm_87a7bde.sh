@@ -97,8 +97,8 @@ synology_dsm_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   api_path=$(echo "$response" | grep "SYNO.API.Auth" | sed -n 's/.*"path" *: *"\([0-9]*\)".*/\1/p')
-# +   api_path=$(echo "$response" | grep "SYNO.API.Auth" | sed -n 's/.*"path" *: *"\([^"]*\)".*/\1/p')
+# - api_path=$(echo "$response" | grep "SYNO.API.Auth" | sed -n 's/.*"path" *: *"\([0-9]*\)".*/\1/p')
+# + api_path=$(echo "$response" | grep "SYNO.API.Auth" | sed -n 's/.*"path" *: *"\([^"]*\)".*/\1/p')
 ################################################################################
 # put stream annotation here
 # stream enable

@@ -74,8 +74,8 @@ dns_linode_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     response="$(echo "$response" | tr -d "\n" | sed $'s/{/\\\n&/g')"
-# +     response="$(echo "$response" | tr -d "\n"  | tr '{' "|" | sed 's/|/&{/g' | tr "|" "\n")"
+# - response="$(echo "$response" | tr -d "\n" | sed $'s/{/\\\n&/g')"
+# + response="$(echo "$response" | tr -d "\n"  | tr '{' "|" | sed 's/|/&{/g' | tr "|" "\n")"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -145,8 +145,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     response="$(echo "$response" | tr -d "\n" | sed $'s/{/\\\n&/g')"
-# +     response="$(echo "$response" | tr -d "\n"  | tr '{' "|" | sed 's/|/&{/g' | tr "|" "\n")"
+# - response="$(echo "$response" | tr -d "\n" | sed $'s/{/\\\n&/g')"
+# + response="$(echo "$response" | tr -d "\n"  | tr '{' "|" | sed 's/|/&{/g' | tr "|" "\n")"
 ################################################################################
 # put stream annotation here
 # stream enable

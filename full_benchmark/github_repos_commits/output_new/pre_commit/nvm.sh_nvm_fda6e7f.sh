@@ -25,24 +25,6 @@ nvm_version()
         nvm_version `cat $NVM_DIR/alias/$PATTERN`
         return
     fi
-################################################################################
-# Commit message: Rewrote version listing system  Now sorts correctly in all instances and prints highlights even in sorted views. Also will output a list of matching versions for commands of the form nvm ls 0.4* rather than just printing one version. nvm version 0.4 still prints the single latest matching version, however.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/fda6e7f8defed84a7b09e563e6a4b1f062c2501a
-# Category: 
-# Notes: 
-# Changed content:
-# -     # If it looks like an explicit version, don't do anything funny
-# -     if [[ "$PATTERN" == v?*.?*.?* ]]; then
-# -         VERSION="$PATTERN"
-# + 
-# +     VERSION=`nvm_ls $PATTERN | tail -n1`
-# +     echo "$VERSION"
-# +     
-# +     if [ "$VERSION" = 'N/A' ]; then
-# +         return 13
-################################################################################
-# put stream annotation here
-# stream enable
     # If it looks like an explicit version, don't do anything funny
     if [[ "$PATTERN" == v?*.?*.?* ]]; then
         VERSION="$PATTERN"
@@ -51,41 +33,22 @@ nvm_version()
     if [ ! "$PATTERN" -o "$PATTERN" = 'current' ]; then
         VERSION=`node -v 2>/dev/null`
     fi
-################################################################################
-# Commit message: Rewrote version listing system  Now sorts correctly in all instances and prints highlights even in sorted views. Also will output a list of matching versions for commands of the form nvm ls 0.4* rather than just printing one version. nvm version 0.4 still prints the single latest matching version, however.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/fda6e7f8defed84a7b09e563e6a4b1f062c2501a
-# Category: 
-# Notes: 
-# Changed content:
-# -     if [ "$PATTERN" = 'all' ]; then
-# -         (cd $NVM_DIR; \ls -dG v* 2>/dev/null || echo "N/A")
-# + 
-# +     if [ -f "$NVM_DIR/alias/$PATTERN" ]; then
-# +         nvm_version `cat $NVM_DIR/alias/$PATTERN`
-################################################################################
-# put stream annotation here
-# stream enable
     if [ "$PATTERN" = 'all' ]; then
         (cd $NVM_DIR; \ls -dG v* 2>/dev/null || echo "N/A")
         return
     fi
+    if [ ! "$VERSION" ]; then
 ################################################################################
 # Commit message: Rewrote version listing system  Now sorts correctly in all instances and prints highlights even in sorted views. Also will output a list of matching versions for commands of the form nvm ls 0.4* rather than just printing one version. nvm version 0.4 still prints the single latest matching version, however.
 # Commit URL: https://github.com/nvm-sh/nvm/commit/fda6e7f8defed84a7b09e563e6a4b1f062c2501a
 # Category: 
 # Notes: 
 # Changed content:
-# -     if [ ! "$VERSION" ]; then
-# -         VERSION=`(cd $NVM_DIR; \ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 1.2,1n -k 2,2n -k 3,3n | tail -n1`
-# +     # If it looks like an explicit version, don't do anything funny
-# +     if [[ "$PATTERN" == v?*.?*.?* ]]; then
-# +         VERSIONS="$PATTERN"
-# +     else
-# +         VERSIONS=`(cd $NVM_DIR; \ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 1.2,1n -k 2,2n -k 3,3n`
+# - VERSION=`(cd $NVM_DIR; \ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 1.2,1n -k 2,2n -k 3,3n | tail -n1`
+# + VERSIONS=`(cd $NVM_DIR; \ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 1.2,1n -k 2,2n -k 3,3n`
 ################################################################################
 # put stream annotation here
 # stream enable
-    if [ ! "$VERSION" ]; then
         VERSION=`(cd $NVM_DIR; \ls -d v${PATTERN}* 2>/dev/null) | sort -t. -k 1.2,1n -k 2,2n -k 3,3n | tail -n1`
     fi
     if [ ! "$VERSION" ]; then
@@ -103,30 +66,6 @@ nvm()
   if [ $# -lt 1 ]; then
     nvm help
     return
-################################################################################
-# Commit message: Rewrote version listing system  Now sorts correctly in all instances and prints highlights even in sorted views. Also will output a list of matching versions for commands of the form nvm ls 0.4* rather than just printing one version. nvm version 0.4 still prints the single latest matching version, however.
-# Commit URL: https://github.com/nvm-sh/nvm/commit/fda6e7f8defed84a7b09e563e6a4b1f062c2501a
-# Category: 
-# Notes: 
-# Changed content:
-# +     echo "$VERSIONS"
-# +     return
-# + }
-# + 
-# + print_versions()
-# + {
-# +     OUTPUT=''
-# +     for VERSION in $1; do
-# +         PADDED_VERSION=`printf '%10s' $VERSION`
-# +         if [[ -d "$NVM_DIR/$VERSION" ]]; then
-# +              PADDED_VERSION="\033[0;34m$PADDED_VERSION\033[0m" 
-# +         fi
-# +         OUTPUT="$OUTPUT\n$PADDED_VERSION" 
-# +     done
-# +     echo -e "$OUTPUT" | column 
-################################################################################
-# put stream annotation here
-# stream enable
   fi
   case $1 in
     "help" )

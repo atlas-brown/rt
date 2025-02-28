@@ -191,8 +191,8 @@ _clean() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   record_id="$(echo "$response" | tr '{' "\n" | grep "$_sub_domain" | grep "$txtvalue" | tr "," "\n" | grep RecordId | cut -d '"' -f 4)"
-# +   record_id="$(echo "$response" | tr '{' "\n" | grep "$_sub_domain" | grep -- "$txtvalue" | tr "," "\n" | grep RecordId | cut -d '"' -f 4)"
+# - record_id="$(echo "$response" | tr '{' "\n" | grep "$_sub_domain" | grep "$txtvalue" | tr "," "\n" | grep RecordId | cut -d '"' -f 4)"
+# + record_id="$(echo "$response" | tr '{' "\n" | grep "$_sub_domain" | grep -- "$txtvalue" | tr "," "\n" | grep RecordId | cut -d '"' -f 4)"
 ################################################################################
 # put stream annotation here
 # stream enable

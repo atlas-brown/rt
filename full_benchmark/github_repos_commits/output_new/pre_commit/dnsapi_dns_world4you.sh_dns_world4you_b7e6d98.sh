@@ -168,8 +168,8 @@ _get_paketnr() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   domains=$(echo "$form" | _egrep_o '^\s*([A-Za-z0-9_-]+\.)+[A-Za-z0-9_-]*$' | sed 's/^\s*\(\S*\)$/\1/')
-# +   domains=$(echo "$form" | grep '^ *[A-Za-z0-9_\.-]*\.[A-Za-z0-9_-]*$' | sed 's/^\s*\(\S*\)$/\1/')
+# - domains=$(echo "$form" | _egrep_o '^\s*([A-Za-z0-9_-]+\.)+[A-Za-z0-9_-]*$' | sed 's/^\s*\(\S*\)$/\1/')
+# + domains=$(echo "$form" | grep '^ *[A-Za-z0-9_\.-]*\.[A-Za-z0-9_-]*$' | sed 's/^\s*\(\S*\)$/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -187,17 +187,6 @@ _get_paketnr() {
 
   TLD="$domain"
   RECORD=$(echo "$fqdn" | cut -c"1-$((${#fqdn} - ${#TLD} - 1))")
-################################################################################
-# Commit message: World4You grep fix
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/b7e6d98647b0006249973902980ee0bb20f82c5b
-# Category: 
-# Notes: 
-# Changed content:
-# -   PAKETNR=$(echo "$form" | _egrep_o "data-textfilter=\" $domain .* [0-9]*" | _head_n 1 | _egrep_o "[0-9]*")
-# +   PAKETNR=$(echo "$form" | grep "data-textfilter=\" $domain " | _head_n 1 | sed 's/^.* \([0-9]*\) .*$/\1/')
-################################################################################
-# put stream annotation here
-# stream enable
   PAKETNR=$(echo "$form" | _egrep_o "data-textfilter=\" $domain .* [0-9]*" | _head_n 1 | _egrep_o "[0-9]*")
   return 0
 }

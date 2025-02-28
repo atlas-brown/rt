@@ -126,11 +126,8 @@ verifyFreeDiskSpace() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     existingFreeBytes=`df -lk | awk '{print $4}' | head -2 | tail -1`
-# +     existingFreeBytes=`df -lk / 2>&1 | awk '{print $4}' | head -2 | tail -1`
-# +     if ! [[ "$existingFreeBytes" =~ ^[0-9]\+$ ]]; then
-# +         existingFreeBytes=`df -lk /dev 2>&1 | awk '{print $4}' | head -2 | tail -1`
-# +     fi
+# - existingFreeBytes=`df -lk | awk '{print $4}' | head -2 | tail -1`
+# + existingFreeBytes=`df -lk / 2>&1 | awk '{print $4}' | head -2 | tail -1`
 ################################################################################
 # put stream annotation here
 # stream enable

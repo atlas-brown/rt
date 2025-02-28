@@ -12,8 +12,8 @@ function fwl () {
 # Category: 
 # Notes: 
 # Changed content:
-# -   zones=("${(@f)$(sudo firewall-cmd --get-active-zones | grep -v interfaces)}")
-# +   zones=("${(@f)$(sudo firewall-cmd --get-active-zones | grep -v 'interfaces\|sources')}")
+# - zones=("${(@f)$(sudo firewall-cmd --get-active-zones | grep -v interfaces)}")
+# + zones=("${(@f)$(sudo firewall-cmd --get-active-zones | grep -v 'interfaces\|sources')}")
 ################################################################################
 # put stream annotation here
 # stream enable

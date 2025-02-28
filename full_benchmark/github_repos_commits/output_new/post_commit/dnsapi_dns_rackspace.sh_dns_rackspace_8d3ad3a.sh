@@ -80,20 +80,18 @@ _get_root_zone() {
     _debug2 response "$response"
     if _contains "$response" "\"name\":\"$h\"" >/dev/null; then
       # Response looks like:
+      #   {"id": "12345","accountId": "1111111","name": "example.com","ttl": 3600,"emailAddress": ...<and so on>
 ################################################################################
 # Commit message: Rackspace changed their API response, fixed the sed matching
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/8d3ad3a8c17adc419dd25de6cbcf920888ae58f7
 # Category: 
 # Notes: 
 # Changed content:
-# -       #   {"ttl":300,"accountId":12345,"id":1111111,"name":"example.com","emailAddress": ...<and so on>
-# -       _domain_id=$(echo "$response" | sed -n "s/^.*\"id\":\([^,]*\),\"name\":\"$h\",.*/\1/p")
-# +       #   {"id": "12345","accountId": "1111111","name": "example.com","ttl": 3600,"emailAddress": ...<and so on>
-# +       _domain_id=$(echo "$response" | sed -n "s/^.*\"id\":\"\([^,]*\)\",\"accountId\":\"[0-9]*\",\"name\":\"$h\",.*/\1/p")
+# - _domain_id=$(echo "$response" | sed -n "s/^.*\"id\":\([^,]*\),\"name\":\"$h\",.*/\1/p")
+# + _domain_id=$(echo "$response" | sed -n "s/^.*\"id\":\"\([^,]*\)\",\"accountId\":\"[0-9]*\",\"name\":\"$h\",.*/\1/p")
 ################################################################################
 # put stream annotation here
 # stream enable
-      #   {"id": "12345","accountId": "1111111","name": "example.com","ttl": 3600,"emailAddress": ...<and so on>
       _domain_id=$(echo "$response" | sed -n "s/^.*\"id\":\"\([^,]*\)\",\"accountId\":\"[0-9]*\",\"name\":\"$h\",.*/\1/p")
       _debug2 domain_id "$_domain_id"
       if [ -n "$_domain_id" ]; then

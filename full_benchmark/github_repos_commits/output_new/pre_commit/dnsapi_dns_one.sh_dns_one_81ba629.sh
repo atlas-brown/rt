@@ -53,8 +53,8 @@ dns_one_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   JSESSIONID="$(grep "JSESSIONID=" "$HTTP_HEADER" | grep "^Set-Cookie:" | _tail_n 1 | _egrep_o 'JSESSIONID=[^;]*;' | tr -d ';')"
-# +   JSESSIONID="$(grep "JSESSIONID" "$HTTP_HEADER" | grep "^[Ss]et-[Cc]ookie:" | _tail_n 1 | _egrep_o 'JSESSIONID=[^;]*;' | tr -d ';')"
+# - JSESSIONID="$(grep "JSESSIONID=" "$HTTP_HEADER" | grep "^Set-Cookie:" | _tail_n 1 | _egrep_o 'JSESSIONID=[^;]*;' | tr -d ';')"
+# + JSESSIONID="$(grep "JSESSIONID" "$HTTP_HEADER" | grep "^[Ss]et-[Cc]ookie:" | _tail_n 1 | _egrep_o 'JSESSIONID=[^;]*;' | tr -d ';')"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -125,8 +125,8 @@ dns_one_rm() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   JSESSIONID="$(grep "JSESSIONID=" "$HTTP_HEADER" | grep "^Set-Cookie:" | _tail_n 1 | _egrep_o 'JSESSIONID=[^;]*;' | tr -d ';')"
-# +   JSESSIONID="$(grep "JSESSIONID" "$HTTP_HEADER" | grep "^[Ss]et-[Cc]ookie:" | _tail_n 1 | _egrep_o 'JSESSIONID=[^;]*;' | tr -d ';')"
+# - JSESSIONID="$(grep "JSESSIONID=" "$HTTP_HEADER" | grep "^Set-Cookie:" | _tail_n 1 | _egrep_o 'JSESSIONID=[^;]*;' | tr -d ';')"
+# + JSESSIONID="$(grep "JSESSIONID" "$HTTP_HEADER" | grep "^[Ss]et-[Cc]ookie:" | _tail_n 1 | _egrep_o 'JSESSIONID=[^;]*;' | tr -d ';')"
 ################################################################################
 # put stream annotation here
 # stream enable

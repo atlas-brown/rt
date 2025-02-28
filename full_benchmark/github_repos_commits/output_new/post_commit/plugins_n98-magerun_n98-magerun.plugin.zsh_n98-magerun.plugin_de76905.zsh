@@ -13,8 +13,8 @@ _n98_magerun_get_command_list () {
 # Category: 
 # Notes: 
 # Changed content:
-# -   n98-magerun.phar --no-ansi | sed "1,/Available commands/d" | awk '/^\s+[a-z]+/ { print $1 }'
-# +   n98-magerun.phar --no-ansi | sed "1,/Available commands/d" | awk '/^ +[a-z\-:]+/ { print $1 }'
+# - n98-magerun.phar --no-ansi | sed "1,/Available commands/d" | awk '/^\s+[a-z]+/ { print $1 }'
+# + n98-magerun.phar --no-ansi | sed "1,/Available commands/d" | awk '/^ +[a-z\-:]+/ { print $1 }'
 ################################################################################
 # put stream annotation here
 # stream enable

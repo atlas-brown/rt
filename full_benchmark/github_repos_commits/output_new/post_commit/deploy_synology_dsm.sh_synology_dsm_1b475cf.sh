@@ -122,8 +122,8 @@ synology_dsm_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if echo "$response" | sed -n "s/.*\"desc\":\"$SYNO_Certificate\",\([^{]*\).*/\1/p" | grep -q -- 'is_default":true'; then
-# +   if echo "$response" | sed -n "s/.*\"desc\":\"$SYNO_Certificate\",\([^{]*\).*/\1/p" | grep -- 'is_default":true' >/dev/null; then
+# - if echo "$response" | sed -n "s/.*\"desc\":\"$SYNO_Certificate\",\([^{]*\).*/\1/p" | grep -q -- 'is_default":true'; then
+# + if echo "$response" | sed -n "s/.*\"desc\":\"$SYNO_Certificate\",\([^{]*\).*/\1/p" | grep -- 'is_default":true' >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -155,10 +155,10 @@ synology_dsm_deploy() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if ! echo "$response" | grep -q '"error":'; then
-# -     if echo "$response" | grep -q '"restart_httpd":true'; then
-# +   if ! echo "$response" | grep '"error":' >/dev/null; then
-# +     if echo "$response" | grep '"restart_httpd":true' >/dev/null; then
+# - if ! echo "$response" | grep -q '"error":'; then
+# + if ! echo "$response" | grep '"error":' >/dev/null; then
+# - if echo "$response" | grep -q '"restart_httpd":true'; then
+# + if echo "$response" | grep '"restart_httpd":true' >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable

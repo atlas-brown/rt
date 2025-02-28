@@ -108,16 +108,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   h=$(printf "%s" "$domain" | rev | cut -d . -f 1-2 | rev)
-# +   i=3
-# +   a="init"
-# +   while [ ! -z $a ]
-# +   do
-# +     a=$(printf "%s" "$domain" | cut -d . -f $i-)
-# +     i=`expr $i + 1`
-# +   done
-# +   num=`expr $i - 3`
-# +   h=$(printf "%s" "$domain" | cut -d . -f $num-)
+# - h=$(printf "%s" "$domain" | rev | cut -d . -f 1-2 | rev)
+# + h=$(printf "%s" "$domain" | cut -d . -f $num-)
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -142,9 +134,8 @@ _get_root() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     _sub_domain=$(printf "%s" "$domain" | rev | cut -d . -f 3- | rev)
-# +     s_n=`expr $num - 1`
-# +     _sub_domain=$(printf "%s" "$domain" | cut -d . -f -$s_n)
+# - _sub_domain=$(printf "%s" "$domain" | rev | cut -d . -f 3- | rev)
+# + _sub_domain=$(printf "%s" "$domain" | cut -d . -f -$s_n)
 ################################################################################
 # put stream annotation here
 # stream enable

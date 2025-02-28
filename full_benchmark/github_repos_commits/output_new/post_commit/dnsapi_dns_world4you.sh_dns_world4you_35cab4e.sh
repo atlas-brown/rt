@@ -175,8 +175,8 @@ _get_paketnr() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   domains=$(echo "$form" | _ggrep -E '^\s*([A-Za-z0-9_-]+\.)+[A-Za-z0-9_-]*$' | sed 's/^\s*\(\S*\)$/\1/')
-# +   domains=$(echo "$form" | _egrep_o '^\s*([A-Za-z0-9_-]+\.)+[A-Za-z0-9_-]*$' | sed 's/^\s*\(\S*\)$/\1/')
+# - domains=$(echo "$form" | _ggrep -E '^\s*([A-Za-z0-9_-]+\.)+[A-Za-z0-9_-]*$' | sed 's/^\s*\(\S*\)$/\1/')
+# + domains=$(echo "$form" | _egrep_o '^\s*([A-Za-z0-9_-]+\.)+[A-Za-z0-9_-]*$' | sed 's/^\s*\(\S*\)$/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable

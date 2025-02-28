@@ -6,8 +6,8 @@ function xc {
 # Category: 
 # Notes: 
 # Changed content:
-# -   xcode_proj=`find . -name "*.xc*" -d 1 | sort -r | head -1`
-# +   xcode_proj=`ls | grep "\.xc" | sort -r | head -1`
+# - xcode_proj=`find . -name "*.xc*" -d 1 | sort -r | head -1`
+# + xcode_proj=`ls | grep "\.xc" | sort -r | head -1`
 ################################################################################
 # put stream annotation here
 # stream enable

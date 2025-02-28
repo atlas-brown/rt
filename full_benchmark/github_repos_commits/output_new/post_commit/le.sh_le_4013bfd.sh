@@ -312,23 +312,18 @@ issue() {
       _err "Please install netcat(nc) tools first."
       return 1
     fi
+
 ################################################################################
 # Commit message: remove dependency to "netstat"
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/4013bfd02a201f2dabc021a2c75d7c13aea40611
 # Category: 
 # Notes: 
 # Changed content:
-# -     if ! command -v "netstat" > /dev/null ; then
-# -       _err "Please install netstat first."
-# -       return 1
-# -     fi
-# -     netprc="$(netstat -ntpl | grep ':80 ')"
-# + 
-# +     netprc="$(ss -ntpl | grep ':80 ')"
+# - netprc="$(netstat -ntpl | grep ':80 ')"
+# + netprc="$(ss -ntpl | grep ':80 ')"
 ################################################################################
 # put stream annotation here
 # stream enable
-
     netprc="$(ss -ntpl | grep ':80 ')"
     if [ "$netprc" ] ; then
       _err "$netprc"
@@ -338,8 +333,8 @@ issue() {
 # Category: 
 # Notes: 
 # Changed content:
-# -       _err "tcp port 80 is already used by $(echo "$netprc" | cut -d '/' -f 2)"
-# +       _err "tcp port 80 is already used by $(echo "$netprc" | cut -d :  -f 4)"
+# - _err "tcp port 80 is already used by $(echo "$netprc" | cut -d '/' -f 2)"
+# + _err "tcp port 80 is already used by $(echo "$netprc" | cut -d :  -f 4)"
 ################################################################################
 # put stream annotation here
 # stream enable

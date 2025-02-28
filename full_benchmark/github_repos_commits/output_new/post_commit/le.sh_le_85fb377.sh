@@ -662,10 +662,10 @@ uninstall() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if crontab -l | grep 'le renewAll' ; then 
-# -     crontab -l | sed "/le renewAll/d" | crontab -
-# +   if crontab -l | grep 'le.*renewAll' ; then 
-# +     crontab -l | sed "/le.*renewAll/d" | crontab -
+# - if crontab -l | grep 'le renewAll' ; then
+# + if crontab -l | grep 'le.*renewAll' ; then
+# - crontab -l | sed "/le renewAll/d" | crontab -
+# + crontab -l | sed "/le.*renewAll/d" | crontab -
 ################################################################################
 # put stream annotation here
 # stream enable

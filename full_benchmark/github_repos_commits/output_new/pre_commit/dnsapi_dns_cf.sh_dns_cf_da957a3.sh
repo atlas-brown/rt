@@ -65,8 +65,8 @@ dns_cf_add() {
 # Category: 
 # Notes: 
 # Changed content:
-# -   if ! printf "%s" "$response" | grep \"success\":true >/dev/null; then
-# +   if ! echo "$response" | tr -d " " | grep \"success\":true >/dev/null; then
+# - if ! printf "%s" "$response" | grep \"success\":true >/dev/null; then
+# + if ! echo "$response" | tr -d " " | grep \"success\":true >/dev/null; then
 ################################################################################
 # put stream annotation here
 # stream enable

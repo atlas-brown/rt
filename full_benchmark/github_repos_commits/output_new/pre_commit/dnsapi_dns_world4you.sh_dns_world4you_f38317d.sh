@@ -59,8 +59,8 @@ AddDnsRecordForm[uniqueFormIdTTL]=$formidttl&AddDnsRecordForm[_token]=$form_toke
 # Category: 
 # Notes: 
 # Changed content:
-# -     msg=$(_get "$WORLD4YOU_API/$paketnr/dns" | tr '\n' '\t' | sed 's/^.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1\n/')
-# +     msg=$(_get "$WORLD4YOU_API/$paketnr/dns" | tr '\n' '\t' | sed 's/.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1/')
+# - msg=$(_get "$WORLD4YOU_API/$paketnr/dns" | tr '\n' '\t' | sed 's/^.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1\n/')
+# + msg=$(_get "$WORLD4YOU_API/$paketnr/dns" | tr '\n' '\t' | sed 's/.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -128,8 +128,8 @@ DeleteDnsRecordForm[_token]=$form_token"
 # Category: 
 # Notes: 
 # Changed content:
-# -     msg=$(_get "$WORLD4YOU_API/$paketnr/dns" | tr '\n' '\t' | sed 's/^.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1\n/')
-# +     msg=$(_get "$WORLD4YOU_API/$paketnr/dns" | tr '\n' '\t' | sed 's/.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1/')
+# - msg=$(_get "$WORLD4YOU_API/$paketnr/dns" | tr '\n' '\t' | sed 's/^.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1\n/')
+# + msg=$(_get "$WORLD4YOU_API/$paketnr/dns" | tr '\n' '\t' | sed 's/.*<h3 class="mb-5">[^\t]*\t *\([^\t]*\)\t.*/\1/')
 ################################################################################
 # put stream annotation here
 # stream enable

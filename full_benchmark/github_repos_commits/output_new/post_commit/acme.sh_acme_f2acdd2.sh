@@ -1882,17 +1882,6 @@ _send_signed_request() {
       _err "Can not post to $url"
       return 1
     fi
-################################################################################
-# Commit message: fix tr err for Mac
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/f2acdd27fd0f8d0407058ad05b12137197d99afc
-# Category: 
-# Notes: 
-# Changed content:
-# -     _debug2 original "$response"
-# -     response="$(echo "$response" | _normalizeJson)"
-################################################################################
-# put stream annotation here
-# stream enable
 
     responseHeaders="$(cat "$HTTP_HEADER")"
     _debug2 responseHeaders "$responseHeaders"
@@ -1900,24 +1889,6 @@ _send_signed_request() {
     code="$(grep "^HTTP" "$HTTP_HEADER" | _tail_n 1 | cut -d " " -f 2 | tr -d "\r\n")"
     _debug code "$code"
 
-################################################################################
-# Commit message: fix tr err for Mac
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/f2acdd27fd0f8d0407058ad05b12137197d99afc
-# Category: 
-# Notes: 
-# Changed content:
-# -     _CACHED_NONCE="$(echo "$responseHeaders" | grep "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2)"
-# - 
-# -     _body="$response"
-# -     if [ "$needbase64" ]; then
-# -       _body="$(echo "$_body" | _dbase64 | tr -d '\0')"
-# -       _debug3 _body "$_body"
-# +     _debug2 original "$response"
-# +     if echo "$responseHeaders" | grep -i "Content-Type: application/json" >/dev/null 2>&1; then
-# +       response="$(echo "$response" | _normalizeJson)"
-################################################################################
-# put stream annotation here
-# stream enable
     _debug2 original "$response"
     if echo "$responseHeaders" | grep -i "Content-Type: application/json" >/dev/null 2>&1; then
       response="$(echo "$response" | _normalizeJson)"
@@ -1930,26 +1901,7 @@ _send_signed_request() {
 # Category: 
 # Notes: 
 # Changed content:
-# -     if _contains "$_body" "JWS has invalid anti-replay nonce" || _contains "$_body" "JWS has an invalid anti-replay nonce"; then
-# -       _info "It seems the CA server is busy now, let's wait and retry. Sleeping $_sleep_retry_sec seconds."
-# -       _CACHED_NONCE=""
-# -       _sleep $_sleep_retry_sec
-# -       continue
-# +     _CACHED_NONCE="$(echo "$responseHeaders" | grep -i "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2)"
-# + 
-# +     if ! _startswith "$code" "2"; then 
-# +       _body="$response"
-# +       if [ "$needbase64" ]; then
-# +         _body="$(echo "$_body" | _dbase64 multiline)"
-# +         _debug3 _body "$_body"
-# +       fi
-# + 
-# +       if _contains "$_body" "JWS has invalid anti-replay nonce" || _contains "$_body" "JWS has an invalid anti-replay nonce"; then
-# +         _info "It seems the CA server is busy now, let's wait and retry. Sleeping $_sleep_retry_sec seconds."
-# +         _CACHED_NONCE=""
-# +         _sleep $_sleep_retry_sec
-# +         continue
-# +       fi
+# + _CACHED_NONCE="$(echo "$responseHeaders" | grep -i "Replay-Nonce:" | _head_n 1 | tr -d "\r\n " | cut -d ':' -f 2)"
 ################################################################################
 # put stream annotation here
 # stream enable
@@ -4183,17 +4135,6 @@ $_authorizations_map"
       return 1
     fi
 
-################################################################################
-# Commit message: fix tr err for Mac
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/f2acdd27fd0f8d0407058ad05b12137197d99afc
-# Category: 
-# Notes: 
-# Changed content:
-# -     echo "$response" | _dbase64 "multiline" >"$CERT_PATH"
-# +     echo "$response" >"$CERT_PATH"
-################################################################################
-# put stream annotation here
-# stream enable
     echo "$response" >"$CERT_PATH"
 
     if [ "$(grep -- "$BEGIN_CERT" "$CERT_PATH" | wc -l)" -gt "1" ]; then
