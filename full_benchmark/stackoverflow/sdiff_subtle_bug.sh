@@ -1,8 +1,12 @@
 #!/bin/sh
 # https://stackoverflow.com/questions/48665902/ignoring-empty-lines-and-perform-sdiff
 
+# ---
+# tags:   buggy, line_annot, complex_annot
 # intent: count how many lines have content in file t2 but are blank in t1,
-#         EXCEPT for empty lines that get matched because t1 has ended (EOF)
+#         EXCEPT for empty lines that get matched because t1 has reached EOF
+# bug:    empty lines get matched because t1 has reached EOF
+# ---
 
 # sdiff outputs <t1 line> [ <|>] <t2 line>
 # where   means both have the same content
@@ -11,13 +15,12 @@
 #       > means t2 has content while t1 is blank OR t2 is blank but t1 has ended
 
 # how do we express that?
-# grep's input will not contain lines of the form '<whitespace> > <whitespace>'
+# grep's input will not contain lines of the form 'whitespace>whitespace'
 
-# ^: start of line
-# (?!.*>\s*$): negative lookahead of lines that end with '><whitespace>'
+# (?!.*>\s*$): negative lookahead of lines that end with '>whitespace'
 # .*: anything
 
-# @expect "grep -c '[>]'" --> "^(?!.*>\s*$).*"
+# @expect "(?!.*>\s*$).*" --> "grep -c '[>]'"
 sdiff "$t1" "$t2" | grep -c '[>]'
 
 # to understand the command and the desired behavior run it with files:
