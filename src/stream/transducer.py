@@ -37,7 +37,11 @@ class FST_Transition:
         return self.output_func(c)
     
     def __repr__(self) -> str:
-        return f"FST_Transition(min={ord(self.min)}, max={ord(self.max)}, to={self.to.id})"
+        min_out = self.output_func(self.min)
+        max_out = self.output_func(self.max)
+        if len(min_out) == 1 and len(max_out) == 1:
+            return f"FST_Transition(min={ord(self.min)}, max={ord(self.max)}, min_out={ord(min_out)}, max_out={ord(max_out)}, to={self.to.id})"
+        return f"FST_Transition(min={ord(self.min)}, max={ord(self.max)}, output='{min_out}', to={self.to.id})"
 
 class FST:
     def __init__(self) -> None:
@@ -62,13 +66,13 @@ class FST:
     def add_transition(self, from_state_id: int, min_in: str, max_in: Optional[str], output: str, next_state_id: int) -> None:
         from_state = self.add_state(from_state_id)
         next_state = self.add_state(next_state_id)
-        if min_in == "other":
+        if min_in == "$other":
             is_other = True
             start_val, end_val = None, None
         else:
             is_other = False
             start_val, end_val = min_in, max_in
-        if output == "self":
+        if output == "$self":
             output_func: Callable[[str], str] = lambda c: c
         elif "--" in output:
             parts = output.split("--")
@@ -154,8 +158,8 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
         final_states = {start_state}
     for spec in transition_specs:
         from_state, input_range, output, next_state = spec
-        if input_range == "other":
-            fst.add_transition(from_state, "other", None, output, next_state)
+        if input_range == "$other":
+            fst.add_transition(from_state, "$other", None, output, next_state)
         else:
             if '--' in input_range:
                 parts = input_range.split('--')
@@ -202,11 +206,11 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                     max_out = t_fst.output_func(max)
                     if len(min_out) == 0 or len(max_out) == 0:
                         if min_out != max_out:
-                            raise ToolError(f"Output range not supported: {min_out}-{max_out}")
+                            raise ToolError(f"Output range not supported: {min_out}--{max_out}")
                         empty_transitions.add((s_product, s))
                     elif len(min_out) > 1 or len(max_out) > 1:
                         if min_out != max_out:
-                            raise ToolError(f"Output range not supported: {min_out}-{max_out}")
+                            raise ToolError(f"Output range not supported: {min_out}--{max_out}")
                         current_state = s_product
                         for i, c in enumerate(min_out):
                             if i != len(min_out) - 1:
@@ -255,13 +259,13 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
 def full_stream_to_line_based_FST() -> FST:
     specs = [
         (0, "\n", "", 100),
-        (0, "other", "self", 1),
-        (0, "other", "", 2),
+        (0, "$other", "$self", 1),
+        (0, "$other", "", 2),
         (1, "\n", "", 100),
-        (1, "other", "self", 1),
+        (1, "$other", "$self", 1),
         (2, "\n", "", 0),
-        (2, "other", "", 2),
-        (100, "other", "", 100),
+        (2, "$other", "", 2),
+        (100, "$other", "", 100),
     ]
     return create_fst(specs, start_state=0, final_states={100})
 
@@ -274,7 +278,7 @@ def translation_FST(set1: str, set2: str) -> FST:
         else:
             c2 = set2[-1]
         specs.append((0, c, c2, 0))
-    specs.append((0, "other", "self", 0))
+    specs.append((0, "$other", "$self", 0))
     return create_fst(specs, start_state=0, final_states={0})
 
 
@@ -292,8 +296,8 @@ def compression_FST(set1: str) -> FST:
             if i2 == i:
                 continue
             specs.append((i, c2, c2, i2))
-        specs.append((i, "other", "self", 0))
-    specs.append((0, "other", "self", 0))
+        specs.append((i, "$other", "$self", 0))
+    specs.append((0, "$other", "$self", 0))
     return create_fst(specs, start_state=0, final_states=final_states)
 
 
@@ -301,10 +305,10 @@ def deletion_FST(set1: str) -> FST:
     specs = []
     for c in set1:
         specs.append((0, c, "", 0))
-    specs.append((0, "other", "self", 0))
+    specs.append((0, "$other", "$self", 0))
     return create_fst(specs, start_state=0, final_states={0})
 
-def cut_FST(delimiter: str, fields: List[int]) -> FST:
+def cut_field_FST(delimiter: str, fields: List[int]) -> FST:
     # cut -f 1 -> [1]
     # cut -f 1,3 -> [1, 3]
     # cut -f 1-3 -> [1, 2, 3]
@@ -317,12 +321,107 @@ def cut_FST(delimiter: str, fields: List[int]) -> FST:
             specs.append((i, delimiter, "", i + 1))
         
         if i in fields:
-            specs.append((i, "other", "self", i))
+            specs.append((i, "$other", "$self", i))
         else:
-            specs.append((i, "other", "", i))
+            specs.append((i, "$other", "", i))
 
-    specs.append((max_field + 1, "other", "", max_field + 1))
+    specs.append((max_field + 1, "$other", "", max_field + 1))
     return create_fst(specs, start_state=1, final_states={i for i in range(1, max_field + 2)})
+
+def cut_char_FST(fields: List[int]) -> FST:
+    specs = []
+    max_field = max(fields)
+    for i in range(1, max_field + 1):
+        if i in fields:
+            specs.append((i, "$other", "$self", i + 1))
+        else:
+            specs.append((i, "$other", "", i + 1))
+    specs.append((max_field + 1, "$other", "", max_field + 1))
+    return create_fst(specs, start_state=1, final_states={i for i in range(1, max_field + 2)})
+
+
+
+def global_replacement_FST(s1: str, s2: str) -> FST:
+    m = len(s1)
+    if m == 0:
+        raise ValueError("s1 must be nonempty")
+    
+    # Compute the KMP failure function for s1.
+    failure = [0] * m
+    for i in range(1, m):
+        j = failure[i - 1]
+        while j > 0 and s1[i] != s1[j]:
+            j = failure[j - 1]
+        if s1[i] == s1[j]:
+            j += 1
+        failure[i] = j
+
+    delta_memo = {}
+    
+    def delta(i, a) -> Optional[Tuple[int, str]]:
+        key = (i, a)
+        if key in delta_memo:
+            return delta_memo[key]
+            
+        result = None
+        if a == s1[i]:
+            if i == m - 1:
+                # Full match: output s2 and fall back.
+                result = (0, s2)
+            else:
+                result = (i + 1, "")
+        else:
+            if i == 0:
+                result = None
+            else:
+                k = failure[i - 1]
+                outcome = delta(k, a)
+                if outcome == None:
+                    result = None
+                else:
+                    nxt, out = outcome
+                    # Flush the part of the buffer
+                    result = (nxt, s1[:i-nxt+1])
+        
+        delta_memo[key] = result
+        return result
+
+    specs = []
+    X = set(s1)
+    
+    for i in range(m):
+        # Add explicit transition for the "good" letter.
+        outcome_good = delta(i, s1[i])
+        specs.append((i, s1[i], outcome_good[1], outcome_good[0]))
+        
+        # For letters in s1 (other than the good letter) that yield a non-generic outcome,
+        # add an explicit transition.
+        for a in X:
+            if a == s1[i]:
+                continue
+            outcome = delta(i, a)
+            if outcome != None:
+                specs.append((i, a, outcome[1], outcome[0]))
+    
+    buffer_specs = []
+    for spec in specs:
+        src, in_spec, _, tgt = spec
+        new_src = src + m if src != 0 else 0
+        if tgt == 0:
+            buffer_specs.append((new_src, in_spec, "", -1)) # abort
+        else:
+            buffer_specs.append((new_src, in_spec, "$self", tgt + m))
+
+    for i in range(1, m):
+        buffer_specs.append((i+m, "$other", "$self", 0))
+
+    specs.extend(buffer_specs)
+    specs.append((0, "$other", "$self", 0))
+    final_states = {0} | {i + m for i in range(1, m)}
+    return create_fst(specs, start_state=0, final_states=final_states)
+
+
+    
         
 
 
@@ -357,8 +456,9 @@ if __name__ == '__main__':
     specs = [
         (0, "a--z", "A--Z", 0),
         (0, 'A--Z', '0--9', 0),
-        (0, "other", "self", 0),
-        (0, "other", "a", 0),
+        (0, "a", "a", 0),
+        (0, "$other", "$self", 0),
+        (0, "$other", "a", 0),
     ]
     fst = create_fst(specs, start_state=0, final_states={0})
     # test_str = "asdasdasdas"

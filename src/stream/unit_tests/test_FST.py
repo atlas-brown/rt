@@ -1,10 +1,9 @@
 import random
 import string
-from stream.transducer import translation_FST, compression_FST, deletion_FST, cut_FST
+from stream.transducer import global_replacement_FST, translation_FST, compression_FST, deletion_FST, cut_field_FST
 
 
-def random_string(length=10):
-    letters = string.ascii_lowercase
+def random_string(length=10, letters=string.ascii_lowercase):
     return ''.join(random.choice(letters) for i in range(length))
 
 def random_string_uniq_chars(length=10):
@@ -76,17 +75,16 @@ def test_random_deletion_FST():
         expected = ''.join([c for c in test_string if c not in chars_to_delete])
         assert fst.transform_all(test_string) == {expected}
 
-def test_cut_FST_1():
-    fst = cut_FST(" ", [3])
+def test_cut_FST():
+    fst = cut_field_FST(" ", [3])
     assert fst.transform_all("h e l l o") == {"l"}
     assert fst.transform_all("hi") == {""}
     assert fst.transform_all("1 2 3") == {"3"}
-
-def test_cut_FST_2():
-    fst = cut_FST(" ", [1, 3])
+    fst = cut_field_FST(" ", [1, 3])
     assert fst.transform_all("h e l l o") == {"h l"}
     assert fst.transform_all("hi") == {"hi"}
     assert fst.transform_all("1 2 3") == {"1 3"}
+
 
 def test_random_cut_FST():
     for i in range(100):
@@ -95,7 +93,7 @@ def test_random_cut_FST():
         num_fields = random.randint(1, 5)
         fields_to_extract = sorted(random.sample(range(1, 10), num_fields))
         print(f"delimiter: {delimiter}, fields_to_extract: {fields_to_extract}")
-        fst = cut_FST(delimiter, fields_to_extract)
+        fst = cut_field_FST(delimiter, fields_to_extract)
         
         total_fields = random.randint(max(fields_to_extract) + 1, max(fields_to_extract) + 5)
         test_parts = [random_string(random.randint(1, 10)) for _ in range(total_fields)]
@@ -105,3 +103,43 @@ def test_random_cut_FST():
         expected = delimiter.join(expected_parts)
         
         assert fst.transform_all(test_string) == {expected}
+
+def test_global_replacement_FST():
+    fst = global_replacement_FST("a", "b")
+    assert fst.transform_all("aaa") == {"bbb"}
+    assert fst.transform_all("abc") == {"bbc"}
+    assert fst.transform_all("def") == {"def"}
+    assert fst.transform_all("") == {""}
+
+    fst = global_replacement_FST("abaa", "x")
+    assert fst.transform_all("abaa") == {"x"}
+    assert fst.transform_all("aabaa") == {"ax"}
+    assert fst.transform_all("abaabaa") == {"xbaa"}
+    assert fst.transform_all("abaaabaa") == {"xx"}
+    assert fst.transform_all("ab") == {"ab"}
+    assert fst.transform_all("ababaa") == {"abx"}
+    assert fst.transform_all("abaaababaa") == {"xabx"}
+    assert fst.transform_all("abacabaacabaa") == {"abacxcx"}
+
+    fst = global_replacement_FST("bcbcbacb", "x")
+    assert fst.transform_all("bbb") == {"bbb"}
+    assert fst.transform_all("bbbcbcbcbacb") == {"bbbcx"}
+    assert fst.transform_all("ccacaaaabbbcbcbcbacb") == {"ccacaaaabbbcx"}
+
+
+def test_random_global_replacement_FST():
+    alphabet = "abc"
+    for i in range(500):
+        s1 = random_string(random.randint(6, 40), alphabet)
+        s2 = random_string(random.randint(200, 1000), alphabet)
+        # insert some s1 in s2 randomly
+        s2 = list(s2)
+        for j in range(random.randint(0, 20)):
+            index = random.randint(0, len(s2))
+            s2[index:index] = list(s1)
+        s2 = ''.join(s2)
+        print(f"s1: {s1}")
+        print(f"s2: {s2}")
+        fst = global_replacement_FST(s1, "x")
+        expected = s2.replace(s1, "x")
+        assert fst.transform_all(s2) == {expected}
