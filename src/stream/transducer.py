@@ -420,6 +420,86 @@ def global_replacement_FST(s1: str, s2: str) -> FST:
     final_states = {0} | {i + m for i in range(1, m)}
     return create_fst(specs, start_state=0, final_states=final_states)
 
+def first_replacement_FST(s1: str, s2: str) -> FST:
+    m = len(s1)
+    if m == 0:
+        raise ValueError("s1 must be nonempty")
+    
+    # Compute the KMP failure function for s1.
+    failure = [0] * m
+    for i in range(1, m):
+        j = failure[i - 1]
+        while j > 0 and s1[i] != s1[j]:
+            j = failure[j - 1]
+        if s1[i] == s1[j]:
+            j += 1
+        failure[i] = j
+
+    delta_memo = {}
+    
+    def delta(i, a) -> Optional[Tuple[int, str]]:
+        key = (i, a)
+        if key in delta_memo:
+            return delta_memo[key]
+            
+        result = None
+        if a == s1[i]:
+            if i == m - 1:
+                # Full match: output s2 and go to the success state.
+                result = (-2, s2)
+            else:
+                result = (i + 1, "")
+        else:
+            if i == 0:
+                result = None
+            else:
+                k = failure[i - 1]
+                outcome = delta(k, a)
+                if outcome == None:
+                    result = None
+                else:
+                    nxt, out = outcome
+                    # Flush the part of the buffer
+                    result = (nxt, s1[:i-nxt+1])
+        
+        delta_memo[key] = result
+        return result
+
+    specs = []
+    X = set(s1)
+    
+    for i in range(m):
+        # Add explicit transition for the "good" letter.
+        outcome_good = delta(i, s1[i])
+        specs.append((i, s1[i], outcome_good[1], outcome_good[0]))
+        
+        # For letters in s1 (other than the good letter) that yield a non-generic outcome,
+        # add an explicit transition.
+        for a in X:
+            if a == s1[i]:
+                continue
+            outcome = delta(i, a)
+            if outcome != None:
+                specs.append((i, a, outcome[1], outcome[0]))
+    
+    buffer_specs = []
+    for spec in specs:
+        src, in_spec, _, tgt = spec
+        new_src = src + m if src != 0 else 0
+        if tgt == 0 or tgt == -2:
+            buffer_specs.append((new_src, in_spec, "", -1)) # abort
+        else:
+            buffer_specs.append((new_src, in_spec, "$self", tgt + m))
+
+    for i in range(1, m):
+        buffer_specs.append((i+m, "$other", "$self", 0))
+
+    specs.extend(buffer_specs)
+    specs.append((0, "$other", "$self", 0))
+    specs.append((-2, "$other", "$self", -2))
+    final_states = {0, -2} | {i + m for i in range(1, m)}
+    return create_fst(specs, start_state=0, final_states=final_states)
+
 
     
         

@@ -1,6 +1,6 @@
 import random
 import string
-from stream.transducer import global_replacement_FST, translation_FST, compression_FST, deletion_FST, cut_field_FST
+from stream.transducer import first_replacement_FST, global_replacement_FST, translation_FST, compression_FST, deletion_FST, cut_field_FST
 
 
 def random_string(length=10, letters=string.ascii_lowercase):
@@ -142,4 +142,45 @@ def test_random_global_replacement_FST():
         print(f"s2: {s2}")
         fst = global_replacement_FST(s1, "x")
         expected = s2.replace(s1, "x")
+        assert fst.transform_all(s2) == {expected}
+
+
+def test_first_replacement_FST():
+    fst = first_replacement_FST("a", "b")
+    assert fst.transform_all("aaa") == {"baa"}
+    assert fst.transform_all("abc") == {"bbc"}
+    assert fst.transform_all("def") == {"def"}
+    assert fst.transform_all("") == {""}
+
+    fst = first_replacement_FST("abaa", "x")
+    assert fst.transform_all("abaa") == {"x"}
+    assert fst.transform_all("aabaa") == {"ax"}
+    assert fst.transform_all("abaabaa") == {"xbaa"}
+    assert fst.transform_all("abaaabaa") == {"xabaa"}
+    assert fst.transform_all("ab") == {"ab"}
+    assert fst.transform_all("ababaa") == {"abx"}
+    assert fst.transform_all("abaaababaa") == {"xababaa"}
+    assert fst.transform_all("abacabaacabaa") == {"abacxcabaa"}
+
+    fst = first_replacement_FST("bcbcbacb", "x")
+    assert fst.transform_all("bbb") == {"bbb"}
+    assert fst.transform_all("bbbcbcbcbacb") == {"bbbcx"}
+    assert fst.transform_all("ccacaaaabbbcbcbcbacb") == {"ccacaaaabbbcx"}
+
+
+def test_random_first_replacement_FST():
+    alphabet = "abc"
+    for i in range(500):
+        s1 = random_string(random.randint(6, 40), alphabet)
+        s2 = random_string(random.randint(200, 1000), alphabet)
+        # insert some s1 in s2 randomly
+        s2 = list(s2)
+        for j in range(random.randint(0, 20)):
+            index = random.randint(0, len(s2))
+            s2[index:index] = list(s1)
+        s2 = ''.join(s2)
+        print(f"s1: {s1}")
+        print(f"s2: {s2}")
+        fst = first_replacement_FST(s1, "x")
+        expected = s2.replace(s1, "x", 1)
         assert fst.transform_all(s2) == {expected}
