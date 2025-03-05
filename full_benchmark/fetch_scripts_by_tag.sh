@@ -7,13 +7,15 @@
 # TAG...: the tags to look for
 # DIR: the directory to look for files in
 # OPTIONS:
+#     -s:       swap order of args ('[OPTIONS] DIR TAG...')
 #     -r:       look in subdirectories
 #     -a:       only fetch files that match all tags
-#     -e <tag>: exclude scripts containing the given tag
-#     -o <dir>: how to name the output folder (default "script_symlinks/")
-#     -v:       verbose output (announce created files)
+#     -e <tag>: exclude scripts containing the given tag (use multiple times to exclude multiple tags)
+#     -o <dir>: name of the output folder (default "script_symlinks/")
+#     -v:       verbose output (announce created symlinks)
 
 # default values
+dir_first=false
 recursive=false
 match_all=false
 output_dir="script_symlinks"
@@ -21,8 +23,11 @@ excluded_tags=""
 verbose=false
 
 # parse options using getopts
-while getopts "rao:e:v" opt; do
+while getopts "srao:e:v" opt; do
     case $opt in
+        s)
+            dir_first=true
+            ;;
         r)
             recursive=true
             ;;
@@ -54,14 +59,26 @@ if [ "$#" -lt 2 ]; then
     exit 1
 fi
 
-# remove the last argument
-i=0; len="$#"
-for arg; do
-    i=$((i + 1))
-    if [ $i = 1 ]; then set --; fi # set args to empty on first loop
-    if [ $i = $len ]; then break; fi # break before adding the last arg
-    set -- "$@" "$arg" # add the current arg
-done
+if [ "$dir_first" = false ]; then
+    # [OPTIONS] TAG... DIR
+
+    # remove the last argument
+    i=0; len="$#"
+    for arg; do
+        i=$((i + 1))
+        if [ $i = 1 ]; then set --; fi # set args to empty on first loop
+        if [ $i = $len ]; then break; fi # break before adding the last arg
+        set -- "$@" "$arg" # add the current arg
+    done
+
+    search_dir="${arg%/}" # remove trailing slash
+    search_dir="${search_dir#./}" # remove leading dot-slash
+else
+    # [OPTIONS] DIR TAG...
+
+    arg="$1"
+    shift # remove $1 from the args array
+fi
 
 search_dir="${arg%/}" # remove trailing slash
 search_dir="${search_dir#./}" # remove leading dot-slash
@@ -87,6 +104,7 @@ eval $find_cmd | while IFS= read -r filename; do
     [ -z "$tags_line" ] && continue
 
     all_matched=true
+    none_matched=true
     for tag in $(echo "$tags_line" | tr ',' ' '); do
         # if any tag of the file is excluded, move on to the next file
         for excluded_tag in $excluded_tags; do
@@ -95,7 +113,6 @@ eval $find_cmd | while IFS= read -r filename; do
             fi
         done
 
-        none_matched=true
         for search_tag; do
             if [ "$search_tag" = "$tag" ]; then
                 # at least one tag matched
