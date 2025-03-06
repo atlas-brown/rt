@@ -693,6 +693,36 @@ def ast_to_automaton(node: Node, hole_dict: Optional[dict[str, Automaton]] = Non
     automaton.minimize()
     return automaton
 
+
+def is_pure_string(s: str, mode="compat") -> bool:
+    node = RegexParser(s, mode=mode).parse()
+    def _is_pure_string(node) -> bool:
+        if isinstance(node, Literal):
+            return True
+        elif isinstance(node, Concatenate):
+            return all(_is_pure_string(child) for child in node.nodes)
+        elif isinstance(node, CharacterClass):
+            if node.negate:
+                return False
+            if len(node.items) == 1 and isinstance(node.items[0], Literal):
+                return True
+        return False
+    return _is_pure_string(node)
+
+def convert_to_pure_string(s: str, mode="compat") -> Optional[str]:
+    if not is_pure_string(s, mode=mode):
+        return None
+    node = RegexParser(s, mode=mode).parse()
+    def _convert_to_pure_string(node) -> str:
+        if isinstance(node, Literal):
+            return node.char
+        elif isinstance(node, Concatenate):
+            return "".join(_convert_to_pure_string(child) for child in node.nodes)
+        elif isinstance(node, CharacterClass):
+            return node.items[0].char
+        return None
+    return _convert_to_pure_string(node)
+
 if __name__ == "__main__":
     pattern = "~(.*{{a}}.*)&(a{1,3}{{b}}[ab-e[:digit:]]{3,10}[^ab])+"
     mode = "compat"

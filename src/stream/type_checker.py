@@ -135,6 +135,10 @@ class TypeChecker:
                             return checking_result
 
                 previous_output_type = current_output_type
+                logging.debug("-"*60)
+                logging.debug(f"current command: {signature.command_name}")
+                logging.debug(f"Output type: {current_output_type}")
+                logging.debug("-"*60)
 
         except ToolError as e:
             checking_result.set_ill_typed(True)

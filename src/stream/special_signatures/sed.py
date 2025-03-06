@@ -2,6 +2,8 @@ import re
 from command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
+from stream.regex_parser import convert_to_pure_string, is_pure_string
+from stream.transducer import global_regex_replacement_FST, global_replacement_FST, product_fst_automaton
 
 class SedSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -60,6 +62,21 @@ class SedSignature(CommandSignature):
                 match = re.search(r'(\\+)$', parts[1])
                 if match and (len(match.group(1)) % 2 == 1):
                     parts[1] = parts[1] + delimiter
+                
+                if is_pure_string(parts[1]):
+                    fst = global_replacement_FST(parts[1], parts[2])
+                    nfa = product_fst_automaton(fst, previous_output_type.nfa)
+                    print("nfa", nfa)
+                    print("fst", fst)
+                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+                else:
+                    automata = RegularType(parts[1]).nfa
+                    fst = global_regex_replacement_FST(automata, parts[2])
+                    nfa = product_fst_automaton(fst, previous_output_type.nfa)
+                    print("nfa", nfa)
+                    print("fst", fst)
+                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+                    
                 return previous_output_type & ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation)

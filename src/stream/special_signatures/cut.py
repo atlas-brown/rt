@@ -5,7 +5,7 @@ from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from stream.tool_error import ToolError
-from stream.transducer import cut_FST, product_fst_automaton
+from stream.transducer import cut_field_FST, product_fst_automaton
 
 class CutSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -90,7 +90,7 @@ class CutSignature(CommandSignature):
             field_num = max(args)
             if field_num == -1:
                 return RegularType(".*")
-            fst = cut_FST(delimiter, args)
+            fst = cut_field_FST(delimiter, args)
             return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
 
         

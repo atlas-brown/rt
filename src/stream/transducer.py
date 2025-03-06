@@ -21,12 +21,13 @@ class FST_State:
         return f"FST_State(id={self.id}, accept={self.accept})\n" + "\n".join(f"  {t}" for t in self.transitions) + "\n"
 
 class FST_Transition:
-    def __init__(self, min: Optional[str], max: Optional[str], output_func: Callable[[str], str], to: FST_State, is_other: bool = False) -> None:
+    def __init__(self, min: Optional[str], max: Optional[str], output: str, to: FST_State, is_other: bool = False, is_other_not_consume = False) -> None:
         self.min: Optional[str] = min
         self.max: Optional[str] = max
-        self.output_func: Callable[[str], str] = output_func
+        self.output: str = output
         self.to: FST_State = to
         self.is_other: bool = is_other
+        self.is_other_not_consume: bool = is_other_not_consume
 
     def applies(self, c: str) -> bool:
         if self.min is None or self.max is None:
@@ -34,14 +35,32 @@ class FST_Transition:
         return ord(self.min) <= ord(c) <= ord(self.max)
 
     def transform(self, c: str) -> str:
-        return self.output_func(c)
+        if self.output == "$self":
+            return c
+        elif "$self" in self.output:
+            return self.output.replace("$self", c)
+        elif "--" in self.output:
+            parts = self.output.split("--")
+            if len(parts) != 2:
+                raise ToolError(f"Invalid transition output: {self.output}")
+            min_out, max_out = parts[0], parts[1]
+            if ord(min_out) > ord(max_out):
+                raise ToolError(f"Invalid transition output: {self.output}")
+            return chr(min(ord(min_out) + ord(c) - ord(self.min), ord(max_out)))
+        else:
+            return self.output
     
     def __repr__(self) -> str:
-        min_out = self.output_func(self.min)
-        max_out = self.output_func(self.max)
+        min_out = self.transform(self.min)
+        max_out = self.transform(self.max)
         if len(min_out) == 1 and len(max_out) == 1:
             return f"FST_Transition(min={ord(self.min)}, max={ord(self.max)}, min_out={ord(min_out)}, max_out={ord(max_out)}, to={self.to.id})"
-        return f"FST_Transition(min={ord(self.min)}, max={ord(self.max)}, output='{min_out}', to={self.to.id})"
+        elif min_out == max_out:
+            return f"FST_Transition(min={ord(self.min)}, max={ord(self.max)}, out='{min_out}', to={self.to.id})"
+        elif isinstance(self.output, str):
+            if self.output.endswith("$self"):
+                return f"FST_Transition(min={ord(self.min)}, max={ord(self.max)}, min_out='{self.output[:-5]}'{ord(self.min)}, max_out='{self.output[:-5]}'{ord(self.max)}, to={self.to.id})"
+        return f"FST_Transition(min={ord(self.min)}, max={ord(self.max)}, out='{min_out}--{max_out}', to={self.to.id})"
 
 class FST:
     def __init__(self) -> None:
@@ -66,25 +85,17 @@ class FST:
     def add_transition(self, from_state_id: int, min_in: str, max_in: Optional[str], output: str, next_state_id: int) -> None:
         from_state = self.add_state(from_state_id)
         next_state = self.add_state(next_state_id)
+        is_other = False
+        is_other_not_consume = False
         if min_in == "$other":
             is_other = True
             start_val, end_val = None, None
+        elif min_in == "$other_not_consume":
+            is_other_not_consume = True
+            start_val, end_val = None, None
         else:
-            is_other = False
             start_val, end_val = min_in, max_in
-        if output == "$self":
-            output_func: Callable[[str], str] = lambda c: c
-        elif "--" in output:
-            parts = output.split("--")
-            if len(parts) != 2:
-                raise ToolError(f"Invalid transition output: {output}")
-            min_out, max_out = parts[0], parts[1]
-            if ord(min_out) > ord(max_out):
-                raise ToolError(f"Invalid transition output: {output}")
-            output_func = lambda c, min_in=min_in, min_out=min_out, max_out=max_out: chr(min(ord(min_out) + ord(c) - ord(min_in), ord(max_out)))
-        else:
-            output_func = lambda c, o=output: o
-        trans = FST_Transition(start_val, end_val, output_func, to=next_state, is_other=is_other)
+        trans = FST_Transition(start_val, end_val, output, to=next_state, is_other=is_other, is_other_not_consume=is_other_not_consume)
         from_state.add_transition(trans)
 
     def _merge_intervals(self, intervals: List[Tuple[int, int]]) -> List[Tuple[int, int]]:
@@ -128,9 +139,30 @@ class FST:
                 for comp_min, comp_max in complement:
                     new_min = chr(comp_min)
                     new_max = chr(comp_max)
-                    new_trans = FST_Transition(new_min, new_max, other.output_func, to=other.to, is_other=False)
+                    new_trans = FST_Transition(new_min, new_max, other.output, to=other.to, is_other=False)
                     state.add_transition(new_trans)
             state.transitions = [t for t in state.transitions if not t.is_other]
+
+    def _process_other_not_consume_transitions(self) -> None:
+        for state in self.states.values():
+            other_transitions: List[FST_Transition] = [t for t in state.transitions if t.is_other_not_consume]
+            if not other_transitions:
+                continue
+            explicit_intervals: List[Tuple[int, int]] = []
+            for t in state.transitions:
+                if not t.is_other_not_consume and t.min is not None and t.max is not None:
+                    explicit_intervals.append((ord(t.min), ord(t.max)))
+            merged = self._merge_intervals(explicit_intervals)
+            complement = self._compute_complement_intervals(merged)
+            for other in other_transitions:
+                for comp_min, comp_max in complement:
+                    for des_transition in other.to.transitions:
+                        if comp_max >= ord(des_transition.min) and comp_min <= ord(des_transition.max):
+                            new_min = chr(comp_min) if comp_min > ord(des_transition.min) else des_transition.min
+                            new_max = chr(comp_max) if comp_max < ord(des_transition.max) else des_transition.max
+                            new_trans = FST_Transition(new_min, new_max, other.output + des_transition.output, to=des_transition.to)
+                            state.add_transition(new_trans)
+            state.transitions = [t for t in state.transitions if not t.is_other_not_consume]
 
     def transform_all(self, input_string: str) -> Set[str]:
         if self.initial is None:
@@ -160,6 +192,8 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
         from_state, input_range, output, next_state = spec
         if input_range == "$other":
             fst.add_transition(from_state, "$other", None, output, next_state)
+        elif input_range == "$other_not_consume":
+            fst.add_transition(from_state, "$other_not_consume", None, output, next_state)
         else:
             if '--' in input_range:
                 parts = input_range.split('--')
@@ -173,6 +207,7 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
     for fs in final_states:
         fst.set_accept(fs)
     fst._process_other_transitions()
+    fst._process_other_not_consume_transitions()
     return fst
 
 
@@ -200,25 +235,54 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                         new_states[p] = s
                         worklist.append(p)
                     s = new_states[p]
-                    min = t_fst.min if ord(t_fst.min) > ord(t_automaton.getMin()) else t_automaton.getMin()
-                    max = t_fst.max if ord(t_fst.max) < ord(t_automaton.getMax()) else t_automaton.getMax()
-                    min_out = t_fst.output_func(min)
-                    max_out = t_fst.output_func(max)
+                    min_in = t_fst.min if ord(t_fst.min) > ord(t_automaton.getMin()) else t_automaton.getMin()
+                    max_in = t_fst.max if ord(t_fst.max) < ord(t_automaton.getMax()) else t_automaton.getMax()
+                    min_out = t_fst.transform(min_in)
+                    max_out = t_fst.transform(max_in)
                     if len(min_out) == 0 or len(max_out) == 0:
                         if min_out != max_out:
                             raise ToolError(f"Output range not supported: {min_out}--{max_out}")
                         empty_transitions.add((s_product, s))
                     elif len(min_out) > 1 or len(max_out) > 1:
-                        if min_out != max_out:
-                            raise ToolError(f"Output range not supported: {min_out}--{max_out}")
-                        current_state = s_product
-                        for i, c in enumerate(min_out):
-                            if i != len(min_out) - 1:
-                                s_1 = State()
-                                current_state.addTransition(Transition(c, c, s_1))
-                                current_state = s_1
-                            else:
-                                current_state.addTransition(Transition(c, c, s))
+                        # if min_out != max_out:
+                        #     raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                        if isinstance(t_fst.output, str):
+                            if not t_fst.output.endswith("$self") and not t_fst.output.startswith("$self"):
+                                raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                            if t_fst.output.endswith("$self"):
+                                min_out = t_fst.output[:-5]
+                                max_out = t_fst.output[:-5]
+                                if min_out != max_out:
+                                    raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                                current_state = s_product
+                                for i, c in enumerate(min_out):
+                                    s_1 = State()
+                                    current_state.addTransition(Transition(c, c, s_1))
+                                    current_state = s_1
+                                current_state.addTransition(Transition(min_in, max_in, s))
+                            if t_fst.output.startswith("$self"):
+                                min_out = t_fst.output[5:]
+                                max_out = t_fst.output[5:]
+                                if min_out != max_out:
+                                    raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                                current_state = State()
+                                s_product.addTransition(Transition(min_in, max_in, current_state))
+                                for i, c in enumerate(min_out):
+                                    if i != len(min_out) - 1:
+                                        s_1 = State()
+                                        current_state.addTransition(Transition(c, c, s_1))
+                                        current_state = s_1
+                                    else:
+                                        current_state.addTransition(Transition(c, c, s))
+                        else:
+                            current_state = s_product
+                            for i, c in enumerate(min_out):
+                                if i != len(min_out) - 1:
+                                    s_1 = State()
+                                    current_state.addTransition(Transition(c, c, s_1))
+                                    current_state = s_1
+                                else:
+                                    current_state.addTransition(Transition(c, c, s))
                     else:
                         s_product.addTransition(Transition(min_out, max_out, s))
 
@@ -501,36 +565,97 @@ def first_replacement_FST(s1: str, s2: str) -> FST:
     return create_fst(specs, start_state=0, final_states=final_states)
 
 
+def global_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
+    # FIXME: incorrect leftmost longest match: can handle: aa?; but cannot handle a(aa)?
+    # FIXME: there is no failure function for regex now: cannot handle repalce a.a with x in aaba
+    # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
+
+    # 3 modes
+    # match: the original automaton i
+    # buffer: the buffer automaton i + num_states
+    # success: the success automaton i + 2 * num_states
+    # buffer success: the success automaton i + 3 * num_states
+    # new initial state: -1
+    if automaton.isEmpty():
+        raise ToolError("pattern regex is empty")
+    if automaton.isEmptyString():
+        raise ToolError("pattern regex is empty string")
+    # pattern = automaton.getSingleton()
+    # if pattern is None:
+    #     return global_replacement_FST(pattern, s2)
+    state_map: Dict[State, int] = {}
+    specs = []
+    states = automaton.getStates()
+    num_states = len(states)
+    for i, state in enumerate(states):
+        state_map[state] = i
+    initial_state = state_map[automaton.getInitialState()]
+    new_initial_state = -1
+    abort_state = -2
+    final_states = {state_map[state] for state in automaton.getAcceptStates()}
+    for state in automaton.getStates():
+        state_id = state_map[state]
+        for trans in state.getSortedTransitions(True):
+            min_char = trans.getMin()
+            max_char = trans.getMax()
+            input_range = min_char + "--" + max_char
+            dest_state_id = state_map[trans.getDest()]
+            # match mode
+            if state_id not in final_states:
+                if dest_state_id in final_states:
+                    if state_id == initial_state:
+                        specs.append((new_initial_state, input_range, "", dest_state_id + 2 * num_states))
+                        specs.append((new_initial_state, input_range, s2, dest_state_id + 3 * num_states))
+                    specs.append((state_id, input_range, "", dest_state_id + 2 * num_states))
+                    specs.append((state_id, input_range, s2, dest_state_id + 3 * num_states))
+                else: # if the destination state is not final state
+                    if state_id == initial_state:
+                        specs.append((new_initial_state, input_range, "", dest_state_id))
+                    specs.append((state_id, input_range, "", dest_state_id))
+            elif state_id == initial_state: # if the initial state is final state
+                if dest_state_id in final_states:
+                    specs.append((new_initial_state, input_range, "", dest_state_id + 2 * num_states))
+                    specs.append((new_initial_state, input_range, s2, dest_state_id + 3 * num_states))
+                
+            
+            # buffer mode
+            if state_id not in final_states: # abort because buffer is not needed
+                if dest_state_id not in final_states:
+                    if state_id == initial_state:
+                        specs.append((new_initial_state, input_range, "$self", dest_state_id + num_states))
+                    specs.append((state_id + num_states, input_range, "$self", dest_state_id + num_states))
+                else:
+                    specs.append((state_id + num_states, input_range, "$self", abort_state))
+            
+            # success mode
+            if state_id in final_states and dest_state_id in final_states:
+                specs.append((state_id + 2 * num_states, input_range, "", dest_state_id + 2 * num_states))
+
+            # buffer success mode
+            if state_id in final_states and dest_state_id in final_states:
+                specs.append((state_id + 3 * num_states, input_range, "", dest_state_id + 3 * num_states))
     
+    for state in automaton.getStates():
+        state_id = state_map[state]
+        if state_id in final_states:
+            # success mode return to initial state
+            specs.append((state_id + 2 * num_states, "$other_not_consume", s2, new_initial_state))
+        else:
+            # buffer mode return to initial state
+            specs.append((state_id + num_states, "$other_not_consume", "", new_initial_state))
+
+
+    if initial_state not in final_states:
+        specs.append((new_initial_state, "$other", "$self", new_initial_state))
+    else:
+        specs.append((new_initial_state, "$other", "$self" + s2, new_initial_state))
+    
+    final_states = {new_initial_state} | {i + 3 * num_states for i in final_states} | {i + num_states for i in range(num_states)}
         
+    return create_fst(specs, start_state=new_initial_state, final_states=final_states)
 
-
-        
-
-
-
-    
-
-    
 
 if __name__ == '__main__':
-    # specs = [
-    #     (0, "a-z", "self", 0),
-    #     (0, "a-z", "+", 0),
-    #     (0, "A-Z", "self", 0),
-    #     (0, "A-Z", "+", 0),
-    #     (0, "0-9", "self", 0),
-    #     (0, "other", "-", 0)
-    # ]
-    # fst = create_fst(specs, start_state=0, final_states={0})
-    # test_str = "Hello123 世界"
-    # try:
-    #     result = fst.transform_all(test_str)
-    #     print("output:", result)
-    # except Exception as e:
-    #     print("Transformation failed:", e)
-
-
     regex = RegExp("[P-Z]+[a-z][0-9]+")
     automaton = regex.toAutomaton()
     specs = [
