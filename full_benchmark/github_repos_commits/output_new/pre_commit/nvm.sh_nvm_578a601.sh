@@ -142,7 +142,8 @@ nvm_ls() {
 # - | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n`
 # + | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v '^ *\.'`
 ################################################################################
-# put stream annotation here
+# node has version numbers of the form 'v0.12.13' and 'v22.14.0' etc
+# @output "v[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}"
 # stream enable
       | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n`
   fi
