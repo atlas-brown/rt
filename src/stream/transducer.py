@@ -246,7 +246,7 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                     elif len(min_out) > 1 or len(max_out) > 1:
                         # if min_out != max_out:
                         #     raise ToolError(f"Output range not supported: {min_out}--{max_out}")
-                        if isinstance(t_fst.output, str):
+                        if "$self" in t_fst.output:
                             if not t_fst.output.endswith("$self") and not t_fst.output.startswith("$self"):
                                 raise ToolError(f"Output range not supported: {min_out}--{max_out}")
                             if t_fst.output.endswith("$self"):
