@@ -455,69 +455,6 @@ def escape_char_class(ch):
     if ch in "\\]":
         return "\\" + ch
     return ch
-
-def _ast_to_regex(node, parent_prec=0):
-    my_prec = get_prec(node)
-    if isinstance(node, Literal):
-        if node.char == "":
-            s = "()"
-        else:
-            s = escape_literal(node.char)
-    elif isinstance(node, Dot):
-        s = "."
-    elif isinstance(node, Concatenate):
-        s = "".join(_ast_to_regex(child, get_prec(node)) for child in node.nodes)
-    elif isinstance(node, Repeat):
-        base = _ast_to_regex(node.node, get_prec(node))
-        if node.min == 0 and node.max is None:
-            quant = "*"
-        elif node.min == 1 and node.max is None:
-            quant = "+"
-        elif node.min == 0 and node.max == 1:
-            quant = "?"
-        elif node.max is None:
-            quant = "{" + str(node.min) + ",}"
-        elif node.min == node.max:
-            quant = "{" + str(node.min) + "}"
-        else:
-            quant = "{" + str(node.min) + "," + str(node.max) + "}"
-        s = base + quant
-    elif isinstance(node, CharacterClass):
-        s = "["
-        if node.negate:
-            s += "^"
-        for item in node.items:
-            if isinstance(item, Range):
-                s += escape_char_class(item.start) + "-" + escape_char_class(item.end)
-            elif isinstance(item, PosixClass):
-                s += "[:{}:]".format(item.name)
-            elif isinstance(item, Literal):
-                s += escape_char_class(item.char)
-            else:
-                s += _ast_to_regex(item)
-        s += "]"
-    elif isinstance(node, Intersection):
-        left = _ast_to_regex(node.left, get_prec(node))
-        right = _ast_to_regex(node.right, get_prec(node)+1)
-        s = left + "&" + right
-    elif isinstance(node, Complement):
-        s = "~" + _ast_to_regex(node.node, get_prec(node))
-    elif isinstance(node, Union):
-        left = _ast_to_regex(node.left, get_prec(node))
-        right = _ast_to_regex(node.right, get_prec(node)+1)
-        s = left + "|" + right
-    elif isinstance(node, StartAnchor):
-        s = "^"
-    elif isinstance(node, EndAnchor):
-        s = "$"
-    elif isinstance(node, Hole):
-        s = f"{{{{{node.name}}}}}"
-    else:
-        s = ""
-    if my_prec < parent_prec:
-        return "(" + s + ")"
-    else:
-        return s
     
 
 def ast_to_z3(node):
@@ -610,83 +547,144 @@ def ast_to_z3(node):
         raise ValueError(f"Unknown node type: {node}")
 
 def ast_to_regex(ast):
+    def _ast_to_regex(node, parent_prec=0):
+        my_prec = get_prec(node)
+        if isinstance(node, Literal):
+            if node.char == "":
+                s = "()"
+            else:
+                s = escape_literal(node.char)
+        elif isinstance(node, Dot):
+            s = "."
+        elif isinstance(node, Concatenate):
+            s = "".join(_ast_to_regex(child, get_prec(node)) for child in node.nodes)
+        elif isinstance(node, Repeat):
+            base = _ast_to_regex(node.node, get_prec(node))
+            if node.min == 0 and node.max is None:
+                quant = "*"
+            elif node.min == 1 and node.max is None:
+                quant = "+"
+            elif node.min == 0 and node.max == 1:
+                quant = "?"
+            elif node.max is None:
+                quant = "{" + str(node.min) + ",}"
+            elif node.min == node.max:
+                quant = "{" + str(node.min) + "}"
+            else:
+                quant = "{" + str(node.min) + "," + str(node.max) + "}"
+            s = base + quant
+        elif isinstance(node, CharacterClass):
+            s = "["
+            if node.negate:
+                s += "^"
+            for item in node.items:
+                if isinstance(item, Range):
+                    s += escape_char_class(item.start) + "-" + escape_char_class(item.end)
+                elif isinstance(item, PosixClass):
+                    s += "[:{}:]".format(item.name)
+                elif isinstance(item, Literal):
+                    s += escape_char_class(item.char)
+                else:
+                    s += _ast_to_regex(item)
+            s += "]"
+        elif isinstance(node, Intersection):
+            left = _ast_to_regex(node.left, get_prec(node))
+            right = _ast_to_regex(node.right, get_prec(node)+1)
+            s = left + "&" + right
+        elif isinstance(node, Complement):
+            s = "~" + _ast_to_regex(node.node, get_prec(node))
+        elif isinstance(node, Union):
+            left = _ast_to_regex(node.left, get_prec(node))
+            right = _ast_to_regex(node.right, get_prec(node)+1)
+            s = left + "|" + right
+        elif isinstance(node, StartAnchor):
+            s = "^"
+        elif isinstance(node, EndAnchor):
+            s = "$"
+        elif isinstance(node, Hole):
+            s = f"{{{{{node.name}}}}}"
+        else:
+            s = ""
+        if my_prec < parent_prec:
+            return "(" + s + ")"
+        else:
+            return s
     return _ast_to_regex(ast, 0)
 
 
-def _ast_to_automaton(node: Node, hole_dict: Optional[dict[str, Automaton]] = None) -> Automaton:
-    if hole_dict is None:
-        hole_dict = {}
-
-    if isinstance(node, Literal):
-        if node.char == "":
-            return BasicAutomata.makeEmptyString()
-        return BasicAutomata.makeChar(node.char)
-    elif isinstance(node, Dot):
-        return BasicAutomata.makeAnyChar()
-    elif isinstance(node, Concatenate):
-        children = jpype.JClass("java.util.ArrayList")()
-        for child in node.nodes:
-            children.add(ast_to_automaton(child, hole_dict))
-        return BasicOperations.concatenate(children)
-    elif isinstance(node, Repeat):
-        base = ast_to_automaton(node.node, hole_dict)
-        if node.max is None:
-            return BasicOperations.repeat(base, node.min)
-        return BasicOperations.repeat(base, node.min, node.max)
-    elif isinstance(node, CharacterClass):
-        children = jpype.JClass("java.util.ArrayList")()
-        for item in node.items:
-            children.add(ast_to_automaton(item, hole_dict))
-        if node.negate:
-            return BasicOperations.minus(BasicAutomata.makeAnyChar(), BasicOperations.union(children))
-        return BasicOperations.union(children)
-    elif isinstance(node, Range):
-        return BasicAutomata.makeCharRange(node.start, node.end)
-    elif isinstance(node, Intersection):
-        return BasicOperations.intersection(ast_to_automaton(node.left, hole_dict), ast_to_automaton(node.right, hole_dict))
-    elif isinstance(node, Complement):
-        return BasicOperations.minus(BasicAutomata.makeAnyString(), ast_to_automaton(node.node, hole_dict))
-    elif isinstance(node, Union):
-        return BasicOperations.union(ast_to_automaton(node.left, hole_dict), ast_to_automaton(node.right, hole_dict))
-    elif isinstance(node, StartAnchor):
-        return BasicAutomata.makeEmptyString()
-    elif isinstance(node, EndAnchor):
-        return BasicAutomata.makeEmptyString()
-    elif isinstance(node, Hole):
-        if node.name in hole_dict:
-            return hole_dict[node.name]
-        else:
-            raise ValueError(f"Hole '{node.name}' not provided in hole_dict")
-    elif isinstance(node, PosixClass):
-        name = node.name
-        if name == "upper":
-            return RegExp("[A-Z]").toAutomaton()
-        elif name == "lower":
-            return RegExp("[a-z]").toAutomaton()
-        elif name == "alpha":
-            return RegExp("[A-Za-z]").toAutomaton()
-        elif name == "digit":
-            return RegExp("[0-9]").toAutomaton()
-        elif name == "xdigit":
-            return RegExp("[0-9A-Fa-f]").toAutomaton()
-        elif name == "alnum":
-            return RegExp("[A-Za-z0-9]").toAutomaton()
-        elif name == "punct":
-            return RegExp("[!-/:-@[-`{-~]").toAutomaton()
-        elif name == "blank":
-            return RegExp("[ \t]").toAutomaton()
-        elif name == "space":
-            return RegExp("[ \t\n\r\v\f]").toAutomaton()
-        elif name == "cntrl":
-            return BasicOperations.union(BasicAutomata.makeCharRange(chr(0), chr(31)), BasicAutomata.makeChar(chr(127)))
-        elif name == "graph" or name == "print":
-            return BasicAutomata.makeCharRange(chr(33), chr(126))
-        else:
-            raise ValueError(f"Unknown POSIX character class: {name}")
-    else:
-        raise ValueError(f"Unknown node type: {node}")
-
 def ast_to_automaton(node: Node, hole_dict: Optional[dict[str, Automaton]] = None) -> Automaton:
+    def _ast_to_automaton(node: Node, hole_dict: Optional[dict[str, Automaton]] = None) -> Automaton:
+        if hole_dict is None:
+            hole_dict = {}
+
+        if isinstance(node, Literal):
+            if node.char == "":
+                return BasicAutomata.makeEmptyString()
+            return BasicAutomata.makeChar(node.char)
+        elif isinstance(node, Dot):
+            return BasicAutomata.makeAnyChar()
+        elif isinstance(node, Concatenate):
+            children = jpype.JClass("java.util.ArrayList")()
+            for child in node.nodes:
+                children.add(ast_to_automaton(child, hole_dict))
+            return BasicOperations.concatenate(children)
+        elif isinstance(node, Repeat):
+            base = ast_to_automaton(node.node, hole_dict)
+            if node.max is None:
+                return BasicOperations.repeat(base, node.min)
+            return BasicOperations.repeat(base, node.min, node.max)
+        elif isinstance(node, CharacterClass):
+            children = jpype.JClass("java.util.ArrayList")()
+            for item in node.items:
+                children.add(ast_to_automaton(item, hole_dict))
+            if node.negate:
+                return BasicOperations.minus(BasicAutomata.makeAnyChar(), BasicOperations.union(children))
+            return BasicOperations.union(children)
+        elif isinstance(node, Range):
+            return BasicAutomata.makeCharRange(node.start, node.end)
+        elif isinstance(node, Intersection):
+            return BasicOperations.intersection(ast_to_automaton(node.left, hole_dict), ast_to_automaton(node.right, hole_dict))
+        elif isinstance(node, Complement):
+            return BasicOperations.minus(BasicAutomata.makeAnyString(), ast_to_automaton(node.node, hole_dict))
+        elif isinstance(node, Union):
+            return BasicOperations.union(ast_to_automaton(node.left, hole_dict), ast_to_automaton(node.right, hole_dict))
+        elif isinstance(node, StartAnchor):
+            return BasicAutomata.makeEmptyString()
+        elif isinstance(node, EndAnchor):
+            return BasicAutomata.makeEmptyString()
+        elif isinstance(node, Hole):
+            if node.name in hole_dict:
+                return hole_dict[node.name]
+            else:
+                raise ValueError(f"Hole '{node.name}' not provided in hole_dict")
+        elif isinstance(node, PosixClass):
+            name = node.name
+            if name == "upper":
+                return RegExp("[A-Z]").toAutomaton()
+            elif name == "lower":
+                return RegExp("[a-z]").toAutomaton()
+            elif name == "alpha":
+                return RegExp("[A-Za-z]").toAutomaton()
+            elif name == "digit":
+                return RegExp("[0-9]").toAutomaton()
+            elif name == "xdigit":
+                return RegExp("[0-9A-Fa-f]").toAutomaton()
+            elif name == "alnum":
+                return RegExp("[A-Za-z0-9]").toAutomaton()
+            elif name == "punct":
+                return RegExp("[!-/:-@[-`{-~]").toAutomaton()
+            elif name == "blank":
+                return RegExp("[ \t]").toAutomaton()
+            elif name == "space":
+                return RegExp("[ \t\n\r\v\f]").toAutomaton()
+            elif name == "cntrl":
+                return BasicOperations.union(BasicAutomata.makeCharRange(chr(0), chr(31)), BasicAutomata.makeChar(chr(127)))
+            elif name == "graph" or name == "print":
+                return BasicAutomata.makeCharRange(chr(33), chr(126))
+            else:
+                raise ValueError(f"Unknown POSIX character class: {name}")
+        else:
+            raise ValueError(f"Unknown node type: {node}")
     automaton = _ast_to_automaton(node, hole_dict)
     automaton.setDeterministic(False)
     automaton.removeDeadTransitions()

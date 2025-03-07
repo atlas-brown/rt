@@ -36,6 +36,7 @@ class SedSignature(CommandSignature):
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation):
         operands = super().get_operands(parsed_command_invocation)
+        parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if len(operands) == 0:
             raise ToolError("No operand provided for sed")
         operand = operands[0]
@@ -63,14 +64,16 @@ class SedSignature(CommandSignature):
                 if match and (len(match.group(1)) % 2 == 1):
                     parts[1] = parts[1] + delimiter
                 
-                if is_pure_string(parts[1]):
-                    fst = global_replacement_FST(parts[1], parts[2])
+                mode = "extended" if "-E" in parsed_flags else "basic"
+                if is_pure_string(parts[1], mode):
+                    s1 = convert_to_pure_string(parts[1], mode)
+                    fst = global_replacement_FST(s1, parts[2])
                     nfa = product_fst_automaton(fst, previous_output_type.nfa)
                     print("nfa", nfa)
                     print("fst", fst)
                     return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
                 else:
-                    automata = RegularType(parts[1]).nfa
+                    automata = RegularType(parts[1], mode).nfa
                     fst = global_regex_replacement_FST(automata, parts[2])
                     nfa = product_fst_automaton(fst, previous_output_type.nfa)
                     print("nfa", nfa)

@@ -220,6 +220,9 @@ def test_global_regex_replacement_FST():
     assert fst.transform_all("fred123") == {"george"}
     assert fst.transform_all("fred") == {"fred"}
     assert fst.transform_all("fred123fred123") == {"georgegeorge"}
-    assert fst.transform_all("fred123xfred123") == {"georgexgeorge"}
+    assert fst.transform_all("fred123afred123") == {"georgeageorge"}
+    assert fst.transform_all("fred123ffred123") == {"georgefgeorge"}
+    assert fst.transform_all("fred123fredfred123") == {"georgefredgeorge"}
+    assert fst.transform_all("fredfred123fredfred123fred") == {"fredgeorgefredgeorgefred"}
 
 

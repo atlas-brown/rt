@@ -392,6 +392,17 @@ def cut_field_FST(delimiter: str, fields: List[int]) -> FST:
     specs.append((max_field + 1, "$other", "", max_field + 1))
     return create_fst(specs, start_state=1, final_states={i for i in range(1, max_field + 2)})
 
+def cut_field_no_upperbound_FST(delimiter: str, start_field: int, leading_delimiter : bool = False) -> FST:
+    specs = []
+    for i in range(1, start_field):
+        if i == start_field - 1 and leading_delimiter:
+            specs.append((i, delimiter, "$self", i + 1))
+        else:
+            specs.append((i, delimiter, "", i + 1))
+
+    specs.append((start_field, "$other", "$self", start_field))
+    return create_fst(specs, start_state=1, final_states={i for i in range(1, start_field + 1)})
+
 def cut_char_FST(fields: List[int]) -> FST:
     specs = []
     max_field = max(fields)
@@ -404,6 +415,12 @@ def cut_char_FST(fields: List[int]) -> FST:
     return create_fst(specs, start_state=1, final_states={i for i in range(1, max_field + 2)})
 
 
+def cut_char_no_upperbound_FST(start_field: int) -> FST:
+    specs = []
+    for i in range(1, start_field):
+        specs.append((i, "$other", "", i + 1))
+    specs.append((start_field, "$other", "$self", start_field))
+    return create_fst(specs, start_state=1, final_states={i for i in range(1, start_field + 1)})
 
 def global_replacement_FST(s1: str, s2: str) -> FST:
     m = len(s1)
