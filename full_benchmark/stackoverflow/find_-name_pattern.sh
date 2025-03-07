@@ -6,5 +6,6 @@
 # intent: calculate md5sum of files with names NOT ending with a '~'
 # ---
 
-# @assert "find /path/to/ -type f ! -name "*~" -print0" --> "(.*[^~])?"
+# stream enable
+# @assert "find /path/to/ -type f ! -name "*~" -print0" --> "(?!.*~)"
 find /path/to/ -type f ! -name "*~" -print0 | xargs -0 md5sum

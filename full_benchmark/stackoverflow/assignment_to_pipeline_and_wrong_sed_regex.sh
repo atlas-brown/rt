@@ -5,6 +5,7 @@
 # tags: buggy, semantic_bug, line_annot, stream_annot, multiple_annot, sed
 # bug:  variable assignment piped to sed
 # bug:  sed regex is wrong
+# note: heuristic of guaranteed empty output should be sufficient here, no annotations necessary?
 # ---
 
 # input:
@@ -14,6 +15,7 @@
 file=commit.txt
 while IFS= read line; do
 
+    # stream enable
     # @expect "dummy statement Hello world\ndummy 1 statement Hello Mike" --> "sed "s/  HELLO.*'[^']*'/ /""
     # @expect ".*Hello.*" --> "sed "s/  HELLO.*'[^']*'/ /""
     # @expect ".+" --> "sed "s/  HELLO.*'[^']*'/ /""

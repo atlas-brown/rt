@@ -17,6 +17,7 @@ else
     echo "File(s) List"
     echo "$list"
 
+    # stream enable
     result=$(grep -v "word2" $list | grep -rHn "word1" $list)
     if [ $? -ne 0 ]; then
         echo "Word not found"

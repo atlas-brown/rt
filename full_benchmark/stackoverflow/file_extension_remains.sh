@@ -10,8 +10,8 @@
 # regex matches 0 or more nonempty lines, each containing a filename
 # that does not itself contain '/' or an extension
 
-# @expect [^\/\.\n]* --> "sort"
-# @expect "([^\/\.\n]+\n)*" --> "sort"
+# stream enable
+# @expect "[^\.]*" --> "sort"
 (find . -printf '%P\n' | grep -v Dir2 && find Dir2/ -printf '%P\n' && find Dir2/ -printf '%P\n') |
     sort |
     uniq -u

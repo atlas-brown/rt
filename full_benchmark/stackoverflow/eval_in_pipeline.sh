@@ -28,13 +28,15 @@ tag="test tag"
 msg=$filename$tag$addl_data$hash
 echo "Prepared Message is - $msg"
 
-# @expect "([a-f0-9]{2})*" --> "tr -d '\040\011\012\015'"
+# stream enable
+# @expect "([a-f0-9]{2})+" --> "tr -d '\040\011\012\015'"
 msg_hex_wn=$(xxd -ps <<< "$msg") | tr -d '\040\011\012\015'
 # fix: msg_hex_wn=$(xxd -ps <<< "$msg" | tr -d '\040\011\012\015')
 
 echo "Message in hex - $msg_hex_wn"
 echo "\n"
-# @expect "([a-f0-9]{2})*" --> "tr -d '\040\011\012\015'"
+# stream enable
+# @expect "([a-f0-9]{2})+" --> "tr -d '\040\011\012\015'"
 echo $(xxd  -ps <<< "$msg") | tr -d '\040\011\012\015'
 
 # signing the message in hex

@@ -8,7 +8,9 @@
 # bug:    'grep -v grep' receives numeric input (pids)
 # ---
 
+# stream enable
 # @assert "awk '{print $2}'" --> "([0-9]+)?"
 # @assert "awk '{print $2}'" --> "(([0-9]+)\n)*"
+# @assume "ps -ef" --> "[^ \t]+ +(PID|[0-9]+) +.*"
 ps -ef | grep celery | awk '{print $2}' | grep -v grep | xargs kill -9;
 celery -A loan_app.tasks worker --loglevel=info  --workdir=`pwd` --logfile=/tmp/celery.log --pidfile=/var/run/celery_pid -D

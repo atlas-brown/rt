@@ -11,9 +11,13 @@
 
 param=$1
 
+# fine
+# stream enable
 # @output "(.*[^\n])?"
 trimmed_param=$(echo $param | tr -d "\n")
 
-# @assert "echo $trimmed_param" --> "(.*[^\n])?"
+# bad
+# stream enable
+# @expect "[^\n]*" --> "od -xc"
 echo $trimmed_param | od -xc
 echo $param | tr -d "\n" | od -xc

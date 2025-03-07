@@ -61,10 +61,8 @@ nvm()
 # - ls "$NVM_DIR" | grep -v src
 # + ls "$NVM_DIR" | grep -v src | grep -v nvm.sh
 ################################################################################
-# ! not 100% sure this is correct
-# node has version numbers of the form 'v0.12.13' and 'v22.14.0' etc
-# @output "v[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}"
 # stream enable
+# @output "(?!.*(src|nvm\.sh).*)"
       ls "$NVM_DIR" | grep -v src
     ;;
     * )
