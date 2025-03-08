@@ -1,5 +1,5 @@
 import re
-from typing import Optional
+from typing import Optional, Set, Tuple
 import z3
 from stream.regex_parser import Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, ast_to_z3, Node, ast_to_regex
 import logging
@@ -10,7 +10,7 @@ import jpype.imports
 from stream.transducer import full_stream_to_line_based_FST, product_fst_automaton
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations # type: ignore
+from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition # type: ignore
 
 class RegularType:
     def __init__(
@@ -176,10 +176,58 @@ class RegularType:
     
 
     def reverse(self) -> 'RegularType':
-        out = RegularType(automaton=SpecialOperations.reverse(self.nfa))
+        empty_transitions: Set[Tuple[State, State]] = set()
+        mapping: dict[State, State] = {}
+        out = Automaton()
+        initial_state = out.getInitialState()
+        for state in self.nfa.getStates():
+            mapping[state] = State()
+        for state in self.nfa.getStates():
+            if state.isAccept():
+                empty_transitions.add((initial_state, mapping[state]))
+            for transition in state.getTransitions():
+                min_in = transition.getMin()
+                max_in = transition.getMax()
+                dest = transition.getDest()
+                mapping[dest].addTransition(Transition(min_in, max_in, mapping[state]))
+        mapping[self.nfa.getInitialState()].setAccept(True)
+        # handle empty transitions
+        empty_closure = {}
+        for src, dst in empty_transitions:
+            if src not in empty_closure:
+                empty_closure[src] = set()
+            empty_closure[src].add(dst)
+        
+        # compute transitive closure
+        changed = True
+        while changed:
+            changed = False
+            for src, dsts in list(empty_closure.items()):
+                old_size = len(dsts)
+                new_dsts = set()
+                for dst in dsts:
+                    if dst in empty_closure:
+                        new_dsts.update(empty_closure[dst])
+                if new_dsts:
+                    dsts.update(new_dsts)
+                    if len(dsts) > old_size:
+                        changed = True
+        
+        for src, dsts in empty_closure.items():
+            if any(dst.isAccept() for dst in dsts):
+                src.setAccept(True)
+            
+            for dst in dsts:
+                for trans in dst.getTransitions():
+                    src.addTransition(Transition(trans.getMin(), trans.getMax(), trans.getDest()))
+        out.setDeterministic(False)
+        out.removeDeadTransitions()
+        out.minimize()
+        reverse = RegularType(automaton=out)
+        print(reverse)
         if self.pattern is not None:
-            out.pattern = f"({self.pattern})^R"
-        return out
+            reverse.pattern = f"({self.pattern})^R"
+        return reverse
 
     
     def __repr__(self) -> str:
