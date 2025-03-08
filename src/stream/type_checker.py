@@ -99,7 +99,7 @@ class TypeChecker:
                 checking_result.set(self.check_subtype(previous_output_type, input_type))
                 if checking_result.ill_typed:
                     checking_result.set_message(
-                        f"Input type '{previous_output_type}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'."
+                        f"Input type '{previous_output_type}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
                     )
                     return checking_result
                 
@@ -130,7 +130,7 @@ class TypeChecker:
                         checking_result.set(self.check_subtype(current_output_type, RegularType(annotation.pattern)))
                         if checking_result.ill_typed:
                             checking_result.set_message(
-                                f"Output type '{current_output_type}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'."
+                                f"Output type '{current_output_type}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
                             )
                             return checking_result
 

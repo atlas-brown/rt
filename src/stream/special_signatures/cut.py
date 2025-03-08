@@ -58,8 +58,10 @@ class CutSignature(CommandSignature):
                     return RegularType(".*"), RegularType("[^" + delimiter + "]*")
             
             pattern = f"[^{delimiter}]*({re.escape(delimiter)}[^{delimiter}]*){{0,{field_num-2}}}"
-            # return RegularType(pattern), None
-            return RegularType(".*"), RegularType(pattern)
+            if "no_meaningless_command" not in heuristic_rules:
+                return RegularType(".*"), None
+            else:
+                return RegularType(".*"), RegularType(pattern)
             
         return super().get_input_type(parsed_command_invocation, heuristic_rules)
 

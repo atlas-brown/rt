@@ -79,7 +79,11 @@ class RegularType:
 
                 logging.debug("generating counterexample")
                 diff_nfa = self.nfa.minus(other.nfa)
-                counterexample = diff_nfa.getShortestExample(True)
+                print_diff_nfa = diff_nfa.intersection(ast_to_automaton(RegexParser("[[:print:]]*").parse()))
+                if not print_diff_nfa.isEmpty():
+                    counterexample = print_diff_nfa.getShortestExample(True)
+                else:
+                    counterexample = diff_nfa.getShortestExample(True)
                 checking_result.set_counterexample(counterexample)
 
 
