@@ -587,12 +587,13 @@ def global_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
     # FIXME: there is no failure function for regex now: cannot handle repalce a.a with x in aaba
     # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
 
-    # 3 modes
+    # 4 modes
     # match: the original automaton i
     # buffer: the buffer automaton i + num_states
     # success: the success automaton i + 2 * num_states
     # buffer success: the success automaton i + 3 * num_states
     # new initial state: -1
+    # abort state: -2
     if automaton.isEmpty():
         raise ToolError("pattern regex is empty")
     if automaton.isEmptyString():
@@ -672,6 +673,109 @@ def global_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
     return create_fst(specs, start_state=new_initial_state, final_states=final_states)
 
 
+
+def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
+    # FIXME: incorrect leftmost longest match: can handle: aa?; but cannot handle a(aa)?
+    # FIXME: there is no failure function for regex now: cannot handle repalce a.a with x in aaba
+    # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
+
+    # 5 modes
+    # match: the original automaton i
+    # buffer: the buffer automaton i + num_states
+    # success: the success automaton i + 2 * num_states
+    # buffer success: the success automaton i + 3 * num_states
+    # longest buffer success: the success automaton i + 4 * num_states
+    # new initial state: -1
+    # abort state: -2
+    # end state: -3
+    if automaton.isEmpty():
+        raise ToolError("pattern regex is empty")
+    if automaton.isEmptyString():
+        raise ToolError("pattern regex is empty string")
+    # pattern = automaton.getSingleton()
+    # if pattern is None:
+    #     return global_replacement_FST(pattern, s2)
+    state_map: Dict[State, int] = {}
+    specs = []
+    states = automaton.getStates()
+    num_states = len(states)
+    for i, state in enumerate(states):
+        state_map[state] = i
+    initial_state = state_map[automaton.getInitialState()]
+    new_initial_state = -1
+    abort_state = -2
+    end_state = -3
+    final_states = {state_map[state] for state in automaton.getAcceptStates()}
+    for state in automaton.getStates():
+        state_id = state_map[state]
+        for trans in state.getSortedTransitions(True):
+            min_char = trans.getMin()
+            max_char = trans.getMax()
+            input_range = min_char + "--" + max_char
+            dest_state_id = state_map[trans.getDest()]
+            # match mode
+            if state_id not in final_states:
+                if dest_state_id in final_states:
+                    if state_id == initial_state:
+                        specs.append((new_initial_state, input_range, "", dest_state_id + 2 * num_states))
+                        specs.append((new_initial_state, input_range, s2, dest_state_id + 3 * num_states))
+                    specs.append((state_id, input_range, "", dest_state_id + 2 * num_states))
+                    specs.append((state_id, input_range, s2, dest_state_id + 3 * num_states))
+                else: # if the destination state is not final state
+                    if state_id == initial_state:
+                        specs.append((new_initial_state, input_range, "", dest_state_id))
+                    specs.append((state_id, input_range, "", dest_state_id))
+            elif state_id == initial_state: # if the initial state is final state
+                if dest_state_id in final_states:
+                    specs.append((new_initial_state, input_range, "", dest_state_id + 2 * num_states))
+                    specs.append((new_initial_state, input_range, s2, dest_state_id + 3 * num_states))
+                
+            
+            # buffer mode
+            if state_id not in final_states: # abort because buffer is not needed
+                if dest_state_id not in final_states:
+                    if state_id == initial_state:
+                        specs.append((new_initial_state, input_range, "$self", dest_state_id + num_states))
+                    specs.append((state_id + num_states, input_range, "$self", dest_state_id + num_states))
+                else:
+                    specs.append((state_id + num_states, input_range, "$self", abort_state))
+            
+            # success mode
+            specs.append((state_id + 2 * num_states, input_range, "", dest_state_id + 2 * num_states))
+            if dest_state_id not in final_states and state_id in final_states:
+                specs.append((state_id + 2 * num_states, input_range, s2 + "$self", dest_state_id + 4 * num_states))
+
+            # buffer success mode
+            specs.append((state_id + 3 * num_states, input_range, "", dest_state_id + 3 * num_states))
+
+            # longest buffer success mode
+            if dest_state_id not in final_states:
+                specs.append((state_id + 4 * num_states, input_range, "$self", dest_state_id + 4 * num_states))
+            else:
+                specs.append((state_id + 4 * num_states, input_range, "", abort_state))
+    
+    for state in automaton.getStates():
+        state_id = state_map[state]
+        if state_id in final_states:
+            # success mode return to end state
+            specs.append((state_id + 2 * num_states, "$other", s2 + "$self", end_state))
+        else:
+            # buffer mode return to initial state
+            specs.append((state_id + num_states, "$other_not_consume", "", new_initial_state))
+            # longest buffer success mode return to end state
+            specs.append((state_id + 4 * num_states, "$other", "$self", end_state))
+
+
+    if initial_state not in final_states:
+        specs.append((new_initial_state, "$other", "$self", new_initial_state))
+    else:
+        specs.append((new_initial_state, "$other", "$self" + s2, end_state))
+
+    specs.append((end_state, "$other", "$self", end_state))
+    
+    final_states = {new_initial_state} | {i + 3 * num_states for i in final_states} | {i + num_states for i in range(num_states)} | {end_state} |  {i + 4 * num_states for i in range(num_states) if i not in final_states}
+        
+    return create_fst(specs, start_state=new_initial_state, final_states=final_states)
 if __name__ == '__main__':
     regex = RegExp("[P-Z]+[a-z][0-9]+")
     automaton = regex.toAutomaton()
@@ -715,56 +819,3 @@ if __name__ == '__main__':
     #     ('q32', 'b', 'b', 'q0'),
     #     ('q31', 'x', 'x', 'q0'),
     # ]
-
-	# static public Automaton intersection(Automaton a1, Automaton a2) {
-	# 	if (a1.isSingleton()) {
-	# 		if (a2.run(a1.singleton))
-	# 			return a1.cloneIfRequired();
-	# 		else
-	# 			return BasicAutomata.makeEmpty();
-	# 	}
-	# 	if (a2.isSingleton()) {
-	# 		if (a1.run(a2.singleton))
-	# 			return a2.cloneIfRequired();
-	# 		else
-	# 			return BasicAutomata.makeEmpty();
-	# 	}
-	# 	if (a1 == a2)
-	# 		return a1.cloneIfRequired();
-	# 	Transition[][] transitions1 = Automaton.getSortedTransitions(a1.getStates());
-	# 	Transition[][] transitions2 = Automaton.getSortedTransitions(a2.getStates());
-	# 	Automaton c = new Automaton();
-	# 	LinkedList<StatePair> worklist = new LinkedList<StatePair>();
-	# 	HashMap<StatePair, StatePair> newstates = new HashMap<StatePair, StatePair>();
-	# 	StatePair p = new StatePair(c.initial, a1.initial, a2.initial);
-	# 	worklist.add(p);
-	# 	newstates.put(p, p);
-	# 	while (worklist.size() > 0) {
-	# 		p = worklist.removeFirst();
-	# 		p.s.accept = p.s1.accept && p.s2.accept;
-	# 		Transition[] t1 = transitions1[p.s1.number];
-	# 		Transition[] t2 = transitions2[p.s2.number];
-	# 		for (int n1 = 0, b2 = 0; n1 < t1.length; n1++) {
-	# 			while (b2 < t2.length && t2[b2].max < t1[n1].min)
-	# 				b2++;
-	# 			for (int n2 = b2; n2 < t2.length && t1[n1].max >= t2[n2].min; n2++) 
-	# 				if (t2[n2].max >= t1[n1].min) {
-	# 					StatePair q = new StatePair(t1[n1].to, t2[n2].to);
-	# 					StatePair r = newstates.get(q);
-	# 					if (r == null) {
-	# 						q.s = new State();
-	# 						worklist.add(q);
-	# 						newstates.put(q, q);
-	# 						r = q;
-	# 					}
-	# 					char min = t1[n1].min > t2[n2].min ? t1[n1].min : t2[n2].min;
-	# 					char max = t1[n1].max < t2[n2].max ? t1[n1].max : t2[n2].max;
-	# 					p.s.transitions.add(new Transition(min, max, r.s));
-	# 				}
-	# 		}
-	# 	}
-	# 	c.deterministic = a1.deterministic && a2.deterministic;
-	# 	c.removeDeadTransitions();
-	# 	c.checkMinimizeAlways();
-	# 	return c;
-	# }
