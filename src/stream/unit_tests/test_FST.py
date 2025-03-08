@@ -1,6 +1,6 @@
 import random
 import string
-from stream.transducer import first_regex_replacement_FST, first_replacement_FST, global_replacement_FST, translation_FST, compression_FST, deletion_FST, cut_field_FST, global_regex_replacement_FST
+from stream.transducer import first_regex_replacement_FST, first_replacement_FST, global_replacement_FST, start_regex_replacement_FST, translation_FST, compression_FST, deletion_FST, cut_field_FST, global_regex_replacement_FST
 from stream.regex_parser import ast_to_automaton, RegexParser
 
 
@@ -263,4 +263,52 @@ def test_first_regex_replacement_FST():
     assert fst.transform_all("aaaaa") == {"x"}
     assert fst.transform_all("aaaa") == {"xa"}
     assert fst.transform_all("aaaaaaaa") == {"xa"}
+
+
+
+def test_start_regex_replacement_FST():
+    pattern = r"a.*b"
+    automata = ast_to_automaton(RegexParser(pattern).parse())
+    fst = start_regex_replacement_FST(automata, "x")
+    assert fst.transform_all("aaa") == {"aaa"}
+    assert fst.transform_all("acb") == {"x"}
+    assert fst.transform_all("aaabbb") == {"x"}
+    assert fst.transform_all("bbbaaacbbbaaa") == {"bbbaaacbbbaaa"}
+
+    pattern = "abc[0-9]+"
+    automata = ast_to_automaton(RegexParser(pattern).parse())
+    fst = start_regex_replacement_FST(automata, "x")
+    assert fst.transform_all("aaa") == {"aaa"}
+    assert fst.transform_all("abc2131231231") == {"x"}
+    assert fst.transform_all("abc2a") == {"xa"}
+    assert fst.transform_all("aabc2a") == {"aabc2a"}
+
+    pattern = "fred[0-9]+"
+    automata = ast_to_automaton(RegexParser(pattern).parse())
+    fst = start_regex_replacement_FST(automata, "george")
+    assert fst.transform_all("fred123") == {"george"}
+    assert fst.transform_all("fred") == {"fred"}
+    assert fst.transform_all("fred123fred123") == {"georgefred123"}
+    assert fst.transform_all("fred123afred123") == {"georgeafred123"}
+    assert fst.transform_all("fred123ffred123") == {"georgeffred123"}
+    assert fst.transform_all("fred123fredfred123") == {"georgefredfred123"}
+    assert fst.transform_all("fredfred123fredfred123fred") == {"fredfred123fredfred123fred"}
+    assert fst.transform_all("fred1f") == {"georgef"}
+
+    pattern = "a(aa)+"
+    automata = ast_to_automaton(RegexParser(pattern).parse())
+    fst = start_regex_replacement_FST(automata, "x")
+    assert fst.transform_all("aaa") == {"x"}
+    assert fst.transform_all("aa") == {"aa"}
+    assert fst.transform_all("aaaaa") == {"x"}
+    assert fst.transform_all("aaaa") == {"xa"}
+    assert fst.transform_all("aaaaaaaa") == {"xa"}
+
+    pattern = "..."
+    automata = ast_to_automaton(RegexParser(pattern).parse())
+    fst = start_regex_replacement_FST(automata, "x")
+    assert fst.transform_all("aaa") == {"x"}
+    assert fst.transform_all("aa") == {"aa"}
+    assert fst.transform_all("aaaaa") == {"xaa"}
+    assert fst.transform_all("123456789") == {"x456789"}
 
