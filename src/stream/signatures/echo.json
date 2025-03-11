@@ -22,7 +22,7 @@
         {
             "condition": {},
             "update": {
-                "output_type": "({{pattern}})"
+                "output_type": "{{pattern}}"
             }
         }
     ],

@@ -5,6 +5,8 @@ from stream.regular_type import RegularType, ends_with_end_anchor, remove_anchor
 from stream.tool_error import ToolError
 from functools import reduce
 
+from stream.user_annotation import AnnotationType
+
 class GrepSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -14,18 +16,20 @@ class GrepSignature(CommandSignature):
         if "no_meaningless_command" not in heuristic_rules:
             return input_type, no_input_type
     
-        
-        # FIXME: consider -e
-        if len(parsed_command_invocation.operand_list) != 1:
-            return input_type, no_input_type
-    
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
+
+        if len(parsed_command_invocation.operand_list) > 1 or (len(parsed_command_invocation.operand_list) == 1 and "-e" in parsed_flags):
+            return RegularType(""), None
+
+        # FIXME: consider -e
+        if "-e" in parsed_flags:
+            return input_type, no_input_type
 
         if "-n" in parsed_flags:
             return input_type, no_input_type
-        
-        pattern = parsed_command_invocation.operand_list[0].name
-        pattern = pattern.replace("\\\\", "\\")
+        if "-e" not in parsed_flags:
+            pattern = parsed_command_invocation.operand_list[0].name
+            pattern = pattern.replace("\\\\", "\\")
         
         mode = "extended" if "-E" in parsed_flags else "basic"
         no_input_type = RegularType(pattern, mode)
@@ -48,6 +52,10 @@ class GrepSignature(CommandSignature):
             
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        if len(parsed_command_invocation.operand_list) > 1 or (len(parsed_command_invocation.operand_list) == 1 and "-e" in parsed_command_invocation.flag_option_list):
+            previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
+
+
         flags = set()
         flag_args : dict[str, list[str]] = {}
         for flag in parsed_command_invocation.flag_option_list:
@@ -95,8 +103,7 @@ class GrepSignature(CommandSignature):
         if "-v" in flags:
             pattern_type = ~pattern_type
 
-        if arg_count == 1:
-            pattern_type = previous_output_type & pattern_type
+        pattern_type = previous_output_type & pattern_type
 
         if "-n" in flags:
             pattern_type = RegularType("[0-9]+:") + pattern_type

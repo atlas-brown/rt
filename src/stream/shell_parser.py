@@ -130,6 +130,8 @@ class ShellParser:
                         annotations[node.items[-1]] = corresponding_annotations
                         continue
                     if annotation_type == AnnotationType.VAR or annotation_type == AnnotationType.FILE:
+                        # $1 -> ${1}
+                        var = re.sub(r'\$(\d+)(?!\})', r'${\1}', var)
                         corresponding_annotations = env_annotations.get(node).get(var, [])
                         corresponding_annotations.append(EnvAnnotation(annotation_type, var, pattern, node))
                         env_annotations.get(node)[var] = corresponding_annotations

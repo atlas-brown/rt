@@ -7,12 +7,16 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 
 from stream.tool_error import ToolError
 from stream.transducer import cut_char_FST, cut_char_no_upperbound_FST, cut_field_FST, cut_field_no_upperbound_FST, product_fst_automaton
+from stream.user_annotation import AnnotationType
 
 class CutSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations) -> Tuple[RegularType, Optional[RegularType]]:
+        if len(parsed_command_invocation.operand_list) > 0 and "no_ignored_input" in heuristic_rules:
+            return RegularType(""), None
+        
         flags = set()
         flag_args = {}
         for flag in parsed_command_invocation.flag_option_list:
@@ -21,10 +25,9 @@ class CutSignature(CommandSignature):
             if hasattr(flag, 'get_arg') and flag.get_arg():
                 flag_args[name] = flag.get_arg()
 
-        delimiter = r"(\t)"
+        delimiter = "\t"
         if '-d' in flags:
-            flag_args['-d'] = re.escape(flag_args['-d'])
-            delimiter = f"({flag_args['-d']})"
+            delimiter = f"{flag_args['-d']}"
 
         if delimiter[0] == "(" and delimiter[-1] == ")":
             delimiter = delimiter[1:-1]
@@ -66,6 +69,15 @@ class CutSignature(CommandSignature):
         return super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
 
     def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations) -> RegularType:
+        if len(parsed_command_invocation.operand_list) > 0:
+            file_name = parsed_command_invocation.operand_list[0].name
+            if any(annotation.annotation_type == AnnotationType.FILE for annotation in env_annotations.get(file_name, [])):
+                for annotation in env_annotations.get(file_name, []):
+                    if annotation.annotation_type == AnnotationType.FILE:
+                        previous_output_type = RegularType(annotation.pattern)
+                        break
+            else:
+                previous_output_type = RegularType(".*")
         flags = set()
         flag_args = {}
         for flag in parsed_command_invocation.flag_option_list:
