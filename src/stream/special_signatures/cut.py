@@ -12,7 +12,7 @@ class CutSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def get_input_type(self, parsed_command_invocation, heuristic_rules) -> Tuple[RegularType, Optional[RegularType]]:
+    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations) -> Tuple[RegularType, Optional[RegularType]]:
         flags = set()
         flag_args = {}
         for flag in parsed_command_invocation.flag_option_list:
@@ -63,9 +63,9 @@ class CutSignature(CommandSignature):
             else:
                 return RegularType(".*"), RegularType(pattern)
             
-        return super().get_input_type(parsed_command_invocation, heuristic_rules)
+        return super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
 
-    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
+    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations) -> RegularType:
         flags = set()
         flag_args = {}
         for flag in parsed_command_invocation.flag_option_list:
@@ -113,7 +113,7 @@ class CutSignature(CommandSignature):
             return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
 
         
-        return super().output_type_inference(previous_output_type, parsed_command_invocation)
+        return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         # if '-f' in flags:
         #     field_num = int(flag_args.get('-f', '1'))
         #     pattern = previous_output_type.pattern

@@ -49,6 +49,7 @@ class TypeChecker:
         self.pipelines = self.shell_parser.parse_pipeline()
         self.pipeline_nodes = self.shell_parser.pipeline_nodes
         self.annotations = self.shell_parser.annotations
+        self.env_annotations = self.shell_parser.env_annotations
         self.input_pattern = self.shell_parser.input_pattern
         self.current_index = 0
         
@@ -92,9 +93,10 @@ class TypeChecker:
                 assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
                 corresponding_annotations = self.annotations.get(command_node, [])
+                corresponding_env_annotations = self.env_annotations.get(pipeline_node, {})
                 logging.debug(f"Annotations: {corresponding_annotations}")
                 with Timing("timing input type creation = "):
-                    input_type, no_input_type = signature.determine_input_type(parsed_command_invocation, corresponding_annotations, self.heuristic_rules)
+                    input_type, no_input_type = signature.determine_input_type(parsed_command_invocation, corresponding_annotations, self.heuristic_rules, corresponding_env_annotations)
                 
                 checking_result.set(self.check_subtype(previous_output_type, input_type))
                 if checking_result.ill_typed:
@@ -113,7 +115,7 @@ class TypeChecker:
                         return checking_result
                     
                 with Timing("timing output type creation = "):
-                    current_output_type = signature.determine_output_type(previous_output_type, parsed_command_invocation, corresponding_annotations)
+                    current_output_type = signature.determine_output_type(previous_output_type, parsed_command_invocation, corresponding_annotations, corresponding_env_annotations)
 
                 # check if the output is empty
                 if self.enable_rule_no_empty_output:

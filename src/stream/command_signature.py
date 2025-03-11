@@ -7,7 +7,7 @@ from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from stream.tool_error import ToolError, PashAnnotationParsingError
-from stream.user_annotation import AnnotationType, UserAnnotation
+from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 
 class CommandSignature:
     def __init__(
@@ -41,7 +41,7 @@ class CommandSignature:
     
     # FIXME: simplify the return type
     # dont override this method, override output_type_inference instead
-    def determine_output_type(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation]) -> RegularType:
+    def determine_output_type(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
         # if user annotation (assume) is available, use it
         # otherwise, use inference
         for annotation in user_annotations:
@@ -57,7 +57,7 @@ class CommandSignature:
         if "--version" in flags or "--help" in flags:
             return RegularType(".*")
 
-        return self.output_type_inference(previous_output_type, parsed_command_invocation)
+        return self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
 
 
     def get_operands(self, parsed_command_node: CommandInvocationInitial) -> List[str]:
@@ -69,7 +69,7 @@ class CommandSignature:
             return [operand.name for operand in operand_list[1:]]
         return [operand.name for operand in operand_list]
 
-    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
+    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
         assert isinstance(previous_output_type, RegularType)
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
@@ -124,7 +124,7 @@ class CommandSignature:
         return env['output_type']
     
     # dont override this method, override get_input_type instead
-    def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str]) -> Tuple[RegularType, Optional[RegularType]]:
+    def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType]]:
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
         # if user annotation (expect) is available, use it
@@ -132,9 +132,9 @@ class CommandSignature:
             if annotation.annotation_type == AnnotationType.EXPECT:
                 return RegularType(annotation.pattern), None
             
-        return self.get_input_type(parsed_command_invocation, heuristic_rules)
+        return self.get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
     
-    def get_input_type(self, parsed_command_invocation: CommandInvocationInitial, heuristic_rules: List[str]) -> Tuple[RegularType, Optional[RegularType]]:
+    def get_input_type(self, parsed_command_invocation: CommandInvocationInitial, heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType]]:
 
         input_type = self.default_input_type.pattern
 

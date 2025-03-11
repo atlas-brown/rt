@@ -8,6 +8,6 @@ class RevSignature(CommandSignature):
         super().__init__(*args, **kwargs)
 
 
-    def output_type_inference(self, previous_output_type, parsed_command_invocation):
+    def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         return previous_output_type.reverse()
         

@@ -7,8 +7,8 @@ class PasteSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def get_input_type(self, parsed_command_invocation, heuristic_rules):
-        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules)
+    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations):
+        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         if "no_meaningless_command" not in heuristic_rules:
             return input_type, no_input_type
         
@@ -19,7 +19,7 @@ class PasteSignature(CommandSignature):
         return input_type, no_input_type
 
 
-    def output_type_inference(self, previous_output_type, parsed_command_invocation):
+    def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         flags = set()
         flag_args : dict[str, list[str]] = {}
         for flag in parsed_command_invocation.flag_option_list:
@@ -37,5 +37,5 @@ class PasteSignature(CommandSignature):
 
         
             
-        return super().output_type_inference(previous_output_type, parsed_command_invocation)
+        return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         

@@ -3,14 +3,14 @@ from command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.regex_parser import convert_to_pure_string, is_pure_string
-from stream.transducer import global_regex_replacement_FST, global_replacement_FST, product_fst_automaton
+from stream.transducer import first_regex_replacement_FST, first_replacement_FST, global_regex_replacement_FST, global_replacement_FST, product_fst_automaton, start_regex_replacement_FST
 
 class SedSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def get_input_type(self, parsed_command_invocation, heuristic_rules):
-        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules)
+    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations):
+        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         if "no_meaningless_command" not in heuristic_rules:
             return input_type, no_input_type
         
@@ -34,7 +34,7 @@ class SedSignature(CommandSignature):
         return input_type, no_input_type
 
 
-    def output_type_inference(self, previous_output_type, parsed_command_invocation):
+    def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         operands = super().get_operands(parsed_command_invocation)
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if len(operands) == 0:
@@ -45,11 +45,11 @@ class SedSignature(CommandSignature):
         if operand[-1] == "d" and operand[:-1].isdigit():
             return previous_output_type
         if not operand.startswith("s"):
-            return super().output_type_inference(previous_output_type, parsed_command_invocation)
+            return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         delimiter = operand[1]
         parts = operand.split(delimiter)
         if len(parts) < 3:
-            return super().output_type_inference(previous_output_type, parsed_command_invocation)
+            return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         if parts[0] == 's':
             if parts[1] == '^':
                 parts[2] = parts[2].replace("\\\\", "\\")
@@ -67,20 +67,32 @@ class SedSignature(CommandSignature):
                 mode = "extended" if "-E" in parsed_flags else "basic"
                 if is_pure_string(parts[1], mode):
                     s1 = convert_to_pure_string(parts[1], mode)
-                    fst = global_replacement_FST(s1, parts[2])
+                    if operand[-1] == "g":
+                        fst = global_replacement_FST(s1, parts[2])
+                    else:
+                        fst = first_replacement_FST(s1, parts[2])
                     nfa = product_fst_automaton(fst, previous_output_type.nfa)
                     print("nfa", nfa)
                     print("fst", fst)
                     return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
                 else:
                     automata = RegularType(parts[1], mode).nfa
-                    fst = global_regex_replacement_FST(automata, parts[2])
+                    if parts[1].startswith("^"):
+                        fst = start_regex_replacement_FST(automata, parts[2])
+                    elif parts[1].endswith("$"):
+                        fst = start_regex_replacement_FST(RegularType(parts[1], mode).reverse().nfa, parts[2][::-1])
+                    elif operand[-1] == "g":
+                        fst = global_regex_replacement_FST(automata, parts[2])
+                    else:
+                        fst = first_regex_replacement_FST(automata, parts[2])
                     nfa = product_fst_automaton(fst, previous_output_type.nfa)
                     print("nfa", nfa)
                     print("fst", fst)
+                    if parts[1].endswith("$"):
+                        return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa)).reverse()
                     return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
                     
                 return previous_output_type & ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
             
-        return super().output_type_inference(previous_output_type, parsed_command_invocation)
+        return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         

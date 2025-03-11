@@ -9,8 +9,8 @@ class SortSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def get_input_type(self, parsed_command_invocation, heuristic_rules) -> Tuple[RegularType, Optional[RegularType]]:
-        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules)
+    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations) -> Tuple[RegularType, Optional[RegularType]]:
+        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         flags = set()
         flag_args : dict[str, list[str]] = {}
         for flag in parsed_command_invocation.flag_option_list:
