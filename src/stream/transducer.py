@@ -923,10 +923,10 @@ def global_regex_replacement(input_automata: Automaton, pattern: Automaton, repl
             for i, char in enumerate(capture_chars, 1):
                 if ord(min_in) <= ord(char) <= ord(max_in):
                     automaton = capture_automatas[i - 1].clone()
-                    empty_transitions.add((state, automaton.getInitialState()))
+                    empty_transitions.add((product_to_result[state], automaton.getInitialState()))
                     final_states = automaton.getAcceptStates()
                     for final_state in final_states:
-                        empty_transitions.add((final_state, trans.getDest()))
+                        empty_transitions.add((final_state, product_to_result[trans.getDest()]))
                 if ord(min_in) <= ord(char) - 1 <= ord(max_in):
                     product_to_result[state].addTransition(Transition(min_in, chr(ord(char)), product_to_result[trans.getDest()]))
                 min_in = chr(max(ord(min_in), ord(char) + 1))
