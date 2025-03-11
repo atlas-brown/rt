@@ -22,8 +22,17 @@
                 "args": ["file"]
             },
             "update": {
-                "output_type": ".*"
+                "output_type": "{{file.content}}"
             }
+        },
+        {
+            "condition": {
+                "args": ["file"],
+                "heuristics": ["no_ignored_input"]
+                },
+                "update": {
+                    "input_type": ""
+                }
         }
     ],
     "isInteresting": true

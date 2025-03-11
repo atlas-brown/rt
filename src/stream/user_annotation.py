@@ -9,6 +9,8 @@ class AnnotationType(Enum):
     EXPECT = "expect"
     INPUT = "input"
     OUTPUT = "output"
+    VAR = "var"
+    FILE = "file"
 
 class UserAnnotation:
     def __init__(self, annotation_type: AnnotationType, pattern: str, pipeline_node: PipeNode, command_node: CommandNode):
@@ -18,5 +20,16 @@ class UserAnnotation:
         self.command_node = command_node
     
     def __repr__(self):
-        return f"{self.annotation_type.name} {self.pattern} {self.command_node.pretty()}"
+        return f"{self.annotation_type.name} {self.pattern} Command: {self.command_node.pretty()}"
     
+
+
+class EnvAnnotation:
+    def __init__(self, annotation_type: AnnotationType, var: str, pattern: str, pipeline_node: PipeNode):
+        self.annotation_type = annotation_type
+        self.var = var
+        self.pattern = pattern
+        self.pipeline_node = pipeline_node
+    
+    def __repr__(self):
+        return f"{self.annotation_type.name} {self.var} {self.pattern} {self.pipeline_node.pretty()}"

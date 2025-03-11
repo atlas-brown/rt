@@ -7,7 +7,7 @@ from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from stream.tool_error import ToolError, PashAnnotationParsingError
-from stream.user_annotation import AnnotationType, UserAnnotation
+from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 
 class CommandSignature:
     def __init__(
@@ -41,7 +41,7 @@ class CommandSignature:
     
     # FIXME: simplify the return type
     # dont override this method, override output_type_inference instead
-    def determine_output_type(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation]) -> RegularType:
+    def determine_output_type(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
         # if user annotation (assume) is available, use it
         # otherwise, use inference
         for annotation in user_annotations:
@@ -57,7 +57,7 @@ class CommandSignature:
         if "--version" in flags or "--help" in flags:
             return RegularType(".*")
 
-        return self.output_type_inference(previous_output_type, parsed_command_invocation)
+        return self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
 
 
     def get_operands(self, parsed_command_node: CommandInvocationInitial) -> List[str]:
@@ -68,21 +68,31 @@ class CommandSignature:
         if parsed_command_node.cmd_name == "xargs":
             return [operand.name for operand in operand_list[1:]]
         return [operand.name for operand in operand_list]
+    
 
-    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial) -> RegularType:
+    def get_file_name(self, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
+        file_name = parsed_command_invocation.operand_list[-1].name
+        for annotation in env_annotations.get(file_name, []):
+            if annotation.annotation_type == AnnotationType.FILE:
+                return RegularType(annotation.pattern)
+        return RegularType(".*")
+
+    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
         assert isinstance(previous_output_type, RegularType)
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
         env: Dict[str, RegularType] = {}
+        env_raw: Dict[str, str] = {}
+
         for i, arg in enumerate(self.args):
             arg_name: str = arg['name']
             is_regex: bool = arg.get('is_regex', False)
             if i < len(parsed_command_invocation.operand_list):
                 arg = parsed_command_invocation.operand_list[i].name
+                env_raw[arg_name] = arg
                 if not is_regex:
                     arg = re.escape(arg)
                 env[arg_name] = RegularType(arg)
-                env[f"arg_{arg_name}"] = RegularType(arg) # add constant arg_{arg_name} to env
 
         # add predefined variables to env
         env["actual_input_type"] = previous_output_type
@@ -107,9 +117,21 @@ class CommandSignature:
                 update_variables: Dict[str, RegularType] = rule.get('update', {}).copy()
                 logging.debug(f"Command: {self.command_name}, Rule: {rule['condition']} -> {rule['update']}")
                 for key, value in update_variables.items():
-                    # find all {{variable}} in rule_env[key], replace them with env[variable]
-                    # { or } are not allowed in variable names
                     try:
+                        for match in re.finditer(r'\{\{(.*?)\.content\}\}', value):
+                            var_name = match.group(1)
+                            if var_name in env_raw and env_raw[var_name] in env_annotations:
+                                for annot in env_annotations[env_raw[var_name]]:
+                                    if annot.annotation_type == AnnotationType.FILE:
+                                        env[f"{var_name}.content"] = RegularType(annot.pattern)
+                            if f"{var_name}.content" not in env:
+                                env[f"{var_name}.content"] = RegularType(".*")
+
+                        for _key, value_annots in env_annotations.items():
+                            for annot in value_annots:
+                                if annot.annotation_type == AnnotationType.VAR:
+                                    value = re.sub(rf"\b{_key}\b", annot.pattern, value)
+
                         update_variables[key] = RegularType(value, hole_dict=env)
                     except:
                         raise ToolError(f"Error in updating env for command, missing argument when updating {key} with {value}")
@@ -124,7 +146,7 @@ class CommandSignature:
         return env['output_type']
     
     # dont override this method, override get_input_type instead
-    def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str]) -> Tuple[RegularType, Optional[RegularType]]:
+    def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType]]:
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
         # if user annotation (expect) is available, use it
@@ -132,9 +154,9 @@ class CommandSignature:
             if annotation.annotation_type == AnnotationType.EXPECT:
                 return RegularType(annotation.pattern), None
             
-        return self.get_input_type(parsed_command_invocation, heuristic_rules)
+        return self.get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
     
-    def get_input_type(self, parsed_command_invocation: CommandInvocationInitial, heuristic_rules: List[str]) -> Tuple[RegularType, Optional[RegularType]]:
+    def get_input_type(self, parsed_command_invocation: CommandInvocationInitial, heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType]]:
 
         input_type = self.default_input_type.pattern
 

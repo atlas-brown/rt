@@ -1,1 +1,1 @@
-PYTHONPATH=src pytest --ignore=./full_benchmark
+PYTHONPATH=src pytest --ignore=./full_benchmark "$@"

@@ -11,10 +11,10 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 import tempfile
 from stream.tool_error import PashAnnotationParsingError
 
-from stream.user_annotation import AnnotationType, UserAnnotation
+from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 
 
-ANNOTATION_PATTERN = re.compile(r'^\s*#\s*@(assume|assert|expect)\s*"(.*)"\s*-->\s*"(.*)"\s*$|^\s*#\s*@(input|output)\s*"(.*)"\s*$')
+ANNOTATION_PATTERN = re.compile(r'^\s*#\s*@(assume|assert|expect)\s*"(.*)"\s*-->\s*"(.*)"\s*$|^\s*#\s*@(input|output)\s*"(.*)"\s*$|^\s*#\s*@(file|var)\s*"(.*)"\s*:\s*"(.*)"\s*$')
 
 class ShellParser:
     def __init__(self, pipeline_address: str, enable_user_annotations: bool = True, extract_all_pipelines: bool = True) -> None:
@@ -24,10 +24,11 @@ class ShellParser:
         self.pipeline_nodes = extract_pipe_nodes_from_file(self.pipeline_address, self.extract_all_pipelines)
 
         if enable_user_annotations:
-            self.annotations, self.input_pattern = self.extract_annotations_from_file()
+            self.annotations, self.input_pattern, self.env_annotations = self.extract_annotations_from_file()
         else:
             self.annotations = {}
             self.input_pattern = None
+            self.env_annotations = {}
 
     def parse_command_node(self, node: CommandInvocationInitial) -> Tuple[CommandSignature, CommandInvocationInitial]:
         assert isinstance(node, CommandInvocationInitial)
@@ -72,14 +73,16 @@ class ShellParser:
                 
             return ast_nodes[0][0].pretty()
 
-    def extract_annotations_from_file(self) -> Tuple[Dict[CommandNode, list[UserAnnotation]], Optional[str]]:
+    def extract_annotations_from_file(self) -> Tuple[Dict[CommandNode, list[UserAnnotation]], Optional[str], Dict[PipeNode, Dict[str, List[EnvAnnotation]]]]:
         annotations: Dict[CommandNode, list[UserAnnotation]] = {}
         input_pattern = None
         script_content = []
+        env_annotations: Dict[PipeNode, Dict[str, List[EnvAnnotation]]] = {}
         with open(self.pipeline_address) as f:
             for line in f:
                 script_content.append(line)
         for node in self.pipeline_nodes:
+            env_annotations[node] = {}
             try:
                 line_number = node.items[0].line_number
                 # if only extranct pipeline with explicit "stream enable", then the annotations (if exist) should be 1 line above "stream enable"
@@ -96,8 +99,10 @@ class ShellParser:
                         break
                     if res.group(1) is not None:
                         annotation_type = AnnotationType(res.group(1))
-                    else:
+                    elif res.group(4) is not None:
                         annotation_type = AnnotationType(res.group(4))
+                    else:
+                        annotation_type = AnnotationType(res.group(6))
                     match annotation_type:
                         case AnnotationType.INPUT | AnnotationType.OUTPUT:
                             pattern = res.group(5)
@@ -108,6 +113,9 @@ class ShellParser:
                         case AnnotationType.EXPECT:
                             pattern = res.group(2)
                             command = res.group(3)
+                        case AnnotationType.VAR | AnnotationType.FILE:
+                            var = res.group(7)
+                            pattern = res.group(8)
                         case _:
                             raise ValueError("Invalid annotation type")
                         
@@ -120,6 +128,13 @@ class ShellParser:
                         corresponding_annotations = annotations.get(node.items[-1], [])
                         corresponding_annotations.append(UserAnnotation(AnnotationType.ASSERT, pattern, node, node.items[-1]))
                         annotations[node.items[-1]] = corresponding_annotations
+                        continue
+                    if annotation_type == AnnotationType.VAR or annotation_type == AnnotationType.FILE:
+                        # $1 -> ${1}
+                        var = re.sub(r'\$(\d+)(?!\})', r'${\1}', var)
+                        corresponding_annotations = env_annotations.get(node).get(var, [])
+                        corresponding_annotations.append(EnvAnnotation(annotation_type, var, pattern, node))
+                        env_annotations.get(node)[var] = corresponding_annotations
                         continue
 
                     command = self.refine_command(command)
@@ -134,6 +149,6 @@ class ShellParser:
                     
             except Exception as e:
                 logging.error(f"Error while extracting annotations: {e}")
-        return annotations, input_pattern
+        return annotations, input_pattern, env_annotations
 
                     

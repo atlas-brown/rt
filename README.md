@@ -38,6 +38,7 @@ PYTHONPATH=src python3 src/stream/debug.py
 # @expect "[0-9]+" --> "sort -n"
 # @input ""
 # @output "[^ ]+"
+# @file "$1" "[0-9]+\t[0-9]+"
 cat $1 | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s ' ' '\n' | tail -n 1
 ```
 
@@ -46,6 +47,7 @@ cat $1 | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s ' ' '\n' | 
 * @expect: The expected input type of the command is given.
 * @input: The input type of the pipeline (default: "")
 * @output: The output type of the pipeline
+* @file: The type of the file content. The first argument is the file name, and the second argument is the regular language.
 
 ## Github Commits Benchmark Annotations
 

@@ -12,8 +12,8 @@ class TrSignature(CommandSignature):
         super().__init__(*args, **kwargs)
         
 
-    def get_input_type(self, parsed_command_invocation, heuristic_rules) -> Tuple[RegularType, Optional[RegularType]]:
-        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules)
+    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations) -> Tuple[RegularType, Optional[RegularType]]:
+        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         if "no_meaningless_command" not in heuristic_rules:
             return input_type, no_input_type
         set1 = parsed_command_invocation.operand_list[0].name
@@ -23,7 +23,7 @@ class TrSignature(CommandSignature):
     
         return input_type, RegularType(get_output_pattern(parsed_command_invocation))
 
-    def output_type_inference(self, previous_output_type, parsed_command_invocation):
+    def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         # FIXME: may have some issues
         if "set1" == "\\n":
             parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
