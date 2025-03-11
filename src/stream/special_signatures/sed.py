@@ -50,15 +50,19 @@ class SedSignature(CommandSignature):
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         delimiter = operand[1]
         parts = operand.split(delimiter)
+        segments = [operand]
         if len(parts) < 3:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
-        if parts[0] == 's':
+        if len(parts) >= 6:
+            segments = operand.split(";")
+        for segment in segments:
+            parts = segment.strip().split(delimiter)
             if parts[1] == '^':
                 parts[2] = parts[2].replace("\\\\", "\\")
-                return RegularType(parts[2]) + previous_output_type
+                previous_output_type = RegularType(parts[2]) + previous_output_type
             elif parts[1] == '$':
                 parts[2] = parts[2].replace("\\\\", "\\")
-                return previous_output_type + RegularType(parts[2])
+                previous_output_type = previous_output_type + RegularType(parts[2])
             else:
                 parts[1] = parts[1].replace("\\\\", "\\")
                 # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
@@ -74,31 +78,31 @@ class SedSignature(CommandSignature):
                     else:
                         fst = first_replacement_FST(s1, parts[2])
                     nfa = product_fst_automaton(fst, previous_output_type.nfa)
-                    return RegularType(automaton=nfa)
+                    previous_output_type = RegularType(automaton=nfa)
                 else:
                     if parts[1].startswith("^"):
                         automata = RegularType(parts[1], mode).nfa
                         fst = start_regex_replacement_FST(automata, parts[2])
                         nfa = product_fst_automaton(fst, previous_output_type.nfa)
-                        return RegularType(automaton=nfa)
+                        previous_output_type = RegularType(automaton=nfa)
                     elif parts[1].endswith("$"):
                         parts[1] = parts[1][:-2]
                         automata = RegularType(parts[1], mode).reverse().nfa
                         fst = start_regex_replacement_FST(automata, parts[2][::-1])
                         nfa = product_fst_automaton(fst, previous_output_type.reverse().nfa)
-                        return RegularType(automaton=nfa).reverse()
+                        previous_output_type = RegularType(automaton=nfa).reverse()
                     elif operand[-1] == "g":
                         automata = RegularType(parts[1], mode).nfa
                         fst = global_regex_replacement_FST(automata, parts[2])
                         nfa = product_fst_automaton(fst, previous_output_type.nfa)
-                        return RegularType(automaton=nfa)
+                        previous_output_type = RegularType(automaton=nfa)
                     else:
                         automata = RegularType(parts[1], mode).nfa
                         fst = first_regex_replacement_FST(automata, parts[2])
                         nfa = product_fst_automaton(fst, previous_output_type.nfa)
-                        return RegularType(automaton=nfa)
+                        previous_output_type = RegularType(automaton=nfa)
                     
-                return previous_output_type & ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
-            
+                # return previous_output_type & ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
+        return previous_output_type
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         
