@@ -7,6 +7,7 @@ from dk.brics.automaton import Automaton, RegExp, State, Transition # type: igno
 from stream.tool_error import ToolError
 
 from typing import Deque, List, Callable, Optional, Dict, Set, Tuple
+import re
 
 class FST_State:
     def __init__(self, id: int, accept: bool = False) -> None:
@@ -286,7 +287,13 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                     else:
                         s_product.addTransition(Transition(min_out, max_out, s))
 
-    # handle empty transitions
+    process_empty_transitions(empty_transitions)
+    product.setDeterministic(False)
+    product.removeDeadTransitions()
+    product.minimize()
+    return product
+
+def process_empty_transitions(empty_transitions: Set[Tuple[State, State]]) -> None:
     empty_closure = {}
     for src, dst in empty_transitions:
         if src not in empty_closure:
@@ -315,10 +322,6 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
         for dst in dsts:
             for trans in dst.getTransitions():
                 src.addTransition(Transition(trans.getMin(), trans.getMax(), trans.getDest()))
-    product.setDeterministic(False)
-    product.removeDeadTransitions()
-    product.minimize()
-    return product
 
 def full_stream_to_line_based_FST() -> FST:
     specs = [
@@ -877,6 +880,68 @@ def start_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
     final_states = {new_initial_state} | {i + 3 * num_states for i in final_states} | {i + num_states for i in range(num_states)} | {end_state} |  {i + 4 * num_states for i in range(num_states) if i not in final_states}
         
     return create_fst(specs, start_state=new_initial_state, final_states=final_states)
+
+
+def global_regex_replacement(input_automata: Automaton, pattern: Automaton, replacement: str, capture_automatas: List[Automaton]) -> Automaton:
+    capture_refs = re.findall(r'\\(\d+)', replacement)
+    if not capture_refs:
+        fst = global_regex_replacement_FST(pattern, replacement)
+        return product_fst_automaton(fst, input_automata)
+
+    # Use characters from Private Use Area
+    capture_chars = [chr(0xE000 + i * 2 + 1) for i in len(capture_automatas)]
+    alphabet = "[^" + "".join(capture_chars) + "]"
+    replacement_mapped = replacement
+    for i, char in enumerate(capture_chars, 1):
+        replacement_mapped = replacement_mapped.replace(f"\\{i}", char)
+
+    new_input_automata = input_automata.intersection(RegExp(alphabet).toAutomaton())
+    
+    # Build FST for the pattern with capture group outputs replaced with our mapping chars
+    fst = global_regex_replacement_FST(pattern, replacement_mapped)
+    product = product_fst_automaton(fst, new_input_automata)
+    
+    result = Automaton()
+    product_to_result = {product.getInitialState(): result.getInitialState()}
+    for state in product.getStates():
+        if state not in product_to_result:
+            product_to_result[state] = State()
+            product_to_result[state].setAccept(state.isAccept())
+
+    # traverse the result automaton and replace the mapping chars with the capture group automata
+    empty_transitions: Set[Tuple[State, State]] = set()
+    for state in product.getStates():
+        for trans in state.getTransitions():
+            min_in = trans.getMin()
+            max_in = trans.getMax()
+            if ord(max_in) < 0xE000:
+                product_to_result[state].addTransition(Transition(min_in, max_in, product_to_result[trans.getDest()]))
+                continue
+            if ord(min_in) < 0xE000:
+                product_to_result[state].addTransition(Transition(min_in, chr(0xE000 - 1), product_to_result[trans.getDest()]))
+            min_in = chr(max(ord(min_in), 0xE000))
+            for i, char in enumerate(capture_chars, 1):
+                if ord(min_in) <= ord(char) <= ord(max_in):
+                    automaton = capture_automatas[i - 1].clone()
+                    empty_transitions.add((state, automaton.getInitialState()))
+                    final_states = automaton.getAcceptStates()
+                    for final_state in final_states:
+                        empty_transitions.add((final_state, trans.getDest()))
+                if ord(min_in) <= ord(char) - 1 <= ord(max_in):
+                    product_to_result[state].addTransition(Transition(min_in, chr(ord(char)), product_to_result[trans.getDest()]))
+                min_in = chr(max(ord(min_in), ord(char) + 1))
+            if ord(min_in) <= ord(max_in):
+                product_to_result[state].addTransition(Transition(min_in, max_in, product_to_result[trans.getDest()]))
+
+    process_empty_transitions(empty_transitions)
+    result.setDeterministic(False)
+    result.removeDeadTransitions()
+    result.minimize()
+    return result
+
+
+
+    
 
 if __name__ == '__main__':
     regex = RegExp("[P-Z]+[a-z][0-9]+")

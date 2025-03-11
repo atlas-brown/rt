@@ -11,6 +11,7 @@ from stream.transducer import full_stream_to_line_based_FST, product_fst_automat
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition # type: ignore
+from transducer import process_empty_transitions
 
 class RegularType:
     def __init__(
@@ -192,34 +193,7 @@ class RegularType:
                 mapping[dest].addTransition(Transition(min_in, max_in, mapping[state]))
         mapping[self.nfa.getInitialState()].setAccept(True)
         # handle empty transitions
-        empty_closure = {}
-        for src, dst in empty_transitions:
-            if src not in empty_closure:
-                empty_closure[src] = set()
-            empty_closure[src].add(dst)
-        
-        # compute transitive closure
-        changed = True
-        while changed:
-            changed = False
-            for src, dsts in list(empty_closure.items()):
-                old_size = len(dsts)
-                new_dsts = set()
-                for dst in dsts:
-                    if dst in empty_closure:
-                        new_dsts.update(empty_closure[dst])
-                if new_dsts:
-                    dsts.update(new_dsts)
-                    if len(dsts) > old_size:
-                        changed = True
-        
-        for src, dsts in empty_closure.items():
-            if any(dst.isAccept() for dst in dsts):
-                src.setAccept(True)
-            
-            for dst in dsts:
-                for trans in dst.getTransitions():
-                    src.addTransition(Transition(trans.getMin(), trans.getMax(), trans.getDest()))
+        process_empty_transitions(empty_transitions)
         out.setDeterministic(False)
         out.removeDeadTransitions()
         out.minimize()
