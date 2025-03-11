@@ -135,42 +135,63 @@ class RegularType:
     
     def __add__(self, other: 'RegularType') -> 'RegularType':
         out = RegularType(automaton=BasicOperations.concatenate(self.nfa, other.nfa))
+        out.nfa.setDeterministic(False)
+        out.nfa.removeDeadTransitions()
+        out.nfa.minimize()
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})({other.pattern})"
         return out
 
     def __and__(self, other: 'RegularType') -> 'RegularType':
         out = RegularType(automaton=BasicOperations.intersection(self.nfa, other.nfa))
+        out.nfa.setDeterministic(False)
+        out.nfa.removeDeadTransitions()
+        out.nfa.minimize()
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})&({other.pattern})"
         return out
     
     def __or__(self, other: 'RegularType') -> 'RegularType':
         out = RegularType(automaton=BasicOperations.union(self.nfa, other.nfa))
+        out.nfa.setDeterministic(False)
+        out.removeDeadTransitions()
+        out.minimize()
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})|({other.pattern})"
         return out
     
     def __invert__(self) -> 'RegularType':
         out = RegularType(automaton=BasicOperations.minus(BasicAutomata.makeAnyString(), self.nfa))
+        out.nfa.setDeterministic(False)
+        out.nfa.removeDeadTransitions()
+        out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"~({self.pattern})"
         return out
     
     def optional(self) -> 'RegularType':
         out = RegularType(automaton=BasicOperations.optional(self.nfa))
+        out.nfa.setDeterministic(False)
+        out.nfa.removeDeadTransitions()
+        out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"({self.pattern})?"
         return out
     
     def kleene_star(self) -> 'RegularType':
         out = RegularType(automaton=BasicOperations.repeat(self.nfa, 0))
+        out.nfa.setDeterministic(False)
+        out.nfa.removeDeadTransitions()
+        out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"({self.pattern})*"
         return out
     
     def kleene_plus(self) -> 'RegularType':
         out = RegularType(automaton=BasicOperations.repeat(self.nfa, 1))
+        out.nfa.setDeterministic(False)
+        out.nfa.removeDeadTransitions()
+        out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"({self.pattern})+"
         return out
@@ -179,8 +200,8 @@ class RegularType:
     def reverse(self) -> 'RegularType':
         empty_transitions: Set[Tuple[State, State]] = set()
         mapping: dict[State, State] = {}
-        out = Automaton()
-        initial_state = out.getInitialState()
+        out_nfa = Automaton()
+        initial_state = out_nfa.getInitialState()
         for state in self.nfa.getStates():
             mapping[state] = State()
         for state in self.nfa.getStates():
@@ -194,10 +215,10 @@ class RegularType:
         mapping[self.nfa.getInitialState()].setAccept(True)
         # handle empty transitions
         process_empty_transitions(empty_transitions)
-        out.setDeterministic(False)
-        out.removeDeadTransitions()
-        out.minimize()
-        reverse = RegularType(automaton=out)
+        out_nfa.setDeterministic(False)
+        out_nfa.removeDeadTransitions()
+        out_nfa.minimize()
+        reverse = RegularType(automaton=out_nfa)
         print(reverse)
         if self.pattern is not None:
             reverse.pattern = f"({self.pattern})^R"

@@ -30,10 +30,17 @@ class PasteSignature(CommandSignature):
                     flag_args[name] = []
                 flag_args[name].append(flag.get_arg())
         if "-s" in flags:
-            delimiter = r"\t"
-            if "-d" in flags:
-                delimiter = flag_args["-d"][0]
-            return previous_output_type + RegularType(f"({delimiter})*") + previous_output_type
+            delimiter = "\t"
+            if '-d' in flags:
+                delimiter = f"{flag_args['-d']}"
+
+            while (delimiter[0] == "(" and delimiter[-1] == ")") or (delimiter[0] == "[" and delimiter[-1] == "]") or (delimiter[0] == "'" and delimiter[-1] == "'") or (delimiter[0] == '"' and delimiter[-1] == '"'):
+                delimiter = delimiter[1:-1]
+
+            delimiter = delimiter[-1] # \" -> "
+
+            print((RegularType(f"{re.escape(delimiter)}") + previous_output_type).kleene_star())
+            return previous_output_type + (RegularType(f"[{delimiter}]") + previous_output_type).kleene_star()
 
         
             

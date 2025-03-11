@@ -29,7 +29,7 @@ class CutSignature(CommandSignature):
         if '-d' in flags:
             delimiter = f"{flag_args['-d']}"
 
-        if delimiter[0] == "(" and delimiter[-1] == ")":
+        while (delimiter[0] == "(" and delimiter[-1] == ")") or (delimiter[0] == "[" and delimiter[-1] == "]") or (delimiter[0] == "'" and delimiter[-1] == "'") or (delimiter[0] == '"' and delimiter[-1] == '"'):
             delimiter = delimiter[1:-1]
         delimiter = delimiter[-1] # \" -> "
 
@@ -106,7 +106,7 @@ class CutSignature(CommandSignature):
         if '-d' in flags:
             delimiter = f"{flag_args['-d']}"
 
-        if delimiter[0] == "(" and delimiter[-1] == ")":
+        while (delimiter[0] == "(" and delimiter[-1] == ")") or (delimiter[0] == "[" and delimiter[-1] == "]") or (delimiter[0] == "'" and delimiter[-1] == "'") or (delimiter[0] == '"' and delimiter[-1] == '"'):
             delimiter = delimiter[1:-1]
         delimiter = delimiter[-1] # \" -> "
 

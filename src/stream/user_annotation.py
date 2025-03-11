@@ -20,7 +20,7 @@ class UserAnnotation:
         self.command_node = command_node
     
     def __repr__(self):
-        return f"{self.annotation_type.name} {self.pattern} {self.pipeline_node.pretty()} {self.command_node.pretty()}"
+        return f"{self.annotation_type.name} {self.pattern} Command: {self.command_node.pretty()}"
     
 
 
