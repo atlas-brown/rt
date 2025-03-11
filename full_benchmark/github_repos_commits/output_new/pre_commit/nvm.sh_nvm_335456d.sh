@@ -80,7 +80,31 @@ nvm_ls()
         VERSIONS="$PATTERN"
     else
 ################################################################################
-# Commit message: Drop invalid -a flag for basename.  basename doesn't accept options in bash. This causes the VERSIONS variable get the 'N/A' value for $ nvm ls command.  From basename man page: NAME        basename - strip directory and suffix from filenames  SYNOPSIS        basename NAME [SUFFIX]        basename OPTION  DESCRIPTION        Print NAME with any leading directory components removed.  If specified, also remove a trailing SUFFIX.         --help display this help and exit         --version               output version information and exit    coreutils version used in Linux Mint 14 Nadia.  GNU coreutils 8.12.197-032bb                                               September 2011                                                               BASENAME(1)  No idea if this flag exists on FreeBSD or other unixes (if they use gnu coreutils shouldn't be any problem)
+# Commit message: Drop invalid -a flag for basename.  basename doesn't accept options in bash. This causes the VERSIONS variable get the 'N/A' value for $ nvm ls command.
+# 
+# From basename man page:
+# NAME
+#        basename - strip directory and suffix from filenames
+# 
+# SYNOPSIS
+#        basename NAME [SUFFIX]
+#        basename OPTION
+# 
+# DESCRIPTION
+#        Print NAME with any leading directory components removed.  If specified, also remove a trailing SUFFIX.
+# 
+#        --help display this help and exit
+# 
+#        --version
+#               output version information and exit
+# 
+# 
+# 
+# coreutils version used in Linux Mint 14 Nadia.
+# 
+# GNU coreutils 8.12.197-032bb                                               September 2011                                                               BASENAME(1)
+# 
+# No idea if this flag exists on FreeBSD or other unixes (if they use gnu coreutils shouldn't be any problem)
 # Commit URL: https://github.com/nvm-sh/nvm/commit/335456d008aa94baae9c2c6e776f370fcf5189bc
 # Category: 
 # Notes: 

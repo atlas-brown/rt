@@ -1,0 +1,13 @@
+buggy
+correct
+trivial
+unclear
+semantic_bug
+line_annot (contains line annotations)
+stream_annot (contains stream annotations)
+complex_annot (contains very complex annotations (e.g. annotations with negative lookahead))
+multiple_annot (contains multiple annotations of the same type (line or stream) for the same command)
+delimiter_issue (the bug arises due to the delimiter used in the input of a command)
+awk (the bug occurs in an awk command)
+sed (the bug occurs in a sed command)
+tr (the bug occurs in a tr command)

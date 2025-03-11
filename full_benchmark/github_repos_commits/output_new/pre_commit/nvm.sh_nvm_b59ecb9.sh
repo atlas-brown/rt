@@ -230,7 +230,6 @@ nvm_ls() {
       PATTERN="$PATTERN."
     fi
     if [ -d "$(nvm_version_dir new)" ]; then
-      VERSIONS=`find "$(nvm_version_dir new)/" "$(nvm_version_dir old)/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
 ################################################################################
 # Commit message: Make sure the new `versions` directory is filtered out of nvm_ls output (in zsh).
 # Commit URL: https://github.com/nvm-sh/nvm/commit/b59ecb9e11d9e74431b9a7140153d5fe669d13f5
@@ -240,8 +239,10 @@ nvm_ls() {
 # - | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.' | \grep -e '^v'`
 # + | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.' | \grep -e '^v' | \grep -v -e '^versions$'`
 ################################################################################
-# put stream annotation here
+# node has version numbers of the form 'v0.12.13' and 'v22.14.0' etc
 # stream enable
+# @output "(?!versions)"
+      VERSIONS=`find "$(nvm_version_dir new)/" "$(nvm_version_dir old)/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
         | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.' | \grep -e '^v'`
     else
       VERSIONS=`find "$(nvm_version_dir old)/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
@@ -250,6 +251,7 @@ nvm_ls() {
   fi
   if [ -z "$VERSIONS" ]; then
     echo "N/A"
+    
     return 3
   fi
   if [ -z "$PATTERN" ] && nvm_has_system_node; then
