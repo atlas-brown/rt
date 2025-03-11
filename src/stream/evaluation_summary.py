@@ -62,9 +62,17 @@ def load_results(json_path):
     with open(json_path, 'r', encoding='utf-8') as f:
         return json.load(f)["evaluation_results"]
 
-def load_merged_results(ann_json_path, raw_json_path):
+def load_baseline_results(csv_path):
+    rows = []
+    with open(csv_path, 'r', newline='', encoding='utf-8') as f:
+        for row in csv.reader(f, delimiter=','):
+            rows.append(row)
+    return rows[1:] # drop header
+
+def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None):
     results_ann = load_results(ann_json_path)
     results_raw = load_results(raw_json_path)
+    baseline = load_baseline_results(baseline_csv_path) if baseline_csv_path else None
     merged = {}
     for rec in results_raw:
         addr = rec["address"]
@@ -72,6 +80,34 @@ def load_merged_results(ann_json_path, raw_json_path):
     for rec in results_ann:
         addr = rec["address"]
         merged.setdefault(addr, {})["ann"] = rec
+    if baseline:
+        for row in baseline:
+            addr = row[0]
+            addr = addr if addr in merged else './' + addr
+            if addr not in merged:
+                continue
+            info = {
+                'is buggy?': row[1] == 'TRUE',
+                "sc warning?": row[2] == 'TRUE',
+                "ltsh warning?": row[3] == 'TRUE',
+                "sc time": float(row[4]),
+                "ltsh time": float(row[5])
+            }
+            merged[addr]["raw"]["baseline"] = info
+            merged[addr]["ann"]["baseline"] = info
+
+    for addr, recs in merged.items():
+        recs["benchmark_set"] = path_to_benchmark_set(addr)
+        if recs.get("ann") is None or recs.get("raw") is None:
+            print(f"Missing record for {addr}: {'ann' if recs.get('ann') is None else 'raw'}")
+        assert recs["raw"]["is buggy?"] == recs["ann"]["is buggy?"]
+        if baseline:
+            if recs["ann"].get("baseline") is None:
+                print(f"Missing baseline data for {addr}")
+                assert False
+            assert recs["ann"]["is buggy?"] == recs["ann"]["baseline"]["is buggy?"], f"buggy label mismatch between eval results and baseline: {recs['ann']}"
+            assert recs["raw"]["is buggy?"] == recs["raw"]["baseline"]["is buggy?"], f"buggy label mismatch between eval results and baseline: {recs['raw']}"
+
     return merged
 
 def results_to_merged_csv(ann_json_path, raw_json_path, out_path):
@@ -109,95 +145,131 @@ def results_to_merged_csv(ann_json_path, raw_json_path, out_path):
     rows.sort(key=lambda x: x["Benchmark"])
     write_csv(rows, header, out_path)
 
-def results_to_overview_csv(ann_json_path, raw_json_path, out_path):
-    merged = load_merged_results(ann_json_path, raw_json_path)
-    header = ['Benchmark set', '# Correct', '# Incorrect', 'With Annotations?', 'False Results', 'Recall', 'Precision', 'F1', 'ShellCheck F1', 'ShellCheck False', 'Ladder F1', 'Ladder False', 'Status']
-    for addr, recs in merged.items():
-        recs["benchmark_set"] = path_to_benchmark_set(addr)
-        if recs.get("ann") is None or recs.get("raw") is None:
-            print(f"Missing record for {addr}: {'ann' if recs.get('ann') is None else 'raw'}")
+def results_to_overview_csv(ann_json_path, raw_json_path, baseline_csv_path, out_path):
+    merged = load_merged_results(ann_json_path, raw_json_path, baseline_csv_path)
+    header = ['Benchmark set', '# Correct', '# Incorrect', 'With Annotations?', 'False Results', 'Accuracy', 'Recall', 'Precision', 'F1', 'SC False', 'SC Accuracy', 'SC Precision', 'SC Recall', 'SC F1', 'LT False', 'LT Accuracy', 'LT Precision', 'LT Recall', 'LT F1', 'Status']
 
     benchmark_sets = set(recs["benchmark_set"] for recs in merged.values())
     rows = []
+    plot_rows = []
     for ann in ["ann", "raw"]:
         for benchmark_set in benchmark_sets:
             benchmark_set_results = [recs[ann] for recs in merged.values() if recs["benchmark_set"] == benchmark_set]
             correct_benchmarks = [recs for recs in benchmark_set_results if not recs["is buggy?"]]
             buggy_benchmarks = [recs for recs in benchmark_set_results if recs["is buggy?"]]
 
-            
-            recall, precision, f1, false_positives, false_negatives = recall_precision_f1(benchmark_set_results)
-            recall_correct, precision_correct, f1_correct, false_positives_correct, false_negatives_correct = recall_precision_f1(correct_benchmarks)
-            recall_buggy, precision_buggy, f1_buggy, false_positives_buggy, false_negatives_buggy = recall_precision_f1(buggy_benchmarks)
-            assert false_negatives_correct == 0
-            assert false_positives_buggy == 0
-            rows.append({
+            stats = {}
+            for key, data in {"all": benchmark_set_results,
+                              "correct": correct_benchmarks,
+                              "buggy": buggy_benchmarks,
+                              "lt": ([r["baseline"] for r in benchmark_set_results], "ltsh warning?"),
+                              "sc": ([r["baseline"] for r in benchmark_set_results], "sc warning?")}.items():
+                if isinstance(data, tuple):
+                    stats[key] = recall_precision_f1(data[0], data[1])
+                else:
+                    stats[key] = recall_precision_f1(data)
+            assert stats["correct"]["false_negatives"] == 0
+            assert stats["buggy"]["false_positives"] == 0
+            overall = {
                 'Benchmark set': benchmark_set,
                 '# Correct': len(correct_benchmarks),
                 '# Incorrect': len(buggy_benchmarks),
                 'With Annotations?': ann == "ann",
-                'False Results': false_positives + false_negatives,
-                'Recall': recall,
-                'Precision': precision,
-                'F1': f1,
-                'ShellCheck F1': 'todo',  # Placeholder for ShellCheck F1
-                'ShellCheck False': 'todo',  # Placeholder for ShellCheck False
-                'Ladder F1': 'todo',  # Placeholder for Ladder F1
-                'Ladder False': 'todo',  # Placeholder for Ladder False
-                'Status': 'Included'  # Placeholder for status
-            })
+                'False Results': stats["all"]["false_positives"] + stats["all"]["false_negatives"],
+                'Accuracy': stats["all"]["accuracy"],
+                'Recall': stats["all"]["recall"],
+                'Precision': stats["all"]["precision"],
+                'F1': stats["all"]["f1"],
+                'SC Precision': stats["sc"]["precision"],
+                'SC Recall': stats["sc"]["recall"],
+                'SC F1': stats["sc"]["f1"],
+                'SC False': stats["sc"]["false_positives"] + stats["sc"]["false_negatives"],
+                'SC Accuracy': stats["sc"]["accuracy"],
+                'LT Precision': stats["lt"]["precision"],
+                'LT Recall': stats["lt"]["recall"],
+                'LT F1': stats["lt"]["f1"],
+                'LT False': stats["lt"]["false_positives"] + stats["lt"]["false_negatives"],
+                'LT Accuracy': stats["lt"]["accuracy"],
+                'Status': 'Included'
+            }
+            rows.append(overall)
+            plot_rows.append(overall)
             rows.append({# a row for just the correct benchmarks
                 'Benchmark set': '',
                 '# Correct': len(correct_benchmarks),
                 '# Incorrect': 0,
                 'With Annotations?': ann == "ann",
-                'False Results': false_positives_correct,
+                'False Results': stats["correct"]["false_positives"],
                 'Recall': '',
                 'Precision': '',
                 'F1': '',
-                'ShellCheck F1': 'todo',  # Placeholder for ShellCheck F1
-                'ShellCheck False': 'todo',  # Placeholder for ShellCheck False
-                'Ladder F1': 'todo',  # Placeholder for Ladder F1
-                'Ladder False': 'todo',  # Placeholder for Ladder False
-                'Status': 'Included'  # Placeholder for status
+                'SC Precision': '',
+                'SC Recall': '',
+                'SC F1': '',
+                'SC False': '',
+                'LT Precision': '',
+                'LT Recall': '',
+                'LT F1': '',
+                'LT False': '',
+                'Status': 'Included'
             })
             rows.append({# a row for just the buggy benchmarks
                 'Benchmark set': '',
                 '# Correct': 0,
                 '# Incorrect': len(buggy_benchmarks),
                 'With Annotations?': ann == "ann",
-                'False Results': false_negatives_buggy,
+                'False Results': stats["buggy"]["false_negatives"],
                 'Recall': '',
                 'Precision': '',
                 'F1': '',
-                'ShellCheck F1': 'todo',  # Placeholder for ShellCheck F1
-                'ShellCheck False': 'todo',  # Placeholder for ShellCheck False
-                'Ladder F1': 'todo',  # Placeholder for Ladder F1
-                'Ladder False': 'todo',  # Placeholder for Ladder False
-                'Status': 'Included'  # Placeholder for status
+                'SC Precision': '',
+                'SC Recall': '',
+                'SC F1': '',
+                'SC False': '',
+                'LT Precision': '',
+                'LT Recall': '',
+                'LT F1': '',
+                'LT False': '',
+                'Status': 'Included'
             })
         # append a blank row between the two annotations
         rows.append({key: '' for key in header})
+        plot_rows.append({key: '' for key in header})
     
-    write_csv(rows, header, out_path)
+    rows.append({key: '' for key in header})
+    rows.append({key: '' for key in header})
+    write_csv(rows + plot_rows, header, out_path)
 
-def recall_precision_f1(benchmark_results):
+def recall_precision_f1(benchmark_results, signaled_key="warning signaled?"):
     # each benchmark_result is a dictionary with the keys "warning signaled?" and "is buggy?"
     # the prediction of the system is in the field "warning signaled?"; the prediction is correct if "is buggy?" and "warning signaled?" are the same
-    true_positives = sum(1 for rec in benchmark_results if rec["warning signaled?"] == rec["is buggy?"])
-    false_positives = sum(1 for rec in benchmark_results if rec["warning signaled?"] and not rec["is buggy?"])
-    false_negatives = sum(1 for rec in benchmark_results if not rec["warning signaled?"] and rec["is buggy?"])
+
+    # LL: these metrics are perhaps not very helpful in our breakdown by benchmark set, because some sets have no pos or neg examples
+    # Something like Accuracy does not depend on having one or the other (as opposed to recall, false-pos-rate, and precision, which do)
+    true_positives = sum(1 for rec in benchmark_results if rec[signaled_key] and rec["is buggy?"])
+    false_positives = sum(1 for rec in benchmark_results if rec[signaled_key] and not rec["is buggy?"])
+    false_negatives = sum(1 for rec in benchmark_results if not rec[signaled_key] and rec["is buggy?"])
 
     recall = true_positives / (true_positives + false_negatives) if (true_positives + false_negatives) > 0 else 0
     precision = true_positives / (true_positives + false_positives) if (true_positives + false_positives) > 0 else 0
     f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
 
-    return recall, precision, f1, false_positives, false_negatives
+    accuracy = sum(1 for rec in benchmark_results if rec[signaled_key] == rec["is buggy?"]) / len(benchmark_results) if len(benchmark_results) > 0 else 0
+
+    return {
+        "recall": recall,
+        "precision": precision,
+        "f1": f1,
+        "false_positives": false_positives,
+        "false_negatives": false_negatives,
+        "accuracy": accuracy
+    }
 
 benchmark_mapping = None
 def path_to_benchmark_set(collection):
     global benchmark_mapping
     if not benchmark_mapping:
+        # FIXME
         with open("./src/stream/benchmark_mapping.json", "r") as file:
             benchmark_mapping = json.load(file)
     for key, value in benchmark_mapping.items():
@@ -217,6 +289,8 @@ def main():
                         help='Path to raw JSON file (default: evaluation_results/raw/evaluation_results.json)')
     parser.add_argument('--raw_csv', type=str, default='evaluation_results/raw/results.csv',
                         help='Path to raw CSV file (default: evaluation_results/raw/results.csv)')
+    parser.add_argument('--baseline_csv', type=str, default='evaluation_results/baseline.csv',
+                        help='Path to baseline results CSV file (default: evaluation_results/baseline.csv)')
     parser.add_argument('--merged_csv', type=str, default='evaluation_results/merged_results.csv',
                         help='Path to merged CSV file (default: evaluation_results/merged_results.csv)')
     parser.add_argument('--overview_csv', type=str, default='evaluation_results/overview_results.csv',
@@ -230,7 +304,7 @@ def main():
         print(f"Generating merged CSV file: {args.merged_csv}")
         results_to_merged_csv(args.ann_json, args.raw_json, args.merged_csv)
         print(f"Generating overview CSV file: {args.overview_csv}")
-        results_to_overview_csv(args.ann_json, args.raw_json, args.overview_csv)
+        results_to_overview_csv(args.ann_json, args.raw_json, args.baseline_csv, args.overview_csv)
 
 def category_to_tag(is_correct: bool, category: str):
     if is_correct:

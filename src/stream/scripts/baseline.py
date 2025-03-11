@@ -8,6 +8,7 @@ from pathlib import Path
 import tempfile
 import os
 
+# TODO FIXME use evaluation_config.json
 valid_dirs = [
     "./evaluation_pipelines/valid",
     "./full_benchmark/intercode/pipelines",

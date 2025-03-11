@@ -1,0 +1,20 @@
+{
+    "valid": [
+            "./evaluation_pipelines/valid",
+            "./full_benchmark/intercode/pipelines",
+            "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts"
+    ],
+    "to be included valid": [
+        "./full_benchmark/pash_benchmark/benchmarks",
+        "./full_benchmark/github_repos_commits/output/post_commit"
+    ],
+
+    "invalid": [
+	"./evaluation_pipelines/invalid",
+        "./full_benchmark/curated_mutants",
+        "./full_benchmark/llm_injection/pipelines"
+    ],
+    "to be included invalid": [
+	"./full_benchmark/github_repos_commits/output/pre_commit"
+    ]
+}

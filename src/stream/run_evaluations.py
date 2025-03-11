@@ -414,12 +414,13 @@ if __name__ == "__main__":
     time.sleep(3)
 
     run_all_evaluations(
+        # TODO FIXME use evaluation_config.json
         valid_dirs=[
             "./evaluation_pipelines/valid", 
             "./full_benchmark/intercode/pipelines", 
             # "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
             # "./full_benchmark/pash_benchmark/benchmarks",
-            "./full_benchmark/pash_benchmark/benchmarks/unix50",
+            "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts",
             # "./full_benchmark/github_repos_commits/output/post_commit",
         ],
         invalid_dirs=[
