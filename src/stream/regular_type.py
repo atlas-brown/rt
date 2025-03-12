@@ -11,7 +11,7 @@ from stream.transducer import full_stream_to_line_based_FST, product_fst_automat
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition # type: ignore
-from transducer import process_empty_transitions
+from stream.transducer import process_empty_transitions
 
 class RegularType:
     def __init__(
@@ -53,7 +53,7 @@ class RegularType:
         # if (r"\n" in self.pattern) or (r"\n" in other.pattern):
         #     self.to_full_stream_regex()
         #     other.to_full_stream_regex()
-        with Timing("timing z3 intersection creation = "):
+        with Timing("timing intersection creation = "):
             # intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
             # # checking_result = CheckingResult(ill_typed=(s.check() == z3.sat))
             # s = z3.Solver()
@@ -69,7 +69,7 @@ class RegularType:
             checking_result = CheckingResult(ill_typed=not self.nfa.subsetOf(other.nfa))
 
         if checking_result.ill_typed:
-            with Timing(f"timing z3 counterexample gen = "):
+            with Timing(f"timing counterexample gen = "):
                 # s = z3.Solver()
                 # x = z3.String('x')
                 # s.add(z3.InRe(x, intersection_regex))
@@ -86,7 +86,6 @@ class RegularType:
                 else:
                     counterexample = diff_nfa.getShortestExample(True)
                 checking_result.set_counterexample(counterexample)
-
 
         return checking_result
 

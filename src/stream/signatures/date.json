@@ -1,7 +1,7 @@
 {
     "command_name": "date",
     "default_input_type": ".*",
-    "default_output_type": ".*",
+    "default_output_type": ".+",
     "args": [
         {
             "name": "format",

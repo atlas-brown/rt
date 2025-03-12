@@ -1,6 +1,6 @@
 import random
 import string
-from stream.transducer import first_regex_replacement_FST, first_replacement_FST, global_replacement_FST, start_regex_replacement_FST, translation_FST, compression_FST, deletion_FST, cut_field_FST, global_regex_replacement_FST
+from stream.transducer import first_regex_replacement_FST, first_replacement_FST, global_replacement_FST, start_regex_replacement_FST, translate_to_line_delimited_FST, translation_FST, compression_FST, deletion_FST, cut_field_FST, global_regex_replacement_FST
 from stream.regex_parser import ast_to_automaton, RegexParser
 
 
@@ -312,3 +312,7 @@ def test_start_regex_replacement_FST():
     assert fst.transform_all("aaaaa") == {"xaa"}
     assert fst.transform_all("123456789") == {"x456789"}
 
+def test_translate_to_line_delimited_FST():
+    set1 = " "
+    fst = translate_to_line_delimited_FST(set1)
+    assert fst.transform_all("  most imPressive\n     me tO you!\n do letteRs middle\n= interneT's glue!") == {'letteRs', '', 'imPressive\n', 'most', 'glue!', 'you!\n', "interneT's", 'do', 'tO', 'middle\n=', 'me'}

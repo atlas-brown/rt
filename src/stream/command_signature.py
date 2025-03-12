@@ -56,7 +56,6 @@ class CommandSignature:
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "--version" in flags or "--help" in flags:
             return RegularType(".*")
-
         return self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
 
 
@@ -142,7 +141,6 @@ class CommandSignature:
 
         logging.debug(f"Command: {self.command_name}, Output type (if compatible): {env['output_type']}")
         logging.debug("-"*60)
-        
         return env['output_type']
     
     # dont override this method, override get_input_type instead

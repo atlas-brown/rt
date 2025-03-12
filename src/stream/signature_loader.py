@@ -12,6 +12,7 @@ from special_signatures.paste import PasteSignature
 from special_signatures.seq import SeqSignature
 from special_signatures.rev import RevSignature
 from special_signatures.sort import SortSignature
+from special_signatures.fmt import FmtSignature
 
 class SignatureLoader:
     def __init__(self, signature_dir : str = "./src/stream/signatures") -> None:
@@ -26,6 +27,7 @@ class SignatureLoader:
             "seq": SeqSignature,
             "rev": RevSignature,
             "sort": SortSignature,
+            "fmt": FmtSignature,
         }
         self.signatures = self.load_all_signatures()
         self.unknown_signature = CommandSignature(

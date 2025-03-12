@@ -182,7 +182,7 @@ class FST:
         return results
     
     def __repr__(self) -> str:
-        return "\n".join(f"{state_id}: {state}" for state_id, state in self.states.items())
+        return f"Initial: {self.initial.id}\n" + "\n".join(f"{state_id}: {state}" for state_id, state in self.states.items())
 
 def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: int = 0, final_states: Optional[Set[int]] = None) -> FST:
     fst = FST()
@@ -326,6 +326,7 @@ def process_empty_transitions(empty_transitions: Set[Tuple[State, State]]) -> No
 def full_stream_to_line_based_FST() -> FST:
     specs = [
         (0, "\n", "", 100),
+        (0, "\n", "", 0),
         (0, "$other", "$self", 1),
         (0, "$other", "", 2),
         (1, "\n", "", 100),
@@ -335,6 +336,23 @@ def full_stream_to_line_based_FST() -> FST:
         (100, "$other", "", 100),
     ]
     return create_fst(specs, start_state=0, final_states={100})
+
+def translate_to_line_delimited_FST(set1: str) -> FST:
+    specs = []
+    for c in set1:
+        specs.append((0, c, "", 0))
+        specs.append((0, c, "", 100))
+        specs.append((1, c, "", 100))
+        specs.append((2, c, "", 0))
+        specs.append((2, c, "", 3))
+    specs.extend([
+        (0, "$other", "$self", 1),
+        (0, "$other", "", 2),
+        (1, "$other", "$self", 1),
+        (2, "$other", "", 2),
+        (100, "$other", "", 100),
+    ])
+    return create_fst(specs, start_state=0, final_states={1, 3, 100})
 
 
 def translation_FST(set1: str, set2: str) -> FST:

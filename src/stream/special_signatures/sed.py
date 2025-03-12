@@ -25,13 +25,18 @@ class SedSignature(CommandSignature):
         parts = operand.split(delimiter)
         if len(parts) < 3:
             return input_type, no_input_type
+        if parts[1] == '^' or parts[1] == '\\$':
+            return input_type, no_input_type
         # Fixme: handle start and end anchors
-        if parts[0] == 's' and not parts[1].startswith('^') and not parts[1].endswith('$'):
+        if parts[0] == 's':
             parts[1] = parts[1].replace("\\\\", "\\")
+            parts[1] = preprocess(parts[1])
             # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
             match = re.search(r'(\\+)$', parts[1])
             if match and (len(match.group(1)) % 2 == 1):
                 parts[1] = parts[1] + delimiter
+            if parts[1].endswith("$"):
+                parts[1] = parts[1][:-2]
             return input_type, ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
         return input_type, no_input_type
 
@@ -54,17 +59,26 @@ class SedSignature(CommandSignature):
         if len(parts) < 3:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         if len(parts) >= 6:
-            segments = operand.split(";")
+            if delimiter != ";":
+                segments = operand.split(";")
+            else:
+                segments = [parts[3 * i] + delimiter + parts[3 * i + 1] + delimiter + parts[3 * i + 2] for i in range(len(parts) // 3)]
+        
         for segment in segments:
             parts = segment.strip().split(delimiter)
             if parts[1] == '^':
-                parts[2] = parts[2].replace("\\\\", "\\")
+                parts[2] = preprocess(parts[2])
+                parts[2] = re.escape(parts[2])
                 previous_output_type = RegularType(parts[2]) + previous_output_type
-            elif parts[1] == '$':
-                parts[2] = parts[2].replace("\\\\", "\\")
+            elif parts[1] == '\\$':
+                parts[2] = preprocess(parts[2])
+                parts[2] = re.escape(parts[2])
                 previous_output_type = previous_output_type + RegularType(parts[2])
             else:
                 parts[1] = parts[1].replace("\\\\", "\\")
+                parts[1] = preprocess(parts[1])
+                parts[2] = preprocess(parts[2])
+                parts[2] = re.escape(parts[2])
                 # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
                 match = re.search(r'(\\+)$', parts[1])
                 if match and (len(match.group(1)) % 2 == 1):
@@ -106,3 +120,9 @@ class SedSignature(CommandSignature):
         return previous_output_type
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         
+def preprocess(string: str) -> str:
+    if len(string) > 1:
+        if string[-2] != "\\":
+            if (string.startswith("'") and string.endswith("'")) or (string.startswith('"') and string.endswith('"')):
+                string = string[1:-1]
+    return string
