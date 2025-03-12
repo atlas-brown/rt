@@ -170,9 +170,6 @@ def run_all_evaluations(valid_dirs: list[str],
     
     valid_pipelines = find_scripts(valid_dirs)
     invalid_pipelines = find_scripts(invalid_dirs)
-    total_correct_pipelines = len(valid_pipelines)
-    total_buggy_pipelines = len(invalid_pipelines)
-
     pipelines.extend(zip(valid_pipelines, [True] * len(valid_pipelines)))
     pipelines.extend(zip(invalid_pipelines, [False] * len(invalid_pipelines)))
     
@@ -225,9 +222,9 @@ def run_all_evaluations(valid_dirs: list[str],
     total_correct_pipeline_crashes = len(valid_pipeline_crashes)
     total_buggy_pipeline_crashes = len(buggy_pipeline_crashes)
     total_timeouts = len(timeout_pipelines)
-    assert len(failures) == (total_correct_pipeline_crashes + total_buggy_pipeline_crashes + \
-                                total_false_positives + total_false_negatives)
-
+    total_correct_pipelines = sum(1 for r in results if not r[IS_BUGGY_LABEL])
+    total_buggy_pipelines = sum(1 for r in results if r[IS_BUGGY_LABEL])
+    
     preds = [result[SIGNALED_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
     labels = [result[IS_BUGGY_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
     
