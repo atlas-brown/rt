@@ -297,7 +297,7 @@ def tabulate(result_stats, f):
     f.write(f"correct,{s['total_correct_pipelines']},{s['correct_crashes']},{s['false_positives']},{s['false_positives']},, \n")
     for category, count in s['false_positive_categories'].items():
         f.write(f" , , , ,{count},{category.replace(',', ';')},{category_to_tag(category)}\n")
-    f.write("--------,-----,-----,--------,---------------,--------\n")
+    f.write("--------,-----,-----,--------,---------------,--------,--------\n")
     buggy_signals = s['total_buggy_pipelines'] - s['false_negatives'] - s['buggy_crashes']
     f.write(f"buggy,{s['total_buggy_pipelines']},{s['buggy_crashes']},{buggy_signals},{s['false_negatives']},, \n")
     for category, count in s['false_negative_categories'].items():
@@ -418,20 +418,23 @@ if __name__ == "__main__":
         valid_dirs=[
             "./evaluation_pipelines/valid", 
             "./full_benchmark/intercode/pipelines", 
-            # "./full_benchmark/Shseer/evaluation/tests/ShellExtractResults/",
             # "./full_benchmark/pash_benchmark/benchmarks",
             "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts",
-            # "./full_benchmark/github_repos_commits/output/post_commit",
+            # # "./full_benchmark/github_repos_commits/output/post_commit",
+            # "./full_benchmark/stackoverflow/correct",
         ],
         invalid_dirs=[
             "./evaluation_pipelines/invalid",
             "./full_benchmark/curated_mutants",
             "./full_benchmark/llm_injection/pipelines",
-            # "./full_benchmark/github_repos_commits/output/pre_commit",
+            # "./full_benchmark/github_repos_commits/collected",
+            # "./full_benchmark/stackoverflow/buggy",
         ],
         not_check_all_dirs=[
             "./full_benchmark/github_repos_commits/output/post_commit",
             "./full_benchmark/github_repos_commits/output/pre_commit",
+            "./full_benchmark/stackoverflow/buggy",
+            "./full_benchmark/stackoverflow/correct",
         ],
         output_json='evaluation_results/with_annotations/evaluation_results.json' if enable_user_annotation else 'evaluation_results/raw/evaluation_results.json',
         output_summary_csv='evaluation_results/with_annotations/summary.csv' if enable_user_annotation else 'evaluation_results/raw/summary.csv',

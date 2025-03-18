@@ -1,5 +1,5 @@
 import re
-from command_signature import CommandSignature
+from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.transducer import product_fst_automaton, translate_to_line_delimited_FST

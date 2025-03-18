@@ -1,4 +1,4 @@
-from command_signature import CommandSignature
+from stream.command_signature import CommandSignature
 from pash_annotations.datatypes.BasicDatatypes import Operand
 
 from stream.regular_type import RegularType, ends_with_end_anchor, remove_anchors, starts_with_start_anchor

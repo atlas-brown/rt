@@ -1,6 +1,6 @@
 import re
 from typing import Optional, Tuple
-from command_signature import CommandSignature
+from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 

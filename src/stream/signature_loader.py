@@ -3,17 +3,17 @@ import os
 from typing import List, Dict
 from stream.command_signature import CommandSignature
 
-from special_signatures.xargs_stat import XargsStatSignature
-from special_signatures.sed import SedSignature
-from special_signatures.cut import CutSignature
-from special_signatures.grep import GrepSignature
-from special_signatures.tr import TrSignature
-from special_signatures.paste import PasteSignature
-from special_signatures.seq import SeqSignature
-from special_signatures.rev import RevSignature
-from special_signatures.sort import SortSignature
-from special_signatures.fmt import FmtSignature
-from special_signatures.awk import AwkSignature
+from stream.special_signatures.xargs_stat import XargsStatSignature
+from stream.special_signatures.sed import SedSignature
+from stream.special_signatures.cut import CutSignature
+from stream.special_signatures.grep import GrepSignature
+from stream.special_signatures.tr import TrSignature
+from stream.special_signatures.paste import PasteSignature
+from stream.special_signatures.seq import SeqSignature
+from stream.special_signatures.rev import RevSignature
+from stream.special_signatures.sort import SortSignature
+from stream.special_signatures.fmt import FmtSignature
+from stream.special_signatures.awk import AwkSignature
 
 class SignatureLoader:
     def __init__(self, signature_dir : str = "./src/stream/signatures") -> None:
