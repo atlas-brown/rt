@@ -52,6 +52,8 @@ class TypeChecker:
         self.env_annotations = self.shell_parser.env_annotations
         self.input_pattern = self.shell_parser.input_pattern
         self.current_index = 0
+
+        self.max_automata_size = 1
         
         for pipeline in self.pipeline_nodes:
             logging.debug(f"Pipeline: {pipeline.pretty()}")
@@ -137,6 +139,12 @@ class TypeChecker:
                             return checking_result
 
                 previous_output_type = current_output_type
+
+                previous_output_type.nfa.setDeterministic(False)
+                previous_output_type.nfa.removeDeadTransitions()
+                previous_output_type.nfa.minimize()
+                self.max_automata_size = max(self.max_automata_size, len(previous_output_type.nfa.getStates()))
+
                 logging.debug("-"*60)
                 logging.debug(f"current command: {signature.command_name}")
                 logging.debug(f"Output type: {current_output_type}")

@@ -9,6 +9,8 @@ from stream.tool_error import ToolError
 from stream.transducer import cut_char_FST, cut_char_no_upperbound_FST, cut_field_FST, cut_field_no_upperbound_FST, product_fst_automaton
 from stream.user_annotation import AnnotationType
 
+
+# FIXME: if the delimiter does not appear in the input, the output should be the same as the input
 class CutSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

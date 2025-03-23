@@ -22,13 +22,13 @@ class FST_State:
         return f"FST_State(id={self.id}, accept={self.accept})\n" + "\n".join(f"  {t}" for t in self.transitions) + "\n"
 
 class FST_Transition:
-    def __init__(self, min: Optional[str], max: Optional[str], output: str, to: FST_State, is_other: bool = False, is_other_not_consume = False) -> None:
+    def __init__(self, min: Optional[str], max: Optional[str], output: str, to: FST_State, is_other: bool = False, is_not_consumed = False) -> None:
         self.min: Optional[str] = min
         self.max: Optional[str] = max
         self.output: str = output
         self.to: FST_State = to
         self.is_other: bool = is_other
-        self.is_other_not_consume: bool = is_other_not_consume
+        self.is_not_consumed: bool = is_not_consumed
 
     def applies(self, c: str) -> bool:
         if self.min is None or self.max is None:
@@ -83,20 +83,22 @@ class FST:
         state = self.add_state(state_id, accept=True)
         state.accept = True
 
-    def add_transition(self, from_state_id: int, min_in: str, max_in: Optional[str], output: str, next_state_id: int) -> None:
+    def add_transition(self, from_state_id: int, min_in: str, max_in: Optional[str], output: str, next_state_id: int, is_not_consumed = False) -> None:
         from_state = self.add_state(from_state_id)
         next_state = self.add_state(next_state_id)
         is_other = False
-        is_other_not_consume = False
+        # is_other_not_consume = False
         if min_in == "$other":
             is_other = True
             start_val, end_val = None, None
-        elif min_in == "$other_not_consume":
-            is_other_not_consume = True
-            start_val, end_val = None, None
+        if min_in == "$all":
+            start_val, end_val = chr(0), chr(65535)
+        # elif min_in == "$other_not_consume":
+        #     is_other_not_consume = True
+        #     start_val, end_val = None, None
         else:
             start_val, end_val = min_in, max_in
-        trans = FST_Transition(start_val, end_val, output, to=next_state, is_other=is_other, is_other_not_consume=is_other_not_consume)
+        trans = FST_Transition(start_val, end_val, output, to=next_state, is_other=is_other, is_not_consumed=is_not_consumed)
         from_state.add_transition(trans)
 
     def _merge_intervals(self, intervals: List[Tuple[int, int]]) -> List[Tuple[int, int]]:
@@ -114,7 +116,7 @@ class FST:
         merged.append((current_min, current_max))
         return merged
 
-    def _compute_complement_intervals(self, intervals: List[Tuple[int, int]], min_val: int = 0, max_val: int = 0x10FFFF) -> List[Tuple[int, int]]:
+    def _compute_complement_intervals(self, intervals: List[Tuple[int, int]], min_val: int = 0, max_val: int = 65535) -> List[Tuple[int, int]]:
         complement: List[Tuple[int, int]] = []
         current = min_val
         for s, e in intervals:
@@ -140,30 +142,23 @@ class FST:
                 for comp_min, comp_max in complement:
                     new_min = chr(comp_min)
                     new_max = chr(comp_max)
-                    new_trans = FST_Transition(new_min, new_max, other.output, to=other.to, is_other=False)
+                    new_trans = FST_Transition(new_min, new_max, other.output, to=other.to, is_other=False, is_not_consumed=other.is_not_consumed)
                     state.add_transition(new_trans)
             state.transitions = [t for t in state.transitions if not t.is_other]
 
-    def _process_other_not_consume_transitions(self) -> None:
+    def _process_not_consumed_transitions(self) -> None:
         for state in self.states.values():
-            other_transitions: List[FST_Transition] = [t for t in state.transitions if t.is_other_not_consume]
-            if not other_transitions:
+            not_consumed_transtion: List[FST_Transition] = [t for t in state.transitions if t.is_not_consumed]
+            if not not_consumed_transtion:
                 continue
-            explicit_intervals: List[Tuple[int, int]] = []
-            for t in state.transitions:
-                if not t.is_other_not_consume and t.min is not None and t.max is not None:
-                    explicit_intervals.append((ord(t.min), ord(t.max)))
-            merged = self._merge_intervals(explicit_intervals)
-            complement = self._compute_complement_intervals(merged)
-            for other in other_transitions:
-                for comp_min, comp_max in complement:
-                    for des_transition in other.to.transitions:
-                        if comp_max >= ord(des_transition.min) and comp_min <= ord(des_transition.max):
-                            new_min = chr(comp_min) if comp_min > ord(des_transition.min) else des_transition.min
-                            new_max = chr(comp_max) if comp_max < ord(des_transition.max) else des_transition.max
-                            new_trans = FST_Transition(new_min, new_max, other.output + des_transition.output, to=des_transition.to)
-                            state.add_transition(new_trans)
-            state.transitions = [t for t in state.transitions if not t.is_other_not_consume]
+            for t in not_consumed_transtion:
+                for des_transition in t.to.transitions:
+                    if ord(t.max) >= ord(des_transition.min) and ord(t.min) <= ord(des_transition.max):
+                        new_min = t.min if ord(t.min) > ord(des_transition.min) else des_transition.min
+                        new_max = t.max if ord(t.max) < ord(des_transition.max) else des_transition.max
+                        new_trans = FST_Transition(new_min, new_max, t.output + des_transition.output, to=des_transition.to)
+                        state.add_transition(new_trans)
+            state.transitions = [t for t in state.transitions if not t.is_not_consumed]
 
     def transform_all(self, input_string: str) -> Set[str]:
         if self.initial is None:
@@ -182,7 +177,8 @@ class FST:
         return results
     
     def __repr__(self) -> str:
-        return f"Initial: {self.initial.id}\n" + "\n".join(f"{state_id}: {state}" for state_id, state in self.states.items())
+        sorted_states = sorted(self.states.items(), key=lambda x: x[0])
+        return f"Initial: {self.initial.id}\n" + "\n".join(f"{state_id}: {state}" for state_id, state in sorted_states)
 
 def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: int = 0, final_states: Optional[Set[int]] = None) -> FST:
     fst = FST()
@@ -190,11 +186,15 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
     if final_states is None:
         final_states = {start_state}
     for spec in transition_specs:
-        from_state, input_range, output, next_state = spec
+        if len(spec) == 5:
+            from_state, input_range, output, next_state, is_not_consumed = spec
+        else:
+            from_state, input_range, output, next_state = spec
+            is_not_consumed = False
         if input_range == "$other":
-            fst.add_transition(from_state, "$other", None, output, next_state)
-        elif input_range == "$other_not_consume":
-            fst.add_transition(from_state, "$other_not_consume", None, output, next_state)
+            fst.add_transition(from_state, "$other", None, output, next_state, is_not_consumed)
+        # elif input_range == "$other_not_consume":
+        #     fst.add_transition(from_state, "$other_not_consume", None, output, next_state)
         else:
             if '--' in input_range:
                 parts = input_range.split('--')
@@ -204,15 +204,16 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
             else:
                 min_in = input_range
                 max_in = input_range
-            fst.add_transition(from_state, min_in, max_in, output, next_state)
+            fst.add_transition(from_state, min_in, max_in, output, next_state, is_not_consumed)
     for fs in final_states:
         fst.set_accept(fs)
     fst._process_other_transitions()
-    fst._process_other_not_consume_transitions()
+    fst._process_not_consumed_transitions()
     return fst
 
 
 def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
+    # return RegExp(".*").toAutomaton()
     product = Automaton()
     worklist: Deque[Tuple[State, FST_State, State]] = deque()
     new_states: Dict[Tuple[State, FST_State], State] = {}
@@ -604,17 +605,43 @@ def first_replacement_FST(s1: str, s2: str) -> FST:
 
 
 def global_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
+
+    def check_fallback(trans: Transition, automata: Automaton) -> List[Tuple[str, str]]:
+        if trans.getDest().isAccept():
+            return []
+        intersentions = []
+        min_char = trans.getMin()
+        max_char = trans.getMax()
+        automata_initial_state = automata.getInitialState()
+        for t in automata_initial_state.getSortedTransitions(True):
+            if ord(t.getMax()) >= ord(min_char) and ord(t.getMin()) <= ord(max_char):
+                new_min = min_char if ord(min_char) > ord(t.getMin()) else t.getMin()
+                new_max = max_char if ord(max_char) < ord(t.getMax()) else t.getMax()
+                a = automata.clone()
+                b = automata.clone()
+                a.setInitialState(t.getDest())
+                b.setInitialState(trans.getDest())
+                if not a.subsetOf(b):
+                    intersentions.append((new_min, new_max))
+        return intersentions
+
+
+
     # FIXME: incorrect leftmost longest match: can handle: aa?; but cannot handle a(aa)?
     # FIXME: there is no failure function for regex now: cannot handle repalce a.a with x in aaba
     # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
 
-    # 4 modes
+    # 5 modes
     # match: the original automaton i
     # buffer: the buffer automaton i + num_states
     # success: the success automaton i + 2 * num_states
     # buffer success: the success automaton i + 3 * num_states
+    # longest buffer success: the success automaton i + 4 * num_states
     # new initial state: -1
     # abort state: -2
+    automaton.determinize()
+    automaton.minimize()
+    automaton.removeDeadTransitions()
     if automaton.isEmpty():
         raise ToolError("pattern regex is empty")
     if automaton.isEmptyString():
@@ -663,25 +690,38 @@ def global_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
                     if state_id == initial_state:
                         specs.append((new_initial_state, input_range, "$self", dest_state_id + num_states))
                     specs.append((state_id + num_states, input_range, "$self", dest_state_id + num_states))
+                    # non-deteministic guess
+                    intersentions = check_fallback(trans, automaton)
+                    for new_min, new_max in intersentions:
+                        specs.append((state_id + num_states, new_min + "--" + new_max, "", new_initial_state, True))
                 else:
                     specs.append((state_id + num_states, input_range, "$self", abort_state))
             
             # success mode
-            if state_id in final_states and dest_state_id in final_states:
-                specs.append((state_id + 2 * num_states, input_range, "", dest_state_id + 2 * num_states))
+            specs.append((state_id + 2 * num_states, input_range, "", dest_state_id + 2 * num_states))
+            if dest_state_id not in final_states and state_id in final_states:
+                specs.append((state_id + 2 * num_states, input_range, s2 + "$self", dest_state_id + 4 * num_states))
+                specs.append((state_id + 2 * num_states, input_range, s2, new_initial_state, True))
 
             # buffer success mode
-            if state_id in final_states and dest_state_id in final_states:
-                specs.append((state_id + 3 * num_states, input_range, "", dest_state_id + 3 * num_states))
+            specs.append((state_id + 3 * num_states, input_range, "", dest_state_id + 3 * num_states))
+
+            # longest buffer success mode
+            if dest_state_id not in final_states:
+                specs.append((state_id + 4 * num_states, input_range, "$self", dest_state_id + 4 * num_states))
+            else:
+                specs.append((state_id + 4 * num_states, input_range, "", abort_state))
     
     for state in automaton.getStates():
         state_id = state_map[state]
         if state_id in final_states:
-            # success mode return to initial state
-            specs.append((state_id + 2 * num_states, "$other_not_consume", s2, new_initial_state))
+            # success mode return to end state
+            specs.append((state_id + 2 * num_states, "$other", s2, new_initial_state, True))
         else:
             # buffer mode return to initial state
-            specs.append((state_id + num_states, "$other_not_consume", "", new_initial_state))
+            specs.append((state_id + num_states, "$other", "", new_initial_state, True))
+            # longest buffer success mode return to end state
+            specs.append((state_id + 4 * num_states, "$other", "", new_initial_state, True))
 
 
     if initial_state not in final_states:
@@ -689,13 +729,31 @@ def global_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
     else:
         specs.append((new_initial_state, "$other", "$self" + s2, new_initial_state))
     
-    final_states = {new_initial_state} | {i + 3 * num_states for i in final_states} | {i + num_states for i in range(num_states)}
+    final_states = {new_initial_state} | {i + 3 * num_states for i in final_states} | {i + num_states for i in range(num_states)} |  {i + 4 * num_states for i in range(num_states) if i not in final_states}
         
     return create_fst(specs, start_state=new_initial_state, final_states=final_states)
 
 
 
 def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
+    def check_fallback(trans: Transition, automata: Automaton) -> List[Tuple[str, str]]:
+        if trans.getDest().isAccept():
+            return []
+        intersentions = []
+        min_char = trans.getMin()
+        max_char = trans.getMax()
+        automata_initial_state = automata.getInitialState()
+        for t in automata_initial_state.getSortedTransitions(True):
+            if ord(t.getMax()) >= ord(min_char) and ord(t.getMin()) <= ord(max_char):
+                new_min = min_char if ord(min_char) > ord(t.getMin()) else t.getMin()
+                new_max = max_char if ord(max_char) < ord(t.getMax()) else t.getMax()
+                a = automata.clone()
+                b = automata.clone()
+                a.setInitialState(t.getDest())
+                b.setInitialState(trans.getDest())
+                if not a.subsetOf(b):
+                    intersentions.append((new_min, new_max))
+        return intersentions
     # FIXME: there is no failure function for regex now: cannot handle repalce a.a with x in aaba
     # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
 
@@ -757,6 +815,10 @@ def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
                     if state_id == initial_state:
                         specs.append((new_initial_state, input_range, "$self", dest_state_id + num_states))
                     specs.append((state_id + num_states, input_range, "$self", dest_state_id + num_states))
+                    # non-deteministic guess
+                    intersentions = check_fallback(trans, automaton)
+                    for new_min, new_max in intersentions:
+                        specs.append((state_id + num_states, new_min + "--" + new_max, "", new_initial_state, True))
                 else:
                     specs.append((state_id + num_states, input_range, "$self", abort_state))
             
@@ -781,7 +843,7 @@ def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
             specs.append((state_id + 2 * num_states, "$other", s2 + "$self", end_state))
         else:
             # buffer mode return to initial state
-            specs.append((state_id + num_states, "$other_not_consume", "", new_initial_state))
+            specs.append((state_id + num_states, "$other", "", new_initial_state, True))
             # longest buffer success mode return to end state
             specs.append((state_id + 4 * num_states, "$other", "$self", end_state))
 

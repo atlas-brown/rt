@@ -204,7 +204,7 @@ def test_global_regex_replacement_FST():
     assert fst.transform_all("aaa") == {"aaa"}
     assert fst.transform_all("acb") == {"x"}
     assert fst.transform_all("aaabbb") == {"x"}
-    assert fst.transform_all("aaabbbab") == {"xx"} # FIXME: should be x
+    assert fst.transform_all("aaabbbab") == {"xx", "x"} # ambiguous
     assert fst.transform_all("bbbaaacbbbaaa") == {"bbbxaaa"}
 
     pattern = "abc[0-9]+"
@@ -225,6 +225,15 @@ def test_global_regex_replacement_FST():
     assert fst.transform_all("fred123fredfred123") == {"georgefredgeorge"}
     assert fst.transform_all("fredfred123fredfred123fred") == {"fredgeorgefredgeorgefred"}
     assert fst.transform_all("fred1f") == {"georgef"}
+
+    pattern = "a.a"
+    automata = ast_to_automaton(RegexParser(pattern).parse())
+    fst = global_regex_replacement_FST(automata, "x")
+    print(fst)
+    assert "x" in fst.transform_all("aaa")
+    assert "ax" in fst.transform_all("aaba")
+    assert "xxx" in fst.transform_all("aaaaaaaaa")
+    assert "axa" in fst.transform_all("aabaa")
 
 
 def test_first_regex_replacement_FST():
