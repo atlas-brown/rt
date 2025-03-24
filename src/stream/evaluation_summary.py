@@ -277,6 +277,47 @@ def path_to_benchmark_set(collection):
             return value
 
 
+def merged_csv_to_bug_detection(ann_json_path, raw_json_path, baseline_csv_path, out_path, eprint_records=False):
+    merged = load_merged_results(ann_json_path, raw_json_path, baseline_csv_path)
+    # [shtreams?, SC?, LT?]
+    data = {(us, sc, lt): 0 for us in [True, False] for sc in [True, False] for lt in [True, False]}
+    header = ['System', 'Only this detects', 'and Shtreams', 'and SC', 'and LT', 'All']
+    # only raw for a fair comparison
+    for recs in merged.values():
+        if not recs["raw"]["baseline"]["is buggy?"]:
+            continue
+        key = (recs["raw"]["warning signaled?"],
+               recs["raw"]["baseline"]["sc warning?"],
+               recs["raw"]["baseline"]["ltsh warning?"])
+        data[key] += 1
+        if eprint_records:
+            print(f"{key}#{recs}")
+
+    def get(us, sc, lt):
+        return data[(us == 1, sc == 1, lt ==1)]
+
+    rows = []
+    rows.append({"System": "Shtreams",
+                 "Only this detects": get(1, 0, 0),
+                 "and Shtreams": 0,
+                 "and SC": get(1, 1, 0),
+                 "and LT": get(1, 0, 1),
+                 "All": get(1, 1, 1)})
+    rows.append({"System": "ShellCheck",
+                 "Only this detects": get(0, 1, 0),
+                 "and Shtreams": get(1, 1, 0),
+                 "and SC": 0,
+                 "and LT": get(0, 1, 1),
+                 "All": get(1, 1, 1)})
+    rows.append({"System": "LadderTypes",
+                 "Only this detects": get(0, 0, 1),
+                 "and Shtreams": get(1, 0, 1),
+                 "and SC": get(0, 1, 1),
+                 "and LT": 0,
+                 "All": get(1, 1, 1)})
+    write_csv(rows, header, out_path)
+
+
 def main():
     parser = argparse.ArgumentParser(description='Process evaluation results from JSON and generate CSV summaries.')
     parser.add_argument('--mode', type=str, choices=['separate', 'merged', 'all'], default='all',
@@ -293,6 +334,8 @@ def main():
                         help='Path to baseline results CSV file (default: evaluation_results/baseline.csv)')
     parser.add_argument('--merged_csv', type=str, default='evaluation_results/merged_results.csv',
                         help='Path to merged CSV file (default: evaluation_results/merged_results.csv)')
+    parser.add_argument('--bug_detection_csv', type=str, default='evaluation_results/bug_detection.csv',
+                        help='Path to bug detection CSV file to write (default: evaluation_results/bug_detection.csv)')
     parser.add_argument('--overview_csv', type=str, default='evaluation_results/overview_results.csv',
                         help='Path to overview CSV file (default: evaluation_results/overview_results.csv)')
     args = parser.parse_args()
@@ -305,6 +348,7 @@ def main():
         results_to_merged_csv(args.ann_json, args.raw_json, args.merged_csv)
         print(f"Generating overview CSV file: {args.overview_csv}")
         results_to_overview_csv(args.ann_json, args.raw_json, args.baseline_csv, args.overview_csv)
+        merged_csv_to_bug_detection(args.ann_json, args.raw_json, args.baseline_csv, args.bug_detection_csv,eprint_records=True)
 
 def category_to_tag(is_correct: bool, category: str):
     if is_correct:
