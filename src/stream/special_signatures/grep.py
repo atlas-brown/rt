@@ -71,9 +71,11 @@ class GrepSignature(CommandSignature):
         if "-e" in flags:
             arg_count = len(parsed_command_invocation.operand_list) + 1
             pattern_type = RegularType(flag_args["-e"][0], mode)
+            original_pattern_type = RegularType(flag_args["-e"][0], mode)
             for arg in flag_args["-e"][1:]:
                 arg = arg.replace("\\\\", "\\")
                 pattern_type = pattern_type | RegularType(arg, mode)
+                original_pattern_type = original_pattern_type | RegularType(arg, mode)
             
             
         else:

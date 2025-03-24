@@ -1,38 +1,18 @@
 category,total,crash,signaled,false (pos/neg),category, tag
-========,=====,=====,========,===============,========
-correct,254,1,69,69, 
- , , , ,17,need transducer: tr/sed/cut,can be improved with FST
- , , , ,1,need better support for command: docker,can be improved with current model
- , , , ,1,need better support for command: xargs,can be improved with current model
- , , , ,5,unsupported command: awk,out of scope
- , , , ,11,unsupported options/flags/operands - about find,out of scope
- , , , ,4,unsupported options/flags/operands - about find; violates our assumption about xargs cat usage,out of scope
- , , , ,3,violates our assumption about sort -n usage,
- , , , ,1,problematic annotation design,
- , , , ,3,need transducer: rev; need transducer: tr/sed/cut,can be improved with FST
- , , , ,1,need better support for command: od; need transducer: tr/sed/cut,can be improved with FST
- , , , ,1,regex parsing error in grep - cannot distinguish -E and without -E,can be improved with current model
- , , , ,1,need better support for command: who; need transducer: tr/sed/cut,can be improved with FST
- , , , ,1,need better support for command: seq,can be improved with current model
- , , , ,2,need default format of /etc/group; need transducer: tr/sed/cut,can be improved with FST
- , , , ,7,ANN'D need assume annotation; need transducer: tr/sed/cut,can be improved with FST
- , , , ,1,ANN'D need assume annotation; violates our assumption about sort -n usage; need transducer: tr/sed/cut,can be improved with FST
- , , , ,4,need support for tr ' ' '\n',can be improved with FST
- , , , ,3,need transducer: tr/sed/cut; need support for tr -d '\n',can be improved with FST
- , , , ,1,need transducer: tr/sed/cut; need support for tr -d '\n'; need support for tr ' ' '\n',can be improved with FST
- , , , ,1,need transducer: tr/sed/cut; need support for tr ' ' '\n',can be improved with FST
---------,-----,-----,--------,---------------,--------
-buggy,292,2,267,23, 
- , , , ,3,semantic mistake - file not found,out of scope
- , , , ,1,semantic mistake - about date,out of scope
- , , , ,1,need better support for command: who,can be improved with current model
- , , , ,1,unsupported command: awk,out of scope
- , , , ,1,needs whole-stream annotation for number of lines,can be improved with FST
- , , , ,1,need better support for command: xargs,can be improved with current model
- , , , ,7,need transducer: tr/sed/cut,can be improved with FST
- , , , ,5,regex parsing error in grep - about ^ and $,can be improved with current model
- , , , ,1,unsupported options/flags/operands - about find; need transducer: tr/sed/cut,out of scope
- , , , ,1,semantic mistake - meaningless uniq,out of scope
- , , , ,1,need better support for command: sort,can be improved with current model
-========,=====,=====,========,===============,========
-total,517,3, ,92, 
+========,=====,=====,========,===============,========,========
+correct,243,0,46,46,, 
+ , , , ,17,Unsupported invocation,
+ , , , ,1,bad label,
+ , , , ,1,Bad label,
+ , , , ,14,Incomplete annotations,
+ , , , ,2,Bad heuristics,
+ , , , ,11,Full stream required,can be improved with FST
+--------,-----,-----,--------,---------------,--------,--------
+buggy,272,0,257,15,, 
+ , , , ,3,Wrong semantic,
+ , , , ,3,Full stream required,can be improved with FST
+ , , , ,4,Incomplete annotations,
+ , , , ,4,Unsupported invocation,
+ , , , ,1,Bad label,
+========,=====,=====,========,===============,========,========
+total,515,0, ,61,, 

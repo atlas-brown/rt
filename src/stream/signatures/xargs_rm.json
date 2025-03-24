@@ -4,6 +4,15 @@
     "default_output_type": ".*",
     "args": [],
     "flags": [],
-    "rules": [],
+    "rules": [
+        {
+            "condition": {
+                "heuristics": ["no_space_in_file_name"]
+            },
+            "update": {
+                "input_type": "[^ ]+|\".+\"|'.+'"
+            }
+        }
+    ],
     "isInteresting": false
 }

@@ -32,12 +32,20 @@ class SortSignature(CommandSignature):
             if "," in arg:
                 if flag == "":
                     field, start = arg.split(',')
-                    field, start = int(field), int(start)
+                    # FIXME: about .
+                    try:
+                        field, start = int(field), int(start)
+                    except Exception as e:
+                        return RegularType(".*"), None
                     pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[^\t ]{{{start}}}.*"
                     input_type = input_type & RegularType(pattern)
                 else:
                     field, start = arg.split(',')
-                    field, start = int(field), int(start)
+                    # FIXME: about .
+                    try:
+                        field, start = int(field), int(start)
+                    except Exception as e:
+                        return RegularType(".*"), None
                     if "n" in flag:
                         pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[^\t ]{{{start - 1}}}[0-9].*"
                         input_type = input_type & RegularType(pattern)
