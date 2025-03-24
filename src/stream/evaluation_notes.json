@@ -20,10 +20,10 @@
         "warning signaled?": true,
         "tool runtime error": null,
         "pash annotations error": null,
-        "error message generated": "Bad label",
+        "error message generated": "",
         "evaluation_time": "0.00s",
         "automata_size": 2,
-        "category": "bad label",
+        "category": "Bad label",
         "notes": "",
         "tag": ""
     },
@@ -163,7 +163,7 @@
         "error message generated": "Input type 'RegularType(.+)' is not compatible with expected input 'RegularType([^ ]+|\".+\"|'.+')' for command 'xargs_grep'. For example: ' '.",
         "evaluation_time": "0.00s",
         "automata_size": 2,
-        "category": "Incomplete annotations",
+        "category": "Bad label",
         "notes": "",
         "tag": ""
     },
@@ -177,7 +177,7 @@
         "error message generated": "Input type 'RegularType(.*)' is not compatible with expected input 'RegularType([ \t]*[-+]?[0-9]+.*)' for command 'sort'. For example: ''.",
         "evaluation_time": "0.00s",
         "automata_size": 2,
-        "category": "Incomplete annotations",
+        "category": "Bad label",
         "notes": "",
         "tag": ""
     },
@@ -233,7 +233,7 @@
         "error message generated": "Input type 'RegularType({{actual_input_type}})' is not compatible with expected input 'RegularType([^ ]+|\".+\"|'.+')' for command 'xargs_cat'. For example: ''.",
         "evaluation_time": "0.01s",
         "automata_size": 1,
-        "category": "Incomplete annotations",
+        "category": "Bad label",
         "notes": "",
         "tag": ""
     },
@@ -247,7 +247,7 @@
         "error message generated": "Input type 'RegularType(.+)' is not compatible with expected input 'RegularType([^ ]+|\".+\"|'.+')' for command 'xargs_grep'. For example: ' '.",
         "evaluation_time": "0.00s",
         "automata_size": 2,
-        "category": "Incomplete annotations",
+        "category": "Bad label",
         "notes": "",
         "tag": ""
     },
@@ -359,7 +359,7 @@
         "error message generated": "Input type 'RegularType(.+)' is not compatible with expected input 'RegularType([^ ]+|\".+\"|'.+')' for command 'xargs_cat'. For example: ' '.",
         "evaluation_time": "0.00s",
         "automata_size": 2,
-        "category": "Incomplete annotations",
+        "category": "Bad label",
         "notes": "",
         "tag": ""
     },
@@ -401,7 +401,7 @@
         "error message generated": "Input type 'RegularType(.+)' is not compatible with expected input 'RegularType([^ ]+|\".+\"|'.+')' for command 'xargs_cat'. For example: ' '.",
         "evaluation_time": "0.00s",
         "automata_size": 2,
-        "category": "Incomplete annotations",
+        "category": "Bad label",
         "notes": "",
         "tag": ""
     },
@@ -415,7 +415,7 @@
         "error message generated": "Input type 'RegularType(.+)' is not compatible with expected input 'RegularType([^ ]+|\".+\"|'.+')' for command 'xargs_cat'. For example: ' '.",
         "evaluation_time": "0.00s",
         "automata_size": 2,
-        "category": "Incomplete annotations",
+        "category": "Bad label",
         "notes": "",
         "tag": ""
     },
@@ -597,7 +597,7 @@
         "error message generated": null,
         "evaluation_time": "0.01s",
         "automata_size": 2,
-        "category": "Full stream required",
+        "category": "Incomplete annotations",
         "notes": "dropped grep, should be detectable",
         "tag": "can be improved with FST"
     },
@@ -611,7 +611,7 @@
         "error message generated": null,
         "evaluation_time": "0.01s",
         "automata_size": 1,
-        "category": "Full stream required",
+        "category": "Incomplete annotations",
         "notes": "",
         "tag": "can be improved with FST"
     },
@@ -765,7 +765,7 @@
         "error message generated": null,
         "evaluation_time": "0.02s",
         "automata_size": 10,
-        "category": "Unsupported invocation",
+        "category": "Bad label",
         "notes": "empty output of grep",
         "tag": "need very detailed annotation"
     },
