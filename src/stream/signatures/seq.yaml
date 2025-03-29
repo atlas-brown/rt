@@ -1,0 +1,16 @@
+command_name: seq
+default_input_type: .*
+default_output_type: -?[0-9]+
+args:
+- name: a
+  type: -?[0-9]+
+- name: b
+  type: -?[0-9]+
+flags: []
+rules:
+- condition:
+    heuristics:
+    - no_ignored_input
+  update:
+    input_type: ''
+isInteresting: true

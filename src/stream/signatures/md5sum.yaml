@@ -1,0 +1,7 @@
+command_name: md5sum
+default_input_type: .*
+default_output_type: '[a-z0-9]{33} -'
+args: []
+flags: []
+rules: []
+isInteresting: true

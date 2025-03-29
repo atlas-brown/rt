@@ -1,0 +1,7 @@
+command_name: xargs_curl
+default_input_type: (.+\..+)|(localhost(:[0-9]+)?)
+default_output_type: .*
+args: []
+flags: []
+rules: []
+isInteresting: true

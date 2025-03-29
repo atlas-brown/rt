@@ -1,9 +1,0 @@
-{
-    "command_name": "rev",
-    "default_input_type": ".*",
-    "default_output_type": ".*",
-    "args": [],
-    "flags": [],
-    "rules": [],
-    "isInteresting": true
-}

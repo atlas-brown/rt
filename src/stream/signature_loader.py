@@ -1,4 +1,4 @@
-import json
+import yaml
 import os
 from typing import List, Dict
 from stream.command_signature import CommandSignature
@@ -43,17 +43,22 @@ class SignatureLoader:
                                 )
 
     def load_signature(self, command_name: str) -> CommandSignature:
-        file_path = os.path.join(self.signature_dir, f'{command_name}.json')
-        with open(file_path, 'r') as f:
-            data = json.load(f)
-            signature_params = {
-                'command_name': data['command_name'],
-                'default_input_type': data['default_input_type'],
-                'default_output_type': data['default_output_type'],
-                'args': data.get('args', []),
-                'flags': data.get('flags', []),
-                'rules': data.get('rules', []),
-                'isInteresting': data.get('isInteresting', False),
+        yaml_path = os.path.join(self.signature_dir, f'{command_name}.yaml')
+        
+        if os.path.exists(yaml_path):
+            with open(yaml_path, 'r') as f:
+                data = yaml.safe_load(f)
+        else:
+            raise FileNotFoundError(f"No signature file found for {command_name}")
+            
+        signature_params = {
+            'command_name': data['command_name'],
+            'default_input_type': data['default_input_type'],
+            'default_output_type': data['default_output_type'],
+            'args': data.get('args', []),
+            'flags': data.get('flags', []),
+            'rules': data.get('rules', []),
+            'isInteresting': data.get('isInteresting', False),
         }
         
         if command_name in self.special_signatures:
@@ -62,10 +67,16 @@ class SignatureLoader:
 
     def load_all_signatures(self) -> List[CommandSignature]:
         signatures: List[CommandSignature] = []
+        command_names = set()
+        
+        # Collect all YAML signature files
         for file_name in os.listdir(self.signature_dir):
-            if file_name.endswith('.json'):
+            if file_name.endswith('.yaml'):
                 command_name = os.path.splitext(file_name)[0]
-                signatures.append(self.load_signature(command_name))
+                if command_name not in command_names:
+                    command_names.add(command_name)
+                    signatures.append(self.load_signature(command_name))
+        
         return signatures
     
     def get_unknown_sigature(self) -> CommandSignature:

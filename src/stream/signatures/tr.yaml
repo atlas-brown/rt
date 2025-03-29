@@ -1,0 +1,13 @@
+command_name: tr
+default_input_type: .*
+default_output_type: .*
+args:
+- name: set1
+  type: .+
+  is_regex: false
+- name: set2
+  type: .+
+  is_regex: false
+flags: []
+rules: []
+isInteresting: true
