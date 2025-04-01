@@ -11,6 +11,7 @@ if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from stream.type_checker import TypeChecker
 from stream.tool_error import PashAnnotationParsingError, TimeoutError
+from stream.evaluation_config import get_config
 import argparse
 
 ENABLE_TIMEOUT = False
@@ -24,6 +25,7 @@ CRASH_REASON_LABEL = "tool runtime error"
 TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
 
 enable_user_annotation = True
+enable_heuristics = True
 
 # class LogHandler(logging.Handler):
 #     def __init__(self):
@@ -88,7 +90,12 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
     pipeline_data_list = []
     
     try:        
-        type_checker = TypeChecker(address, enable_user_annotations=enable_user_annotation, enable_stage_timeout=ENABLE_TIMEOUT, stage_timeout=TIMEOUT_SECONDS, check_all_pipelines=check_all_pipelines)
+        type_checker = TypeChecker(address, enable_user_annotations=enable_user_annotation, enable_stage_timeout=ENABLE_TIMEOUT, stage_timeout=TIMEOUT_SECONDS, check_all_pipelines=check_all_pipelines,
+                                   enable_rule_no_empty_output = enable_heuristics,
+                                   enable_rule_no_ignored_input = enable_heuristics,
+                                   enable_rule_no_space_in_file_name = enable_heuristics,
+                                   enable_rule_no_meaningless_command = enable_heuristics,
+                                   enable_rule_no_sort_non_numeric_with_numeric_input = enable_heuristics)
 
         try:
             while True:
@@ -373,6 +380,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run benchmarks.')
     parser.add_argument('--disable_annotation', action='store_true',
                         help='Disable user annotation handling. Defaults to enabled.')
+    parser.add_argument('--disable_heuristics', action='store_true',
+                        help='Disable type-based bug detection heuristics. Defaults to enabled.')
     parser.add_argument('--log_level', default='info', type=str, help='Set logging level: info, debug, error. Defaults to info.')
     parser.add_argument('--timeout', default=-1, type=int,
                         help='Set pipeline evaluation timeout in seconds. Defaults to disabled.')
@@ -385,6 +394,9 @@ if __name__ == "__main__":
         enable_user_annotation = False
     else:
         enable_user_annotation = True
+
+    if args.disable_heuristics:
+        enable_heuristics = False
 
     level_str = args.log_level.lower()
     if level_str == "debug":
@@ -414,30 +426,12 @@ if __name__ == "__main__":
 
     time.sleep(3)
 
+    cfg = get_config()
+
     run_all_evaluations(
-        # TODO FIXME use evaluation_config.json
-        valid_dirs=[
-            "./evaluation_pipelines/valid", 
-            "./full_benchmark/intercode/pipelines", 
-            # "./full_benchmark/pash_benchmark/benchmarks",
-            "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts",
-            # # "./full_benchmark/github_repos_commits/output/post_commit",
-            # "./full_benchmark/github_repos_commits/collected-negative",
-            # "./full_benchmark/stackoverflow/correct",
-        ],
-        invalid_dirs=[
-            "./evaluation_pipelines/invalid",
-            "./full_benchmark/curated_mutants",
-            "./full_benchmark/llm_injection/pipelines",
-            # "./full_benchmark/github_repos_commits/collected-positive",
-            # "./full_benchmark/stackoverflow/buggy",
-        ],
-        not_check_all_dirs=[
-            "./full_benchmark/github_repos_commits/output/post_commit",
-            "./full_benchmark/github_repos_commits/output/pre_commit",
-            "./full_benchmark/stackoverflow/buggy",
-            "./full_benchmark/stackoverflow/correct",
-        ],
+        valid_dirs = cfg["benchmark dirs"]["valid"],
+        invalid_dirs = cfg["benchmark dirs"]["invalid"],
+        not_check_all_dirs = cfg["benchmark dirs"]["whole scripts with select annotated pipelines"],
         output_json='evaluation_results/with_annotations/evaluation_results.json' if enable_user_annotation else 'evaluation_results/raw/evaluation_results.json',
         output_summary_csv='evaluation_results/with_annotations/summary.csv' if enable_user_annotation else 'evaluation_results/raw/summary.csv',
         num_workers=workers,

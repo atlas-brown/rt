@@ -7,18 +7,8 @@ import time
 from pathlib import Path
 import tempfile
 import os
+from stream.evaluation_config import get_config
 
-# TODO FIXME use evaluation_config.json
-valid_dirs = [
-    "./evaluation_pipelines/valid",
-    "./full_benchmark/intercode/pipelines",
-    "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts",
-]
-invalid_dirs = [
-    "./evaluation_pipelines/invalid",
-    "./full_benchmark/curated_mutants",
-    "./full_benchmark/llm_injection/pipelines",
-]
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
 
 def is_meaningful_line(line):
@@ -28,6 +18,8 @@ def is_meaningful_line(line):
         return False
     return True
 
+# lltodo fixme: this isn't quite right: SC and LT are being run on the entire scripts, which is not necessarily the same as we do
+# need to use the "whole scripts with select annotated pipelines" config info to search for `# stream enable`
 def check_shellcheck(file_path):
     try:
         content = Path(file_path).read_text()
@@ -46,7 +38,6 @@ def check_shellcheck(file_path):
         return ("ERROR", str(e), [])
 
 def check_ltsh(file_path):
-    return ("OK", "")
     try:
         content = Path(file_path).read_text()
         lines = content.split("\n")
@@ -60,12 +51,17 @@ def check_ltsh(file_path):
         print(output)
         return ("ERROR" if "typecheck error" in clean_output else "OK", output)
     except Exception as e:
+        print(f"Exception while trying to run ltsh: {e}")
         return ("ERROR", str(e))
 
+ignored_sc_codes = "SC2148,SC2012,SC2046,SC2086,SC2018,SC2019,SC2002,SC2006,SC2009,SC2035,SC2060,SC2061,SC2062,SC2063,SC2126,SC2154,SC2185,SC2196,SC2225".split(",")
 def main():
-    csv_file = "results.csv"
-    json_file = "results.json"
-    warnings_json_file = "shellcheck_warnings.json"
+    csv_file = "evaluation_results/baseline.csv"
+    json_file = "evaluation_results/baseline.json"
+    warnings_json_file = "evaluation_results/shellcheck_warnings.json"
+    cfg = get_config()
+    valid_dirs = cfg["benchmark dirs"]["valid"]
+    invalid_dirs = cfg["benchmark dirs"]["invalid"]
     all_results = []
     batch_results = []
     all_shellcheck_codes = set()
@@ -87,11 +83,12 @@ def main():
                     lt_status, lt_output = check_ltsh(str(file))
                     ltsh_processing_time = time.time() - start_ltsh
                     shell_warning = (sc_status == "ERROR")
-                    warning_codes = set(sc_codes)
-                    print(f"Warning codes: {warning_codes}")
-                    if warning_codes.issubset({"SC2012","SC2021","SC2183","SC2046","SC2086","SC2018","SC2019","SC2002","SC2006","SC2009","SC2035","SC2060","SC2061","SC2062","SC2063","SC2126","SC2154","SC2185","SC2196","SC2225"}):
-                        print(f"Skipping {file} because of the following codes: {warning_codes}")
-                        shell_warning = False
+                    if sc_codes:
+                        warning_codes = set(sc_codes)
+                        print(f"Warning codes: {warning_codes}")
+                        if all(code in ignored_sc_codes for code in warning_codes):
+                            print(f"Skipping {file} because of the following codes: {warning_codes}")
+                            shell_warning = False
                     record = {
                         "pipeline_file": str(file),
                         "is buggy?": buggy,

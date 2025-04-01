@@ -3,6 +3,7 @@ import json
 import os
 import csv
 import re
+from stream.evaluation_config import get_config
 
 def convert_to_github_address(address):
     if address.startswith('./'):
@@ -87,9 +88,9 @@ def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None):
             if addr not in merged:
                 continue
             info = {
-                'is buggy?': row[1] == 'TRUE',
-                "sc warning?": row[2] == 'TRUE',
-                "ltsh warning?": row[3] == 'TRUE',
+                'is buggy?': row[1].lower() == 'true',
+                "sc warning?": row[2].lower() == 'true',
+                "ltsh warning?": row[3].lower() == 'true',
                 "sc time": float(row[4]),
                 "ltsh time": float(row[5])
             }
@@ -269,9 +270,7 @@ benchmark_mapping = None
 def path_to_benchmark_set(collection):
     global benchmark_mapping
     if not benchmark_mapping:
-        # FIXME
-        with open("./src/stream/benchmark_mapping.json", "r") as file:
-            benchmark_mapping = json.load(file)
+        benchmark_mapping = get_config()["benchmark names"]
     for key, value in benchmark_mapping.items():
         if re.search(key, collection):
             return value
