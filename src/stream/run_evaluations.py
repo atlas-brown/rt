@@ -12,9 +12,11 @@ if not jpype.isJVMStarted():
 from stream.type_checker import TypeChecker
 from stream.tool_error import PashAnnotationParsingError, TimeoutError
 import argparse
+from stream.config import CONFIG
 
-ENABLE_TIMEOUT = False
-TIMEOUT_SECONDS = 10
+# Default values now come from CONFIG
+ENABLE_TIMEOUT = CONFIG.get("enable_timeout", False)
+TIMEOUT_SECONDS = CONFIG.get("timeout_seconds", 10)
 
 IS_BUGGY_LABEL = "is buggy?"
 SIGNALED_LABEL = "warning signaled?"
@@ -23,7 +25,7 @@ CATEGORY_LABEL = "category"
 CRASH_REASON_LABEL = "tool runtime error"
 TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
 
-enable_user_annotation = True
+enable_user_annotation = CONFIG.get("enable_user_annotation", True)
 
 # class LogHandler(logging.Handler):
 #     def __init__(self):
@@ -88,7 +90,18 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
     pipeline_data_list = []
     
     try:        
-        type_checker = TypeChecker(address, enable_user_annotations=enable_user_annotation, enable_stage_timeout=ENABLE_TIMEOUT, stage_timeout=TIMEOUT_SECONDS, check_all_pipelines=check_all_pipelines)
+        type_checker = TypeChecker(
+            address, 
+            enable_user_annotations=enable_user_annotation, 
+            enable_stage_timeout=ENABLE_TIMEOUT, 
+            stage_timeout=TIMEOUT_SECONDS, 
+            check_all_pipelines=check_all_pipelines,
+            enable_rule_no_empty_output=CONFIG.get("enable_rule_no_empty_output", True),
+            enable_rule_no_ignored_input=CONFIG.get("enable_rule_no_ignored_input", True),
+            enable_rule_no_space_in_file_name=CONFIG.get("enable_rule_no_space_in_file_name", True),
+            enable_rule_no_meaningless_command=CONFIG.get("enable_rule_no_meaningless_command", True),
+            enable_rule_no_sort_non_numeric_with_numeric_input=CONFIG.get("enable_rule_no_sort_non_numeric_with_numeric_input", True)
+        )
 
         try:
             while True:
@@ -155,14 +168,23 @@ def process_pipeline(pipeline_info: Tuple[str, bool], evaluation_notes: List[dic
         local_results.append(pipeline_result)
     return local_results
 
-def run_all_evaluations(valid_dirs: list[str],
-                        invalid_dirs: list[str],
-                        output_json='evaluation_results/evaluation_results.json',
-                        output_summary_csv='evaluation_results/summary.csv',
-                        evaluation_notes_json='src/stream/evaluation_notes.json',
-                        not_check_all_dirs: list[str] = [],
-                        num_workers: int = 1,
+def run_all_evaluations(valid_dirs: list[str] = None,
+                        invalid_dirs: list[str] = None,
+                        output_json: str = None,
+                        output_summary_csv: str = None,
+                        evaluation_notes_json: str = None,
+                        not_check_all_dirs: list[str] = None,
+                        num_workers: int = None,
                         ):
+    # Use CONFIG values as defaults
+    valid_dirs = valid_dirs or CONFIG.get("valid_dirs", [])
+    invalid_dirs = invalid_dirs or CONFIG.get("invalid_dirs", [])
+    output_json = output_json or CONFIG.get("output_results_path", "evaluation_results/evaluation_results.json")
+    output_summary_csv = output_summary_csv or CONFIG.get("output_summary_path", "evaluation_results/summary.csv")
+    evaluation_notes_json = evaluation_notes_json or CONFIG.get("evaluation_notes_path", "src/stream/evaluation_notes.json")
+    not_check_all_dirs = not_check_all_dirs or CONFIG.get("not_check_all_dirs", [])
+    num_workers = num_workers or CONFIG.get("num_workers", 1)
+    
     with open(evaluation_notes_json, 'r') as f:
         evaluation_notes = json.load(f)
 
@@ -373,34 +395,86 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run benchmarks.')
     parser.add_argument('--disable_annotation', action='store_true',
                         help='Disable user annotation handling. Defaults to enabled.')
-    parser.add_argument('--log_level', default='info', type=str, help='Set logging level: info, debug, error. Defaults to info.')
-    parser.add_argument('--timeout', default=-1, type=int,
-                        help='Set pipeline evaluation timeout in seconds. Defaults to disabled.')
-    parser.add_argument('--workers', default=1, type=int,
+    parser.add_argument('--log_level', default=None, type=str, 
+                        help='Set logging level: info, debug, error.')
+    parser.add_argument('--timeout', default=None, type=int,
+                        help='Set pipeline evaluation timeout in seconds.')
+    parser.add_argument('--workers', default=None, type=int,
                         help='Number of parallel workers (set 1 to disable parallelism).')
+    
+    # Add heuristic rule arguments
+    parser.add_argument('--disable_rule_no_empty_output', action='store_true',
+                        help='Disable the rule that checks for empty output.')
+    parser.add_argument('--disable_rule_no_ignored_input', action='store_true',
+                        help='Disable the rule that checks for ignored input.')
+    parser.add_argument('--disable_rule_no_space_in_file_name', action='store_true',
+                        help='Disable the rule that checks for spaces in file names.')
+    parser.add_argument('--disable_rule_no_meaningless_command', action='store_true',
+                        help='Disable the rule that checks for meaningless commands.')
+    parser.add_argument('--disable_rule_no_sort_non_numeric_with_numeric_input', action='store_true',
+                        help='Disable the rule that checks for numeric sorting of non-numeric data.')
 
     args = parser.parse_args()
 
+    # Override CONFIG with command line args
     if args.disable_annotation:
         enable_user_annotation = False
+        CONFIG["enable_user_annotation"] = False
     else:
-        enable_user_annotation = True
+        enable_user_annotation = CONFIG.get("enable_user_annotation", True)
 
-    level_str = args.log_level.lower()
-    if level_str == "debug":
-        level = logging.DEBUG
-    elif level_str == "error":
-        level = logging.WARNING
+    if args.log_level:
+        level_str = args.log_level.lower()
+        if level_str == "debug":
+            level = logging.DEBUG
+        elif level_str == "error":
+            level = logging.WARNING
+        else:
+            level = logging.INFO
+        CONFIG["log_level"] = level_str
     else:
-        level = logging.INFO
+        level_str = CONFIG.get("log_level", "INFO").lower()
+        if level_str == "debug":
+            level = logging.DEBUG
+        elif level_str == "error":
+            level = logging.WARNING
+        else:
+            level = logging.INFO
 
-    TIMEOUT_SECONDS = args.timeout
-    if TIMEOUT_SECONDS > 0:
-        ENABLE_TIMEOUT = True
-        TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
+    if args.timeout is not None:
+        TIMEOUT_SECONDS = args.timeout
+        CONFIG["timeout_seconds"] = args.timeout
+        if TIMEOUT_SECONDS > 0:
+            ENABLE_TIMEOUT = True
+            CONFIG["enable_timeout"] = True
+            TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
+        else:
+            ENABLE_TIMEOUT = False
+            CONFIG["enable_timeout"] = False
+    else:
+        ENABLE_TIMEOUT = CONFIG.get("enable_timeout", False)
+        TIMEOUT_SECONDS = CONFIG.get("timeout_seconds", 10)
+        if ENABLE_TIMEOUT:
+            TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
 
-    workers = args.workers
+    if args.workers is not None:
+        workers = args.workers
+        CONFIG["num_workers"] = args.workers
+    else:
+        workers = CONFIG.get("num_workers", 1)
 
+    # Handle heuristic rule command line arguments
+    if args.disable_rule_no_empty_output:
+        CONFIG["enable_rule_no_empty_output"] = False
+    if args.disable_rule_no_ignored_input:
+        CONFIG["enable_rule_no_ignored_input"] = False
+    if args.disable_rule_no_space_in_file_name:
+        CONFIG["enable_rule_no_space_in_file_name"] = False
+    if args.disable_rule_no_meaningless_command:
+        CONFIG["enable_rule_no_meaningless_command"] = False
+    if args.disable_rule_no_sort_non_numeric_with_numeric_input:
+        CONFIG["enable_rule_no_sort_non_numeric_with_numeric_input"] = False
+        
     logging.basicConfig(level=logging.INFO)
     logging.info(f"Enable user annotation: {enable_user_annotation}")
     logging.info(f"Logging level: {level_str}")
@@ -409,37 +483,24 @@ if __name__ == "__main__":
     else:
         logging.info("Timeout disabled")
     logging.info(f"Number of workers: {workers}")
+    
+    # Log heuristic rule settings
+    logging.info(f"Rule no_empty_output: {CONFIG.get('enable_rule_no_empty_output', True)}")
+    logging.info(f"Rule no_ignored_input: {CONFIG.get('enable_rule_no_ignored_input', True)}")
+    logging.info(f"Rule no_space_in_file_name: {CONFIG.get('enable_rule_no_space_in_file_name', True)}")
+    logging.info(f"Rule no_meaningless_command: {CONFIG.get('enable_rule_no_meaningless_command', True)}")
+    logging.info(f"Rule no_sort_non_numeric_with_numeric_input: {CONFIG.get('enable_rule_no_sort_non_numeric_with_numeric_input', True)}")
 
     logging.getLogger().setLevel(level)
 
     time.sleep(3)
 
+    # Use config values for the paths
+    output_path_prefix = 'evaluation_results/with_annotations/' if enable_user_annotation else 'evaluation_results/raw/'
+    
     run_all_evaluations(
-        # TODO FIXME use evaluation_config.json
-        valid_dirs=[
-            "./evaluation_pipelines/valid", 
-            "./full_benchmark/intercode/pipelines", 
-            # "./full_benchmark/pash_benchmark/benchmarks",
-            "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts",
-            # "./full_benchmark/github_repos_commits/output/post_commit",
-            "./full_benchmark/github_repos_commits/collected-negative",
-            # "./full_benchmark/stackoverflow/correct",
-        ],
-        invalid_dirs=[
-            "./evaluation_pipelines/invalid",
-            "./full_benchmark/curated_mutants",
-            "./full_benchmark/llm_injection/pipelines",
-            "./full_benchmark/github_repos_commits/collected-positive",
-            "./full_benchmark/stackoverflow/buggy",
-        ],
-        not_check_all_dirs=[
-            "./full_benchmark/github_repos_commits/output/post_commit",
-            "./full_benchmark/github_repos_commits/output/pre_commit",
-            "./full_benchmark/stackoverflow/buggy",
-            "./full_benchmark/stackoverflow/correct",
-        ],
-        output_json='evaluation_results/with_annotations/evaluation_results.json' if enable_user_annotation else 'evaluation_results/raw/evaluation_results.json',
-        output_summary_csv='evaluation_results/with_annotations/summary.csv' if enable_user_annotation else 'evaluation_results/raw/summary.csv',
         num_workers=workers,
+        output_json=CONFIG["output_results_path_with_annotation"] if enable_user_annotation else CONFIG["output_results_path_raw"],
+        output_summary_csv=CONFIG["output_summary_path_with_annotation"] if enable_user_annotation else CONFIG["output_summary_path_raw"]
     )
     jpype.shutdownJVM()

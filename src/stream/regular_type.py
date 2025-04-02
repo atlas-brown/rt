@@ -140,6 +140,13 @@ class RegularType:
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})({other.pattern})"
         return out
+    
+    def __sub__(self, other: 'RegularType') -> 'RegularType':
+        out = RegularType(automaton=BasicOperations.minus(self.nfa, other.nfa))
+        out.nfa.setDeterministic(False)
+        out.nfa.removeDeadTransitions()
+        out.nfa.minimize()
+        return out
 
     def __and__(self, other: 'RegularType') -> 'RegularType':
         out = RegularType(automaton=BasicOperations.intersection(self.nfa, other.nfa))

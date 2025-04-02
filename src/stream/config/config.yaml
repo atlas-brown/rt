@@ -1,0 +1,52 @@
+# Evaluation settings
+enable_timeout: false
+timeout_seconds: 10
+enable_user_annotation: true
+num_workers: 1
+
+# Heuristic rules
+enable_rule_no_empty_output: true
+enable_rule_no_ignored_input: true
+enable_rule_no_space_in_file_name: true
+enable_rule_no_meaningless_command: true
+enable_rule_no_sort_non_numeric_with_numeric_input: true
+
+# File paths
+evaluation_notes_path: src/stream/evaluation_notes.json
+
+# Output paths with annotations
+output_results_path_with_annotation: evaluation_results/with_annotations/evaluation_results.json
+output_summary_path_with_annotation: evaluation_results/with_annotations/summary.csv
+
+# Output paths without annotations
+output_results_path_raw: evaluation_results/raw/evaluation_results.json
+output_summary_path_raw: evaluation_results/raw/summary.csv
+
+# Pipeline directories
+valid_dirs:
+  # - ./full_benchmark/pash_benchmark/benchmarks
+  - ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts
+  # - ./full_benchmark/github_repos_commits/output/post_commit
+  - ./full_benchmark/github_repos_commits/collected-negative
+  # - ./full_benchmark/stackoverflow/correct
+  - ./evaluation_pipelines/valid
+  - ./full_benchmark/intercode/pipelines
+
+invalid_dirs:
+  - ./evaluation_pipelines/invalid
+  - ./full_benchmark/curated_mutants
+  - ./full_benchmark/llm_injection/pipelines
+  - ./full_benchmark/github_repos_commits/collected-positive
+  - ./full_benchmark/stackoverflow/buggy
+
+not_check_all_dirs:
+  # - ./full_benchmark/github_repos_commits/output/post_commit
+  # - ./full_benchmark/github_repos_commits/output/pre_commit
+  - ./full_benchmark/stackoverflow/buggy
+  # - ./full_benchmark/stackoverflow/correct
+
+# Logging
+log_level: INFO
+
+# Feature flags
+enable_FST: true 

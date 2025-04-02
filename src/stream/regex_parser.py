@@ -695,23 +695,27 @@ def ast_to_automaton(node: Node, hole_dict: Optional[dict[str, Automaton]] = Non
 
 def is_pure_string(s: str, mode="compat") -> bool:
     node = RegexParser(s, mode=mode).parse()
-    def _is_pure_string(node) -> bool:
-        if isinstance(node, Literal):
+    return is_pure_string_for_ast(node)
+
+
+def is_pure_string_for_ast(ast: Node) -> bool:
+    if isinstance(ast, Literal):
+        return True
+    elif isinstance(ast, Concatenate):
+        return all(is_pure_string_for_ast(child) for child in ast.nodes)
+    elif isinstance(ast, CharacterClass):
+        if ast.negate:
+            return False
+        if len(ast.items) == 1 and isinstance(ast.items[0], Literal):
             return True
-        elif isinstance(node, Concatenate):
-            return all(_is_pure_string(child) for child in node.nodes)
-        elif isinstance(node, CharacterClass):
-            if node.negate:
-                return False
-            if len(node.items) == 1 and isinstance(node.items[0], Literal):
-                return True
-        return False
-    return _is_pure_string(node)
+    return False
 
 def convert_to_pure_string(s: str, mode="compat") -> Optional[str]:
-    if not is_pure_string(s, mode=mode):
+    return convert_to_pure_string_for_ast(RegexParser(s, mode=mode).parse())
+
+def convert_to_pure_string_for_ast(ast: Node) -> Optional[str]:
+    if not is_pure_string_for_ast(ast):
         return None
-    node = RegexParser(s, mode=mode).parse()
     def _convert_to_pure_string(node) -> str:
         if isinstance(node, Literal):
             return node.char
@@ -720,7 +724,7 @@ def convert_to_pure_string(s: str, mode="compat") -> Optional[str]:
         elif isinstance(node, CharacterClass):
             return node.items[0].char
         return None
-    return _convert_to_pure_string(node)
+    return _convert_to_pure_string(ast)
 
 if __name__ == "__main__":
     pattern = "~(.*{{a}}.*)&(a{1,3}{{b}}[ab-e[:digit:]]{3,10}[^ab])+"

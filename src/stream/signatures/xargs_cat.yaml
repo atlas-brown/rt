@@ -8,5 +8,5 @@ rules:
     heuristics:
     - no_space_in_file_name
   update:
-    input_type: '[^[:space:]]+|".+"|''.+'''
+    input_type: '[^[:blank:]]+|".+"|''.+'''
 isInteresting: true

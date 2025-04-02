@@ -1,6 +1,8 @@
 from collections import deque
 import jpype
 import jpype.imports
+
+from stream.config.global_config import CONFIG
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from dk.brics.automaton import Automaton, RegExp, State, Transition # type: ignore
@@ -213,7 +215,8 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
 
 
 def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
-    # return RegExp(".*").toAutomaton()
+    if not CONFIG.get("enable_FST", True):
+        return RegExp(".*").toAutomaton()
     product = Automaton()
     worklist: Deque[Tuple[State, FST_State, State]] = deque()
     new_states: Dict[Tuple[State, FST_State], State] = {}
@@ -960,6 +963,230 @@ def start_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
     final_states = {new_initial_state} | {i + 3 * num_states for i in final_states} | {i + num_states for i in range(num_states)} | {end_state} |  {i + 4 * num_states for i in range(num_states) if i not in final_states}
         
     return create_fst(specs, start_state=new_initial_state, final_states=final_states)
+
+
+# def global_regex_extract_FST(automaton: Automaton) -> FST:
+
+#     def check_fallback(trans: Transition, automata: Automaton) -> List[Tuple[str, str]]:
+#         if trans.getDest().isAccept():
+#             return []
+#         intersentions = []
+#         min_char = trans.getMin()
+#         max_char = trans.getMax()
+#         automata_initial_state = automata.getInitialState()
+#         for t in automata_initial_state.getSortedTransitions(True):
+#             if ord(t.getMax()) >= ord(min_char) and ord(t.getMin()) <= ord(max_char):
+#                 new_min = min_char if ord(min_char) > ord(t.getMin()) else t.getMin()
+#                 new_max = max_char if ord(max_char) < ord(t.getMax()) else t.getMax()
+#                 a = automata.clone()
+#                 b = automata.clone()
+#                 a.setInitialState(t.getDest())
+#                 b.setInitialState(trans.getDest())
+#                 if not a.subsetOf(b):
+#                     intersentions.append((new_min, new_max))
+#         return intersentions
+
+
+
+#     # FIXME: incorrect leftmost longest match: can handle: aa?; but cannot handle a(aa)?
+#     # FIXME: there is no failure function for regex now: cannot handle repalce a.a with x in aaba
+#     # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
+
+#     # 5 modes
+#     # match: the original automaton i
+#     # buffer: the buffer automaton i + num_states
+#     # success: the success automaton i + 2 * num_states
+#     # buffer success: the success automaton i + 3 * num_states
+#     # longest buffer success: the success automaton i + 4 * num_states
+#     # new initial state: -1
+#     # abort state: -2
+#     # end state: -3
+#     automaton.determinize()
+#     automaton.minimize()
+#     automaton.removeDeadTransitions()
+#     if automaton.isEmpty():
+#         raise ToolError("pattern regex is empty")
+#     if automaton.isEmptyString():
+#         raise ToolError("pattern regex is empty string")
+#     # pattern = automaton.getSingleton()
+#     # if pattern is None:
+#     #     return global_replacement_FST(pattern, s2)
+#     state_map: Dict[State, int] = {}
+#     specs = []
+#     states = automaton.getStates()
+#     num_states = len(states)
+#     for i, state in enumerate(states):
+#         state_map[state] = i
+#     initial_state = state_map[automaton.getInitialState()]
+#     new_initial_state = -1
+#     abort_state = -2
+#     end_state = -3
+#     final_states = {state_map[state] for state in automaton.getAcceptStates()}
+#     for state in automaton.getStates():
+#         state_id = state_map[state]
+#         for trans in state.getSortedTransitions(True):
+#             min_char = trans.getMin()
+#             max_char = trans.getMax()
+#             input_range = min_char + "--" + max_char
+#             dest_state_id = state_map[trans.getDest()]
+#             # match mode
+#             if state_id not in final_states:
+#                 if dest_state_id in final_states:
+#                     if state_id == initial_state:
+#                         specs.append((new_initial_state, input_range, "$self", dest_state_id + 2 * num_states))
+#                     specs.append((state_id, input_range, "$self", dest_state_id + 2 * num_states))
+#                 else: # if the destination state is not final state
+#                     if state_id == initial_state:
+#                         specs.append((new_initial_state, input_range, "$self", dest_state_id))
+#                     specs.append((state_id, input_range, "$self", dest_state_id))
+                
+            
+#             # buffer mode
+#             if state_id not in final_states: # abort because buffer is not needed
+#                 if dest_state_id not in final_states:
+#                     if state_id == initial_state:
+#                         specs.append((new_initial_state, input_range, "", dest_state_id + num_states))
+#                     specs.append((state_id + num_states, input_range, "", dest_state_id + num_states))
+#                     # non-deteministic guess
+#                     intersentions = check_fallback(trans, automaton)
+#                     for new_min, new_max in intersentions:
+#                         specs.append((state_id + num_states, new_min + "--" + new_max, "", new_initial_state, True))
+#                 else:
+#                     specs.append((state_id + num_states, input_range, "", dest_state_id + 3 * num_states))
+            
+#             # success mode
+#             specs.append((state_id + 2 * num_states, input_range, "$self", dest_state_id + 2 * num_states))
+#             if dest_state_id not in final_states and state_id in final_states:
+#                 specs.append((state_id + 2 * num_states, input_range, "", dest_state_id + 4 * num_states))
+
+#             # buffer success mode
+#             specs.append((state_id + 3 * num_states, input_range, "", dest_state_id + 3 * num_states))
+#             if dest_state_id not in final_states and state_id in final_states:
+#                 specs.append((state_id + 3 * num_states, input_range, "", new_initial_state, True))
+
+#             # longest buffer success mode
+#             if dest_state_id not in final_states:
+#                 specs.append((state_id + 4 * num_states, input_range, "", dest_state_id + 4 * num_states))
+#             else:
+#                 specs.append((state_id + 4 * num_states, input_range, "", abort_state))
+    
+#     for state in automaton.getStates():
+#         state_id = state_map[state]
+#         if state_id in final_states:
+#             # success mode return to end state
+#             specs.append((state_id + 2 * num_states, "$other", "", end_state))
+#         else:
+#             # longest buffer success mode return to end state
+#             specs.append((state_id + 4 * num_states, "$other", "", end_state))
+
+#         # buffer success mode return to initial state
+#         specs.append((state_id + 3 * num_states, "$other", "", new_initial_state, True))
+#         # buffer mode return to initial state
+#         specs.append((state_id + num_states, "$other", "", new_initial_state, True))
+
+#     specs.append((end_state, "$other", "", end_state))
+
+#     specs.append((new_initial_state, "$other", "", new_initial_state))
+    
+#     final_states = {end_state} | {i + 3 * num_states for i in final_states} |  {i + 4 * num_states for i in range(num_states) if i not in final_states}
+        
+#     return create_fst(specs, start_state=new_initial_state, final_states=final_states)
+
+
+# def start_regex_extract_FST(automaton: Automaton) -> FST:
+#     # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
+
+#     # 5 modes
+#     # match: the original automaton i
+#     # buffer: the buffer automaton i + num_states
+#     # success: the success automaton i + 2 * num_states
+#     # buffer success: the success automaton i + 3 * num_states
+#     # longest buffer success: the success automaton i + 4 * num_states
+#     # new initial state: -1
+#     # abort state: -2
+#     # end state: -3
+#     if automaton.isEmpty():
+#         raise ToolError("pattern regex is empty")
+#     if automaton.isEmptyString():
+#         raise ToolError("pattern regex is empty string")
+#     # pattern = automaton.getSingleton()
+#     # if pattern is None:
+#     #     return global_replacement_FST(pattern, s2)
+#     state_map: Dict[State, int] = {}
+#     specs = []
+#     states = automaton.getStates()
+#     num_states = len(states)
+#     for i, state in enumerate(states):
+#         state_map[state] = i
+#     initial_state = state_map[automaton.getInitialState()]
+#     new_initial_state = -1
+#     abort_state = -2
+#     end_state = -3
+#     final_states = {state_map[state] for state in automaton.getAcceptStates()}
+#     for state in automaton.getStates():
+#         state_id = state_map[state]
+#         for trans in state.getSortedTransitions(True):
+#             min_char = trans.getMin()
+#             max_char = trans.getMax()
+#             input_range = min_char + "--" + max_char
+#             dest_state_id = state_map[trans.getDest()]
+#             # match mode
+#             if state_id not in final_states:
+#                 if dest_state_id in final_states:
+#                     if state_id == initial_state:
+#                         specs.append((new_initial_state, input_range, "$self", dest_state_id + 2 * num_states))
+#                     specs.append((state_id, input_range, "", dest_state_id + 2 * num_states))
+#                 else: # if the destination state is not final state
+#                     if state_id == initial_state:
+#                         specs.append((new_initial_state, input_range, "", dest_state_id))
+#                     specs.append((state_id, input_range, "", dest_state_id))
+                
+            
+#             # buffer mode
+#             if state_id not in final_states: # abort because buffer is not needed
+#                 if dest_state_id not in final_states:
+#                     if state_id == initial_state:
+#                         specs.append((new_initial_state, input_range, "$self", dest_state_id + num_states))
+#                     specs.append((state_id + num_states, input_range, "$self", dest_state_id + num_states))
+#                 else:
+#                     specs.append((state_id + num_states, input_range, "$self", abort_state))
+            
+#             # success mode
+#             specs.append((state_id + 2 * num_states, input_range, "", dest_state_id + 2 * num_states))
+#             if dest_state_id not in final_states and state_id in final_states:
+#                 specs.append((state_id + 2 * num_states, input_range, s2 + "$self", dest_state_id + 4 * num_states))
+
+#             # buffer success mode
+#             specs.append((state_id + 3 * num_states, input_range, "", dest_state_id + 3 * num_states))
+
+#             # longest buffer success mode
+#             if dest_state_id not in final_states:
+#                 specs.append((state_id + 4 * num_states, input_range, "$self", dest_state_id + 4 * num_states))
+#             else:
+#                 specs.append((state_id + 4 * num_states, input_range, "", abort_state))
+    
+#     for state in automaton.getStates():
+#         state_id = state_map[state]
+#         if state_id in final_states:
+#             # success mode return to end state
+#             specs.append((state_id + 2 * num_states, "$other", s2 + "$self", end_state))
+#         else:
+#             # buffer mode return to initial state
+#             specs.append((state_id + num_states, "$other", "$self", end_state))
+#             # longest buffer success mode return to end state
+#             specs.append((state_id + 4 * num_states, "$other", "$self", end_state))
+
+
+#     if initial_state not in final_states:
+#         specs.append((new_initial_state, "$other", "$self", end_state))
+#     else:
+#         specs.append((new_initial_state, "$other", "$self" + s2, end_state))
+
+#     specs.append((end_state, "$other", "$self", end_state))
+    
+#     final_states = {new_initial_state} | {i + 3 * num_states for i in final_states} | {i + num_states for i in range(num_states)} | {end_state} |  {i + 4 * num_states for i in range(num_states) if i not in final_states}
+        
+#     return create_fst(specs, start_state=new_initial_state, final_states=final_states)
 
 
 def global_regex_replacement(input_automata: Automaton, pattern: Automaton, replacement: str, capture_automatas: List[Automaton]) -> Automaton:

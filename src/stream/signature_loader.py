@@ -14,7 +14,7 @@ from stream.special_signatures.rev import RevSignature
 from stream.special_signatures.sort import SortSignature
 from stream.special_signatures.fmt import FmtSignature
 from stream.special_signatures.awk import AwkSignature
-
+from stream.special_signatures.find import FindSignature
 class SignatureLoader:
     def __init__(self, signature_dir : str = "./src/stream/signatures") -> None:
         self.signature_dir = signature_dir
@@ -30,6 +30,7 @@ class SignatureLoader:
             "sort": SortSignature,
             "fmt": FmtSignature,
             "awk": AwkSignature,
+            "find": FindSignature,
         }
         self.signatures = self.load_all_signatures()
         self.unknown_signature = CommandSignature(

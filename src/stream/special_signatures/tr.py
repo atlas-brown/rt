@@ -85,7 +85,8 @@ def replace_POSIX_class(set1: str) -> str:
     set1 = set1.replace("[:punct:]", "!-/:-@[-`{-~")
     set1 = set1.replace("[:digit:]", "0-9")
     set1 = set1.replace("[:alnum:]", "a-zA-Z0-9")
-    set1 = set1.replace("[:space:]", " \t\n")
+    set1 = set1.replace("[:blank:]", " \t")
+    set1 = set1.replace("[:space:]", " \t\r\n\v\f")
     return set1
 
 def expand_ranges(input_set: str) -> str:
