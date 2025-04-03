@@ -428,12 +428,17 @@ if __name__ == "__main__":
 
     cfg = get_config()
 
+    result_dir = 'evaluation_results/' + \
+        'ann:' + ('y' if enable_user_annotation else 'n') + \
+        '_' + \
+        'heuristic:' + ('y' if enable_heuristics else 'n')
+
     run_all_evaluations(
         valid_dirs = cfg["benchmark dirs"]["valid"],
         invalid_dirs = cfg["benchmark dirs"]["invalid"],
         not_check_all_dirs = cfg["benchmark dirs"]["whole scripts with select annotated pipelines"],
-        output_json='evaluation_results/with_annotations/evaluation_results.json' if enable_user_annotation else 'evaluation_results/raw/evaluation_results.json',
-        output_summary_csv='evaluation_results/with_annotations/summary.csv' if enable_user_annotation else 'evaluation_results/raw/summary.csv',
+        output_json=(result_dir + '/evaluation_results.json'),
+        output_summary_csv=(result_dir + '/summary.csv'),
         num_workers=workers,
     )
     jpype.shutdownJVM()

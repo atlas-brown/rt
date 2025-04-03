@@ -45,6 +45,7 @@ RUN pip3 install --no-cache-dir shasta libdash pash_annotations pytest z3-solver
 RUN apt-get update && apt-get install -y openjdk-11-jdk && rm -rf /var/lib/apt/lists/*
 
 # todo install https://github.com/michaelsippel/ltsh# and shellcheck, ensure they're in the PATH
+# todo install plotting deps
 
 # Set the working directory in the container
 WORKDIR /home/stream

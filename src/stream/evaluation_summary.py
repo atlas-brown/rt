@@ -194,51 +194,51 @@ def results_to_overview_csv(ann_json_path, raw_json_path, baseline_csv_path, out
                 'Status': 'Included'
             }
             rows.append(overall)
-            plot_rows.append(overall)
-            rows.append({# a row for just the correct benchmarks
-                'Benchmark set': '',
-                '# Correct': len(correct_benchmarks),
-                '# Incorrect': 0,
-                'With Annotations?': ann == "ann",
-                'False Results': stats["correct"]["false_positives"],
-                'Recall': '',
-                'Precision': '',
-                'F1': '',
-                'SC Precision': '',
-                'SC Recall': '',
-                'SC F1': '',
-                'SC False': '',
-                'LT Precision': '',
-                'LT Recall': '',
-                'LT F1': '',
-                'LT False': '',
-                'Status': 'Included'
-            })
-            rows.append({# a row for just the buggy benchmarks
-                'Benchmark set': '',
-                '# Correct': 0,
-                '# Incorrect': len(buggy_benchmarks),
-                'With Annotations?': ann == "ann",
-                'False Results': stats["buggy"]["false_negatives"],
-                'Recall': '',
-                'Precision': '',
-                'F1': '',
-                'SC Precision': '',
-                'SC Recall': '',
-                'SC F1': '',
-                'SC False': '',
-                'LT Precision': '',
-                'LT Recall': '',
-                'LT F1': '',
-                'LT False': '',
-                'Status': 'Included'
-            })
+            # plot_rows.append(overall)
+            # rows.append({# a row for just the correct benchmarks
+            #     'Benchmark set': '',
+            #     '# Correct': len(correct_benchmarks),
+            #     '# Incorrect': 0,
+            #     'With Annotations?': ann == "ann",
+            #     'False Results': stats["correct"]["false_positives"],
+            #     'Recall': '',
+            #     'Precision': '',
+            #     'F1': '',
+            #     'SC Precision': '',
+            #     'SC Recall': '',
+            #     'SC F1': '',
+            #     'SC False': '',
+            #     'LT Precision': '',
+            #     'LT Recall': '',
+            #     'LT F1': '',
+            #     'LT False': '',
+            #     'Status': 'Included'
+            # })
+            # rows.append({# a row for just the buggy benchmarks
+            #     'Benchmark set': '',
+            #     '# Correct': 0,
+            #     '# Incorrect': len(buggy_benchmarks),
+            #     'With Annotations?': ann == "ann",
+            #     'False Results': stats["buggy"]["false_negatives"],
+            #     'Recall': '',
+            #     'Precision': '',
+            #     'F1': '',
+            #     'SC Precision': '',
+            #     'SC Recall': '',
+            #     'SC F1': '',
+            #     'SC False': '',
+            #     'LT Precision': '',
+            #     'LT Recall': '',
+            #     'LT F1': '',
+            #     'LT False': '',
+            #     'Status': 'Included'
+            # })
         # append a blank row between the two annotations
         rows.append({key: '' for key in header})
-        plot_rows.append({key: '' for key in header})
+        # plot_rows.append({key: '' for key in header})
     
-    rows.append({key: '' for key in header})
-    rows.append({key: '' for key in header})
+    # rows.append({key: '' for key in header})
+    # rows.append({key: '' for key in header})
     write_csv(rows + plot_rows, header, out_path)
 
 def recall_precision_f1(benchmark_results, signaled_key="warning signaled?"):
@@ -288,6 +288,9 @@ def merged_csv_to_bug_detection(ann_json_path, raw_json_path, baseline_csv_path,
         key = (recs["raw"]["warning signaled?"],
                recs["raw"]["baseline"]["sc warning?"],
                recs["raw"]["baseline"]["ltsh warning?"])
+        if recs["raw"]["warning signaled?"] is None:
+            print("crash!: " + str(recs))
+            key = (False, key[1], key[2])
         data[key] += 1
         if eprint_records:
             print(f"{key}#{recs}")
