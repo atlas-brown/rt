@@ -14,6 +14,7 @@ def load_csv(file_path):
 
 color_scheme = ["#AA4465", "#FFA69E", "#93E1D8", "#998650"]
 figsize = (7, 4)
+sysname = "RT"
 
 def plot_accuracy(data, output_path):
     # Filter data by annotation status
@@ -22,7 +23,7 @@ def plot_accuracy(data, output_path):
 
     # Get all benchmark sets
     # benchmarks = sorted(data.dropna()["Benchmark set"].unique())
-    benchmarks = "Ladder Koala Intercode LLM Mutants Handwritten StackOverflow GitHub".split()
+    benchmarks = "Ladder PaSh Intercode LLM Mutants Handwritten StackOverflow GitHub".split()
 
     # Prepare bar heights
     shtreams_no_ann = [
@@ -53,8 +54,8 @@ def plot_accuracy(data, output_path):
     plt.rc('axes', axisbelow=True)
     plt.grid(axis='y', linestyle='-', alpha=0.7)
 
-    plt.bar(x - 1.5*width, shtreams_no_ann, width, label="Shtreams", color=color_scheme[0])
-    plt.bar(x - 0.5*width, shtreams_ann, width, label="Shtreams (w/ anns)", color=color_scheme[1])
+    plt.bar(x - 1.5*width, shtreams_no_ann, width, label=f"{sysname}", color=color_scheme[0])
+    plt.bar(x - 0.5*width, shtreams_ann, width, label=f"{sysname} (w/ anns)", color=color_scheme[1])
     plt.bar(x + 0.5*width, shellcheck, width, label="ShellCheck", color=color_scheme[2])
     plt.bar(x + 1.5*width, laddertypes, width, label="LadderTypes", color=color_scheme[3])
 
@@ -80,11 +81,11 @@ def plot_bug_detection(data, output_path):
     plt.grid(axis='y', linestyle='-', alpha=0.7)
     plt.bar(x, all_detected, label="All", color="gray")
     plt.bar(x, only_this_detects, bottom=all_detected, label="Only this detects", color=color_scheme[0])
-    plt.bar(x, and_shtreams, bottom=np.array(all_detected) + np.array(only_this_detects), label="and Shtreams", color=color_scheme[1])
+    plt.bar(x, and_shtreams, bottom=np.array(all_detected) + np.array(only_this_detects), label=f"and {sysname}", color=color_scheme[1])
     plt.bar(x, and_sc, bottom=np.array(all_detected) + np.array(only_this_detects) + np.array(and_shtreams), label="and SC", color=color_scheme[2])
     plt.bar(x, and_lt, bottom=np.array(all_detected) + np.array(only_this_detects) + np.array(and_shtreams) + np.array(and_sc), label="and LT", color=color_scheme[3])
 
-    plt.xticks(x, systems)#, rotation=40, ha="right")
+    plt.xticks(x, [sysname, "ShellCheck", "LadderTypes"])#, rotation=40, ha="right")
     plt.ylabel("Number of bugs detected")
     plt.title(None)
     # plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.3), ncol=3)
