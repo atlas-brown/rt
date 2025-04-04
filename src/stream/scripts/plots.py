@@ -12,7 +12,7 @@ def load_csv(file_path):
         print(f"Error loading CSV file: {e}")
         exit(1)
 
-color_scheme = ["#AA4465", "#FFA69E", "#93E1D8", "#998650"]
+color_scheme = ["#AA4465", "#FFA69E", "#998650", "#93E1D8"]
 figsize = (7, 4)
 sysname = "RT"
 
@@ -54,9 +54,9 @@ def plot_accuracy(data, output_path):
     plt.rc('axes', axisbelow=True)
     plt.grid(axis='y', linestyle='-', alpha=0.7)
 
-    plt.bar(x - 1.5*width, shtreams_no_ann, width, label=f"{sysname}", color=color_scheme[0])
-    plt.bar(x - 0.5*width, shtreams_ann, width, label=f"{sysname} (w/ anns)", color=color_scheme[1])
-    plt.bar(x + 0.5*width, shellcheck, width, label="ShellCheck", color=color_scheme[2])
+    plt.bar(x - 1.5*width, shtreams_no_ann, width, label=f"{sysname}", color=color_scheme[0], hatch="/")
+    plt.bar(x - 0.5*width, shtreams_ann, width, label=f"{sysname} (w/ anns)", color=color_scheme[1], hatch="//")
+    plt.bar(x + 0.5*width, shellcheck, width, label="ShellCheck", color=color_scheme[2], hatch="\\")
     plt.bar(x + 1.5*width, laddertypes, width, label="LadderTypes", color=color_scheme[3])
 
     plt.xticks(x, benchmarks, rotation=30, ha="right")
@@ -80,9 +80,9 @@ def plot_bug_detection(data, output_path):
     plt.rc('axes', axisbelow=True)
     plt.grid(axis='y', linestyle='-', alpha=0.7)
     plt.bar(x, all_detected, label="All", color="gray")
-    plt.bar(x, only_this_detects, bottom=all_detected, label="Only this detects", color=color_scheme[0])
-    plt.bar(x, and_shtreams, bottom=np.array(all_detected) + np.array(only_this_detects), label=f"and {sysname}", color=color_scheme[1])
-    plt.bar(x, and_sc, bottom=np.array(all_detected) + np.array(only_this_detects) + np.array(and_shtreams), label="and SC", color=color_scheme[2])
+    plt.bar(x, only_this_detects, bottom=all_detected, label="Only this detects", color=color_scheme[0], hatch="/")
+    plt.bar(x, and_shtreams, bottom=np.array(all_detected) + np.array(only_this_detects), label=f"and {sysname}", color=color_scheme[1], hatch="//")
+    plt.bar(x, and_sc, bottom=np.array(all_detected) + np.array(only_this_detects) + np.array(and_shtreams), label="and SC", color=color_scheme[2], hatch="\\")
     plt.bar(x, and_lt, bottom=np.array(all_detected) + np.array(only_this_detects) + np.array(and_shtreams) + np.array(and_sc), label="and LT", color=color_scheme[3])
 
     plt.xticks(x, [sysname, "ShellCheck", "LadderTypes"])#, rotation=40, ha="right")
@@ -175,9 +175,9 @@ def main():
     args = parse_arguments()
 
     plt.rcParams.update({
-        #"text.usetex": True,
+        #"text.usetex": True, # doesnt work in container
         "font.family": "serif",
-        "font.serif": ["Times New Roman"],  # Replace with your LaTeX font if different
+        #"font.serif": ["Times New Roman"], # doesnt work in container
     })
 
     overview_data = load_csv(args.overview_csv)
