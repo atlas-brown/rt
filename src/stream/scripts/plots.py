@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 
 import matplotlib.pyplot as plt
+from matplotlib_set_diagrams import EulerDiagram
 
 def load_csv(file_path):
     try:
@@ -58,16 +59,16 @@ def plot_accuracy(data, output_path):
     plt.bar(x - 0.5*width, shtreams_ann, width, label=f"{sysname} (w/ anns)", color=color_scheme[1], hatch="//")
     plt.bar(x + 0.5*width, shellcheck, width, label="ShellCheck", color=color_scheme[2], hatch="\\")
     plt.bar(x + 1.5*width, laddertypes, width, label="LadderTypes", color=color_scheme[3])
-
+    
     plt.xticks(x, benchmarks, rotation=30, ha="right")
     plt.ylim(0, 1)
     plt.ylabel("Accuracy")
     plt.title(None)
-    plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.15), ncol=4)
+    plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.2), ncol=4)
     plt.tight_layout()
     plt.savefig(output_path, format="pdf")
 
-def plot_bug_detection(data, output_path):
+def plot_bug_detection_bar(data, output_path):
     systems = data["System"].unique()
     all_detected = [data[data["System"] == s]["All"].values[0] for s in systems]
     only_this_detects = [data[data["System"] == s]["Only this detects"].values[0] for s in systems]
@@ -90,6 +91,31 @@ def plot_bug_detection(data, output_path):
     plt.title(None)
     # plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.3), ncol=3)
     plt.legend(loc=(0.15, 1.025), ncol=3)
+    plt.tight_layout()
+    plt.savefig(output_path, format="pdf")
+
+def plot_bug_detection(data, output_path):
+    combination_counts = {
+        (1, 0, 0): data[data["System"] == "Shtreams"]["Only this detects"].values[0],
+        (1, 1, 0): data[data["System"] == "Shtreams"]["and SC"].values[0],
+        (1, 0, 1): data[data["System"] == "Shtreams"]["and LT"].values[0],
+        (1, 1, 1): data[data["System"] == "Shtreams"]["All"].values[0],
+        (0, 1, 0): data[data["System"] == "ShellCheck"]["Only this detects"].values[0],
+        (0, 1, 1): data[data["System"] == "ShellCheck"]["and LT"].values[0],
+        (0, 0, 1): data[data["System"] == "LadderTypes"]["Only this detects"].values[0],
+        }
+    plt.figure(figsize=figsize)
+    dgm = EulerDiagram(combination_counts, set_labels=[sysname, "ShellCheck", "LadderTypes"], set_colors=color_scheme[0:3])
+    for i, text in enumerate(dgm.set_label_artists):
+        # move text to the right
+        match i:
+            case 0:
+                pass
+            case 1:
+                text.set_position((text.get_position()[0], text.get_position()[1] - 0.75))
+            case 2:
+                text.set_position((text.get_position()[0] + 1, text.get_position()[1] + 0.55))
+    plt.title(None)
     plt.tight_layout()
     plt.savefig(output_path, format="pdf")
 
@@ -178,12 +204,15 @@ def main():
         #"text.usetex": True, # doesnt work in container
         "font.family": "serif",
         #"font.serif": ["Times New Roman"], # doesnt work in container
+        "font.size": 12,
     })
 
     overview_data = load_csv(args.overview_csv)
     plot_accuracy(overview_data, args.output_dir + "/accuracy.pdf")
+    plt.rc('font', size=14)
     bug_detection_data = load_csv(args.bug_detection_csv)
     plot_bug_detection(bug_detection_data, args.output_dir + "/bug_detection.pdf")
+    plt.rc('font', size=12)
     length_time_data = load_csv(args.length_time_csv)
     plot_length_time(length_time_data, args.output_dir + "/length_time.pdf")
     automata_data = load_csv(args.automata_csv)
