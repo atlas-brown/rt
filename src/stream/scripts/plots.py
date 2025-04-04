@@ -24,7 +24,11 @@ def plot_accuracy(data, output_path):
 
     # Get all benchmark sets
     # benchmarks = sorted(data.dropna()["Benchmark set"].unique())
-    benchmarks = "Ladder PaSh Intercode LLM Mutants Handwritten StackOverflow GitHub".split()
+    benchmarks = ["PaSh", "Intercode", 
+                  None, # gap
+                  "Ladder", "Handwritten", "GitHub", 
+                  None, # gap
+                  "StackOverflow", "LLM", "Mutants"]
 
     # Prepare bar heights
     shtreams_no_ann = [
@@ -54,13 +58,13 @@ def plot_accuracy(data, output_path):
     plt.figure(figsize=figsize)
     plt.rc('axes', axisbelow=True)
     plt.grid(axis='y', linestyle='-', alpha=0.7)
-
+    
     plt.bar(x - 1.5*width, shtreams_no_ann, width, label=f"{sysname}", color=color_scheme[0], hatch="/")
     plt.bar(x - 0.5*width, shtreams_ann, width, label=f"{sysname} (w/ anns)", color=color_scheme[1], hatch="//")
     plt.bar(x + 0.5*width, shellcheck, width, label="ShellCheck", color=color_scheme[2], hatch="\\")
     plt.bar(x + 1.5*width, laddertypes, width, label="LadderTypes", color=color_scheme[3])
     
-    plt.xticks(x, benchmarks, rotation=30, ha="right")
+    plt.xticks([0, 1, 3, 4, 5, 7, 8, 9], [b for b in benchmarks if b is not None], rotation=30, ha="right")
     plt.ylim(0, 1)
     plt.ylabel("Accuracy")
     plt.title(None)
