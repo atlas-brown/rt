@@ -59,8 +59,8 @@ def plot_accuracy(data, output_path):
     plt.rc('axes', axisbelow=True)
     plt.grid(axis='y', linestyle='-', alpha=0.7)
     
-    plt.bar(x - 1.5*width, shtreams_no_ann, width, label=f"{sysname}", color=color_scheme[0], hatch="/")
-    plt.bar(x - 0.5*width, shtreams_ann, width, label=f"{sysname} (w/ anns)", color=color_scheme[1], hatch="//")
+    plt.bar(x - 1.5*width, shtreams_ann, width, label=f"{sysname}", color=color_scheme[0], hatch="/")
+    plt.bar(x - 0.5*width, shtreams_no_ann, width, label=f"{sysname} (w/o anns)", color=color_scheme[1], hatch="//")
     plt.bar(x + 0.5*width, shellcheck, width, label="ShellCheck", color=color_scheme[2], hatch="\\")
     plt.bar(x + 1.5*width, laddertypes, width, label="LadderTypes", color=color_scheme[3])
     
@@ -109,16 +109,16 @@ def plot_bug_detection(data, output_path):
         (0, 0, 1): data[data["System"] == "LadderTypes"]["Only this detects"].values[0],
         }
     plt.figure(figsize=figsize)
-    dgm = EulerDiagram(combination_counts, set_labels=[sysname, "ShellCheck", "LadderTypes"], set_colors=color_scheme[0:3])
+    dgm = EulerDiagram(combination_counts, set_labels=[f"{sysname} (w/o anns)", "ShellCheck", "LadderTypes"], set_colors=color_scheme[1:4])
     for i, text in enumerate(dgm.set_label_artists):
         # move text to the right
         match i:
             case 0:
-                pass
+                text.set_position((text.get_position()[0] + 5.5, text.get_position()[1] + 7))
             case 1:
-                text.set_position((text.get_position()[0], text.get_position()[1] - 0.75))
+                text.set_position((text.get_position()[0], text.get_position()[1] - 0.85))
             case 2:
-                text.set_position((text.get_position()[0] + 1, text.get_position()[1] + 0.55))
+                text.set_position((text.get_position()[0] + 1.5, text.get_position()[1] + 0.55))
     plt.title(None)
     plt.tight_layout()
     plt.savefig(output_path, format="pdf")
