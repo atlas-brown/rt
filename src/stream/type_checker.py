@@ -155,6 +155,11 @@ class TypeChecker:
             checking_result.set_message(str(e))
             return checking_result
         
+        except Exception as e:
+            checking_result.set_ill_typed(False)
+            checking_result.set_message(str(e))
+            return checking_result
+        
         return checking_result
 
 

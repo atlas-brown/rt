@@ -17,7 +17,8 @@ class TrSignature(CommandSignature):
         if "no_meaningless_command" not in heuristic_rules:
             return input_type, no_input_type
         set1 = parsed_command_invocation.operand_list[0].name
-        if set1 == "\\\\n":
+        # FIXME: handle \012
+        if set1 == "\\\\n" or set1 == "\\012" or set1 == "\\\\012":
             return input_type, no_input_type
         
         return input_type, RegularType(get_output_pattern(parsed_command_invocation))
@@ -30,16 +31,21 @@ class TrSignature(CommandSignature):
         if set1 == "\n":
             if len(parsed_command_invocation.operand_list) == 1:
                 if "-d" in parsed_flags:
-                    return previous_output_type.kleene_plus()
+                    output_type = previous_output_type.kleene_plus()
+                    output_type.possible_line_numbers = (0, 1)
+                    return output_type
                 if "-s" in parsed_flags:
                     return previous_output_type & RegularType(".+")
             else:
                 set2 = parsed_command_invocation.operand_list[1].name
                 set2 = preprocess_set(set2)
                 line_type = previous_output_type + (RegularType(f"{re.escape(set2)}") + previous_output_type).kleene_star()
+                line_type.possible_line_numbers = (0, 1)
                 if "-s" in parsed_flags:
                     fst = compression_FST(set2)
-                    return RegularType(automaton=product_fst_automaton(fst, line_type.nfa))
+                    output_type = RegularType(automaton=product_fst_automaton(fst, line_type.nfa))
+                    output_type.possible_line_numbers = (0, 1)
+                    return output_type
                 return line_type
 
         if len(parsed_command_invocation.operand_list) == 2:
@@ -127,6 +133,9 @@ def complement_set(input_set: str) -> str:
 
 def preprocess_set(set1: str) -> str:
     set1 = set1.replace("\\\\", "\\")
+    # FIXME: handle \012
+    set1 = set1.replace("\\\\012", "\n")
+    set1 = set1.replace("\\012", "\n")
     escape_dict = {
         'n': '\n',
         't': '\t',

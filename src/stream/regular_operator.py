@@ -262,23 +262,23 @@ def translate_match(input_type: RegularType, pattern: str | RegularType, replace
                 input_typ1 = input_type & pattern
                 input_typ2 = input_type - pattern
                 output_automaton = product_fst_automaton(fst, input_typ1.automaton)
-                output_type = RegularType(automaton=output_automaton) | input_typ2
+                return RegularType(automaton=output_automaton) | input_typ2
             elif original_pattern.startswith("^"):
                 fst = start_regex_replacement_FST(pattern.automaton, replacement)
                 output_automaton = product_fst_automaton(fst, input_type.automaton)
-                output_type = RegularType(automaton=output_automaton)
+                return RegularType(automaton=output_automaton)
             elif original_pattern.endswith("$"):
                 fst = start_regex_replacement_FST(pattern.reverse().automaton, replacement)
                 output_automaton = product_fst_automaton(fst, input_type.reverse().automaton)
-                output_type = RegularType(automaton=output_automaton).reverse()
-            elif global_match:
-                fst = global_regex_replacement_FST(pattern.automaton, replacement)
-                output_automaton = product_fst_automaton(fst, input_type.automaton)
-                output_type = RegularType(automaton=output_automaton)
-            else:
-                fst = first_regex_replacement_FST(pattern.automaton, replacement)
-                output_automaton = product_fst_automaton(fst, input_type.automaton)
-                output_type = RegularType(automaton=output_automaton)
+                return RegularType(automaton=output_automaton).reverse()
+        if global_match:
+            fst = global_regex_replacement_FST(pattern.automaton, replacement)
+            output_automaton = product_fst_automaton(fst, input_type.automaton)
+            output_type = RegularType(automaton=output_automaton)
+        else:
+            fst = first_regex_replacement_FST(pattern.automaton, replacement)
+            output_automaton = product_fst_automaton(fst, input_type.automaton)
+            output_type = RegularType(automaton=output_automaton)
         return output_type
     
 
@@ -287,5 +287,25 @@ def line_extract(input_type: RegularType, pattern: str | RegularType) -> Regular
     if isinstance(pattern, str):
         original_pattern = pattern
         pattern = RegularType(pattern)
-    
+    if is_pure_string_for_ast(pattern.ast):
+        if (input_type & (RegularType(".*") + pattern + RegularType(".*"))).is_empty():
+            return RegularType("")
+        else:
+            return pattern
+    else:
+        if original_pattern:
+            if original_pattern.startswith("^") and original_pattern.endswith("$"):
+                return input_type & pattern
+            elif original_pattern.startswith("^"):
+                fst = start_regex_extract_FST(pattern.automaton)
+                output_automaton = product_fst_automaton(fst, input_type.automaton)
+                return RegularType(automaton=output_automaton)
+            elif original_pattern.endswith("$"):
+                fst = start_regex_extract_FST(pattern.reverse().automaton)
+                output_automaton = product_fst_automaton(fst, input_type.reverse().automaton)
+                return RegularType(automaton=output_automaton).reverse()
+        fst = global_regex_extract_FST(pattern.automaton)
+        output_automaton = product_fst_automaton(fst, input_type.automaton)
+        return RegularType(automaton=output_automaton)
+        
 

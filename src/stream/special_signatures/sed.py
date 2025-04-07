@@ -70,7 +70,8 @@ class SedSignature(CommandSignature):
                 parts[2] = preprocess(parts[2])
                 parts[2] = re.escape(parts[2])
                 previous_output_type = RegularType(parts[2]) + previous_output_type
-            elif parts[1] == '\\$':
+            # FIXME: figure out the difference between $ and \\$
+            elif parts[1] == '\\$' or parts[1] == "$":
                 parts[2] = preprocess(parts[2])
                 parts[2] = re.escape(parts[2])
                 previous_output_type = previous_output_type + RegularType(parts[2])

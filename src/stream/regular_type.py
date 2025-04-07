@@ -20,13 +20,15 @@ class RegularType:
             mode: str = "compat", 
             repr_mode: str = "line",
             automaton: Optional[Automaton] = None,
-            hole_dict: Optional[dict[str, 'RegularType']] = None
+            hole_dict: Optional[dict[str, 'RegularType']] = None,
+            possible_line_numbers: Tuple[int, int] = (0, -1)
         ) -> None:
         if pattern is None and automaton is None:
             raise ValueError("Invalid RegularType object, pattern is None and automaton is None")
         
         self.repr_mode = repr_mode
-
+        # FIXME: provisional solution
+        self.possible_line_numbers = possible_line_numbers
         if automaton is not None:
             self.pattern = None
             self.ast = None
@@ -39,7 +41,6 @@ class RegularType:
         else:
             automaton_dict = None
         self.nfa = ast_to_automaton(self.ast, hole_dict=automaton_dict)
-        
     def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 10) -> CheckingResult:
         logging.debug("-"*60)
         # logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
@@ -47,6 +48,10 @@ class RegularType:
         # logging.debug(f"other_regex: {other.regex}")
         # logging.debug(f"self_ast: {self.ast}")
         # logging.debug(f"other_ast: {other.ast}")
+        if self.possible_line_numbers[0] < other.possible_line_numbers[0]:
+            return CheckingResult(ill_typed=True)
+        if other.possible_line_numbers[1] != -1 and (self.possible_line_numbers[1] > other.possible_line_numbers[1] or self.possible_line_numbers[1] == -1):
+            return CheckingResult(ill_typed=True)
         logging.debug("-"*60)
         if (other.pattern == ".*"):
             return CheckingResult(ill_typed=False)
@@ -160,8 +165,8 @@ class RegularType:
     def __or__(self, other: 'RegularType') -> 'RegularType':
         out = RegularType(automaton=BasicOperations.union(self.nfa, other.nfa))
         out.nfa.setDeterministic(False)
-        out.removeDeadTransitions()
-        out.minimize()
+        out.nfa.removeDeadTransitions()
+        out.nfa.minimize()
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})|({other.pattern})"
         return out

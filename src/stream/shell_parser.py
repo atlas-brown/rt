@@ -83,6 +83,7 @@ class ShellParser:
                 script_content.append(line)
         for node in self.pipeline_nodes:
             env_annotations[node] = {}
+            # whole_stream_based = False
             try:
                 line_number = node.items[0].line_number
                 # if only extranct pipeline with explicit "stream enable", then the annotations (if exist) should be 1 line above "stream enable"
@@ -119,6 +120,14 @@ class ShellParser:
                         case _:
                             raise ValueError("Invalid annotation type")
                         
+                    # # FIXME: whole-stream support
+                    # if "\\n" in pattern:
+                    #     whole_stream_based = True
+                    # pattern = pattern.replace("\\n", "|")
+                    # if pattern.startswith("|"):
+                    #     pattern = pattern[1:]
+                    # if pattern.endswith("|"):
+                    #     pattern = pattern[:-1]
 
                     if annotation_type == AnnotationType.INPUT:
                         input_pattern = pattern
@@ -145,8 +154,17 @@ class ShellParser:
                             corresponding_annotations.append(UserAnnotation(annotation_type, pattern, node, command_node))
                             annotations[command_node] = corresponding_annotations
                             break
-                    
-                    
+                            
+       
+                # # FIXME: whole-stream support
+                # if whole_stream_based:
+                #     corresponding_annotations = annotations.get(node.items[-1], [])
+                #     for annotation in corresponding_annotations:
+                #         if annotation.annotation_type == AnnotationType.ASSERT:
+                #            if isinstance(annotation.pattern, str) and "|" not in annotation.pattern and "[" not in annotation.pattern and "~" not in annotation.pattern and "&" not in annotation.pattern:
+                #                length = len(annotation.pattern)
+                #                annotation.pattern = "|".join([char for char in annotation.pattern])
+                #                annotation.pattern = f"({annotation.pattern}){{0,{length}}}"
             except Exception as e:
                 logging.error(f"Error while extracting annotations: {e}")
         return annotations, input_pattern, env_annotations

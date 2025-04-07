@@ -74,6 +74,12 @@ class FindSignature(CommandSignature):
                         if signature.matches_command(exec_command):
                             # Determine output type from the executed command
                             output_type = signature.output_type_inference(RegularType(".+"), exec_command, env_annotations)
+                            
+                            # FIXME: should use the type declaration of xargs ls instead of ls
+                            # Special case for 'ls' command: remove "total" line from output type
+                            if cmd_name == "ls":
+                                output_type = output_type - RegularType("total .+")
+                            
                             break
                     
                     # Found an -exec, no need to search further
@@ -86,13 +92,38 @@ class FindSignature(CommandSignature):
             
             # If the path looks like an actual path (not a flag or option)
             if not search_path.startswith('-'):
-                # Escape the path for regex and build the pattern for this path and its subdirectories
-                escaped_path = re.escape(search_path)
-                if search_path.endswith('/'):
-                    # If path ends with slash, handle differently
-                    output_type = RegularType(f"{escaped_path}.*")
+                # Check for name/type patterns in the operands
+                name_pattern = None
+                for i in range(len(operands) - 1):
+                    if operands[i] == "-name" and i + 1 < len(operands):
+                        name_pattern = operands[i + 1]
+                        break
+                
+                # Convert glob pattern to regex if found
+                if name_pattern and ('*' in name_pattern or '?' in name_pattern):
+                    # Convert glob pattern to regex pattern
+                    # Escape special characters except * and ?
+                    regex_pattern = re.escape(name_pattern).replace('\\*', '.*').replace('\\?', '.')
+                    
+                    # Escape the path for regex
+                    escaped_path = re.escape(search_path)
+                    
+                    # Build the full pattern
+                    if search_path.endswith('/'):
+                        # If path ends with slash, handle differently
+                        output_type = RegularType(f"{escaped_path}.*{regex_pattern}")
+                    else:
+                        # Pattern matches the path and its subdirectories with the name pattern
+                        output_type = RegularType(f"{escaped_path}(/.*)?/{regex_pattern}")
                 else:
-                    # Pattern matches the path itself or any subdirectory/file under it
-                    output_type = RegularType(f"{escaped_path}(/.+)?")
+                    # No name pattern found, use the default path-based inference
+                    # Escape the path for regex and build the pattern
+                    escaped_path = re.escape(search_path)
+                    if search_path.endswith('/'):
+                        # If path ends with slash, handle differently
+                        output_type = RegularType(f"{escaped_path}.*")
+                    else:
+                        # Pattern matches the path itself or any subdirectory/file under it
+                        output_type = RegularType(f"{escaped_path}(/.+)?")
         
         return output_type
