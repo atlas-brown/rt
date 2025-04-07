@@ -3,7 +3,7 @@ import json
 import os
 import csv
 import re
-from stream.evaluation_config import get_config
+from stream.config import CONFIG
 
 def convert_to_github_address(address):
     if address.startswith('./'):
@@ -270,7 +270,7 @@ benchmark_mapping = None
 def path_to_benchmark_set(collection):
     global benchmark_mapping
     if not benchmark_mapping:
-        benchmark_mapping = get_config()["benchmark names"]
+        benchmark_mapping = CONFIG.get("benchmark names")
     for key, value in benchmark_mapping.items():
         if re.search(key, collection):
             return value

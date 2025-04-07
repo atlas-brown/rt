@@ -7,7 +7,7 @@ import time
 from pathlib import Path
 import tempfile
 import os
-from stream.evaluation_config import get_config
+from stream.config import CONFIG
 
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
 
@@ -59,9 +59,8 @@ def main():
     csv_file = "evaluation_results/baseline.csv"
     json_file = "evaluation_results/baseline.json"
     warnings_json_file = "evaluation_results/shellcheck_warnings.json"
-    cfg = get_config()
-    valid_dirs = cfg["benchmark dirs"]["valid"]
-    invalid_dirs = cfg["benchmark dirs"]["invalid"]
+    valid_dirs = CONFIG.get("valid_dirs")
+    invalid_dirs = CONFIG.get("invalid_dirs")
     all_results = []
     batch_results = []
     all_shellcheck_codes = set()

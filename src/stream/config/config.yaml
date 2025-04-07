@@ -45,6 +45,17 @@ not_check_all_dirs:
   - ./full_benchmark/stackoverflow/buggy
   # - ./full_benchmark/stackoverflow/correct
 
+"benchmark names": {
+    "evaluation_pipelines/.*ladder.*": "Ladder",
+    "evaluation_pipelines/.*/[0-9_]*.sh": "Handwritten",
+    "full_benchmark/curated_mutants/*": "Mutants",
+    "full_benchmark/intercode/.*": "Intercode",
+    "full_benchmark/llm_injection/.*": "LLM",
+    "full_benchmark/pash_benchmark/.*": "PaSh",
+    "full_benchmark/github_repos_commits/.*": "GitHub",
+    "full_benchmark/stackoverflow/.*": "StackOverflow"
+}
+
 # Logging
 log_level: INFO
 

@@ -11,7 +11,6 @@ if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from stream.type_checker import TypeChecker
 from stream.tool_error import PashAnnotationParsingError, TimeoutError
-from stream.evaluation_config import get_config
 import argparse
 from stream.config import CONFIG
 
@@ -415,6 +414,11 @@ if __name__ == "__main__":
     parser.add_argument('--disable_rule_no_sort_non_numeric_with_numeric_input', action='store_true',
                         help='Disable the rule that checks for numeric sorting of non-numeric data.')
 
+    parser.add_argument('--disable_fsts', action='store_true',
+                        help='Disable FSTs. Defaults to enabled.')
+    parser.add_argument('--outdir', default=None, type=str,
+                        help='Output directory, to override whatever is in the global_config.yaml (but using the same file names)')
+
     args = parser.parse_args()
 
     # Override CONFIG with command line args
@@ -423,6 +427,9 @@ if __name__ == "__main__":
         CONFIG["enable_user_annotation"] = False
     else:
         enable_user_annotation = CONFIG.get("enable_user_annotation", True)
+
+    if args.disable_fsts:
+        CONFIG["enable_FST"] = False
 
     if args.log_level:
         level_str = args.log_level.lower()
@@ -497,7 +504,11 @@ if __name__ == "__main__":
     time.sleep(3)
 
     # Use config values for the paths
-    output_path_prefix = 'evaluation_results/with_annotations/' if enable_user_annotation else 'evaluation_results/raw/'
+    if args.outdir:
+        CONFIG.set("output_results_path_with_annotation",
+                   os.path.join(args.outdir, os.path.basename(CONFIG.get("output_results_path_with_annotation"))))
+        CONFIG.set("output_results_path_raw",
+                   os.path.join(args.outdir, os.path.basename(CONFIG.get("output_results_path_raw"))))
     
     run_all_evaluations(
         num_workers=workers,
