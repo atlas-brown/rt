@@ -1,20 +1,35 @@
 {
-    "valid": [
+    "benchmark dirs": {
+	"valid": [
             "./evaluation_pipelines/valid",
             "./full_benchmark/intercode/pipelines",
-            "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts"
-    ],
-    "to be included valid": [
-        "./full_benchmark/pash_benchmark/benchmarks",
-        "./full_benchmark/github_repos_commits/output/post_commit"
-    ],
+            "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts",
+	    "./full_benchmark/github_repos_commits/collected-negative"
+	],
 
-    "invalid": [
-	"./evaluation_pipelines/invalid",
-        "./full_benchmark/curated_mutants",
-        "./full_benchmark/llm_injection/pipelines"
-    ],
-    "to be included invalid": [
-	"./full_benchmark/github_repos_commits/output/pre_commit"
-    ]
+	"invalid": [
+	    "./evaluation_pipelines/invalid",
+            "./full_benchmark/curated_mutants",
+            "./full_benchmark/llm_injection/pipelines",
+	    "./full_benchmark/github_repos_commits/collected-positive",
+            "./full_benchmark/stackoverflow/buggy"
+	],
+
+	"whole scripts with select annotated pipelines": [
+	    "./full_benchmark/github_repos_commits/output/post_commit",
+            "./full_benchmark/github_repos_commits/output/pre_commit",
+            "./full_benchmark/stackoverflow/buggy",
+            "./full_benchmark/stackoverflow/correct"
+	]
+    },
+    "benchmark names": {
+	"evaluation_pipelines/.*ladder.*": "Ladder",
+	"evaluation_pipelines/.*/[0-9_]*.sh": "Handwritten",
+	"full_benchmark/curated_mutants/*": "Mutants",
+	"full_benchmark/intercode/.*": "Intercode",
+	"full_benchmark/llm_injection/.*": "LLM",
+	"full_benchmark/pash_benchmark/.*": "PaSh",
+	"full_benchmark/github_repos_commits/.*": "GitHub",
+	"full_benchmark/stackoverflow/.*": "StackOverflow"
+    }
 }

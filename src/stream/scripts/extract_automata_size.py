@@ -3,7 +3,7 @@ import csv
 import os
 
 def main():
-    evaluation_result_file = "./evaluation_results/with_annotations/evaluation_results.json"
+    evaluation_result_file = "./evaluation_results/ann:y_heuristic:y/evaluation_results.json"
 
     with open(evaluation_result_file, 'r') as f:
         data = json.load(f)
@@ -15,9 +15,7 @@ def main():
         if automata_size is not None:
             automata_sizes.append(automata_size)
     
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    csv_path = os.path.join(script_dir, "automata_size.csv")
-    
+    csv_path = "evaluation_results/ann:y_heuristic:y/automata_sizes.csv"
     with open(csv_path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['automata_size'])

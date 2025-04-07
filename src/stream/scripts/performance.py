@@ -2,7 +2,6 @@ import json
 import argparse
 import difflib
 import os
-import matplotlib.pyplot as plt
 
 # Assuming the 'stream' module is available and has a class ShellParser.
 # Each ShellParser instance should have an attribute 'pipeline_nodes',
@@ -17,7 +16,7 @@ def parse_time(time_str):
 
 def main():
     
-    evaluation_result_file = "./evaluation_results/with_annotations/evaluation_results.json"
+    evaluation_result_file = "./evaluation_results/ann:y_heuristic:y/evaluation_results.json"
 
     with open(evaluation_result_file, 'r') as f:
         data = json.load(f)
@@ -45,8 +44,7 @@ def main():
         times.append(time_val)
     
     # Write pairs to CSV
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    csv_path = f"{script_dir}/length_time_pairs.csv"
+    csv_path = "evaluation_results/ann:y_heuristic:y/length_time_pairs.csv"
     with open(csv_path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['Length', 'Time'])  # Header

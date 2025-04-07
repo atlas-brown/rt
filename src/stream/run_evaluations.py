@@ -11,6 +11,7 @@ if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from stream.type_checker import TypeChecker
 from stream.tool_error import PashAnnotationParsingError, TimeoutError
+from stream.evaluation_config import get_config
 import argparse
 from stream.config import CONFIG
 
