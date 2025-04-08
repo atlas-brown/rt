@@ -88,11 +88,11 @@ def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None):
             if addr not in merged:
                 continue
             info = {
-                'is buggy?': row[1].lower() == 'true',
-                "sc warning?": row[2].lower() == 'true',
-                "ltsh warning?": row[3].lower() == 'true',
-                "sc time": float(row[4]),
-                "ltsh time": float(row[5])
+                'is buggy?': row[2].lower() == 'true',
+                "sc warning?": row[3].lower() == 'true',
+                "ltsh warning?": row[4].lower() == 'true',
+                "sc time": float(row[5]),
+                "ltsh time": float(row[6])
             }
             merged[addr]["raw"]["baseline"] = info
             merged[addr]["ann"]["baseline"] = info

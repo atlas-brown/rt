@@ -24,8 +24,8 @@ output_summary_path_raw: evaluation_results/raw/summary.csv
 
 # Pipeline directories
 valid_dirs:
-  # - ./full_benchmark/pash_benchmark/benchmarks
-  - ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts
+  - ./full_benchmark/pash_benchmark/benchmarks
+  # - ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts
   # - ./full_benchmark/github_repos_commits/output/post_commit
   - ./full_benchmark/github_repos_commits/collected-negative
   # - ./full_benchmark/stackoverflow/correct
