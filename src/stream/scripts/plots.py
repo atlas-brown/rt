@@ -114,7 +114,7 @@ def plot_bug_detection(data, output_path):
         # move text to the right
         match i:
             case 0:
-                text.set_position((text.get_position()[0] + 5.5, text.get_position()[1] + 7))
+                text.set_position((text.get_position()[0] + 5.5, text.get_position()[1] + 9))
             case 1:
                 text.set_position((text.get_position()[0], text.get_position()[1] - 0.85))
             case 2:
