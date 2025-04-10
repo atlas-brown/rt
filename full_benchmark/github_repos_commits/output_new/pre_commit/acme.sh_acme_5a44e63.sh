@@ -3161,6 +3161,7 @@ _checkConf() {
       FOUND_REAL_NGINX_CONF="$2"
       return 0
     fi
+
 ################################################################################
 # Commit message: fix nginx mode https://github.com/acmesh-official/acme.sh/issues/3648#issuecomment-894045613
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/5a44e63caddd9fe7b6b039b80a2a78f0d0a39dd9
@@ -3174,12 +3175,14 @@ _checkConf() {
 # (George) ---
 # See https://github.com/acmesh-official/acme.sh/issues/3648#issuecomment-894045613
 # Also see https://nginx.org/en/docs/ngx_core_module.html#include
+# Also see ./acme.sh_acme_06580bf.sh
 # Plus character mistakenly used in grep pattern without "-E" option.
 # The file $2 is an NGINX config. There exists a spec for this so it
 # could definitely be modeled.
+# Note: Unfortunately the current annotations don't work.
 # ---
 
-# @file "$2" " *\t*(include|~(include)) *\t*.*;"
+# @file "$2" "[ \t]*(include|~(include))[ \t]+.+;"
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
       _debug "Try include files"
@@ -3194,7 +3197,7 @@ _checkConf() {
 # + for included in $(cat "$2" | tr "\t" " " | grep "^ *include *.*;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
 
-# @file "$2" " *\t*(include|~(include)) *\t*.*;"
+# @file "$2" "[ \t]*(include|~(include))[ \t]+.+;"
 # stream enable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"
