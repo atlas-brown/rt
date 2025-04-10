@@ -3170,10 +3170,20 @@ _checkConf() {
 # - if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
 # + if cat "$2" | tr "\t" " " | grep "^ *include *.*;" >/dev/null; then
 ################################################################################
-# @assert "grep "^ *include +.*;"" --> " *include +.*;"
+
+# (George) ---
+# See https://github.com/acmesh-official/acme.sh/issues/3648#issuecomment-894045613
+# Also see https://nginx.org/en/docs/ngx_core_module.html#include
+# Plus character mistakenly used in grep pattern without "-E" option.
+# The file $2 is an NGINX config. There exists a spec for this so it
+# could definitely be modeled.
+# ---
+
+# @file "$2" " *(include|~(include)) *.*;"
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
       _debug "Try include files"
+
 ################################################################################
 # Commit message: fix nginx mode https://github.com/acmesh-official/acme.sh/issues/3648#issuecomment-894045613
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/5a44e63caddd9fe7b6b039b80a2a78f0d0a39dd9
@@ -3183,7 +3193,8 @@ _checkConf() {
 # - for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
 # + for included in $(cat "$2" | tr "\t" " " | grep "^ *include *.*;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
-# put stream annotation here
+
+# @file "$2" " *(include|~(include)) *.*;"
 # stream enable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"

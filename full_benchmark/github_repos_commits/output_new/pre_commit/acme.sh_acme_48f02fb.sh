@@ -2756,10 +2756,12 @@ _deactivate() {
 # The commit adds a "tr -d" invocation to remove it.
 # This is a very good example where built-in regex patterns would help,
 # as the user could just specify '@output "URL"' (which is a fairly complicated regex).
-# NOTE: I could recreate the bug on macOS using echo "Location: https://google.com\r\n" into the pipeline.
+# NOTE: I could recreate the bug on macOS using 'echo "Location: https://google.com\r\n"' into the pipeline.
 # ---
 
-# @output "(https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)?"
+# The "assume" annotation is temporary, until HTTP responses have been modeled
+# @assume "echo "$responseHeaders"" "Location: (https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)\r?\n"
+# @output "(https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)?\n"
 # stream enable
     authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2)"
     _info "authzUri" "$authzUri"
