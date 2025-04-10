@@ -4013,7 +4013,14 @@ _get_cert_issuers() {
   _cfile="$1"
   if _contains "$(${ACME_OPENSSL_BIN:-openssl} help crl2pkcs7 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -help 2>&1)" "Usage: crl2pkcs7" || _contains "$(${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 help 2>&1)" "unknown option help"; then
 ################################################################################
-# Commit message: Chain (#3408)  * fix https://github.com/acmesh-official/acme.sh/issues/3384 match the issuer to the root CA cert subject  * fix format  * fix https://github.com/acmesh-official/acme.sh/issues/3384  * remove the alt files. https://github.com/acmesh-official/acme.sh/issues/3384
+# Commit message: Chain (#3408)  * fix https://github.com/acmesh-official/acme.sh/issues/3384
+# match the issuer to the root CA cert subject
+# 
+# * fix format
+# 
+# * fix https://github.com/acmesh-official/acme.sh/issues/3384
+# 
+# * remove the alt files. https://github.com/acmesh-official/acme.sh/issues/3384
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/12b1916599aa4e58fa4c74aa6d454a7f144eb1f5
 # Category: 
 # Notes: 
@@ -4026,7 +4033,14 @@ _get_cert_issuers() {
     ${ACME_OPENSSL_BIN:-openssl} crl2pkcs7 -nocrl -certfile $_cfile | ${ACME_OPENSSL_BIN:-openssl} pkcs7 -print_certs -text -noout | grep 'Issuer:' | _egrep_o "CN *=[^,]*" | cut -d = -f 2
   else
 ################################################################################
-# Commit message: Chain (#3408)  * fix https://github.com/acmesh-official/acme.sh/issues/3384 match the issuer to the root CA cert subject  * fix format  * fix https://github.com/acmesh-official/acme.sh/issues/3384  * remove the alt files. https://github.com/acmesh-official/acme.sh/issues/3384
+# Commit message: Chain (#3408)  * fix https://github.com/acmesh-official/acme.sh/issues/3384
+# match the issuer to the root CA cert subject
+# 
+# * fix format
+# 
+# * fix https://github.com/acmesh-official/acme.sh/issues/3384
+# 
+# * remove the alt files. https://github.com/acmesh-official/acme.sh/issues/3384
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/12b1916599aa4e58fa4c74aa6d454a7f144eb1f5
 # Category: 
 # Notes: 

@@ -3170,7 +3170,7 @@ _checkConf() {
 # - if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
 # + if cat "$2" | tr "\t" " " | grep "^ *include *.*;" >/dev/null; then
 ################################################################################
-# put stream annotation here
+# @assert "grep "^ *include +.*;"" --> " *include +.*;"
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
       _debug "Try include files"

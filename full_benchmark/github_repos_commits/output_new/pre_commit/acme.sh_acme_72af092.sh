@@ -1003,7 +1003,16 @@ _readKeyLengthFromCSR() {
 # - echo "$_outcsr" | _egrep_o "^ *Public-Key:.*" | cut -d '(' -f 2 | cut -d ' ' -f 1
 # + echo "$_outcsr" | _egrep_o "^ *Public.Key:.*" | cut -d '(' -f 2 | cut -d ' ' -f 1
 ################################################################################
-# put stream annotation here
+
+# (George) ---
+# See https://github.com/acmesh-official/acme.sh/issues/614
+# The pipeline tries to extract a the public key length from a csr file.
+# In some systems (?) and some openssl versions the format of the
+# file is different than what pipeline greps.
+# The bug can be caught with concretization on those systems.
+# ---
+
+# @output "[1-9][0-9]*"
 # stream enable
     echo "$_outcsr" | _egrep_o "^ *Public-Key:.*" | cut -d '(' -f 2 | cut -d ' ' -f 1
   fi

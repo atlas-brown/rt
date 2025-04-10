@@ -5754,6 +5754,24 @@ uninstallcronjob() {
 # - if _exists uname && uname -a | grep solaris >/dev/null; then
 # + if _exists uname && uname -a | grep SunOS >/dev/null; then
 ################################################################################
+
+# (George) ---
+# See https://github.com/acmesh-official/acme.sh/issues/3660
+# Idea:
+# Create a database containing platform-specific info (e.g. output of uname).
+# When shtreams is installed on a machine, inspect the info available locally
+# and determine whether the database entry for the machine's platform is available or not.
+# If it isn't, promt the developer to allow sending of anonymous data to some sever of ours.
+# Manually or automatically inspect that data and add it to the database.
+# Provide some sort of interface for developers to browse/interact with the database.
+# This idea was inspired from the multitude of platform-specific bugs code I
+# saw when going over some of the largest shell scripting projects.
+# If something akin to this was implemented, the bug fixed by this commit could have been avoided.
+# I don't think this can be caught, except with a heuristic, which would need to know about "SunOS".
+# Note: This specific bug was probably made completely by mistake, because
+# in earlier parts of the script "SunOS" is used correctly in pipelines.
+# ---
+
 # put stream annotation here
 # stream enable
     if _exists uname && uname -a | grep solaris >/dev/null; then

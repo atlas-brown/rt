@@ -1262,6 +1262,13 @@ _createcsr() {
 # - for dl in $(echo "$domainlist" | tr "," ' '); do
 # + for dl in $(echo "'$domainlist'" | sed "s/,/' '/g"); do
 ################################################################################
+
+# (George) ---
+# See https://github.com/acmesh-official/acme.sh/issues/3898
+# The problem is that $dl can contain "*" that can glob, which is not desired here.
+# The fix surrounds each word with '' to avoid globbing.
+# ---
+
 # put stream annotation here
 # stream enable
     for dl in $(echo "$domainlist" | tr "," ' '); do

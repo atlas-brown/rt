@@ -534,6 +534,24 @@ find_IPv4_information() {
 # - IPV4_ADDRESS=$(ip -oneline -family inet address show | grep "${IPv4bare}" |  awk '{print $4}' | awk 'END {print}')
 # + IPV4_ADDRESS=$(ip -oneline -family inet address show | grep "${IPv4bare}/" |  awk '{print $4}' | awk 'END {print}')
 ################################################################################
+
+# (George) ---
+# See https://github.com/pi-hole/pi-hole/issues/2387
+# This pipeline intents to extract a full IPv4 address (including port) from the ip command.
+# It uses a "bare" (without a port) address found earlier in the script (IPv4bare).
+# The bug is as follows:
+# - Assume IPv4bare=10.0.1.1 (meaning the expected output of the pipeline is 10.0.1.1/{port})
+# - Assume output of 'ip -oneline -family inet address show | grep "${IPv4bare}"':
+#       4: ens160.2     inet 10.0.1.1/27 brd 10.0.1.31 scope global noprefixroute ens160.2\     valid_lft forever preferred_lft forever
+#       5: ens160.3     inet 10.0.1.187/26 brd 10.0.1.191 scope global noprefixroute ens160.3\  valid_lft forever preferred_lft forever
+#       7: ens160.5     inet 10.0.1.109/27 brd 10.0.1.127 scope global noprefixroute ens160.5\  valid_lft forever preferred_lft forever
+# - Three lines matched the grep because all addresses contain IPv4bare as a prefix
+# - The pipeline as is ends up matching the address of the last line: 10.0.1.109/27
+# I can think of two ways to catch the bug:
+# 1. Warn that multiple lines might get matched and allow a suppression of the warning if it is intended
+# 2. Allow an annotation that contains the IPv4bare variable in it (@output "$IPv4bare/[0-9]{1,5}")
+# ---
+
 # put stream annotation here
 # stream enable
     IPV4_ADDRESS=$(ip -oneline -family inet address show | grep "${IPv4bare}" |  awk '{print $4}' | awk 'END {print}')

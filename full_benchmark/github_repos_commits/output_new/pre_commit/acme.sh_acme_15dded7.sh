@@ -4526,7 +4526,16 @@ $_authorizations_map"
 # - _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ')
 # + _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
 ################################################################################
-# put stream annotation here
+
+# (George) ---
+# See https://github.com/acmesh-official/acme.sh/issues/2939#issuecomment-632481658
+# Also see ./acme.sh_acme_48f02fb.sh
+# This is essentially the same bug.
+# NOTE: This might also catch the bug present in ./acme.sh_acme_70f4cad.sh,
+#       although I'm not sure if this is an issue here or not.
+# ---
+
+# @output "[1-9][0-9]*"
 # stream enable
         _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ')
         _debug "_retryafter" "$_retryafter"
