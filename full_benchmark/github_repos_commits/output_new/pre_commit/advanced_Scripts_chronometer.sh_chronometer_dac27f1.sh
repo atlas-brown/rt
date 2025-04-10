@@ -252,11 +252,17 @@ get_sys_stats() {
 # - net_gateway=$(ip route | grep default | cut -d ' ' -f 3)
 # + net_gateway=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1)
 ################################################################################
-# crude regex to match an IPv4 address (crude because it allows numbers larger than 255)
-# the problem here is that multiple IPv4 addresses could be returned (and not their field ranges)
-# ! not 100% sure this is capable of catching the bug
-# ! i tried to annotate that the entire output must be exactly one line containing an IPv4 address
-# output "(([0-9]{1,3}\.){3}[0-9]{1,3}\n){1}"
+
+# (George) ---
+# The bug here is that the output of "ip route" might contain multiple default
+# gateways. By asserting that the output can only contain one line the bug should be caught.
+# I tried to very crudely model "ip route" based on this website:
+# https://www.cyberciti.biz/faq/ip-route-add-network-command-for-linux-explained/
+# I have a Mac, so I didn't want to base the regex on my local output.
+# ---
+
+# @assume "ip route" --> "(default|(([0-9]{1,3}\.){3}\.[0-9]{1,3}))( [^ \t]+)+"
+# @output ".*\n"
 # stream enable
         net_gateway=$(ip route | grep default | cut -d ' ' -f 3)
 
