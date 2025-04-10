@@ -4723,7 +4723,9 @@ $_authorizations_map"
 # - Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d ":" -f 2-)"
 # + Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n \t" | cut -d ":" -f 2-)"
 ################################################################################
-# put stream annotation here
+
+# @assume "echo "$responseHeaders"" --> "(Location:[ \t]+[^ :\t]+\r?\n)+"
+# @output "(~(.*[ \t\r\n].*)\n)+"
 # stream enable
       Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d ":" -f 2-)"
     fi

@@ -3183,6 +3183,7 @@ _checkConf() {
 # ---
 
 # @file "$2" "[ \t]*(include|~(include))[ \t]+.+;"
+# @output "~( *include +.*;)"
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
       _debug "Try include files"
@@ -3198,6 +3199,7 @@ _checkConf() {
 ################################################################################
 
 # @file "$2" "[ \t]*(include|~(include))[ \t]+.+;"
+# @output "~(+.*)"
 # stream enable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"

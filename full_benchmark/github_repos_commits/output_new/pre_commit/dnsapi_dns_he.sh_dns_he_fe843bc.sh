@@ -144,7 +144,8 @@ _find_zone() {
     _debug "Looking for zone \"${_attempted_zone}\""
 
 ################################################################################
-# Commit message: dns_he - proposed fix for #1438  if you have more than one zone of a domain (e.g.  example.com and subdomain.example.com) _find_zone fails.  This fix removes partials matches.
+# Commit message: dns_he - proposed fix for #1438  if you have more than one zone of a domain (e.g.  example.com and subdomain.example.com) _find_zone fails. 
+# This fix removes partials matches.
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/fe843bc466b3d3267ac0b1866bf3e3365663c505
 # Category: 
 # Notes: 

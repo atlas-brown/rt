@@ -61,8 +61,9 @@ nvm()
 # - ls "$NVM_DIR" | grep -v src
 # + ls "$NVM_DIR" | grep -v src | grep -v nvm.sh
 ################################################################################
+
+# @output "~(.*(src|nvm\.sh).*)"
 # stream enable
-# @output "(?!.*(src|nvm\.sh).*)"
       ls "$NVM_DIR" | grep -v src
     ;;
     * )

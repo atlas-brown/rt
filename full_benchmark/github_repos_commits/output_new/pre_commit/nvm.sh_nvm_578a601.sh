@@ -142,8 +142,9 @@ nvm_ls() {
 # + | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v '^ *\.'`
 ################################################################################
 # node has version numbers of the form 'v0.12.13' and 'v22.14.0' etc
+
+# @output "~(*\..*)"
 # stream enable
-# @output "(?! *\..*)"
     VERSIONS=`find "$NVM_DIR/" -maxdepth 1 -type d -name "$(nvm_format_version $PATTERN)*" -exec basename '{}' ';' \
       | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n`
   fi

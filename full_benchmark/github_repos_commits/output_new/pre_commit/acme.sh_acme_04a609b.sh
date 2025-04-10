@@ -2711,7 +2711,7 @@ _isRealNginxConf() {
 # - _start=$(tr "\t" ' ' <"$2" | _head_n "$_fln" | grep -n "^ *server *{" | _tail_n 1)
 # + _start=$(tr "\t" ' ' <"$2" | _head_n "$_fln" | grep -n "^ *server *" | grep -v server_name | _tail_n 1)
 ################################################################################
-# put stream annotation here
+# @output "~(server_name)\n
 # stream enable
         _start=$(tr "\t" ' ' <"$2" | _head_n "$_fln" | grep -n "^ *server *{" | _tail_n 1)
         _debug "_start" "$_start"
@@ -2733,7 +2733,7 @@ _isRealNginxConf() {
 # - _end=$(echo "$_left" | tr "\t" ' ' | grep -n "^ *server *{" | _head_n 1)
 # + _end=$(echo "$_left" | tr "\t" ' ' | grep -n "^ *server *" | _head_n 1)
 ################################################################################
-# put stream annotation here
+# @output ".*\n"
 # stream enable
         if echo "$_left" | tr "\t" ' ' | grep -n "^ *server *{" >/dev/null; then
           _end=$(echo "$_left" | tr "\t" ' ' | grep -n "^ *server *{" | _head_n 1)
