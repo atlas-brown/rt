@@ -3181,7 +3181,8 @@ _checkConf() {
 # Note: The script is still buggy post-commit.
 # ---
 
-# @file "$2" "[ \t]*(include|~(include))[ \t]+.+;"
+# If NGINX configs were modeled we would know the possible values of [a-zA-Z]+ and [^ \t]+ in the annotation.
+# @file "$2" "[ \t]*[a-zA-Z]+[ \t]+[^ \t]+;"
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include *;" >/dev/null; then
       _debug "Try include files"
@@ -3196,7 +3197,7 @@ _checkConf() {
 # + for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
 
-# @file "$2" "[ \t]*(include|~(include))[ \t]+.+;"
+# @file "$2" "[ \t]*[a-zA-Z]+[ \t]+[^ \t]+;"
 # stream enable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"

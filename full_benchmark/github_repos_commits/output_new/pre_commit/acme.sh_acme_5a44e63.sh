@@ -3182,8 +3182,8 @@ _checkConf() {
 # Note: Unfortunately the current annotations don't work.
 # ---
 
-# @file "$2" "[ \t]*(include|~(include))[ \t]+.+;"
-# @output "~( *include +.*;)"
+# @file "$2" "[ \t]*[a-zA-Z]+[ \t]+[^ \t]+;"
+# @output ??
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
       _debug "Try include files"
@@ -3198,8 +3198,8 @@ _checkConf() {
 # + for included in $(cat "$2" | tr "\t" " " | grep "^ *include *.*;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
 
-# @file "$2" "[ \t]*(include|~(include))[ \t]+.+;"
-# @output "~(+.*)"
+# @file "$2" "[ \t]*[a-zA-Z]+[ \t]+[^ \t]+;"
+# @output ??
 # stream enable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"

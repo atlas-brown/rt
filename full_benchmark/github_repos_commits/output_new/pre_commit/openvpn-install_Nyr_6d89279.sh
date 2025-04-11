@@ -21,6 +21,7 @@ fi
 # Try to get our IP from the system and fallback to the Internet.
 # I do this to make the script compatible with NATed servers (lowendspirit.com)
 # and to avoid getting an IPv6.
+
 ################################################################################
 # Commit message: Bugfix for systems with multiple IPv4 addresses available
 # Commit URL: https://github.com/Nyr/openvpn-install/commit/6d89279940037b550ad6dfd6a476e0152bb8ed03

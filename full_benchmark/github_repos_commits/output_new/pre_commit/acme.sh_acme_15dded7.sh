@@ -4517,6 +4517,7 @@ $_authorizations_map"
         _info "Pending"
       elif [ "$status" = "processing" ]; then
         _info "Processing"
+
 ################################################################################
 # Commit message: fix retry https://github.com/acmesh-official/acme.sh/issues/2939#issuecomment-632481658
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/15dded712c6c255715887be7ee5b29775257c18b
@@ -4535,6 +4536,8 @@ $_authorizations_map"
 #       although I'm not sure if this is an issue here or not.
 # ---
 
+# If HTTP headers were modeled the @assume annotation would not be needed.
+# @assume "echo "$responseHeaders"" --> "Retry-After *: *[1-9][0-9]*\r?\n"
 # @output "[1-9][0-9]*"
 # stream enable
         _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ')

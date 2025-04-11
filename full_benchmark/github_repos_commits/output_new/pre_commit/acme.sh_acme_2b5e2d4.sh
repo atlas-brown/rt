@@ -3161,6 +3161,7 @@ _checkConf() {
       FOUND_REAL_NGINX_CONF="$2"
       return 0
     fi
+
 ################################################################################
 # Commit message: fix nginx mode
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/2b5e2d4760d7c3ec36f5af33dfa95d9077cd5966
@@ -3170,10 +3171,12 @@ _checkConf() {
 # - if cat "$2" | tr "\t" " " | grep "^ *include *.*;" >/dev/null; then
 # + if cat "$2" | tr "\t" " " | grep "^ *include *;" >/dev/null; then
 ################################################################################
-# put stream annotation here
+
+# @output " *include *;"
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include *.*;" >/dev/null; then
       _debug "Try include files"
+
 ################################################################################
 # Commit message: fix nginx mode
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/2b5e2d4760d7c3ec36f5af33dfa95d9077cd5966
@@ -3183,7 +3186,8 @@ _checkConf() {
 # - for included in $(cat "$2" | tr "\t" " " | grep "^ *include *.*;" | sed "s/include //" | tr -d " ;"); do
 # + for included in $(cat "$2" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
-# put stream annotation here
+
+# @output " *"
 # stream enable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include *.*;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"

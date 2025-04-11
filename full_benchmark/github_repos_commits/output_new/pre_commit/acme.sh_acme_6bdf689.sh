@@ -5745,6 +5745,7 @@ uninstallcronjob() {
   _info "Removing cron job"
   cr="$($_CRONTAB -l | grep "$PROJECT_ENTRY --cron")"
   if [ "$cr" ]; then
+
 ################################################################################
 # Commit message: fix https://github.com/acmesh-official/acme.sh/issues/3660
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/6bdf689d0f14e27fe41a3064d98a57d9a61c7565

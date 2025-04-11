@@ -2759,7 +2759,7 @@ _deactivate() {
 # NOTE: I could recreate the bug on macOS using 'echo "Location: https://google.com\r\n"' into the pipeline.
 # ---
 
-# The "assume" annotation is temporary, until HTTP responses have been modeled
+# The @assume annotation is temporary, until HTTP responses have been modeled.
 # @assume "echo "$responseHeaders"" --> "Location: (https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)\r?\n"
 # @output "(https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)?\n"
 # stream enable

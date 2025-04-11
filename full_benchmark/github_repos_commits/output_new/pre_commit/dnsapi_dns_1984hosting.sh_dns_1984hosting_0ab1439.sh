@@ -187,6 +187,7 @@ _1984hosting_login() {
 # none of which would match the pattern "^set-cookie:".
 # ---
 
+# By modeling HTTP headers we would know all the exact possible values.
 # @file "$HTTP_HEADER" "(Set-Cookie|~(set-cookie)): .+"
 # stream enable
     One984HOSTING_COOKIE="$(grep '^Set-Cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"

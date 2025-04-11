@@ -180,6 +180,7 @@ find_IPv4_information() {
 
 get_available_interfaces() {
   # Get available UP interfaces.
+
 ################################################################################
 # Commit message: Only ignore DOWN interfaces, `tun` interfaces are UNKNOWN.  Signed-off-by: Dan Schaper <dan.schaper@pi-hole.net>
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/9212eea8bdd647435f1d111cb62ce90b87ab1b8e

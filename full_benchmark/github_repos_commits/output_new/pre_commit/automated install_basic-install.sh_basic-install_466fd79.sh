@@ -525,6 +525,7 @@ find_IPv4_information() {
     fi
 
     # Append the CIDR notation to the IP address, if valid_ip fails this should return 127.0.0.1/8
+
 ################################################################################
 # Commit message: Fix getting IP address in the presence of similar subnets  Change was suggested by @computergeek125 in #2387  Signed-off-by: Mcat12 <newtoncat12@yahoo.com>
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/466fd79c66cea40d97490b8c120c1fe5e2ace2a8

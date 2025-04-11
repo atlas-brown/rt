@@ -52,6 +52,7 @@ nvm()
     ;;
     "list" )
       # TODO: put a star by the current active one if possible
+
 ################################################################################
 # Commit message: 
 # Commit URL: https://github.com/nvm-sh/nvm/commit/cb87c313a9eaa2a9b7301aa0abaed0dc9d93cd01

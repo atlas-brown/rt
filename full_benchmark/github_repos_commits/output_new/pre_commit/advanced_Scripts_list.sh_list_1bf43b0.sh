@@ -58,6 +58,7 @@ EscapeRegexp() {
     # This way we may safely insert an arbitrary
     # string in our regular expressions
     # Also remove leading "." if present
+
 ################################################################################
 # Commit message: Improved regex: Remove all leading points from domain (.....xyz => .xyz). Return not only a part, but fill validated domain
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/1bf43b04254559896f5e3a59667a18520401cb78
@@ -67,7 +68,8 @@ EscapeRegexp() {
 # - echo $* | sed 's/^\.//' | sed "s/[]\\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
 # + echo $* | sed 's/^\.*//' | sed "s/[]\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
 ################################################################################
-# @assert "sed 's/^\.//'" --> "(~\.).*"
+
+# @assert "sed 's/^\.//'" --> "~\..*"
 # stream enable
     echo $* | sed 's/^\.//' | sed "s/[]\\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
 }
