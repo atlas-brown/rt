@@ -223,9 +223,18 @@ if (( $+commands[xdg-open] )); then
 # - arch="$(grep '^Arch' <<< "$infos" | grep -oP '[^ ]+$')"
 # + arch="$(grep -m 1 '^Arch' <<< "$infos" | grep -oP '[^ ]+$')"
 ################################################################################
-# put stream annotation here
-# stream enable
+    # https://chatgpt.com/share/67fa6d9a-fd94-8006-936b-5004b181dedd
+    # input can contain multiple matching lines when multiple packages are found by "pacman -Si"
+    # output must be exactly one line
+    # realistically the output would have been annotated more precisely, but it doesn't matter
+    
+    # @input "(Repo[a-z ]*[ \t]+:[ \t]+[A-Za-z0-9\-\_]+)+\n(Arch[a-z ]*[ \t]+:[ \t]+[A-Za-z0-9\-\_]+)+\n([A-Z][a-z ]+[ \t]+:[ \t]+.+)*"
+    # @output "[^ \n]+\n"
+    # stream enable
     repo="$(grep '^Repo' <<< "$infos" | grep -oP '[^ ]+$')"
+    # @input "(Repo[a-z ]*[ \t]+:[ \t]+[A-Za-z0-9\-\_]+)+\n(Arch[a-z ]*[ \t]+:[ \t]+[A-Za-z0-9\-\_]+)+\n([A-Z][a-z ]+[ \t]+:[ \t]+.+)*"
+    # @output "[^ \n]+\n"
+    # stream enable
     arch="$(grep '^Arch' <<< "$infos" | grep -oP '[^ ]+$')"
     xdg-open "https://www.archlinux.org/packages/$repo/$arch/$pkg/" &>/dev/null
   }
