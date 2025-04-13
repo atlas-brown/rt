@@ -61,7 +61,16 @@ git_prompt_status() {
 # - if $(echo "$INDEX" | grep '^D ' &> /dev/null); then
 # + if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
 ################################################################################
-# put stream annotation here
+# See https://git-scm.com/docs/git-status#_short_format
+# This could have been caught legitimately, with a small problem:
+# - The assumed output refers to files in the working tree,
+#   but the executed command can output information about files in index
+#   and about merge information between branches
+
+# The dev in this case cares only about the working tree output (see comment above function name),
+# so the bug could be caught if this could be somehow specified
+
+# @assume "echo "$INDEX"" --> "( M| T| D| R| C|??) .*"
 # stream enable
   if $(echo "$INDEX" | grep '^D ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_DELETED$STATUS"
