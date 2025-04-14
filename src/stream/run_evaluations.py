@@ -85,6 +85,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
         "pash annotations error": None,
         "error message generated": None,
         "evaluation_time": None,
+        "tainted": None,
         # "notes": ""
     }
     pipeline_data_list = []
@@ -98,7 +99,6 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
             check_all_pipelines=check_all_pipelines,
             enable_rule_no_empty_output=CONFIG.get("enable_rule_no_empty_output", True),
             enable_rule_no_ignored_input=CONFIG.get("enable_rule_no_ignored_input", True),
-            enable_rule_no_space_in_file_name=CONFIG.get("enable_rule_no_space_in_file_name", True),
             enable_rule_no_meaningless_command=CONFIG.get("enable_rule_no_meaningless_command", True),
             enable_rule_no_sort_non_numeric_with_numeric_input=CONFIG.get("enable_rule_no_sort_non_numeric_with_numeric_input", True)
         )
@@ -119,6 +119,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
                 pipeline_data["content"] = checking_result.pipeline_content
                 pipeline_data["evaluation_time"] = f"{elapsed_time:.2f}s"
                 pipeline_data["automata_size"] = type_checker.max_automata_size
+                pipeline_data["tainted"] = checking_result.tainted
                 if checking_result.ill_typed:
                     pipeline_data["error message generated"] = checking_result.message
                     logging.info(f'Error detected in pipeline {checking_result.pipeline_content}: {checking_result.message}')
@@ -240,6 +241,9 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     false_positive_pipelines = [r for r in failures if not r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
     false_negative_pipelines = [r for r in failures if     r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
 
+    # Count tainted pipelines
+    untainted_pipelines = [r for r in results if r.get("tainted") == False]
+
     total_false_positives = len(false_positive_pipelines)
     total_false_negatives = len(false_negative_pipelines)
     total_correct_pipeline_crashes = len(valid_pipeline_crashes)
@@ -264,7 +268,7 @@ def run_all_evaluations(valid_dirs: list[str] = None,
         logging.info(f'Recall: {statistics["recall"]}')
         logging.info(f'Total timeouts: {total_timeouts}')
         logging.info(f'Crashes (including timeouts): {total_correct_pipeline_crashes + total_buggy_pipeline_crashes}')
-
+        logging.info(f'Untainted pipelines: {len(untainted_pipelines)}')
     end_time_total = time.time()
     total_time = end_time_total - start_time_total
 
@@ -288,6 +292,8 @@ def run_all_evaluations(valid_dirs: list[str] = None,
             "false_negatives": total_false_negatives,
             "false_negative_categories": categorize(false_negative_pipelines),
             "total_wrong_predictions": total_false_positives + total_false_negatives,
+            
+            "untainted_pipelines": len(untainted_pipelines),
 
             "total_evaluation_time": f"{total_time:.2f}s",
         },
@@ -476,8 +482,8 @@ if __name__ == "__main__":
         CONFIG["enable_rule_no_empty_output"] = False
     if args.disable_rule_no_ignored_input:
         CONFIG["enable_rule_no_ignored_input"] = False
-    if args.disable_rule_no_space_in_file_name:
-        CONFIG["enable_rule_no_space_in_file_name"] = False
+    # if args.disable_rule_no_space_in_file_name:
+    #     CONFIG["enable_rule_no_space_in_file_name"] = False
     if args.disable_rule_no_meaningless_command:
         CONFIG["enable_rule_no_meaningless_command"] = False
     if args.disable_rule_no_sort_non_numeric_with_numeric_input:
@@ -495,7 +501,7 @@ if __name__ == "__main__":
     # Log heuristic rule settings
     logging.info(f"Rule no_empty_output: {CONFIG.get('enable_rule_no_empty_output', True)}")
     logging.info(f"Rule no_ignored_input: {CONFIG.get('enable_rule_no_ignored_input', True)}")
-    logging.info(f"Rule no_space_in_file_name: {CONFIG.get('enable_rule_no_space_in_file_name', True)}")
+    # logging.info(f"Rule no_space_in_file_name: {CONFIG.get('enable_rule_no_space_in_file_name', True)}")
     logging.info(f"Rule no_meaningless_command: {CONFIG.get('enable_rule_no_meaningless_command', True)}")
     logging.info(f"Rule no_sort_non_numeric_with_numeric_input: {CONFIG.get('enable_rule_no_sort_non_numeric_with_numeric_input', True)}")
 

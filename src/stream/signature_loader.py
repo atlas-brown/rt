@@ -41,6 +41,7 @@ class SignatureLoader:
                                     flags=[],
                                     rules=[],
                                     isInteresting=False,
+                                    isTainted=True
                                 )
 
     def load_signature(self, command_name: str) -> CommandSignature:
@@ -60,6 +61,7 @@ class SignatureLoader:
             'flags': data.get('flags', []),
             'rules': data.get('rules', []),
             'isInteresting': data.get('isInteresting', False),
+            'isTainted': data.get('isTainted', True)
         }
         
         if command_name in self.special_signatures:

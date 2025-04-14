@@ -216,15 +216,15 @@ def main():
     })
 
     overview_data = load_csv(args.overview_csv)
-    plot_accuracy(overview_data, os.path.join(args.output_dir, "accuracy.pdf"))
+    plot_accuracy(overview_data, os.path.join(args.output_dir, "accuracy-chart.pdf"))
     plt.rc('font', size=14)
     bug_detection_data = load_csv(args.bug_detection_csv)
-    plot_bug_detection(bug_detection_data, os.path.join(args.output_dir, "bug_detection.pdf"))
+    plot_bug_detection(bug_detection_data, os.path.join(args.output_dir, "bug-detection.pdf"))
     plt.rc('font', size=12)
     length_time_data = load_csv(args.length_time_csv)
-    plot_length_time(length_time_data, os.path.join(args.output_dir, "length_time.pdf"))
+    plot_length_time(length_time_data, os.path.join(args.output_dir, "time-length-chart.pdf"))
     automata_data = load_csv(args.automata_csv)
-    plot_automata_sizes(automata_data, os.path.join(args.output_dir, "automata_sizes.pdf"))
+    plot_automata_sizes(automata_data, os.path.join(args.output_dir, "automata-sizes.pdf"))
     
 
 if __name__ == "__main__":

@@ -14,11 +14,11 @@ rules:
     - file
   update:
     output_type: '{{file.content}}'
-- condition:
-    args:
-    - file
-    heuristics:
-    - no_ignored_input
-  update:
-    input_type: ''
+# - condition:
+#     args:
+#     - file
+#     heuristics:
+#     - no_ignored_input
+#   update:
+#     input_type: ''
 isInteresting: true

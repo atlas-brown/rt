@@ -60,13 +60,17 @@ class CutSignature(CommandSignature):
                 if "no_meaningless_command" not in heuristic_rules:
                     return RegularType(".*"), None
                 else:
-                    return RegularType(".*"), RegularType("[^" + delimiter + "]*")
+                    no_input_type = RegularType("[^" + delimiter + "]*")
+                    no_input_type.tainted = False
+                    return RegularType(".*"), no_input_type
             
             pattern = f"[^{delimiter}]*({re.escape(delimiter)}[^{delimiter}]*){{0,{field_num-2}}}"
             if "no_meaningless_command" not in heuristic_rules:
                 return RegularType(".*"), None
             else:
-                return RegularType(".*"), RegularType(pattern)
+                no_input_type = RegularType(pattern)
+                no_input_type.tainted = False
+                return RegularType(".*"), no_input_type
             
         return super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
 
@@ -97,12 +101,12 @@ class CutSignature(CommandSignature):
             if args[-1] == -1:
                 if len(args) == 2:
                     fst = cut_char_no_upperbound_FST(args[-2])
-                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
                 fst1 = cut_char_FST(args[:-2])
                 fst2 = cut_char_no_upperbound_FST(args[-2])
-                return RegularType(automaton=product_fst_automaton(fst1, previous_output_type.nfa)) + RegularType(automaton=product_fst_automaton(fst2, previous_output_type.nfa))
+                return RegularType(automaton=product_fst_automaton(fst1, previous_output_type.nfa), tainted=previous_output_type.tainted) + RegularType(automaton=product_fst_automaton(fst2, previous_output_type.nfa), tainted=previous_output_type.tainted)
             fst = cut_char_FST(args)
-            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
 
         delimiter = "\t"
         if '-d' in flags:
@@ -119,12 +123,12 @@ class CutSignature(CommandSignature):
             if args[-1] == -1:
                 if len(args) == 2:
                     fst = cut_field_no_upperbound_FST(delimiter, args[-2])
-                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
                 fst1 = cut_field_FST(delimiter, args[:-2])
                 fst2 = cut_field_no_upperbound_FST(delimiter, args[-2], leading_delimiter=True)
-                return RegularType(automaton=product_fst_automaton(fst1, previous_output_type.nfa)) + RegularType(automaton=product_fst_automaton(fst2, previous_output_type.nfa))
+                return RegularType(automaton=product_fst_automaton(fst1, previous_output_type.nfa), tainted=previous_output_type.tainted) + RegularType(automaton=product_fst_automaton(fst2, previous_output_type.nfa), tainted=previous_output_type.tainted)
             fst = cut_field_FST(delimiter, args)
-            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
 
         
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)

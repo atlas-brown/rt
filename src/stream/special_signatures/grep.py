@@ -43,6 +43,7 @@ class GrepSignature(CommandSignature):
                 no_input_type = no_input_type + RegularType(".*")
 
         no_input_type = remove_anchors(no_input_type)
+        no_input_type.tainted = False
 
         if "-v" not in parsed_flags:
             return input_type, no_input_type
@@ -109,6 +110,6 @@ class GrepSignature(CommandSignature):
 
         if "-n" in flags:
             pattern_type = RegularType("[0-9]+:") + pattern_type
-
+        pattern_type.tainted = previous_output_type.tainted
         return pattern_type
         

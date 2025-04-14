@@ -70,7 +70,9 @@ class SortSignature(CommandSignature):
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         if len(parsed_command_invocation.operand_list) > 0:
             return RegularType(".*")
-        return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+        output_type = super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+        output_type.tainted = previous_output_type.tainted
+        return output_type
                 
 
                     

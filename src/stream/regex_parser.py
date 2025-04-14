@@ -348,6 +348,7 @@ class RegexParser:
     def parse_escape(self):
         self.consume('\\')
         curr = self.current()
+        # FIXME: fix \s
         if curr is None:
             self.error("Escape character '\\' at end of expression")
         escape_dict = {
@@ -388,6 +389,11 @@ class RegexParser:
             negate = True
             self.consume('^')
         items = []
+        
+        # Handle the special case: ']' as the first character in compat/extended mode
+        if self.current() == ']':
+            items.append(Literal(self.consume(']')))
+
         while self.current() is not None and self.current() != ']':
             if self.current() == '[' and self.peek_next() == ':':
                 posix_item = self.parse_posix_class()
@@ -727,7 +733,7 @@ def convert_to_pure_string_for_ast(ast: Node) -> Optional[str]:
     return _convert_to_pure_string(ast)
 
 if __name__ == "__main__":
-    pattern = "~(.*{{a}}.*)&(a{1,3}{{b}}[ab-e[:digit:]]{3,10}[^ab])+"
+    pattern = "~(.*{{a}}.*)&(a{1,3}{{b}}[ab-e[:digit:]]{3,10}[^ab])+[]+a-z]"
     mode = "compat"
     hole_dict = {
         "a": RegExp("aa").toAutomaton(),

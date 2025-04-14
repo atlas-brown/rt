@@ -114,6 +114,7 @@ class TypeChecker:
                             f"Command '{signature.command_name}' received input '{previous_output_type}' "
                             f"but it should not accept input type which is subset of '{no_input_type}' according to heuristic rules."
                         )
+                        checking_result.tainted = no_input_type.tainted
                         return checking_result
                     
                 with Timing("timing output type creation = "):
@@ -126,6 +127,7 @@ class TypeChecker:
                         checking_result.set_message(
                             f"Output type '{current_output_type}' is empty for command '{signature.command_name}'."
                         )
+                        checking_result.tainted = False
                         return checking_result
 
                 # process assert annotation
@@ -136,6 +138,7 @@ class TypeChecker:
                             checking_result.set_message(
                                 f"Output type '{current_output_type}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
                             )
+                            checking_result.tainted = current_output_type.tainted
                             return checking_result
 
                 previous_output_type = current_output_type

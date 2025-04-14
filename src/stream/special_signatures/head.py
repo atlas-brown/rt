@@ -43,6 +43,7 @@ class HeadSignature(CommandSignature):
         if "-n" in flags:
             num_lines = int(flag_args["-n"][0])
             output_type = previous_output_type
+            output_type.tainted = True
             output_type.possible_line_numbers = (num_lines, num_lines)
             return output_type
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)

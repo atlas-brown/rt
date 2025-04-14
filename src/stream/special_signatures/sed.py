@@ -37,11 +37,14 @@ class SedSignature(CommandSignature):
                 parts[1] = parts[1] + delimiter
             if parts[1].endswith("$"):
                 parts[1] = parts[1][:-2]
-            return input_type, ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
+            no_input_type = ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
+            no_input_type.tainted = False
+            return input_type, no_input_type
         return input_type, no_input_type
 
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        tainted = previous_output_type.tainted
         operands = super().get_operands(parsed_command_invocation)
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if len(operands) == 0:
@@ -95,7 +98,16 @@ class SedSignature(CommandSignature):
                     nfa = product_fst_automaton(fst, previous_output_type.nfa)
                     previous_output_type = RegularType(automaton=nfa)
                 else:
-                    if parts[1].startswith("^"):
+                    if parts[1].startswith("^") and parts[1].endswith("$"):
+                        parts[1] = parts[1][1:-1]
+                        if parts[1].endswith("\\"):
+                            parts[1] = parts[1][:-1]
+                        fst = start_regex_replacement_FST(RegularType(".*").nfa, parts[2])
+                        input_typ1 = previous_output_type & RegularType(parts[1])
+                        input_typ2 = previous_output_type - RegularType(parts[1])
+                        output_automaton = product_fst_automaton(fst, input_typ1.nfa)
+                        previous_output_type = RegularType(automaton=output_automaton) | input_typ2
+                    elif parts[1].startswith("^"):
                         automata = RegularType(parts[1], mode).nfa
                         fst = start_regex_replacement_FST(automata, parts[2])
                         nfa = product_fst_automaton(fst, previous_output_type.nfa)
@@ -118,6 +130,7 @@ class SedSignature(CommandSignature):
                         previous_output_type = RegularType(automaton=nfa)
                     
                 # return previous_output_type & ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
+        previous_output_type.tainted = tainted
         return previous_output_type
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         

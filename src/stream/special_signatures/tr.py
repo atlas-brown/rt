@@ -21,7 +21,7 @@ class TrSignature(CommandSignature):
         if set1 == "\\\\n" or set1 == "\\012" or set1 == "\\\\012":
             return input_type, no_input_type
         
-        return input_type, RegularType(get_output_pattern(parsed_command_invocation))
+        return input_type, RegularType(get_output_pattern(parsed_command_invocation), tainted=False)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         # FIXME: may have some issues
@@ -33,14 +33,19 @@ class TrSignature(CommandSignature):
                 if "-d" in parsed_flags:
                     output_type = previous_output_type.kleene_plus()
                     output_type.possible_line_numbers = (0, 1)
+                    output_type.tainted = True
                     return output_type
                 if "-s" in parsed_flags:
-                    return previous_output_type & RegularType(".+")
+                    output_type = previous_output_type & RegularType(".+")
+                    output_type.tainted = previous_output_type.tainted
+                    return output_type
+                    
             else:
                 set2 = parsed_command_invocation.operand_list[1].name
                 set2 = preprocess_set(set2)
                 line_type = previous_output_type + (RegularType(f"{re.escape(set2)}") + previous_output_type).kleene_star()
                 line_type.possible_line_numbers = (0, 1)
+                line_type.tainted = True
                 if "-s" in parsed_flags:
                     fst = compression_FST(set2)
                     output_type = RegularType(automaton=product_fst_automaton(fst, line_type.nfa))
@@ -57,16 +62,18 @@ class TrSignature(CommandSignature):
             if set2 != "\n":
                 fst = translation_FST(set1, set2)
                 if "-s" not in parsed_flags:
-                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
                 else:
                     nfa = product_fst_automaton(fst, previous_output_type.nfa)
                     fst = compression_FST(set2)
-                    return RegularType(automaton=product_fst_automaton(fst, nfa))
+                    return RegularType(automaton=product_fst_automaton(fst, nfa), tainted=previous_output_type.tainted)
             else:
                 fst = translate_to_line_delimited_FST(set1)
                 if "-s" in parsed_flags:
-                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa)) & RegularType(".+")
-                return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+                    output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa)) & RegularType(".+")
+                    output_type.tainted = previous_output_type.tainted
+                    return output_type
+                return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
         
         if "-s" in parsed_flags:
             set1 = parsed_command_invocation.operand_list[0].name
@@ -74,14 +81,14 @@ class TrSignature(CommandSignature):
             if "-c" in parsed_flags:
                 set1 = complement_set(set1)
             fst = compression_FST(set1)
-            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
         if "-d" in parsed_flags:
             set1 = parsed_command_invocation.operand_list[0].name
             set1 = preprocess_set(set1)
             if "-c" in parsed_flags:
                 set1 = complement_set(set1)
             fst = deletion_FST(set1)
-            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa))
+            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
         return previous_output_type & RegularType(f"{get_output_pattern(parsed_command_invocation)}")
 
 def replace_POSIX_class(set1: str) -> str:

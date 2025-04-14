@@ -19,6 +19,7 @@ class CommandSignature:
         flags: List[Dict[str, Any]],
         rules: List[Dict[str, Any]],
         isInteresting: bool,
+        isTainted: bool
     ) -> None:
         self.command_name = command_name
         self.default_input_type = RegularType(default_input_type)
@@ -27,7 +28,7 @@ class CommandSignature:
         self.flags = flags
         self.rules = rules
         self.isInteresting = isInteresting
-
+        self.isTainted = isTainted
     def matches_command(self, command_invocation: CommandInvocationInitial) -> bool:
         assert isinstance(command_invocation, CommandInvocationInitial)
         if command_invocation.cmd_name == self.command_name:
@@ -46,7 +47,7 @@ class CommandSignature:
         # otherwise, use inference
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.ASSUME:
-                return RegularType(annotation.pattern)
+                return RegularType(annotation.pattern, tainted=False)
             
         if parsed_command_invocation.cmd_name != "xargs" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
             operand = parsed_command_invocation.operand_list[0].name
@@ -73,12 +74,13 @@ class CommandSignature:
         file_name = parsed_command_invocation.operand_list[-1].name
         for annotation in env_annotations.get(file_name, []):
             if annotation.annotation_type == AnnotationType.FILE:
-                return RegularType(annotation.pattern)
+                return RegularType(annotation.pattern, tainted=False)
         return RegularType(".*")
 
     def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
         assert isinstance(previous_output_type, RegularType)
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
+        tainted = self.isTainted
 
         env: Dict[str, RegularType] = {}
         env_raw: Dict[str, str] = {}
@@ -89,9 +91,52 @@ class CommandSignature:
             if i < len(parsed_command_invocation.operand_list):
                 arg = parsed_command_invocation.operand_list[i].name
                 env_raw[arg_name] = arg
-                if not is_regex:
-                    arg = re.escape(arg)
-                env[arg_name] = RegularType(arg)
+                
+                # Check for FILE annotation with exact pattern match
+                if arg in env_annotations:
+                    for annot in env_annotations[arg]:
+                        if annot.annotation_type == AnnotationType.FILE:
+                            env[f"{arg_name}.content"] = RegularType(annot.pattern)
+                            tainted = False
+                            break
+                if f"{arg_name}.content" not in env:
+                    env[f"{arg_name}.content"] = RegularType(".*")
+                    tainted = True
+                
+                # Process ${} patterns and escape non-pattern parts if not regex
+                parts = []
+                last_end = 0
+                for var_match in re.finditer(r'(\$\{.*?\})', arg):
+                    # Add text before match (escaped if not regex)
+                    if var_match.start() > last_end:
+                        text = arg[last_end:var_match.start()]
+                        parts.append(re.escape(text) if not is_regex else text)
+                    
+                    # Add the variable pattern
+                    var_name = var_match.group(1)
+                    var_pattern = ".*"  # Default pattern if not found
+                    
+                    if var_name in env_annotations:
+                        for annot in env_annotations[var_name]:
+                            if annot.annotation_type == AnnotationType.VAR:
+                                var_pattern = annot.pattern
+                                tainted = False
+                                break
+                    
+                    parts.append(var_pattern)
+                    last_end = var_match.end()
+                
+                # Add remaining text (escaped if not regex)
+                if last_end < len(arg):
+                    text = arg[last_end:]
+                    parts.append(re.escape(text) if not is_regex else text)
+                
+                if parts:
+                    # Joined parts with variable substitutions
+                    env[arg_name] = RegularType(''.join(parts))
+                else:
+                    # No matches found, escape if not regex
+                    env[arg_name] = RegularType(re.escape(arg) if not is_regex else arg)
 
         # add predefined variables to env
         env["actual_input_type"] = previous_output_type
@@ -117,30 +162,19 @@ class CommandSignature:
                 logging.debug(f"Command: {self.command_name}, Rule: {rule['condition']} -> {rule['update']}")
                 for key, value in update_variables.items():
                     try:
-                        for match in re.finditer(r'\{\{(.*?)\.content\}\}', value):
-                            var_name = match.group(1)
-                            if var_name in env_raw and env_raw[var_name] in env_annotations:
-                                for annot in env_annotations[env_raw[var_name]]:
-                                    if annot.annotation_type == AnnotationType.FILE:
-                                        env[f"{var_name}.content"] = RegularType(annot.pattern)
-                            if f"{var_name}.content" not in env:
-                                env[f"{var_name}.content"] = RegularType(".*")
-
-                        for _key, value_annots in env_annotations.items():
-                            for annot in value_annots:
-                                if annot.annotation_type == AnnotationType.VAR:
-                                    value = re.sub(rf"\b{_key}\b", annot.pattern, value)
-
                         update_variables[key] = RegularType(value, hole_dict=env)
                     except:
                         raise ToolError(f"Error in updating env for command, missing argument when updating {key} with {value}")
                 env.update(update_variables)
                 logging.debug(f"Command: {self.command_name}, Updated env: {env}")
+                if rule.get('output_tainted', tainted):
+                    tainted = rule.get('output_tainted', tainted)
                 if rule.get('stop', False):
                     break
 
         logging.debug(f"Command: {self.command_name}, Output type (if compatible): {env['output_type']}")
         logging.debug("-"*60)
+        env['output_type'].tainted = tainted
         return env['output_type']
     
     # dont override this method, override get_input_type instead

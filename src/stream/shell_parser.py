@@ -1,6 +1,7 @@
 import logging
 import os
 import re
+import tempfile
 from typing import Dict, List, Optional, Tuple
 from stream.command_signature import CommandSignature
 from stream.signature_loader import SignatureLoader
@@ -8,7 +9,6 @@ from stream.shell_parser_util import extract_pipe_nodes_from_file, get_command_i
 from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
-import tempfile
 from stream.tool_error import PashAnnotationParsingError
 
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
@@ -21,10 +21,27 @@ class ShellParser:
         self.signature_loader = SignatureLoader()
         self.pipeline_address = pipeline_address
         self.extract_all_pipelines = extract_all_pipelines
-        self.pipeline_nodes = extract_pipe_nodes_from_file(self.pipeline_address, self.extract_all_pipelines)
+        
+        # Get pipeline nodes, possibly with their corresponding enable line numbers
+        pipeline_result = extract_pipe_nodes_from_file(self.pipeline_address, self.extract_all_pipelines)
+        
+        # Handle result based on extraction mode
+        if not self.extract_all_pipelines:
+            # In stream enable mode, we get tuples of (pipeline_node, enable_line)
+            self.pipeline_nodes = []
+            self.enable_line_map = {}
+            for node, enable_line in pipeline_result:
+                self.pipeline_nodes.append(node)
+                self.enable_line_map[node] = enable_line
+        else:
+            # In normal mode, we just get pipeline nodes
+            self.pipeline_nodes = pipeline_result
+            self.enable_line_map = {}
 
         if enable_user_annotations:
             self.annotations, self.input_pattern, self.env_annotations = self.extract_annotations_from_file()
+            logging.debug(f"Annotations: {self.annotations}")
+            logging.debug(f"Env Annotations: {self.env_annotations}")
         else:
             self.annotations = {}
             self.input_pattern = None
@@ -78,32 +95,44 @@ class ShellParser:
         input_pattern = None
         script_content = []
         env_annotations: Dict[PipeNode, Dict[str, List[EnvAnnotation]]] = {}
+        
         with open(self.pipeline_address) as f:
-            for line in f:
-                script_content.append(line)
+            script_content = f.readlines()
+
         for node in self.pipeline_nodes:
             env_annotations[node] = {}
-            # whole_stream_based = False
             try:
-                line_number = node.items[0].line_number
-                # if only extranct pipeline with explicit "stream enable", then the annotations (if exist) should be 1 line above "stream enable"
-                if not self.extract_all_pipelines:
-                    line_number -= 1
+                # Determine the line number to use for annotations
+                if not self.extract_all_pipelines and node in self.enable_line_map:
+                    # For a stream enable pipeline, use the stream enable line number
+                    line_number = self.enable_line_map[node] + 1  # +1 because we'll look at the line above
+                else:
+                    # For normal pipelines, use the node's line number
+                    line_number = node.items[0].line_number
+                
+                # Look for annotations above the relevant line
                 while True:
-                    # the possible annotation line should be at least 1 line above the command line, and the 1st line is at script_content[0]
+                    # Stop if we've reached the top of the file
                     if line_number < 2:
                         break
+                    
+                    # Check the line above for annotations
                     line = script_content[line_number - 2]
                     line_number -= 1
+                    
+                    # Parse the annotation if present
                     res = ANNOTATION_PATTERN.match(line)
                     if res is None:
                         break
+                    
+                    # Extract annotation type and data
                     if res.group(1) is not None:
                         annotation_type = AnnotationType(res.group(1))
                     elif res.group(4) is not None:
                         annotation_type = AnnotationType(res.group(4))
                     else:
                         annotation_type = AnnotationType(res.group(6))
+                    
                     match annotation_type:
                         case AnnotationType.INPUT | AnnotationType.OUTPUT:
                             pattern = res.group(5)
@@ -119,16 +148,8 @@ class ShellParser:
                             pattern = res.group(8)
                         case _:
                             raise ValueError("Invalid annotation type")
-                        
-                    # # FIXME: whole-stream support
-                    # if "\\n" in pattern:
-                    #     whole_stream_based = True
-                    # pattern = pattern.replace("\\n", "|")
-                    # if pattern.startswith("|"):
-                    #     pattern = pattern[1:]
-                    # if pattern.endswith("|"):
-                    #     pattern = pattern[:-1]
-
+                    
+                    # Process each annotation type
                     if annotation_type == AnnotationType.INPUT:
                         input_pattern = pattern
                         continue
@@ -138,35 +159,27 @@ class ShellParser:
                         corresponding_annotations.append(UserAnnotation(AnnotationType.ASSERT, pattern, node, node.items[-1]))
                         annotations[node.items[-1]] = corresponding_annotations
                         continue
+                    
                     if annotation_type == AnnotationType.VAR or annotation_type == AnnotationType.FILE:
                         # $1 -> ${1}
-                        var = re.sub(r'\$(\d+)(?!\})', r'${\1}', var)
+                        var = re.sub(r'\$(.+)(?!\})', r'${\1}', var)
                         corresponding_annotations = env_annotations.get(node).get(var, [])
                         corresponding_annotations.append(EnvAnnotation(annotation_type, var, pattern, node))
                         env_annotations.get(node)[var] = corresponding_annotations
                         continue
 
-                    command = self.refine_command(command)
-                    
-                    for command_node in node.items:
-                        if command_node.pretty() == command:
-                            corresponding_annotations = annotations.get(command_node, [])
-                            corresponding_annotations.append(UserAnnotation(annotation_type, pattern, node, command_node))
-                            annotations[command_node] = corresponding_annotations
-                            break
-                            
-       
-                # # FIXME: whole-stream support
-                # if whole_stream_based:
-                #     corresponding_annotations = annotations.get(node.items[-1], [])
-                #     for annotation in corresponding_annotations:
-                #         if annotation.annotation_type == AnnotationType.ASSERT:
-                #            if isinstance(annotation.pattern, str) and "|" not in annotation.pattern and "[" not in annotation.pattern and "~" not in annotation.pattern and "&" not in annotation.pattern:
-                #                length = len(annotation.pattern)
-                #                annotation.pattern = "|".join([char for char in annotation.pattern])
-                #                annotation.pattern = f"({annotation.pattern}){{0,{length}}}"
+                    if command:
+                        refined_command = self.refine_command(command)
+                        
+                        for command_node in node.items:
+                            if command_node.pretty() == refined_command:
+                                corresponding_annotations = annotations.get(command_node, [])
+                                corresponding_annotations.append(UserAnnotation(annotation_type, pattern, node, command_node))
+                                annotations[command_node] = corresponding_annotations
+                                break
             except Exception as e:
                 logging.error(f"Error while extracting annotations: {e}")
+        
         return annotations, input_pattern, env_annotations
 
                     

@@ -21,7 +21,8 @@ class RegularType:
             repr_mode: str = "line",
             automaton: Optional[Automaton] = None,
             hole_dict: Optional[dict[str, 'RegularType']] = None,
-            possible_line_numbers: Tuple[int, int] = (0, -1)
+            possible_line_numbers: Tuple[int, int] = (0, -1),
+            tainted: bool = True
         ) -> None:
         if pattern is None and automaton is None:
             raise ValueError("Invalid RegularType object, pattern is None and automaton is None")
@@ -29,6 +30,7 @@ class RegularType:
         self.repr_mode = repr_mode
         # FIXME: provisional solution
         self.possible_line_numbers = possible_line_numbers
+        self.tainted = tainted
         if automaton is not None:
             self.pattern = None
             self.ast = None
@@ -144,6 +146,7 @@ class RegularType:
         out.nfa.minimize()
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})({other.pattern})"
+        out.tainted = self.tainted or other.tainted
         return out
     
     def __sub__(self, other: 'RegularType') -> 'RegularType':
@@ -151,6 +154,7 @@ class RegularType:
         out.nfa.setDeterministic(False)
         out.nfa.removeDeadTransitions()
         out.nfa.minimize()
+        out.tainted = self.tainted or other.tainted
         return out
 
     def __and__(self, other: 'RegularType') -> 'RegularType':
@@ -160,6 +164,7 @@ class RegularType:
         out.nfa.minimize()
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})&({other.pattern})"
+        out.tainted = self.tainted or other.tainted
         return out
     
     def __or__(self, other: 'RegularType') -> 'RegularType':
@@ -169,6 +174,7 @@ class RegularType:
         out.nfa.minimize()
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})|({other.pattern})"
+        out.tainted = self.tainted or other.tainted
         return out
     
     def __invert__(self) -> 'RegularType':
@@ -178,6 +184,7 @@ class RegularType:
         out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"~({self.pattern})"
+        out.tainted = self.tainted
         return out
     
     def optional(self) -> 'RegularType':
@@ -187,6 +194,7 @@ class RegularType:
         out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"({self.pattern})?"
+        out.tainted = self.tainted
         return out
     
     def kleene_star(self) -> 'RegularType':
@@ -196,6 +204,7 @@ class RegularType:
         out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"({self.pattern})*"
+        out.tainted = self.tainted
         return out
     
     def kleene_plus(self) -> 'RegularType':
@@ -205,6 +214,7 @@ class RegularType:
         out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"({self.pattern})+"
+        out.tainted = self.tainted
         return out
     
 
@@ -230,12 +240,12 @@ class RegularType:
         out_nfa.removeDeadTransitions()
         out_nfa.minimize()
         reverse = RegularType(automaton=out_nfa)
-        print(reverse)
         if self.pattern is not None:
             reverse.pattern = f"({self.pattern})^R"
+        reverse.tainted = self.tainted
         return reverse
 
-    
+
     def __repr__(self) -> str:
        if self.pattern is None:
            return "RegularType(Automaton)\n" + str(self.nfa)

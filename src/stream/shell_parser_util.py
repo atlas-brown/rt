@@ -1,4 +1,3 @@
-
 import json
 from typing import Dict, List, Optional, Set
 from shasta.ast_node import (
@@ -35,6 +34,8 @@ import libdash.parser
 import libdash
 import os
 import traceback
+import re
+import tempfile
 INITIALIZE_LIBDASH = True
 ## Parses straight a shell script to an AST
 ## through python without calling it as an executable
@@ -141,17 +142,110 @@ def filter_pipeline_nodes(filename: str, pipeline_nodes: list[PipeNode]) -> list
 
     return filtered_pipeline_nodes
 
-def extract_pipe_nodes_from_file(filename: str, extract_all_pipelines: bool = True) -> list[PipeNode]:
+def extract_pipelines_from_string(filename: str) -> list[tuple[PipeNode, int]]:
+    """
+    Extract pipelines from a script by finding '# stream enable' comments
+    and parsing only the pipeline sections that follow them.
+    
+    Returns:
+        A list of tuples (pipeline_node, enable_line_number) where pipeline_node is the
+        parsed PipeNode and enable_line_number is the line number of the 
+        "# stream enable" comment that preceded it.
+    """
+    script_content = []
+    with open(filename) as f:
+        script_content = f.readlines()
+    
+    enable_pattern = re.compile(r'^\s*#\s*stream\s+enable\s*$')
+    pipeline_nodes_with_lines = []
+    
+    # Find all "# stream enable" lines
+    for i in range(len(script_content)):
+        if enable_pattern.match(script_content[i]):
+            # For each "# stream enable" found, process it independently
+            pipeline_node = extract_single_pipeline(script_content, i)
+            if pipeline_node:
+                # Store both the pipeline node and the enable line number
+                pipeline_nodes_with_lines.append((pipeline_node, i))
+    
+    return pipeline_nodes_with_lines
+
+def extract_single_pipeline(script_content: list[str], enable_line_index: int) -> Optional[PipeNode]:
+    """
+    Extract a single pipeline following a "# stream enable" comment.
+    Each pipeline is parsed independently in its own temporary file.
+    
+    Args:
+        script_content: The entire script as a list of lines
+        enable_line_index: The index of the "# stream enable" line
+        
+    Returns:
+        The first PipeNode found in the pipeline, or None if no pipeline was found
+    """
+    # Found a stream enable line, the pipeline starts on the next line
+    start_line = enable_line_index + 1
+    if start_line >= len(script_content):
+        return None  # No more lines after stream enable
+    
+    # Extract pipeline content
+    pipeline_lines = []
+    current_line = start_line
+    
+    # Always read at least one line
+    if current_line < len(script_content):
+        pipeline_lines.append(script_content[current_line])
+        current_line += 1
+    
+    # Continue reading lines if they end with \ or | or start with #
+    while current_line < len(script_content):
+        prev_line = script_content[current_line - 1].strip()
+        current_line_text = script_content[current_line].strip()
+        
+        # Continue if previous line ends with \ or | or current line starts with #
+        if prev_line.endswith('\\') or prev_line.endswith('|') or current_line_text.startswith('#'):
+            pipeline_lines.append(script_content[current_line])
+            current_line += 1
+        else:
+            break
+    
+    # Extract the pipeline as a string
+    pipeline_str = ''.join(pipeline_lines)
+    
+    # Create a dedicated temporary file for this specific pipeline
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.sh', delete=False) as temp_file:
+        temp_file.write(pipeline_str)
+        temp_file.flush()
+        temp_file_path = temp_file.name
+    
+    try:
+        # Parse only this specific pipeline's temporary file
+        parsed_nodes = parse_shell_to_asts(temp_file_path)
+        if parsed_nodes and len(parsed_nodes) > 0:
+            # Extract pipeline nodes from the parsed AST for this specific pipeline
+            pipe_nodes = traverse_node(parsed_nodes[0][0])
+            # Return the first PipeNode from this specific extracted pipeline
+            for node in pipe_nodes:
+                if isinstance(node, PipeNode):
+                    return node
+    finally:
+        # Clean up the temporary file for this pipeline
+        os.unlink(temp_file_path)
+    
+    return None
+
+def extract_pipe_nodes_from_file(filename: str, extract_all_pipelines: bool = True) -> list[PipeNode] | list[tuple[PipeNode, int]]:
+    if not extract_all_pipelines:
+        # Use string matching to find and extract pipelines
+        # Return both the pipeline nodes and their enable line numbers
+        return extract_pipelines_from_string(filename)
+    
+    # Original approach for extract_all_pipelines=True
     typed_ast_object = parse_shell_to_asts(filename)
     if typed_ast_object is None:
         return []
     pipeline_nodes: list[PipeNode] = []
     for nd in typed_ast_object:
         pipeline_nodes += traverse_node(nd[0])
-
-    if not extract_all_pipelines:
-        pipeline_nodes = filter_pipeline_nodes(filename, pipeline_nodes)
-        return pipeline_nodes
 
     return pipeline_nodes
 
