@@ -151,7 +151,8 @@ function work_in_progress() {
 # - if $(git log -n 1 2>/dev/null | grep -q -c "--wip--"); then
 # + if $(git log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
 ################################################################################
-# put stream annotation here
+# grep pattern begins with a dash so it will get interpreted as an argument
+# this shouldn't need annotations
 # stream enable
   if $(git log -n 1 2>/dev/null | grep -q -c "--wip--"); then
     echo "WIP!!"
@@ -168,7 +169,8 @@ alias gwip='git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit 
 # - alias gunwip='git log -n 1 | grep -q -c "--wip--" && git reset HEAD~1'
 # + alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 ################################################################################
-# put stream annotation here
+# grep pattern begins with a dash so it will get interpreted as an argument
+# this shouldn't need annotations
 # stream enable
 alias gunwip='git log -n 1 | grep -q -c "--wip--" && git reset HEAD~1'
 

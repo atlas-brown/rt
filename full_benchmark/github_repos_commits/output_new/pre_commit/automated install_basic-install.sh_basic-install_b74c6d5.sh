@@ -366,7 +366,7 @@ package_manager_detect() {
 # - PKG_COUNT="${PKG_MANAGER} check-update | grep -E '(.i686|.x86|.noarch|.arm|.src)' | wc -l || true"
 # + PKG_COUNT="${PKG_MANAGER} check-update | grep -E '(.i686|.x86|.noarch|.arm|.src|.riscv64)' | wc -l || true"
 ################################################################################
-# put stream annotation here
+# @assert "grep -E '(.i686|.x86|.noarch|.arm|.src)'" --> ".*(.i686|.x86|.noarch|.arm|.src|.riscv64).*"
 # stream enable
         PKG_COUNT="${PKG_MANAGER} check-update | grep -E '(.i686|.x86|.noarch|.arm|.src)' | wc -l || true"
         OS_CHECK_DEPS=(grep bind-utils)

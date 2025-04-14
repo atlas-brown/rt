@@ -908,6 +908,7 @@ dig_at() {
     #          Removes interface index
     #     s/: <.*//g;
     #          Removes everything after the interface name
+
 ################################################################################
 # Commit message: Remove `@` and following character from interface name  Signed-off-by: RD WebDesign <github@rdwebdesign.com.br>
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/5cebceadda93ceb73038b6d248044933af2e0459
@@ -917,7 +918,8 @@ dig_at() {
 # - interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/: <.*//g;")"
 # + interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/@.*//g;s/: <.*//g;")"
 ################################################################################
-# put stream annotation here
+
+# @output "~([0-9]*: | master |@.*|: <.*)UP~( master |@.*|: <.*)"
 # stream enable
     interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/: <.*//g;")"
 

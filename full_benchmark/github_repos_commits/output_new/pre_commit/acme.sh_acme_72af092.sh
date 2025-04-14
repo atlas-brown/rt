@@ -994,6 +994,7 @@ _readKeyLengthFromCSR() {
     echo "$_outcsr" | _egrep_o "^ *ASN1 OID:.*" | cut -d ':' -f 2 | tr -d ' '
   else
     _debug "RSA CSR"
+
 ################################################################################
 # Commit message: fix https://github.com/Neilpang/acme.sh/issues/614
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/72af092cc1ac37908954366edf3abf05d7fae4be
@@ -1012,6 +1013,12 @@ _readKeyLengthFromCSR() {
 # The bug can be caught with concretization on those systems.
 # ---
 
+# The @assume annotation would not be needed if openssl was modeled.
+# The @assume annotation was created by looking at the output of:
+# - openssl req -new -newkey rsa:2048 -nodes -keyout key.pem -out req.csr
+# - openssl req -noout -text -in req.csr 
+
+# @assume "echo "$_outcsr"" --> " *Public.Key: (*[1-9][0-9]* bit)"
 # @output "[1-9][0-9]*"
 # stream enable
     echo "$_outcsr" | _egrep_o "^ *Public-Key:.*" | cut -d '(' -f 2 | cut -d ' ' -f 1

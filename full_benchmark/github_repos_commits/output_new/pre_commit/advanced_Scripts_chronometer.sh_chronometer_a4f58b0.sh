@@ -34,7 +34,13 @@ CalcBlockedDomains() {
 CalcQueriesToday() {
 	if [ -e "${piLog}" ]; then
 ################################################################################
-# Commit message: Look for "query[" instead of "query" to avoid false-positives, like listed below  root@raspberrypi:/etc/.pihole# grep 'query' /var/log/pihole.log | grep -v 'query\[' Dec 22 16:29:50 dnsmasq[30801]: forwarded code.jquery.com to 208.67.222.222 Dec 22 16:29:50 dnsmasq[30801]: reply code.jquery.com is <CNAME> Dec 22 16:29:50 dnsmasq[30801]: reply code.jquery.netdna-cdn.com is 94.31.29.54 Dec 22 16:29:50 dnsmasq[30801]: reply code.jquery.netdna-cdn.com is 23.111.11.3 Dec 22 16:29:50 dnsmasq[30801]: reply code.jquery.netdna-cdn.com is 198.232.125.113
+# Commit message: Look for "query[" instead of "query" to avoid false-positives, like listed below
+#	root@raspberrypi:/etc/.pihole# grep 'query' /var/log/pihole.log | grep -v 'query\['
+#	Dec 22 16:29:50 dnsmasq[30801]: forwarded code.jquery.com to 208.67.222.222
+#	Dec 22 16:29:50 dnsmasq[30801]: reply code.jquery.com is <CNAME>
+#	Dec 22 16:29:50 dnsmasq[30801]: reply code.jquery.netdna-cdn.com is 94.31.29.54
+#	Dec 22 16:29:50 dnsmasq[30801]: reply code.jquery.netdna-cdn.com is 23.111.11.3
+#	Dec 22 16:29:50 dnsmasq[30801]: reply code.jquery.netdna-cdn.com is 198.232.125.113
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/a4f58b0a22ff9e0afdaa08db34c771f3f6d98a4c
 # Category: 
 # Notes: 
@@ -42,6 +48,7 @@ CalcQueriesToday() {
 # - queriesToday=$(awk '/query/ {print $6}' < "${piLog}" | wc -l)
 # + queriesToday=$(awk '/query\[/ {print $6}' < "${piLog}" | wc -l)
 ################################################################################
+
 # put stream annotation here
 # stream enable
 		queriesToday=$(awk '/query/ {print $6}' < "${piLog}" | wc -l)

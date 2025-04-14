@@ -2702,6 +2702,7 @@ _isRealNginxConf() {
     for _fln in $(tr "\t" ' ' <"$2" | grep -n "^ *server_name.* $1" | cut -d : -f 1); do
       _debug _fln "$_fln"
       if [ "$_fln" ]; then
+
 ################################################################################
 # Commit message: fix https://github.com/Neilpang/acme.sh/issues/1209
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/04a609b51f38f1db8792d57dbc0af0eadaf108fe
@@ -2711,7 +2712,8 @@ _isRealNginxConf() {
 # - _start=$(tr "\t" ' ' <"$2" | _head_n "$_fln" | grep -n "^ *server *{" | _tail_n 1)
 # + _start=$(tr "\t" ' ' <"$2" | _head_n "$_fln" | grep -n "^ *server *" | grep -v server_name | _tail_n 1)
 ################################################################################
-# put stream annotation here
+
+# @output "~(server_name)"
 # stream enable
         _start=$(tr "\t" ' ' <"$2" | _head_n "$_fln" | grep -n "^ *server *{" | _tail_n 1)
         _debug "_start" "$_start"
@@ -2722,6 +2724,7 @@ _isRealNginxConf() {
 
         _left="$(sed -n "${_start_nn},99999p" "$2")"
         _debug2 _left "$_left"
+
 ################################################################################
 # Commit message: fix https://github.com/Neilpang/acme.sh/issues/1209
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/04a609b51f38f1db8792d57dbc0af0eadaf108fe
@@ -2733,8 +2736,9 @@ _isRealNginxConf() {
 # - _end=$(echo "$_left" | tr "\t" ' ' | grep -n "^ *server *{" | _head_n 1)
 # + _end=$(echo "$_left" | tr "\t" ' ' | grep -n "^ *server *" | _head_n 1)
 ################################################################################
-# put stream annotation here
-# stream enable
+
+        # post-commit grep outputs a superset of pre-commit
+        # not sure how to annotate or if it's even needed
         if echo "$_left" | tr "\t" ' ' | grep -n "^ *server *{" >/dev/null; then
           _end=$(echo "$_left" | tr "\t" ' ' | grep -n "^ *server *{" | _head_n 1)
           _debug "_end" "$_end"

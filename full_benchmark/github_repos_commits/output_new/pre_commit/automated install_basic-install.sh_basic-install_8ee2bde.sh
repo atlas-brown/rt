@@ -891,6 +891,7 @@ configureFirewall() {
   elif modinfo ip_tables &> /dev/null; then
     # If chain Policy is not ACCEPT or last Rule is not ACCEPT
     # then check and insert our Rules above the DROP/REJECT Rule.
+
 ################################################################################
 # Commit message: Plain grep, escape the special characters.  Signed-off-by: Dan Schaper <dan.schaper@pi-hole.net>
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/8ee2bdec4d8a8ecb923d432395c2559eb1fefe69
@@ -900,7 +901,8 @@ configureFirewall() {
 # - if iptables -S INPUT | head -n1 | grep -qv 'ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '(^-A\|^-P).*ACCEPT$'; then
 # + if iptables -S INPUT | head -n1 | grep -qv '^-P.*ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '^-\(A\|P\).*ACCEPT$'; then
 ################################################################################
-# put stream annotation here
+
+# @assert "grep -qv 'ACCEPT$'" --> "~(-P.*ACCEPT)"
 # stream enable
     if iptables -S INPUT | head -n1 | grep -qv 'ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '(^-A\|^-P).*ACCEPT$'; then
       # Check chain first, otherwise a new rule will duplicate old ones

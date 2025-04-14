@@ -4714,6 +4714,7 @@ $_authorizations_map"
       return 1
     fi
     if [ -z "$Le_LinkOrder" ]; then
+
 ################################################################################
 # Commit message: fix https://github.com/acmesh-official/acme.sh/issues/3140
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/0c9c1ae673812c14aa4e8ac83831b31961ab9ade
@@ -4723,7 +4724,11 @@ $_authorizations_map"
 # - Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d ":" -f 2-)"
 # + Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n \t" | cut -d ":" -f 2-)"
 ################################################################################
-# put stream annotation here
+
+# If HTTP headers were modeled, the user would just specify that the output is a URL
+# (which implicitly does not contain whitespace and \r).
+# @assume "echo "$responseHeaders"" --> "(Location:[ \t]+[^ \t:]+\r?\n)+"
+# @output "(~[ \t\r\n]+\n)+"
 # stream enable
       Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d ":" -f 2-)"
     fi

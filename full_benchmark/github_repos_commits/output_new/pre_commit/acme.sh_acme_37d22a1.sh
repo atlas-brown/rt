@@ -4036,11 +4036,12 @@ issue() {
 # Pre-commit, the regex captures zero or more ']' (']*'), instead of zero or more arbitrary characters.
 # Detecting this depends on knowing the contents of the a server response.
 # I'm pretty sure that the output of the entire line is a list of comma-separated URLs (asked ChatGPT, but it makes sense).
+# @output "((https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)?,)*" (URL regex)
 # ---
 
-# The annotation might be wrong, but a correct one should catch the bug
-
-# @output "((https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)?,)*"
+# The @assume annotation would not be needed if the Let's Encrypt authorizations were modeled.
+# @assume "echo "$response"" --> ""authorizations" *: *\[[^\[]*\]"
+# @output "[^\["]*"
 # stream enable
       _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"
       _debug2 _authorizations_seg "$_authorizations_seg"

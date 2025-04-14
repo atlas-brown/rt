@@ -26,7 +26,7 @@ function +vi-git-untracked() {
 # - -n $(git status ${FLAGS} | grep -E '^??' 2> /dev/null | tail -n1) ]]; then
 # + -n $(git status ${FLAGS} | grep -E '^\?\?' 2> /dev/null | tail -n1) ]]; then
 ################################################################################
-# put stream annotation here
+# @output "\?\?.*"
 # stream enable
             -n $(git status ${FLAGS} | grep -E '^??' 2> /dev/null | tail -n1) ]]; then
         hook_com[unstaged]+=" $(print_icon 'VCS_UNTRACKED_ICON')"

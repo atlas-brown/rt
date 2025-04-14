@@ -14,7 +14,7 @@ dirpersiststore () {
 # - dirs -p | sed 's/ /\\ /g;s/^/pushd -q /;1!G;h;$!d;' > ~/.zdirstore
 # + dirs -p | sed 's/ /\\ /g;s/&/\\&/;s/^/pushd -q /;1!G;h;$!d;' > ~/.zdirstore
 ################################################################################
-# put stream annotation here
+# output "((\\[ &])|[^ &])*"
 # stream enable
     dirs -p | sed 's/ /\\ /g;s/^/pushd -q /;1!G;h;$!d;' > ~/.zdirstore
 }

@@ -3441,6 +3441,7 @@ _on_before_issue() {
       _netprc="$(_ss "$_checkport" | grep "$_checkport")"
       netprc="$(echo "$_netprc" | grep "$_checkaddr")"
       if [ -z "$netprc" ]; then
+
 ################################################################################
 # Commit message: fix https://github.com/acmesh-official/acme.sh/issues/3624#issuecomment-887689325
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/5cc1d9521cb33619d244d13dd2e646ee41e0410a
@@ -3459,7 +3460,7 @@ _on_before_issue() {
 # Annotating an IPv4:port address should catch the bug.
 # ---
 
-# @output "|([0-9]{1,3}\.){3}[0-9]{1,3}:[0-9]{1,5}"
+# @output "(([0-9]{1,3}\.){3}[0-9]{1,3}:[0-9]{1,5})?"
 # stream enable
         netprc="$(echo "$_netprc" | grep "$LOCAL_ANY_ADDRESS")"
       fi

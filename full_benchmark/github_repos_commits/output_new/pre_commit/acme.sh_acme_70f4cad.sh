@@ -2253,6 +2253,8 @@ _send_signed_request() {
 # If "curl -I" (I believe) is modeled then we can deduce that the annotated output can not always be guaranteed.
 # ---
 
+# The @assume annotation would not be needed if HTTP headers were modeled.
+# @assume "echo "$responseHeaders"" --> "(Retry-After *: *[1-9][0-9]*\r?\n)|(Retry-After *: *[a-zA-Z0-9,: ]+\r?\n)"
 # @output "[1-9][0-9]*"
 # stream enable
       _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')

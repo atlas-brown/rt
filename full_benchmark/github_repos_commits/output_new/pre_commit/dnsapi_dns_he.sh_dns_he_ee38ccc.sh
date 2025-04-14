@@ -155,7 +155,11 @@ _find_zone() {
     _debug "Looking for zone \"${_attempted_zone}\""
 
 ################################################################################
-# Commit message: sync (#2436)  * fix https://github.com/Neilpang/acme.sh/issues/2409 (#2430)  * Add variable exports for Successful Post Hook and Renew Hook calls (#2431)  * fixed json parse regex for support api gcore_cdn (#2381)
+# Commit message: sync (#2436)  * fix https://github.com/Neilpang/acme.sh/issues/2409 (#2430)
+# 
+# * Add variable exports for Successful Post Hook and Renew Hook calls (#2431)
+# 
+# * fixed json parse regex for support api gcore_cdn (#2381)
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/ee38cccad8f76b807206165324e7bf771aa981dc
 # Category: 
 # Notes: 

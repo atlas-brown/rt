@@ -180,6 +180,7 @@ find_IPv4_information() {
 
 get_available_interfaces() {
   # Get available UP interfaces.
+
 ################################################################################
 # Commit message: Only ignore DOWN interfaces, `tun` interfaces are UNKNOWN.  Signed-off-by: Dan Schaper <dan.schaper@pi-hole.net>
 # Commit URL: https://github.com/pi-hole/pi-hole/commit/9212eea8bdd647435f1d111cb62ce90b87ab1b8e
@@ -189,7 +190,8 @@ get_available_interfaces() {
 # - availableInterfaces=$(ip -o link | grep "state UP" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
 # + availableInterfaces=$(ip -o link | grep -v "state DOWN\|lo" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
 ################################################################################
-# put stream annotation here
+
+# @assert "grep "state UP"" --> ".*state (UP|UNKNOWN).*"
 # stream enable
   availableInterfaces=$(ip -o link | grep "state UP" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
 }
