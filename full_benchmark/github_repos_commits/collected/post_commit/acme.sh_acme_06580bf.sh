@@ -3195,7 +3195,7 @@ _checkConf() {
 # + for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
 
-# @file: "$2" "[ \t]*[a-zA-Z]+[ \t]+[^ \t;]+;"
+# @file "$2": "[ \t]*[a-zA-Z]+[ \t]+[^ \t;]+;"
 # stream enable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"

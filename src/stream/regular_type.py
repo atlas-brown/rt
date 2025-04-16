@@ -41,7 +41,7 @@ class RegularType:
             self.possible_line_numbers = (0, 1)
         else:
             self.pattern = pattern
-        self.ast = RegexParser(preprocess(pattern), mode).parse()
+        self.ast = RegexParser(preprocess(self.pattern), mode).parse()
         if hole_dict is not None:
             automaton_dict = {k: v.nfa for k, v in hole_dict.items()}
         else:

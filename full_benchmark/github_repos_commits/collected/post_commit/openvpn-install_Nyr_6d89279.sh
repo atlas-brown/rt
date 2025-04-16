@@ -39,7 +39,7 @@ fi
 # ---
 
 # @assume "ifconfig" --> "[ \t]*inet6? addr:([0-9]{1,3}\.){3}[0-9]{1,3}[ \t]+Bcast:.*"
-# @output "([0-9]{1,3}\.){3}[0-9]{1,3}"
+# @output "([0-9]{1,3}\.){3}[0-9]{1,3}\n"
 # stream enable
 IP=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}' | head -1)
 if [ "$IP" = "" ]; then

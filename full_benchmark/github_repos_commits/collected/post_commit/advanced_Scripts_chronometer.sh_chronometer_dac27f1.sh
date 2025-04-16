@@ -262,7 +262,7 @@ get_sys_stats() {
 # ---
 
 # @assume "ip route" --> "(default|(([0-9]{1,3}\.){3}\.[0-9]{1,3}))( [^ \t]+)+"
-# @output ".*"
+# @output ".*\n"
 # stream enable
         net_gateway=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1)
 

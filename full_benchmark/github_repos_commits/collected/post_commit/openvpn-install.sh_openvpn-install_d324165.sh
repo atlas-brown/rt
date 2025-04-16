@@ -302,7 +302,7 @@ crl-verify /etc/openvpn/easy-rsa/pki/crl.pem" >> /etc/openvpn/server.conf
 		firewall-cmd --permanent --zone=public --add-port=$PORT/udp
 		firewall-cmd --permanent --zone=trusted --add-source=10.8.0.0/24
 	fi
-	################################################################################
+################################################################################
 # Commit message: Grep for DROP as well as REJECT
 # Commit URL: https://github.com/angristan/openvpn-install/commit/d32416561b006253994398c42f8d0fbedd4edf9e
 # Category: 
