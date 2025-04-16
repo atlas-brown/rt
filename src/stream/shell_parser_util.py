@@ -48,20 +48,27 @@ def log_parsing_error(error_msg: str, file_path: str) -> None:
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         error_entry = f"[{timestamp}] Error parsing file: {file_path}\nError: {error_msg}\n"
         
-        # If file path starts with /tmp, include file contents
-        if file_path.startswith("/tmp"):
-            try:
+        # Always include file contents if the file exists
+        try:
+            if os.path.exists(file_path):
                 with open(file_path, "r") as f:
                     file_contents = f.read()
-                error_entry += f"File contents:\n{file_contents}\n"
-            except Exception as e:
-                error_entry += f"Failed to read file contents: {e}\n"
+                # Add a clear marker for file contents that's consistent and easy to parse
+                error_entry += "File contents:\n" + file_contents + "\n"
+                logging.debug(f"Successfully read contents of {file_path} for error log")
+            else:
+                error_entry += "File not found, cannot include contents\n"
+                logging.warning(f"File not found for error logging: {file_path}")
+        except Exception as e:
+            error_entry += f"Failed to read file contents: {e}\n"
+            logging.error(f"Failed to read file contents for error log: {e}")
         
         error_entry += "\n"  # Add extra newline for separation
         
         try:
             with open(error_log_path, "a") as f:
                 f.write(error_entry)
+            logging.debug(f"Wrote parsing error for {file_path} to log")
         except Exception as e:
             logging.error(f"Failed to write to parsing error log: {e}")
 

@@ -230,11 +230,11 @@ if (( $+commands[xdg-open] )); then
     
     # @input "(Repo[a-z ]*[ \t]+:[ \t]+[A-Za-z0-9\-\_]+)+\n(Arch[a-z ]*[ \t]+:[ \t]+[A-Za-z0-9\-\_]+)+\n([A-Z][a-z ]+[ \t]+:[ \t]+.+)*"
     # @output "[^ \n]+\n"
-    # stream enable
+    # stream disable (libdash parsing error)
     repo="$(grep '^Repo' <<< "$infos" | grep -oP '[^ ]+$')"
     # @input "(Repo[a-z ]*[ \t]+:[ \t]+[A-Za-z0-9\-\_]+)+\n(Arch[a-z ]*[ \t]+:[ \t]+[A-Za-z0-9\-\_]+)+\n([A-Z][a-z ]+[ \t]+:[ \t]+.+)*"
     # @output "[^ \n]+\n"
-    # stream enable
+    # stream disable (libdash parsing error)
     arch="$(grep '^Arch' <<< "$infos" | grep -oP '[^ ]+$')"
     xdg-open "https://www.archlinux.org/packages/$repo/$arch/$pkg/" &>/dev/null
   }

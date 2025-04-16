@@ -3,6 +3,7 @@ import os
 import json
 import logging
 import time
+import re
 from functools import partial
 from typing import List, Tuple
 import jpype
@@ -170,6 +171,113 @@ def process_pipeline(pipeline_info: Tuple[str, bool], evaluation_notes: List[dic
         local_results.append(pipeline_result)
     return local_results
 
+def add_parsing_failures_to_results(results, statistics):
+    """Add failed parsing examples from logs to the results as false positives."""
+    parsing_error_log_path = CONFIG.get("parsing_error_log_path")
+    if not parsing_error_log_path or not os.path.exists(parsing_error_log_path):
+        logging.warning(f"Parsing error log not found at {parsing_error_log_path}")
+        return results, statistics
+    
+    logging.info(f"Reading parsing errors from {parsing_error_log_path}")
+    
+    # Read log file line by line to handle entries more accurately
+    with open(parsing_error_log_path, 'r') as f:
+        log_lines = f.readlines()
+    
+    if not log_lines:
+        logging.info("Log file is empty, no parsing errors to process")
+        return results, statistics
+    
+    # Process the log lines to construct entries
+    entries = []
+    current_entry = []
+    for line in log_lines:
+        # New entry starts with a timestamp
+        if line.startswith('[20') and '] Error parsing file:' in line:
+            if current_entry:
+                entries.append(''.join(current_entry))
+                current_entry = []
+        current_entry.append(line)
+    
+    # Add the last entry if not empty
+    if current_entry:
+        entries.append(''.join(current_entry))
+    
+    logging.info(f"Found {len(entries)} error entries in the log")
+    
+    # Process each entry
+    parsing_failures = []
+    for entry_idx, entry in enumerate(entries):
+        # Extract file path
+        path_match = re.search(r'Error parsing file: (.+)\n', entry)
+        if not path_match:
+            logging.warning(f"Could not find file path in entry {entry_idx+1}")
+            continue
+        
+        file_path = path_match.group(1).strip()
+        logging.debug(f"Processing error entry {entry_idx+1} for file: {file_path}")
+        
+        # Find the content section
+        if "File contents:" in entry:
+            # Find the start of file contents
+            start_idx = entry.find("File contents:") + len("File contents:")
+            # Find the end (next timestamp or "Failed to read" or EOF)
+            end_idx = len(entry)
+            
+            # Check for various end markers
+            for marker in ["\n[20", "\nFailed to read", "\nFile not found"]:
+                marker_idx = entry.find(marker, start_idx)
+                if marker_idx != -1 and marker_idx < end_idx:
+                    end_idx = marker_idx
+            
+            # Extract the content
+            file_content = entry[start_idx:end_idx].strip()
+            
+            if file_content:
+                preview = file_content[:50] + "..." if len(file_content) > 50 else file_content
+                logging.debug(f"Successfully extracted content for {file_path}: {preview}")
+            else:
+                file_content = "Unknown"
+                logging.warning(f"Empty content section for {file_path}")
+        else:
+            file_content = "Unknown"
+            logging.warning(f"No 'File contents:' marker found for {file_path}")
+        
+        # Create a result entry
+        pipeline_data = {
+            IS_BUGGY_LABEL: False,  # Assuming it's a valid pipeline that failed to parse
+            SIGNALED_LABEL: True,   # We're signaling an error
+            CRASH_REASON_LABEL: "Parse failure",
+            CATEGORY_LABEL: "parse fail",
+            "tag": "parse_fail",
+            "notes": "Pipeline failed during parsing phase",
+            "tainted": True,
+            "address": file_path,
+            "content": file_content
+        }
+        
+        # Add to results
+        parsing_failures.append(pipeline_data)
+    
+    if parsing_failures:
+        logging.info(f"Adding {len(parsing_failures)} parsing failures to results")
+        # Log how many entries have content vs unknown
+        known_content_count = sum(1 for p in parsing_failures if p["content"] != "Unknown")
+        logging.info(f"  - {known_content_count} entries have extracted content")
+        logging.info(f"  - {len(parsing_failures) - known_content_count} entries have unknown content")
+        
+        # Update statistics
+        statistics["false_positives"] += len(parsing_failures)
+        if "parse fail" in statistics["false_positive_categories"]:
+            statistics["false_positive_categories"]["parse fail"] += len(parsing_failures)
+        else:
+            statistics["false_positive_categories"]["parse fail"] = len(parsing_failures)
+        
+        # Add to results
+        results.extend(parsing_failures)
+    
+    return results, statistics
+
 def run_all_evaluations(valid_dirs: list[str] = None,
                         invalid_dirs: list[str] = None,
                         output_json: str = None,
@@ -186,6 +294,16 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     evaluation_notes_json = evaluation_notes_json or CONFIG.get("evaluation_notes_path", "src/stream/evaluation_notes.json")
     not_check_all_dirs = not_check_all_dirs or CONFIG.get("not_check_all_dirs", [])
     num_workers = num_workers or CONFIG.get("num_workers", 1)
+    
+    # Clear the parsing error log file before starting
+    parsing_error_log_path = CONFIG.get("parsing_error_log_path")
+    if parsing_error_log_path:
+        # Create the directory if it doesn't exist
+        os.makedirs(os.path.dirname(parsing_error_log_path), exist_ok=True)
+        # Clear or create the log file
+        with open(parsing_error_log_path, 'w') as f:
+            f.write("")
+        logging.info(f"Cleared parsing error log at {parsing_error_log_path}")
     
     with open(evaluation_notes_json, 'r') as f:
         evaluation_notes = json.load(f)
@@ -300,6 +418,15 @@ def run_all_evaluations(valid_dirs: list[str] = None,
         },
         # "logs": log_handler.log_entries
     }
+    
+    # Add parsing failures to results
+    results, output_data["statistics"] = add_parsing_failures_to_results(results, output_data["statistics"])
+    
+    # Recalculate failures after adding parsing errors
+    failures = [result for result in results if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL]]
+    false_positive_pipelines = [r for r in failures if not r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
+    output_data["statistics"]["total_wrong_predictions"] = len(failures)
+    output_data["statistics"]["false_positive_categories"] = categorize(false_positive_pipelines)
 
     os.makedirs(os.path.dirname(output_json), exist_ok=True)
     with open(output_json, 'w') as json_file:
