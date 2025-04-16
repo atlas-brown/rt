@@ -144,7 +144,8 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 # - if iptables -L | grep -q REJECT; then
 # + if iptables -L | grep -qE 'REJECT|DROP'; then
 ################################################################################
-# @output ".*REJECT|DROP.*"
+# @assume "iptables -L" --> "Chain +(INPUT|OUTPUT|FORWARD|PREROUTING|POSTROUTING) +\(policy +(ACCEPT|DROP|REJECT) +[0-9]+ +packets, +[0-9]+ +bytes\)"
+# @output_contains "Chain +(INPUT|OUTPUT|FORWARD|PREROUTING|POSTROUTING) +\(policy +DROP +[0-9]+ +packets, +[0-9]+ +bytes\)"
 # stream enable
 				if iptables -L | grep -q REJECT; then
 					sed -i "/iptables -I INPUT -p udp --dport $PORT -j ACCEPT/d" $RCLOCAL
@@ -310,7 +311,8 @@ crl-verify /etc/openvpn/easy-rsa/pki/crl.pem" >> /etc/openvpn/server.conf
 # - if iptables -L | grep -q REJECT; then
 # + if iptables -L | grep -qE 'REJECT|DROP'; then
 ################################################################################
-# @output ".*REJECT|DROP.*"
+# @assume "iptables -L" --> "Chain +(INPUT|OUTPUT|FORWARD|PREROUTING|POSTROUTING) +\(policy +(ACCEPT|DROP|REJECT) +[0-9]+ +packets, +[0-9]+ +bytes\)"
+# @output_contains "Chain +(INPUT|OUTPUT|FORWARD|PREROUTING|POSTROUTING) +\(policy +DROP +[0-9]+ +packets, +[0-9]+ +bytes\)"
 # stream enable
 	if iptables -L | grep -q REJECT; then
 		# If iptables has at least one REJECT rule, we asume this is needed.

@@ -2746,7 +2746,22 @@ _deactivate() {
 # - authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2)"
 # + authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2 | tr -d "\r\n")"
 ################################################################################
-# put stream annotation here
+
+# (George) ---
+# See https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Location
+# Also see /full_benchmark/github_repos_commits/output_new/interesting/acme.sh_acme_15dded7.sh (same bug)
+# The pipeline extracts the URL from a Location HTTP header.
+# If the request has CRLF line endings then the output of cut can contain
+# a trailing \r (https://google.com\r).
+# The commit adds a "tr -d" invocation to remove it.
+# This is a very good example where built-in regex patterns would help,
+# as the user could just specify '@output "URL"' (which is a fairly complicated regex).
+# NOTE: I could recreate the bug on macOS using 'echo "Location: https://google.com\r\n"' into the pipeline.
+# ---
+
+# The @assume annotation is temporary, until HTTP responses have been modeled.
+# @assume "echo "$responseHeaders"" --> "Location: (https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)\r?\n"
+# @output "(https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)?\n"
 # stream enable
     authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2 | tr -d "\r\n")"
     _info "authzUri" "$authzUri"

@@ -3460,7 +3460,7 @@ _on_before_issue() {
 # Annotating an IPv4:port address should catch the bug.
 # ---
 
-# @output "(([0-9]{1,3}\.){3}[0-9]{1,3}:[0-9]{1,5})?"
+# @output "(.*:.*)"
 # stream enable
         netprc="$(echo "$_netprc" | grep "$LOCAL_ANY_ADDRESS")"
       fi

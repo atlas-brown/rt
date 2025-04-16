@@ -238,7 +238,7 @@ if [[ "$MODE" = "stealth" ]]; then
 # - gau -subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
 # + gau --subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
 ################################################################################
-# put stream annotation here
+# need gau modeled to catch (or possibly heuristic about long/short options)
 # stream enable
       gau --subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
     fi
@@ -407,7 +407,7 @@ if [[ "$MODE" = "stealth" ]]; then
 # - gau -subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
 # + gau --subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
 ################################################################################
-# put stream annotation here
+# need gau modeled to catch (or possibly heuristic about long/short options)
 # stream enable
       gau --subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
     fi

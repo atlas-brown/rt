@@ -80,7 +80,10 @@ function installQuestions() {
 # - SERVER_PUB_IP=$(ip -4 addr | sed -ne 's|^.* inet \([^/]*\)/.* scope global.*$|\1|p' | head -1)
 # + SERVER_PUB_IP=$(ip -4 addr | sed -ne 's|^.* inet \([^/]*\)/.* scope global.*$|\1|p' | awk '{print $1}' | head -1)
 ################################################################################
-# put stream annotation here
+# This could probably be caught if "ip -4 addr" was modeled
+# Commit message explains the problem quite nicely
+# @assume "ip -4 addr" --> ".* inet ([0-9]{1,3}\.){3}\.[0-9]{1,3}( peer ([0-9]{1,3}\.){3}\.[0-9]{1,3})? ([^ \t]+)+ scope global [^ \t]+"
+# @output "([0-9]{1,3}\.){3}\.[0-9]{1,3}"
 # stream enable
 	SERVER_PUB_IP=$(ip -4 addr | sed -ne 's|^.* inet \([^/]*\)/.* scope global.*$|\1|p' | awk '{print $1}' | head -1)
 	if [[ -z ${SERVER_PUB_IP} ]]; then

@@ -212,7 +212,7 @@ function get_default_branch() {
 # - if git branch | grep -q '\smain\s'; then
 # + if git branch | grep -q '^. main\s*$'; then
 ################################################################################
-# @output "\*? main\s*"
+# @output ". main\s*"
 # stream enable
 	if git branch | grep -q '\smain\s'; then
 		echo main

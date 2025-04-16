@@ -46,7 +46,7 @@ def find_scripts(directories: list[str]) -> list[str]:
     for directory in directories:
         for root, _, files in os.walk(directory):
             for file in files:
-                if file.endswith(('.sh')):
+                if file.endswith(('.sh')) or file.endswith(('.bash')) or file.endswith(('.zsh')):
                     file_path = os.path.join(root, file)
                     script_addresses.append(file_path)
     
@@ -91,6 +91,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
     pipeline_data_list = []
     
     try:        
+        logging.info(f"Evaluating pipeline from {address}")
         type_checker = TypeChecker(
             address, 
             enable_user_annotations=enable_user_annotation, 

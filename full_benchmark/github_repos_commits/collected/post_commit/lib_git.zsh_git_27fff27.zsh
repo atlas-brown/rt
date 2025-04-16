@@ -174,7 +174,12 @@ function git_prompt_status() {
 # - if $(echo "$INDEX" | grep '^## .*ahead' &> /dev/null); then
 # + if $(echo "$INDEX" | grep '^## [^ ]\+ .*ahead' &> /dev/null); then
 ################################################################################
-# put stream annotation here
+# The output of "git status --porcelain -b 2" (aka the contents of $INDEX)
+# is of the form "## branch-name...remote/master [ahead/behind/diverged <number>]"
+# The problem is that ahead/behind/diverged can appear in the branch name
+# and thus be mistakenly matched by grep
+
+# @output "## .* .*"
 # stream enable
   if $(echo "$INDEX" | grep '^## [^ ]\+ .*ahead' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_AHEAD$STATUS"
@@ -188,7 +193,7 @@ function git_prompt_status() {
 # - if $(echo "$INDEX" | grep '^## .*behind' &> /dev/null); then
 # + if $(echo "$INDEX" | grep '^## [^ ]\+ .*behind' &> /dev/null); then
 ################################################################################
-# put stream annotation here
+# @output "## .* .*"
 # stream enable
   if $(echo "$INDEX" | grep '^## [^ ]\+ .*behind' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_BEHIND$STATUS"
@@ -202,7 +207,7 @@ function git_prompt_status() {
 # - if $(echo "$INDEX" | grep '^## .*diverged' &> /dev/null); then
 # + if $(echo "$INDEX" | grep '^## [^ ]\+ .*diverged' &> /dev/null); then
 ################################################################################
-# put stream annotation here
+# @output "## .* .*"
 # stream enable
   if $(echo "$INDEX" | grep '^## [^ ]\+ .*diverged' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_DIVERGED$STATUS"

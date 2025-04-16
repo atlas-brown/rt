@@ -25,25 +25,23 @@ output_summary_path_raw: evaluation_results/raw/summary.csv
 # Pipeline directories
 valid_dirs:
   - ./full_benchmark/pash_benchmark/benchmarks
-  # - ./full_benchmark/pash_benchmark/benchmarks/unix50/scripts
-  # - ./full_benchmark/github_repos_commits/output/post_commit
-  - ./full_benchmark/github_repos_commits/collected-negative
-  # - ./full_benchmark/stackoverflow/correct
   - ./evaluation_pipelines/valid
   - ./full_benchmark/intercode/pipelines
-
+  - ./full_benchmark/github_repos_commits/collected/post_commit
 invalid_dirs:
   - ./evaluation_pipelines/invalid
   - ./full_benchmark/curated_mutants
   - ./full_benchmark/llm_injection/pipelines
-  - ./full_benchmark/github_repos_commits/collected-positive
   - ./full_benchmark/stackoverflow/buggy
+  - ./full_benchmark/github_repos_commits/collected/pre_commit
 
 not_check_all_dirs:
   # - ./full_benchmark/github_repos_commits/output/post_commit
   # - ./full_benchmark/github_repos_commits/output/pre_commit
   - ./full_benchmark/stackoverflow/buggy
   # - ./full_benchmark/stackoverflow/correct
+  - ./full_benchmark/github_repos_commits/collected/pre_commit
+  - ./full_benchmark/github_repos_commits/collected/post_commit
 
 "benchmark names": {
     "evaluation_pipelines/.*ladder.*": "Ladder",

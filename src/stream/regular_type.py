@@ -36,8 +36,12 @@ class RegularType:
             self.ast = None
             self.nfa = automaton
             return
+        if pattern.endswith("\\n") and pattern.count("\\n") == 1:
+            self.pattern = pattern[:-2]
+            self.possible_line_numbers = (0, 1)
+        else:
+            self.pattern = pattern
         self.ast = RegexParser(preprocess(pattern), mode).parse()
-        self.pattern = ast_to_regex(self.ast)
         if hole_dict is not None:
             automaton_dict = {k: v.nfa for k, v in hole_dict.items()}
         else:
@@ -105,6 +109,7 @@ class RegularType:
         # return output == z3.unsat
 
         logging.debug("checking emptiness")
+        print(self.nfa.getShortestExample(True))
         return self.nfa.isEmpty()
     
     def is_empty_string(self) -> bool:

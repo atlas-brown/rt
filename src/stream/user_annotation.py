@@ -11,7 +11,8 @@ class AnnotationType(Enum):
     OUTPUT = "output"
     VAR = "var"
     FILE = "file"
-
+    ASSERT_CONTAINS = "assert_contains"
+    OUTPUT_CONTAINS = "output_contains"
 class UserAnnotation:
     def __init__(self, annotation_type: AnnotationType, pattern: str, pipeline_node: PipeNode, command_node: CommandNode):
         self.annotation_type = annotation_type

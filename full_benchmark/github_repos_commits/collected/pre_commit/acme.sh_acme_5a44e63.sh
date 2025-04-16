@@ -3182,9 +3182,9 @@ _checkConf() {
 # Note: Unfortunately the current annotations don't work.
 # ---
 
-# @file "$2" "[ \t]*[a-zA-Z]+[ \t]+[^ \t]+;"
-# @output ??
-# stream enable
+# buggy version -> buggy version (mislabeled)
+# @file "$2": "\t*include /etc/nginx/conf\.d/.*\.conf;|~(.*include.*)"
+# stream disable
     if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
       _debug "Try include files"
 
@@ -3198,9 +3198,10 @@ _checkConf() {
 # + for included in $(cat "$2" | tr "\t" " " | grep "^ *include *.*;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
 
-# @file "$2" "[ \t]*[a-zA-Z]+[ \t]+[^ \t]+;"
-# @output ??
-# stream enable
+# buggy version -> buggy version (mislabeled)
+# @file "$2": "\t*include /etc/nginx/conf\.d/.*\.conf;|~(.*include.*)"
+# @output "/etc/nginx/conf\.d/.*\.conf"
+# stream disable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"
         if ! _startswith "$included" "/" && _exists dirname; then

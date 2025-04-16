@@ -3161,7 +3161,6 @@ _checkConf() {
       FOUND_REAL_NGINX_CONF="$2"
       return 0
     fi
-
 ################################################################################
 # Commit message: fix nginx mode
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/2b5e2d4760d7c3ec36f5af33dfa95d9077cd5966
@@ -3172,11 +3171,12 @@ _checkConf() {
 # + if cat "$2" | tr "\t" " " | grep "^ *include *;" >/dev/null; then
 ################################################################################
 
-# @output " *include *;"
+# correct version -> buggy version (mislabeled)
+# @file "$2": "\t*include /etc/nginx/conf\.d/.*\.conf;|~(.*include.*)"
+# @output " *include /etc/nginx/conf\.d/.*\.conf;"
 # stream enable
-    if cat "$2" | tr "\t" " " | grep "^ *include *.*;" >/dev/null; then
+    if cat "$2" | tr "\t" " " | grep "^ *include *;" >/dev/null; then
       _debug "Try include files"
-
 ################################################################################
 # Commit message: fix nginx mode
 # Commit URL: https://github.com/acmesh-official/acme.sh/commit/2b5e2d4760d7c3ec36f5af33dfa95d9077cd5966
@@ -3187,14 +3187,16 @@ _checkConf() {
 # + for included in $(cat "$2" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
 
-# @output " *"
+# correct version -> buggy version (mislabeled)
+# @file "$2": "\t*include /etc/nginx/conf\.d/.*\.conf;|~(.*include.*)"
+# @output "/etc/nginx/conf\.d/.*\.conf"
 # stream enable
-      for included in $(cat "$2" | tr "\t" " " | grep "^ *include *.*;" | sed "s/include //" | tr -d " ;"); do
+      for included in $(cat "$2" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"
         if ! _startswith "$included" "/" && _exists dirname; then
           _relpath="$(dirname "$_c_file")"
           _debug "_relpath" "$_relpath"
-          included="$_relpath/included"
+          included="$_relpath/$included"
         fi
         if _checkConf "$1" "$included"; then
           return 0

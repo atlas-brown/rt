@@ -191,7 +191,7 @@ get_available_interfaces() {
 # + availableInterfaces=$(ip -o link | grep -v "state DOWN\|lo" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
 ################################################################################
 
-# @assert "grep "state UP"" --> ".*state (UP|UNKNOWN).*"
+# @assume "ip -o link" --> "[0-9]+: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state (UNKNOWN|DOWN) mode DEFAULT group default qlen 1000|~(.*state.*)"
 # stream enable
   availableInterfaces=$(ip -o link | grep "state UP" | awk '{print $2}' | cut -d':' -f1 | cut -d'@' -f1)
 }

@@ -96,7 +96,8 @@ fi
 # - NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)')
 # + NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
 ################################################################################
-# put stream annotation here
+# If `ip -4 route ls` was modeled the annotation would not be needed
+# @assume "ip -4 route ls" --> "(default via ([0-9]{1,3}\.){3}\.[0-9]{1,3} dev( [^ \t]+)+)+"
 # stream enable
 NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
 

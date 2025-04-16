@@ -3450,7 +3450,16 @@ _on_before_issue() {
 # - netprc="$(echo "$_netprc" | grep "$LOCAL_ANY_ADDRESS")"
 # + netprc="$(echo "$_netprc" | grep "$LOCAL_ANY_ADDRESS:$_checkport")"
 ################################################################################
-# put stream annotation here
+
+# (George) ---
+# See https://github.com/acmesh-official/acme.sh/issues/3624#issuecomment-887689325
+# The script checks if any process is listening on a specific IPv4 address.
+# The bug is that the port is mistakenly ommited, leading to the script exiting
+# even if the port it intends to use is actually free.
+# Annotating an IPv4:port address should catch the bug.
+# ---
+
+# @output "(.*:.*)"
 # stream enable
         netprc="$(echo "$_netprc" | grep "$LOCAL_ANY_ADDRESS:$_checkport")"
       fi

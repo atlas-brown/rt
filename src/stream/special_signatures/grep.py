@@ -29,7 +29,10 @@ class GrepSignature(CommandSignature):
             return input_type, no_input_type
         if "-e" not in parsed_flags:
             pattern = parsed_command_invocation.operand_list[0].name
+            if pattern.startswith("-"):
+                raise ToolError("Pattern cannot start with '-'")
             pattern = pattern.replace("\\\\", "\\")
+            pattern = pattern.replace("\\\\|", "\\|")
         
         mode = "extended" if "-E" in parsed_flags else "basic"
         no_input_type = RegularType(pattern, mode)
@@ -96,6 +99,13 @@ class GrepSignature(CommandSignature):
                 pattern_type = RegularType(".*") + pattern_type
             if not ends_with_end_anchor(original_pattern_type):
                 pattern_type = pattern_type + RegularType(".*")
+
+        else:
+            if not starts_with_start_anchor(original_pattern_type) and not ends_with_end_anchor(original_pattern_type):
+                pattern_type.tainted = True
+                return pattern_type
+            else:
+                pattern_type = remove_anchors(pattern_type)
         
         # FIXME not completely correct, for example pattern is a|^b
         pattern_type = remove_anchors(pattern_type)

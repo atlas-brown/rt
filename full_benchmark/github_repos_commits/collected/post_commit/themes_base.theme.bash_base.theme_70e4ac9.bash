@@ -119,9 +119,11 @@ function hg_prompt_vars {
 # - SCM_CHANGE=$(hg summary 2> /dev/null | grep parent | awk '{print $2}')
 # + SCM_CHANGE=$(hg summary 2> /dev/null | grep parent: | awk '{print $2}')
 ################################################################################
-# put stream annotation here
+# @assert "grep branch" --> ".*branch:.*"
 # stream enable
     SCM_BRANCH=$(hg summary 2> /dev/null | grep branch: | awk '{print $2}')
+# @assert "grep parent" --> ".*parent:.*"
+# stream enable
     SCM_CHANGE=$(hg summary 2> /dev/null | grep parent: | awk '{print $2}')
 }
 

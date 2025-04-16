@@ -50,7 +50,6 @@ class TypeChecker:
         self.pipeline_nodes = self.shell_parser.pipeline_nodes
         self.annotations = self.shell_parser.annotations
         self.env_annotations = self.shell_parser.env_annotations
-        self.input_pattern = self.shell_parser.input_pattern
         self.current_index = 0
 
         self.max_automata_size = 1
@@ -77,8 +76,8 @@ class TypeChecker:
         if self.current_index >= len(self.pipelines):
             return None
         
-        if self.input_pattern is not None:
-            previous_output_type = RegularType(self.input_pattern)
+        if self.env_annotations.get(self.pipeline_nodes[self.current_index], {}).get("__input_pattern__", None) is not None:
+            previous_output_type = RegularType(self.env_annotations[self.pipeline_nodes[self.current_index]]["__input_pattern__"][0].pattern)
         else:
             previous_output_type = RegularType("") # start with empty string type by default
 
@@ -139,6 +138,16 @@ class TypeChecker:
                                 f"Output type '{current_output_type}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
                             )
                             checking_result.tainted = current_output_type.tainted
+                            return checking_result
+                        
+                for annotation in corresponding_annotations:
+                    if annotation.annotation_type == AnnotationType.ASSERT_CONTAINS:
+                        checking_result.set(self.check_subtype(RegularType(annotation.pattern), current_output_type))
+                        if checking_result.ill_typed:
+                            checking_result.set_message(
+                                f"Output type '{current_output_type}' does not contain '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
+                            )
+                            checking_result.tainted = False
                             return checking_result
 
                 previous_output_type = current_output_type

@@ -2,7 +2,7 @@ import re
 from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
-from stream.transducer import compression_FST, cut_field_FST, first_regex_replacement_FST, product_fst_automaton, translate_to_line_delimited_FST
+from stream.transducer import compression_FST, cut_field_FST, first_regex_replacement_FST, product_fst_automaton, start_regex_replacement_FST, translate_to_line_delimited_FST, translation_FST
 
 class AwkSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -75,10 +75,12 @@ class AwkSignature(CommandSignature):
                     
                     # Process columns before $0
                     if before_zero:
-                        fst1 = first_regex_replacement_FST(RegularType(" +").nfa, "")
+                        fst0 = translation_FST("\t", " ")
+                        fst1 = start_regex_replacement_FST(RegularType(" +").nfa, "")
                         fst2 = compression_FST(" ")
                         fst3 = cut_field_FST(" ", before_zero)
-                        nfa = product_fst_automaton(fst1, previous_output_type.nfa)
+                        nfa = product_fst_automaton(fst0, previous_output_type.nfa)
+                        nfa = product_fst_automaton(fst1, nfa)
                         nfa = product_fst_automaton(fst2, nfa)
                         nfa = product_fst_automaton(fst3, nfa)
                         result_type = RegularType(automaton=nfa)
@@ -92,10 +94,12 @@ class AwkSignature(CommandSignature):
                     
                     # Process columns after $0
                     if after_zero:
-                        fst1 = first_regex_replacement_FST(RegularType(" +").nfa, "")
+                        fst0 = translation_FST("\t", " ")
+                        fst1 = start_regex_replacement_FST(RegularType(" +").nfa, "")
                         fst2 = compression_FST(" ")
                         fst3 = cut_field_FST(" ", after_zero)
-                        nfa = product_fst_automaton(fst1, previous_output_type.nfa)
+                        nfa = product_fst_automaton(fst0, previous_output_type.nfa)
+                        nfa = product_fst_automaton(fst1, nfa)
                         nfa = product_fst_automaton(fst2, nfa)
                         nfa = product_fst_automaton(fst3, nfa)
                         after_type = RegularType(automaton=nfa)
@@ -106,10 +110,12 @@ class AwkSignature(CommandSignature):
                     return result_type
                 else:
                     # Normal processing without $0
-                    fst1 = first_regex_replacement_FST(RegularType(" +").nfa, "")
+                    fst0 = translation_FST("\t", " ")
+                    fst1 = start_regex_replacement_FST(RegularType(" +").nfa, "")
                     fst2 = compression_FST(" ")
                     fst3 = cut_field_FST(" ", column_numbers)
-                    nfa = product_fst_automaton(fst1, previous_output_type.nfa)
+                    nfa = product_fst_automaton(fst0, previous_output_type.nfa)
+                    nfa = product_fst_automaton(fst1, nfa)
                     nfa = product_fst_automaton(fst2, nfa)
                     nfa = product_fst_automaton(fst3, nfa)
                     return RegularType(automaton=nfa)

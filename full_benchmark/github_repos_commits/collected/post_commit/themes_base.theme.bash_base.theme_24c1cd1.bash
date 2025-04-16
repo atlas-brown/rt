@@ -99,7 +99,7 @@ function git_prompt_vars {
 # - local stash_count="$(git stash list | wc -l)"
 # + local stash_count="$(git stash list | wc -l | tr -d ' ')"
 ################################################################################
-# put stream annotation here
+# @output "[^ ]+"
 # stream enable
   local stash_count="$(git stash list | wc -l | tr -d ' ')"
   [[ "${stash_count}" -gt 0 ]] && SCM_GIT_STASH=" {${stash_count}}"

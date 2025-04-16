@@ -83,8 +83,8 @@ if [[ $response == "--prefix" ]]; then
 # - prefix=$(echo -n "$@" | sed -e 's/--prefix=\(.*\) .*/\1/' | grep -Eo "^[a-z/A-Z= -- .0-9]*")
 # + prefix=$(echo -n "$@" | sed -e 's/--prefix=\(.*\) .*/\1/' | grep -Eo "^[a-z/A-Z=--.0-9]*")
 ################################################################################
-# put stream annotation here
-# stream enable
+# @output "[a-z/A-Z=--.0-9]*"
+# stream disable
   prefix=$(echo -n "$@" | sed -e 's/--prefix=\(.*\) .*/\1/' | grep -Eo "^[a-z/A-Z=--.0-9]*")
   echo $prefix
   mkdir -p $prefix/bin $prefix/share/man/man1

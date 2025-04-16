@@ -4028,7 +4028,20 @@ issue() {
 # - _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"
 # + _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"
 ################################################################################
-# put stream annotation here
+
+# (George) ---
+# See https://github.com/acmesh-official/acme.sh/issues/2830
+# Also see https://chatgpt.com/share/67f6508f-0020-8006-a2b4-e24087c53fb9
+# A mistake in grep's regex fails to capture the expected output.
+# Pre-commit, the regex captures zero or more ']' (']*'), instead of zero or more arbitrary characters.
+# Detecting this depends on knowing the contents of the a server response.
+# I'm pretty sure that the output of the entire line is a list of comma-separated URLs (asked ChatGPT, but it makes sense).
+# @output "((https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)?,)*" (URL regex)
+# ---
+
+# The @assume annotation would not be needed if the Let's Encrypt authorizations were modeled.
+# @assume "echo "$response"" --> ""authorizations" *: *\[[^\[]*\]|~(.*authorizations.*)"
+# @output_contains "[^\[\]"]*"
 # stream enable
       _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"
       _debug2 _authorizations_seg "$_authorizations_seg"

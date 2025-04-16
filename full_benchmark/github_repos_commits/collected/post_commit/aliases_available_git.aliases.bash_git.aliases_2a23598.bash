@@ -203,16 +203,16 @@ function get_default_branch() {
 # Commit message: Make the regex looking for the main branch  match the entire line
 # Commit URL: https://github.com/Bash-it/bash-it/commit/2a235988736887bfb80634f63c47b153c0ade851
 # Category: 
-# Notes: https://github.com/Bash-it/bash-it/commit/a14d9cb6eac231aec7277a45fd2d9b17c7e4e2a3
-https://github.com/Bash-it/bash-it/commit/98bd0ae149e7f524a6c15caec2c22d237895d4c9
-https://github.com/Bash-it/bash-it/commit/daaab1b73d6fba75e939ee0472e3f1dcbf49dc80
-
-All of these commits try to fix this issue.
+# Notes:
+# 	https://github.com/Bash-it/bash-it/commit/a14d9cb6eac231aec7277a45fd2d9b17c7e4e2a3
+# 	https://github.com/Bash-it/bash-it/commit/98bd0ae149e7f524a6c15caec2c22d237895d4c9
+# 	https://github.com/Bash-it/bash-it/commit/daaab1b73d6fba75e939ee0472e3f1dcbf49dc80
+# 	All of these commits try to fix this issue.
 # Changed content:
 # - if git branch | grep -q '\smain\s'; then
 # + if git branch | grep -q '^. main\s*$'; then
 ################################################################################
-# put stream annotation here
+# @output ". main\s*"
 # stream enable
 	if git branch | grep -q '^. main\s*$'; then
 		echo main

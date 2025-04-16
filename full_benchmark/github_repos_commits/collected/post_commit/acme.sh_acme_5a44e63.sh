@@ -3170,8 +3170,20 @@ _checkConf() {
 # - if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
 # + if cat "$2" | tr "\t" " " | grep "^ *include *.*;" >/dev/null; then
 ################################################################################
-# put stream annotation here
-# stream enable
+
+# (George) ---
+# See https://github.com/acmesh-official/acme.sh/issues/3648#issuecomment-894045613
+# Also see https://nginx.org/en/docs/ngx_core_module.html#include
+# Also see ./acme.sh_acme_06580bf.sh
+# Plus character mistakenly used in grep pattern without "-E" option.
+# The file $2 is an NGINX config. There exists a spec for this so it
+# could definitely be modeled.
+# Note: Unfortunately the current annotations don't work.
+# ---
+
+# buggy version -> buggy version (mislabeled)
+# @file "$2": "\t*include /etc/nginx/conf\.d/.*\.conf;|~(.*include.*)"
+# stream disable
     if cat "$2" | tr "\t" " " | grep "^ *include *.*;" >/dev/null; then
       _debug "Try include files"
 ################################################################################
@@ -3183,8 +3195,11 @@ _checkConf() {
 # - for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
 # + for included in $(cat "$2" | tr "\t" " " | grep "^ *include *.*;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
-# put stream annotation here
-# stream enable
+
+# buggy version -> buggy version (mislabeled)
+# @file "$2": "\t*include /etc/nginx/conf\.d/.*\.conf;|~(.*include.*)"
+# @output "/etc/nginx/conf\.d/.*\.conf"
+# stream disable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include *.*;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"
         if ! _startswith "$included" "/" && _exists dirname; then

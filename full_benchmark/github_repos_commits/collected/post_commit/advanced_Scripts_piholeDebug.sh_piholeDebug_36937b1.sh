@@ -986,7 +986,9 @@ make_array_from_file() {
 # - new_line=$(echo "${line}" | sed -e 's/#.*$//' -e '/^$/d')
 # + new_line=$(echo "${line}" | sed -e 's/^\s*#.*$//' -e '/^$/d')
 ################################################################################
-# put stream annotation here
+
+# output must not contain lines that are just comments
+# @output_contains "server=[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+#[0-9]+"
 # stream enable
             new_line=$(echo "${line}" | sed -e 's/^\s*#.*$//' -e '/^$/d')
             # If the line still has content (a non-zero value)

@@ -32,7 +32,7 @@ _rake_generate () {
 # https://www.rubyguides.com/2019/02/ruby-rake/
 # https://chatgpt.com/c/67fa811b-aa9c-8006-96a6-71976dee2069
 # I'm not sure if the developers were aware of the existence of brackets in the output or not.
-# @assume "rake --silent --tasks" --> "rake [a-z:]+(\[.*\])?"
+# @assume "rake --silent --tasks" --> "rake [a-z:]+(\[[^ ]*\])?"
 # @output "[a-z:]+"
 # stream enable
   rake --silent --tasks | cut -d " " -f 2 > .rake_tasks

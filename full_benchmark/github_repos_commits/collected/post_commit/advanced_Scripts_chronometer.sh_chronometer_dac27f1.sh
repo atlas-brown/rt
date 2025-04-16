@@ -252,7 +252,17 @@ get_sys_stats() {
 # - net_gateway=$(ip route | grep default | cut -d ' ' -f 3)
 # + net_gateway=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1)
 ################################################################################
-# put stream annotation here
+
+# (George) ---
+# The bug here is that the output of "ip route" might contain multiple default
+# gateways. By asserting that the output can only contain one line the bug should be caught.
+# I tried to very crudely model "ip route" based on this website:
+# https://www.cyberciti.biz/faq/ip-route-add-network-command-for-linux-explained/
+# I have a Mac, so I didn't want to base the regex on my local output.
+# ---
+
+# @assume "ip route" --> "(default|(([0-9]{1,3}\.){3}\.[0-9]{1,3}))( [^ \t]+)+"
+# @output ".*"
 # stream enable
         net_gateway=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1)
 

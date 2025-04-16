@@ -65,7 +65,8 @@ def parse_shell_to_asts(input_script_path : str):
         logging.debug("Returning typed Shasta objects")
         return typed_ast_objects
     except Exception as e:
-        logging.debug("Parsing error!", traceback.format_exc())
+        # INITIALIZE_LIBDASH = True
+        logging.error("Parsing error!", traceback.format_exc())
 
 
 def traverse_node(nd : AstNode) -> list[PipeNode]:
@@ -182,6 +183,13 @@ def extract_single_pipeline(script_content: list[str], enable_line_index: int) -
     Returns:
         The first PipeNode found in the pipeline, or None if no pipeline was found
     """
+    # Control keywords to remove from the pipeline string
+    CONTROL_KEYWORDS = {
+        'if', 'then', 'else', 'elif', 'fi', 'case', 'esac',
+        'for', 'do', 'done', 'while', 'until', 'in',
+        'function', 'select', 'time', 'coproc'
+    }
+    
     # Found a stream enable line, the pipeline starts on the next line
     start_line = enable_line_index + 1
     if start_line >= len(script_content):
@@ -208,8 +216,13 @@ def extract_single_pipeline(script_content: list[str], enable_line_index: int) -
         else:
             break
     
-    # Extract the pipeline as a string
+    # Extract the pipeline as a string and remove control keywords
     pipeline_str = ''.join(pipeline_lines)
+    
+    # Remove control keywords from the pipeline string
+    words = pipeline_str.split()
+    filtered_words = [word for word in words if word.lower() not in CONTROL_KEYWORDS]
+    pipeline_str = ' '.join(filtered_words)
     
     # Create a dedicated temporary file for this specific pipeline
     with tempfile.NamedTemporaryFile(mode='w', suffix='.sh', delete=False) as temp_file:
@@ -330,6 +343,19 @@ def annot_parser_wrapper(str_ls_args: list[str]) -> CommandInvocationInitial:
 
 def process_special_cases_in_args(s: list[str]) -> list[str]:
     if len(s) > 0:
+        # handle escaped command: command cmd -> cmd
+        if s[0] == "command" and len(s) > 1:
+            s = s[1:]
+        
+        # handle escaped command: command \cmd -> cmd
+        if s[0].startswith("\\") and len(s[0]) > 1:
+            s[0] = s[0][1:]
+
+        # FIXME: use command mapping instead of hardcoding
+        # handle _cmd -> cmd
+        if s[0].startswith("_") and len(s[0]) > 1:
+            s[0] = s[0][1:]
+
         # handle special cases: head -1 -> head -n 1, tail -1 -> tail -n 1
         if s[0] in {"head", "tail"}:
             s2 = [s[0]]
@@ -366,6 +392,32 @@ def process_special_cases_in_args(s: list[str]) -> list[str]:
 
         s = s2
 
+        # FIXME: use command mapping instead of hardcoding
+        # tail_n -> tail -n
+        if "_" in s[0]:
+            s2 = []
+            s[0] = s[0].replace("_", "_-")
+            s2 = s[0].split("_")
+            s2.extend(s[1:])
+            s = s2
+
+        # FIXME: use command mapping instead of hardcoding
+        # handle egrep -> grep -E
+        if s[0] == "egrep":
+            s2 = []
+            s2.append("grep")
+            s2.append("-E")
+            s2.extend(s[1:])
+            s = s2
+
+        # FIXME: add this into extra annotations
+        # remove --color=
+        if s[0] == "grep":
+            s2 = [s[0]]
+            for arg in s[1:]:
+                if not arg.startswith("--color="):
+                    s2.append(arg)
+            s = s2
         # FIXME: correctly handle quoted arguments
         # provisional solution: remove quotes
         s2 = []

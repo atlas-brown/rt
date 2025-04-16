@@ -71,7 +71,7 @@ git_prompt_status() {
 # - if $(echo "$INDEX" | grep '^\?\? ' &> /dev/null); then
 # + if $(echo "$INDEX" | grep -E '^\?\? ' &> /dev/null); then
 ################################################################################
-# put stream annotation here
+# @output "\?\? .*"
 # stream enable
   if $(echo "$INDEX" | grep -E '^\?\? ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_UNTRACKED$STATUS"

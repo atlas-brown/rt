@@ -900,7 +900,8 @@ configureFirewall() {
 # - if iptables -S INPUT | head -n1 | grep -qv 'ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '(^-A\|^-P).*ACCEPT$'; then
 # + if iptables -S INPUT | head -n1 | grep -qv '^-P.*ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '^-\(A\|P\).*ACCEPT$'; then
 ################################################################################
-# put stream annotation here
+
+# @output_contains "-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT"
 # stream enable
     if iptables -S INPUT | head -n1 | grep -qv '^-P.*ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '^-\(A\|P\).*ACCEPT$'; then
       # Check chain first, otherwise a new rule will duplicate old ones

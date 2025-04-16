@@ -39,8 +39,8 @@ fi
 # Note 2: Crude modeling of ifconfig thanks to https://chatgpt.com/share/67f81aad-3b8c-8006-ac42-9fc9b0ec40fd and https://grok.com/share/bGVnYWN5_8ff5fb05-bdc4-4ead-ba8c-53e34736ffaf
 # ---
 
-# @assume "ifconfig" --> "([ \t]*inet6? addr:([0-9]{1,3}\.){3}\.[0-9]{1,3}[ \t]+Bcast:.*\n)+"
-# @output "([0-9]{1,3}\.){3}\.[0-9]{1,3}\n"
+# @assume "ifconfig" --> "[ \t]*inet6? addr:([0-9]{1,3}\.){3}[0-9]{1,3}[ \t]+Bcast:.*"
+# @output "([0-9]{1,3}\.){3}[0-9]{1,3}\n"
 # stream enable
 IP=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}')
 if [ "$IP" = "" ]; then

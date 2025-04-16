@@ -178,7 +178,18 @@ _sed_i() {
 # - if sed -h 2>&1 | grep "\-i[SUFFIX]" ; then
 # + if sed -h 2>&1 | grep "\-i\[SUFFIX]" >/dev/null 2>&1; then
 ################################################################################
-# put stream annotation here
+
+# (George) ---
+# Sed does not have a "-h" option, so "sed -h" outputs "usage: ...".
+# GNU sed contains "-i[SUFFIX]" in the produced output.
+# The sed pre-installed on my machine (macOS) does not contain it.
+# If the output of "sed -h" is known for both, the bug can be caught since the original
+# regex would never match anything from the output.
+# However, if not all versions of sed are known, I don't see how we could infer that the regex is wrong.
+# Hopefully I'm missing something.
+# ---
+
+# put annotation here
 # stream enable
   if sed -h 2>&1 | grep "\-i\[SUFFIX]" >/dev/null 2>&1; then
     _debug "Using sed  -i"

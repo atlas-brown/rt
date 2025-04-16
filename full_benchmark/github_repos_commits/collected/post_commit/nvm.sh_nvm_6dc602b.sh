@@ -195,7 +195,6 @@ nvm_ls() {
     if [ `expr "$PATTERN" : "v[0-9]*\.[0-9]*$"` != 0 ]; then
       PATTERN="$PATTERN."
     fi
-    VERSIONS=`find "$NVM_DIR/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
 ################################################################################
 # Commit message: Ensure that `nvm ls node` doesn't return "node_modules", for example.
 # Commit URL: https://github.com/nvm-sh/nvm/commit/6dc602b52117833a552a4688c954a74b663e65f8
@@ -205,8 +204,11 @@ nvm_ls() {
 # - | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.'`
 # + | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.' | \grep -e '^v'`
 ################################################################################
-# put stream annotation here
+# node has version numbers of the form 'v0.12.13' and 'v22.14.0' etc
+
+# @output "v.*"
 # stream enable
+    VERSIONS=`find "$NVM_DIR/" -maxdepth 1 -type d -name "$PATTERN*" -exec basename '{}' ';' \
       | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | \grep -v '^ *\.' | \grep -e '^v'`
   fi
   if [ -z "$VERSIONS" ]; then

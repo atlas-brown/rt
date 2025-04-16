@@ -7,7 +7,7 @@
 # - COMPUTER_MAKER=$(sudo dmidecode -t system | grep 'Manufacturer' | awk '{print $2}')
 # + COMPUTER_MAKER=$(sudo dmidecode -t system | grep 'Manufacturer:' | awk '{print $2}')
 ################################################################################
-# put stream annotation here
+# @assert "grep 'Manufacturer'" --> ".*Manufacturer:.*"
 # stream enable
 COMPUTER_MAKER=$(sudo dmidecode -t system | grep 'Manufacturer:' | awk '{print $2}')
 SCREEN_RESOLUTION=$(xrandr | grep '*+' | awk '{print $1}')

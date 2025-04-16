@@ -1018,7 +1018,7 @@ _readKeyLengthFromCSR() {
 # - openssl req -new -newkey rsa:2048 -nodes -keyout key.pem -out req.csr
 # - openssl req -noout -text -in req.csr 
 
-# @assume "echo "$_outcsr"" --> " *Public.Key: (*[1-9][0-9]* bit)"
+# @assume "echo "$_outcsr"" --> " *Public Key: \([1-9][0-9]* bit\)|~( *Public.*)"
 # @output "[1-9][0-9]*"
 # stream enable
     echo "$_outcsr" | _egrep_o "^ *Public-Key:.*" | cut -d '(' -f 2 | cut -d ' ' -f 1

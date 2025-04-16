@@ -4040,7 +4040,7 @@ issue() {
 # ---
 
 # The @assume annotation would not be needed if the Let's Encrypt authorizations were modeled.
-# @assume "echo "$response"" --> ""authorizations" *: *\[[^\[]*\]"
+# @assume "echo "$response"" --> ""authorizations" *: *\[[^\[]*\]|~(.*authorizations.*)"
 # @output_contains "[^\[\]"]*"
 # stream enable
       _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"

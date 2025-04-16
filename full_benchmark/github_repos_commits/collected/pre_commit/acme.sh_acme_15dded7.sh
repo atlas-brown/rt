@@ -4537,7 +4537,7 @@ $_authorizations_map"
 # ---
 
 # If HTTP headers were modeled the @assume annotation would not be needed.
-# @assume "echo "$responseHeaders"" --> "Retry-After *: *[1-9][0-9]*\r?\n"
+# @assume "echo "$responseHeaders"" --> "Retry-After *: *[1-9][0-9]*\r?|(~(Retry-After.*)&~(retry-After.*))"
 # @output "[1-9][0-9]*"
 # stream enable
         _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ')

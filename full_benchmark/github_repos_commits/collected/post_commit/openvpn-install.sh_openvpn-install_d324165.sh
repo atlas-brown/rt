@@ -144,7 +144,8 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 # - if iptables -L | grep -q REJECT; then
 # + if iptables -L | grep -qE 'REJECT|DROP'; then
 ################################################################################
-# put stream annotation here
+# @assume "iptables -L" --> "Chain +(INPUT|OUTPUT|FORWARD|PREROUTING|POSTROUTING) +\(policy +(ACCEPT|DROP|REJECT) +[0-9]+ +packets, +[0-9]+ +bytes\)"
+# @output_contains "Chain +(INPUT|OUTPUT|FORWARD|PREROUTING|POSTROUTING) +\(policy +DROP +[0-9]+ +packets, +[0-9]+ +bytes\)"
 # stream enable
 				if iptables -L | grep -qE 'REJECT|DROP'; then
 					sed -i "/iptables -I INPUT -p udp --dport $PORT -j ACCEPT/d" $RCLOCAL
@@ -301,6 +302,18 @@ crl-verify /etc/openvpn/easy-rsa/pki/crl.pem" >> /etc/openvpn/server.conf
 		firewall-cmd --permanent --zone=public --add-port=$PORT/udp
 		firewall-cmd --permanent --zone=trusted --add-source=10.8.0.0/24
 	fi
+	################################################################################
+# Commit message: Grep for DROP as well as REJECT
+# Commit URL: https://github.com/angristan/openvpn-install/commit/d32416561b006253994398c42f8d0fbedd4edf9e
+# Category: 
+# Notes: 
+# Changed content:
+# - if iptables -L | grep -q REJECT; then
+# + if iptables -L | grep -qE 'REJECT|DROP'; then
+################################################################################
+# @assume "iptables -L" --> "Chain +(INPUT|OUTPUT|FORWARD|PREROUTING|POSTROUTING) +\(policy +(ACCEPT|DROP|REJECT) +[0-9]+ +packets, +[0-9]+ +bytes\)"
+# @output_contains "Chain +(INPUT|OUTPUT|FORWARD|PREROUTING|POSTROUTING) +\(policy +DROP +[0-9]+ +packets, +[0-9]+ +bytes\)"
+# stream enable
 	if iptables -L | grep -qE 'REJECT|DROP'; then
 		# If iptables has at least one REJECT rule, we asume this is needed.
 		# Not the best approach but I can't think of other and this shouldn't

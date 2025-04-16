@@ -2238,7 +2238,24 @@ _send_signed_request() {
 # - _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
 # + _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *: *[0-9]\+ *" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
 ################################################################################
-# put stream annotation here
+
+# (George) ---
+# See https://github.com/acmesh-official/acme.sh/issues/4543
+# Also see https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Retry-After#directives
+# Also see https://www.rfc-editor.org/rfc/rfc7231#section-7.1.3
+# The pipeline parses the Retry-After HTTP header and then the script waits the specified amount of time.
+# When the response code is 503, this makes sense as the time limit given is small.
+# However, sometimes 429 can be received with a time limit of several days.
+# The commit changes ""grep"" to only match a 503 code format (see mozilla link above)
+# and also changes an if statement that could end up causing the script to wait even if 429 was received.
+# The format of each response's header is different, so annotations could help if the difference
+# was known by our system, however without any such information annotations won't do much.
+# If "curl -I" (I believe) is modeled then we can deduce that the annotated output can not always be guaranteed.
+# ---
+
+# The @assume annotation would not be needed if HTTP headers were modeled.
+# @assume "echo "$responseHeaders"" --> "(Retry-After *: *[1-9][0-9]*\r?)|(Retry-After *: *[a-zA-Z]+.*\r?)|~(Retry-After.*)"
+# @output "[1-9][0-9]*"
 # stream enable
       _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *: *[0-9]\+ *" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
       if [ "$code" = '503' ]; then

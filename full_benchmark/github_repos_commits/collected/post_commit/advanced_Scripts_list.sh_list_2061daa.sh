@@ -62,7 +62,9 @@ EscapeRegexp() {
 # - echo $* | sed "s/[]\\.|$(){}?+*^]/\\\\&/g"
 # + echo $* | sed "s/[]\\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
 ################################################################################
-# put stream annotation here
+
+# match . \ / | [ ] $ ( ) { } ? + * ^ only if they are escaped (e.g match \. but not ., match \? but not ?)
+# @output "(\\[]\\.|$(){}?+*^/]|[^]\\.|$(){}?+*^/])*"
 # stream enable
     echo $* | sed "s/[]\\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
 }

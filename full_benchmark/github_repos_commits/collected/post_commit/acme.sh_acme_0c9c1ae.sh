@@ -4723,7 +4723,11 @@ $_authorizations_map"
 # - Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n" | cut -d ":" -f 2-)"
 # + Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n \t" | cut -d ":" -f 2-)"
 ################################################################################
-# put stream annotation here
+
+# If HTTP headers were modeled, the user would just specify that the output is a URL
+# (which implicitly does not contain whitespace and \r).
+# @assume "echo "$responseHeaders"" --> "Location:[ \t]+[^ \t:\r]+\r?|~(Location.*)"
+# @output "[^ \t\r]+"
 # stream enable
       Le_LinkOrder="$(echo "$responseHeaders" | grep -i '^Location.*$' | _tail_n 1 | tr -d "\r\n \t" | cut -d ":" -f 2-)"
     fi

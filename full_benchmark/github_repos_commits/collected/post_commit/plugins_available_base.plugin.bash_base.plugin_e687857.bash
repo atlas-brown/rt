@@ -16,7 +16,14 @@ function ips ()
 # - ifconfig | awk '/inet /{ print $2 }'
 # + ifconfig | grep  -E "inet "|sed 's/addr://g' | awk '{print $2}'
 ################################################################################
-# put stream annotation here
+
+# See https://github.com/Bash-it/bash-it/issues/998
+# This requires modeling ifconfig's behavior on multiple systems and checking
+# that the pipeline's output is the same on all systems, because the bug
+# occurs due to platform differences
+
+# @assume "ifconfig" --> "inet (addr:)?([0-9]{1,3}\.){3}\.[0-9]{1,3}( [^ \t]+)+|~(.*inet.*)"
+# @output "([0-9]{1,3}\.){3}\.[0-9]{1,3}"
 # stream enable
         ifconfig | grep  -E "inet "|sed 's/addr://g' | awk '{print $2}'
     elif command -v ip &>/dev/null

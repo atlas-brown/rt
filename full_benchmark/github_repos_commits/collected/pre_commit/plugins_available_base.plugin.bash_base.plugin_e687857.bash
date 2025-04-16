@@ -22,7 +22,7 @@ function ips ()
 # that the pipeline's output is the same on all systems, because the bug
 # occurs due to platform differences
 
-# @assume "ifconfig" --> "inet (addr:)?([0-9]{1,3}\.){3}\.[0-9]{1,3}( [^ \t]+)+"
+# @assume "ifconfig" --> "inet (addr:)?([0-9]{1,3}\.){3}\.[0-9]{1,3}( [^ \t]+)+|~(.*inet.*)"
 # @output "([0-9]{1,3}\.){3}\.[0-9]{1,3}"
 # stream enable
         ifconfig | awk '/inet /{ print $2 }'

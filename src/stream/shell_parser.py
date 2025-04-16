@@ -14,7 +14,7 @@ from stream.tool_error import PashAnnotationParsingError
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 
 
-ANNOTATION_PATTERN = re.compile(r'^\s*#\s*@(assume|assert|expect)\s*"(.*)"\s*-->\s*"(.*)"\s*$|^\s*#\s*@(input|output)\s*"(.*)"\s*$|^\s*#\s*@(file|var)\s*"(.*)"\s*:\s*"(.*)"\s*$')
+ANNOTATION_PATTERN = re.compile(r'^\s*#\s*@(assume|assert|expect|assert_contains)\s*"(.*)"\s*-->\s*"(.*)"\s*$|^\s*#\s*@(input|output|output_contains)\s*"(.*)"\s*$|^\s*#\s*@(file|var)\s*"(.*)"\s*:\s*"(.*)"\s*$')
 
 class ShellParser:
     def __init__(self, pipeline_address: str, enable_user_annotations: bool = True, extract_all_pipelines: bool = True) -> None:
@@ -134,10 +134,10 @@ class ShellParser:
                         annotation_type = AnnotationType(res.group(6))
                     
                     match annotation_type:
-                        case AnnotationType.INPUT | AnnotationType.OUTPUT:
+                        case AnnotationType.INPUT | AnnotationType.OUTPUT | AnnotationType.OUTPUT_CONTAINS:
                             pattern = res.group(5)
                             command = None
-                        case AnnotationType.ASSUME | AnnotationType.ASSERT:
+                        case AnnotationType.ASSUME | AnnotationType.ASSERT | AnnotationType.ASSERT_CONTAINS:
                             command = res.group(2)
                             pattern = res.group(3)
                         case AnnotationType.EXPECT:
@@ -152,11 +152,14 @@ class ShellParser:
                     # Process each annotation type
                     if annotation_type == AnnotationType.INPUT:
                         input_pattern = pattern
+                        # Store input pattern in env_annotations under a special key
+                        env_annotations[node]["__input_pattern__"] = [EnvAnnotation(AnnotationType.INPUT, "__input_pattern__", pattern, node)]
                         continue
                     
-                    if annotation_type == AnnotationType.OUTPUT:
+                    if annotation_type == AnnotationType.OUTPUT or annotation_type == AnnotationType.OUTPUT_CONTAINS:
                         corresponding_annotations = annotations.get(node.items[-1], [])
-                        corresponding_annotations.append(UserAnnotation(AnnotationType.ASSERT, pattern, node, node.items[-1]))
+                        updated_type = AnnotationType.ASSERT if annotation_type == AnnotationType.OUTPUT else AnnotationType.ASSERT_CONTAINS
+                        corresponding_annotations.append(UserAnnotation(updated_type, pattern, node, node.items[-1]))
                         annotations[node.items[-1]] = corresponding_annotations
                         continue
                     

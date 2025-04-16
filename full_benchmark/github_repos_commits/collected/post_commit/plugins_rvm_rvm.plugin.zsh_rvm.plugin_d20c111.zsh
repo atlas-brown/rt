@@ -70,6 +70,8 @@ function gems {
 # - gem list $@ | sed \
 # + gem list $@ | sed -E \
 ################################################################################
+# see https://github.com/ohmyzsh/ohmyzsh/pull/1579
+# "-E" appearing multiple times makes the sed invocation fail
 # put stream annotation here
 # stream enable
 	gem list $@ | sed -E \

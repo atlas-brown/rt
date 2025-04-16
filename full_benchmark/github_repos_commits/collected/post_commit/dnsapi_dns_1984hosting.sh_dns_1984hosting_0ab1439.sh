@@ -177,7 +177,17 @@ _1984hosting_login() {
 # - One984HOSTING_COOKIE="$(grep '^Set-Cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"
 # + One984HOSTING_COOKIE="$(grep '^set-cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"
 ################################################################################
-# put stream annotation here
+
+# (George) ---
+# See https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie
+# Very simple: proper HTTP header is Set-Cookie, script greps for set-cookie.
+# If HTTP headers were modeled, the user could annotate the HTTP_HEADERS file as such.
+# The full annotations would include all possible headers (instead of the current workaround, which can be seen below),
+# none of which would match the pattern "^set-cookie:".
+# ---
+
+# By modeling HTTP headers we would know all the exact possible values.
+# @file "$HTTP_HEADER": "set-cookie: sessionId=[0-9a-z]+|~(Set-Cookie.*)"
 # stream enable
     One984HOSTING_COOKIE="$(grep '^set-cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"
     export One984HOSTING_COOKIE

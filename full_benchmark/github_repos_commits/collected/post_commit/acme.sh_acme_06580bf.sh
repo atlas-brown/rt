@@ -3170,7 +3170,18 @@ _checkConf() {
 # - if cat "$2" | tr "\t" " " | grep "^ *include *;" >/dev/null; then
 # + if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
 ################################################################################
-# put stream annotation here
+
+# (George) ---
+# See https://github.com/acmesh-official/acme.sh/issues/3648#issuecomment-894045613
+# Also see https://nginx.org/en/docs/ngx_core_module.html#include
+# Also see ./acme.sh_acme_5a44e63.sh
+# The file $2 is an NGINX config. There exists a spec for this so it
+# could definitely be modeled.
+# Note: The script is still buggy post-commit.
+# ---
+
+# If NGINX configs were modeled we would know the possible values of [a-zA-Z]+ and [^ \t]+ in the annotation.
+# @file "$2": "[ \t]*[a-zA-Z]+[ \t]+[^ \t;]+;"
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
       _debug "Try include files"
@@ -3183,7 +3194,8 @@ _checkConf() {
 # - for included in $(cat "$2" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"); do
 # + for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
 ################################################################################
-# put stream annotation here
+
+# @file: "$2" "[ \t]*[a-zA-Z]+[ \t]+[^ \t;]+;"
 # stream enable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"
