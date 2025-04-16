@@ -1,4 +1,5 @@
 #!/bin/bash
+# stream disable
 
 cd "$(realpath $(dirname "$0"))"
 mkdir -p inputs

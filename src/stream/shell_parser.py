@@ -20,6 +20,14 @@ class ShellParser:
     def __init__(self, pipeline_address: str, enable_user_annotations: bool = True, extract_all_pipelines: bool = True) -> None:
         self.signature_loader = SignatureLoader()
         self.pipeline_address = pipeline_address
+        
+        # Check for stream disable in first two lines if extract_all_pipelines is True
+        if extract_all_pipelines:
+            with open(pipeline_address, 'r') as f:
+                first_two_lines = [f.readline().strip(), f.readline().strip()]
+                if any("# stream disable" in line for line in first_two_lines):
+                    extract_all_pipelines = False
+        
         self.extract_all_pipelines = extract_all_pipelines
         
         # Get pipeline nodes, possibly with their corresponding enable line numbers

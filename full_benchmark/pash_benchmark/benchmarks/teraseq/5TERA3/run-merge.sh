@@ -1,4 +1,5 @@
 #!/bin/bash
+# stream disable
 #
 # Merge all 5TERA3 together to one sample for future analysis
 #
@@ -105,10 +106,12 @@ done
 
 # Merge all sql dumps
 # Use one of the samples to get the header
+# stream enable
 line_num=`head -100 $sdir/db/${samples[0]}.sqlite.transcr.sql | grep -nP "^CREATE TABLE transcr" | cut -d":" -f1` # Get line number/size of header
 head -${line_num} $sdir/db/${samples[0]}.sqlite.transcr.sql > $sdir/db/sqlite.transcr.sql # Get the header from ultimate 6
 
 # Check the INDEX & COMMIT of the db and in case we are missing it append it manually
+# stream enable
 end_line=`cat $sdir/db/${samples[0]}.sqlite.transcr.sql | grep -nP "^CREATE INDEX transcr" | cut -d":" -f1` # Get line number/size of tail
 if [ -z "$end_line" ]; then
     echo -e "CREATE INDEX transcr_loc ON transcr (rname, start);\nCOMMIT;" > $sdir/db/sqlite.transcr.sql.tail.tmp # We can just add it manually
@@ -119,7 +122,7 @@ fi
 for i in "${samples[@]}"; do
     echo $i
     add_num=${RANDOM}0000000 # add $RANDOM ten-milion number to the start; assume we don't have more that 10M reads per library
-
+# stream enable
     grep -P "^INSERT" $sdir/db/$i.sqlite.transcr.sql | sed "s/INSERT INTO transcr VALUES(/INSERT INTO transcr VALUES($add_num/g" \
         >> $sdir/db/sqlite.transcr.sql # make unique id by adding ten-milions otherwise we get an error about not-unique id; keep it number makes it easier
 
@@ -138,10 +141,12 @@ done
 
 # Merge all sql dumps
 # use one of the samples to get the header
+# stream enable
 line_num=`head -100 $sdir/db/${samples[0]}.sqlite.genome.sql | grep -nP "^CREATE TABLE genome" | cut -d":" -f1` # Get line number/size of header
 head -${line_num} $sdir/db/${samples[0]}.sqlite.genome.sql > $sdir/db/sqlite.genome.sql # Get the header from ultimate 6
 
 # Check the INDEX & COMMIT of the db and in case we are missing it append it manually
+# stream enable
 end_line=`cat $sdir/db/${samples[0]}.sqlite.genome.sql | grep -nP "^CREATE INDEX genome" | cut -d":" -f1` # Get line number/size of tail
 if [ -z "$end_line" ]; then
     echo -e "CREATE INDEX genome_loc ON genome (rname, start);\nCOMMIT;" > $sdir/db/sqlite.genome.sql.tail.tmp # We can just add it manually
@@ -154,7 +159,7 @@ for i in "${samples[@]}"; do
     add_num=${RANDOM}0000000 # add $RANDOM ten-milion number to the start; assume we don't have more that 10M reads per library
 
     db=$i.sqlite.genome.sql
-
+# stream enable
     grep -P "^INSERT" $sdir/db/$i.sqlite.genome.sql | sed "s/INSERT INTO genome VALUES(/INSERT INTO genome VALUES($add_num/g" \
         >> $sdir/db/sqlite.genome.sql # make unique id by adding ten-milions otherwise we get an error about not-unique id; keep it number makes it easier
     rm $sdir/db/$i.sqlite.genome.sql
@@ -163,6 +168,7 @@ done
 cat $sdir/db/sqlite.genome.sql.tail.tmp >> $sdir/db/sqlite.genome.sql && rm $sdir/db/sqlite.genome.sql.tail.tmp # Append the tail and remove the temp
 
 # Make the "final" db
+# stream enable
 cat $sdir/db/sqlite.genome.sql $sdir/db/sqlite.transcr.sql | sqlite3 $sdir/db/sqlite.db && rm $sdir/db/sqlite.genome.sql $sdir/db/sqlite.transcr.sql
 
 conda deactivate # dliu add deactivate to match unmatched activate

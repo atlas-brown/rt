@@ -167,6 +167,7 @@ gmap -d genome -D gmap-2019-09-12 ../silva/ribosomal.hsa.fa -t $threads \
     > ribosomal.hsa.gmap.gff3 # Map ribosomal RNA to genome and get gff3 output to be added to the gene annotation
 gmap -d genome -D gmap-2019-09-12 ../silva/ribosomal.hsa.fa -t $threads \
     --suboptimal-score=0.0 -S > ribosomal.hsa.gmap-summary.txt # Map ribosomal RNA to genome and get txt output for manual check
+# @assume "gff2gtf-gmap ribosomal.hsa.gmap.gff3" --> "[0-9]+\tgmapidx\t[0-9]+\t[0-9]+\t[0-9]+.*"
 gff2gtf-gmap ribosomal.hsa.gmap.gff3 | sed "s/\tgmapidx\t/\tsilva\t/g" | sed "s/;$/; gene_biotype \"rRNA\"; transcript_biotype \"rRNA\";/g" \
     | sort -k1,1 -k4,4n > ribosomal.hsa.gmap.gtf # Convert GMAP gff3 to gtf
 
@@ -174,6 +175,7 @@ gtf2bed6 ribosomal.hsa.gmap.gtf | cut -f1-6 > rRNA.bed
 
 cat ensembl_genes.gtf | grep -v " \"rRNA\";" > ensembl_genes.gtf.tmp # Remove annotated rRNA from Ensembl but keep ribosomal - SILVA rRNA db doesn't annotate those
 cat ensembl_genes.gtf.tmp ribosomal.hsa.gmap.gtf > ensembl_genes.gtf.tmp2
+# @file "ensembl_genes.gtf.tmp2": "[0-9]+\tgmapidx\t[0-9]+\t[0-9]+\t[0-9]+.*"
 (grep "^#" ensembl_genes.gtf.tmp2; grep -v "^#" ensembl_genes.gtf.tmp2 | sort -k1,1 -k4,4n) > ensembl_genes.gtf # Add SILVA rRNA to Ensembl
 rm ensembl_genes.gtf.tmp ensembl_genes.gtf.tmp2
 gzip -c ensembl_genes.gtf > ensembl_genes.gtf.gz
@@ -386,11 +388,13 @@ gmap -d genome -D gmap-2019-09-12 ../silva/ribosomal.mmu.fa -t $threads \
     > ribosomal.mmu.gmap.gff3 # Map ribosomal RNA to genome and get gff3 output to be added to the gene annotation
 gmap -d genome -D gmap-2019-09-12 ../silva/ribosomal.mmu.fa -t $threads \
     --suboptimal-score=0.0 -S > ribosomal.mmu.gmap-summary.txt # Map ribosomal RNA to genome and get txt output for manual check
+# @assume "gff2gtf-gmap ribosomal.mmu.gmap.gff3" --> "[0-9]+\tgmapidx\t[0-9]+\t[0-9]+\t[0-9]+.*"
 gff2gtf-gmap ribosomal.mmu.gmap.gff3 | sed "s/\tgmapidx\t/\tsilva\t/g" | sed "s/;$/; gene_biotype \"rRNA\"; transcript_biotype \"rRNA\";/g" \
     | sort -k1,1 -k4,4n > ribosomal.mmu.gmap.gtf # Convert GMAP gff3 to gtf
 
 cat ensembl_genes.gtf | grep -v " \"rRNA\";" > ensembl_genes.gtf.tmp # Remove annotated rRNA from Ensembl but keep ribosomal - SILVA rRNA db doesn't annotate those
 cat ensembl_genes.gtf.tmp ribosomal.mmu.gmap.gtf > ensembl_genes.gtf.tmp2
+# @file "ensembl_genes.gtf.tmp2": "[0-9]+\tgmapidx\t[0-9]+\t[0-9]+\t[0-9]+.*"
 (grep "^#" ensembl_genes.gtf.tmp2; grep -v "^#" ensembl_genes.gtf.tmp2 | sort -k1,1 -k4,4n) > ensembl_genes.gtf # Add SILVA rRNA to Ensembl
 rm ensembl_genes.gtf.tmp ensembl_genes.gtf.tmp2
 gzip -c ensembl_genes.gtf > ensembl_genes.gtf.gz

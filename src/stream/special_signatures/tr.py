@@ -108,8 +108,12 @@ def expand_ranges(input_set: str) -> str:
     # FIXME: handle - character in set
     while "-" in result:
         index = result.index("-")
-        if index == 0 or index == len(result) - 1:
+        if index == 0:
             raise ToolError("Invalid set for tr (invalid range)")
+        if index == len(result) - 1:
+            exists_dash = True
+            result = result[:-1]
+            continue
         start = result[index - 1]
         end = result[index + 1]
         if ord(start) >= ord(end):

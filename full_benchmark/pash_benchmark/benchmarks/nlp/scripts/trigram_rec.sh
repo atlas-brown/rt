@@ -20,7 +20,9 @@ export -f pure_func
 
 for input in $(ls ${IN} | head -n ${ENTRIES} | xargs -I arg1 basename arg1)
 do
+    # @assume "pure_func ${input}" --> "[0-9]+"
     cat $IN/$input | grep 'the land of' | pure_func ${input} | sort -nr | sed 5q > ${OUT}/${input}.0.out
+    # @assume "pure_func ${input}" --> "[0-9]+"
     cat $IN/$input | grep 'And he said' | pure_func ${input} | sort -nr | sed 5q > ${OUT}/${input}.1.out
 done
 

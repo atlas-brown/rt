@@ -1,4 +1,5 @@
 #### Ported ####
+# stream disable
 # https://dfzljdn9uc3pi.cloudfront.net/2013/203/1/Supplement_S2.pdf
 set -e
 cd $PASH_TOP/evaluation/benchmarks/bio/bio1/input/

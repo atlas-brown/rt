@@ -11,7 +11,9 @@ pure_func() {
     input=$1
     TEMPDIR=$(mktemp -d)
     cat > ${TEMPDIR}/${input}.words
+    # @input ".*"
     tr -sc '[AEIOUaeiou\012]' ' ' < ${TEMPDIR}/${input}.words | awk '{print NF}' > ${TEMPDIR}/${input}.syl
+    # @assume "paste ${TEMPDIR}/${input}.syl ${TEMPDIR}/${input}.words" --> "[0-9]+"
     paste ${TEMPDIR}/${input}.syl ${TEMPDIR}/${input}.words | sort -nr | sed 5q
     rm -rf ${TEMPDIR}
 }

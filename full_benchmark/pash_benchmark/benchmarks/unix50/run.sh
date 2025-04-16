@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# stream disable
 export SUITE_DIR=$(realpath $(dirname "$0"))
 export TIMEFORMAT=%R
 cd $SUITE_DIR

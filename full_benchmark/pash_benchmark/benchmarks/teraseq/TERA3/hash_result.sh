@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# stream disable
 source ../PARAMS.sh
 
 samples=(
@@ -19,12 +19,15 @@ for f in "${samples[@]}"; do
                 zcat "$g" | sha256sum
             elif [[ "$g" == *.db ]]
             then
+                # stream enable
                 sqlite3 "$g" "SELECT * FROM genome transcr" | sha256sum
 	    elif [[ "$g" == *logfiles/cutadapt*.log ]]
 	    then
+        # stream enable
 		grep -v "Finished in " "$g" | sha256sum
 	    elif [[ "$g" == *logfiles/star*.log ]]
 	    then
+        # stream enable
 		cat "$g" | cut -d' ' -f5- | sha256sum
             else
                 sha256sum < "$g"

@@ -13,6 +13,7 @@ enable_rule_no_sort_non_numeric_with_numeric_input: true
 
 # File paths
 evaluation_notes_path: src/stream/evaluation_notes.json
+parsing_error_log_path: evaluation_results/parsing_errors.log
 
 # Output paths with annotations
 output_results_path_with_annotation: evaluation_results/with_annotations/evaluation_results.json

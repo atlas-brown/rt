@@ -120,6 +120,9 @@ class GrepSignature(CommandSignature):
 
         if "-n" in flags:
             pattern_type = RegularType("[0-9]+:") + pattern_type
-        pattern_type.tainted = previous_output_type.tainted
+        if "-P" in flags:
+            pattern_type.tainted = True
+        else:   
+            pattern_type.tainted = previous_output_type.tainted
         return pattern_type
         

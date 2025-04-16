@@ -36,14 +36,44 @@ import os
 import traceback
 import re
 import tempfile
+from datetime import datetime
+from stream.config.global_config import CONFIG
+
 INITIALIZE_LIBDASH = True
+
+def log_parsing_error(error_msg: str, file_path: str) -> None:
+    """Log parsing error to the configured error log file."""
+    error_log_path = CONFIG.get("parsing_error_log_path")
+    if error_log_path:
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        error_entry = f"[{timestamp}] Error parsing file: {file_path}\nError: {error_msg}\n"
+        
+        # If file path starts with /tmp, include file contents
+        if file_path.startswith("/tmp"):
+            try:
+                with open(file_path, "r") as f:
+                    file_contents = f.read()
+                error_entry += f"File contents:\n{file_contents}\n"
+            except Exception as e:
+                error_entry += f"Failed to read file contents: {e}\n"
+        
+        error_entry += "\n"  # Add extra newline for separation
+        
+        try:
+            with open(error_log_path, "a") as f:
+                f.write(error_entry)
+        except Exception as e:
+            logging.error(f"Failed to write to parsing error log: {e}")
+
 ## Parses straight a shell script to an AST
 ## through python without calling it as an executable
 def parse_shell_to_asts(input_script_path : str):
     global INITIALIZE_LIBDASH
     try:
         if not os.path.isfile(input_script_path):
-            raise libdash.parser.ParsingException(f"File {input_script_path} does not exist")
+            error_msg = f"File {input_script_path} does not exist"
+            log_parsing_error(error_msg, input_script_path)
+            raise libdash.parser.ParsingException(error_msg)
         logging.debug(f"Calling libdash parser initialization={INITIALIZE_LIBDASH} on {input_script_path}")
         new_ast_objects = libdash.parser.parse(input_script_path,init=INITIALIZE_LIBDASH)
         INITIALIZE_LIBDASH = False
@@ -65,8 +95,10 @@ def parse_shell_to_asts(input_script_path : str):
         logging.debug("Returning typed Shasta objects")
         return typed_ast_objects
     except Exception as e:
-        # INITIALIZE_LIBDASH = True
-        logging.error("Parsing error!", traceback.format_exc())
+        error_msg = traceback.format_exc()
+        log_parsing_error(error_msg, input_script_path)
+        logging.error("Parsing error!", error_msg)
+        return None
 
 
 def traverse_node(nd : AstNode) -> list[PipeNode]:
@@ -211,7 +243,8 @@ def extract_single_pipeline(script_content: list[str], enable_line_index: int) -
         
         # Continue if previous line ends with \ or | or current line starts with #
         if prev_line.endswith('\\') or prev_line.endswith('|') or current_line_text.startswith('#'):
-            pipeline_lines.append(script_content[current_line])
+            if not current_line_text.startswith('#'):
+                pipeline_lines.append(script_content[current_line])
             current_line += 1
         else:
             break

@@ -17,9 +17,11 @@ class Config:
         self.PROJECT_ROOT = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         self.CONFIG_DIR = self.PROJECT_ROOT / "config"
         self.EVALUATION_DIR = self.PROJECT_ROOT / "evaluation_results"
+        self.LOGS_DIR = self.PROJECT_ROOT / "logs"
         
         os.makedirs(self.EVALUATION_DIR, exist_ok=True)
         os.makedirs(self.CONFIG_DIR, exist_ok=True)
+        os.makedirs(self.LOGS_DIR, exist_ok=True)
         
         # Define default output paths
         default_with_annotation_dir = self.EVALUATION_DIR / "with_annotations"
@@ -38,6 +40,7 @@ class Config:
             "enable_rule_no_sort_non_numeric_with_numeric_input": True,
             
             "evaluation_notes_path": str(self.PROJECT_ROOT / "evaluation_notes.json"),
+            "parsing_error_log_path": str(self.LOGS_DIR / "parsing_errors.log"),
             
             # Output paths with annotations
             "output_results_path_with_annotation": str(default_with_annotation_dir / "evaluation_results.json"),

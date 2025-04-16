@@ -53,7 +53,7 @@ class SortSignature(CommandSignature):
                     except Exception as e:
                         return RegularType(".*"), RegularType(".*", possible_line_numbers=(0, 1))
                     if "n" in flag:
-                        pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[^\t ]{{{start - 1}}}[0-9].*"
+                        pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[0-9].*"
                         input_type = input_type & RegularType(pattern)
             else:
                 if flag == "":

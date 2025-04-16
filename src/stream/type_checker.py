@@ -137,7 +137,10 @@ class TypeChecker:
                             checking_result.set_message(
                                 f"Output type '{current_output_type}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
                             )
-                            checking_result.tainted = current_output_type.tainted
+                            if "\n" not in annotation.pattern:
+                                checking_result.tainted = current_output_type.tainted
+                            else:
+                                checking_result.tainted = True
                             return checking_result
                         
                 for annotation in corresponding_annotations:
