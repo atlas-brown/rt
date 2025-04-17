@@ -26,7 +26,10 @@ def main(evaluation_result_file, baseline_csv, length_time_csv, stats_csv):
     
     for result in data.get('evaluation_results', []):
         address = result.get('address')
-        time_val = parse_time(result.get('evaluation_time', "0s"))
+        time_val = result.get('evaluation_time')
+        if time_val == "0s":
+            continue
+        time_val = parse_time(time_val)
         times.append(time_val)
         
         try:
