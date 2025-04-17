@@ -18,6 +18,7 @@ def check_pipeline(file_path: str, shellcheck : bool = False):
         logging.debug(command)
         logging.debug("-"*60)
     logging.debug("\n\n\nTypechecking results:")
+    logging.debug(f"parsed pipelines: {type_checker.pipelines}")
     for checking_result in type_checker:
         logging.debug(checking_result)
         logging.debug("-"*60)
@@ -52,6 +53,7 @@ def main():
                 if pipeline:
                     with tempfile.NamedTemporaryFile(delete=True, suffix='.sh') as temp_file:
                         temp_file.write(pipeline.encode())
+                        temp_file.flush()
                         check_pipeline(temp_file.name, args.shellcheck)
             except EOFError:
                 break
