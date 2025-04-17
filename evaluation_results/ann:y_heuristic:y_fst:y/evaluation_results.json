@@ -2687,7 +2687,7 @@
             "tainted": false,
             "pipeline_length": 9,
             "automata_size": 2,
-            "category": "Bad label",
+            "category": "Bad heuristics",
             "notes": "",
             "tag": ""
         },
