@@ -1,6 +1,6 @@
 Length,Time,Content
 3,0.01,"cat ${BENCHMARK}.hash | cut -d"" "" -f 2 | grep -c 1"
-2,0.0,"cat ${IN}/${IN_NAME} | while read s_line; do { { { { { { sample=$(echo ${s_line} | cut -d "" "" -f 2) ; } 
+2,0.03,"cat ${IN}/${IN_NAME} | while read s_line; do { { { { { { sample=$(echo ${s_line} | cut -d "" "" -f 2) ; } 
  { pop=$(echo ${s_line} | cut -f 1 -d "" "") ; } ; } 
  { link=$(echo ${s_line} | cut -f 3 -d "" "") ; } ; } 
  { echo ""Processing Sample ""${IN}/input/${sample}"" "" ; } ; } 
@@ -13,21 +13,21 @@ Length,Time,Content
 2,0.0,"echo ${s_line} | cut -d "" "" -f 2"
 2,0.0,"echo ${s_line} | cut -f 1 -d "" """
 2,0.0,"echo ${s_line} | cut -f 3 -d "" """
-3,0.0,"samtools view -H ""${IN}/input/${sample}"".bam | sed -e ""s/SN:\\([0-9XY]\\)/SN:chr\\1/"" -e ""s/SN:MT/SN:chrM/"" | samtools reheader - ""${IN}/input/${sample}"".bam >""${OUT}/${sample}""_corrected.bam"
+3,0.01,"samtools view -H ""${IN}/input/${sample}"".bam | sed -e ""s/SN:\\([0-9XY]\\)/SN:chr\\1/"" -e ""s/SN:MT/SN:chrM/"" | samtools reheader - ""${IN}/input/${sample}"".bam >""${OUT}/${sample}""_corrected.bam"
 4,0.0,"cut -f 2 ./Gene_locs.txt | sort | uniq | while read chr; do { { { echo ""Isolating Chromosome ""${chr}"" from sample ""${OUT}/${sample}"",  "" ; } 
  { samtools view -b ""${OUT}/${sample}""_corrected.bam chr""${chr}"" >""${OUT}/${pop}""_""${sample}""_""${chr}"".bam ; } ; } 
  { echo ""Indexing Sample ""${pop}""_""${OUT}/${sample}"" "" ; } ; } 
  { samtools index -b ""${OUT}/${pop}""_""${sample}""_""${chr}"".bam ; }; done "
-2,0.0,bwa mem genome.fa reads.fastq | samtools sort -o output.bam -
+2,0.01,bwa mem genome.fa reads.fastq | samtools sort -o output.bam -
 6,0.0,bwa sampe ./hg19.fasta ./s1_1.sai ./s1_2.sai ./s1_1.fastq ./s1_2.fastq | samtools view -Shu - | samtools sort - - | samtools rmdup -s - - | tee s1_sorted_nodup.bam | bamToBed >s1_sorted_nodup.bed
 5,0.0,samtools merge - *.bam | samtools rmdup - - | samtools mpileup - uf ./hg19.fasta - | bcftools view -bvcg - | gzip >var.raw.bcf.gz
-9,0.0,"minimap2 -a -x sr -t ""${CPUS}"" ""${REF}"" ""${R1}"" ""${R2}"" | samtools sort -l 0 --threads ""${CPUS}"" | bcftools mpileup -Ou -B --min-MQ 60 -f ""${REF}"" - | bcftools call -Ou -v -m - | bcftools norm -Ou -f ""${REF}"" -d all - | bcftools filter -Ov -e ""QUAL<40 || DP<10 || GT!=\""1/1\"""" | bcftools stats | grep ""^SN"" | cut -f3- >${OUT}"
-11,0.01,"cat ${IN} | csvcut -t -K 1 -c ""excluded_from_refseq"" | tail -n +2 | tr "";"" ""\\n"" | sed -e ""s/^ //"" -e ""s/ \$//"" | grep -v ""\""\"""" | sort | uniq -c | sort -nr | head -n 10 | nl >${OUT}"
+9,0.01,"minimap2 -a -x sr -t ""${CPUS}"" ""${REF}"" ""${R1}"" ""${R2}"" | samtools sort -l 0 --threads ""${CPUS}"" | bcftools mpileup -Ou -B --min-MQ 60 -f ""${REF}"" - | bcftools call -Ou -v -m - | bcftools norm -Ou -f ""${REF}"" -d all - | bcftools filter -Ov -e ""QUAL<40 || DP<10 || GT!=\""1/1\"""" | bcftools stats | grep ""^SN"" | cut -f3- >${OUT}"
+11,0.02,"cat ${IN} | csvcut -t -K 1 -c ""excluded_from_refseq"" | tail -n +2 | tr "";"" ""\\n"" | sed -e ""s/^ //"" -e ""s/ \$//"" | grep -v ""\""\"""" | sort | uniq -c | sort -nr | head -n 10 | nl >${OUT}"
 2,0.0,"find . -name ""*.bam"" | xargs -I {} samtools view -h -o ${OUTPUT} {}"
 2,0.0,"find . -maxdepth 1 -name ""*.fastq"" | xargs -I {} cutadapt -o ${OUTPUT}/{}.fasta.gz {}"
 4,0.0,"find ${INPUT} -name ""*.fastq"" | sort | uniq | xargs -I {} cutadapt -a AGATCGGAAGAGCACAC {} >/dev/null"
 2,0.0,"find . -maxdepth 1 -name ""*.fastq"" | xargs -I {} cutadapt -a TCCTCCGCTTATTGATAGC -o ${OUTPUT}/{}_trimmed.fastq {}"
-2,0.0,dpkg -s samtools | grep Version
+2,0.01,dpkg -s samtools | grep Version
 2,0.0,"cat ${IN}/${IN_NAME} | while read s_line; do { sample=$(echo ${s_line} | cut -d "" "" -f 2) ; } 
  { if [[ ! -f ${sample} ]]; then { { pop=$(echo ${s_line} | cut -f 1 -d "" "") ; } 
  { link=$(echo ${s_line} | cut -f 3 -d "" "") ; } ; } 
@@ -41,7 +41,7 @@ Length,Time,Content
 9,0.02,"cat ""${1}"" | sed ""s/T..:..:..//"" | cut -d "","" -f 3,1 | sort -u | cut -d "","" -f 2 | sort | uniq -c | sort -k 1 -n | awk ""{print \$2,\$1}"""
 9,0.02,"cat ""${1}"" | sed ""s/T\\(..\\):..:../,\\1/"" | cut -d "","" -f 1,2,4 | sort -u | cut -d "","" -f 3 | sort | uniq -c | sort -k 1 -n | awk ""{print \$2,\$1}"""
 8,0.01,"cat ""${1}"" | sed ""s/T\\(..\\):..:../,\\1/"" | cut -d "","" -f 1,2 | sort -u | cut -d "","" -f 1 | sort | uniq -c | awk ""{print \$2,\$1}"""
-2,0.0,"sed ""s/T\\(..\\):..:../,\\1/"" <in.csv | awk -F, ""
+2,0.01,"sed ""s/T\\(..\\):..:../,\\1/"" <in.csv | awk -F, ""
 !seen[$1 $2 $4] { seen[$1 $2 $4] = 1; hours[$1 $4]++; bus[$4] = 1; day[$1] = 1; }
 END {
    PROCINFO[\""sorted_in\""] = \""@ind_str_asc\""
@@ -57,9 +57,9 @@ END {
 }"" >out"
 2,0.0,cat ${item} | gzip --no-name -c >${output_name}
 2,0.0,cat ${item} | pure_func >${output_name}
-6,0.01,"tee ${tempfile} | cut -d ""\"""" -f3 | cut -d "" "" -f2 | sort | uniq -c | sort -rn"
-4,0.02,"awk ""{print $9}"" ${tempfile} | sort | uniq -c | sort -rn"
-5,0.01,"awk ""($9 ~ /404/)"" ${tempfile} | awk ""{print $7}"" | sort | uniq -c | sort -rn"
+6,0.02,"tee ${tempfile} | cut -d ""\"""" -f3 | cut -d "" "" -f2 | sort | uniq -c | sort -rn"
+4,0.0,"awk ""{print $9}"" ${tempfile} | sort | uniq -c | sort -rn"
+5,0.0,"awk ""($9 ~ /404/)"" ${tempfile} | awk ""{print $7}"" | sort | uniq -c | sort -rn"
 5,0.0,"awk ""($9 ~ /502/)"" ${tempfile} | awk ""{print $7}"" | sort | uniq -c | sort -r"
 5,0.0,"awk -F\"" ""($2 ~ \""/wp-admin/install.php\""){print $1}"" ${tempfile} | awk ""{print $1}"" | sort | uniq -c | sort -r"
 7,0.0,"awk ""($9 ~ /404/)"" ${tempfile} | awk -F\"" ""($2 ~ \""^GET .*.php\"")"" | awk ""{print $7}"" | sort | uniq -c | sort -r | head -n 20"
@@ -67,12 +67,12 @@ END {
 5,0.0,"awk -F\"" ""($2 ~ \""ref\""){print $2}"" ${tempfile} | awk ""{print $2}"" | sort | uniq -c | sort -r"
 2,0.0,cat ${log} | pure_func >${logname}
 4,0.01,"tcpdump -nn -r ${tempfile} -A ""port 53"" 2>/dev/null | sort | uniq | grep -Ev ""(com|net|org|gov|mil|arpa)"" 2>/dev/null"
-2,0.02,"tcpdump -nn -r ${tempfile} -s 0 -v -n -l 2>/dev/null | egrep -i ""POST /|GET /|Host:"" 2>/dev/null"
-2,0.02,"tcpdump -nn -r ${tempfile} -s 0 -A -n -l 2>/dev/null | egrep -i ""POST /|pwd=|passwd=|password=|Host:"" 2>/dev/null"
+2,0.01,"tcpdump -nn -r ${tempfile} -s 0 -v -n -l 2>/dev/null | egrep -i ""POST /|GET /|Host:"" 2>/dev/null"
+2,0.01,"tcpdump -nn -r ${tempfile} -s 0 -A -n -l 2>/dev/null | egrep -i ""POST /|pwd=|passwd=|password=|Host:"" 2>/dev/null"
 2,0.0,cat ${item} | pure_func >${logname}
 10,0.0,"seq ${FROM} ${TO} | sed ""s;^;${URL};"" | sed ""s;$;/;"" | xargs -n1 -r curl --insecure | grep gz | sed ""s;.*\""\\\(.*\\\)\\\(20[0-9][0-9]\\\).gz\"".*;${URL}\\2/\\1\\2.gz;"" | tail -n +${sample_starting_index} | head -n ${sample_count} | xargs -n1 curl --insecure | gunzip >""${input_dir}/temperatures.full.txt"""
-5,0.02,"cat ""${input_file}"" | cut -c 89-92 | grep -v 999 | sort -rn | head -n1 >${statistics_dir}/max.txt"
-5,0.01,"cat ""${input_file}"" | cut -c 89-92 | grep -v 999 | sort -n | head -n1 >${statistics_dir}/min.txt"
+5,0.01,"cat ""${input_file}"" | cut -c 89-92 | grep -v 999 | sort -rn | head -n1 >${statistics_dir}/max.txt"
+5,0.0,"cat ""${input_file}"" | cut -c 89-92 | grep -v 999 | sort -n | head -n1 >${statistics_dir}/min.txt"
 4,0.0,"cat ""${input_file}"" | cut -c 89-92 | grep -v 999 | awk ""{ total += \$1; count++ } END { print total/count }"" >${statistics_dir}/average.txt"
 2,0.0,"hash_audio_dir ""${results_dir}/${bench}"" | diff -q ""${hashes_dir}/${bench}.md5sum"" -"
 2,0.0,cat ${i} | pure_func >${out}
@@ -103,18 +103,18 @@ END {
 3,0.0,"cat ${input2} | tr -sc ""[A-Z][a-z]"" ""[\\012*]"" | sort -u >${TEMPDIR}/${input}2.types"
 3,0.0,sort ${TEMPDIR}/${input}1.types ${TEMPDIR}/${input}2.types ${TEMPDIR}/${input}2.types | uniq -c | head
 5,0.0,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | sort -u | pure_func ${input} ${INPUT2} >${OUT}/${input}.out"
-5,0.0,"cat ${IN}/${input} | tr ""[a-z]"" ""[A-Z]"" | tr -sc ""BCDFGHJKLMNPQRSTVWXYZ"" ""[\\012*]"" | sort | uniq -c >${OUT}/${input}.out"
-5,0.0,"cat ${IN}/${input} | sed ""s/ly\$/-ly/g"" | sed ""s/ .*//g"" | sort | uniq -c >${OUT}/${input}.out"
-3,0.01,paste ${TEMPDIR}/${input}.words ${TEMPDIR}/${input}.nextwords ${TEMPDIR}/${input}.nextwords2 | sort | uniq -c
+5,0.01,"cat ${IN}/${input} | tr ""[a-z]"" ""[A-Z]"" | tr -sc ""BCDFGHJKLMNPQRSTVWXYZ"" ""[\\012*]"" | sort | uniq -c >${OUT}/${input}.out"
+5,0.01,"cat ${IN}/${input} | sed ""s/ly\$/-ly/g"" | sed ""s/ .*//g"" | sort | uniq -c >${OUT}/${input}.out"
+3,0.0,paste ${TEMPDIR}/${input}.words ${TEMPDIR}/${input}.nextwords ${TEMPDIR}/${input}.nextwords2 | sort | uniq -c
 4,0.0,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | pure_func ${input} >${OUT}/${input}.trigrams"
 5,0.0,"cat ${IN}/${input} | tr ""a-z"" ""[A-Z]"" | tr -sc ""AEIOU"" ""[\\012*]"" | sort | uniq -c >${OUT}/${input}.out"
 5,0.0,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | sort | uniq -c >${1}/${input}.out"
 3,0.0,"sort ${TEMPDIR}/${input}.types ${TEMPDIR}/${input}.types.rev | uniq -c | awk ""\$1 >= 2 {print \$2}"""
 4,0.0,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | pure_func ${input} >${OUT}/${input}.out"
-4,0.0,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | grep -c ""^....$"" >${OUT}/${input}.out0"
-5,0.0,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | sort -u | grep -c ""^....$"" >${OUT}/${input}.out1"
+4,0.01,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | grep -c ""^....$"" >${OUT}/${input}.out0"
+5,0.01,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | sort -u | grep -c ""^....$"" >${OUT}/${input}.out1"
 6,0.01,"cat ${IN}/${input} | tr ""[a-z]"" ""[A-Z]"" | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | sort | uniq -c >${OUT}/${input}.out"
-6,0.02,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | sort | uniq -c | sort -nr >${OUT}/${input}.out"
+6,0.01,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | sort | uniq -c | sort -nr >${OUT}/${input}.out"
 6,0.0,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | sort | uniq -c | sort -f >${OUT}/${input}"
 2,0.0,"tr -sc ""[AEIOUaeiou\\012]"" "" "" <${TEMPDIR}/${input}.words | awk ""{print NF}"" >${TEMPDIR}/${input}.syl"
 3,0.0,paste ${TEMPDIR}/${input}.syl ${TEMPDIR}/${input}.words | sort -nr | sed 5q
@@ -122,14 +122,14 @@ END {
 8,0.01,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | sort | uniq -c | rev | sort | rev >${OUT}/${input}.out"
 7,0.01,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | grep -i ""^[^aeiou]*[aeiou][^aeiou]*$"" | sort | uniq -c | sed 5q >${OUT}/${input}.out"
 7,0.01,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | grep -i ""^[^aeiou]*[aeiou][^aeiou]*[aeiou][^aeiou]$"" | sort | uniq -c | sed 5q >${OUT}${input}.out"
-3,0.0,paste ${TEMPDIR}/${input}.words ${TEMPDIR}/${input}.nextwords ${TEMPDIR}/${input}.nextwords2 | sort | uniq -c
+3,0.01,paste ${TEMPDIR}/${input}.words ${TEMPDIR}/${input}.nextwords ${TEMPDIR}/${input}.nextwords2 | sort | uniq -c
 5,0.0,"cat ${IN}/${input} | grep ""the land of"" | pure_func ${input} | sort -nr | sed 5q >${OUT}/${input}.0.out"
-5,0.0,"cat ${IN}/${input} | grep ""And he said"" | pure_func ${input} | sort -nr | sed 5q >${OUT}/${input}.1.out"
-4,0.0,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | grep -c ""^[A-Z]"" >${OUT}/${input}.out"
+5,0.01,"cat ${IN}/${input} | grep ""And he said"" | pure_func ${input} | sort -nr | sed 5q >${OUT}/${input}.1.out"
+4,0.01,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | grep -c ""^[A-Z]"" >${OUT}/${input}.out"
 5,0.0,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | sort -u | grep -c ""^[A-Z]"" >${OUT}/${input}.out"
 2,0.0,"cat ${IN}/${input} | grep -c ""light.\\*light"" >${OUT}/${input}.out0"
 2,0.0,"cat ${IN}/${input} | grep -c ""light.\\*light.\\*light"" >${OUT}/${input}.out1"
-3,0.02,"cat ${IN}/${input} | grep ""light.\\*light"" | grep -vc ""light.\\*light.\\*light"" >${OUT}/${input}.out2"
+3,0.01,"cat ${IN}/${input} | grep ""light.\\*light"" | grep -vc ""light.\\*light.\\*light"" >${OUT}/${input}.out2"
 7,0.01,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | tr -sc ""AEIOUaeiou"" ""[\\012*]"" | sort | uniq -c | awk ""\$1 >= 1000"" >${OUT}/${input}.out"
 6,0.01,"cat ${IN}/${input} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | grep -vi ""[aeiou]"" | sort | uniq -c >${OUT}/${input}.out"
 2,0.0,"shasum -a 256 ""${file}"" | awk ""{ print $1 }"""
@@ -139,14 +139,14 @@ END {
 2,0.0,{ cat ${temp} | tail -n 1 >${AUX_TAIL} & }
 3,0.0,{ cat ${temp} | tail -n +2 | paste ${aux3} - >${OUT} & }
 7,0.01,"cat ${1} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | tr A-Z a-z | bigrams_aux | sort | uniq"
-3,0.0,{ cat ${1} | tr [:lower:] [:upper:] | sort >s1 & }
+3,0.01,{ cat ${1} | tr [:lower:] [:upper:] | sort >s1 & }
 3,0.0,{ cat ${1} | tr [:upper:] [:lower:] | sort >s2 & }
 3,0.01,"cat ${1} | tr A-Z a-z | grep ""\\(.\\).*\\1\\(.\\).*\\2\\(.\\).*\\3\\(.\\).*\\4"""
-4,0.0,"{ cat ${1} | cut -d "" "" -f 1 | tr [:lower:] [:upper:] | sort >s1 & }"
+4,0.01,"{ cat ${1} | cut -d "" "" -f 1 | tr [:lower:] [:upper:] | sort >s1 & }"
 3,0.0,"{ cat ${1} | cut -d "" "" -f 1 | sort >s2 & }"
-4,0.0,cat ${1} | tr A-Z a-z | sort | sort -r
+4,0.01,cat ${1} | tr A-Z a-z | sort | sort -r
 2,0.0,cat ${1} | sort
-9,0.02,"cat ${1} | iconv -f utf-8 -t ascii//translit | col -bx | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | tr -d ""[:punct:]"" | sort | uniq | comm -23 - ${dict}"
+9,0.01,"cat ${1} | iconv -f utf-8 -t ascii//translit | col -bx | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | tr -d ""[:punct:]"" | sort | uniq | comm -23 - ${dict}"
 8,0.01,"cat ${1} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | tr A-Z a-z | sort | uniq -c | sort -rn | sed 100q"
 7,0.01,"cat ${1} | tr -c ""A-Za-z"" ""[\\n*]"" | grep -v ""^\\s*$"" | tr A-Z a-z | sort | uniq -c | sort -rn"
 2,0.01,"cc -v 2>&1 | sed -n ""s/.*version \\(.*\\)/\\1/p"""
@@ -161,11 +161,11 @@ END {
 2,0.01,"echo ""char_u *all_lflags = (char_u *)\""gcc ""${LFLAGS}"" -o vim ""${LIBS}""\"";"" | sed -e ""s/[\\\\\""]/\\\\&/g"" -e ""s/\\\\\""/\""/"" -e ""s/\\\\\"";\$/\"";/"" -e ""s/  */ /g"" >>auto/pathdef.c"
 2,0.01,"echo ""char_u *compiled_user = (char_u *)\"""" | tr -d ""\\012"" >>auto/pathdef.c"
 2,0.0,"logname | tr -d ""\\012"" >>auto/pathdef.c"
-2,0.0,"echo ""char_u *compiled_sys = (char_u *)\"""" | tr -d ""\\012"" >>auto/pathdef.c"
+2,0.01,"echo ""char_u *compiled_sys = (char_u *)\"""" | tr -d ""\\012"" >>auto/pathdef.c"
 2,0.0,"hostname | tr -d ""\\012"" >>auto/pathdef.c"
 2,0.01,"cc -v 2>&1 | sed -n ""s/.*version \\(.*\\)/\\1/p"""
 4,0.0,"echo ${CFLAGS} | sed ""s/\\\\(/\\(/g"" | sed ""s/\\\\)/\\)/g"" | sed ""s/\""/\\\\\""/g"""
-2,0.0,ls *.c | grep -v lua_
+2,0.01,ls *.c | grep -v lua_
 2,0.0,( { git show-ref --head --hash=8 2>/dev/null ; } || { echo 00000000 ; } ) | head -n1
 2,0.0,git diff --no-ext-diff 2>/dev/null | wc -l
 2,0.0,cat parse.h ./src/vdbe.c | tclsh8.6 ./tool/mkopcodeh.tcl >opcodes.h
@@ -180,15 +180,15 @@ END {
 2,0.0,"sqlite3 ""${g}"" ""SELECT * FROM genome transcr"" | sha256sum"
 2,0.0,"grep -v ""Finished "" ""${g}"" | sha256sum"
 3,0.0,"cat ""${g}"" | cut -d"" "" -f5- | sha256sum"
-3,0.01,"zcat ""${sdir}""/fastq/reads.1.fastq.gz | fastq-sanitize-header --input - --delim : --keep 0 | gzip >""${sdir}""/fastq/reads.1.sanitize.fastq.gz"
+3,0.02,"zcat ""${sdir}""/fastq/reads.1.fastq.gz | fastq-sanitize-header --input - --delim : --keep 0 | gzip >""${sdir}""/fastq/reads.1.sanitize.fastq.gz"
 4,0.0,"zcat ""${sdir}""/fastq/reads.1.sanitize.w_rel5.fastq.gz | paste - - - - | cut -f1 | sed ""s/^@//g"" >""${sdir}""/fastq/reads.1.sanitize.w_rel5.names.txt"
 4,0.0,"zcat ""${sdir}""/fastq/reads.1.sanitize.wo_rel5.fastq.gz | paste - - - - | cut -f1 | sed ""s/^@//g"" >""${sdir}""/fastq/reads.1.sanitize.wo_rel5.names.txt"
 3,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/ensembl-transcripts-wRibo.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam"
 2,0.0,"samtools view -@ ${threads} -F4 ""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam | grep -v -P ""\\tENST"" >>""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam"
-4,0.0,"cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt"
+4,0.01,"cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt"
 2,0.0,"samtools view -@ ${threads} -bh ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | samtools sort -@ ${threads} - >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.bam"
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome-polya.sorted.bam"
-6,0.0,"minimap2 -a -x splice -k 12 -p 1 -u b -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/genome.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam"
+6,0.02,"minimap2 -a -x splice -k 12 -p 1 -u b -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/genome.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam"
 3,0.0,"cat ""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 16 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table transcr --records_class GenOOx::Data::File::SAMminimap2::Record --drop"
 3,0.0,"cat ""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table genome --records_class GenOOx::Data::File::SAMminimap2::Record --drop"
 3,0.01,"{ zcat ""${sdir}""/fastq/reads.1.fastq.gz | fastq-sanitize-header --input - --delim : --keep 0 | gzip >""${sdir}""/fastq/reads.1.sanitize.fastq.gz & }"
@@ -196,7 +196,7 @@ END {
 4,0.0,"{ zcat ""${sdir}""/fastq/reads.1.sanitize.wo_rel5.fastq.gz | paste - - - - | cut -f1 | sed ""s/^@//g"" >""${sdir}""/fastq/reads.1.sanitize.wo_rel5.names.txt & }"
 3,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/ensembl-transcripts-wRibo.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam"
 2,0.0,"samtools view -@ ${threads} -F4 ""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam | grep -v -P ""\\tENST"" >>""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam"
-4,0.0,"{ cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt & }"
+4,0.01,"{ cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt & }"
 2,0.0,"samtools view -@ ${threads} -bh ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | samtools sort -@ ${threads} - >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.bam"
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome-polya.sorted.bam"
 6,0.0,"minimap2 -a -x splice -k 12 -p 1 -u b -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/genome.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam"
@@ -220,8 +220,8 @@ END {
 4,0.0,"{ zcat ""${sdir}""/fastq/reads.1.sanitize.w_rel5.fastq.gz | paste - - - - | cut -f1 | sed ""s/^@//g"" >""${sdir}""/fastq/reads.1.sanitize.w_rel5.names.txt & }"
 4,0.0,"{ zcat ""${sdir}""/fastq/reads.1.sanitize.wo_rel5.fastq.gz | paste - - - - | cut -f1 | sed ""s/^@//g"" >""${sdir}""/fastq/reads.1.sanitize.wo_rel5.names.txt & }"
 3,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/ensembl-transcripts-wRibo.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam"
-2,0.0,"samtools view -@ ${threads} -F4 ""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam | grep -v -P ""\\tENST"" >>""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam"
-4,0.0,"{ cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt & }"
+2,0.01,"samtools view -@ ${threads} -F4 ""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam | grep -v -P ""\\tENST"" >>""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam"
+4,0.01,"{ cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt & }"
 2,0.0,"samtools view -@ ${threads} -bh ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | samtools sort -@ ${threads} - >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.bam"
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome-polya.sorted.bam"
 6,0.0,"minimap2 -a -x splice -k 12 -p 1 -u b -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/genome.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam"
@@ -233,11 +233,11 @@ END {
 3,0.01,"head -100 ${sdir}/db/ | grep -nP ""^CREATE TABLE transcr"" | cut -d"":"" -f1"
 3,0.01,"cat ${sdir}/db/ | grep -nP ""^CREATE INDEX transcr"" | cut -d"":"" -f1"
 2,0.0,"grep -P ""^INSERT"" ${sdir}/db/${i}.sqlite.transcr.sql | sed ""s/INSERT INTO transcr VALUES(/INSERT INTO transcr VALUES(${add_num}/g"" \  >>${sdir}/db/sqlite.transcr.sql"
-3,0.01,"head -100 ${sdir}/db/ | grep -nP ""^CREATE TABLE genome"" | cut -d"":"" -f1"
+3,0.0,"head -100 ${sdir}/db/ | grep -nP ""^CREATE TABLE genome"" | cut -d"":"" -f1"
 3,0.0,"cat ${sdir}/db/ | grep -nP ""^CREATE INDEX genome"" | cut -d"":"" -f1"
 2,0.0,"grep -P ""^INSERT"" ${sdir}/db/${i}.sqlite.genome.sql | sed ""s/INSERT INTO genome VALUES(/INSERT INTO genome VALUES(${add_num}/g"" \  >>${sdir}/db/sqlite.genome.sql"
 2,0.0,cat ${sdir}/db/sqlite.genome.sql ${sdir}/db/sqlite.transcr.sql | sqlite3 ${sdir}/db/sqlite.db
-3,0.01,"zcat ""${sdir}""/fastq/reads.1.fastq.gz | fastq-sanitize-header --input - --delim : --keep 0 | gzip >""${sdir}""/fastq/reads.1.sanitize.fastq.gz"
+3,0.02,"zcat ""${sdir}""/fastq/reads.1.fastq.gz | fastq-sanitize-header --input - --delim : --keep 0 | gzip >""${sdir}""/fastq/reads.1.sanitize.fastq.gz"
 4,0.0,"zcat ""${sdir}""/fastq/reads.1.sanitize.w_rel5.fastq.gz | paste - - - - | cut -f1 | sed ""s/^@//g"" >""${sdir}""/fastq/reads.1.sanitize.w_rel5.names.txt"
 4,0.0,"zcat ""${sdir}""/fastq/reads.1.sanitize.wo_rel5.fastq.gz | paste - - - - | cut -f1 | sed ""s/^@//g"" >""${sdir}""/fastq/reads.1.sanitize.wo_rel5.names.txt"
 4,0.0,"gunzip -c ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | seqkit seq -m $((N+1)) | seqkit subseq -r -${N}:-1 | gzip -c >""${sdir}""/fastq/tmp1.fastq.gz"
@@ -248,13 +248,13 @@ END {
 4,0.0,"zcat ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | seqtk subseq - ""${sdir}""/fastq/reads.1.sanitize.wo_rel3.names.txt | seqkit seq -m 25 | gzip -c >""${sdir}""/fastq/reads.1.sanitize.wo_rel3.fastq.gz"
 3,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/ensembl-transcripts-wRibo.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel3_trim.fastq.gz | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam"
 2,0.0,"samtools view -@ ${threads} -F4 ""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam | grep -v -P ""\\tENST"" >>""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam"
-4,0.01,"cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt"
+4,0.0,"cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt"
 2,0.0,"samtools view -@ ${threads} -bh ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | samtools sort -@ ${threads} - >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.bam"
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome-polya.sorted.bam"
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts-total.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome-total.sorted.bam"
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts-total.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo-nanopolish.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo-nanopolish.toTranscriptome-total.sorted.bam"
 6,0.0,"minimap2 -a -x splice -k 12 -p 1 -u b -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/genome.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel3_trim.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam"
-3,0.0,"cat ""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 16 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table transcr --records_class GenOOx::Data::File::SAMminimap2::Record --drop"
+3,0.01,"cat ""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 16 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table transcr --records_class GenOOx::Data::File::SAMminimap2::Record --drop"
 3,0.0,"cat ""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table genome --records_class GenOOx::Data::File::SAMminimap2::Record --drop"
 3,0.01,"head -100 ""${sdir}""/db/""${firstsample}"".sqlite.transcr.sql | grep -nP ""^CREATE TABLE transcr"" | cut -d"":"" -f1"
 3,0.01,"cat ""${sdir}""/db/""${firstsample}"".sqlite.transcr.sql | grep -nP ""^CREATE INDEX transcr"" | cut -d"":"" -f1"
@@ -279,24 +279,24 @@ END {
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome-polya.sorted.bam"
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts-total.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome-total.sorted.bam"
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts-total.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo-nanopolish.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo-nanopolish.toTranscriptome-total.sorted.bam"
-6,0.01,"minimap2 -a -x splice -k 12 -p 1 -u b -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/genome.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel3_trim.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam"
-3,0.01,"{ cat ""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 16 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table transcr --records_class GenOOx::Data::File::SAMminimap2::Record --drop & }"
+6,0.0,"minimap2 -a -x splice -k 12 -p 1 -u b -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/genome.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel3_trim.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam"
+3,0.0,"{ cat ""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 16 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table transcr --records_class GenOOx::Data::File::SAMminimap2::Record --drop & }"
 3,0.0,"{ cat ""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table genome --records_class GenOOx::Data::File::SAMminimap2::Record --drop & }"
 3,0.01,"head -100 ""${sdir}""/db/""${firstsample}"".sqlite.transcr.sql | grep -nP ""^CREATE TABLE transcr"" | cut -d"":"" -f1"
 3,0.01,"cat ""${sdir}""/db/""${firstsample}"".sqlite.transcr.sql | grep -nP ""^CREATE INDEX transcr"" | cut -d"":"" -f1"
 2,0.0,"grep -P ""^INSERT"" ""${sdir}""/db/""${i}"".sqlite.transcr.sql | sed ""s/INSERT INTO transcr VALUES(/INSERT INTO transcr VALUES(${add_num}/g"" >>""${sdir}""/db/sqlite.transcr.sql"
-3,0.0,"head -100 ""${sdir}""/db/""${firstsample}"".sqlite.genome.sql | grep -nP ""^CREATE TABLE genome"" | cut -d"":"" -f1"
+3,0.01,"head -100 ""${sdir}""/db/""${firstsample}"".sqlite.genome.sql | grep -nP ""^CREATE TABLE genome"" | cut -d"":"" -f1"
 3,0.01,"cat ""${sdir}""/db/""${firstsample}"".sqlite.genome.sql | grep -nP ""^CREATE INDEX genome"" | cut -d"":"" -f1"
 2,0.0,"grep -P ""^INSERT"" ""${sdir}""/db/""${i}"".sqlite.genome.sql | sed ""s/INSERT INTO genome VALUES(/INSERT INTO genome VALUES(${add_num}/g"" >>""${sdir}""/db/sqlite.genome.sql"
-2,0.0,"cat ""${sdir}""/db/sqlite.genome.sql ""${sdir}""/db/sqlite.transcr.sql | sqlite3 ""${sdir}""/db/sqlite.db"
+2,0.01,"cat ""${sdir}""/db/sqlite.genome.sql ""${sdir}""/db/sqlite.transcr.sql | sqlite3 ""${sdir}""/db/sqlite.db"
 2,0.0,"echo ""${thing}"" | sed ""s,^[^\\,]*\\,\\\(.*\\\),\\1,"""
 2,0.0,"echo ""${thing}"" | sed ""s,^\\\([^\\,]*\\\)\\,.*,\\1,"""
 2,0.0,"echo ${thing} | tr ""a-z+-."" ""A-ZX__"""
 5,0.01,"diff -U 0 -rN /tmp/old-env-${$}.txt /tmp/new-env-${$}.txt | tail -n +4 | grep ""^-.*\\\|^+.*"" | grep -v ""CONDA_BACKUP_"" | sort"
 2,0.0,"echo ""${thing}"" | sed ""s,^[^\\,]*\\,\\\(.*\\\),\\1,"""
 2,0.0,"echo ""${thing}"" | sed ""s,^\\\([^\\,]*\\\)\\,.*,\\1,"""
-2,0.01,"echo ${thing} | tr ""a-z+-"" ""A-ZX_"""
-5,0.01,"diff -U 0 -rN /tmp/old-env-${$}.txt /tmp/new-env-${$}.txt | tail -n +4 | grep ""^-.*\\\|^+.*"" | grep -v ""CONDA_BACKUP_"" | sort"
+2,0.0,"echo ${thing} | tr ""a-z+-"" ""A-ZX_"""
+5,0.02,"diff -U 0 -rN /tmp/old-env-${$}.txt /tmp/new-env-${$}.txt | tail -n +4 | grep ""^-.*\\\|^+.*"" | grep -v ""CONDA_BACKUP_"" | sort"
 2,0.0,"echo ""${thing}"" | sed ""s,^[^\\,]*\\,\\\(.*\\\),\\1,"""
 2,0.0,"echo ""${thing}"" | sed ""s,^\\\([^\\,]*\\\)\\,.*,\\1,"""
 2,0.0,"echo ${thing} | tr ""a-z+-"" ""A-ZX_"""
@@ -337,12 +337,12 @@ END {
 2,0.0,"cat fantom5/HeLa.rep1.hg38.ctss_chr.bed | sort --parallel=${threads} -T . -k1,1 -k2,2n >tmp.${RND}"
 2,0.0,"cat fantom5/HeLa.rep2.hg38.ctss_chr.bed | sort --parallel=${threads} -T . -k1,1 -k2,2n >tmp.${RND}"
 2,0.0,"cat fantom5/HeLa.rep3.hg38.ctss_chr.bed | sort --parallel=${threads} -T . -k1,1 -k2,2n >tmp.${RND}"
-7,0.03,"cat fantom5/HeLa.rep1.hg38.ctss_chr.bed | sed ""s/^chrM/MT/g"" | sed ""s/^chr//g"" | sed ""s/14_GL000009v2_random/GL000009.2/g"" | sed ""s/1_KI270706v1_random/KI270706.1/g"" | sed ""s/Un_KI270742v1/KI270742.1/g"" | sort --parallel=${threads} -T fantom5/ -k1,1 -k2,2n >fantom5/HeLa.rep1.hg38.ctss.bed"
+7,0.01,"cat fantom5/HeLa.rep1.hg38.ctss_chr.bed | sed ""s/^chrM/MT/g"" | sed ""s/^chr//g"" | sed ""s/14_GL000009v2_random/GL000009.2/g"" | sed ""s/1_KI270706v1_random/KI270706.1/g"" | sed ""s/Un_KI270742v1/KI270742.1/g"" | sort --parallel=${threads} -T fantom5/ -k1,1 -k2,2n >fantom5/HeLa.rep1.hg38.ctss.bed"
 7,0.01,"cat fantom5/HeLa.rep2.hg38.ctss_chr.bed | sed ""s/^chrM/MT/g"" | sed ""s/^chr//g"" | sed ""s/14_GL000009v2_random/GL000009.2/g"" | sed ""s/1_KI270706v1_random/KI270706.1/g"" | sed ""s/Un_KI270742v1/KI270742.1/g"" | sort --parallel=${threads} -T fantom5/ -k1,1 -k2,2n >fantom5/HeLa.rep2.hg38.ctss.bed"
 7,0.01,"cat fantom5/HeLa.rep3.hg38.ctss_chr.bed | sed ""s/^chrM/MT/g"" | sed ""s/^chr//g"" | sed ""s/14_GL000009v2_random/GL000009.2/g"" | sed ""s/1_KI270706v1_random/KI270706.1/g"" | sed ""s/Un_KI270742v1/KI270742.1/g"" | sort --parallel=${threads} -T fantom5/ -k1,1 -k2,2n >fantom5/HeLa.rep3.hg38.ctss.bed"
 2,0.0,"cat ${i%.ctss*}.hg38.ctss_chr.bed | sort --parallel=${threads} -T . -k1,1 -k2,2n >tmp.${RND}"
 7,0.01,"cat tmp.${RND} | sed ""s/^chrM/MT/g"" | sed ""s/^chr//g"" | sed ""s/14_GL000009v2_random/GL000009.2/g"" | sed ""s/1_KI270706v1_random/KI270706.1/g"" | sed ""s/Un_KI270742v1/KI270742.1/g"" | sort --parallel=${threads} -T . -k1,1 -k2,2n >${i%.ctss*}.hg38.ctss_chr.bed"
-2,0.01,"cat SIRV_Set1_Sequences_170612a/SIRVome_isoforms_C_170612a.gtf | grep -P ""\\ttranscript\\t|\\texon\\t"" >SIRV_Set1_Sequences_170612a/SIRVome_isoforms_C_170612a.gtf.tmp"
+2,0.02,"cat SIRV_Set1_Sequences_170612a/SIRVome_isoforms_C_170612a.gtf | grep -P ""\\ttranscript\\t|\\texon\\t"" >SIRV_Set1_Sequences_170612a/SIRVome_isoforms_C_170612a.gtf.tmp"
 3,0.0,"cat SIRV_Set1_Sequences_170612a/SIRVome_isoforms_C_170612a.E2.gtf | awk -v var=""exon"" ""BEGIN {FS=\""\\t\"";OFS=\""\\t\""} {if ($3==var) {print $1, $4-1,$5, \"".\"", \"".\"", $7, $3, $9}}"" | sort -k1,1 -k2,2n >SIRV_Set1_Sequences_170612a/SIRVome_isoforms_C_170612a.E2.bed"
 3,0.0,"cat SIRV_Set1_Sequences_170612a/SIRVome_isoforms_170612a.transcripts_sirv1.E2.fa.fai | cut -f1-2 | sed ""1i transcript_id\\tlength"" >SIRV_Set1_Sequences_170612a/SIRVome_isoforms_170612a.transcripts_sirv1.E2.length.tab"
 3,0.0,"gmap -d genome -D gmap-2019-09-12 ../silva/ribosomal.mmu.fa -t ${threads} --suboptimal-score=0.0 -f gff3_match_cdna | sed ""s/\\tcDNA_match\\t/\\texon\\t/g"" | sed ""s/\\tgenome\\t/\\tsilva\\t/g"" >ribosomal.mmu.gmap.gff3"
@@ -353,11 +353,11 @@ END {
 2,0.0,"echo ""${thing}"" | sed ""s,^[^\\,]*\\,\\\(.*\\\),\\1,"""
 2,0.0,"echo ""${thing}"" | sed ""s,^\\\([^\\,]*\\\)\\,.*,\\1,"""
 2,0.0,"echo ${thing} | tr ""a-z+-."" ""A-ZX__"""
-5,0.01,"diff -U 0 -rN /tmp/old-env-${$}.txt /tmp/new-env-${$}.txt | tail -n +4 | grep ""^-.*\\\|^+.*"" | grep -v ""CONDA_BACKUP_"" | sort"
+5,0.02,"diff -U 0 -rN /tmp/old-env-${$}.txt /tmp/new-env-${$}.txt | tail -n +4 | grep ""^-.*\\\|^+.*"" | grep -v ""CONDA_BACKUP_"" | sort"
 2,0.0,"echo ""${thing}"" | sed ""s,^[^\\,]*\\,\\\(.*\\\),\\1,"""
 2,0.0,"echo ""${thing}"" | sed ""s,^\\\([^\\,]*\\\)\\,.*,\\1,"""
 2,0.0,"echo ${thing} | tr ""a-z+-"" ""A-ZX_"""
-5,0.03,"diff -U 0 -rN /tmp/old-env-${$}.txt /tmp/new-env-${$}.txt | tail -n +4 | grep ""^-.*\\\|^+.*"" | grep -v ""CONDA_BACKUP_"" | sort"
+5,0.01,"diff -U 0 -rN /tmp/old-env-${$}.txt /tmp/new-env-${$}.txt | tail -n +4 | grep ""^-.*\\\|^+.*"" | grep -v ""CONDA_BACKUP_"" | sort"
 2,0.0,"echo ""${thing}"" | sed ""s,^[^\\,]*\\,\\\(.*\\\),\\1,"""
 2,0.0,"echo ""${thing}"" | sed ""s,^\\\([^\\,]*\\\)\\,.*,\\1,"""
 2,0.0,"echo ${thing} | tr ""a-z+-"" ""A-ZX_"""
@@ -378,7 +378,7 @@ END {
 6,0.0,"minimap2 -a -x splice -k 12 -p 1 -u b -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/genome.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam"
 3,0.0,"cat ""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 16 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table transcr --records_class GenOOx::Data::File::SAMminimap2::Record --drop"
 3,0.0,"cat ""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table genome --records_class GenOOx::Data::File::SAMminimap2::Record --drop"
-3,0.0,"{ zcat ""${sdir}""/fastq/reads.1.fastq.gz | fastq-sanitize-header --input - --delim : --keep 0 | gzip >""${sdir}""/fastq/reads.1.sanitize.fastq.gz & }"
+3,0.01,"{ zcat ""${sdir}""/fastq/reads.1.fastq.gz | fastq-sanitize-header --input - --delim : --keep 0 | gzip >""${sdir}""/fastq/reads.1.sanitize.fastq.gz & }"
 3,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/ensembl-transcripts-wRibo.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.rel5_trim.fastq.gz | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam"
 2,0.0,"samtools view -@ ${threads} -F4 ""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam | grep -v -P ""\\tENST"" >>""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam"
 4,0.0,"{ cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt & }"
@@ -392,8 +392,8 @@ END {
 3,0.0,"cat ""${g}"" | cut -d"" "" -f5- | sha256sum"
 3,0.01,"zcat ""${sdir}""/fastq/reads.1.fastq.gz | fastq-sanitize-header --input - --delim : --keep 0 | gzip >""${sdir}""/fastq/reads.1.sanitize.fastq.gz"
 3,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/ensembl-transcripts-wRibo_sirv1.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.fastq.gz | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam"
-3,0.01,"samtools view -@ ${threads} -F4 ""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam | grep -v -P ""\\tENSMUST"" | grep -v -P ""\\tSIRV"" >>""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam"
-4,0.01,"cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt"
+3,0.0,"samtools view -@ ${threads} -F4 ""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam | grep -v -P ""\\tENSMUST"" | grep -v -P ""\\tSIRV"" >>""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam"
+4,0.0,"cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt"
 2,0.0,"samtools view -@ ${threads} -bh ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | samtools sort -@ ${threads} - >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.bam"
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts_sirv1.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome-polya.sorted.bam"
 6,0.0,"minimap2 -a -x splice -k 12 -p 1 -u b -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/genome_sirv1.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam"
@@ -402,8 +402,8 @@ END {
 3,0.0,"cat ""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam | ""${CONDA_PATH}""/bin/samtools view -h -F 4 -F 2048 - | sam_to_sqlite --database ""${sdir}""/db/sqlite.db --table genome --records_class GenOOx::Data::File::SAMminimap2::Record --drop"
 3,0.01,"{ zcat ""${sdir}""/fastq/reads.1.fastq.gz | fastq-sanitize-header --input - --delim : --keep 0 | gzip >""${sdir}""/fastq/reads.1.sanitize.fastq.gz & }"
 3,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/ensembl-transcripts-wRibo_sirv1.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.fastq.gz | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam"
-3,0.0,"samtools view -@ ${threads} -F4 ""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam | grep -v -P ""\\tENSMUST"" | grep -v -P ""\\tSIRV"" >>""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam"
-4,0.0,"{ cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt & }"
+3,0.02,"samtools view -@ ${threads} -F4 ""${sdir}""/align/reads.1.sanitize.toEnsembl-transcripts-wRibo.sorted.bam | grep -v -P ""\\tENSMUST"" | grep -v -P ""\\tSIRV"" >>""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam"
+4,0.01,"{ cat ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | cut -f1 | sort | uniq >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.reads.txt & }"
 2,0.0,"samtools view -@ ${threads} -bh ""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.sam | samtools sort -@ ${threads} - >""${sdir}""/align/reads.1.sanitize.toRibosomal.sorted.bam"
 6,0.0,"minimap2 -a -x map-ont -k 12 -p 1 -u f -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/transcripts_sirv1.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.noribo.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.noribo.toTranscriptome-polya.sorted.bam"
 6,0.0,"minimap2 -a -x splice -k 12 -p 1 -u b -t ${threads} --secondary=yes ""${DATA_DIR}""/${assembly}/minimap2.17/genome_sirv1.k12.mmi ""${sdir}""/fastq/reads.1.sanitize.fastq.gz | add-tag-max-sam --tag ms --newtag XP --newtag2 XN | grep -v ""SA:Z:"" | sam-count-secondary --tag X0 | samtools view -b - | samtools sort - >""${sdir}""/align/reads.1.sanitize.toGenome.sorted.bam"
@@ -509,8 +509,8 @@ END {
 3,0.0,cat ${line} | iconv -c -t ascii//TRANSLIT | pandoc +RTS -K64m -RTS --from html --to plain --quiet
 8,0.0,"{ cat ${IN} | sed ""s#^#${WIKI}#"" | extract_text | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | grep -vwFf ${WEB_INDEX_DIR}/stopwords.txt | ${WEB_INDEX_DIR}/stem-words.js | tee 3grams 2grams 1grams >/dev/null & }"
 4,0.0,{ cat 1grams | sort | uniq -c | sort -rn >1-grams.txt & }
-7,0.0,"{ cat 2grams | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | bigrams_aux | sort | uniq -c | sort -rn >2-grams.txt & }"
-7,0.0,"cat 3grams | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | trigrams_aux | sort | uniq -c | sort -rn"
+7,0.01,"{ cat 2grams | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | bigrams_aux | sort | uniq -c | sort -rn >2-grams.txt & }"
+7,0.01,"cat 3grams | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | trigrams_aux | sort | uniq -c | sort -rn"
 3,0.01,tee s2 | tail +2 | paste s3 -
 2,0.0,{ cat ${temp} | head -n 1 >${AUX_HEAD} & }
 2,0.0,{ cat ${temp} | tail -n 1 >${AUX_TAIL} & }
@@ -522,8 +522,8 @@ END {
 7,0.0,"{ cat 2grams | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | bigrams_aux | sort | uniq -c | sort -rn >2-grams.txt & }"
 7,0.0,"{ cat 3grams | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | trigrams_aux | sort | uniq -c | sort -rn >3-grams.txt & }"
 2,0.0,curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-3,0.02,"find ""${directory_path}"" -type f | sed ""s|./wikipedia/en/articles/||"" | sort >index.txt"
-4,0.0,"seq 1 10 | sed ""s;^;http://data\\.com/chunk/;"" | xargs curl | wc -l"
+3,0.01,"find ""${directory_path}"" -type f | sed ""s|./wikipedia/en/articles/||"" | sort >index.txt"
+4,0.01,"seq 1 10 | sed ""s;^;http://data\\.com/chunk/;"" | xargs curl | wc -l"
 6,0.01,"docker network inspect ${network_id} | grep ""EndpointIP\\\|VIP"" | cut -d"":"" -f2 | sort | uniq -c | sort -rn"
 6,0.01,"cat a.txt | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | sort | uniq -c | sort -rn"
 2,0.0,cat foo | xargs cp bar
@@ -536,57 +536,57 @@ END {
 3,0.0,"find /testbed -name ""*.txt"" -print0 | xargs -0 wc -w | awk ""$1 < 6 {v += $1; c++} END {print v/c, \""words\""}"""
 2,0.0,"tac /workspace/dir1/long.txt | awk ""NF{print $NF; exit}"""
 3,0.0,du -a /workspace | sort -nr | head -n 3
-3,0.06,find /workspace -exec du -h {} + | sort -rh | head -n 3
+3,0.05,find /workspace -exec du -h {} + | sort -rh | head -n 3
 2,0.0,"tac /workspace/dir1/a.txt | grep -m 1 ""."""
 2,0.0,"awk ""NF"" /workspace/dir1/a.txt | tail -n 1"
 3,0.0,"find /workspace -type f | awk -F/ ""{print NF, $0}"" | sort -n"
 4,0.0,"find /workspace -type f | awk -F/ ""{print NF, $0}"" | sort -n | cut -d"" "" -f2-"
-3,0.06,find /workspace -type f -size +1k -exec ls -ls {} + | sort -n | tail -1
-3,0.06,find /workspace -type f -size +1k -exec ls -lh {} + | sort -k 5 -rh | head -n 1
+3,0.07,find /workspace -type f -size +1k -exec ls -ls {} + | sort -n | tail -1
+3,0.08,find /workspace -type f -size +1k -exec ls -lh {} + | sort -k 5 -rh | head -n 1
 2,0.0,"find /testbed -path ""*FooBar*"" -print0 | xargs -0 -I{} cp -r {} /testbed/dir3/subdir1/subsubdir1/tmp"
 2,0.0,"find /testbed -path ""*FooBar*"" -print0 | xargs -0 -I{} cp -R {} /testbed/dir3/subdir1/subsubdir1/tmp"
 5,0.0,"ls -1 /testbed/dir2/subdir2/* | sort | xargs md5sum | awk ""{print $1}"" | md5sum"
 3,0.0,"find /testbed -name ""*.php"" | xargs cat | awk ""/[a-zA-Z0-9]/ {i++} END{print i}"""
-2,0.06,"find /testbed -type f -name ""*.php"" -exec grep -H "".*[[:alnum:]].*"" {} + | wc -l"
-2,0.05,"find /testbed -type f \( -name ""*.php"" -o -name ""*.js"" \) -exec wc -l {} + | awk ""{s=$1} END {print s}"""
+2,0.05,"find /testbed -type f -name ""*.php"" -exec grep -H "".*[[:alnum:]].*"" {} + | wc -l"
+2,0.07,"find /testbed -type f \( -name ""*.php"" -o -name ""*.js"" \) -exec wc -l {} + | awk ""{s=$1} END {print s}"""
 3,0.0,"find /testbed -type d -name ""dir1"" -print | sed ""s/\$/\\/abc.txt/g"" | xargs touch"
 2,0.0,find /var/log/ -mtime +1 | xargs tar -czvPf /testbed/logs.tar.gz
 2,0.0,find /testbed/dir3/subdir1/subsubdir1/tmp -type f -mtime +2 -print0 | xargs -0 rm -f
-3,0.09,find /testbed -type f -exec du -b {} + | sort -rh | head -n 5
-4,0.01,find /testbed -type f -print0 | xargs -0 du -b | sort -rn | head -n 5
+3,0.05,find /testbed -type f -exec du -b {} + | sort -rh | head -n 5
+4,0.0,find /testbed -type f -print0 | xargs -0 du -b | sort -rn | head -n 5
 3,0.06,find /testbed -type f -size +0c -exec du -b {} + | sort -n | head -n 5
-3,0.06,find /testbed -type f -size +0c -exec du -b {} + | sort -rh | tail -n 5
-3,0.06,find /testbed -type f -exec ls -s {} \; | sort -n | head -5
+3,0.08,find /testbed -type f -size +0c -exec du -b {} + | sort -rh | tail -n 5
+3,0.07,find /testbed -type f -exec ls -s {} \; | sort -n | head -5
 3,0.07,find /testbed -type f -exec du -b {} + | sort -n | head -n 5
-3,0.05,find /testbed -type f -maxdepth 1 -exec du -b {} + | sort -rh | head -n 5
+3,0.06,find /testbed -type f -maxdepth 1 -exec du -b {} + | sort -rh | head -n 5
 4,0.07,"find /testbed -type f -name ""*.java"" -exec md5sum {} + | sort | uniq -w32 -d -c | sort -nr"
-2,0.07,"find /testbed -name ""*.html"" -exec grep -l foo {} + | wc -l"
-2,0.06,"find /testbed -name ""*.php"" -exec chmod 755 {} \; -exec /bin/echo {} \; | wc -l"
+2,0.05,"find /testbed -name ""*.html"" -exec grep -l foo {} + | wc -l"
+2,0.07,"find /testbed -name ""*.php"" -exec chmod 755 {} \; -exec /bin/echo {} \; | wc -l"
 2,0.06,"find /testbed -type f -name ""*.php"" -exec chmod 755 {} \; -print | wc -l"
 4,0.0,"find ${DIRECTORY} -type f -print | sed -e ""s@^.*/@@"" | grep ""[aeiouyAEIOUY]"" | wc -l"
 4,0.0,"find ""${DIRECTORY}"" -type f -print | awk -F/ ""{print $NF}"" | grep -i ""[aeiouy]"" | wc -l"
 6,0.01,"find /testbed -type f | sed -e ""s/.*\\.//"" | sed -e ""s/.*\\///"" | sort | uniq -c | sort -rn"
-5,0.0,"find /testbed -type f | awk -F. ""{if (NF>1) print $NF}"" | sort | uniq -c | sort -nr"
+5,0.02,"find /testbed -type f | awk -F. ""{if (NF>1) print $NF}"" | sort | uniq -c | sort -nr"
 3,0.0,"find /testbed -type f -name ""*.gz"" | xargs zcat | wc -l"
 2,0.05,"find /testbed -type f -name ""*.gz"" -exec sh -c ""gunzip -c \""$0\"" | wc -l"" {} \; | awk ""{s+=$1} END {print s}"""
 2,0.07,find /testbed -type f -exec ls -l {} \; | wc -l
 2,0.0,find /testbed -type f | wc -l
-2,0.05,"find /testbed -type f -name ""*.php"" -exec wc -l {} + | sort"
+2,0.07,"find /testbed -type f -name ""*.php"" -exec wc -l {} + | sort"
 2,0.06,"find /testbed -type f -name ""*.php"" -exec wc -l {} + | sort -rn"
 4,0.0,"grep -oE ""([0-9]{1,3}\\.){3}[0-9]{1,3}"" /etc/networks | sort | uniq -c | sort -nr"
-4,0.01,"awk ""{for (i=1; i<=NF; i++) if ($i ~ /([0-9]{1,3}\\.){3}[0-9]{1,3}/) print $i}"" /etc/networks | sort | uniq -c | sort -nr"
-3,0.07,"find /testbed -name ""*.java"" -exec grep -Hin Hello {} + | cut -d "":"" -f 1 | xargs -I{} basename {}"
+4,0.0,"awk ""{for (i=1; i<=NF; i++) if ($i ~ /([0-9]{1,3}\\.){3}[0-9]{1,3}/) print $i}"" /etc/networks | sort | uniq -c | sort -nr"
+3,0.06,"find /testbed -name ""*.java"" -exec grep -Hin Hello {} + | cut -d "":"" -f 1 | xargs -I{} basename {}"
 2,0.0,"cat $(echo ${FILES} | tr "" "" ""\\n"" | sort) | md5sum"
 3,0.0,"echo ${FILES} | tr "" "" ""\\n"" | sort"
 4,0.0,"find /testbed -type f | awk -F/ ""{print $NF}"" | sort -f | uniq -i -d"
-4,0.01,"find /testbed -type f | awk -F/ ""{print tolower($NF)}"" | sort | uniq -d"
-4,0.01,"grep -rl ""Hello"" /testbed | xargs -I {} dirname {} | sort | uniq"
-4,0.05,"find /testbed -type f -exec grep -l ""Hello"" {} + | xargs -I {} dirname {} | sort | uniq"
+4,0.0,"find /testbed -type f | awk -F/ ""{print tolower($NF)}"" | sort | uniq -d"
+4,0.0,"grep -rl ""Hello"" /testbed | xargs -I {} dirname {} | sort | uniq"
+4,0.07,"find /testbed -type f -exec grep -l ""Hello"" {} + | xargs -I {} dirname {} | sort | uniq"
 4,0.0,"find /testbed -name ""*.java"" -print0 | xargs -0 wc -l | grep ""total"" | awk ""{ print $1 }"""
-2,0.05,"find /testbed -name ""*.java"" -exec wc -l {} + | awk ""{s=$1} END {print s}"""
+2,0.08,"find /testbed -name ""*.java"" -exec wc -l {} + | awk ""{s=$1} END {print s}"""
 2,0.0,"find /system -print | sed -e ""s;[^/]*/;|___;g;s;___|; |;g"""
-4,0.08,"find /testbed/dir1/subdir1 -type f -name *.py -exec md5sum {} + | awk ""{print $1}"" | sort | md5sum"
-5,0.0,"find /testbed/dir1/subdir1 -type f -name ""*.py"" -print0 | xargs -0 md5sum | awk ""{print $1}"" | sort | md5sum"
+4,0.07,"find /testbed/dir1/subdir1 -type f -name *.py -exec md5sum {} + | awk ""{print $1}"" | sort | md5sum"
+5,0.01,"find /testbed/dir1/subdir1 -type f -name ""*.py"" -print0 | xargs -0 md5sum | awk ""{print $1}"" | sort | md5sum"
 2,0.0,"find /system/folder2 -print | sed -e ""s;[^/]*/;|___;g;s;___|; |;g"""
 4,0.0,"find /workspace -type f | awk -F/ ""{print $NF}"" | sort -f | uniq -i -d"
 4,0.0,find /workspace -type f | xargs md5sum | sort | uniq -Dw32
@@ -594,9 +594,9 @@ END {
 2,0.0,"find /testbed -name ""*FooBar*"" -print0 | xargs -0 -I{} cp -R {} /testbed/dir3/subdir1/subsubdir1/tmp"
 4,0.0,"who | awk ""{print $1}"" | sort | uniq"
 4,0.0,"md5sum /testbed/*.java | awk ""{print $1}"" | sort | uniq -d"
-5,0.0,"find /testbed/dir2/subdir2 -type f -print0 | sort -z | xargs -0 md5sum | awk ""{print $1}"" | md5sum"
+5,0.01,"find /testbed/dir2/subdir2 -type f -print0 | sort -z | xargs -0 md5sum | awk ""{print $1}"" | md5sum"
 3,0.01,"ls -lS /testbed | grep ""^-"" | head -n 5"
-3,0.0,"find /system -type f -name ""*.out"" -print0 | xargs -0 -n1 dirname | sort -u"
+3,0.01,"find /system -type f -name ""*.out"" -print0 | xargs -0 -n1 dirname | sort -u"
 4,0.01,"cat /system/folder1/data.csv | rev | cut -d, -f-5 | rev"
 2,0.01,"find /system -type f -name ""*.out"" -printf ""%h\\n"" | sort -u"
 2,0.0,yes y | rm -r /system/*.txt
@@ -604,16 +604,16 @@ END {
 2,0.0,find /system/folder3/ -type f | xargs -n 1 basename
 2,0.0,"zcat -r /system/folder2.tar.gz | grep ""special"""
 2,0.0,"tar -xzvf /system/folder2.tar.gz -O | grep ""special"""
-2,0.08,"find /testbed -name ""*.txt"" -exec du {} + | awk -v hostname=""$(hostname)"" ""{print hostname, $0}"""
+2,0.07,"find /testbed -name ""*.txt"" -exec du {} + | awk -v hostname=""$(hostname)"" ""{print hostname, $0}"""
 2,0.07,"find /testbed -name ""*.txt"" -exec du -h {} + | awk -v hostname=""$(hostname)"" ""{print hostname, $0}"""
 3,0.0,"cat /system/folder3/temp/temp1/text1.txt | sed ""s/\\r\$//"" | od -c"
 3,0.0,"cat system/folder3/temp/temp1/text1.txt | sed ""s/\\r\$//"" | od -c -An"
 2,0.0,"find /system/folder1 -name ""*.log"" -print0 | xargs -0 rm"
 4,0.0,"tail -n 1 /system/folder1/data.csv | rev | cut -d"","" -f1-5 | rev"
-2,0.08,"find /testbed -name ""*.php"" -exec chmod 755 {} \; -exec /bin/echo {} \; | wc -l"
-2,0.06,"find /testbed -type f -name ""*.php"" -exec chmod 755 {} \; -print | wc -l"
+2,0.09,"find /testbed -name ""*.php"" -exec chmod 755 {} \; -exec /bin/echo {} \; | wc -l"
+2,0.07,"find /testbed -type f -name ""*.php"" -exec chmod 755 {} \; -print | wc -l"
 3,0.0,"echo ""1/2 [3] (27/03/2012 19:32:54) word word word word 4/5"" | sed -e ""s/(.*)//"" -e ""s/[^0-9]/ /g"" | column -t"
-4,0.01,"echo ""1/2 [3] (27/03/2012 19:32:54) word word word word 4/5"" | sed ""s/([^)]*)//g"" | tr -c ""0-9"" "" "" | column -t"
+4,0.0,"echo ""1/2 [3] (27/03/2012 19:32:54) word word word word 4/5"" | sed ""s/([^)]*)//g"" | tr -c ""0-9"" "" "" | column -t"
 2,0.0,"pstree -s ${$} | grep -q ""screen"""
 2,0.0,"ps -o comm= $(pstree -sp ${$} | awk -F ""[^0-9]*"" ""{print $2}"") | grep -q ""screen"""
 2,0.0,"pstree -sp ${$} | awk -F ""[^0-9]*"" ""{print $2}"""
@@ -625,25 +625,25 @@ END {
 2,0.0,"echo $(date +""%Y-%m-%d~%H:%M:%S"") ""1"" | tee -a /system/folder3/temp/empty.txt"
 2,0.0,find /system -depth -print | cpio -dump /backup
 2,0.0,find /system -print | cpio -dump /backup
-3,0.05,"find /system -type f -name ""*.txt"" -exec md5sum {} + | awk ""{print $1}"" | sort"
+3,0.06,"find /system -type f -name ""*.txt"" -exec md5sum {} + | awk ""{print $1}"" | sort"
 2,0.06,"find /system -type f -name ""*.txt"" -exec md5sum {} + | sort"
 3,0.0,"more /etc/hosts | grep $(hostname) | awk ""{print $1}"""
 2,0.0,"grep ""$(hostname)"" /etc/hosts | awk ""{print $1}"""
 3,0.0,"find /testbed -name ""*.txt"" -print0 | xargs -0 wc -w | awk ""END { print $1/(NR-1) }"""
-2,0.07,"find /testbed -type f -name ""*.txt"" -exec wc -w {} + | awk ""{total = $1} END {print total/(NR-1)}"""
-4,0.01,"find /workspace -type f | awk -F/ ""{print tolower($NF)}"" | sort | uniq -d"
+2,0.06,"find /testbed -type f -name ""*.txt"" -exec wc -w {} + | awk ""{total = $1} END {print total/(NR-1)}"""
+4,0.0,"find /workspace -type f | awk -F/ ""{print tolower($NF)}"" | sort | uniq -d"
 2,0.0,find /workspace -name old2.txt | xargs ls -tl
 2,0.0,find /workspace -name old2.txt -print0 | xargs -0 ls -tl
 2,0.06,"find /workspace -type f -exec md5sum {} + | awk ""{print $2 \"" \"" $1}"""
 3,0.0,"find /workspace -type f -print0 | xargs -0 md5sum | awk ""{print $2 \"" \"" $1}"""
-2,0.05,find /workspace -type f -exec md5sum {} + | sort
+2,0.06,find /workspace -type f -exec md5sum {} + | sort
 5,0.0,"find /workspace -type f -name ""*.*"" | awk -F. ""NF>1 {ext=tolower($NF); if (length(ext) >= 3 && length(ext) <= 6) print ext}"" | sort | uniq -c | wc -l"
 6,0.01,"find /workspace -type f -name ""*.*"" | sed -n ""s/.*\\.//p"" | awk ""{print tolower($0)}"" | grep -E ""^[a-z]{3,6}$"" | sort -u | wc -l"
 3,0.0,"find /workspace -type d -print | sed ""s@^@/usr/@"" | xargs mkdir -p"
 2,0.0,find /workspace -type d | cpio -pdm /usr
 5,0.0,"find /workspace -type f -printf ""%T+ %p\\n"" | sort | head -n 1 | awk ""{print $2}"" | xargs ls -l"
-5,0.05,"find /workspace -type f -exec stat --format ""%Y %n"" {} \; | sort -n | head -n 1 | cut -d"" "" -f2- | xargs ls -l"
-6,0.0,find /workspace -type d -print0 | xargs -0 du | sort -n | tail -2 | cut -f2 | xargs -I{} du -sh {}
+5,0.06,"find /workspace -type f -exec stat --format ""%Y %n"" {} \; | sort -n | head -n 1 | cut -d"" "" -f2- | xargs ls -l"
+6,0.01,find /workspace -type d -print0 | xargs -0 du | sort -n | tail -2 | cut -f2 | xargs -I{} du -sh {}
 4,0.0,find /workspace -type d -print0 | xargs -0 du | sort -n | tail -2
 4,0.0,find /workspace -type f -print0 | xargs -0 md5sum | sort | uniq -w32 -D
 4,0.0,"cat /workspace/files.txt | xargs -I {} dirname ""{}"" | sort -u | xargs -I{} mkdir -p ""{}"""
@@ -679,21 +679,21 @@ END {
 2,0.0,bind -l | grep p
 2,0.0,"bind -l | egrep ""p"""
 3,0.0,"dig +short google.com | grep -E ""^[0-9.]+$"" | head -n 1"
-3,0.0,"dig +short google.com | grep -m 1 ""^[0-9]"" | head -n 1"
-2,0.0,"echo ""  Hello world;876	  "" | tr -cd "";0-9"""
-2,0.0,"echo ""  Hello world;876     "" | sed ""s/[^0-9;]//g"""
+3,0.01,"dig +short google.com | grep -m 1 ""^[0-9]"" | head -n 1"
+2,0.01,"echo ""  Hello world;876	  "" | tr -cd "";0-9"""
+2,0.01,"echo ""  Hello world;876     "" | sed ""s/[^0-9;]//g"""
 3,0.0,"echo ""  Hello world!	  "" | sed -e ""s/^[ \\t]*//"" | sed -e ""s/[ \\t]*\$//"""
 2,0.01,"echo -n ""  Hello world!    "" | sed ""s/^[ \\t]*//;s/[ \\t]*\$//"""
-4,0.01,echo 987654321 | rev | cut -c 4- | rev
-2,0.01,"echo ""987654321"" | sed ""s/...\$//"""
-3,0.01,"df . | tail -1 | awk ""{print $1}"""
+4,0.0,echo 987654321 | rev | cut -c 4- | rev
+2,0.0,"echo ""987654321"" | sed ""s/...\$//"""
+3,0.0,"df . | tail -1 | awk ""{print $1}"""
 2,0.0,"df -P . | awk ""NR==2 {print $1}"""
 2,0.0,"env | awk -F= ""{if($1 ~ /H/) print $1}"""
-3,0.01,"env | grep ""^[^=]*H[^=]*="" | awk -F= ""{print $1}"""
+3,0.0,"env | grep ""^[^=]*H[^=]*="" | awk -F= ""{print $1}"""
 4,0.01,"who | cut -d"" "" -f1 | sort | uniq"
 3,0.0,"find /testbed -name ""*.c"" -print0 | xargs -0 cat | wc -l"
-2,0.07,"find /testbed -name ""*.c"" -exec wc -l {} + | awk ""{s+=$1} END {print s}"""
-2,0.01,"seq -s= 100 | tr -d ""[:digit:]"""
+2,0.06,"find /testbed -name ""*.c"" -exec wc -l {} + | awk ""{s+=$1} END {print s}"""
+2,0.0,"seq -s= 100 | tr -d ""[:digit:]"""
 4,0.01,"who | awk -F"" "" ""{print $1}"" | sort -u | wc -l"
 2,0.0,who | wc -l
 2,0.0,cut -d: -f1 /etc/group | sort
@@ -706,11 +706,11 @@ END {
 2,0.08,"find . -type f -name ""*.php"" -exec wc -l {} + | awk ""{s=$1} END {print s}"""
 2,0.0,"du -sh testbed/ | awk ""{print $1}"" >total_size.txt"
 2,0.0,"du -s testbed/ | awk ""{print $1}"" >total_size.txt"
-3,0.06,find /testbed/dir3 -type f -exec ls -lhS {} + | sort -rh -k5 | head -n 3
+3,0.07,find /testbed/dir3 -type f -exec ls -lhS {} + | sort -rh -k5 | head -n 3
 3,0.07,find /testbed/dir3 -type f -exec ls -lhS {} + 2>/dev/null | sort -rh -k5 | head -n 3
 2,0.0,find /testbed -type f -mmin -120 -print0 | xargs -0 tar -czf /testbed/archive.tar.gz
 2,0.0,find /testbed -type f -mmin -120 -print0 | xargs -0 tar -czf /testbed/archive.tar.gz
-2,0.0,ls -d /testbed/*/ | grep -v /subdir1/
+2,0.01,ls -d /testbed/*/ | grep -v /subdir1/
 2,0.0,"grep -rl ""Hello"" /testbed | xargs sed -i ""s/Hello/Hi/g"""
 2,0.0,"grep -rl ""Hello"" /testbed | xargs sed -i ""s/Hello/Hi/g"""
 2,0.0,"find /testbed -type f -name ""*.py"" -print0 | xargs -0 md5sum"
@@ -722,7 +722,7 @@ END {
 5,0.01,"cat ""${2}"" | tr ""\\t"" "" "" | grep ""^ *include +.*;"" | sed ""s/include //"" | tr -d "" ;"""
 5,0.01,"echo ""${responseHeaders}"" | grep -i ""^Location.*$"" | _tail_n 1 | tr -d ""\\r\\n \\t"" | cut -d "":"" -f 2-"
 2,0.0,"sed -h 2>&1 | grep ""\\-i\\[SUFFIX]"" >/dev/null 2>&1"
-5,0.01,"echo ""${responseHeaders}"" | grep -i ""^Retry-After *:"" | cut -d : -f 2 | tr -d "" "" | tr -d ""\\r"""
+5,0.03,"echo ""${responseHeaders}"" | grep -i ""^Retry-After *:"" | cut -d : -f 2 | tr -d "" "" | tr -d ""\\r"""
 3,0.01,"cat ""${2}"" | tr ""\\t"" "" "" | grep ""^ *include *.*;"" >/dev/null"
 5,0.01,"cat ""${2}"" | tr ""\\t"" "" "" | grep ""^ *include *.*;"" | sed ""s/include //"" | tr -d "" ;"""
 5,0.01,"echo ""${response}"" | _egrep_o ""\""authorizations\"" *: *\\[[^\\[]*\\]"" | cut -d ""["" -f 2 | tr -d ""]"" | tr -d ""\"""""
@@ -732,39 +732,39 @@ END {
 5,0.01,"echo ""${responseHeaders}"" | grep -i ""^Retry-After *: *[0-9]\\+ *"" | cut -d : -f 2 | tr -d "" "" | tr -d ""\\r"""
 4,0.01,"echo ""${_outcsr}"" | _egrep_o ""^ *Public.Key:.*"" | cut -d ""("" -f 2 | cut -d "" "" -f 1"
 4,0.01,"ip route | grep default | cut -d "" "" -f 3 | head -n 1"
-4,0.0,"echo ${*} | sed ""s/^\\.*//"" | sed ""s/[]\\.|$(){}?+*^]/\\\\&/g"" | sed ""s/\\//\\\\\\//g"""
+4,0.02,"echo ${*} | sed ""s/^\\.*//"" | sed ""s/[]\\.|$(){}?+*^]/\\\\&/g"" | sed ""s/\\//\\\\\\//g"""
 3,0.0,"echo ${*} | sed ""s/[]\\.|$(){}?+*^]/\\\\&/g"" | sed ""s/\\//\\\\\\//g"""
 2,0.0,"echo ""${line}"" | sed -e ""s/^\\s*#.*\$//"" -e ""/^\$/d"""
-2,0.01,"ip link show | sed ""/ master /d;/UP/!d;s/^[0-9]*: //g;s/@.*//g;s/: <.*//g;"""
+2,0.0,"ip link show | sed ""/ master /d;/UP/!d;s/^[0-9]*: //g;s/@.*//g;s/: <.*//g;"""
 2,0.0,"git branch | grep -q ""^. main\\s*$"""
 4,0.0,"ip -oneline -family inet address show | grep ""${IPv4bare}/"" | awk ""{print $4}"" | awk ""END {print}"""
-4,0.0,"curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location: | awk -F / ""{print $NF}"" | tr -d ""[:cntrl:]"""
+4,0.01,"curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location: | awk -F / ""{print $NF}"" | tr -d ""[:cntrl:]"""
 3,0.0,"iptables -S INPUT | head -n1 | grep -qv ""^-P.*ACCEPT$"""
 5,0.06,"ip -o link | grep -v ""state DOWN\\\|lo"" | awk ""{print $2}"" | cut -d"":"" -f1 | cut -d""@"" -f1"
 4,0.01,"grep ""^set-cookie:"" ""${HTTP_HEADER}"" | _tail_n 1 | _egrep_o ""sessionid=[^;]*;"" | tr -d "";"""
-3,0.01,"git status ${FLAGS} | grep -E ""^\\?\\?"" 2>/dev/null | tail -n1"
+3,0.0,"git status ${FLAGS} | grep -E ""^\\?\\?"" 2>/dev/null | tail -n1"
 3,0.0,"sudo dmidecode -t system | grep ""Manufacturer:"" | awk ""{print $2}"""
 2,0.0,"dirs -p | sed ""s/ /\\\\ /g;s/&/\\\\&/;s/^/pushd -q /;1!G;h;\$!d;"" >~/.zdirstore"
 2,0.0,"{ echo ""${INDEX}"" | grep ""^## [^ ]\\+ .*ahead"" & }"
 2,0.0,"{ echo ""${INDEX}"" | grep ""^## [^ ]\\+ .*behind"" & }"
-2,0.0,"{ echo ""${INDEX}"" | grep ""^## [^ ]\\+ .*diverged"" & }"
+2,0.01,"{ echo ""${INDEX}"" | grep ""^## [^ ]\\+ .*diverged"" & }"
 2,0.0,"{ echo ""${INDEX}"" | grep ""^ D "" & }"
 2,0.0,"{ echo ""${INDEX}"" | grep -E ""^\\?\\? "" & }"
 2,0.0,"git log -1 --format=%B ""${i}"" | awk ""!/^[[:space:]]*\$/ {++i} END{print i}"""
 3,0.0,gau --subs ${TARGET} | tee ${LOOT_DIR}/web/gua-${TARGET}.txt 2>/dev/null | head -n 250
 3,0.0,gau --subs ${TARGET} | tee ${LOOT_DIR}/web/gua-${TARGET}.txt 2>/dev/null | head -n 250
 3,0.05,"find ""${NVM_DIR}/"" -maxdepth 1 -type d -name ""$(nvm_format_version ${PATTERN})*"" -exec basename ""{}"" "";"" \  | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v ""^ *\\."""
-4,0.05,"find ""${NVM_DIR}/"" -maxdepth 1 -type d -name ""${PATTERN}*"" -exec basename ""{}"" "";"" \  | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v ""^ *\\."" | grep -e ""^v"""
+4,0.07,"find ""${NVM_DIR}/"" -maxdepth 1 -type d -name ""${PATTERN}*"" -exec basename ""{}"" "";"" \  | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v ""^ *\\."" | grep -e ""^v"""
 5,0.07,"find ""$(nvm_version_dir new)/"" ""$(nvm_version_dir old)/"" -maxdepth 1 -type d -name ""${PATTERN}*"" -exec basename ""{}"" "";"" \  | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v ""^ *\\."" | grep -e ""^v"" | grep -v -e ""^versions$"""
 4,0.01,"ip -4 route ls | grep default | grep -Po ""(?<=dev )(\\S+)"" | head -1"
-2,0.02,"iptables -L | grep -qE ""REJECT|DROP"""
+2,0.03,"iptables -L | grep -qE ""REJECT|DROP"""
 2,0.02,"iptables -L | grep -qE ""REJECT|DROP"""
 7,0.04,"ifconfig | grep ""inet addr:"" | grep -v inet6 | grep -vE ""127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}"" | cut -d: -f2 | awk ""{ print $1}"" | head -1"
 4,0.01,"ifconfig | grep -E ""inet "" | sed ""s/addr://g"" | awk ""{print $2}"""
 5,0.06,"acpi 2>/dev/null | command grep -v ""rate information unavailable"" | command grep -E ""^Battery.*(Disc|C)harging"" | cut -f2 -d "","" | tr -cd ""[:digit:]"""
 3,0.0,"${_comp_command1} --no-ansi | sed ""1,/Available commands/d"" | awk ""/^[ \\t]*[a-z]+/ { print $1 }"""
 2,0.0,"git log -n 1 2>/dev/null | grep -q -c ""\\-\\-wip\\-\\-"""
-4,0.01,"mix help | grep -v ""iex -S"" | tail -n +2 | cut -d "" "" -f 2 >.mix_tasks"
+4,0.0,"mix help | grep -v ""iex -S"" | tail -n +2 | cut -d "" "" -f 2 >.mix_tasks"
 3,0.0,"n98-magerun.phar --no-ansi | sed ""1,/Available commands/d"" | awk ""/^ +[a-z\\-:]+/ { print $1 }"""
 3,0.0,"rake --silent --tasks | cut -d "" "" -f 2 | sed ""s/\\[.*\\]//g"" >.rake_tasks"
 2,0.0,"gem list ${@} | sed -E \ -e ""s/\\\([0-9, \\.]+( .+)?\\\)/${fg}[blue]&${reset_color}/g"" \ -e ""s|$(echo ${rvm_path})|${fg}[magenta]\$rvm_path${reset_color}|g"" \ -e ""s/${current_ruby}@global/${fg}[yellow]&${reset_color}/g"" \ -e ""s/${current_ruby}${current_gemset}\$/${fg}[green]&${reset_color}/g"""
@@ -777,9 +777,9 @@ END {
 3,0.0,seq 2 100 | xargs -n 1 expr 1 + | grep grep
 3,0.0,"grep -oE ""[0-9a-f]+"" a.txt | grep -vwE ""0"" | sort -n"
 2,0.0,"grep -oE ""[0-9a-f]+"" a.txt | sort -n"
-4,0.01,"seq 1 10 | sed ""s;^;;"" | xargs curl | wc -l"
+4,0.0,"seq 1 10 | sed ""s;^;;"" | xargs curl | wc -l"
 6,0.03,"docker network inspect ${network_id} | grep ""EndpointIP\\\|VIP"" | cut -d"":"" -f2 | sort | uniq | sort -rn"
-6,0.0,"cat a.txt | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | sort | uniq | sort -rn"
+6,0.01,"cat a.txt | tr -cs A-Za-z ""\\n"" | tr A-Z a-z | sort | uniq | sort -rn"
 4,0.0,"seq 10 | grep -oE ""[0-9a-f]+"" | head -n 5 | sort -n"
 2,0.0,cat foo | cp bar
 2,0.0,echo -n ${PATH} | xargs stat -c %x
@@ -788,7 +788,7 @@ END {
 2,0.0,ls -l *.log | xargs rm
 2,0.0,date +%S | xargs expr 2 +
 2,0.0,"sed ""s/[^0-9;]//g"" | echo ""  Hello world;876     """
-9,0.01,"cat ${1} | tr "" "" ""\\n"" | cut -d ""."" -f 2 | cut -c 1-1 | tr ""[a-z]"" ""P"" | sort -r | uniq | head -n 3 | tail -n 1"
+9,0.02,"cat ${1} | tr "" "" ""\\n"" | cut -d ""."" -f 2 | cut -c 1-1 | tr ""[a-z]"" ""P"" | sort -r | uniq | head -n 3 | tail -n 1"
 2,0.0,"cut -d""/"" -f3 | echo ""http://www.google.com"""
 2,0.0,"sed -E ""s|https?://([^/]+).*|\\1|"" | echo ""http://www.google.com"""
 5,0.0,yes | head -n10 | grep . | cut -d: -f1 | paste -sd:
@@ -808,36 +808,36 @@ END {
 5,0.0,"echo ""${FILES}"" | tr "" "" ""\\n"" | sort | cat | md5sum"
 3,0.0,"cat ${1} | cut -d ""\"""" -f 2 | cut -c 1-12"
 3,0.0,"cat ${1} | sort -nr | cut -d "" "" -f 2"
-7,0.0,"cat ${1} | cut -f 2 | sort -n | sort -nr | head -n 1 | tr -s "" "" ""\\n"" | tail -n 1"
+7,0.01,"cat ${1} | cut -f 2 | sort -n | sort -nr | head -n 1 | tr -s "" "" ""\\n"" | tail -n 1"
 7,0.0,cat ${1} | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tail -n 1
 8,0.0,"cat ${1} | cut -f 2 | sort -n | uniq | sort -nr | head -n 1 | tr -s "" "" ""\\n"" | tail -n 1"
-8,0.0,"cat ${1} | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s ""\\n"" | tail -n 1"
+8,0.01,"cat ${1} | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s ""\\n"" | tail -n 1"
 8,0.0,"cat ${1} | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s "" "" | tail -n 1"
 5,0.0,cat ${1} | cut -f 4 | sort -n | cut -c 3-3 | uniq
 5,0.0,"cat ${1} | cut -f 4 | sort -n | uniq | sed s/\$/""0s""/"
 4,0.0,"cat ${1} | tr "" "" ""\\n"" | grep 1969 | wc"
 5,0.0,"cat ${1} | cut -d ""("" -f 2 | grep ""("" | cut -d "")"" -f 1 | head -n 1"
-4,0.01,"cat ${1} | cut -d ""("" -f 2 | cut -d "")"" -f 1 | head -n 1"
+4,0.0,"cat ${1} | cut -d ""("" -f 2 | cut -d "")"" -f 1 | head -n 1"
 4,0.0,"cat ${1} | grep ""("" | cut -d "")"" -f 1 | head -n 1"
 4,0.0,"cat ${1} | grep ""("" | cut -d ""("" -f 2 | head -n 1"
-6,0.01,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | tr ""[a-z]"" ""\\n"" | tr -d ""\\n"" | cut -c 1-4"
+6,0.0,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | tr ""[a-z]"" ""\\n"" | tr -d ""\\n"" | cut -c 1-4"
 6,0.01,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | tr ""[a-z]"" ""\\n"" | grep ""[A-Z]"" | cut -c 1-4"
 6,0.01,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | tr ""[a-z]"" ""\\n"" | grep ""[A-Z]"" | tr -d ""\\n"""
 7,0.0,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | grep ""[A-Z]"" | tr ""[a-z]"" ""\\n"" | tr -d ""\\n"" | cut -c 1-4"
 7,0.01,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | tr ""[a-z]"" ""\\n"" | grep ""[A-Z]"" | cut -c 1-4 | tr -d ""\\n"""
 6,0.0,"cat ${1} | grep ""[A-Z]"" | tr ""[a-z]"" ""\\n"" | grep ""[A-Z]"" | tr -d ""\\n"" | cut -c 1-4"
-2,0.03,"cat ${1} | tr -d ""\\n"""
+2,0.02,"cat ${1} | tr -d ""\\n"""
 2,0.0,cat ${1} | cut -c 1-1
 2,0.02,"cat ${1} | tr -d ""\\n"""
 2,0.0,cat ${1} | cut -c 1-2
 5,0.0,"cat ${1} | tr "" "" ""\\n"" | sed 4d | cut -d ""\"""" -f 2 | tr -d ""\\n"""
-11,0.01,"cat ${1} | grep ""[A-Z]"" | tr "" "" ""\\n"" | sed 1d | sed 3d | sed 3d | tr ""[a-z]"" ""\\n"" | grep ""[A-Z]"" | sed 3d | tr -c ""[A-Z]"" ""\\n"" | tr -d ""\\n"""
-10,0.01,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 3d | sed 3d | tr ""[a-z]"" ""\\n"" | grep ""[A-Z]"" | sed 3d | tr -c ""[A-Z]"" ""\\n"""
+11,0.0,"cat ${1} | grep ""[A-Z]"" | tr "" "" ""\\n"" | sed 1d | sed 3d | sed 3d | tr ""[a-z]"" ""\\n"" | grep ""[A-Z]"" | sed 3d | tr -c ""[A-Z]"" ""\\n"" | tr -d ""\\n"""
+10,0.02,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 3d | sed 3d | tr ""[a-z]"" ""\\n"" | grep ""[A-Z]"" | sed 3d | tr -c ""[A-Z]"" ""\\n"""
 11,0.01,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 3d | sed 3d | tr ""[a-z]"" ""\\n"" | grep ""[A-Z]"" | sed 3d | tr ""[A-Z]"" ""\\n"" | tr -d ""\\n"""
-5,0.02,"cat ${1} | sed 2d | sed 2d | tr ""[A-Z]"" ""\\n"" | tr -d ""\\n"""
+5,0.03,"cat ${1} | sed 2d | sed 2d | tr ""[A-Z]"" ""\\n"" | tr -d ""\\n"""
 5,0.06,"cat ${1} | sed 2d | sed 2d | tr -d ""\\n"" | tr -c ""[A-Z]"" ""\\n"""
 2,0.0,cat ${1} | sort
-6,0.01,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | grep ""[A-Z]"" | tr -d ""\\n"" | cut -c 1-4"
+6,0.0,"cat ${1} | tr "" "" ""\\n"" | grep ""[A-Z]"" | grep ""[A-Z]"" | tr -d ""\\n"" | cut -c 1-4"
 4,0.06,"cat ${1} | sed 2d | sed 2d | tr -d ""\\n"""
 10,0.02,"cat ${1} | tr -c ""[a-z][A-Z]"" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr ""[A-Z]"" ""\\n"" | tr -d ""\\n"""
 3,0.0,"seq 10 | grep -oE ""[0-9a-f]+"" | sort -n"
@@ -846,16 +846,16 @@ END {
 3,0.0,"echo | sed -e ""s/^[ \\t]*//"" | sed -e ""s/[ \\t]*\$//"""
 3,0.0,echo 987654321 | rev | rev
 3,0.0,cut -d: -f1 | sort | uniq
-4,0.0,"grep -oE ""([0-9]{1,3}\\.){3}[0-9]{1,3}"" | sort | uniq -c | sort -nr"
+4,0.02,"grep -oE ""([0-9]{1,3}\\.){3}[0-9]{1,3}"" | sort | uniq -c | sort -nr"
 4,0.03,"cat ${1} | sed 2d | sed 2d | tr -c ""[A-Z]"" ""\\n"""
 2,0.0,cat ${1} | head -n 2
 8,0.02,"cat ${1} | tr -c ""[a-z][A-Z]"" ""\\n"" | sed 1d | sed 2d | sed 3d | sed 4d | tr -c ""[A-Z]"" ""\\n"" | tr -d ""\\n"""
 8,0.02,"cat ${1} | tr -c ""[a-z][A-Z]"" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 2d | sed 3d | sed 4d | tr -d ""\\n"""
-8,0.03,"cat ${1} | tr -c ""[a-z][A-Z]"" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 2d | sed 3d | sed 4d | tr -c ""[A-Z]"" ""\\n"""
+8,0.02,"cat ${1} | tr -c ""[a-z][A-Z]"" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 2d | sed 3d | sed 4d | tr -c ""[A-Z]"" ""\\n"""
 9,0.02,"cat ${1} | tr ""[a-z][A-Z]"" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 2d | sed 3d | sed 4d | tr -c ""[A-Z]"" ""\\n"" | tr -d ""\\n"""
 9,0.01,"cat ${1} | tr -c ""[a-z][A-Z]"" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 2d | sed 3d | sed 4d | tr -d ""\\n"" | tr -c ""[A-Z]"" ""\\n"""
 9,0.02,"cat ${1} | tr -c ""[a-z][A-Z]"" ""\\n"" | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr -c ""[A-Z]"" ""\\n"" | tr -d ""\\n"""
-9,0.02,"cat ${1} | tr -c ""[a-z][A-Z]"" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr -c ""[A-Z]"" ""\\n"""
+9,0.03,"cat ${1} | tr -c ""[a-z][A-Z]"" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr -c ""[A-Z]"" ""\\n"""
 10,0.02,"cat ${1} | tr ""[a-z][A-Z]"" ""\\n"" | grep ""[A-Z]"" | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr -c ""[A-Z]"" ""\\n"" | tr -d ""\\n"""
 5,0.01,"cat ${1} | sed 1d | grep ""Bell"" | cut -f 2 | wc"
 4,0.0,cat ${1} | sed 1d | cut -f 2 | wc -l
@@ -875,7 +875,7 @@ END {
 4,0.0,"cat ${1} | cut -d "" "" -f 2 | cut -c 1-1 | tr ""[A-Z]"" ""[a-z]"""
 4,0.0,"cat ${1} | cut -d "" "" -f 2 | cut -c 1-1 | tr -d ""\\n"""
 3,0.0,"grep -oE ""[0-9a-f]+"" | head -n 5 | sort -n"
-3,0.01,echo 987654321 | rev | cut -c 4-
+3,0.0,echo 987654321 | rev | cut -c 4-
 4,0.0,echo | rev | cut -c 4- | rev
 2,0.0,"echo | sed ""s/...\$//"""
 3,0.0,"cut -d"" "" -f1 | sort | uniq"
@@ -884,7 +884,7 @@ END {
 5,0.0,"cat ${1} | tr "" "" ""\\n"" | grep ""x"" | grep ""\\."" | wc"
 7,0.01,"cat ${1} | tr "" "" ""\\n"" | grep ""x"" | grep ""\\."" | cut -d ""."" -f 2 | grep -v ""[KQRBN]"" | wc"
 2,0.0,"grep -o ""#[0-9]\\+"" | uname -v"
-2,0.0,"uname -v | grep ""#[0-9]\\+"""
+2,0.01,"uname -v | grep ""#[0-9]\\+"""
 2,0.0,"uname -r | awk -F""-"""
 2,0.0,"echo | cut -d""/"" -f3"
 2,0.0,"echo ""http://www.google.com"" | cut -f3"
@@ -900,24 +900,24 @@ END {
 2,0.0,"echo ""  Hello world!    "" | sed ""s/^[ \\t]*//;s/[ \\t]*\$//"""
 2,0.0,"echo -n | sed ""s/^[ \\t]*//;s/[ \\t]*\$//"""
 4,0.0,echo 987654321 | cut -c 4- | rev | rev
-4,0.01,echo 987654321 | rev | rev | cut -c 4-
+4,0.0,echo 987654321 | rev | rev | cut -c 4-
 3,0.0,rev | cut -c 4- | rev
 3,0.0,echo 987654321 | cut -c 4- | rev
 2,0.0,who | wc
 2,0.0,cut -f1 /etc/group | sort
 2,0.0,cut -d: -f1 | sort
 2,0.0,sort | uniq
-3,0.0,cut -f1 /etc/group | sort | uniq
+3,0.01,cut -f1 /etc/group | sort | uniq
 3,0.0,"find . -type f -name ""*php"" | xargs cat | wc"
 2,0.0,"find . -type f -name ""*php"" | xargs cat"
 2,0.0,sort -rh -k5 | head -n 3
-4,0.0,"find ${DIRECTORY} -type f -print | sed -e ""s@^.*/@@"" | grep ""[aeiouyAEIOUY]"" | wc"
+4,0.01,"find ${DIRECTORY} -type f -print | sed -e ""s@^.*/@@"" | grep ""[aeiouyAEIOUY]"" | wc"
 3,0.0,"sed -e ""s@^.*/@@"" | grep ""[aeiouyAEIOUY]"" | wc -l"
 3,0.0,"find ${DIRECTORY} -type f -print | sed -e ""s@^.*/@@"" | grep ""[aeiouyAEIOUY]"""
 3,0.0,sort | uniq -c | sort -nr
 4,0.01,grep -oE /etc/networks | sort | uniq -c | sort -nr
 3,0.0,"echo ${FILES} | tr "" "" ""\\n"" | sort"
-4,0.02,"echo ""${FILES}"" | tr "" "" ""\\n"" | sort | xargs cat"
+4,0.0,"echo ""${FILES}"" | tr "" "" ""\\n"" | sort | xargs cat"
 3,0.0,head -3 | seq 10 | xargs -n 1 expr 2 +
 2,0.0,seq 10 | xargs -n 1 expr 2 +
 2,0.0,seq 10 | head -3
@@ -934,15 +934,15 @@ END {
 8,0.01,"find . -name ""*.txt"" | uniq | sort | tr ""/"" ""\\t"" | cut -f2 | sort | uniq -c | xargs grep ."
 8,0.01,"cat /etc/hosts | sed ""s/localhost/127.0.0.1/"" | sed ""s/127.0.0.1/localhost/"" | sort | uniq | tr "" "" ""\\t"" | cut -f1 | xargs grep ."
 5,0.0,"cat file.txt | wc -l | grep ""pattern"" | sort | uniq"
-8,0.01,"seq 100 | grep [02468] | sort -n | tr ""\\n"" "" "" | uniq -c | sort -n | cut -d"" "" -f2 | xargs grep ."
-8,0.02,"ls -l | tr "" "" ""_"" | tr ""_"" ""\\t"" | tr ""\\t"" "","" | cut -d"" "" -f5 | sort -n | uniq | xargs find"
-8,0.01,"find . -type f | tr ""/"" "" "" | sort | uniq | tr "" "" ""/"" | xargs find -name | sort | uniq -c"
+8,0.02,"seq 100 | grep [02468] | sort -n | tr ""\\n"" "" "" | uniq -c | sort -n | cut -d"" "" -f2 | xargs grep ."
+8,0.01,"ls -l | tr "" "" ""_"" | tr ""_"" ""\\t"" | tr ""\\t"" "","" | cut -d"" "" -f5 | sort -n | uniq | xargs find"
+8,0.0,"find . -type f | tr ""/"" "" "" | sort | uniq | tr "" "" ""/"" | xargs find -name | sort | uniq -c"
 8,0.01,"cat /etc/passwd | tr "":"" "" "" | cut -d: -f1,7 | sort | uniq | tr "" "" ""\\n"" | grep ""^/"" | xargs ls"
-8,0.01,"ls -l | cut -d"" "" -f9 | cut -d""."" -f1 | cut -d""_"" -f1 | sort | uniq -c | tr "" "" "","" | xargs grep ."
+8,0.02,"ls -l | cut -d"" "" -f9 | cut -d""."" -f1 | cut -d""_"" -f1 | sort | uniq -c | tr "" "" "","" | xargs grep ."
 8,0.0,"find . -type f | xargs wc -l | tr -s "" "" | tr "" "" ""\\t"" | tr -d "" "" | cut -f1 | sort -n | uniq -c"
 8,0.0,"seq 100 | grep -v [13579] | uniq -c | sort | tr -s "" "" | cut -d"" "" -f2 | sort -n | xargs grep ."
 8,0.0,"ls -R | grep ""\\.log$"" | xargs cat | tr "" "" ""_"" | cut -d"" "" -f1 | grep ""[a-z]"" | grep ""[A-Z]"" | wc -l"
-3,0.01,"cat file.txt | tr "" "" "","" | cut -f1"
+3,0.0,"cat file.txt | tr "" "" "","" | cut -f1"
 7,0.0,"find . -type f | xargs cat | sed ""s/0x[0-9a-f]*/\\n&\\n/g"" | sort -n | tr ""\\n"" "" "" | uniq | wc -w"
 7,0.01,"ls -l | cut -d"" "" -f9 | cut -d""."" -f1 | sort | grep ""^[0-9]"" | tr ""[:lower:]"" ""[:upper:]"" | uniq -c"
 7,0.0,"cat file.txt | tr -d ""[:blank:]"" | cut -d"","" -f1,2 | sort -k2 | sed ""s/,/\\n/g"" | uniq | wc -l"
@@ -953,10 +953,10 @@ END {
 8,0.01,"ls -la | tr -s "" "" | tr "" "" "","" | cut -d"","" -f5 | sort -n | uniq | grep ""[0-9]"" | wc -l"
 7,0.01,"cat log.txt | sed ""s/ERROR/error/g"" | sed ""s/error/WARNING/g"" | uniq | sort | grep ""WARNING"" | wc -l"
 7,0.0,"find . -name ""*.csv"" | xargs cat | tr -d "","" | sort -k2 | cut -d"" "" -f1 | uniq -c | grep ""[0-9]"""
-3,0.01,"cat file.txt | tr ""a-z"" ""A-Z"" | grep ""pattern"""
-8,0.02,"ls -R | cut -d""/"" -f2 | cut -d""."" -f1 | sed ""s/[0-9]/(&)/g"" | sort -n | uniq | grep ""^("" | wc -l"
+3,0.0,"cat file.txt | tr ""a-z"" ""A-Z"" | grep ""pattern"""
+8,0.0,"ls -R | cut -d""/"" -f2 | cut -d""."" -f1 | sed ""s/[0-9]/(&)/g"" | sort -n | uniq | grep ""^("" | wc -l"
 7,0.0,"cat data.txt | tr -d ""[:punct:]"" | grep ""[0-9]"" | sort | sed ""s/[0-9]/#/g"" | uniq -c | wc -l"
-7,0.0,"find . -type f | xargs cat | sed ""s/[0-9]/#/g"" | sed ""s/#/*/g"" | cut -d""|"" -f1 | sort | uniq -c"
+7,0.01,"find . -type f | xargs cat | sed ""s/[0-9]/#/g"" | sed ""s/#/*/g"" | cut -d""|"" -f1 | sort | uniq -c"
 10,0.01,"ls -R | tr -d "" "" | cut -d"" "" -f1 | tr ""[:upper:]"" ""[:lower:]"" | sort | uniq -c | sort -nr | sed ""s/^[ ]*//"" | grep -v ""^$"" | wc -l"
 8,0.0,"seq 100 | grep ""[0-9]"" | sort -n | uniq | tr ""0-9"" ""a-j"" | grep ""[k-z]"" | wc -l | xargs find . -type f -name"
 9,0.0,"find . -type f | sed ""d"" | sort -u | cut -d""/"" -f2 | tr ""[:lower:]"" ""[:upper:]"" | grep ""^[A-Z]"" | uniq | wc -l | xargs ls"
@@ -971,7 +971,7 @@ END {
 9,0.0,"ls -l | sed ""d"" | grep ""^-"" | cut -d"" "" -f9 | sort | uniq | tr ""[:lower:]"" ""[:upper:]"" | grep ""[A-Z]"" | wc -l"
 9,0.01,"seq 100 | tr ""0-9"" ""a-j"" | tr ""a-z"" ""A-Z"" | sort | uniq | grep ""[A-J]"" | sed ""s/\$//"" | cut -d"" "" -f1 | wc -l"
 9,0.0,"find . -name ""*.txt"" | grep -v ""txt"" | grep ""txt"" | sort | uniq | tr ""."" ""_"" | sed ""s/_txt\$//"" | cut -d""/"" -f2 | wc -l"
-9,0.01,"ls -l | tr -d "" "" | cut -d"" "" -f9 | sort | uniq | grep -v ""^\\\\."" | sed ""s/\$//"" | tr ""[:lower:]"" ""[:upper:]"" | wc -l"
+9,0.02,"ls -l | tr -d "" "" | cut -d"" "" -f9 | sort | uniq | grep -v ""^\\\\."" | sed ""s/\$//"" | tr ""[:lower:]"" ""[:upper:]"" | wc -l"
 9,0.0,"seq 1000 | sort -n | uniq | sort -r | tr ""0-9"" ""a-j"" | grep ""[a-j]"" | sed ""s/\$//"" | cut -d"" "" -f1 | wc -l"
 9,0.01,"find . -type f | tr -d ""\\n"" | sort | uniq | cut -d""/"" -f2 | grep -v ""^\\\\."" | sed ""s/\$//"" | tr ""[:lower:]"" ""[:upper:]"" | wc -l"
 3,0.0,"cat file.txt | wc -c | tr "" "" ""_"""
@@ -983,26 +983,26 @@ END {
 9,0.01,"cat /etc/passwd | tr -d ""x"" | grep ""x:"" | cut -d: -f1,6 | sort | uniq | sed ""s/\$//"" | tr ""[:lower:]"" ""[:upper:]"" | wc -l"
 8,0.0,"ls -R | sed ""d"" | sort -u | cut -d""."" -f1 | tr ""[:lower:]"" ""[:upper:]"" | grep ""[A-Z]"" | uniq | wc -l"
 9,0.0,"seq 1000 | tr ""0-9"" ""a-j"" | tr ""a-z"" ""0-9"" | sort -n | uniq | grep ""[0-9]"" | sed ""s/\$//"" | cut -d"" "" -f1 | wc -l"
-9,0.02,"ls -l | tr -s "" "" | tr -d "" "" | cut -d"" "" -f9 | sort | uniq | grep -v ""^\\\\."" | sed ""s/\$//"" | wc -l"
+9,0.01,"ls -l | tr -s "" "" | tr -d "" "" | cut -d"" "" -f9 | sort | uniq | grep -v ""^\\\\."" | sed ""s/\$//"" | wc -l"
 3,0.0,"grep ""pattern"" file.txt | wc -l | cut -f2"
 9,0.0,"find . -type f | grep ""."" | grep -v ""."" | grep ""/"" | sort | uniq | tr ""/"" "" "" | cut -d"" "" -f2 | wc -l"
 9,0.0,"cat /etc/passwd | sed ""d"" | grep "":"" | sort | uniq | cut -d: -f1,6 | tr ""[:lower:]"" ""[:upper:]"" | grep ""[A-Z]"" | wc -l"
 10,0.01,"seq 1 100 | tr -d [:alnum:] | sort | uniq | tr [:space:] ""\\n"" | sort | uniq -c | sort -nr | cut -d"" "" -f1 | wc -l"
 9,0.01,"cat /etc/passwd | tr "":"" ""\\n"" | sort | uniq -c | sort -n | sort -r | cut -d"" "" -f1 | grep -v ""^$"" | wc -l"
-9,0.02,"seq 1 100 | sed ""s/[0-9]/X/g"" | sed ""s/X/#/g"" | sed ""s/#/*/g"" | tr ""*"" ""\\n"" | sort | uniq -c | sort -nr | grep -v ""^$"""
+9,0.01,"seq 1 100 | sed ""s/[0-9]/X/g"" | sed ""s/X/#/g"" | sed ""s/#/*/g"" | tr ""*"" ""\\n"" | sort | uniq -c | sort -nr | grep -v ""^$"""
 9,0.0,"find . -type f | grep -v ""."" | grep -v ""^$"" | tr ""/"" ""\\n"" | sort | uniq | tr ""\\n"" "","" | sed ""s/,\$/\\n/"" | wc -l"
 8,0.01,"cat /etc/passwd | sort | tr "":"" ""\\n"" | sort | uniq -c | grep -v ""^[[:space:]]*$"" | cut -d"" "" -f2 | wc -l"
 9,0.01,"ls -l | tr -s "" "" | cut -d"" "" -f5,9 | sort -n | sort -k2 | uniq | grep [0-9] | tr "" "" ""\\n"" | wc -l"
 9,0.01,"cat /etc/passwd | cut -d: -f1,3 | tr "":"" ""\\n"" | sort | uniq -c | sort | grep -v ""^$"" | cut -d"" "" -f1 | wc -l"
 6,0.0,"find . -type f | grep "".txt"" | wc -l | tr ""a-z"" ""0-9"" | sort | uniq"
 9,0.01,"find . -type f | sed ""s/\\./X/g"" | sed ""s/X/Y/g"" | grep ""\\."" | tr ""/"" ""\\n"" | sort | uniq -c | sort -nr | wc -l"
-8,0.0,"seq 1 100 | grep -v ""^[0-9]*5$"" | sort -n | sort | uniq -c | tr -s "" "" | cut -d"" "" -f2 | wc -l"
-8,0.01,"cat /etc/passwd | tr -d "":"" | sed ""s/:[^:]*\$//g"" | sort | uniq | grep -v ""^$"" | tr ""/"" ""\\n"" | wc -l"
+8,0.01,"seq 1 100 | grep -v ""^[0-9]*5$"" | sort -n | sort | uniq -c | tr -s "" "" | cut -d"" "" -f2 | wc -l"
+8,0.02,"cat /etc/passwd | tr -d "":"" | sed ""s/:[^:]*\$//g"" | sort | uniq | grep -v ""^$"" | tr ""/"" ""\\n"" | wc -l"
 10,0.0,"ls -R | grep -v ""^$"" | sort | uniq | sort | uniq -c | sort -nr | uniq | cut -d"" "" -f1 | wc -l"
-8,0.02,"find . -type f | sed ""s/\\///g"" | tr ""/"" ""_"" | sort | uniq -c | grep -v ""^$"" | cut -d"" "" -f2 | wc -l"
-8,0.0,"seq 1 1000 | grep ""^[0-9]*[02468]$"" | grep ""[13579]$"" | sort -n | uniq -c | tr -s "" "" | cut -d"" "" -f2 | wc -l"
+8,0.0,"find . -type f | sed ""s/\\///g"" | tr ""/"" ""_"" | sort | uniq -c | grep -v ""^$"" | cut -d"" "" -f2 | wc -l"
+8,0.01,"seq 1 1000 | grep ""^[0-9]*[02468]$"" | grep ""[13579]$"" | sort -n | uniq -c | tr -s "" "" | cut -d"" "" -f2 | wc -l"
 8,0.01,"cat /etc/passwd | cut -d: -f1,3,7 | cut -d""/"" -f1 | sort | uniq -c | grep -v ""^$"" | tr -s "" "" | cut -d"" "" -f2"
-8,0.0,"find . -type f | sort -u | uniq -c | sort -nr | grep -v ""^$"" | tr -s "" "" | cut -d"" "" -f2 | wc -l"
+8,0.01,"find . -type f | sort -u | uniq -c | sort -nr | grep -v ""^$"" | tr -s "" "" | cut -d"" "" -f2 | wc -l"
 9,0.01,"ls -l | sed ""s/ \\+/ /g"" | sed ""s/\\n//g"" | tr "" "" ""\\n"" | sort | uniq -c | grep -v ""^$"" | cut -d"" "" -f1 | wc -l"
 8,0.01,"cat /etc/passwd | tr -d "":"" | cut -d: -f1,3,7 | sort | uniq | grep -v ""^$"" | tr ""/"" ""\\n"" | wc -l"
 6,0.0,"seq 1 100 | tr ""1-9"" ""a-i"" | sort -n | uniq | grep ""a"" | wc -l"
@@ -1013,19 +1013,19 @@ END {
 8,0.0,"cat /etc/passwd | tr -d "":"" | cut -d: -f1,3 | sort | uniq -c | grep -v ""^$"" | tr -s "" "" | cut -d"" "" -f2"
 9,0.0,"seq 1 1000 | grep -v ""^[0-9]*0$"" | sort -n | uniq | sort | uniq -c | sort -nr | uniq | wc -l"
 8,0.01,"find . -type f | sed ""s/[0-9]//g"" | grep ""[0-9]"" | sort | uniq -c | tr -s "" "" | cut -d"" "" -f2 | wc -l"
-9,0.0,"ls -l | wc -l | cut -d"" "" -f1 | tr ""\\n"" "" "" | wc -w | sort -n | uniq -c | sort -r | wc -l"
+9,0.01,"ls -l | wc -l | cut -d"" "" -f1 | tr ""\\n"" "" "" | wc -w | sort -n | uniq -c | sort -r | wc -l"
 8,0.01,cat /etc/passwd | cut -d: -f1 | sort | uniq -c | sort -n | uniq | sort -r | xargs grep .
 7,0.01,"ls -la | tr -s "" "" | tr "" "" ""\\n"" | grep -v ""^$"" | tr -d "" "" | wc -l | xargs find . -name"
 8,0.01,"ls -l | sort -k5n | sort -k9 | cut -d"" "" -f9 | tr ""."" "" "" | sort -k2 | uniq | xargs grep ."
-9,0.02,"ls | tr ""a-z"" ""A-Z"" | grep "".sh"" | sort | uniq | cut -d""."" -f1 | sed ""s/^/File: /"" | wc -l | xargs echo"
+9,0.01,"ls | tr ""a-z"" ""A-Z"" | grep "".sh"" | sort | uniq | cut -d""."" -f1 | sed ""s/^/File: /"" | wc -l | xargs echo"
 7,0.01,"cat /etc/passwd | tr "":"" "" "" | tr "" "" "":"" | cut -d: -f1,7 | sort | uniq -c | xargs grep ."
-8,0.0,"find . -type f | grep ""\\.txt"" | grep -v ""txt"" | grep ""^[^.]"" | sort | uniq | tr ""/"" "" "" | xargs"
+8,0.01,"find . -type f | grep ""\\.txt"" | grep -v ""txt"" | grep ""^[^.]"" | sort | uniq | tr ""/"" "" "" | xargs"
 8,0.01,"ls -l | tr -s "" "" | tr "" "" ""_"" | cut -d"" "" -f5,9 | sort | uniq | tr ""_"" "" "" | xargs grep ."
 8,0.01,"cat /etc/passwd | tr "":"" ""\\t"" | tr ""\\t"" "","" | cut -d: -f1,7 | sort | uniq -c | tr "","" "" "" | xargs"
-8,0.0,"ls | grep "".txt"" | cut -d"" "" -f5 | sort -n | uniq | xargs -I {} find . -name ""{}"" | tr ""a-z"" ""A-Z"" | wc -l"
-8,0.02,"ls -l | cut -d"" "" -f5 | sort -n | uniq | grep ""[0-9]"" | wc -l | tr -d ""\\n"" | sed ""s/^/Sizes: /"""
+8,0.01,"ls | grep "".txt"" | cut -d"" "" -f5 | sort -n | uniq | xargs -I {} find . -name ""{}"" | tr ""a-z"" ""A-Z"" | wc -l"
+8,0.01,"ls -l | cut -d"" "" -f5 | sort -n | uniq | grep ""[0-9]"" | wc -l | tr -d ""\\n"" | sed ""s/^/Sizes: /"""
 10,0.0,"find . -type f | xargs cat | sed ""s/\$/XX/"" | tr ""A-Z"" ""a-z"" | sed ""s/XX/\\n/"" | sort | uniq -d | grep ""."" | wc -l | sort -n"
-9,0.01,"find . -name ""*.txt"" | xargs cat | tr -d "" "" | cut -d"" "" -f1 | sort | uniq -c | sort -nr | grep ""[0-9]"" | wc -l"
+9,0.0,"find . -name ""*.txt"" | xargs cat | tr -d "" "" | cut -d"" "" -f1 | sort | uniq -c | sort -nr | grep ""[0-9]"" | wc -l"
 9,0.0,"ls -R | grep "".*\\.txt"" | xargs cat | tr A-Z a-z | tr -s "" "" ""\\n"" | sort -n | uniq -c | sort -n | wc -l"
 8,0.0,"find . -type f | xargs cat | sed ""s/[0-9]//g"" | sort | tr A-Z a-z | uniq | grep ""[a-z]"" | wc -l"
 8,0.01,"cat file.txt | tr "" "" ""\\n"" | cut -f2 | sort -u | uniq -c | tr -s "" "" | cut -d"" "" -f2 | sort -n"
@@ -1033,16 +1033,16 @@ END {
 7,0.0,"find . -name ""*.log"" | xargs cat | grep -v ""[0-9]"" | sed ""s/error/ERROR/g"" | tr -d ""\\n"" | sort | uniq -c"
 7,0.01,"cat logs.txt | sed ""s/.*ERROR://g"" | cut -d"" "" -f1 | sort -k2 | uniq | grep ""[A-Z]"" | wc -l"
 8,0.0,"find . -type f | xargs cat | tr -s "" "" ""\\n"" | tr ""\\n"" "" "" | grep ""[a-z]"" | sort -r | uniq -c | wc -w"
-8,0.0,"seq 100 | sed ""s/[0-9]/&,/g"" | cut -c1-5 | sort -n | tr "","" "" "" | uniq | grep ""[0-9]"" | wc -l"
+8,0.01,"seq 100 | sed ""s/[0-9]/&,/g"" | cut -c1-5 | sort -n | tr "","" "" "" | uniq | grep ""[0-9]"" | wc -l"
 8,0.01,"cat data.txt | sed ""s/[aeiou]/*/g"" | grep ""*"" | sort -r | uniq | tr ""*"" ""X"" | sort -n | wc -l"
 8,0.01,"ls -l | tr -s "" "" | cut -d"" "" -f9 | tr "" "" ""_"" | sort -k2 | grep ""^[a-z]"" | grep ""[A-Z]"" | wc -l"
 8,0.0,"find . -name ""*.txt"" | xargs cat | sed ""/^\$/d"" | sort | grep ""^[A-Z]"" | tr A-Z a-z | uniq -c | wc -l"
 7,0.0,"find . -type f | xargs cat | tr -d ""[:punct:]"" | sed ""s/[0-9]/(&)/g"" | grep ""([0-9])"" | sort | uniq -c"
 7,0.0,"find . -name ""*.txt"" | tr ""\\n"" "" "" | tr "" "" ""\\n"" | sort | uniq | tr ""\\n"" "" "" | xargs grep ""pattern"""
-8,0.01,"seq 50 | sed ""s/[0-9]/& /g"" | sed ""s/^/Line: /"" | sort -n | tr "" "" ""\\t"" | cut -f2 | uniq | wc -l"
+8,0.0,"seq 50 | sed ""s/[0-9]/& /g"" | sed ""s/^/Line: /"" | sort -n | tr "" "" ""\\t"" | cut -f2 | uniq | wc -l"
 9,0.01,"find . -name ""*.txt"" | sort | sort -r | uniq | tr ""."" ""_"" | sed ""s/_txt\$//"" | grep -v ""^\\\\."" | cut -d""/"" -f2 | wc -l"
 9,0.01,"find . -name ""*.txt"" | sort | uniq | tr ""."" ""_"" | sort | uniq | grep -v ""^\\."" | cut -d""/"" -f2 | wc -l"
-2,0.01,"echo ${line} | sed ""s/ HELLO.*'[^']*'/ /"""
+2,0.0,"echo ${line} | sed ""s/ HELLO.*'[^']*'/ /"""
 4,0.0,"find . -type f \( -iname ""*.xml"" \) -printf ""%T@ %p\\n"" | sort -rg | sed -r ""s/[^ ]* //"" | awk ""{w = $0; sub(\"".*/\"", \""\"", w); sub(\""_[0-9_][0-9_]*.*\"", \""\"", w);} !a[w]++"""
 3,0.0,"( { { find . -printf ""%P\\n"" | grep -v Dir2 ; } && { find Dir2/ -printf ""%P\\n"" ; } ; } && { find Dir2/ -printf ""%P\\n"" ; } ) | sort | uniq -u"
 2,0.0,find /path/to/ -type f -print0 | xargs -0 md5sum
@@ -1064,22 +1064,22 @@ END {
 4,0.01,"echo ""${responseHeaders}"" | grep -i ""^Retry-After *:"" | cut -d : -f 2 | tr -d "" """
 3,0.01,"cat ""${2}"" | tr ""\\t"" "" "" | grep ""^ *include *;"" >/dev/null"
 5,0.01,"cat ""${2}"" | tr ""\\t"" "" "" | grep ""^ *include *;"" | sed ""s/include //"" | tr -d "" ;"""
-5,0.02,"echo ""${response}"" | _egrep_o ""\""authorizations\"" *: *\\[[^\\[]]*\\]"" | cut -d ""["" -f 2 | tr -d ""]"" | tr -d ""\"""""
+5,0.01,"echo ""${response}"" | _egrep_o ""\""authorizations\"" *: *\\[[^\\[]]*\\]"" | cut -d ""["" -f 2 | tr -d ""]"" | tr -d ""\"""""
 3,0.0,"echo ""${responseHeaders}"" | grep ""^Location:"" | cut -d "" "" -f 2"
 2,0.0,"echo ""${_netprc}"" | grep ""${LOCAL_ANY_ADDRESS}"""
 2,0.0,uname -a | grep solaris >/dev/null
 5,0.01,"echo ""${responseHeaders}"" | grep -i ""^Retry-After *:"" | cut -d : -f 2 | tr -d "" "" | tr -d ""\\r"""
-4,0.02,"echo ""${_outcsr}"" | _egrep_o ""^ *Public-Key:.*"" | cut -d ""("" -f 2 | cut -d "" "" -f 1"
+4,0.01,"echo ""${_outcsr}"" | _egrep_o ""^ *Public-Key:.*"" | cut -d ""("" -f 2 | cut -d "" "" -f 1"
 3,0.01,"ip route | grep default | cut -d "" "" -f 3"
 4,0.0,"echo ${*} | sed ""s/^\\.//"" | sed ""s/[]\\.|$(){}?+*^]/\\\\&/g"" | sed ""s/\\//\\\\\\//g"""
 2,0.0,"echo ${*} | sed ""s/[]\\.|$(){}?+*^]/\\\\&/g"""
-2,0.0,"echo ""${line}"" | sed -e ""s/#.*\$//"" -e ""/^\$/d"""
+2,0.01,"echo ""${line}"" | sed -e ""s/#.*\$//"" -e ""/^\$/d"""
 2,0.0,"ip link show | sed ""/ master /d;/UP/!d;s/^[0-9]*: //g;s/: <.*//g;"""
 2,0.0,"git branch | grep -q ""\\smain\\s"""
 4,0.0,"ip -oneline -family inet address show | grep ""${IPv4bare}"" | awk ""{print $4}"" | awk ""END {print}"""
 4,0.01,"curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location | awk -F / ""{print $NF}"" | tr -d ""[:cntrl:]"""
 3,0.0,"iptables -S INPUT | head -n1 | grep -qv ""ACCEPT$"""
-5,0.03,"ip -o link | grep ""state UP"" | awk ""{print $2}"" | cut -d"":"" -f1 | cut -d""@"" -f1"
+5,0.04,"ip -o link | grep ""state UP"" | awk ""{print $2}"" | cut -d"":"" -f1 | cut -d""@"" -f1"
 4,0.0,"grep ""^Set-Cookie:"" ""${HTTP_HEADER}"" | _tail_n 1 | _egrep_o ""sessionid=[^;]*;"" | tr -d "";"""
 3,0.0,"git status ${FLAGS} | grep -E ""^??"" 2>/dev/null | tail -n1"
 3,0.0,"sudo dmidecode -t system | grep ""Manufacturer"" | awk ""{print $2}"""
@@ -1092,26 +1092,26 @@ END {
 2,0.0,"git log -1 --format=%B ""${i}"" | awk ""!/^[[:space:]]*$ {++i} END{print i}"""
 3,0.0,gau -subs ${TARGET} | tee ${LOOT_DIR}/web/gua-${TARGET}.txt 2>/dev/null | head -n 250
 3,0.0,gau -subs ${TARGET} | tee ${LOOT_DIR}/web/gua-${TARGET}.txt 2>/dev/null | head -n 250
-2,0.06,"find ""${NVM_DIR}/"" -maxdepth 1 -type d -name ""$(nvm_format_version ${PATTERN})*"" -exec basename ""{}"" "";"" \  | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n"
-3,0.07,"find ""${NVM_DIR}/"" -maxdepth 1 -type d -name ""${PATTERN}*"" -exec basename ""{}"" "";"" \  | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v ""^ *\\."""
-4,0.08,"find ""$(nvm_version_dir new)/"" ""$(nvm_version_dir old)/"" -maxdepth 1 -type d -name ""${PATTERN}*"" -exec basename ""{}"" "";"" \  | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v ""^ *\\."" | grep -e ""^v"""
+2,0.08,"find ""${NVM_DIR}/"" -maxdepth 1 -type d -name ""$(nvm_format_version ${PATTERN})*"" -exec basename ""{}"" "";"" \  | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n"
+3,0.05,"find ""${NVM_DIR}/"" -maxdepth 1 -type d -name ""${PATTERN}*"" -exec basename ""{}"" "";"" \  | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v ""^ *\\."""
+4,0.06,"find ""$(nvm_version_dir new)/"" ""$(nvm_version_dir old)/"" -maxdepth 1 -type d -name ""${PATTERN}*"" -exec basename ""{}"" "";"" \  | sort -t. -u -k 1.2,1n -k 2,2n -k 3,3n | grep -v ""^ *\\."" | grep -e ""^v"""
 3,0.01,"ip -4 route ls | grep default | grep -Po ""(?<=dev )(\\S+)"""
-2,0.03,iptables -L | grep -q REJECT
+2,0.04,iptables -L | grep -q REJECT
 2,0.02,iptables -L | grep -q REJECT
-6,0.04,"ifconfig | grep ""inet addr:"" | grep -v inet6 | grep -vE ""127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}"" | cut -d: -f2 | awk ""{ print $1}"""
+6,0.03,"ifconfig | grep ""inet addr:"" | grep -v inet6 | grep -vE ""127\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}"" | cut -d: -f2 | awk ""{ print $1}"""
 2,0.0,"ifconfig | awk ""/inet /{ print $2 }"""
-2,0.03,"acpi 2>/dev/null | cut -f3 -d "","""
+2,0.02,"acpi 2>/dev/null | cut -f3 -d "","""
 3,0.0,"${_comp_command1} --no-ansi | sed ""1,/Available commands/d"" | awk ""/^\\s*[a-z]+/ { print $1 }"""
 2,0.0,"git log -n 1 2>/dev/null | grep -q -c ""--wip--"""
 4,0.0,"mix --help | grep -v ""iex -S"" | tail -n +2 | cut -d "" "" -f 2 >.mix_tasks"
 3,0.0,"n98-magerun.phar --no-ansi | sed ""1,/Available commands/d"" | awk ""/^\\s+[a-z]+/ { print $1 }"""
 2,0.0,"rake --silent --tasks | cut -d "" "" -f 2 >.rake_tasks"
 2,0.0,"gem list ${@} | sed \ -Ee ""s/\\\([0-9, \\.]+( .+)?\\\)/${fg}[blue]&${reset_color}/g"" \ -Ee ""s|$(echo ${rvm_path})|${fg}[magenta]\$rvm_path${reset_color}|g"" \ -Ee ""s/${current_ruby}@global/${fg}[yellow]&${reset_color}/g"" \ -Ee ""s/${current_ruby}${current_gemset}\$/${fg}[green]&${reset_color}/g"""
-3,0.01,"svn info | sed -n ""s/URL:\\ .*${SVN_ROOT}\\///p"" | sed ""s/\\/.*\$//"""
+3,0.0,"svn info | sed -n ""s/URL:\\ .*${SVN_ROOT}\\///p"" | sed ""s/\\/.*\$//"""
 3,0.0,"hg summary 2>/dev/null | grep branch | awk ""{print $2}"""
 3,0.0,"hg summary 2>/dev/null | grep parent | awk ""{print $2}"""
 2,0.0,"hexdump -n 10 -e ""1/1 \""%02x\"""" ""${HG_ROOT}/dirstate"" | cut -c-12"
-3,0.05,"ip -4 addr | sed -ne ""s|^.* inet \\([^/]*\\)/.* scope global.*$|\\1|p"" | head -1"
+3,0.06,"ip -4 addr | sed -ne ""s|^.* inet \\([^/]*\\)/.* scope global.*$|\\1|p"" | head -1"
 4,0.0,find | xargs stat -c %Y | sort -n | head -3
 2,0.0,ls *.log | xargs rm
 2,0.0,echo x86_64-conda_cos6-linux-gnu | grep powerpc >/dev/null
@@ -1123,13 +1123,13 @@ END {
 3,0.0,"find /testbed/ -name ""*.php"" | xargs cat | wc -l"
 3,0.0,"find /testbed/ -type f -name ""*.php"" | xargs cat | wc -l"
 3,0.0,"find /testbed -name ""*.html"" | xargs grep -l foo | wc -l"
-3,0.01,"find /testbed/ -name ""*file*"" | sort | xargs wc -l"
+3,0.0,"find /testbed/ -name ""*file*"" | sort | xargs wc -l"
 3,0.0,"find /testbed -name ""*.php"" -type f | sort | xargs wc -l"
 3,0.0,"find /testbed -name ""*.php"" -type f | xargs wc -l | sort -nr"
 4,0.0,"find /testbed -name ""*.js"" -or -name ""*.php"" | xargs wc -l | grep ""total"" | awk ""{print $1}"""
-5,0.0,"echo ""${FILES}"" | tr "" "" ""\\n"" | sort | xargs cat | md5sum"
-2,0.01,"find /system/folder1 -type f -not -name ""*txt"" | xargs rm"
+5,0.01,"echo ""${FILES}"" | tr "" "" ""\\n"" | sort | xargs cat | md5sum"
+2,0.0,"find /system/folder1 -type f -not -name ""*txt"" | xargs rm"
 2,0.0,"find /system -name ""*.txt"" -maxdepth 1 | xargs rm"
 2,0.0,"find /system/folder1 -mmin +5 -type f -name ""*.txt"" | xargs rm -f"
 2,0.0,"find /system/folder1 -maxdepth 1 -mmin +5 -type f -name ""*.txt"" ! -name ""keep.txt"" | xargs rm -f"
-2,0.0,find /system/folder3/temp -type f -empty -print | xargs rm -f
+2,0.01,find /system/folder3/temp -type f -empty -print | xargs rm -f
