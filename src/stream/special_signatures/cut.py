@@ -128,7 +128,7 @@ class CutSignature(CommandSignature):
                 fst2 = cut_field_no_upperbound_FST(delimiter, args[-2], leading_delimiter=True)
                 return RegularType(automaton=product_fst_automaton(fst1, previous_output_type.nfa), tainted=previous_output_type.tainted) + RegularType(automaton=product_fst_automaton(fst2, previous_output_type.nfa), tainted=previous_output_type.tainted)
             fst = cut_field_FST(delimiter, args)
-            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
+            return RegularType(automaton=product_fst_automaton(fst, (previous_output_type & RegularType(".*[" + delimiter + "].*")).nfa), tainted=previous_output_type.tainted) | (previous_output_type - RegularType(".*[" + delimiter + "].*", tainted=previous_output_type.tainted))
 
         
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)

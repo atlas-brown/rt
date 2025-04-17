@@ -15,10 +15,6 @@
 file=commit.txt
 while IFS= read line; do
 
-    # stream enable
-    # @expect "dummy statement Hello world\ndummy 1 statement Hello Mike" --> "sed "s/  HELLO.*'[^']*'/ /""
-    # @expect ".*Hello.*" --> "sed "s/  HELLO.*'[^']*'/ /""
-    # @expect ".+" --> "sed "s/  HELLO.*'[^']*'/ /""
     commitid=$line | sed "s/  HELLO.*'[^']*'/ /"
     # @var "$line": "dummy [0-9]+ statement Hello [a-zA-Z]+"
     # stream enable

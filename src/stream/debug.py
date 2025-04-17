@@ -32,7 +32,7 @@ def check_pipeline(file_path: str, shellcheck : bool = False):
 
 def main():
     parser = argparse.ArgumentParser(description="Debug Stream Type Checker")
-    parser.add_argument('-f', '--file', type=str, default='./evaluation_pipelines/debug.sh', help="Path to the pipeline file")
+    parser.add_argument('-f', '--file', type=str, default='./full_benchmark/curated_mutants/detectable/12.sh_Pcat-1-tr-_e94c7360d146727f8cea61088329242b_M11.sh', help="Path to the pipeline file")
     parser.add_argument('-s', '--stdin', action='store_true', help="Read pipeline from stdin")
     parser.add_argument('-d', '--disable-annotations', action='store_true', help="Disable annotations in the type checker")
     parser.add_argument('-c', '--shellcheck', action='store_true', help="Run shellcheck on the pipeline file")

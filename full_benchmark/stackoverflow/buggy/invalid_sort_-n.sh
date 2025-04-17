@@ -20,10 +20,6 @@
 # 2. find must output filenames (anything)
 # 3. sort is expecting modification time
 
-# @assert "find . -type f -newermt "2018-04-9 00:00:00"" --> "[0-9]*"
-# @assert "find . -type f -newermt "2018-04-9 00:00:00"" --> ".*"
-# @expect "[0-9]*" --> "sort -n"
-
 # stream enable
 find . -type f -newermt "2018-04-9 00:00:00" |
     sort -n |

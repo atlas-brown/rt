@@ -93,7 +93,7 @@ if [ "${CONDA_BUILD:-0}" = "1" ]; then
 fi
 
 # gold has not been (cannot be?) built for powerpc
-# stream enable
+# stream disable (mislabeled)
 if echo x86_64-conda_cos6-linux-gnu | grep powerpc > /dev/null; then
   GOLD_USED=
 else

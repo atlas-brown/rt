@@ -119,6 +119,12 @@ class TypeChecker:
                 with Timing("timing output type creation = "):
                     current_output_type = signature.determine_output_type(previous_output_type, parsed_command_invocation, corresponding_annotations, corresponding_env_annotations)
 
+
+                current_output_type.nfa.setDeterministic(False)
+                current_output_type.nfa.removeDeadTransitions()
+                current_output_type.nfa.minimize()
+                self.max_automata_size = max(self.max_automata_size, len(current_output_type.nfa.getStates()))
+                
                 # check if the output is empty
                 if self.enable_rule_no_empty_output:
                     if current_output_type.is_empty() or current_output_type.is_empty_string():
@@ -154,11 +160,6 @@ class TypeChecker:
                             return checking_result
 
                 previous_output_type = current_output_type
-
-                previous_output_type.nfa.setDeterministic(False)
-                previous_output_type.nfa.removeDeadTransitions()
-                previous_output_type.nfa.minimize()
-                self.max_automata_size = max(self.max_automata_size, len(previous_output_type.nfa.getStates()))
 
                 logging.debug("-"*60)
                 logging.debug(f"current command: {signature.command_name}")

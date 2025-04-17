@@ -207,6 +207,7 @@ def add_parsing_failures_to_results(results, statistics):
     
     # Process each entry
     parsing_failures = []
+    unknown_file_count = 1
     for entry_idx, entry in enumerate(entries):
         # Extract file path
         path_match = re.search(r'Error parsing file: (.+)\n', entry)
@@ -215,6 +216,10 @@ def add_parsing_failures_to_results(results, statistics):
             continue
         
         file_path = path_match.group(1).strip()
+        # FIXME: hardcoded path
+        if file_path.startswith("/tmp"):
+            file_path = "full_benchmark/pash_benchmark/unknown_file" + str(unknown_file_count)
+            unknown_file_count += 1
         logging.debug(f"Processing error entry {entry_idx+1} for file: {file_path}")
         
         # Find the content section

@@ -10,8 +10,6 @@
 # regex matches 0 or more nonempty lines, each containing a filename
 # that does not itself contain '/' or an extension
 
-# stream enable
-# @expect "[^\.]*" --> "sort"
 
 # @output "[^\.]*"
 # stream enable

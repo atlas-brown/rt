@@ -50,7 +50,7 @@ def results_to_summary_csv(json_path, out_path):
             'Tag': category_to_tag(compute_correct_result(result), process_category(result["category"])),
             'Buggy?': result["is buggy?"],
             'Correct Result?': compute_correct_result(result),
-            'Time(s)': result["evaluation_time"],
+            'Time(s)': result.get("evaluation_time", 0),
             'RunTime Error': process_runtime_error(result["tool runtime error"]),
             'Category': process_category(result["category"]),
             'Notes': result["notes"],

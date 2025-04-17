@@ -109,7 +109,6 @@ class RegularType:
         # return output == z3.unsat
 
         logging.debug("checking emptiness")
-        print(self.nfa.getShortestExample(True))
         return self.nfa.isEmpty()
     
     def is_empty_string(self) -> bool:
