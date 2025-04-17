@@ -2760,7 +2760,7 @@ _deactivate() {
 # ---
 
 # The @assume annotation is temporary, until HTTP responses have been modeled.
-# @assume "echo "$responseHeaders"" --> "Location: (https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)\r?\n"
+# @assume "echo "$responseHeaders"" --> "Location: (https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)\r?|~(Location:.*)"
 # @output "(https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)?\n"
 # stream enable
     authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2)"
