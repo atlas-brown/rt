@@ -25,11 +25,27 @@ def plot_accuracy(data, output_path):
 
     # Get all benchmark sets
     # benchmarks = sorted(data.dropna()["Benchmark set"].unique())
-    benchmarks = ["PaSh", "Intercode", 
-                  None, # gap
-                  "Ladder", "Handwritten", "GitHub", 
-                  None, # gap
-                  "StackOverflow", "LLM", "Mutants"]
+    base_benchmarks = ["GitHub", "StackOverflow", "Ladder", "PaSh", "Intercode", "LLM", "Mutants", "Handwritten"]
+    split_benchmarks = [b + t for t in [" (buggy)", " (correct)"] for b in base_benchmarks]
+    
+    # now lets remove any benchmarks labeled "X (correct)" for which the column "# Correct" is 0
+    # and "X (buggy)" for which the column "# Incorrect" is 0
+    benchmarks = []
+    for b in split_benchmarks:
+        count = int(data[data["Benchmark set"] == b]["# Correct" if b.endswith(" (correct)") else "# Incorrect"].values[0])
+        if count != 0:
+            benchmarks.append(b)
+
+    #benchmarks = split_benchmarks
+    
+    # add a none to make a gap in the bar chart
+    last_index_of_split = 0
+    for i, b in enumerate(benchmarks):
+        if isinstance(b, str) and b.endswith(" (buggy)"):
+            last_index_of_split = i
+    benchmarks.insert(last_index_of_split + 1, None)
+
+    print(f"Benchmark sets with actual examples: {benchmarks}")
 
     # Prepare bar heights
     shtreams_no_ann = [
@@ -56,7 +72,7 @@ def plot_accuracy(data, output_path):
     x = np.arange(len(benchmarks))
     width = 0.2
 
-    plt.figure(figsize=figsize)
+    plt.figure(figsize=(8, 4))
     plt.rc('axes', axisbelow=True)
     plt.grid(axis='y', linestyle='-', alpha=0.7)
     
@@ -65,11 +81,21 @@ def plot_accuracy(data, output_path):
     plt.bar(x + 0.5*width, shellcheck, width, label="ShellCheck", color=color_scheme[2], hatch="\\")
     plt.bar(x + 1.5*width, laddertypes, width, label="LadderTypes", color=color_scheme[3])
     
-    plt.xticks([0, 1, 3, 4, 5, 7, 8, 9], [b for b in benchmarks if b is not None], rotation=30, ha="right")
+    def mklabel(b):
+        count = int(data[data["Benchmark set"] == b]["# Correct" if b.endswith(" (correct)") else "# Incorrect"].values[0])
+        if b.endswith(" (correct)"):
+            return f"{b[:-10]} ({count})"
+        else:
+            return f"{b[:-8]} ({count})"
+
+    plt.xticks([i for i, b in enumerate(benchmarks) if b is not None], 
+               [mklabel(b) for    b in benchmarks            if b is not None], 
+               rotation=30, ha="right")
     plt.ylim(0, 1)
     plt.ylabel("Accuracy")
+    plt.xlabel("Buggy" + " "*60 + "Correct")
     plt.title(None)
-    plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.2), ncol=4)
+    plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.3), ncol=4)
     plt.tight_layout()
     plt.savefig(output_path, format="pdf")
 
@@ -115,11 +141,11 @@ def plot_bug_detection(data, output_path):
         # move text to the right
         match i:
             case 0:
-                text.set_position((text.get_position()[0] + 5.5, text.get_position()[1] + 9))
+                text.set_position((text.get_position()[0] + 4.5, text.get_position()[1] + 6))
             case 1:
                 text.set_position((text.get_position()[0], text.get_position()[1] - 0.85))
             case 2:
-                text.set_position((text.get_position()[0] + 1.5, text.get_position()[1] + 0.55))
+                text.set_position((text.get_position()[0] + 1.5, text.get_position()[1] + 0))
     plt.title(None)
     plt.tight_layout()
     plt.savefig(output_path, format="pdf")
@@ -153,7 +179,10 @@ def plot_automata_sizes(data, output_path):
                     return b
                 case _:
                     pass
+        print(f"Size {x} not in any bucket")
     for x in data["automata_size"]:
+        if x == 0:
+            continue
         buckets[bucket(x)] += 1
 
     plt.figure(figsize=figsize)

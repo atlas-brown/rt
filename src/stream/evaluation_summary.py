@@ -164,7 +164,12 @@ def results_to_overview_csv(ann_json_path, raw_json_path, baseline_csv_path, out
                               "correct": correct_benchmarks,
                               "buggy": buggy_benchmarks,
                               "lt": ([r["baseline"] for r in benchmark_set_results], "ltsh warning?"),
-                              "sc": ([r["baseline"] for r in benchmark_set_results], "sc warning?")}.items():
+                              "lt-correct": ([r["baseline"] for r in correct_benchmarks], "ltsh warning?"),
+                              "lt-buggy": ([r["baseline"] for r in buggy_benchmarks], "ltsh warning?"),
+                              "sc": ([r["baseline"] for r in benchmark_set_results], "sc warning?"),
+                              "sc-correct": ([r["baseline"] for r in correct_benchmarks], "sc warning?"),
+                              "sc-buggy": ([r["baseline"] for r in buggy_benchmarks], "sc warning?"),
+                              }.items():
                 if isinstance(data, tuple):
                     stats[key] = recall_precision_f1(data[0], data[1])
                 else:
@@ -194,45 +199,51 @@ def results_to_overview_csv(ann_json_path, raw_json_path, baseline_csv_path, out
                 'Status': 'Included'
             }
             rows.append(overall)
-            # plot_rows.append(overall)
-            # rows.append({# a row for just the correct benchmarks
-            #     'Benchmark set': '',
-            #     '# Correct': len(correct_benchmarks),
-            #     '# Incorrect': 0,
-            #     'With Annotations?': ann == "ann",
-            #     'False Results': stats["correct"]["false_positives"],
-            #     'Recall': '',
-            #     'Precision': '',
-            #     'F1': '',
-            #     'SC Precision': '',
-            #     'SC Recall': '',
-            #     'SC F1': '',
-            #     'SC False': '',
-            #     'LT Precision': '',
-            #     'LT Recall': '',
-            #     'LT F1': '',
-            #     'LT False': '',
-            #     'Status': 'Included'
-            # })
-            # rows.append({# a row for just the buggy benchmarks
-            #     'Benchmark set': '',
-            #     '# Correct': 0,
-            #     '# Incorrect': len(buggy_benchmarks),
-            #     'With Annotations?': ann == "ann",
-            #     'False Results': stats["buggy"]["false_negatives"],
-            #     'Recall': '',
-            #     'Precision': '',
-            #     'F1': '',
-            #     'SC Precision': '',
-            #     'SC Recall': '',
-            #     'SC F1': '',
-            #     'SC False': '',
-            #     'LT Precision': '',
-            #     'LT Recall': '',
-            #     'LT F1': '',
-            #     'LT False': '',
-            #     'Status': 'Included'
-            # })
+            plot_rows.append(overall)
+            rows.append({# a row for just the correct benchmarks
+                'Benchmark set': benchmark_set + " (correct)",
+                '# Correct': len(correct_benchmarks),
+                '# Incorrect': 0,
+                'With Annotations?': ann == "ann",
+                'False Results': stats["correct"]["false_positives"],
+                'Accuracy': stats["correct"]["accuracy"],
+                'Recall': '',
+                'Precision': '',
+                'F1': '',
+                'SC Precision': '',
+                'SC Recall': '',
+                'SC F1': '',
+                'SC False': '',
+                'SC Accuracy': stats["sc-correct"]["accuracy"],
+                'LT Precision': '',
+                'LT Recall': '',
+                'LT F1': '',
+                'LT False': '',
+                'LT Accuracy': stats["lt-correct"]["accuracy"],
+                'Status': 'Included'
+            })
+            rows.append({# a row for just the buggy benchmarks
+                'Benchmark set': benchmark_set + " (buggy)",
+                '# Correct': 0,
+                '# Incorrect': len(buggy_benchmarks),
+                'With Annotations?': ann == "ann",
+                'False Results': stats["buggy"]["false_negatives"],
+                'Accuracy': stats["buggy"]["accuracy"],
+                'Recall': '',
+                'Precision': '',
+                'F1': '',
+                'SC Precision': '',
+                'SC Recall': '',
+                'SC F1': '',
+                'SC False': '',
+                'SC Accuracy': stats["sc-buggy"]["accuracy"],
+                'LT Precision': '',
+                'LT Recall': '',
+                'LT F1': '',
+                'LT False': '',
+                'LT Accuracy': stats["lt-buggy"]["accuracy"],
+                'Status': 'Included'
+            })
         # append a blank row between the two annotations
         rows.append({key: '' for key in header})
         # plot_rows.append({key: '' for key in header})
@@ -247,9 +258,9 @@ def recall_precision_f1(benchmark_results, signaled_key="warning signaled?"):
 
     # LL: these metrics are perhaps not very helpful in our breakdown by benchmark set, because some sets have no pos or neg examples
     # Something like Accuracy does not depend on having one or the other (as opposed to recall, false-pos-rate, and precision, which do)
-    true_positives = sum(1 for rec in benchmark_results if rec[signaled_key] and rec["is buggy?"])
-    false_positives = sum(1 for rec in benchmark_results if rec[signaled_key] and not rec["is buggy?"])
-    false_negatives = sum(1 for rec in benchmark_results if not rec[signaled_key] and rec["is buggy?"])
+    true_positives = sum(1 for rec in benchmark_results if rec[signaled_key] == True and rec["is buggy?"])
+    false_positives = sum(1 for rec in benchmark_results if rec[signaled_key] == True and not rec["is buggy?"])
+    false_negatives = sum(1 for rec in benchmark_results if rec[signaled_key] == False and rec["is buggy?"])
 
     recall = true_positives / (true_positives + false_negatives) if (true_positives + false_negatives) > 0 else 0
     precision = true_positives / (true_positives + false_positives) if (true_positives + false_positives) > 0 else 0
