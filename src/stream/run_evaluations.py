@@ -122,7 +122,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
                 pipeline_data = pipeline_data_template.copy()
                 pipeline_data[SIGNALED_LABEL] = checking_result.ill_typed
                 pipeline_data["content"] = checking_result.pipeline_content
-                pipeline_data["evaluation_time"] = f"{elapsed_time:.2f}s"
+                pipeline_data["evaluation_time"] = f"{elapsed_time:.8f}s"
                 pipeline_data["automata_size"] = checking_result.max_automata_size
                 pipeline_data["pipeline_length"] = checking_result.pipeline_length
                 pipeline_data["tainted"] = checking_result.tainted
@@ -290,6 +290,27 @@ def add_parsing_failures_to_results(results, statistics):
     
     return results, statistics
 
+def deduplicate_results(results):
+    """
+    Deduplicate evaluation results based on identical address and content.
+    Returns a new list with duplicates removed, keeping the first occurrence.
+    """
+    seen = set()
+    deduplicated = []
+    
+    for result in results:
+        # Create a unique identifier from address and content
+        identifier = (result.get("address", ""), result.get("content", ""))
+        
+        if identifier not in seen:
+            seen.add(identifier)
+            deduplicated.append(result)
+        else:
+            logging.info(f"Removing duplicate result with address: {result.get('address')} and content: {result.get('content')[:50]}...")
+    
+    logging.info(f"Deduplication: removed {len(results) - len(deduplicated)} duplicate entries from {len(results)} total")
+    return deduplicated
+
 def run_all_evaluations(valid_dirs: list[str] = None,
                         invalid_dirs: list[str] = None,
                         output_json: str = None,
@@ -439,12 +460,44 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     # Add parsing failures to results
     results, output_data["statistics"] = add_parsing_failures_to_results(results, output_data["statistics"])
     
-    # Recalculate failures after adding parsing errors
+    # Deduplicate results based on address and content
+    results = deduplicate_results(results)
+    
+    # Recalculate failures after deduplication
     failures = [result for result in results if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL]]
     false_positive_pipelines = [r for r in failures if not r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
-    output_data["statistics"]["total_wrong_predictions"] = len(failures)
+    false_negative_pipelines = [r for r in failures if r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
+    
+    # Update statistics after deduplication
+    crash_pipelines = [r for r in failures if r[SIGNALED_LABEL] == None]
+    timeout_pipelines = [r for r in crash_pipelines if r[CRASH_REASON_LABEL] == TIMEOUT_REASON]
+    valid_pipeline_crashes = [r for r in crash_pipelines if not r[IS_BUGGY_LABEL] and (r[CRASH_REASON_LABEL] != None or r["pash annotations error"] != None)]
+    buggy_pipeline_crashes = [r for r in crash_pipelines if r[IS_BUGGY_LABEL] and (r[CRASH_REASON_LABEL] != None or r["pash annotations error"] != None)]
+    
+    # Update statistics in output_data
+    output_data["evaluation_results"] = results
+    output_data["statistics"]["total_pipelines"] = len(results)
+    output_data["statistics"]["timeout_count"] = len(timeout_pipelines)
+    output_data["statistics"]["crashes"] = len(valid_pipeline_crashes) + len(buggy_pipeline_crashes)
+    output_data["statistics"]["correct_crashes"] = len(valid_pipeline_crashes)
+    output_data["statistics"]["buggy_crashes"] = len(buggy_pipeline_crashes)
+    output_data["statistics"]["total_correct_pipelines"] = sum(1 for r in results if not r[IS_BUGGY_LABEL])
+    output_data["statistics"]["false_positives"] = len(false_positive_pipelines)
     output_data["statistics"]["false_positive_categories"] = categorize(false_positive_pipelines)
-
+    output_data["statistics"]["total_buggy_pipelines"] = sum(1 for r in results if r[IS_BUGGY_LABEL])
+    output_data["statistics"]["false_negatives"] = len(false_negative_pipelines)
+    output_data["statistics"]["false_negative_categories"] = categorize(false_negative_pipelines)
+    output_data["statistics"]["total_wrong_predictions"] = len(false_positive_pipelines) + len(false_negative_pipelines)
+    
+    # Recalculate metrics after deduplication
+    preds = [result[SIGNALED_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
+    labels = [result[IS_BUGGY_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
+    
+    if preds and labels:
+        output_data["statistics"]["accuracy"] = calculate_accuracy(labels, preds)
+        output_data["statistics"]["precision"] = calculate_precision(labels, preds)
+        output_data["statistics"]["recall"] = calculate_recall(labels, preds)
+    
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
     

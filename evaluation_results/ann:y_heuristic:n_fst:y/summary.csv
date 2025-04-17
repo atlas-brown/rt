@@ -1,18 +1,18 @@
 category,total,crash,signaled,false (pos/neg),category, tag
 ========,=====,=====,========,===============,========,========
-correct,731,0,40,40,, 
+correct,730,0,40,40,, 
  , , , ,30,Unsupported invocation,
  , , , ,3,<missing>,
  , , , ,1,Bad heuristics,
  , , , ,6,parse fail,
 --------,-----,-----,--------,---------------,--------,--------
-buggy,361,0,232,129,, 
+buggy,359,0,231,128,, 
  , , , ,108,<missing>,
  , , , ,2,Wrong semantic,
- , , , ,14,Unsupported invocation,
+ , , , ,13,Unsupported invocation,
  , , , ,1,uniq without sort,
  , , , ,1,About globing; out of scope,
  , , , ,1,Existence Quantifier required for reasoning,
  , , , ,2,env variable not identified,
 ========,=====,=====,========,===============,========,========
-total,1092,0, ,169,, 
+total,1089,0, ,168,, 
