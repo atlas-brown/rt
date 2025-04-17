@@ -906,7 +906,7 @@ full_benchmark/intercode/pipelines/intercode_118_gold2.sh,find /workspace -type 
 full_benchmark/intercode/pipelines/intercode_11_gold1.sh,"find /testbed -path ""*FooBar*"" -print0 | xargs -0 -I{} cp -r {} /testbed/dir3/subdir1/subsubdir1/tmp",false,false,false,0.016,1.682,
 full_benchmark/intercode/pipelines/intercode_11_gold2.sh,"find /testbed -path ""*FooBar*"" -print0 | xargs -0 -I{} cp -R {} /testbed/dir3/subdir1/subsubdir1/tmp",false,false,false,0.024,1.656,
 full_benchmark/intercode/pipelines/intercode_2_gold2.sh,"ls -1 /testbed/dir2/subdir2/* | sort | xargs md5sum | awk ""{print $1}"" | md5sum",false,false,false,0.020,3.295,SC2012
-full_benchmark/intercode/pipelines/intercode_30_gold1.sh,"find /testbed -name ""*.php"" | xargs cat | awk ""/[a-zA-Z0-9]/ {i++} END{print i}""",false,true,false,0.019,2.531,SC2038
+full_benchmark/intercode/Bad label/intercode_30_gold1.sh,"find /testbed -name ""*.php"" | xargs cat | awk ""/[a-zA-Z0-9]/ {i++} END{print i}""",true,true,false,0.019,2.531,SC2038
 full_benchmark/intercode/pipelines/intercode_30_gold2.sh,"find /testbed -type f -name ""*.php"" -exec grep -H "".*[[:alnum:]].*"" {} + | wc -l",false,false,false,0.023,0.819,
 full_benchmark/intercode/pipelines/intercode_31_gold2.sh,"find /testbed -type f \( -name ""*.php"" -o -name ""*.js"" \) -exec wc -l {} + | awk ""{s=$1} END {print s}""",false,false,false,0.020,1.612,
 full_benchmark/intercode/pipelines/intercode_32_gold1.sh,"find /testbed -type d -name ""dir1"" -print | sed ""s/\$/\/abc.txt/g"" | xargs touch",false,false,false,0.016,2.485,
