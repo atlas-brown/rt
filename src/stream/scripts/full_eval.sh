@@ -52,8 +52,9 @@ for f in y n; do
     done
 done
 
-# python3 src/stream/scripts/performance.py evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv
-# python3 src/stream/scripts/extract_automata_size.py evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv
+python3 src/stream/scripts/performance.py evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json evaluation_results/baseline.csv evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv evaluation_results/analysis_time_stats_fst:y.csv
+python3 src/stream/scripts/performance.py evaluation_results/ann:y_heuristic:y_fst:n/evaluation_results.json evaluation_results/baseline.csv evaluation_results/ann:y_heuristic:y_fst:n/length_time_pairs.csv evaluation_results/analysis_time_stats_fst:n.csv
+python3 src/stream/scripts/extract_automata_size.py evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv
 
 python3 src/stream/scripts/plots.py evaluation_results/overview_heuristic:y_fst:y.csv evaluation_results/bug_detection_heuristic:y_fst:y.csv evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv --output_dir evaluation_results/plots/
 
