@@ -14,6 +14,7 @@ from stream.type_checker import TypeChecker
 from stream.tool_error import PashAnnotationParsingError, TimeoutError
 import argparse
 from stream.config import CONFIG
+import csv
 
 # Default values now come from CONFIG
 ENABLE_TIMEOUT = CONFIG.get("enable_timeout", False)
@@ -85,8 +86,10 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
         CRASH_REASON_LABEL: None,
         "pash annotations error": None,
         "error message generated": None,
-        "evaluation_time": None,
+        "evaluation_time": "0s",  # Default to 0s for evaluation time
         "tainted": None,
+        "pipeline_length": 0,     # Track pipeline length
+        "automata_size": 0,       # Track automata size
         # "notes": ""
     }
     pipeline_data_list = []
@@ -120,7 +123,8 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
                 pipeline_data[SIGNALED_LABEL] = checking_result.ill_typed
                 pipeline_data["content"] = checking_result.pipeline_content
                 pipeline_data["evaluation_time"] = f"{elapsed_time:.2f}s"
-                pipeline_data["automata_size"] = type_checker.max_automata_size
+                pipeline_data["automata_size"] = checking_result.max_automata_size
+                pipeline_data["pipeline_length"] = checking_result.pipeline_length
                 pipeline_data["tainted"] = checking_result.tainted
                 if checking_result.ill_typed:
                     pipeline_data["error message generated"] = checking_result.message
@@ -258,7 +262,10 @@ def add_parsing_failures_to_results(results, statistics):
             "notes": "Pipeline failed during parsing phase",
             "tainted": True,
             "address": file_path,
-            "content": file_content
+            "content": file_content,
+            "evaluation_time": "0s",  # Set evaluation time to 0 for parse failures
+            "automata_size": 0,       # No automata for parse failures
+            "pipeline_length": 0      # No valid pipeline length for parse failures
         }
         
         # Add to results
@@ -299,6 +306,11 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     evaluation_notes_json = evaluation_notes_json or CONFIG.get("evaluation_notes_path", "src/stream/evaluation_notes.json")
     not_check_all_dirs = not_check_all_dirs or CONFIG.get("not_check_all_dirs", [])
     num_workers = num_workers or CONFIG.get("num_workers", 1)
+    
+    # Define output paths for additional files
+    output_dir = os.path.dirname(output_json)
+    automata_csv_path = os.path.join(output_dir, "automata_sizes.csv")
+    performance_csv_path = os.path.join(output_dir, "length_time_pairs.csv")
     
     # Clear the parsing error log file before starting
     parsing_error_log_path = CONFIG.get("parsing_error_log_path")
@@ -433,13 +445,25 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     output_data["statistics"]["total_wrong_predictions"] = len(failures)
     output_data["statistics"]["false_positive_categories"] = categorize(false_positive_pipelines)
 
-    os.makedirs(os.path.dirname(output_json), exist_ok=True)
+    # Create output directory if it doesn't exist
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Write main results JSON
     with open(output_json, 'w') as json_file:
         json.dump(output_data, json_file, indent=4)
     logging.info(f"Results written to {output_json}")
+    
+    # Write summary CSV
     with open(output_summary_csv, 'w') as csv:
         tabulate(output_data['statistics'], csv)
     logging.info(f"Summary table written to {output_summary_csv}; format with `column -s, -t {output_summary_csv}`")
+    
+    # Write automata sizes CSV
+    write_automata_sizes_to_csv(results, automata_csv_path)
+    
+    # Write performance data CSVs
+    write_performance_data_to_csv(results, performance_csv_path)
+    
     logging.info(f"Total evaluation time: {total_time:.2f}s")
 
 def categorize(results, category_label=CATEGORY_LABEL):
@@ -528,6 +552,69 @@ def category_to_tag(category: str):
             return entry["tag"]
     return ""
 
+def write_automata_sizes_to_csv(results, csv_path):
+    """Extract automata sizes from evaluation results and write to CSV"""
+    automata_sizes = []
+    
+    for result in results:
+        automata_size = result.get('automata_size')
+        if automata_size is not None:
+            automata_sizes.append(automata_size)
+    
+    os.makedirs(os.path.dirname(csv_path), exist_ok=True)
+    with open(csv_path, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['automata_size'])
+        for size in automata_sizes:
+            if size > 0 : 
+                writer.writerow([size])
+    
+    logging.info(f"Automata sizes written to {csv_path}")
+
+def write_performance_data_to_csv(results, csv_path):
+    """Extract pipeline length and evaluation time data and write to CSV files"""
+    length_time_pairs = []
+    length_time_content_pairs = []
+    
+    for result in results:
+        try:
+            # Get evaluation time (remove the 's' suffix and convert to float)
+            eval_time_str = result.get('evaluation_time', "0s")
+            if eval_time_str.endswith('s'):
+                eval_time = float(eval_time_str[:-1])
+            else:
+                eval_time = float(eval_time_str)
+            
+            # Get pipeline length
+            pipeline_length = result.get('pipeline_length', 0)
+            content = result.get('content', '')
+            
+            # Only include valid entries
+            if pipeline_length > 0:
+                length_time_pairs.append((pipeline_length, eval_time))
+                if content:
+                    length_time_content_pairs.append((pipeline_length, eval_time, content))
+        except Exception as e:
+            logging.error(f"Error processing performance data: {e}")
+    
+    # Write main performance CSV
+    os.makedirs(os.path.dirname(csv_path), exist_ok=True)
+    with open(csv_path, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['Length', 'Time'])  # Header
+        for length, time_val in length_time_pairs:
+            writer.writerow([length, time_val])
+    
+    # Write extended CSV with content
+    content_csv_path = os.path.splitext(csv_path)[0] + "_with_content.csv"
+    with open(content_csv_path, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['Length', 'Time', 'Content'])  # Header
+        for length, time_val, content in length_time_content_pairs:
+            writer.writerow([length, time_val, content])
+    
+    logging.info(f"Performance data written to {csv_path}")
+    logging.info(f"Performance data with content written to {content_csv_path}")
 
 if __name__ == "__main__":
     
@@ -546,8 +633,6 @@ if __name__ == "__main__":
                         help='Disable the rule that checks for empty output.')
     parser.add_argument('--disable_rule_no_ignored_input', action='store_true',
                         help='Disable the rule that checks for ignored input.')
-    parser.add_argument('--disable_rule_no_space_in_file_name', action='store_true',
-                        help='Disable the rule that checks for spaces in file names.')
     parser.add_argument('--disable_rule_no_meaningless_command', action='store_true',
                         help='Disable the rule that checks for meaningless commands.')
     parser.add_argument('--disable_rule_no_sort_non_numeric_with_numeric_input', action='store_true',
@@ -642,16 +727,24 @@ if __name__ == "__main__":
 
     time.sleep(3)
 
-    # Use config values for the paths
-    if args.outdir:
-        CONFIG.set("output_results_path_with_annotation",
-                   os.path.join(args.outdir, os.path.basename(CONFIG.get("output_results_path_with_annotation"))))
-        CONFIG.set("output_results_path_raw",
-                   os.path.join(args.outdir, os.path.basename(CONFIG.get("output_results_path_raw"))))
+    # Set up output paths based on outdir parameter
+    output_dir = args.outdir if args.outdir else None
+    
+    if output_dir:
+        # Create proper path for all output files
+        result_filename = os.path.basename(CONFIG.get("output_results_path_with_annotation" if enable_user_annotation else "output_results_path_raw"))
+        summary_filename = os.path.basename(CONFIG.get("output_summary_path_with_annotation" if enable_user_annotation else "output_summary_path_raw"))
+        
+        output_json = os.path.join(output_dir, result_filename)
+        output_summary_csv = os.path.join(output_dir, summary_filename)
+    else:
+        # Use default paths from CONFIG
+        output_json = CONFIG.get("output_results_path_with_annotation" if enable_user_annotation else "output_results_path_raw")
+        output_summary_csv = CONFIG.get("output_summary_path_with_annotation" if enable_user_annotation else "output_summary_path_raw")
     
     run_all_evaluations(
         num_workers=workers,
-        output_json=CONFIG["output_results_path_with_annotation"] if enable_user_annotation else CONFIG["output_results_path_raw"],
-        output_summary_csv=CONFIG["output_summary_path_with_annotation"] if enable_user_annotation else CONFIG["output_summary_path_raw"]
+        output_json=output_json,
+        output_summary_csv=output_summary_csv
     )
     jpype.shutdownJVM()

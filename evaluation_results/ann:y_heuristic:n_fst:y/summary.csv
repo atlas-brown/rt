@@ -1,0 +1,19 @@
+category,total,crash,signaled,false (pos/neg),category, tag
+========,=====,=====,========,===============,========,========
+correct,732,0,41,41,, 
+ , , , ,31,Unsupported invocation,
+ , , , ,3,<missing>,
+ , , , ,1,Bad heuristics,
+ , , , ,6,parse fail,
+--------,-----,-----,--------,---------------,--------,--------
+buggy,360,0,230,130,, 
+ , , , ,108,<missing>,
+ , , , ,2,Wrong semantic,
+ , , , ,1,Incomplete annotations,
+ , , , ,14,Unsupported invocation,
+ , , , ,1,uniq without sort,
+ , , , ,1,About globing; out of scope,
+ , , , ,1,Existence Quantifier required for reasoning,
+ , , , ,2,env variable not identified,
+========,=====,=====,========,===============,========,========
+total,1092,0, ,171,, 

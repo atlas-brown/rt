@@ -9,6 +9,8 @@ class CheckingResult:
         self.type_derivation_trace = None
 
         self.pipeline_content = None
+        self.pipeline_length = 0
+        self.max_automata_size = 1
 
         self.tainted = tainted
 
@@ -43,6 +45,14 @@ class CheckingResult:
     def set_type_derivation_trace(self, type_derivation_trace):
         if type_derivation_trace is not None:
             self.type_derivation_trace = type_derivation_trace 
+            
+    def set_pipeline_length(self, pipeline_length: int):
+        if pipeline_length is not None:
+            self.pipeline_length = pipeline_length
+            
+    def set_max_automata_size(self, max_automata_size: int):
+        if max_automata_size is not None:
+            self.max_automata_size = max_automata_size
 
     def __repr__(self):
-        return f"CheckingResult(\npipeline content: {self.pipeline_content}\nill_typed?: {self.ill_typed}\nerror message: {self.message}\ncounterexample: {self.counterexample}\nderivation trace: {self.type_derivation_trace}\n)\ntainted: {self.tainted}"
+        return f"CheckingResult(\npipeline content: {self.pipeline_content}\nill_typed?: {self.ill_typed}\nerror message: {self.message}\ncounterexample: {self.counterexample}\nderivation trace: {self.type_derivation_trace}\npipeline_length: {self.pipeline_length}\nmax_automata_size: {self.max_automata_size}\n)\ntainted: {self.tainted}"

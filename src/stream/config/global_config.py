@@ -35,7 +35,6 @@ class Config:
             
             "enable_rule_no_empty_output": True,
             "enable_rule_no_ignored_input": True,
-            "enable_rule_no_space_in_file_name": True,
             "enable_rule_no_meaningless_command": True,
             "enable_rule_no_sort_non_numeric_with_numeric_input": True,
             

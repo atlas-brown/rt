@@ -51,8 +51,6 @@ class TypeChecker:
         self.annotations = self.shell_parser.annotations
         self.env_annotations = self.shell_parser.env_annotations
         self.current_index = 0
-
-        self.max_automata_size = 1
         
         for pipeline in self.pipeline_nodes:
             logging.debug(f"Pipeline: {pipeline.pretty()}")
@@ -88,6 +86,11 @@ class TypeChecker:
         checking_result = CheckingResult(False, pipeline_node)
         
         try:
+            # Calculate pipeline length - number of commands in the pipeline
+            checking_result.set_pipeline_length(len(parsed_commands))
+            
+            checking_result.set_max_automata_size(1)
+            
             for command_node, parsed_command in zip(pipeline_node.items, parsed_commands):
                 signature, parsed_command_invocation = parsed_command
                 
@@ -123,7 +126,11 @@ class TypeChecker:
                 current_output_type.nfa.setDeterministic(False)
                 current_output_type.nfa.removeDeadTransitions()
                 current_output_type.nfa.minimize()
-                self.max_automata_size = max(self.max_automata_size, len(current_output_type.nfa.getStates()))
+                
+                # Update max automata size in the checking result
+                current_automata_size = len(current_output_type.nfa.getStates())
+                max_automata_size = max(checking_result.max_automata_size, current_automata_size)
+                checking_result.set_max_automata_size(max_automata_size)
                 
                 # check if the output is empty
                 if self.enable_rule_no_empty_output:

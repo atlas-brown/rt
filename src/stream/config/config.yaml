@@ -7,7 +7,6 @@ num_workers: 1
 # Heuristic rules
 enable_rule_no_empty_output: true
 enable_rule_no_ignored_input: true
-enable_rule_no_space_in_file_name: true
 enable_rule_no_meaningless_command: true
 enable_rule_no_sort_non_numeric_with_numeric_input: true
 

@@ -11,7 +11,7 @@ FORCE="$1"
 
 export PYTHONPATH=src
 
-DISABLE_HEURISTICS_FLAGS="--disable_rule_no_empty_output --disable_rule_no_ignored_input --disable_rule_no_space_in_file_name --disable_rule_no_meaningless_command --disable_rule_no_sort_non_numeric_with_numeric_input"
+DISABLE_HEURISTICS_FLAGS="--disable_rule_no_empty_output --disable_rule_no_ignored_input --disable_rule_no_meaningless_command --disable_rule_no_sort_non_numeric_with_numeric_input"
 
 if [ ! -f evaluation_results/baseline.csv ] || [ ! -z "$FORCE" ]; then
     python3 src/stream/scripts/baseline.py
@@ -28,8 +28,8 @@ fi
 # if [ ! -f evaluation_results/ann:n_heuristic:n_fst:y/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
 #     python3 src/stream/run_evaluations.py $DISABLE_HEURISTICS_FLAGS --disable_annotation
 # fi
-if [ ! -f evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
-    python3 src/stream/run_evaluations.py --disable_fsts --outdir evaluation_results/ann:y_heuristic:y_fst:y
+if [ ! -f evaluation_results/ann:y_heuristic:y_fst:n/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
+    python3 src/stream/run_evaluations.py --disable_fsts --outdir evaluation_results/ann:y_heuristic:y_fst:n
 fi
 if [ ! -f evaluation_results/ann:n_heuristic:y_fst:n/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
     python3 src/stream/run_evaluations.py --disable_annotation --disable_fsts --outdir evaluation_results/ann:n_heuristic:y_fst:n
@@ -52,8 +52,8 @@ for f in y n; do
     done
 done
 
-python3 src/stream/scripts/performance.py evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv
-python3 src/stream/scripts/extract_automata_size.py evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv
+# python3 src/stream/scripts/performance.py evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv
+# python3 src/stream/scripts/extract_automata_size.py evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv
 
 python3 src/stream/scripts/plots.py evaluation_results/overview_heuristic:y_fst:y.csv evaluation_results/bug_detection_heuristic:y_fst:y.csv evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv --output_dir evaluation_results/plots/
 
