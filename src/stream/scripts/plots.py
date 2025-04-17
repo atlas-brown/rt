@@ -141,7 +141,7 @@ def plot_bug_detection(data, output_path):
         # move text to the right
         match i:
             case 0:
-                text.set_position((text.get_position()[0] + 4.5, text.get_position()[1] + 6))
+                text.set_position((text.get_position()[0] + 11, text.get_position()[1] - 11))
             case 1:
                 text.set_position((text.get_position()[0], text.get_position()[1] - 0.85))
             case 2:
@@ -246,7 +246,7 @@ def main():
 
     overview_data = load_csv(args.overview_csv)
     plot_accuracy(overview_data, os.path.join(args.output_dir, "accuracy-chart.pdf"))
-    plt.rc('font', size=14)
+    plt.rc('font', size=23)
     bug_detection_data = load_csv(args.bug_detection_csv)
     plot_bug_detection(bug_detection_data, os.path.join(args.output_dir, "bug-detection.pdf"))
     plt.rc('font', size=12)
