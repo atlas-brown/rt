@@ -1,6 +1,6 @@
 import argparse
 import json
-import os
+import os, sys
 import csv
 import re
 from stream.config import CONFIG
@@ -12,6 +12,17 @@ def convert_to_github_address(address):
     collection = '/'.join(parts[:-1])
     benchmark = "https://github.com/brown-cs2952r/StreamTypes/blob/main/" + address
     return benchmark, collection
+
+def normalize_address(address):
+    path, content = address
+    if path.startswith('./'):
+        path = path[2:]
+    # major hackery going on right here. Please fixme to encode pipeline contents consistently!
+    if '\r' in content:
+        content = content.replace('\r', '')
+    while '\\\\' in content:
+        content = content.replace('\\\\', '\\')
+    return path, content
 
 def process_runtime_error(error):
     return error if error is not None else ''
@@ -76,15 +87,14 @@ def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None):
     baseline = load_baseline_results(baseline_csv_path) if baseline_csv_path else None
     merged = {}
     for rec in results_raw:
-        addr = rec["address"]
+        addr = normalize_address((rec["address"], rec["content"]))
         merged.setdefault(addr, {})["raw"] = rec
     for rec in results_ann:
-        addr = rec["address"]
+        addr = normalize_address((rec["address"], rec["content"]))
         merged.setdefault(addr, {})["ann"] = rec
     if baseline:
         for row in baseline:
-            addr = row[0]
-            addr = addr if addr in merged else './' + addr
+            addr = normalize_address((row[0], row[1]))
             if addr not in merged:
                 continue
             info = {
@@ -98,13 +108,13 @@ def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None):
             merged[addr]["ann"]["baseline"] = info
 
     for addr, recs in merged.items():
-        recs["benchmark_set"] = path_to_benchmark_set(addr)
+        recs["benchmark_set"] = path_to_benchmark_set(addr[0])
         if recs.get("ann") is None or recs.get("raw") is None:
             print(f"Missing record for {addr}: {'ann' if recs.get('ann') is None else 'raw'}")
         assert recs["raw"]["is buggy?"] == recs["ann"]["is buggy?"]
         if baseline:
             if recs["ann"].get("baseline") is None:
-                print(f"Missing baseline data for {addr}")
+                print(f"Missing baseline data for {addr}", file=sys.stderr)
                 assert False
             assert recs["ann"]["is buggy?"] == recs["ann"]["baseline"]["is buggy?"], f"buggy label mismatch between eval results and baseline: {recs['ann']}"
             assert recs["raw"]["is buggy?"] == recs["raw"]["baseline"]["is buggy?"], f"buggy label mismatch between eval results and baseline: {recs['raw']}"
