@@ -1,13 +1,13 @@
 category,total,crash,signaled,false (pos/neg),category, tag
 ========,=====,=====,========,===============,========,========
-correct,730,0,47,47,, 
+correct,730,0,46,46,, 
  , , , ,10,Bad heuristics,
- , , , ,31,Unsupported invocation,
+ , , , ,30,Unsupported invocation,
  , , , ,6,parse fail,
 --------,-----,-----,--------,---------------,--------,--------
-buggy,359,0,341,18,, 
+buggy,359,0,340,19,, 
  , , , ,2,Wrong semantic,
- , , , ,13,Unsupported invocation,
+ , , , ,14,Unsupported invocation,
  , , , ,1,uniq without sort,
  , , , ,1,About globing; out of scope,
  , , , ,1,Existence Quantifier required for reasoning,

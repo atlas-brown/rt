@@ -83,7 +83,7 @@ class GrepSignature(CommandSignature):
             
             
         else:
-            if len(parsed_command_invocation.operand_list) == 0:
+            if len(parsed_command_invocation.operand_list) == 0 and "-f" not in flags:
                 raise ToolError("No pattern provided for grep")
             pattern = parsed_command_invocation.operand_list[0].name
             pattern = pattern.replace("\\\\", "\\")
