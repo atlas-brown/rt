@@ -517,6 +517,14 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     # Write performance data CSVs
     write_performance_data_to_csv(results, performance_csv_path)
     
+    # Output function timer statistics
+    try:
+        from stream.function_timer import FunctionTimerRegistry
+        logging.info("Function execution statistics:")
+        FunctionTimerRegistry.print_stats()
+    except ImportError:
+        logging.warning("Function timer module not available - no timing statistics will be reported")
+    
     logging.info(f"Total evaluation time: {total_time:.2f}s")
 
 def categorize(results, category_label=CATEGORY_LABEL):

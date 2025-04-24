@@ -1,8 +1,9 @@
 import yaml
 import os
-from typing import List, Dict
+from typing import List, Dict, Optional
 from stream.command_signature import CommandSignature
 
+from stream.function_timer import timer
 from stream.special_signatures.xargs_stat import XargsStatSignature
 from stream.special_signatures.sed import SedSignature
 from stream.special_signatures.cut import CutSignature
@@ -19,7 +20,25 @@ from stream.special_signatures.head import HeadSignature
 from stream.special_signatures.tail import TailSignature
 
 class SignatureLoader:
+    _instance: Optional['SignatureLoader'] = None
+    
+    @classmethod
+    def get_instance(cls, signature_dir: str = "./src/stream/signatures") -> 'SignatureLoader':
+        if cls._instance is None:
+            cls._instance = cls(signature_dir)
+        return cls._instance
+    
+    @classmethod
+    def reset_instance(cls) -> None:
+        """Reset the singleton instance. Primarily used for testing."""
+        cls._instance = None
+    
+    @timer
     def __init__(self, signature_dir : str = "./src/stream/signatures") -> None:
+        # Enforce singleton pattern
+        if SignatureLoader._instance is not None:
+            raise RuntimeError("SignatureLoader is a singleton - use get_instance() instead")
+            
         self.signature_dir = signature_dir
         self.special_signatures: Dict[str, CommandSignature] = {
             "xargs_stat": XargsStatSignature, 

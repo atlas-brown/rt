@@ -38,9 +38,11 @@ import re
 import tempfile
 from datetime import datetime
 from stream.config.global_config import CONFIG
+from stream.function_timer import timer
 
 INITIALIZE_LIBDASH = True
 
+@timer
 def log_parsing_error(error_msg: str, file_path: str) -> None:
     """Log parsing error to the configured error log file."""
     error_log_path = CONFIG.get("parsing_error_log_path")
@@ -74,6 +76,7 @@ def log_parsing_error(error_msg: str, file_path: str) -> None:
 
 ## Parses straight a shell script to an AST
 ## through python without calling it as an executable
+@timer
 def parse_shell_to_asts(input_script_path : str):
     global INITIALIZE_LIBDASH
     try:
@@ -108,6 +111,7 @@ def parse_shell_to_asts(input_script_path : str):
         return None
 
 
+@timer
 def traverse_node(nd : AstNode) -> list[PipeNode]:
     pipeline_nodes = []
     match nd:
@@ -165,6 +169,7 @@ def traverse_node(nd : AstNode) -> list[PipeNode]:
     return pipeline_nodes
 
 
+@timer
 def filter_pipeline_nodes(filename: str, pipeline_nodes: list[PipeNode]) -> list[PipeNode]:
     script_content = []
     with open(filename) as f:
@@ -182,6 +187,7 @@ def filter_pipeline_nodes(filename: str, pipeline_nodes: list[PipeNode]) -> list
 
     return filtered_pipeline_nodes
 
+@timer
 def extract_pipelines_from_string(filename: str) -> list[tuple[PipeNode, int]]:
     """
     Extract pipelines from a script by finding '# stream enable' comments
@@ -210,6 +216,7 @@ def extract_pipelines_from_string(filename: str) -> list[tuple[PipeNode, int]]:
     
     return pipeline_nodes_with_lines
 
+@timer
 def extract_single_pipeline(script_content: list[str], enable_line_index: int) -> Optional[PipeNode]:
     """
     Extract a single pipeline following a "# stream enable" comment.
@@ -286,6 +293,7 @@ def extract_single_pipeline(script_content: list[str], enable_line_index: int) -
     
     return None
 
+@timer
 def extract_pipe_nodes_from_file(filename: str, extract_all_pipelines: bool = True) -> list[PipeNode] | list[tuple[PipeNode, int]]:
     if not extract_all_pipelines:
         # Use string matching to find and extract pipelines
@@ -302,7 +310,7 @@ def extract_pipe_nodes_from_file(filename: str, extract_all_pipelines: bool = Tr
 
     return pipeline_nodes
 
-
+@timer
 def string_of_arg(args):
     i = 0
     text = []
@@ -322,6 +330,7 @@ def string_of_arg(args):
 
     return text
 
+@timer
 def annot_parser_wrapper(str_ls_args: list[str]) -> CommandInvocationInitial:
 
     # split all terms (command, flags, options, arguments, operands)
@@ -381,6 +390,7 @@ def annot_parser_wrapper(str_ls_args: list[str]) -> CommandInvocationInitial:
 
     return CommandInvocationInitial(cmd_name, flag_option_list, operand_list)
 
+@timer
 def process_special_cases_in_args(s: list[str]) -> list[str]:
     if len(s) > 0:
         # handle escaped command: command cmd -> cmd
@@ -469,6 +479,7 @@ def process_special_cases_in_args(s: list[str]) -> list[str]:
         s = s2
     return s
 
+@timer
 def string_of_ls_args(args) -> list[str]:
     s : list[str] = []
     for idx, a in enumerate(args):
@@ -476,6 +487,7 @@ def string_of_ls_args(args) -> list[str]:
         s.append(x)
     return process_special_cases_in_args(s)
 
+@timer
 def get_command_invocation(cnd: CommandNode) -> CommandInvocationInitial:
     try:
         str_ls_args = string_of_ls_args(cnd.arguments)

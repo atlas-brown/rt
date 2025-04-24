@@ -68,7 +68,7 @@ class FindSignature(CommandSignature):
                     
                     # Find a matching command signature and infer its output type
                     from stream.signature_loader import SignatureLoader
-                    loader = SignatureLoader()
+                    loader = SignatureLoader.get_instance()
                     
                     for signature in loader.signatures:
                         if signature.matches_command(exec_command):

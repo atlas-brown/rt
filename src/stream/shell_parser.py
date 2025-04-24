@@ -10,6 +10,7 @@ from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 from stream.tool_error import PashAnnotationParsingError
+from stream.function_timer import timer
 
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 
@@ -17,8 +18,9 @@ from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 ANNOTATION_PATTERN = re.compile(r'^\s*#\s*@(assume|assert|expect|assert_contains)\s*"(.*)"\s*-->\s*"(.*)"\s*$|^\s*#\s*@(input|output|output_contains)\s*"(.*)"\s*$|^\s*#\s*@(file|var)\s*"(.*)"\s*:\s*"(.*)"\s*$')
 
 class ShellParser:
+    @timer
     def __init__(self, pipeline_address: str, enable_user_annotations: bool = True, extract_all_pipelines: bool = True) -> None:
-        self.signature_loader = SignatureLoader()
+        self.signature_loader = SignatureLoader.get_instance()
         self.pipeline_address = pipeline_address
         
         # Check for stream disable in first two lines if extract_all_pipelines is True
@@ -55,6 +57,7 @@ class ShellParser:
             self.input_pattern = None
             self.env_annotations = {}
 
+    @timer
     def parse_command_node(self, node: CommandInvocationInitial) -> Tuple[CommandSignature, CommandInvocationInitial]:
         assert isinstance(node, CommandInvocationInitial)
         for signature in self.signature_loader.signatures:
@@ -63,7 +66,7 @@ class ShellParser:
         logging.warning(f'No matching signature found for command {node.cmd_name if node.cmd_name != "xargs" or len(node.operand_list) == 0 else "xargs_" + node.operand_list[0].name}')
         return (self.signature_loader.get_unknown_sigature(), node)
         
-
+    @timer
     def parse_pipeline(self) -> List[List[Tuple[CommandSignature, CommandInvocationInitial]]]:
         if self.pipeline_nodes is None:
             raise ValueError("Parsing failed")
@@ -86,6 +89,7 @@ class ShellParser:
     
     # to handle the difference between the original command and the parsed command (pretty version)
     # current solution is using a temp file to parse the command and get the pretty version
+    @timer
     def refine_command(self, command: str) -> str:
         with tempfile.NamedTemporaryFile(mode='w', suffix='.sh', delete=True) as temp_file:
             temp_file.write(command)
@@ -98,6 +102,7 @@ class ShellParser:
                 
             return ast_nodes[0][0].pretty()
 
+    @timer
     def extract_annotations_from_file(self) -> Tuple[Dict[CommandNode, list[UserAnnotation]], Optional[str], Dict[PipeNode, Dict[str, List[EnvAnnotation]]]]:
         annotations: Dict[CommandNode, list[UserAnnotation]] = {}
         input_pattern = None
