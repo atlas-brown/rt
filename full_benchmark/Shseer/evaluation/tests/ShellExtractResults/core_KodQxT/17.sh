@@ -1,1 +1,0 @@
-cat test.php | python codeintel_server.py completions --path `pwd`/test.php --language PHP --row 45 --column 2

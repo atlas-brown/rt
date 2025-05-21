@@ -1,1 +1,0 @@
-export LIBAPARAPI=/opt/AMDAPP/aparapi

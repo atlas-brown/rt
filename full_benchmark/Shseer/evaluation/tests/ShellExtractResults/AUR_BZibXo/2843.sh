@@ -1,3 +1,0 @@
-#!/bin/bash
-export ECLIPSE_HOME=INSTALLATION_FOLDER
-exec ${ECLIPSE_HOME}/EXECUTABLE "$@"

@@ -1,5 +1,0 @@
-#!/bin/bash
-. "/usr/bin/variables"
-
-sleep 5
-mount.script "$@" 2>&1 | tee "${log_dir}/mount.log"

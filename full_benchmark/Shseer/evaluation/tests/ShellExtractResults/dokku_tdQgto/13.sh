@@ -1,9 +1,0 @@
-#!/bin/bash
-set -o pipefail
-
-if [[ "$1" == touch* ]]; then
-  echo "entrypoint script started with arguments $*"
-  touch "$(echo $@ | awk '{print $2}')"
-else
-  exec "$@"
-fi

@@ -1,3 +1,0 @@
-#!/bin/sh -x
-
-./add-shell ${DSTVOLUME}usr/local/bin/fish

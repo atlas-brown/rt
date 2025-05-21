@@ -1,3 +1,0 @@
-#!/bin/bash
-/opt/lumerical/fdtd/bin/fdtd-solutions >> lumerical-fdtd.log
-#

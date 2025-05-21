@@ -1,8 +1,0 @@
-#!/bin/sh
-
-set -ue
-
-# This script runs the tests of the project.
-#
-# See [README.md] for an explanation of this and how CI should use it.
-bundle exec rspec

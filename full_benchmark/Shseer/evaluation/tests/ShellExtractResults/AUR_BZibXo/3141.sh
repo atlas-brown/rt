@@ -1,2 +1,0 @@
-#!/bin/sh
-xdg-open /usr/share/doc/abs-guide/HTML/index.html

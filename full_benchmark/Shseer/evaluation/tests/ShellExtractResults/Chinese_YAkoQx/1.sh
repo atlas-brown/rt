@@ -1,1 +1,0 @@
-./chat -m ./ckpt/ggml-model-f16.bin --use_shards --threads 16 --ctx_size 1200 --repeat_penalty 2 --interactive-start

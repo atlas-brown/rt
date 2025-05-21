@@ -1,4 +1,0 @@
-#!/bin/bash
-
-gogdir="/opt/gog/baldurs-gate-2-enhanced-edition"
-"${gogdir}"/start.sh

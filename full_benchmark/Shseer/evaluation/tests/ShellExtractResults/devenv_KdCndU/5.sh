@@ -1,1 +1,0 @@
-echo $FOO | grep -q 1

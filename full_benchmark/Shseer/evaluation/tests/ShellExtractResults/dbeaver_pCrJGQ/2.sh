@@ -1,1 +1,0 @@
-./../idea-rcp-launch-config-generator/runGenerator.sh -f "$PWD"

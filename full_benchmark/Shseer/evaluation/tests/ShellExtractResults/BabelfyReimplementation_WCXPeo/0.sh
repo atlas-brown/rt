@@ -1,1 +1,0 @@
-bin/spark-submit --master yarn-client --num-executors 10 --executor-memory 5g ~/ned-disambiguation/semsig2.py

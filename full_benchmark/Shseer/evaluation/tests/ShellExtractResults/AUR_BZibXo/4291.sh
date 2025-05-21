@@ -1,2 +1,0 @@
-#!/bin/bash
-python2 /usr/bin/dropbox.py puburl "$1" | xclip -i -selection clipboard

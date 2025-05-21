@@ -1,1 +1,0 @@
-git remote set-url origin none.git

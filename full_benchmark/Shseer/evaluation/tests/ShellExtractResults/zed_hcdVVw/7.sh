@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -e
-
-git fetch origin main:tags/nightly -f
-git log --oneline -1 nightly
-git push -f origin nightly

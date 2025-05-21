@@ -1,1 +1,0 @@
-curl httpbin.org/test

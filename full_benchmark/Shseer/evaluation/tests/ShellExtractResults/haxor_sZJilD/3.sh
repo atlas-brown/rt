@@ -1,1 +1,0 @@
-cp CHANGELOG.rst README.rst

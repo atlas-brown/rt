@@ -1,3 +1,0 @@
-The POSIX shell script.
-
----

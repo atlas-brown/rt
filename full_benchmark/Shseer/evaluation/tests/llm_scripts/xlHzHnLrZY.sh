@@ -1,4 +1,0 @@
-
-#!/bin/sh
-
-find /path/to/directory -type f -name "*.txt" -exec mv {} {}.bak \;

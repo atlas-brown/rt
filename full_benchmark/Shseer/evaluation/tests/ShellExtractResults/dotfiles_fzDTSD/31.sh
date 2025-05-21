@@ -1,6 +1,0 @@
-#!/bin/bash
-#=#=#=
-# launch LINE chrome-app from command line
-#=#=
-
-/opt/google/chrome/google-chrome --profile-directory=Default --app-id=menkifleemblimdogmoihpfopnplikde

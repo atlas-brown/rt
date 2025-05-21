@@ -1,2 +1,0 @@
-#!/bin/sh
-"$JAVA_HOME/bin/java" -jar '/usr/share/java/apache-tika/tika-app-1.4.jar' "$@"

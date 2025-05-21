@@ -1,1 +1,0 @@
-goconvey -excludedDirs=main,examples

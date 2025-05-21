@@ -1,4 +1,0 @@
-#!/bin/sh
-
-cd "/opt/catlateral-damage" && "./CatlateralDamage_v5.2a.bin"
-cd "$OLDPWD"
