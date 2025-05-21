@@ -1378,5 +1378,21 @@
     "category": "Unsound?",
     "notes": "",
     "tag": ""
+},
+{
+    "address": "./full_benchmark/curated_mutants/maybe/intercode_165_gold2.sh_Pecho-n-Hell_52100d70d8adb9ee20caef7d874a7501_M4.sh",
+    "content": "echo \"  Hello world!    \" | sed \"s/^[ \\\\t]*//;s/[ \\\\t]*\\$//\"",
+    "is buggy?": true,
+    "warning signaled?": false,
+    "tool runtime error": null,
+    "pash annotations error": null,
+    "error message generated": null,
+    "evaluation_time": "0.00571632s",
+    "tainted": true,
+    "pipeline_length": 2,
+    "automata_size": 19,
+    "category": "Unsupported invocation",
+    "notes": "",
+    "tag": ""
 }
 ]
