@@ -20,6 +20,146 @@ class LogManager:
     def _initialize(self) -> None:
         """Initialize the log manager."""
         self._logs: List[Dict[str, Any]] = []
+        self._regex_logs: List[str] = []
+        self._command_logs: Dict[str, int] = {}
+    
+    def add_regex_log(self, regex: str) -> None:
+        """
+        Add a regex pattern to the regex logs.
+        
+        Args:
+            regex: The regex pattern to add
+        """
+        self._regex_logs.append(regex)
+    
+    def add_command_log(self, command: str, count: int = 1) -> None:
+        """
+        Add or update a command in the command logs.
+        
+        Args:
+            command: The command to log
+            count: The count to set or add (defaults to 1)
+        """
+        if command in self._command_logs:
+            self._command_logs[command] += count
+        else:
+            self._command_logs[command] = count
+    
+    def write_regex_logs_to_file(self, filepath: Optional[str] = None) -> str:
+        """
+        Write regex logs to a text file.
+        
+        Args:
+            filepath: Path to the file where logs will be written.
+                     If None, a default path will be generated.
+            
+        Returns:
+            str: Path to the written file
+        """
+        if filepath is None:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"regex_logs_{timestamp}.txt"
+            logs_dir = os.path.join(os.getcwd(), "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            filepath = os.path.join(logs_dir, filename)
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(filepath)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+        
+        with open(filepath, 'w', encoding='utf-8') as f:
+            for regex in self._regex_logs:
+                f.write(f"{regex}\n")
+        
+        return filepath
+    
+    def write_command_logs_to_file(self, filepath: Optional[str] = None) -> str:
+        """
+        Write command logs to a file.
+        
+        Args:
+            filepath: Path to the file where logs will be written.
+                     If None, a default path will be generated.
+            
+        Returns:
+            str: Path to the written file
+        """
+        if filepath is None:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"command_logs_{timestamp}.json"
+            logs_dir = os.path.join(os.getcwd(), "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            filepath = os.path.join(logs_dir, filename)
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(filepath)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+        
+        with open(filepath, 'w', encoding='utf-8') as f:
+            sorted_logs = dict(sorted(self._command_logs.items(), key=lambda x: x[1], reverse=True))
+            json.dump(sorted_logs, f, ensure_ascii=False, indent=2)
+        
+        return filepath
+    
+    def write_assertion_failure_stats_to_file(self, filepath: Optional[str] = None) -> str:
+        """
+        Calculate and write statistics about assertion failures among RT errors to a file.
+        
+        Args:
+            filepath: Path to the file where statistics will be written.
+                     If None, a default path will be generated.
+            
+        Returns:
+            str: Path to the written file
+        """
+        if filepath is None:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"assertion_stats_{timestamp}.json"
+            logs_dir = os.path.join(os.getcwd(), "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            filepath = os.path.join(logs_dir, filename)
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(filepath)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+        
+        # Calculate statistics
+        total_rt_errors = 0
+        assertion_failures = 0
+        error_types = {}
+        
+        for record in self._logs:
+            if record.get("RT_warning", False):
+                total_rt_errors += 1
+                error_type = record.get("error_type", "unknown")
+                error_type = error_type.replace("tool error", "syntax error")
+                
+                if error_type in error_types:
+                    error_types[error_type] += 1
+                else:
+                    error_types[error_type] = 1
+                
+                if error_type == "assertion failed":
+                    assertion_failures += 1
+        
+        percentage = 0
+        if total_rt_errors > 0:
+            percentage = (assertion_failures / total_rt_errors) * 100
+            
+        stats = {
+            "total_rt_errors": total_rt_errors,
+            "assertion_failures": assertion_failures,
+            "percentage": percentage,
+            "error_types": error_types
+        }
+        
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(stats, f, ensure_ascii=False, indent=2)
+        
+        return filepath
     
     def create_record(self, **kwargs) -> Dict[str, Any]:
         """

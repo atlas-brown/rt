@@ -106,6 +106,7 @@ class TypeChecker:
                 command_list = get_logger().get_latest_record()["command_list"]
                 command_list.append({})
                 command_list[-1]["command_name"] = parsed_command_invocation.cmd_name
+                get_logger().add_command_log(parsed_command_invocation.cmd_name)
 
                 corresponding_annotations = self.annotations.get(command_node, [])
                 corresponding_env_annotations = self.env_annotations.get(pipeline_node, {})
@@ -136,6 +137,18 @@ class TypeChecker:
                 get_logger().get_latest_record()["command_list"][-1]["command_type"] = command_type_str
                 get_logger().get_latest_record()["command_list"][-1].pop("output_type")
 
+                current_output_type.nfa.setDeterministic(False)
+                current_output_type.nfa.removeDeadTransitions()
+                current_output_type.nfa.minimize()
+                
+                # Update max automata size in the checking result
+                current_automata_size = len(current_output_type.nfa.getStates())
+                max_automata_size = max(checking_result.max_automata_size, current_automata_size)
+                checking_result.set_max_automata_size(max_automata_size)
+
+                get_logger().get_latest_record()["command_list"][-1]["output_size"] = current_automata_size
+                
+
                 checking_result.set(self.check_subtype(previous_output_type, input_type))
                 if checking_result.ill_typed:
                     checking_result.set_message(
@@ -159,15 +172,6 @@ class TypeChecker:
                         get_logger().get_latest_record()["error_type"] = "type mismatch"
                         return checking_result
 
-                current_output_type.nfa.setDeterministic(False)
-                current_output_type.nfa.removeDeadTransitions()
-                current_output_type.nfa.minimize()
-                
-                # Update max automata size in the checking result
-                current_automata_size = len(current_output_type.nfa.getStates())
-                max_automata_size = max(checking_result.max_automata_size, current_automata_size)
-                checking_result.set_max_automata_size(max_automata_size)
-                
                 # check if the output is empty
                 if self.enable_rule_no_empty_output:
                     if current_output_type.is_empty() or current_output_type.is_empty_string():
@@ -194,7 +198,7 @@ class TypeChecker:
                             else:
                                 checking_result.tainted = True
                             get_logger().get_latest_record()["RT_warning"] = True
-                            get_logger().get_latest_record()["error_message"] = checking_result.message
+                            get_logger().get_latest_record()["error_message"] = checking_result.message.replace(" For example: 'None'.", "")
                             get_logger().get_latest_record()["error_type"] = "assertion failed"
                             get_logger().get_latest_record()["command_list"][-1]["output_asserted"] = annotation.pattern
                             return checking_result

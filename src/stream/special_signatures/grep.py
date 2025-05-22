@@ -79,6 +79,7 @@ class GrepSignature(CommandSignature):
             original_pattern_type = RegularType(flag_args["-e"][0], mode)
             for arg in flag_args["-e"][1:]:
                 arg = arg.replace("\\\\", "\\")
+                get_logger().add_regex_log(arg)
                 pattern_type = pattern_type | RegularType(arg, mode)
                 original_pattern_type = original_pattern_type | RegularType(arg, mode)
             
@@ -88,6 +89,7 @@ class GrepSignature(CommandSignature):
                 raise ToolError("No pattern provided for grep")
             pattern = parsed_command_invocation.operand_list[0].name
             pattern = pattern.replace("\\\\", "\\")
+            get_logger().add_regex_log(pattern)
             pattern_type = RegularType(pattern, mode)
             pattern_type_str = pattern_type.pattern
             original_pattern_type = RegularType(pattern, mode)

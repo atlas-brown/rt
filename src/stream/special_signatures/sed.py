@@ -74,6 +74,7 @@ class SedSignature(CommandSignature):
         for segment in segments:
             parts = segment.strip().split(delimiter)
             if parts[1] == '^':
+                get_logger().add_regex_log(parts[1])
                 parts[2] = preprocess(parts[2])
                 # FIXME: hardcoded solution, should be fixed by a better solution
                 parts[2] = re.escape(parts[2])
@@ -84,6 +85,7 @@ class SedSignature(CommandSignature):
                 previous_output_type = RegularType(parts[2]) + previous_output_type
             # FIXME: figure out the difference between $ and \\$
             elif parts[1] == '\\$' or parts[1] == "$":
+                get_logger().add_regex_log(parts[1])
                 parts[2] = preprocess(parts[2])
                 parts[2] = re.escape(parts[2])
                 parts[2] = parts[2].replace("\\\\\\\\t", "\t")
@@ -97,13 +99,17 @@ class SedSignature(CommandSignature):
                 parts[2] = preprocess(parts[2])
                 parts[2] = re.escape(parts[2])
                 parts[2] = parts[2].replace("\\\\\\\\t", "\t")
+                if "\\\\1" in parts[2]:
+                    previous_output_type = RegularType(".*")
+                    current_type_str = ".*"
+                    continue
                 if "\\\\" in parts[2]:
                     tainted = True
                 # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
                 match = re.search(r'(\\+)$', parts[1])
                 if match and (len(match.group(1)) % 2 == 1):
                     parts[1] = parts[1] + delimiter
-                
+                get_logger().add_regex_log(parts[1])
                 mode = "extended" if "-E" in parsed_flags else "basic"
                 if is_pure_string(parts[1], mode):
                     s1 = convert_to_pure_string(parts[1], mode)
