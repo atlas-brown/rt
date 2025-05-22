@@ -1,4 +1,5 @@
 import logging
+from stream.utils.logger import get_logger
 from stream.regular_type import RegularType
 import re
 from typing import List, Dict, Any, Optional, Tuple
@@ -47,6 +48,8 @@ class CommandSignature:
         # otherwise, use inference
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.ASSUME:
+                get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+                get_logger().get_latest_record()["command_list"][-1]["output_assumed"] = annotation.pattern
                 return RegularType(annotation.pattern, tainted=False)
             
         if parsed_command_invocation.cmd_name != "xargs" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
@@ -56,6 +59,7 @@ class CommandSignature:
         
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "--version" in flags or "--help" in flags:
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
             return RegularType(".*")
         return self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
 
@@ -141,6 +145,8 @@ class CommandSignature:
         # add predefined variables to env
         env["actual_input_type"] = previous_output_type
         env["output_type"] = self.default_output_type
+        command_list = get_logger().get_latest_record()["command_list"]
+        command_list[-1]["output_type"] = self.default_output_type.pattern
 
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         parsed_args = set(env.keys())
@@ -158,8 +164,16 @@ class CommandSignature:
                 not any(arg in parsed_args for arg in no_args)):
 
                 # update env
-                update_variables: Dict[str, RegularType] = rule.get('update', {}).copy()
+                update_variables: Dict[str, RegularType | str] = rule.get('update', {}).copy()
                 logging.debug(f"Command: {self.command_name}, Rule: {rule['condition']} -> {rule['update']}")
+                if "output_type" in update_variables:
+                    output_type_str = update_variables["output_type"].replace("{{actual_input_type}}", "α")
+                    for key, value in env.items():
+                        if isinstance(value, RegularType) and value.pattern is not None:
+                            output_type_str = output_type_str.replace(f"{{{{{key}}}}}", value.pattern)
+                        elif isinstance(value, str):
+                            output_type_str = output_type_str.replace(f"{{{{{key}}}}}", value)
+                    get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type_str
                 for key, value in update_variables.items():
                     try:
                         update_variables[key] = RegularType(value, hole_dict=env)

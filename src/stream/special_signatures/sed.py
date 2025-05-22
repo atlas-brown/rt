@@ -4,6 +4,7 @@ from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.regex_parser import convert_to_pure_string, is_pure_string
 from stream.transducer import first_regex_replacement_FST, first_replacement_FST, global_regex_replacement_FST, global_replacement_FST, product_fst_automaton, start_regex_replacement_FST
+from stream.utils.logger import get_logger
 
 class SedSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -51,8 +52,10 @@ class SedSignature(CommandSignature):
             raise ToolError("No operand provided for sed")
         operand = operands[0]
         if operand == "d":
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = ""
             return RegularType("")
         if operand[-1] == "d" and operand[:-1].isdigit():
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = "α"
             return previous_output_type
         if not operand.startswith("s"):
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
@@ -67,6 +70,7 @@ class SedSignature(CommandSignature):
             else:
                 segments = [parts[3 * i] + delimiter + parts[3 * i + 1] + delimiter + parts[3 * i + 2] for i in range(len(parts) // 3)]
         
+        current_type_str = "α"
         for segment in segments:
             parts = segment.strip().split(delimiter)
             if parts[1] == '^':
@@ -76,6 +80,7 @@ class SedSignature(CommandSignature):
                 parts[2] = parts[2].replace("\\\\\\\\t", "\t")
                 if "\\\\" in parts[2]:
                     tainted = True
+                current_type_str = parts[2] + current_type_str
                 previous_output_type = RegularType(parts[2]) + previous_output_type
             # FIXME: figure out the difference between $ and \\$
             elif parts[1] == '\\$' or parts[1] == "$":
@@ -84,6 +89,7 @@ class SedSignature(CommandSignature):
                 parts[2] = parts[2].replace("\\\\\\\\t", "\t")
                 if "\\\\" in parts[2]:
                     tainted = True
+                current_type_str = current_type_str + parts[2]
                 previous_output_type = previous_output_type + RegularType(parts[2])
             else:
                 parts[1] = parts[1].replace("\\\\", "\\")
@@ -106,6 +112,7 @@ class SedSignature(CommandSignature):
                     else:
                         fst = first_replacement_FST(s1, parts[2])
                     nfa = product_fst_automaton(fst, previous_output_type.nfa)
+                    current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]}, global={operand[-1] == 'g'})"
                     previous_output_type = RegularType(automaton=nfa)
                 else:
                     if parts[1].startswith("^") and parts[1].endswith("$"):
@@ -116,31 +123,37 @@ class SedSignature(CommandSignature):
                         input_typ1 = previous_output_type & RegularType(parts[1])
                         input_typ2 = previous_output_type - RegularType(parts[1])
                         output_automaton = product_fst_automaton(fst, input_typ1.nfa)
+                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]})"
                         previous_output_type = RegularType(automaton=output_automaton) | input_typ2
                     elif parts[1].startswith("^"):
                         automata = RegularType(parts[1], mode).nfa
                         fst = start_regex_replacement_FST(automata, parts[2])
                         nfa = product_fst_automaton(fst, previous_output_type.nfa)
+                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]})"
                         previous_output_type = RegularType(automaton=nfa)
                     elif parts[1].endswith("$"):
                         parts[1] = parts[1][:-2]
                         automata = RegularType(parts[1], mode).reverse().nfa
                         fst = start_regex_replacement_FST(automata, parts[2][::-1])
                         nfa = product_fst_automaton(fst, previous_output_type.reverse().nfa)
+                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]})"
                         previous_output_type = RegularType(automaton=nfa).reverse()
                     elif operand[-1] == "g":
                         automata = RegularType(parts[1], mode).nfa
                         fst = global_regex_replacement_FST(automata, parts[2])
                         nfa = product_fst_automaton(fst, previous_output_type.nfa)
+                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]}, global=True)"
                         previous_output_type = RegularType(automaton=nfa)
                     else:
                         automata = RegularType(parts[1], mode).nfa
                         fst = first_regex_replacement_FST(automata, parts[2])
                         nfa = product_fst_automaton(fst, previous_output_type.nfa)
+                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]})"
                         previous_output_type = RegularType(automaton=nfa)
                     
                 # return previous_output_type & ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
         previous_output_type.tainted = tainted
+        get_logger().get_latest_record()["command_list"][-1]["output_type"] = current_type_str
         return previous_output_type
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         

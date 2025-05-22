@@ -2,6 +2,7 @@ import re
 from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
+from stream.utils.logger import get_logger
 
 class RevSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -16,5 +17,9 @@ class RevSignature(CommandSignature):
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         if len(parsed_command_invocation.operand_list) > 0:
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"reverse({previous_output_type.pattern})"
+        else:
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = "reverse(α)"
+        
         return previous_output_type.reverse()
         

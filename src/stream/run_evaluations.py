@@ -8,6 +8,8 @@ from functools import partial
 from typing import List, Tuple
 import jpype
 import jpype.imports
+
+from stream.utils.logger import get_logger
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from stream.type_checker import TypeChecker
@@ -808,4 +810,5 @@ if __name__ == "__main__":
         output_json=output_json,
         output_summary_csv=output_summary_csv
     )
+    get_logger().write_to_json("./test.json")
     jpype.shutdownJVM()

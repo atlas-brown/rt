@@ -6,6 +6,7 @@ from stream.tool_error import ToolError
 from functools import reduce
 
 from stream.user_annotation import AnnotationType
+from stream.utils.logger import get_logger
 
 class GrepSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -88,6 +89,7 @@ class GrepSignature(CommandSignature):
             pattern = parsed_command_invocation.operand_list[0].name
             pattern = pattern.replace("\\\\", "\\")
             pattern_type = RegularType(pattern, mode)
+            pattern_type_str = pattern_type.pattern
             original_pattern_type = RegularType(pattern, mode)
             arg_count = len(parsed_command_invocation.operand_list)
 
@@ -97,12 +99,15 @@ class GrepSignature(CommandSignature):
             # FIXME not completely correct, for example pattern is a|^b
             if not starts_with_start_anchor(original_pattern_type):
                 pattern_type = RegularType(".*") + pattern_type
+                pattern_type_str = ".*" + pattern_type_str
             if not ends_with_end_anchor(original_pattern_type):
                 pattern_type = pattern_type + RegularType(".*")
+                pattern_type_str = pattern_type_str + ".*"
 
         else:
             if not starts_with_start_anchor(original_pattern_type) and not ends_with_end_anchor(original_pattern_type):
                 pattern_type.tainted = True
+                get_logger().get_latest_record()["command_list"][-1]["output_type"] = pattern_type_str
                 return pattern_type
             else:
                 pattern_type = remove_anchors(pattern_type)
@@ -112,17 +117,20 @@ class GrepSignature(CommandSignature):
         
         if "-w" in flags:
             pattern_type = RegularType("(.*[^a-zA-Z0-9_])?") + pattern_type + RegularType("([^a-zA-Z0-9_].*)?")
-
+            pattern_type_str = "(.*[^a-zA-Z0-9_])?" + pattern_type_str + "([^a-zA-Z0-9_].*)?"
         if "-v" in flags:
             pattern_type = ~pattern_type
-
+            pattern_type_str = "(~(" + pattern_type_str + "))"
         pattern_type = previous_output_type & pattern_type
+        current_type_str = f"α&{pattern_type_str}"
 
         if "-n" in flags:
+            current_type_str = f"[0-9]+:({current_type_str})"
             pattern_type = RegularType("[0-9]+:") + pattern_type
         if "-P" in flags:
             pattern_type.tainted = True
         else:   
             pattern_type.tainted = previous_output_type.tainted
+        get_logger().get_latest_record()["command_list"][-1]["output_type"] = current_type_str
         return pattern_type
         

@@ -3,6 +3,7 @@ from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.transducer import compression_FST, cut_field_FST, first_regex_replacement_FST, product_fst_automaton, start_regex_replacement_FST, translate_to_line_delimited_FST, translation_FST
+from stream.utils.logger import get_logger
 
 class AwkSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -39,9 +40,11 @@ class AwkSignature(CommandSignature):
             var_name = var_match.group(1)
             if var_name == "NF":
                 # NF is a special variable representing number of fields
+                get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
                 return RegularType("[0-9]+")
             elif var_name in int_variables:
                 # The variable is an integer, so return a regex pattern for integers
+                get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
                 return RegularType("[0-9]+")
         
         # Special handling for print statements with NF and/or column references
@@ -63,6 +66,7 @@ class AwkSignature(CommandSignature):
                     result_parts.append(".*")
             
             if result_parts:
+                get_logger().get_latest_record()["command_list"][-1]["output_type"] = "".join(result_parts)
                 return RegularType("".join(result_parts))
             
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
@@ -83,19 +87,23 @@ class AwkSignature(CommandSignature):
             # Process the tokens into a pattern
             result_type = None
             last_end = 0
+            output_type_str = ""
             
             for i, (token, (start, end)) in enumerate(zip(tokens, positions)):
                 # Current token's type
                 current_type = None
+                current_type_str = ""
                 
                 # Process the token
                 if token == "NF":
                     current_type = RegularType("[0-9]+")
+                    current_type_str = "[0-9]+"
                 elif token.startswith("$"):
                     column_num = int(token[1:])
                     if column_num == 0:
                         # $0 represents the entire input line
                         current_type = previous_output_type
+                        current_type_str = "α"
                     else:
                         # We need to extract this column
                         fst0 = translation_FST("\t", " ")
@@ -108,16 +116,20 @@ class AwkSignature(CommandSignature):
                         nfa = product_fst_automaton(fst3, nfa)
                         current_type = RegularType(automaton=nfa)
                 
+                        current_type_str = f'field-select(translate-chars(translate-match(α,"^[ \\t]+", "")," \\t", " ", squeeze=True)," ", {column_num})'
                 # Add to result_type
                 if current_type:
                     if result_type is None:
                         result_type = current_type
+                        output_type_str = current_type_str
                     else:
                         # Concatenate with a space
                         result_type = result_type + RegularType(" ") + current_type
+                        output_type_str = output_type_str + " " + current_type_str
                 
                 last_end = end
             
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type_str
             return result_type if result_type else super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         except Exception:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)

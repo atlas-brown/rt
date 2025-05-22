@@ -2,6 +2,7 @@ import re
 from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
+from stream.utils.logger import get_logger
 
 class PasteSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -41,7 +42,7 @@ class PasteSignature(CommandSignature):
 
             delimiter = delimiter[-1] # \" -> "
 
-            print((RegularType(f"{re.escape(delimiter)}") + previous_output_type).kleene_star())
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"α({delimiter}α)*"
             return previous_output_type + (RegularType(f"[{delimiter}]") + previous_output_type).kleene_star()
 
         

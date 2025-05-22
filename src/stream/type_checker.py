@@ -6,6 +6,7 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 from stream.checking_result import CheckingResult
 from stream.tool_error import ToolError
 from stream.user_annotation import AnnotationType
+from stream.utils.logger import get_logger
 from stream.utils.timing import Timing
 
 class TypeChecker:
@@ -81,6 +82,12 @@ class TypeChecker:
 
         parsed_commands = self.pipelines[self.current_index]
         pipeline_node = self.pipeline_nodes[self.current_index]
+
+        record = get_logger().create_record()
+        record["pipeline"] = pipeline_node.pretty().replace("\\\\", "\\")
+        record["command_list"] = []
+        record["RT_warning"] = False
+
         self.current_index += 1
         logging.info(f"Checking pipeline: {pipeline_node.pretty()}")
         checking_result = CheckingResult(False, pipeline_node)
@@ -96,17 +103,47 @@ class TypeChecker:
                 
                 assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
+                command_list = get_logger().get_latest_record()["command_list"]
+                command_list.append({})
+                command_list[-1]["command_name"] = parsed_command_invocation.cmd_name
+
                 corresponding_annotations = self.annotations.get(command_node, [])
                 corresponding_env_annotations = self.env_annotations.get(pipeline_node, {})
                 logging.debug(f"Annotations: {corresponding_annotations}")
                 with Timing("timing input type creation = "):
                     input_type, no_input_type = signature.determine_input_type(parsed_command_invocation, corresponding_annotations, self.heuristic_rules, corresponding_env_annotations)
-                
+
+                    
+                with Timing("timing output type creation = "):
+                    current_output_type = signature.determine_output_type(previous_output_type, parsed_command_invocation, corresponding_annotations, corresponding_env_annotations)
+
+                input_type_str = input_type.pattern
+                no_input_type_str = no_input_type.pattern if no_input_type is not None else None
+                current_output_type_str = get_logger().get_latest_record()["command_list"][-1]["output_type"]
+
+                command_type_str = ""
+                if "α" not in current_output_type_str and no_input_type_str is None:
+                    command_type_str = f"{input_type_str} -> {current_output_type_str}"
+                elif no_input_type_str is None and input_type_str == ".*":
+                    command_type_str = f"∀ α . α -> {current_output_type_str}"
+                elif no_input_type_str is None and input_type_str != ".*":
+                    command_type_str = f"∀ α ⊆ {input_type_str} . α -> {current_output_type_str}"
+                elif no_input_type_str is not None and input_type_str == ".*":
+                    command_type_str = f"∀ α ⊄ {no_input_type_str} . α -> {current_output_type_str}"
+                elif no_input_type_str is not None and input_type_str != ".*":
+                    command_type_str = f"∀ α ⊆ {input_type_str} ∧ α ⊄ {no_input_type_str}. α -> {current_output_type_str}"
+                    
+                get_logger().get_latest_record()["command_list"][-1]["command_type"] = command_type_str
+                get_logger().get_latest_record()["command_list"][-1].pop("output_type")
+
                 checking_result.set(self.check_subtype(previous_output_type, input_type))
                 if checking_result.ill_typed:
                     checking_result.set_message(
                         f"Input type '{previous_output_type}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
                     )
+                    get_logger().get_latest_record()["RT_warning"] = True
+                    get_logger().get_latest_record()["error_message"] = checking_result.message
+                    get_logger().get_latest_record()["error_type"] = "type mismatch"
                     return checking_result
                 
                 if no_input_type is not None:
@@ -117,11 +154,10 @@ class TypeChecker:
                             f"but it should not accept input type which is subset of '{no_input_type}' according to heuristic rules."
                         )
                         checking_result.tainted = no_input_type.tainted
+                        get_logger().get_latest_record()["RT_warning"] = True
+                        get_logger().get_latest_record()["error_message"] = checking_result.message
+                        get_logger().get_latest_record()["error_type"] = "type mismatch"
                         return checking_result
-                    
-                with Timing("timing output type creation = "):
-                    current_output_type = signature.determine_output_type(previous_output_type, parsed_command_invocation, corresponding_annotations, corresponding_env_annotations)
-
 
                 current_output_type.nfa.setDeterministic(False)
                 current_output_type.nfa.removeDeadTransitions()
@@ -140,6 +176,9 @@ class TypeChecker:
                             f"Output type '{current_output_type}' is empty for command '{signature.command_name}'."
                         )
                         checking_result.tainted = False
+                        get_logger().get_latest_record()["RT_warning"] = True
+                        get_logger().get_latest_record()["error_message"] = checking_result.message
+                        get_logger().get_latest_record()["error_type"] = "empty output"
                         return checking_result
 
                 # process assert annotation
@@ -154,6 +193,10 @@ class TypeChecker:
                                 checking_result.tainted = current_output_type.tainted
                             else:
                                 checking_result.tainted = True
+                            get_logger().get_latest_record()["RT_warning"] = True
+                            get_logger().get_latest_record()["error_message"] = checking_result.message
+                            get_logger().get_latest_record()["error_type"] = "assertion failed"
+                            get_logger().get_latest_record()["command_list"][-1]["output_asserted"] = annotation.pattern
                             return checking_result
                         
                 for annotation in corresponding_annotations:
@@ -164,6 +207,10 @@ class TypeChecker:
                                 f"Output type '{current_output_type}' does not contain '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
                             )
                             checking_result.tainted = False
+                            get_logger().get_latest_record()["RT_warning"] = True
+                            get_logger().get_latest_record()["error_message"] = checking_result.message
+                            get_logger().get_latest_record()["error_type"] = "assertion failed"
+                            get_logger().get_latest_record()["command_list"][-1]["output_asserted"] = annotation.pattern
                             return checking_result
 
                 previous_output_type = current_output_type
@@ -176,11 +223,15 @@ class TypeChecker:
         except ToolError as e:
             checking_result.set_ill_typed(True)
             checking_result.set_message(str(e))
+            get_logger().get_latest_record()["error_message"] = str(e)
+            get_logger().get_latest_record()["RT_warning"] = True
+            get_logger().get_latest_record()["error_type"] = "tool error"
             return checking_result
         
         except Exception as e:
             checking_result.set_ill_typed(False)
             checking_result.set_message(str(e))
+            get_logger().remove_latest_record()
             return checking_result
         
         return checking_result

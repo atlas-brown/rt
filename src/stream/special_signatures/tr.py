@@ -6,6 +6,7 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 
 from stream.tool_error import ToolError
 from stream.transducer import translate_to_line_delimited_FST, translation_FST, product_fst_automaton, compression_FST, deletion_FST
+from stream.utils.logger import get_logger
 
 class TrSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -28,6 +29,19 @@ class TrSignature(CommandSignature):
         set1 = parsed_command_invocation.operand_list[0].name
         set1 = preprocess_set(set1)
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
+        arg1 = parsed_command_invocation.operand_list[0].name
+        arg2 = "\"\""
+        if len(parsed_command_invocation.operand_list) > 1:
+            arg2 = parsed_command_invocation.operand_list[1].name
+        complement = False
+        squeeze = False
+        if "-s" in parsed_flags:
+            squeeze = True
+        if "-c" in parsed_flags:
+            complement = True
+        get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"translate-chars(α, {arg1}, {arg2}, complement={complement}, squeeze={squeeze})"
+
+
         if set1 == "\n":
             if len(parsed_command_invocation.operand_list) == 1:
                 if "-d" in parsed_flags:
