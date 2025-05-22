@@ -6,7 +6,7 @@ import os
 # Assuming the 'stream' module is available and has a class ShellParser.
 # Each ShellParser instance should have an attribute 'pipeline_nodes',
 # where each node provides a .pretty() method and an .items attribute.
-from stream.shell_parser import ShellParser
+from stream.parser.shell_parser import ShellParser
 import csv
 
 def parse_time(time_str):

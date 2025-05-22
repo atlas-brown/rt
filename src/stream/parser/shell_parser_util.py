@@ -38,7 +38,7 @@ import re
 import tempfile
 from datetime import datetime
 from stream.config.global_config import CONFIG
-from stream.function_timer import timer
+from stream.utils.function_timer import timer
 
 INITIALIZE_LIBDASH = True
 

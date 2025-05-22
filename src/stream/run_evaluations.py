@@ -519,7 +519,7 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     
     # Output function timer statistics
     try:
-        from stream.function_timer import FunctionTimerRegistry
+        from stream.utils.function_timer import FunctionTimerRegistry
         logging.info("Function execution statistics:")
         FunctionTimerRegistry.print_stats()
     except ImportError:

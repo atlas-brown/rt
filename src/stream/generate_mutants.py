@@ -2,7 +2,7 @@ import logging
 from typing import Any, Dict, List, Tuple
 from shasta.ast_node import *
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
-from stream.shell_parser import ShellParser
+from stream.parser.shell_parser import ShellParser
 from stream.mutate import mutate
 from stream.run_evaluations import find_scripts
 import itertools as it

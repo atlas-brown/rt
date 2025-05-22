@@ -1,12 +1,12 @@
 import logging
 from stream.regular_type import RegularType
-from stream.shell_parser import ShellParser
+from stream.parser.shell_parser import ShellParser
 from typing import Optional
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 from stream.checking_result import CheckingResult
 from stream.tool_error import ToolError
 from stream.user_annotation import AnnotationType
-from stream.timing import Timing
+from stream.utils.timing import Timing
 
 class TypeChecker:
     def __init__(self, 

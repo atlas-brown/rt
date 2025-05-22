@@ -3,7 +3,7 @@ import os
 from typing import List, Dict, Optional
 from stream.command_signature import CommandSignature
 
-from stream.function_timer import timer
+from stream.utils.function_timer import timer
 from stream.special_signatures.xargs_stat import XargsStatSignature
 from stream.special_signatures.sed import SedSignature
 from stream.special_signatures.cut import CutSignature

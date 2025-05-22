@@ -5,7 +5,7 @@ from stream.regex_parser import Union, Complement, Concatenate, EndAnchor, Inter
 import logging
 from stream.checking_result import CheckingResult
 from stream.tool_error import TimeoutError, ToolError
-from stream.timing import Timing
+from stream.utils.timing import Timing
 import jpype.imports
 from stream.transducer import full_stream_to_line_based_FST, product_fst_automaton
 if not jpype.isJVMStarted():

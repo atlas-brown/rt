@@ -5,12 +5,12 @@ import tempfile
 from typing import Dict, List, Optional, Tuple
 from stream.command_signature import CommandSignature
 from stream.signature_loader import SignatureLoader
-from stream.shell_parser_util import extract_pipe_nodes_from_file, get_command_invocation, parse_shell_to_asts
+from stream.parser.shell_parser_util import extract_pipe_nodes_from_file, get_command_invocation, parse_shell_to_asts
 from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 from stream.tool_error import PashAnnotationParsingError
-from stream.function_timer import timer
+from stream.utils.function_timer import timer
 
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 

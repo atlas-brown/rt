@@ -4,7 +4,7 @@ import logging
 import csv
 import re
 from typing import List, Optional, Tuple
-from stream.shell_parser_util import extract_pipe_nodes_from_file, get_command_invocation, parse_shell_to_asts
+from stream.parser.shell_parser_util import extract_pipe_nodes_from_file, get_command_invocation, parse_shell_to_asts
 from shasta.ast_node import CommandNode
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 

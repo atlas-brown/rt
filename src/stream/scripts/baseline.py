@@ -9,7 +9,7 @@ import tempfile
 import os
 import logging
 from stream.config import CONFIG
-from stream.shell_parser_util import extract_pipe_nodes_from_file
+from stream.parser.shell_parser_util import extract_pipe_nodes_from_file
 
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
 
