@@ -1,3 +1,4 @@
+import functools
 from typing import List, Tuple, Dict, Set, Optional
 import jpype.imports
 if not jpype.isJVMStarted():
@@ -9,13 +10,14 @@ from stream.regex_parser import (
     Repeat, Union, Concatenate, ast_to_automaton, ast_to_regex
 )
 
+@functools.lru_cache()
 def get_singleton(automaton: Automaton) -> Optional[str]:
     s = automaton.getShortestExample(True)
     if s is None:
         return None
     diff = automaton.minus(BasicAutomata.makeString(s))
     if diff.isEmpty():
-        return s
+        return str(s)
     return None
 
 def automaton_to_ast(automaton: Automaton) -> Node:

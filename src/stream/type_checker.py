@@ -1,4 +1,5 @@
 import logging
+import traceback
 from stream.regular_type import RegularType
 from stream.parser.shell_parser import ShellParser
 from typing import Optional

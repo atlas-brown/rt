@@ -1,3 +1,4 @@
+import functools
 import re
 import traceback
 from typing import Optional, Set, Tuple
