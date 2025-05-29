@@ -1,4 +1,5 @@
 import logging
+import re
 import traceback
 from stream.regular_type import RegularType
 from stream.parser.shell_parser import ShellParser
@@ -152,7 +153,7 @@ class TypeChecker:
 
                 get_logger().get_latest_record()["command_list"][-1]["output_size"] = current_automata_size
                 if current_output_type.get_singleton() is not None:
-                    get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type.get_singleton()
+                    get_logger().get_latest_record()["command_list"][-1]["output_language"] = re.escape(current_output_type.get_singleton())
                 elif current_automata_size <= 5:
                     get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type.to_regex()
                 elif len(get_logger().get_latest_record()["command_list"]) > 1:
