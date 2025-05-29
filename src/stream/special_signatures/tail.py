@@ -23,7 +23,7 @@ class TailSignature(CommandSignature):
             try:
                 num_lines = int(flag_args["-n"][0])
                 output_type = previous_output_type
-                output_type.possible_line_numbers = (num_lines, num_lines)
+                # output_type.possible_line_numbers = (num_lines, num_lines)
                 output_type.tainted = True
             except Exception as e:
                 output_type = previous_output_type

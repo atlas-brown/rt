@@ -48,7 +48,7 @@ class CommandSignature:
         # otherwise, use inference
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.ASSUME:
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+                get_logger().get_latest_record()["command_list"][-1]["output_type"] = annotation.pattern
                 get_logger().get_latest_record()["command_list"][-1]["output_assumed"] = annotation.pattern
                 return RegularType(annotation.pattern, tainted=False)
             
@@ -61,7 +61,17 @@ class CommandSignature:
         if "--version" in flags or "--help" in flags:
             get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
             return RegularType(".*")
-        return self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+        previous_output_type, trans_to_line_based = self.process_stream_input(previous_output_type)
+        out = self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+        if trans_to_line_based:
+            original_output_type = get_logger().get_latest_record()["command_list"][-1]["output_type"]
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"line-extract({original_output_type}, .*)"
+        return out
+    
+    def process_stream_input(self, previous_output_type: RegularType) -> Tuple[RegularType, bool]:
+        if previous_output_type.repr_mode == "stream":
+            return previous_output_type.to_line_based_repr(), True
+        return previous_output_type, False
 
 
     def get_operands(self, parsed_command_node: CommandInvocationInitial) -> List[str]:

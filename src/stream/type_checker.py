@@ -140,7 +140,7 @@ class TypeChecker:
                     command_type_str = f"∀ α ⊆ {input_type_str} ∧ α ⊄ {no_input_type_str}. α -> {current_output_type_str}"
                     
                 get_logger().get_latest_record()["command_list"][-1]["command_type"] = command_type_str
-                # get_logger().get_latest_record()["command_list"][-1].pop("output_type")
+                get_logger().get_latest_record()["command_list"][-1].pop("output_type")
 
                 current_output_type.nfa.setDeterministic(False)
                 current_output_type.nfa.removeDeadTransitions()
@@ -151,16 +151,16 @@ class TypeChecker:
                 max_automata_size = max(checking_result.max_automata_size, current_automata_size)
                 checking_result.set_max_automata_size(max_automata_size)
 
-                get_logger().get_latest_record()["command_list"][-1]["output_size"] = current_automata_size
+                get_logger().get_latest_record()["command_list"][-1]["output_language_size"] = current_automata_size
                 if current_output_type.get_singleton() is not None:
-                    get_logger().get_latest_record()["command_list"][-1]["output_language"] = re.escape(current_output_type.get_singleton())
+                    get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type.get_singleton()
                 elif current_automata_size <= 5:
                     get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type.to_regex()
                 elif len(get_logger().get_latest_record()["command_list"]) > 1:
                     get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type_str.replace("α", get_logger().get_latest_record()["command_list"][-2]["output_language"])
                 else:
                     get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type_str.replace("α", initial_output_type)
-                
+                get_logger().get_latest_record()["command_list"][-1]["output_language_repr_mode"] = current_output_type.repr_mode
 
                 checking_result.set(self.check_subtype(previous_output_type, input_type))
                 if checking_result.ill_typed:

@@ -339,7 +339,7 @@ def full_stream_to_line_based_FST() -> FST:
         (2, "$other", "", 2),
         (100, "$other", "", 100),
     ]
-    return create_fst(specs, start_state=0, final_states={100})
+    return create_fst(specs, start_state=0, final_states={1, 100})
 
 def translate_to_line_delimited_FST(set1: str) -> FST:
     specs = []

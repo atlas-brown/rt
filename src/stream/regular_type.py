@@ -24,7 +24,7 @@ class RegularType:
             repr_mode: str = "line",
             automaton: Optional[Automaton] = None,
             hole_dict: Optional[dict[str, 'RegularType']] = None,
-            possible_line_numbers: Tuple[int, int] = (0, -1),
+            # possible_line_numbers: Tuple[int, int] = (0, -1),
             tainted: bool = True
         ) -> None:
         if pattern is None and automaton is None:
@@ -32,18 +32,18 @@ class RegularType:
         
         self.repr_mode = repr_mode
         # FIXME: provisional solution
-        self.possible_line_numbers = possible_line_numbers
+        # self.possible_line_numbers = possible_line_numbers
         self.tainted = tainted
         if automaton is not None:
             self.pattern = None
             self.ast = None
             self.nfa = automaton
             return
-        if pattern.endswith("\\n") and pattern.count("\\n") == 1:
-            self.pattern = pattern[:-2]
-            self.possible_line_numbers = (0, 1)
-        else:
-            self.pattern = pattern
+        if pattern is not None and "\\n" in pattern:
+            self.repr_mode = "stream"
+            # self.pattern = pattern[:-2]
+            # self.possible_line_numbers = (0, 1)
+        self.pattern = pattern
         self.ast = RegexParser(preprocess(self.pattern), mode).parse()
         if hole_dict is not None:
             automaton_dict = {k: v.nfa for k, v in hole_dict.items()}
@@ -57,10 +57,10 @@ class RegularType:
         # logging.debug(f"other_regex: {other.regex}")
         # logging.debug(f"self_ast: {self.ast}")
         # logging.debug(f"other_ast: {other.ast}")
-        if self.possible_line_numbers[0] < other.possible_line_numbers[0]:
-            return CheckingResult(ill_typed=True)
-        if other.possible_line_numbers[1] != -1 and (self.possible_line_numbers[1] > other.possible_line_numbers[1] or self.possible_line_numbers[1] == -1):
-            return CheckingResult(ill_typed=True)
+        # if self.possible_line_numbers[0] < other.possible_line_numbers[0]:
+        #     return CheckingResult(ill_typed=True)
+        # if other.possible_line_numbers[1] != -1 and (self.possible_line_numbers[1] > other.possible_line_numbers[1] or self.possible_line_numbers[1] == -1):
+        #     return CheckingResult(ill_typed=True)
         logging.debug("-"*60)
         if (other.pattern == ".*"):
             return CheckingResult(ill_typed=False)
@@ -78,9 +78,14 @@ class RegularType:
             # # checking_result = CheckingResult(ill_typed=(output == "sat"))
             # checking_result = CheckingResult(ill_typed=(output == z3.sat))
 
-
+            if self.repr_mode == "stream" or other.repr_mode == "stream":
+                a = self.to_full_stream_repr().nfa
+                b = other.to_full_stream_repr().nfa
+            else:
+                a = self.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
+                b = other.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
             logging.debug("checking subsumption")
-            checking_result = CheckingResult(ill_typed=not self.nfa.subsetOf(other.nfa))
+            checking_result = CheckingResult(ill_typed=not a.subsetOf(b))
 
         if checking_result.ill_typed:
             with Timing(f"timing counterexample gen = "):
@@ -93,13 +98,26 @@ class RegularType:
                 # checking_result.set_counterexample(counterexample)
 
                 logging.debug("generating counterexample")
-                diff_nfa = self.nfa.minus(other.nfa)
+                diff_nfa = a.minus(b)
                 print_diff_nfa = diff_nfa.intersection(ast_to_automaton(RegexParser("[[:print:]]*").parse()))
-                if not print_diff_nfa.isEmpty():
-                    counterexample = print_diff_nfa.getShortestExample(True)
+                no_newline_diff_nfa = print_diff_nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
+                if not no_newline_diff_nfa.isEmpty():
+                    counterexample = str(no_newline_diff_nfa.getShortestExample(True))
+                elif not print_diff_nfa.isEmpty():
+                    counterexample = str(print_diff_nfa.getShortestExample(True))
                 else:
-                    counterexample = diff_nfa.getShortestExample(True)
-                checking_result.set_counterexample(counterexample)
+                    counterexample = str(diff_nfa.getShortestExample(True))
+                escaped_counterexample = ""
+                for c in counterexample:
+                    if c == "\n":
+                        escaped_counterexample += "\\n"
+                    elif c == "\t":
+                        escaped_counterexample += "\\t"
+                    elif c == "\r":
+                        escaped_counterexample += "\\r"
+                    else:
+                        escaped_counterexample += c
+                checking_result.set_counterexample(escaped_counterexample)
 
         return checking_result
 
@@ -124,20 +142,40 @@ class RegularType:
         return self.nfa.isEmptyString()
     
     def to_full_stream_repr(self) -> "RegularType":
-        if self.repr_mode == "full":
+        if self.repr_mode == "stream":
             return self
         if self.repr_mode == "line":
-            nfa = BasicOperations.concatenate(BasicOperations.Intersection(self.nfa, RegExp("[^\n]*").toAutomaton()), BasicAutomata.makeChar('\n'))
+            line_nfa = self.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
+            nfa = BasicOperations.concatenate(line_nfa, BasicAutomata.makeChar('\n'))
             nfa = BasicOperations.repeat(nfa, 0)
-            return RegularType(automaton=nfa)
+            nfa = BasicOperations.concatenate(nfa, line_nfa)
+            nfa = BasicOperations.concatenate(nfa, BasicOperations.repeat(BasicAutomata.makeChar('\n'), 0, 1))
+            return RegularType(automaton=nfa, repr_mode="stream", tainted=True)
+
+    def to_one_line_repr(self) -> "RegularType":
+        if self.repr_mode == "line":
+            line_nfa = self.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
+            nfa = BasicOperations.concatenate(line_nfa, BasicAutomata.makeChar('\n'))
+            return RegularType(automaton=nfa, repr_mode="stream", tainted=True)
+        else:
+            # TODO
+            return self
+
+    def to_one_line_without_newline_repr(self) -> "RegularType":
+        if self.repr_mode == "line":
+            line_nfa = self.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
+            return RegularType(automaton=line_nfa, repr_mode="stream", tainted=True)
+        else:
+            # TODO
+            return self
 
     def to_line_based_repr(self) -> "RegularType":
         if self.repr_mode == "line":
             return self
-        if self.repr_mode == "full":
+        if self.repr_mode == "stream":
             fst = full_stream_to_line_based_FST()
             nfa = product_fst_automaton(fst, self.nfa)
-            return RegularType(automaton=nfa)
+            return RegularType(automaton=nfa, repr_mode="line", tainted=self.tainted)
 
 
     def __le__(self, other: 'RegularType') -> bool:
@@ -259,7 +297,44 @@ class RegularType:
        return f"RegularType({self.pattern})"
     
     def get_singleton(self) -> Optional[str]:
-        return get_singleton(self.nfa)
+        singleton = get_singleton(self.nfa)
+        if singleton is not None:
+            escaped_singleton = ""
+            for c in singleton:
+                if c == "\n":
+                    escaped_singleton += "\\n"
+                elif c == "\t":
+                    escaped_singleton += "\\t"
+                elif c == "\r":
+                    escaped_singleton += "\\r"
+                elif c ==".":
+                    escaped_singleton += "\\."
+                elif c == "\\":
+                    escaped_singleton += "\\\\"
+                elif c == "|":
+                    escaped_singleton += "\\|"
+                elif c == "(":
+                    escaped_singleton += "\\("
+                elif c == ")":
+                    escaped_singleton += "\\)"
+                elif c == "*":
+                    escaped_singleton += "\\*"
+                elif c == "+":
+                    escaped_singleton += "\\+"
+                elif c == "?":
+                    escaped_singleton += "\\?"
+                elif c == "[":
+                    escaped_singleton += "\\["
+                elif c == "]":
+                    escaped_singleton += "\\]"
+                elif c == "{":
+                    escaped_singleton += "\\{"
+                elif c == "}":
+                    escaped_singleton += "\\}"
+                else:
+                    escaped_singleton += c
+            return escaped_singleton
+        return None
 
     def to_regex(self) -> str:
         """Convert automaton to a regular expression string."""
@@ -279,8 +354,8 @@ class RegularType:
                     if char.isprintable():
                         escaped_chars_list.append(char)
                     else:
-                        # codepoint = ord(char)
-                        escaped_chars_list.append(f"{char!r}")
+                        codepoint = ord(char)
+                        escaped_chars_list.append(f"\\u{codepoint:04x}")
             escaped_str = "".join(escaped_chars_list)
                     
             return escaped_str

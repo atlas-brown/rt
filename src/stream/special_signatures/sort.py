@@ -42,7 +42,7 @@ class SortSignature(CommandSignature):
                     try:
                         field, start = int(field), int(start)
                     except Exception as e:
-                        return RegularType(".*"), RegularType(".*", possible_line_numbers=(0, 1))
+                        return RegularType(".*"), RegularType(".*")
                     pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[^\t ]{{{start}}}.*"
                     input_type = input_type & RegularType(pattern)
                 else:
@@ -51,7 +51,7 @@ class SortSignature(CommandSignature):
                     try:
                         field, start = int(field), int(start)
                     except Exception as e:
-                        return RegularType(".*"), RegularType(".*", possible_line_numbers=(0, 1))
+                        return RegularType(".*"), RegularType(".*")
                     if "n" in flag:
                         pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[0-9].*"
                         input_type = input_type & RegularType(pattern)
@@ -65,7 +65,7 @@ class SortSignature(CommandSignature):
                     if "n" in flag:
                         pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[0-9]+.*"
 
-        return input_type, RegularType(".*", possible_line_numbers=(0, 1))
+        return input_type, RegularType(".*")
                     
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         if len(parsed_command_invocation.operand_list) > 0:

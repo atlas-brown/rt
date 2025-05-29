@@ -46,9 +46,9 @@ class TrSignature(CommandSignature):
             if len(parsed_command_invocation.operand_list) == 1:
                 if "-d" in parsed_flags:
                     output_type = previous_output_type.kleene_plus()
-                    output_type.possible_line_numbers = (0, 1)
+                    # output_type.possible_line_numbers = (0, 1)
                     output_type.tainted = True
-                    return output_type
+                    return output_type.to_one_line_repr()
                 if "-s" in parsed_flags:
                     output_type = previous_output_type & RegularType(".+")
                     output_type.tainted = previous_output_type.tainted
@@ -58,13 +58,13 @@ class TrSignature(CommandSignature):
                 set2 = parsed_command_invocation.operand_list[1].name
                 set2 = preprocess_set(set2)
                 line_type = previous_output_type + (RegularType(f"{re.escape(set2)}") + previous_output_type).kleene_star()
-                line_type.possible_line_numbers = (0, 1)
+                # line_type.possible_line_numbers = (0, 1)
                 line_type.tainted = True
                 if "-s" in parsed_flags:
                     fst = compression_FST(set2)
                     output_type = RegularType(automaton=product_fst_automaton(fst, line_type.nfa))
-                    output_type.possible_line_numbers = (0, 1)
-                    return output_type
+                    # output_type.possible_line_numbers = (0, 1)
+                    return output_type.to_one_line_repr()
                 return line_type
 
         if len(parsed_command_invocation.operand_list) == 2:
@@ -149,7 +149,7 @@ def expand_ranges(input_set: str) -> str:
 
 def complement_set(input_set: str) -> str:
     result = ""
-    for i in range(128):
+    for i in range(256):
         if chr(i) not in input_set:
             result += chr(i)
     if result == "":
