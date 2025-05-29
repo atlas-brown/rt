@@ -8,6 +8,10 @@ from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata
 class Node:
     pass
 
+class EmptyLanguageNode(Node):
+    def __repr__(self):
+        return "EmptyLanguageNode()"
+
 class Literal(Node):
     def __init__(self, char: str):
         self.char = char
@@ -467,7 +471,9 @@ def escape_char_class(ch):
 def ast_to_z3(node):
     any_char = z3.Range(chr(0), chr(127))
     # any_char = z3.Range(chr(0), chr(126))
-    if isinstance(node, Literal):
+    if isinstance(node, EmptyLanguageNode):
+        return z3.Intersect(z3.Re("a"), z3.Re("b"))
+    elif isinstance(node, Literal):
         return z3.Re(node.char)
     elif isinstance(node, Dot):
         return any_char
@@ -556,7 +562,9 @@ def ast_to_z3(node):
 def ast_to_regex(ast):
     def _ast_to_regex(node, parent_prec=0):
         my_prec = get_prec(node)
-        if isinstance(node, Literal):
+        if isinstance(node, EmptyLanguageNode):
+            return "∅"
+        elif isinstance(node, Literal):
             if node.char == "":
                 s = "()"
             else:
@@ -624,7 +632,9 @@ def ast_to_automaton(node: Node, hole_dict: Optional[dict[str, Automaton]] = Non
         if hole_dict is None:
             hole_dict = {}
 
-        if isinstance(node, Literal):
+        if isinstance(node, EmptyLanguageNode):
+            return BasicAutomata.makeEmpty()
+        elif isinstance(node, Literal):
             if node.char == "":
                 return BasicAutomata.makeEmptyString()
             return BasicAutomata.makeChar(node.char)

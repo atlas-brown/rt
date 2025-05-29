@@ -2,7 +2,7 @@ import logging
 import jpype
 import jpype.imports
 if not jpype.isJVMStarted():
-    jpype.startJVM(classpath=["jars/automaton.jar"])
+    jpype.startJVM(classpath=["jars/automaton.jar", "jars/autorex.jar", "jars/slf4j-api-2.0.9.jar", "jars/slf4j-simple-2.0.9.jar"])
 from stream.type_checker import TypeChecker
 import argparse
 import tempfile
@@ -11,7 +11,7 @@ from stream.config import CONFIG
 
 
 def check_pipeline(file_path: str, shellcheck : bool = False):
-    type_checker = TypeChecker(file_path, enable_stage_timeout=True, stage_timeout=20)
+    type_checker = TypeChecker(file_path, enable_stage_timeout=True, stage_timeout=20, check_all_pipelines=False)
     parsed_pipeline = type_checker.shell_parser.parse_pipeline()
     logging.debug("-"*60)
     for command in parsed_pipeline:
@@ -33,7 +33,7 @@ def check_pipeline(file_path: str, shellcheck : bool = False):
 
 def main():
     parser = argparse.ArgumentParser(description="Debug Stream Type Checker")
-    parser.add_argument('-f', '--file', type=str, default='full_benchmark/pash_benchmark/benchmarks/teraseq/deactivate.d/deactivate-binutils_linux-64.sh', help="Path to the pipeline file")
+    parser.add_argument('-f', '--file', type=str, default='./full_benchmark/github_repos_commits/collected/post_commit/plugins_rake-fast_rake-fast.plugin.zsh_rake-fast.plugin_c56fa99.zsh', help="Path to the pipeline file")
     parser.add_argument('-s', '--stdin', action='store_true', help="Read pipeline from stdin")
     parser.add_argument('-d', '--disable-annotations', action='store_true', help="Disable annotations in the type checker")
     parser.add_argument('-c', '--shellcheck', action='store_true', help="Run shellcheck on the pipeline file")

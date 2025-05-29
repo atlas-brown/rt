@@ -810,7 +810,7 @@ if __name__ == "__main__":
         output_json=output_json,
         output_summary_csv=output_summary_csv
     )
-    get_logger().write_to_json("general_logs/type.json")
+    get_logger().write_to_text("general_logs/type.txt")
     get_logger().write_command_logs_to_file("general_logs/command.json")
     get_logger().write_regex_logs_to_file("general_logs/regex.txt")
     get_logger().write_assertion_failure_stats_to_file("general_logs/assertion_failure_stats.json")

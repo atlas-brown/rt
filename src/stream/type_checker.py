@@ -76,10 +76,11 @@ class TypeChecker:
             return None
         
         if self.env_annotations.get(self.pipeline_nodes[self.current_index], {}).get("__input_pattern__", None) is not None:
-            previous_output_type = RegularType(self.env_annotations[self.pipeline_nodes[self.current_index]]["__input_pattern__"][0].pattern)
+            initial_output_type = self.env_annotations[self.pipeline_nodes[self.current_index]]["__input_pattern__"][0].pattern
         else:
-            previous_output_type = RegularType("") # start with empty string type by default
+            initial_output_type = ""
 
+        previous_output_type = RegularType(initial_output_type)
         parsed_commands = self.pipelines[self.current_index]
         pipeline_node = self.pipeline_nodes[self.current_index]
 
@@ -124,6 +125,8 @@ class TypeChecker:
 
                 command_type_str = ""
                 if "α" not in current_output_type_str and no_input_type_str is None:
+                    if input_type_str == "":
+                        input_type_str = "()"
                     command_type_str = f"{input_type_str} -> {current_output_type_str}"
                 elif no_input_type_str is None and input_type_str == ".*":
                     command_type_str = f"∀ α . α -> {current_output_type_str}"
@@ -135,7 +138,7 @@ class TypeChecker:
                     command_type_str = f"∀ α ⊆ {input_type_str} ∧ α ⊄ {no_input_type_str}. α -> {current_output_type_str}"
                     
                 get_logger().get_latest_record()["command_list"][-1]["command_type"] = command_type_str
-                get_logger().get_latest_record()["command_list"][-1].pop("output_type")
+                # get_logger().get_latest_record()["command_list"][-1].pop("output_type")
 
                 current_output_type.nfa.setDeterministic(False)
                 current_output_type.nfa.removeDeadTransitions()
@@ -147,6 +150,14 @@ class TypeChecker:
                 checking_result.set_max_automata_size(max_automata_size)
 
                 get_logger().get_latest_record()["command_list"][-1]["output_size"] = current_automata_size
+                if current_output_type.get_singleton() is not None:
+                    get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type.get_singleton()
+                elif current_automata_size <= 5:
+                    get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type.to_regex()
+                elif len(get_logger().get_latest_record()["command_list"]) > 1:
+                    get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type_str.replace("α", get_logger().get_latest_record()["command_list"][-2]["output_language"])
+                else:
+                    get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type_str.replace("α", initial_output_type)
                 
 
                 checking_result.set(self.check_subtype(previous_output_type, input_type))

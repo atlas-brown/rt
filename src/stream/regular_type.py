@@ -1,13 +1,15 @@
 import re
+import traceback
 from typing import Optional, Set, Tuple
 import z3
-from stream.regex_parser import Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, ast_to_z3, Node, ast_to_regex
+from stream.regex_parser import CharacterClass, Dot, EmptyLanguageNode, Literal, Range, Repeat, Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, ast_to_z3, Node, ast_to_regex
 import logging
 from stream.checking_result import CheckingResult
 from stream.tool_error import TimeoutError, ToolError
 from stream.utils.timing import Timing
 import jpype.imports
 from stream.transducer import full_stream_to_line_based_FST, product_fst_automaton
+from stream.automata_to_regex import automaton_to_ast, get_singleton
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition # type: ignore
@@ -254,6 +256,36 @@ class RegularType:
        if self.pattern is None:
            return "RegularType(Automaton)\n" + str(self.nfa)
        return f"RegularType({self.pattern})"
+    
+    def get_singleton(self) -> Optional[str]:
+        return get_singleton(self.nfa)
+
+    def to_regex(self) -> str:
+        """Convert automaton to a regular expression string."""
+            
+        try:
+            ast = automaton_to_ast(self.nfa)
+            regex_str: str = ast_to_regex(ast)
+            
+            # Escape non-printable characters
+            escaped_chars_list = []
+            for char in regex_str:
+                if char == '\t':
+                    escaped_chars_list.append('\\t')
+                elif char == '\n':
+                    escaped_chars_list.append('\\n')
+                else:
+                    if char.isprintable():
+                        escaped_chars_list.append(char)
+                    else:
+                        # codepoint = ord(char)
+                        escaped_chars_list.append(f"{char!r}")
+            escaped_str = "".join(escaped_chars_list)
+                    
+            return escaped_str
+        except Exception as e:
+            traceback.print_exc()
+            exit()
 
 
 # FIXME: temporary solution, need to be fixed, consider a|^b

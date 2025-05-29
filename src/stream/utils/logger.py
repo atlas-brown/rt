@@ -253,6 +253,77 @@ class LogManager:
         
         return filepath
     
+    def write_to_text(self, filepath: Optional[str] = None) -> str:
+        """
+        Write all logs to a text file in a readable format without JSON quotes and escaping.
+        
+        Args:
+            filepath: Path to the text file where logs will be written.
+                     If None, a default path will be generated.
+            
+        Returns:
+            str: Path to the written text file
+        """
+        if filepath is None:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"log_{timestamp}.txt"
+            logs_dir = os.path.join(os.getcwd(), "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            filepath = os.path.join(logs_dir, filename)
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(filepath)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+        
+        def format_value(value, indent_level=0):
+            indent = "  " * indent_level
+            
+            if isinstance(value, list):
+                if not value:
+                    return f"{indent}(empty list)"
+                
+                result = []
+                for item in value:
+                    if isinstance(item, (dict, list)):
+                        # For nested dicts/lists, format with proper indentation
+                        item_lines = format_value(item, indent_level + 1).split('\n')
+                        result.append(f"{indent}- {item_lines[0]}")
+                        result.extend([f"{indent}  {line}" for line in item_lines[1:]])
+                    else:
+                        result.append(f"{indent}- {item}")
+                return '\n'.join(result)
+            
+            elif isinstance(value, dict):
+                if not value:
+                    return f"{indent}(empty dict)"
+                
+                result = []
+                for k, v in value.items():
+                    if isinstance(v, (dict, list)):
+                        result.append(f"{indent}{k}:")
+                        result.append(format_value(v, indent_level + 1))
+                    else:
+                        result.append(f"{indent}{k}: {v}")
+                return '\n'.join(result)
+            
+            else:
+                return f"{indent}{value}"
+        
+        with open(filepath, 'w', encoding='utf-8') as f:
+            # Write each log record as a readable text block
+            for i, record in enumerate(self._logs):
+                f.write(f"Record {i+1}:\n")
+                for key, value in record.items():
+                    if isinstance(value, (dict, list)):
+                        f.write(f"{key}:\n")
+                        f.write(format_value(value, 1) + '\n')
+                    else:
+                        f.write(f"{key}: {value}\n")
+                f.write("\n")  # Add a blank line between records
+        
+        return filepath
+    
     def load_from_json(self, filepath: str, append: bool = False) -> List[Dict[str, Any]]:
         """
         Load logs from a JSON file.
