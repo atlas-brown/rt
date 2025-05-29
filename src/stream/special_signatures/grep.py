@@ -59,7 +59,7 @@ class GrepSignature(CommandSignature):
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         if len(parsed_command_invocation.operand_list) > 1 or (len(parsed_command_invocation.operand_list) == 1 and "-e" in parsed_command_invocation.flag_option_list):
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
-
+        lose_precision = False
 
         flags = set()
         flag_args : dict[str, list[str]] = {}
@@ -109,6 +109,7 @@ class GrepSignature(CommandSignature):
         else:
             if not starts_with_start_anchor(original_pattern_type) and not ends_with_end_anchor(original_pattern_type):
                 pattern_type.tainted = True
+                lose_precision = True
                 get_logger().get_latest_record()["command_list"][-1]["output_type"] = pattern_type_str
                 return pattern_type
             else:
@@ -131,8 +132,10 @@ class GrepSignature(CommandSignature):
             pattern_type = RegularType("[0-9]+:") + pattern_type
         if "-P" in flags:
             pattern_type.tainted = True
+            lose_precision = True
         else:   
             pattern_type.tainted = previous_output_type.tainted
         get_logger().get_latest_record()["command_list"][-1]["output_type"] = current_type_str
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
         return pattern_type
         

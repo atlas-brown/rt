@@ -13,6 +13,7 @@ class AwkSignature(CommandSignature):
         if len(parsed_command_invocation.operand_list) != 1:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         operand = parsed_command_invocation.operand_list[0].name
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         
         # First, identify variables used in increment/decrement operations (i++, ++i, i--, --i)
         # These variables can be inferred to be integers

@@ -1,11 +1,13 @@
 from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
+from stream.utils.logger import get_logger
 
 class XargsStatSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         operands = super().get_operands(parsed_command_invocation)
         for operand, next_operand in zip(operands, operands[1:]):
             if operand == '-c':

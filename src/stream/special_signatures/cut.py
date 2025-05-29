@@ -76,6 +76,7 @@ class CutSignature(CommandSignature):
         return super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
 
     def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations) -> RegularType:
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         if len(parsed_command_invocation.operand_list) > 0:
             file_name = parsed_command_invocation.operand_list[0].name
             if any(annotation.annotation_type == AnnotationType.FILE for annotation in env_annotations.get(file_name, [])):

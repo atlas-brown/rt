@@ -10,6 +10,7 @@ class FindSignature(CommandSignature):
         super().__init__(*args, **kwargs)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         # find keywords in parsed_command_invocation.operand_list, e.g., -exec will be "-e", "-x", "-e", "-c"  in order, keywords can be arbitrary
         # example operand_list: [/workspace, -t, -y, -p, -e, f, -s, -i, -z, -e, +1k, -e, -x, -e, -c, ls, -l, -s, {}, +]
         keywords = ["exec"]

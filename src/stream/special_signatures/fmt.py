@@ -23,6 +23,7 @@ class FmtSignature(CommandSignature):
             if width == 1:
                 fst = translate_to_line_delimited_FST(" \t")
                 get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"translate-match(α, \" \\t\", \\n, squeeze=True)"
+                get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
                 return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa)) & RegularType(".+")
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)

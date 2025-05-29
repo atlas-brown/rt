@@ -45,6 +45,7 @@ class SedSignature(CommandSignature):
 
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        lose_precision = False
         tainted = previous_output_type.tainted
         operands = super().get_operands(parsed_command_invocation)
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
@@ -81,6 +82,7 @@ class SedSignature(CommandSignature):
                 parts[2] = parts[2].replace("\\\\\\\\t", "\t")
                 if "\\\\" in parts[2]:
                     tainted = True
+                    lose_precision = True
                 current_type_str = parts[2] + current_type_str
                 previous_output_type = RegularType(parts[2]) + previous_output_type
             # FIXME: figure out the difference between $ and \\$
@@ -91,6 +93,7 @@ class SedSignature(CommandSignature):
                 parts[2] = parts[2].replace("\\\\\\\\t", "\t")
                 if "\\\\" in parts[2]:
                     tainted = True
+                    lose_precision = True
                 current_type_str = current_type_str + parts[2]
                 previous_output_type = previous_output_type + RegularType(parts[2])
             else:
@@ -105,6 +108,7 @@ class SedSignature(CommandSignature):
                     continue
                 if "\\\\" in parts[2]:
                     tainted = True
+                    lose_precision = True
                 # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
                 match = re.search(r'(\\+)$', parts[1])
                 if match and (len(match.group(1)) % 2 == 1):
@@ -159,6 +163,7 @@ class SedSignature(CommandSignature):
                     
                 # return previous_output_type & ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
         previous_output_type.tainted = tainted
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
         get_logger().get_latest_record()["command_list"][-1]["output_type"] = current_type_str
         return previous_output_type
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)

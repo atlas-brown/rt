@@ -66,6 +66,7 @@ class CommandSignature:
         if trans_to_line_based:
             original_output_type = get_logger().get_latest_record()["command_list"][-1]["output_type"]
             get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"line-extract({original_output_type}, .*)"
+            get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         return out
     
     def process_stream_input(self, previous_output_type: RegularType) -> Tuple[RegularType, bool]:
@@ -94,6 +95,7 @@ class CommandSignature:
     def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
         assert isinstance(previous_output_type, RegularType)
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
+        lose_precision = True
         tainted = self.isTainted
 
         env: Dict[str, RegularType] = {}
@@ -111,10 +113,12 @@ class CommandSignature:
                     for annot in env_annotations[arg]:
                         if annot.annotation_type == AnnotationType.FILE:
                             env[f"{arg_name}.content"] = RegularType(annot.pattern)
+                            lose_precision = False
                             tainted = False
                             break
                 if f"{arg_name}.content" not in env:
                     env[f"{arg_name}.content"] = RegularType(".*")
+                    lose_precision = True
                     tainted = True
                 
                 # Process ${} patterns and escape non-pattern parts if not regex
@@ -135,6 +139,7 @@ class CommandSignature:
                             if annot.annotation_type == AnnotationType.VAR:
                                 var_pattern = annot.pattern
                                 tainted = False
+                                lose_precision = False
                                 break
                     
                     parts.append(var_pattern)
@@ -193,12 +198,14 @@ class CommandSignature:
                 logging.debug(f"Command: {self.command_name}, Updated env: {env}")
                 if rule.get('output_tainted', tainted):
                     tainted = rule.get('output_tainted', tainted)
+                    lose_precision = tainted
                 if rule.get('stop', False):
                     break
 
         logging.debug(f"Command: {self.command_name}, Output type (if compatible): {env['output_type']}")
         logging.debug("-"*60)
         env['output_type'].tainted = tainted
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
         return env['output_type']
     
     # dont override this method, override get_input_type instead

@@ -9,6 +9,7 @@ class SeqSignature(CommandSignature):
         super().__init__(*args, **kwargs)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         operands = super().get_operands(parsed_command_invocation)
         if len(operands) == 0:
             raise ToolError("No operand provided for seq")

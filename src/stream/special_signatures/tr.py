@@ -25,6 +25,7 @@ class TrSignature(CommandSignature):
         return input_type, RegularType(get_output_pattern(parsed_command_invocation), tainted=False)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         # FIXME: may have some issues
         set1 = parsed_command_invocation.operand_list[0].name
         set1 = preprocess_set(set1)

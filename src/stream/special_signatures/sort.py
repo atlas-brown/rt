@@ -4,6 +4,7 @@ from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 
 from stream.tool_error import ToolError
+from stream.utils.logger import get_logger
 
 class SortSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -72,6 +73,7 @@ class SortSignature(CommandSignature):
             return RegularType(".*")
         output_type = super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         output_type.tainted = previous_output_type.tainted
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         return output_type
                 
 
