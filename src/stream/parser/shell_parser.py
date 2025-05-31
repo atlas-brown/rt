@@ -166,13 +166,13 @@ class ShellParser:
                     if annotation_type == AnnotationType.INPUT:
                         input_pattern = pattern
                         # Store input pattern in env_annotations under a special key
-                        env_annotations[node]["__input_pattern__"] = [EnvAnnotation(AnnotationType.INPUT, "__input_pattern__", pattern, node)]
+                        env_annotations[node]["__input_pattern__"] = [EnvAnnotation(AnnotationType.INPUT, "__input_pattern__", pattern, node, line)]
                         continue
                     
                     if annotation_type == AnnotationType.OUTPUT or annotation_type == AnnotationType.OUTPUT_CONTAINS:
                         corresponding_annotations = annotations.get(node.items[-1], [])
                         updated_type = AnnotationType.ASSERT if annotation_type == AnnotationType.OUTPUT else AnnotationType.ASSERT_CONTAINS
-                        corresponding_annotations.append(UserAnnotation(updated_type, pattern, node, node.items[-1]))
+                        corresponding_annotations.append(UserAnnotation(updated_type, pattern, node, node.items[-1], line))
                         annotations[node.items[-1]] = corresponding_annotations
                         continue
                     
@@ -180,7 +180,7 @@ class ShellParser:
                         # $1 -> ${1}
                         var = re.sub(r'\$(.+)(?!\})', r'${\1}', var)
                         corresponding_annotations = env_annotations.get(node).get(var, [])
-                        corresponding_annotations.append(EnvAnnotation(annotation_type, var, pattern, node))
+                        corresponding_annotations.append(EnvAnnotation(annotation_type, var, pattern, node, line))
                         env_annotations.get(node)[var] = corresponding_annotations
                         continue
 
@@ -190,7 +190,7 @@ class ShellParser:
                         for command_node in node.items:
                             if command_node.pretty() == refined_command:
                                 corresponding_annotations = annotations.get(command_node, [])
-                                corresponding_annotations.append(UserAnnotation(annotation_type, pattern, node, command_node))
+                                corresponding_annotations.append(UserAnnotation(annotation_type, pattern, node, command_node, line))
                                 annotations[command_node] = corresponding_annotations
                                 break
             except Exception as e:

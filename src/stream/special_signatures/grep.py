@@ -1,3 +1,4 @@
+import traceback
 from stream.command_signature import CommandSignature
 from pash_annotations.datatypes.BasicDatatypes import Operand
 
@@ -23,7 +24,7 @@ class GrepSignature(CommandSignature):
             return RegularType(""), None
 
         # FIXME: consider -e
-        if "-e" in parsed_flags:
+        if "-e" in parsed_flags or "-c" in parsed_flags:
             return input_type, no_input_type
 
         if "-n" in parsed_flags:
@@ -95,6 +96,10 @@ class GrepSignature(CommandSignature):
             original_pattern_type = RegularType(pattern, mode)
             arg_count = len(parsed_command_invocation.operand_list)
 
+        if "-c" in flags:
+            get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
+            return RegularType("[0-9]+")
 
         # FIXME: -o processing is wrong!
         if "-o" not in flags:
@@ -130,7 +135,7 @@ class GrepSignature(CommandSignature):
         if "-n" in flags:
             current_type_str = f"[0-9]+:({current_type_str})"
             pattern_type = RegularType("[0-9]+:") + pattern_type
-        if "-P" in flags:
+        if "-P" in flags or "-m" in flags:
             pattern_type.tainted = True
             lose_precision = True
         else:   

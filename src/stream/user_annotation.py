@@ -14,23 +14,23 @@ class AnnotationType(Enum):
     ASSERT_CONTAINS = "assert_contains"
     OUTPUT_CONTAINS = "output_contains"
 class UserAnnotation:
-    def __init__(self, annotation_type: AnnotationType, pattern: str, pipeline_node: PipeNode, command_node: CommandNode):
+    def __init__(self, annotation_type: AnnotationType, pattern: str, pipeline_node: PipeNode, command_node: CommandNode, annotation_str: str):
         self.annotation_type = annotation_type
         self.pattern = pattern
         self.pipeline_node = pipeline_node
         self.command_node = command_node
-    
+        self.annotation_str = annotation_str
     def __repr__(self):
-        return f"{self.annotation_type.name} {self.pattern} Command: {self.command_node.pretty()}"
+        return self.annotation_str
     
 
 
 class EnvAnnotation:
-    def __init__(self, annotation_type: AnnotationType, var: str, pattern: str, pipeline_node: PipeNode):
+    def __init__(self, annotation_type: AnnotationType, var: str, pattern: str, pipeline_node: PipeNode, annotation_str: str):
         self.annotation_type = annotation_type
         self.var = var
         self.pattern = pattern
         self.pipeline_node = pipeline_node
-    
+        self.annotation_str = annotation_str
     def __repr__(self):
-        return f"{self.annotation_type.name} {self.var} {self.pattern} {self.pipeline_node.pretty()}"
+        return self.annotation_str

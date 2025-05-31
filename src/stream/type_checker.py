@@ -23,6 +23,7 @@ class TypeChecker:
                  enable_stage_timeout: bool = False,
                  stage_timeout: int = 10,
                  check_all_pipelines: bool = True,
+                 label: bool = True
         ) -> None:
         self.pipelines = None
         self.pipeline_nodes = None
@@ -31,7 +32,8 @@ class TypeChecker:
         self.stage_timeout = stage_timeout
         self.enable_user_annotations = enable_user_annotations
         self.check_all_pipelines = check_all_pipelines
-        
+        self.label = label
+        self.pipeline_address = pipeline_address
         self.heuristic_rules = []
         self.enable_rule_no_empty_output = enable_rule_no_empty_output
         if enable_rule_no_ignored_input:
@@ -87,6 +89,8 @@ class TypeChecker:
         pipeline_node = self.pipeline_nodes[self.current_index]
 
         record = get_logger().create_record()
+        record["script_address"] = self.pipeline_address
+        record["buggy (ground truth)"] = not self.label
         record["pipeline"] = pipeline_node.pretty().replace("\\\\", "\\")
         record["command_list"] = []
         record["RT_warning"] = False
@@ -113,6 +117,10 @@ class TypeChecker:
 
                 corresponding_annotations = self.annotations.get(command_node, [])
                 corresponding_env_annotations = self.env_annotations.get(pipeline_node, {})
+                if len(corresponding_annotations) > 0:
+                    get_logger().get_latest_record()["annotations"] = corresponding_annotations
+                if len(corresponding_env_annotations) > 0:
+                    get_logger().get_latest_record()["env_annotations"] = corresponding_env_annotations
                 logging.debug(f"Annotations: {corresponding_annotations}")
                 with Timing("timing input type creation = "):
                     input_type, no_input_type = signature.determine_input_type(parsed_command_invocation, corresponding_annotations, self.heuristic_rules, corresponding_env_annotations)
@@ -154,7 +162,7 @@ class TypeChecker:
                 get_logger().get_latest_record()["command_list"][-1]["output_language_size"] = current_automata_size
                 if current_output_type.get_singleton() is not None:
                     get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type.get_singleton()
-                elif current_automata_size <= 5:
+                elif current_automata_size <= 4:
                     get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type.to_regex()
                 elif len(get_logger().get_latest_record()["command_list"]) > 1:
                     get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type_str.replace("α", get_logger().get_latest_record()["command_list"][-2]["output_language"])
@@ -169,7 +177,7 @@ class TypeChecker:
                     )
                     get_logger().get_latest_record()["RT_warning"] = True
                     get_logger().get_latest_record()["error_message"] = checking_result.message
-                    get_logger().get_latest_record()["error_type"] = "type mismatch"
+                    get_logger().get_latest_record()["error_type"] = "type mismatch (domain constraint)"
                     return checking_result
                 
                 if no_input_type is not None:
@@ -182,7 +190,7 @@ class TypeChecker:
                         checking_result.tainted = no_input_type.tainted
                         get_logger().get_latest_record()["RT_warning"] = True
                         get_logger().get_latest_record()["error_message"] = checking_result.message
-                        get_logger().get_latest_record()["error_type"] = "type mismatch"
+                        get_logger().get_latest_record()["error_type"] = "heuristic rule violation"
                         return checking_result
 
                 # check if the output is empty
@@ -195,7 +203,7 @@ class TypeChecker:
                         checking_result.tainted = False
                         get_logger().get_latest_record()["RT_warning"] = True
                         get_logger().get_latest_record()["error_message"] = checking_result.message
-                        get_logger().get_latest_record()["error_type"] = "empty output"
+                        get_logger().get_latest_record()["error_type"] = "heuristic rule violation"
                         return checking_result
 
                 # process assert annotation
@@ -212,7 +220,7 @@ class TypeChecker:
                                 checking_result.tainted = True
                             get_logger().get_latest_record()["RT_warning"] = True
                             get_logger().get_latest_record()["error_message"] = checking_result.message.replace(" For example: 'None'.", "")
-                            get_logger().get_latest_record()["error_type"] = "assertion failed"
+                            get_logger().get_latest_record()["error_type"] = "type mismatch (assertion)"
                             get_logger().get_latest_record()["command_list"][-1]["output_asserted"] = annotation.pattern
                             return checking_result
                         
@@ -226,7 +234,7 @@ class TypeChecker:
                             checking_result.tainted = False
                             get_logger().get_latest_record()["RT_warning"] = True
                             get_logger().get_latest_record()["error_message"] = checking_result.message
-                            get_logger().get_latest_record()["error_type"] = "assertion failed"
+                            get_logger().get_latest_record()["error_type"] = "type mismatch (assertion)"
                             get_logger().get_latest_record()["command_list"][-1]["output_asserted"] = annotation.pattern
                             return checking_result
 

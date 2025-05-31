@@ -9,7 +9,7 @@ class TailSignature(CommandSignature):
         super().__init__(*args, **kwargs)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
-        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
+        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         if len(parsed_command_invocation.operand_list) > 0:
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
         flags = set()

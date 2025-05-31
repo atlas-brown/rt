@@ -79,7 +79,7 @@ def calculate_recall(labels, preds):
     return recall
 
 
-def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[dict]:
+def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bool) -> list[dict]:
     pipeline_data_template = {
         "address": address,
         "content": None,
@@ -107,7 +107,8 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool) -> list[d
             enable_rule_no_empty_output=CONFIG.get("enable_rule_no_empty_output", True),
             enable_rule_no_ignored_input=CONFIG.get("enable_rule_no_ignored_input", True),
             enable_rule_no_meaningless_command=CONFIG.get("enable_rule_no_meaningless_command", True),
-            enable_rule_no_sort_non_numeric_with_numeric_input=CONFIG.get("enable_rule_no_sort_non_numeric_with_numeric_input", True)
+            enable_rule_no_sort_non_numeric_with_numeric_input=CONFIG.get("enable_rule_no_sort_non_numeric_with_numeric_input", True),
+            label=label
         )
 
         try:
@@ -374,7 +375,7 @@ def run_all_evaluations(valid_dirs: list[str] = None,
             file_dir = "/".join(address.split("/")[:-1])
             if file_dir in not_check_all_dirs:
                 check_all_pipelines = False
-            for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines):
+            for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines, label):
                 notes = notes_lookup(address, evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
                 pipeline_result[IS_BUGGY_LABEL] = not label
                 pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
