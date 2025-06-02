@@ -168,7 +168,9 @@ class TypeChecker:
                     get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type_str.replace("α", get_logger().get_latest_record()["command_list"][-2]["output_language"])
                 else:
                     get_logger().get_latest_record()["command_list"][-1]["output_language"] = current_output_type_str.replace("α", initial_output_type)
-                get_logger().get_latest_record()["command_list"][-1]["output_language_repr_mode"] = current_output_type.repr_mode
+                
+                get_logger().get_latest_record()["command_list"][-1]["output_language"] = refine_log(get_logger().get_latest_record()["command_list"][-1]["output_language"])
+                get_logger().get_latest_record()["command_list"][-1]["command_type"] = refine_log(get_logger().get_latest_record()["command_list"][-1]["command_type"])
 
                 checking_result.set(self.check_subtype(previous_output_type, input_type))
                 if checking_result.ill_typed:
@@ -277,3 +279,11 @@ class TypeChecker:
             return self.pipeline_nodes[self.current_index - 1].pretty()
         except Exception:
             return None
+        
+def refine_log(s: str) -> str:
+    s = re.sub(r"(?<!\\)\\ ", " ", s)
+    s = s.replace("\t", "\\t")
+    s = s.replace("\n", "\\n")
+    s = s.replace("\r", "\\r")
+    s = s.replace("\0", "\\0")
+    return s
