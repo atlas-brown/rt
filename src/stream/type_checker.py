@@ -279,8 +279,9 @@ class PipelineChecker:
                 # ----------------------------------------------
                 checking_result.set(previous_output_type.is_subtype(input_type))
                 if checking_result.ill_typed:
+                    previous_output_type_str = get_logger().get_latest_record()["command_list"][-2]["output_language"] if len(get_logger().get_latest_record()["command_list"]) > 1 else ""
                     checking_result.set_message(
-                        f"Input type '{previous_output_type}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
+                        f"Input type '{previous_output_type_str}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
                     )
                     get_logger().get_latest_record()["RT_warning"] = True
                     get_logger().get_latest_record()["error_message"] = checking_result.message
@@ -293,8 +294,9 @@ class PipelineChecker:
                 if no_input_type is not None:
                     checking_result.set(previous_output_type.not_subtype(no_input_type))
                     if checking_result.ill_typed:
+                        previous_output_type_str = get_logger().get_latest_record()["command_list"][-2]["output_language"] if len(get_logger().get_latest_record()["command_list"]) > 1 else ""
                         checking_result.set_message(
-                            f"Command '{signature.command_name}' received input '{previous_output_type}' but it should not accept input type which is subset of '{no_input_type}' according to heuristic rules."
+                            f"Command '{signature.command_name}' received input '{previous_output_type_str}' but it should not accept input type which is subset of '{no_input_type}' according to heuristic rules."
                         )
                         checking_result.tainted = no_input_type.tainted
                         get_logger().get_latest_record()["RT_warning"] = True
@@ -310,8 +312,9 @@ class PipelineChecker:
                 if self.enable_rule_no_empty_output:
                     if current_output_type.is_empty() or current_output_type.is_empty_string():
                         checking_result.set_ill_typed(True)
+                        current_output_type_str = cmd_log_entry['output_language']
                         checking_result.set_message(
-                            f"Output type '{current_output_type}' is empty for command '{signature.command_name}'."
+                            f"Output type '{current_output_type_str}' is empty for command '{signature.command_name}'."
                         )
                         checking_result.tainted = False
                         get_logger().get_latest_record()["RT_warning"] = True
@@ -328,8 +331,9 @@ class PipelineChecker:
                     if annotation.annotation_type == AnnotationType.ASSERT:
                         checking_result.set(current_output_type.is_subtype(RegularType(annotation.pattern)))
                         if checking_result.ill_typed:
+                            current_output_type_str = cmd_log_entry['output_language']
                             checking_result.set_message(
-                                f"Output type '{current_output_type}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
+                                f"Output type '{current_output_type_str}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
                             )
                             if "\n" not in annotation.pattern:
                                 checking_result.tainted = current_output_type.tainted
@@ -347,8 +351,9 @@ class PipelineChecker:
                     if annotation.annotation_type == AnnotationType.ASSERT_CONTAINS:
                         checking_result.set(RegularType(annotation.pattern).is_subtype(current_output_type))
                         if checking_result.ill_typed:
+                            current_output_type_str = cmd_log_entry['output_language']
                             checking_result.set_message(
-                                f"Output type '{current_output_type}' does not contain '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
+                                f"Output type '{current_output_type_str}' does not contain '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
                             )
                             checking_result.tainted = False
                             get_logger().get_latest_record()["RT_warning"] = True
