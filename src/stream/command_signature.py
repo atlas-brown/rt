@@ -65,7 +65,7 @@ class CommandSignature:
         out = self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         if trans_to_line_based:
             original_output_type = get_logger().get_latest_record()["command_list"][-1]["output_type"]
-            get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"line-extract({original_output_type}, .*)"
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = original_output_type.replace("α", "line-extract(α, .*)")
             get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         return out
     

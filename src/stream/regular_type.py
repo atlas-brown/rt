@@ -45,11 +45,20 @@ class RegularType:
             # self.possible_line_numbers = (0, 1)
         self.pattern = pattern
         self.ast = RegexParser(preprocess(self.pattern), mode).parse()
+        if mode == "basic":
+            self.pattern = ast_to_regex(self.ast)
         if hole_dict is not None:
             automaton_dict = {k: v.nfa for k, v in hole_dict.items()}
         else:
             automaton_dict = None
         self.nfa = ast_to_automaton(self.ast, hole_dict=automaton_dict)
+
+    def not_subtype(self, other: 'RegularType') -> CheckingResult:
+        result = self.is_subtype(other)
+        if result.ill_typed:
+            return CheckingResult(False)
+        return CheckingResult(True)
+    
     def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 10) -> CheckingResult:
         logging.debug("-"*60)
         # logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")

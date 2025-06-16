@@ -40,7 +40,7 @@ class TrSignature(CommandSignature):
             squeeze = True
         if "-c" in parsed_flags:
             complement = True
-        get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"translate-chars(α, {arg1}, {arg2}, complement={complement}, squeeze={squeeze})"
+        get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"translate-chars(α, {refine_log(arg1)}, {refine_log(arg2)}, complement={complement}, squeeze={squeeze})"
 
 
         if set1 == "\n":
@@ -208,3 +208,8 @@ def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> s
         return f"[{set1}]*"
 
     return f"~(.*[{set1}].*)"
+
+def refine_log(s: str) -> str:
+    if s == " ":
+        return "\" \""
+    return s

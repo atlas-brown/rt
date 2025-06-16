@@ -116,6 +116,7 @@ class GrepSignature(CommandSignature):
                 pattern_type.tainted = True
                 lose_precision = True
                 get_logger().get_latest_record()["command_list"][-1]["output_type"] = pattern_type_str
+                get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
                 return pattern_type
             else:
                 pattern_type = remove_anchors(pattern_type)

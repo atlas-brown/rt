@@ -133,32 +133,32 @@ class SedSignature(CommandSignature):
                         input_typ1 = previous_output_type & RegularType(parts[1])
                         input_typ2 = previous_output_type - RegularType(parts[1])
                         output_automaton = product_fst_automaton(fst, input_typ1.nfa)
-                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]})"
+                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {refine_log(parts[2])})"
                         previous_output_type = RegularType(automaton=output_automaton) | input_typ2
                     elif parts[1].startswith("^"):
                         automata = RegularType(parts[1], mode).nfa
                         fst = start_regex_replacement_FST(automata, parts[2])
                         nfa = product_fst_automaton(fst, previous_output_type.nfa)
-                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]})"
+                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {refine_log(parts[2])})"
                         previous_output_type = RegularType(automaton=nfa)
                     elif parts[1].endswith("$"):
                         parts[1] = parts[1][:-2]
                         automata = RegularType(parts[1], mode).reverse().nfa
                         fst = start_regex_replacement_FST(automata, parts[2][::-1])
                         nfa = product_fst_automaton(fst, previous_output_type.reverse().nfa)
-                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]})"
+                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {refine_log(parts[2])})"
                         previous_output_type = RegularType(automaton=nfa).reverse()
                     elif operand[-1] == "g":
                         automata = RegularType(parts[1], mode).nfa
                         fst = global_regex_replacement_FST(automata, parts[2])
                         nfa = product_fst_automaton(fst, previous_output_type.nfa)
-                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]}, global=True)"
+                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {refine_log(parts[2])}, global=True)"
                         previous_output_type = RegularType(automaton=nfa)
                     else:
                         automata = RegularType(parts[1], mode).nfa
                         fst = first_regex_replacement_FST(automata, parts[2])
                         nfa = product_fst_automaton(fst, previous_output_type.nfa)
-                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {parts[2]})"
+                        current_type_str = f"translate-match({current_type_str}, {parts[1]}, {refine_log(parts[2])})"
                         previous_output_type = RegularType(automaton=nfa)
                     
                 # return previous_output_type & ~(RegularType(".*") + RegularType(parts[1]) + RegularType(".*"))
@@ -174,3 +174,8 @@ def preprocess(string: str) -> str:
             if (string.startswith("'") and string.endswith("'")) or (string.startswith('"') and string.endswith('"')):
                 string = string[1:-1]
     return string
+
+def refine_log(s: str) -> str:
+    if s == "":
+        return "\"\""
+    return s

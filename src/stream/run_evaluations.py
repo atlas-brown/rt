@@ -12,7 +12,7 @@ import jpype.imports
 from stream.utils.logger import get_logger
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
-from stream.type_checker import TypeChecker
+from stream.type_checker import ScriptChecker
 from stream.tool_error import PashAnnotationParsingError, TimeoutError
 import argparse
 from stream.config import CONFIG
@@ -98,7 +98,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
     
     try:        
         logging.info(f"Evaluating pipeline from {address}")
-        type_checker = TypeChecker(
+        type_checker = ScriptChecker(
             address, 
             enable_user_annotations=enable_user_annotation, 
             enable_stage_timeout=ENABLE_TIMEOUT, 
