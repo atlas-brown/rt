@@ -53,13 +53,11 @@ class RegularType:
             automaton_dict = None
         self.nfa = ast_to_automaton(self.ast, hole_dict=automaton_dict)
 
-    def not_subtype(self, other: 'RegularType') -> CheckingResult:
-        result = self.is_subtype(other)
-        if result.ill_typed:
-            return CheckingResult(False)
-        return CheckingResult(True)
+    def not_subtype(self, other: 'RegularType', enable_witness: bool = True) -> Tuple[bool, str | None]:
+        result, witness = self.is_subtype(other, enable_witness=enable_witness)
+        return not result, witness
     
-    def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 10) -> CheckingResult:
+    def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 10, enable_witness: bool = True) -> Tuple[bool, str | None]:
         logging.debug("-"*60)
         # logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
         # logging.debug(f"self_regex: {self.regex}")
@@ -72,7 +70,7 @@ class RegularType:
         #     return CheckingResult(ill_typed=True)
         logging.debug("-"*60)
         if (other.pattern == ".*"):
-            return CheckingResult(ill_typed=False)
+            return True, None
         # if (r"\n" in self.pattern) or (r"\n" in other.pattern):
         #     self.to_full_stream_regex()
         #     other.to_full_stream_regex()
@@ -94,9 +92,10 @@ class RegularType:
                 a = self.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
                 b = other.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
             logging.debug("checking subsumption")
-            checking_result = CheckingResult(ill_typed=not a.subsetOf(b))
+            is_subtype = a.subsetOf(b)
+        witness = None
 
-        if checking_result.ill_typed:
+        if not is_subtype and enable_witness:
             with Timing(f"timing counterexample gen = "):
                 # s = z3.Solver()
                 # x = z3.String('x')
@@ -126,9 +125,9 @@ class RegularType:
                         escaped_counterexample += "\\r"
                     else:
                         escaped_counterexample += c
-                checking_result.set_counterexample(escaped_counterexample)
+                witness = escaped_counterexample
 
-        return checking_result
+        return is_subtype, witness
 
     def is_empty(self) -> bool:
         # s = z3.Solver()
@@ -188,10 +187,12 @@ class RegularType:
 
 
     def __le__(self, other: 'RegularType') -> bool:
-        return self.is_subtype(other)
+        is_subtype, _ = self.is_subtype(other, enable_witness=False)
+        return is_subtype
     
     def __ge__(self, other: 'RegularType') -> bool:
-        return other.is_subtype(self)
+        is_subtype, _ = other.is_subtype(self, enable_witness=False)
+        return is_subtype
     
     def __add__(self, other: 'RegularType') -> 'RegularType':
         out = RegularType(automaton=BasicOperations.concatenate(self.nfa, other.nfa))

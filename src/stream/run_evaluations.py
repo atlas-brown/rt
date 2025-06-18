@@ -123,20 +123,22 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
                 elapsed_time = end_time - start_time
 
                 pipeline_data = pipeline_data_template.copy()
-                pipeline_data[SIGNALED_LABEL] = checking_result.ill_typed
+                pipeline_data[SIGNALED_LABEL] = len(checking_result.error_results) > 0
                 pipeline_data["content"] = checking_result.pipeline_content
                 pipeline_data["evaluation_time"] = f"{elapsed_time:.8f}s"
                 pipeline_data["automata_size"] = checking_result.max_automata_size
                 pipeline_data["pipeline_length"] = checking_result.pipeline_length
-                pipeline_data["tainted"] = checking_result.tainted
-                if checking_result.ill_typed:
-                    pipeline_data["error message generated"] = checking_result.message
-                    logging.info(f'Error detected in pipeline {checking_result.pipeline_content}: {checking_result.message}')
+                # pipeline_data["tainted"] = checking_result.tainted
+                if len(checking_result.error_results) > 0:
+                    pipeline_data["error message generated"] = checking_result.error_results[0].message
+                    logging.info(f'Error detected in pipeline {checking_result.pipeline_content}: {checking_result.error_results[0].message}')
+                    pipeline_data["tainted"] = checking_result.error_results[0].tainted
 
-                if checking_result.ill_typed:
+                if len(checking_result.error_results) > 0:
                     logging.info(f'Pipeline {checking_result.pipeline_content} evaluated as ill-typed in {elapsed_time:.2f}s')
                 else:
                     logging.info(f'Pipeline {checking_result.pipeline_content} evaluated as well-typed in {elapsed_time:.2f}s')
+
                 pipeline_data_list.append(pipeline_data)
                 
         except TimeoutError:
@@ -592,7 +594,7 @@ def notes_lookup(address, notes: List[dict], content):
                 matching_notes.append(note)
     else:
         for note in notes:
-            if note.get("content", "") == content:
+            if note.get("content", "") == content or note.get("content", "").replace("\\\\", "\\") == content:
                 if note.get("address", "") == address:
                     complete_matching_notes.append(note)
                 else:

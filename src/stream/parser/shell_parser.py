@@ -38,7 +38,7 @@ class ShellParser:
         # Handle result based on extraction mode
         if not self.extract_all_pipelines:
             # In stream enable mode, we get tuples of (pipeline_node, enable_line)
-            self.pipeline_nodes = []
+            self.pipeline_nodes: list[PipeNode] = []
             self.enable_line_map = {}
             for node, enable_line in pipeline_result:
                 self.pipeline_nodes.append(node)

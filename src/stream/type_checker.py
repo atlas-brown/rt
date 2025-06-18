@@ -2,15 +2,43 @@ import logging
 import re
 import traceback
 import copy
+from dataclasses import dataclass
+from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.parser.shell_parser import ShellParser
-from typing import Optional, List
+from typing import Dict, Optional, List, Tuple
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
-from stream.checking_result import CheckingResult
 from stream.tool_error import ToolError
-from stream.user_annotation import AnnotationType
+from stream.user_annotation import AnnotationType, UserAnnotation
 from stream.utils.logger import get_logger
+from stream.utils.format import pretty_pipe_node
 from stream.utils.timing import Timing
+from shasta.ast_node import PipeNode
+
+@dataclass
+class ErrorResult:
+    """Represents a type checking error found during pipeline analysis.
+    
+    Each instance represents a discovered error. All fields have default values.
+    """
+    # pipe_node = None
+    message: Optional[str] = None
+    witness: Optional[str] = None
+    derivation_trace: Optional[List[str]] = None
+    all_input: Optional[bool]= None
+    serious_violation: Optional[bool] = None
+    # pipeline_content: Optional[str] = None
+    # pipeline_length: int = 0
+    # max_automata_size: int = 1
+    tainted: Optional[bool] = None
+
+@dataclass
+class CheckingResult:
+    error_results: List[ErrorResult]
+    pipeline_content: str
+    pipeline_length: int
+    max_automata_size: int
+
 
 class ScriptChecker:
     def __init__(self, 
@@ -18,7 +46,7 @@ class ScriptChecker:
                  enable_user_annotations: bool = True,
                  enable_rule_no_empty_output: bool = True,
                  enable_rule_no_ignored_input: bool = True,
-                 enable_rule_no_space_in_file_name = True,
+                #  enable_rule_no_space_in_file_name = True,
                  enable_rule_no_meaningless_command = True,
                  enable_rule_no_sort_non_numeric_with_numeric_input = True,
                  enable_stage_timeout: bool = False,
@@ -35,19 +63,22 @@ class ScriptChecker:
         self.check_all_pipelines = check_all_pipelines
         self.label = label
         self.pipeline_address = pipeline_address
-        self.heuristic_rules = []
-        self.enable_rule_no_empty_output = enable_rule_no_empty_output
+        self.heuristic_rules: List[str] = []
+
+        # if enable_rule_no_space_in_file_name:
+        self.heuristic_rules.append("no_space_in_file_name")
+
         if enable_rule_no_ignored_input:
             self.heuristic_rules.append("no_ignored_input")
-        
-        if enable_rule_no_space_in_file_name:
-            self.heuristic_rules.append("no_space_in_file_name")
-
+    
         if enable_rule_no_meaningless_command:
             self.heuristic_rules.append("no_meaningless_command")
         
         if enable_rule_no_sort_non_numeric_with_numeric_input:
             self.heuristic_rules.append("no_sort_non_numeric_with_numeric_input")
+
+        if enable_rule_no_empty_output:
+            self.heuristic_rules.append("no_empty_output")
 
         self.shell_parser = ShellParser(pipeline_address, enable_user_annotations, check_all_pipelines)
 
@@ -59,7 +90,7 @@ class ScriptChecker:
         self.current_index = 0
         
         for pipeline in self.pipeline_nodes:
-            logging.debug(f"Pipeline: {pipeline.pretty()}")
+            logging.debug(f"Pipeline: {pretty_pipe_node(pipeline)}")
 
     def check_next(self) -> Optional[CheckingResult]:
         if not self.pipelines:
@@ -84,17 +115,30 @@ class ScriptChecker:
         # from the caller's perspective.
         self.current_index += 1
 
+        record = get_logger().create_record()
+        record["script_address"] = self.pipeline_address
+        record["buggy (ground truth)"] = not self.label
+        record["pipeline"] = pretty_pipe_node(pipeline_node)
+        record["command_list"] = []
+        record["RT_warning"] = False
+
+        logging.info(f"Checking pipeline: {pretty_pipe_node(pipeline_node)}")
+
+
+
         # Instantiate a fresh `PipelineChecker` with only the required
         # information instead of passing the whole `ScriptChecker` instance.
         pipeline_checker = PipelineChecker(
             annotations=self.annotations,
             env_annotations=self.env_annotations,
             heuristic_rules=self.heuristic_rules,
-            label=self.label,
-            pipeline_address=self.pipeline_address,
-            enable_rule_no_empty_output=self.enable_rule_no_empty_output,
         )
-        return pipeline_checker.check(pipeline_node, parsed_commands, initial_output_type)
+        return CheckingResult(
+            error_results=pipeline_checker.check(pipeline_node, parsed_commands, initial_output_type),
+            pipeline_content=pretty_pipe_node(pipeline_node),
+            pipeline_length=pipeline_checker.pipeline_length,
+            max_automata_size=pipeline_checker.max_automata_size
+        )
 
     def __iter__(self):
         self.initialize_check()
@@ -123,25 +167,21 @@ class PipelineChecker:
 
     def __init__(
         self,
-        *,
-        annotations,
-        env_annotations,
-        heuristic_rules,
-        label: bool,
-        pipeline_address: str,
-        enable_rule_no_empty_output: bool,
+        annotations: Dict[PipeNode, List[UserAnnotation]],
+        env_annotations: Dict[PipeNode, Dict[str, List[UserAnnotation]]],
+        heuristic_rules: List[str],
     ) -> None:
         self.annotations = annotations
         self.env_annotations = env_annotations
         self.heuristic_rules = heuristic_rules
-        self.label = label
-        self.pipeline_address = pipeline_address
-        self.enable_rule_no_empty_output = enable_rule_no_empty_output
+        # Track statistics for potential error reporting
+        self.pipeline_length = 0
+        self.max_automata_size = 1
 
     # -------------------------------------------------------------
     # Public API
     # -------------------------------------------------------------
-    def check(self, pipeline_node, parsed_commands, initial_output_type: str) -> CheckingResult:  # type: ignore[override]
+    def check(self, pipeline_node: PipeNode, parsed_commands: List[Tuple[CommandSignature, CommandInvocationInitial]], initial_output_type: str) -> List[ErrorResult]:
         """Perform type checking on a single pipeline.
 
         Parameters
@@ -155,27 +195,13 @@ class PipelineChecker:
             (empty string means universal input).
         """
         previous_output_type = RegularType(initial_output_type)
-        error_results: List[CheckingResult] = []
+        error_results: List[ErrorResult] = []
 
         # ---------------------------------------------------------
         # Logging record initialisation (same as original behaviour)
         # ---------------------------------------------------------
-        record = get_logger().create_record()
-        record["script_address"] = self.pipeline_address
-        record["buggy (ground truth)"] = not self.label
-        record["pipeline"] = pipeline_node.pretty().replace("\\\\", "\\")
-        record["command_list"] = []
-        record["RT_warning"] = False
-
-        logging.info(f"Checking pipeline: {pipeline_node.pretty()}")
-        checking_result = CheckingResult(False, pipeline_node)
-
+        self.pipeline_length = len(parsed_commands)
         try:
-            # --------------------------------------------------
-            # Overall statistics setup
-            # --------------------------------------------------
-            checking_result.set_pipeline_length(len(parsed_commands))
-            checking_result.set_max_automata_size(1)
 
             # --------------------------------------------------
             # Iterate through each command in the pipeline
@@ -256,8 +282,7 @@ class PipelineChecker:
                 current_output_type.nfa.minimize()
 
                 current_automata_size = len(current_output_type.nfa.getStates())
-                max_automata_size = max(checking_result.max_automata_size, current_automata_size)
-                checking_result.set_max_automata_size(max_automata_size)
+                self.max_automata_size = max(self.max_automata_size, current_automata_size)
 
                 cmd_log_entry = get_logger().get_latest_record()["command_list"][-1]
                 cmd_log_entry["output_language_size"] = current_automata_size
@@ -277,50 +302,70 @@ class PipelineChecker:
                 # ----------------------------------------------
                 # Type constraint checks (domain constraints & heuristics)
                 # ----------------------------------------------
-                checking_result.set(previous_output_type.is_subtype(input_type))
-                if checking_result.ill_typed:
+                is_subtype, witness = previous_output_type.is_subtype(input_type)
+                if not is_subtype:
                     previous_output_type_str = get_logger().get_latest_record()["command_list"][-2]["output_language"] if len(get_logger().get_latest_record()["command_list"]) > 1 else ""
-                    checking_result.set_message(
-                        f"Input type '{previous_output_type_str}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
+                    error_message = f"Input type '{previous_output_type_str}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'. For example: '{witness}'."
+                    
+                    error_result = ErrorResult(
+                        # pipe_node=pipeline_node,
+                        message=error_message,
+                        witness=witness,
+                        # pipeline_length=pipeline_length,
+                        # max_automata_size=max_automata_size,
+                        tainted=True
                     )
+                    
                     get_logger().get_latest_record()["RT_warning"] = True
-                    get_logger().get_latest_record()["error_message"] = checking_result.message
+                    get_logger().get_latest_record()["error_message"] = error_message
                     get_logger().get_latest_record()["error_type"] = "type mismatch (domain constraint)"
-                    error_results.append(copy.deepcopy(checking_result))
+                    error_results.append(error_result)
                     # Continue checking subsequent commands
                     previous_output_type = current_output_type
                     continue
 
                 if no_input_type is not None:
-                    checking_result.set(previous_output_type.not_subtype(no_input_type))
-                    if checking_result.ill_typed:
+                    is_not_subtype, witness = previous_output_type.not_subtype(no_input_type)
+                    if not is_not_subtype:
                         previous_output_type_str = get_logger().get_latest_record()["command_list"][-2]["output_language"] if len(get_logger().get_latest_record()["command_list"]) > 1 else ""
-                        checking_result.set_message(
-                            f"Command '{signature.command_name}' received input '{previous_output_type_str}' but it should not accept input type which is subset of '{no_input_type}' according to heuristic rules."
+                        error_message = f"Command '{signature.command_name}' received input '{previous_output_type_str}' but it should not accept input type which is subset of '{no_input_type}' according to heuristic rules."
+                        
+                        error_result = ErrorResult(
+                            # pipe_node=pipeline_node,
+                            message=error_message,
+                            # witness=witness,
+                            # pipeline_length=pipeline_length,
+                            # max_automata_size=max_automata_size,
+                            tainted=no_input_type.tainted
                         )
-                        checking_result.tainted = no_input_type.tainted
+                        
                         get_logger().get_latest_record()["RT_warning"] = True
-                        get_logger().get_latest_record()["error_message"] = checking_result.message
+                        get_logger().get_latest_record()["error_message"] = error_message
                         get_logger().get_latest_record()["error_type"] = "heuristic rule violation"
-                        error_results.append(copy.deepcopy(checking_result))
+                        error_results.append(error_result)
                         previous_output_type = current_output_type
                         continue
 
                 # ----------------------------------------------
                 # Empty output rule
                 # ----------------------------------------------
-                if self.enable_rule_no_empty_output:
+                if "no_empty_output" in self.heuristic_rules:
                     if current_output_type.is_empty() or current_output_type.is_empty_string():
-                        checking_result.set_ill_typed(True)
                         current_output_type_str = cmd_log_entry['output_language']
-                        checking_result.set_message(
-                            f"Output type '{current_output_type_str}' is empty for command '{signature.command_name}'."
+                        error_message = f"Output type '{current_output_type_str}' is empty for command '{signature.command_name}'."
+                        
+                        error_result = ErrorResult(
+                            # pipe_node=pipeline_node,
+                            message=error_message,
+                            # pipeline_length=pipeline_length,
+                            # max_automata_size=max_automata_size,
+                            tainted=False
                         )
-                        checking_result.tainted = False
+                        
                         get_logger().get_latest_record()["RT_warning"] = True
-                        get_logger().get_latest_record()["error_message"] = checking_result.message
+                        get_logger().get_latest_record()["error_message"] = error_message
                         get_logger().get_latest_record()["error_type"] = "heuristic rule violation"
-                        error_results.append(copy.deepcopy(checking_result))
+                        error_results.append(error_result)
                         previous_output_type = current_output_type
                         continue
 
@@ -329,38 +374,53 @@ class PipelineChecker:
                 # ----------------------------------------------
                 for annotation in corresponding_annotations:
                     if annotation.annotation_type == AnnotationType.ASSERT:
-                        checking_result.set(current_output_type.is_subtype(RegularType(annotation.pattern)))
-                        if checking_result.ill_typed:
+                        is_assertion_violated, witness = current_output_type.is_subtype(RegularType(annotation.pattern))
+                        is_assertion_violated = not is_assertion_violated  # Negate because we want to check if assertion is violated
+                        if is_assertion_violated:
                             current_output_type_str = cmd_log_entry['output_language']
-                            checking_result.set_message(
-                                f"Output type '{current_output_type_str}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
+                            error_message = f"Output type '{current_output_type_str}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{witness}'."
+                            
+                            tainted = True if "\n" in annotation.pattern else current_output_type.tainted
+                            
+                            error_result = ErrorResult(
+                                # pipe_node=pipeline_node,
+                                message=error_message,
+                                witness=witness,
+                                # pipeline_length=pipeline_length,
+                                # max_automata_size=max_automata_size,
+                                tainted=tainted
                             )
-                            if "\n" not in annotation.pattern:
-                                checking_result.tainted = current_output_type.tainted
-                            else:
-                                checking_result.tainted = True
+                            
                             get_logger().get_latest_record()["RT_warning"] = True
-                            get_logger().get_latest_record()["error_message"] = checking_result.message.replace(" For example: 'None'.", "")
+                            get_logger().get_latest_record()["error_message"] = error_message
                             get_logger().get_latest_record()["error_type"] = "type mismatch (assertion)"
                             cmd_log_entry["output_asserted"] = annotation.pattern
-                            error_results.append(copy.deepcopy(checking_result))
+                            error_results.append(error_result)
                             previous_output_type = current_output_type
                             continue
 
                 for annotation in corresponding_annotations:
                     if annotation.annotation_type == AnnotationType.ASSERT_CONTAINS:
-                        checking_result.set(RegularType(annotation.pattern).is_subtype(current_output_type))
-                        if checking_result.ill_typed:
+                        is_contains_violated, witness = RegularType(annotation.pattern).is_subtype(current_output_type)
+                        is_contains_violated = not is_contains_violated  # Negate because we want to check if assertion is violated
+                        if is_contains_violated:
                             current_output_type_str = cmd_log_entry['output_language']
-                            checking_result.set_message(
-                                f"Output type '{current_output_type_str}' does not contain '{annotation}' for command '{signature.command_name}'. For example: '{checking_result.counterexample}'."
+                            error_message = f"Output type '{current_output_type_str}' does not contain '{annotation}' for command '{signature.command_name}'. For example: '{witness}'."
+                            
+                            error_result = ErrorResult(
+                                # pipe_node=pipeline_node,
+                                message=error_message,
+                                witness=witness,
+                                # pipeline_length=pipeline_length,
+                                # max_automata_size=max_automata_size,
+                                tainted=False
                             )
-                            checking_result.tainted = False
+                            
                             get_logger().get_latest_record()["RT_warning"] = True
-                            get_logger().get_latest_record()["error_message"] = checking_result.message
+                            get_logger().get_latest_record()["error_message"] = error_message
                             get_logger().get_latest_record()["error_type"] = "type mismatch (assertion)"
                             cmd_log_entry["output_asserted"] = annotation.pattern
-                            error_results.append(copy.deepcopy(checking_result))
+                            error_results.append(error_result)
                             previous_output_type = current_output_type
                             continue
 
@@ -375,22 +435,34 @@ class PipelineChecker:
                 logging.debug("-" * 60)
 
         except ToolError as e:
-            checking_result.set_ill_typed(True)
-            checking_result.set_message(str(e))
+            error_result = ErrorResult(
+                # pipe_node=pipeline_node,
+                message=str(e),
+                # pipeline_length=pipeline_length,
+                # max_automata_size=max_automata_size,
+                tainted=True
+            )
             get_logger().get_latest_record()["error_message"] = str(e)
             get_logger().get_latest_record()["RT_warning"] = True
             get_logger().get_latest_record()["error_type"] = "tool error"
             # Tool errors terminate checking immediately.
-            return checking_result
+            return error_results + [error_result]
 
         except Exception as e:
-            # Maintain previous behaviour – capture the exception as an error.
-            checking_result.set_ill_typed(False)
-            checking_result.set_message(str(e))
+            # traceback.print_exc()
+            # exit()
+            # FIXME: This is a hack to handle tool errors.
+            error_result = ErrorResult(
+                # pipe_node=pipeline_node,
+                message=str(e),
+                # pipeline_length=pipeline_length,
+                # max_automata_size=max_automata_size,
+                tainted=True
+            )
             get_logger().remove_latest_record()
-            return checking_result
+            return []
 
-        return error_results[-1] if error_results else checking_result
+        return error_results
 
 def refine_log(s: str) -> str:
     s = re.sub(r"((?<!\\)(?:\\\\)*)\\ ", r"\1 ", s)
