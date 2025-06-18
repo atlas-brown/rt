@@ -132,7 +132,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
                 if len(checking_result.error_results) > 0:
                     pipeline_data["error message generated"] = checking_result.error_results[0].message
                     logging.info(f'Error detected in pipeline {checking_result.pipeline_content}: {checking_result.error_results[0].message}')
-                    pipeline_data["tainted"] = checking_result.error_results[0].tainted
+                    # pipeline_data["tainted"] = checking_result.error_results[0].tainted
 
                 if len(checking_result.error_results) > 0:
                     logging.info(f'Pipeline {checking_result.pipeline_content} evaluated as ill-typed in {elapsed_time:.2f}s')

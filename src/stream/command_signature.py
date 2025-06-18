@@ -1,14 +1,22 @@
+from dataclasses import dataclass
 import logging
 from stream.utils.logger import get_logger
 from stream.regular_type import RegularType
 import re
-from typing import List, Dict, Any, Optional, Tuple
+from typing import Callable, List, Dict, Any, Optional, Tuple
 from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from stream.tool_error import ToolError, PashAnnotationParsingError
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
+
+@dataclass
+class InferenceResult:
+    output_type: RegularType
+    backward_func: Optional[Callable[[str], str]] = None
+    self_contained: Optional[bool] = None
+
 
 class CommandSignature:
     def __init__(
@@ -43,7 +51,7 @@ class CommandSignature:
     
     # FIXME: simplify the return type
     # dont override this method, override output_type_inference instead
-    def determine_output_type(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
+    def determine_output_type(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], env_annotations: Dict[str, List[EnvAnnotation]]) -> InferenceResult | RegularType:
         # if user annotation (assume) is available, use it
         # otherwise, use inference
         for annotation in user_annotations:
@@ -92,11 +100,18 @@ class CommandSignature:
                 return RegularType(annotation.pattern, tainted=False)
         return RegularType(".*")
 
-    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
+    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> InferenceResult | RegularType:
         assert isinstance(previous_output_type, RegularType)
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
         lose_precision = True
+        backward_func = None
+        self_contained = True
         tainted = self.isTainted
+
+        # FIXME
+        env_related_command_names = ["ls", "date", "docker", "du", "ps", "curl"]
+        if parsed_command_invocation.cmd_name in env_related_command_names:
+            self_contained = False
 
         env: Dict[str, RegularType] = {}
         env_raw: Dict[str, str] = {}
@@ -120,6 +135,7 @@ class CommandSignature:
                     env[f"{arg_name}.content"] = RegularType(".*")
                     lose_precision = True
                     tainted = True
+                    self_contained = False
                 
                 # Process ${} patterns and escape non-pattern parts if not regex
                 parts = []
@@ -133,15 +149,17 @@ class CommandSignature:
                     # Add the variable pattern
                     var_name = var_match.group(1)
                     var_pattern = ".*"  # Default pattern if not found
-                    
+                    match_var_pattern = False
                     if var_name in env_annotations:
                         for annot in env_annotations[var_name]:
                             if annot.annotation_type == AnnotationType.VAR:
                                 var_pattern = annot.pattern
                                 tainted = False
                                 lose_precision = False
+                                match_var_pattern = True
                                 break
-                    
+                    if not match_var_pattern:
+                        self_contained = False
                     parts.append(var_pattern)
                     last_end = var_match.end()
                 
@@ -206,7 +224,7 @@ class CommandSignature:
         logging.debug("-"*60)
         env['output_type'].tainted = tainted
         get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
-        return env['output_type']
+        return InferenceResult(env['output_type'], backward_func, self_contained)
     
     # dont override this method, override get_input_type instead
     def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType]]:

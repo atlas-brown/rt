@@ -5,7 +5,6 @@ from typing import Optional, Set, Tuple
 import z3
 from stream.regex_parser import CharacterClass, Dot, EmptyLanguageNode, Literal, Range, Repeat, Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, ast_to_z3, Node, ast_to_regex
 import logging
-from stream.checking_result import CheckingResult
 from stream.tool_error import TimeoutError, ToolError
 from stream.utils.timing import Timing
 import jpype.imports
@@ -53,9 +52,15 @@ class RegularType:
             automaton_dict = None
         self.nfa = ast_to_automaton(self.ast, hole_dict=automaton_dict)
 
+    def empty_intersection(self, other: 'RegularType') -> bool:
+        return self.nfa.intersection(other.nfa).isEmpty()
+
     def not_subtype(self, other: 'RegularType', enable_witness: bool = True) -> Tuple[bool, str | None]:
         result, witness = self.is_subtype(other, enable_witness=enable_witness)
         return not result, witness
+    
+    def get_shortest_example(self) -> str:
+        return str(self.nfa.getShortestExample(True))
     
     def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 10, enable_witness: bool = True) -> Tuple[bool, str | None]:
         logging.debug("-"*60)

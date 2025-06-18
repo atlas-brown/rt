@@ -1,4 +1,4 @@
-from stream.command_signature import CommandSignature
+from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 from stream.utils.logger import get_logger
 
@@ -13,13 +13,13 @@ class XargsStatSignature(CommandSignature):
             if operand == '-c':
                 if next_operand == '%Y':
                     # stat -c %Y
-                    return RegularType("[0-9]+")
+                    return InferenceResult(RegularType("[0-9]+"), lambda x: previous_output_type.get_shortest_example(), False)
                 elif next_operand == '%y':
                     # stat -c %y need to modify the regex
-                    return RegularType(".*")
+                    return InferenceResult(RegularType(".*"), lambda x: previous_output_type.get_shortest_example(), False)
                 elif next_operand == '%x':
                     # stat -c %x need to modify the regex
-                    return RegularType(".*")
+                    return InferenceResult(RegularType(".*"), lambda x: previous_output_type.get_shortest_example(), False)
                 
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         

@@ -1,5 +1,5 @@
 import traceback
-from stream.command_signature import CommandSignature
+from stream.command_signature import CommandSignature, InferenceResult
 from pash_annotations.datatypes.BasicDatatypes import Operand
 
 from stream.regular_type import RegularType, ends_with_end_anchor, remove_anchors, starts_with_start_anchor
@@ -58,8 +58,11 @@ class GrepSignature(CommandSignature):
             
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        self_contained = True
         if len(parsed_command_invocation.operand_list) > 1 or (len(parsed_command_invocation.operand_list) == 1 and "-e" in parsed_command_invocation.flag_option_list):
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
+            if previous_output_type.tainted:
+                self_contained = False
         lose_precision = False
 
         flags = set()
@@ -99,7 +102,7 @@ class GrepSignature(CommandSignature):
         if "-c" in flags:
             get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
             get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
-            return RegularType("[0-9]+")
+            return InferenceResult(RegularType("[0-9]+"), lambda x: previous_output_type.get_shortest_example(), self_contained)
 
         # FIXME: -o processing is wrong!
         if "-o" not in flags:
@@ -112,12 +115,13 @@ class GrepSignature(CommandSignature):
                 pattern_type_str = pattern_type_str + ".*"
 
         else:
+            # FIXME
             if not starts_with_start_anchor(original_pattern_type) and not ends_with_end_anchor(original_pattern_type):
                 pattern_type.tainted = True
                 lose_precision = True
                 get_logger().get_latest_record()["command_list"][-1]["output_type"] = pattern_type_str
                 get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
-                return pattern_type
+                return InferenceResult(pattern_type, lambda x: x, self_contained)
             else:
                 pattern_type = remove_anchors(pattern_type)
         
@@ -143,5 +147,5 @@ class GrepSignature(CommandSignature):
             pattern_type.tainted = previous_output_type.tainted
         get_logger().get_latest_record()["command_list"][-1]["output_type"] = current_type_str
         get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
-        return pattern_type
+        return InferenceResult(pattern_type, lambda x: x, self_contained)
         

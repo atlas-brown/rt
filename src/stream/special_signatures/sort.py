@@ -1,6 +1,6 @@
 import re
 from typing import Optional, Tuple
-from stream.command_signature import CommandSignature
+from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 
 from stream.tool_error import ToolError
@@ -70,11 +70,14 @@ class SortSignature(CommandSignature):
                     
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         if len(parsed_command_invocation.operand_list) > 0:
-            return RegularType(".*")
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+            return InferenceResult(RegularType(".*"), lambda x: x, False)
         output_type = super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+        if isinstance(output_type, InferenceResult):
+            output_type = output_type.output_type
         output_type.tainted = previous_output_type.tainted
         get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
-        return output_type
+        return InferenceResult(output_type, lambda x: x, False)
                 
 
                     

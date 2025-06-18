@@ -12,6 +12,8 @@ class TailSignature(CommandSignature):
         get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         if len(parsed_command_invocation.operand_list) > 0:
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
+            if previous_output_type.tainted:
+                self_contained = False
         flags = set()
         flag_args : dict[str, list[str]] = {}
         for flag in parsed_command_invocation.flag_option_list:

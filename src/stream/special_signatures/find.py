@@ -1,4 +1,4 @@
-from stream.command_signature import CommandSignature
+from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 import re
@@ -129,4 +129,4 @@ class FindSignature(CommandSignature):
                         # Pattern matches the path itself or any subdirectory/file under it
                         output_type = RegularType(f"{escaped_path}(/.+)?")
         get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type.pattern
-        return output_type
+        return InferenceResult(output_type, None, False)
