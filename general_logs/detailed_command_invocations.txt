@@ -1,0 +1,1252 @@
+DETAILED COMMAND INVOCATIONS LOG
+==================================================
+
+SUPPORTED COMMANDS
+------------------------------
+
+Command: cut
+~~~~~~~~~~~~
+  Invocation: cut -d" " -f 2
+
+  Invocation: cut -d " " -f 2
+
+  Invocation: cut -f 1 -d " "
+
+  Invocation: cut -f 3 -d " "
+
+  Invocation: cut -f 2 ./Gene_locs.txt
+
+  Invocation: cut -f3- >${OUT}
+
+  Invocation: cut -d "," -f 1,3
+
+  Invocation: cut -d "," -f 1
+
+  Invocation: cut -d "," -f 3,1
+
+  Invocation: cut -d "," -f 2
+
+  Invocation: cut -d "," -f 1,2,4
+
+  Invocation: cut -d "," -f 3
+
+  Invocation: cut -d "," -f 1,2
+
+  Invocation: cut -d "\"" -f3
+
+  Invocation: cut -d " " -f2
+
+  Invocation: cut -c 89-92
+
+  Invocation: cut -d " " -f 1
+
+  Invocation: cut -d" " -f5-
+
+  Invocation: cut -f1
+
+  Invocation: cut -d":" -f1
+
+  Invocation: cut -f1-6 >rRNA.bed
+
+  Invocation: cut -f1-2
+
+  Invocation: cut -d "." -f 2
+
+  Invocation: cut -c 1-1
+
+  Invocation: cut -d "\"" -f 2
+
+  Invocation: cut -c 1-12
+
+  Invocation: cut -f 1
+
+  Invocation: cut -f 2
+
+  Invocation: cut -f 4
+
+  Invocation: cut -c 3-3
+
+  Invocation: cut -d "(" -f 2
+
+  Invocation: cut -d ")" -f 1
+
+  Invocation: cut -c 1-4
+
+  Invocation: cut -c 1-2
+
+  Invocation: cut -d " " -f 4
+
+  Invocation: cut -d":" -f2
+
+  Invocation: cut -d" " -f2-
+
+  Invocation: cut -d/ -f1
+
+  Invocation: cut -d, -f-5
+
+  Invocation: cut -d"," -f1-5
+
+  Invocation: cut -f2
+
+  Invocation: cut -b8-
+
+  Invocation: cut -d"/" -f3
+
+  Invocation: cut -d: -f1
+
+  Invocation: cut -c 4-
+
+  Invocation: cut -d" " -f1
+
+  Invocation: cut -d: -f1 /etc/group
+
+  Invocation: cut -d ":" -f 2-
+
+  Invocation: cut -d : -f 2
+
+  Invocation: cut -d "[" -f 2
+
+  Invocation: cut -d " " -f 3
+
+  Invocation: cut -d"@" -f1
+
+  Invocation: cut -d: -f2
+
+  Invocation: cut -f2 -d ","
+
+  Invocation: cut -d " " -f 2 >.mix_tasks
+
+  Invocation: cut -c-12
+
+  Invocation: cut -f3
+
+  Invocation: cut -f1 /etc/group
+
+  Invocation: cut -d"," -f10
+
+  Invocation: cut -d" " -f5
+
+  Invocation: cut -d: -f1,7
+
+  Invocation: cut -d" " -f9
+
+  Invocation: cut -d" " -f2
+
+  Invocation: cut -d"." -f1
+
+  Invocation: cut -d"_" -f1
+
+  Invocation: cut -d"," -f1,2
+
+  Invocation: cut -d"," -f9
+
+  Invocation: cut -d"," -f5
+
+  Invocation: cut -d"/" -f2
+
+  Invocation: cut -d"|" -f1
+
+  Invocation: cut -d: -f1,6
+
+  Invocation: cut -d"/" -f1
+
+  Invocation: cut -d" " -f5,9
+
+  Invocation: cut -d: -f1,3
+
+  Invocation: cut -d: -f1,3,7
+
+  Invocation: cut -c1-5
+
+  Invocation: cut -f3 -d ","
+
+  Invocation: cut -d " " -f 2 >.rake_tasks
+
+
+Command: grep
+~~~~~~~~~~~~~
+  Invocation: grep "^SN"
+
+  Invocation: grep -v "\"\""
+
+  Invocation: grep Version
+
+  Invocation: grep -Ev "(com|net|org|gov|mil|arpa)" 2>/dev/null
+
+  Invocation: egrep -i "POST /|GET /|Host:" 2>/dev/null
+
+  Invocation: egrep -i "POST /|pwd=|passwd=|password=|Host:" 2>/dev/null
+
+  Invocation: grep -v 999
+
+  Invocation: grep -v "^\s*$"
+
+  Invocation: grep -i "^[^aeiou]*[aeiou][^aeiou]*$"
+
+  Invocation: grep -i "^[^aeiou]*[aeiou][^aeiou]*[aeiou][^aeiou]$"
+
+  Invocation: grep "the land of"
+
+  Invocation: grep "And he said"
+
+  Invocation: grep "light.\*light"
+
+  Invocation: grep -vi "[aeiou]"
+
+  Invocation: grep "\(.\).*\1\(.\).*\2\(.\).*\3\(.\).*\4"
+
+  Invocation: grep -v lua_
+
+  Invocation: grep -v "Finished " "${g}"
+
+  Invocation: grep -v -P "\tENST" >>"${sdir}"/align/reads.1.sanitize.toRibosomal.sorted.sam
+
+  Invocation: grep -v "SA:Z:"
+
+  Invocation: grep -nP "^CREATE TABLE transcr"
+
+  Invocation: grep -nP "^CREATE INDEX transcr"
+
+  Invocation: grep -P "^INSERT" ${sdir}/db/${i}.sqlite.transcr.sql
+
+  Invocation: grep -nP "^CREATE TABLE genome"
+
+  Invocation: grep -nP "^CREATE INDEX genome"
+
+  Invocation: grep -P "^INSERT" ${sdir}/db/${i}.sqlite.genome.sql
+
+  Invocation: grep -P "^INSERT" "${sdir}"/db/"${i}".sqlite.transcr.sql
+
+  Invocation: grep -P "^INSERT" "${sdir}"/db/"${i}".sqlite.genome.sql
+
+  Invocation: grep "^-.*\\|^+.*"
+
+  Invocation: grep -v "CONDA_BACKUP_"
+
+  Invocation: grep -v " \"rRNA\";" >ensembl_genes.gtf.tmp
+
+  Invocation: grep -v "^#" ensembl_genes.gtf.tmp2
+
+  Invocation: grep "transcript_biotype \"protein_coding\"" >ensembl_transcripts_protein_coding.gtf
+
+  Invocation: grep -P "\ttranscript\t|\texon\t" >SIRV_Set1_Sequences_170612a/SIRVome_isoforms_C_170612a.gtf.tmp
+
+  Invocation: grep -w -i sirv transcripts_sirv1.fa.fai
+
+  Invocation: grep -v -P "\tENSMUST"
+
+  Invocation: grep -v -P "\tSIRV" >>"${sdir}"/align/reads.1.sanitize.toRibosomal.sorted.sam
+
+  Invocation: grep "x"
+
+  Invocation: grep "\."
+
+  Invocation: grep "[KQRBN]"
+
+  Invocation: grep "AT&T"
+
+  Invocation: grep 1969
+
+  Invocation: grep "Bell"
+
+  Invocation: grep "("
+
+  Invocation: grep "[A-Z]"
+
+  Invocation: grep "\""
+
+  Invocation: grep "UNIX"
+
+  Invocation: grep -v "[KQRBN]"
+
+  Invocation: grep "EndpointIP\\|VIP"
+
+  Invocation: grep "[aeiouyAEIOUY]"
+
+  Invocation: grep -i "[aeiouy]"
+
+  Invocation: grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" /etc/networks
+
+  Invocation: grep "total"
+
+  Invocation: grep "^-"
+
+  Invocation: grep "special"
+
+  Invocation: grep /
+
+  Invocation: grep $(hostname)
+
+  Invocation: grep "$(hostname)" /etc/hosts
+
+  Invocation: grep -E "^[a-z]{3,6}$"
+
+  Invocation: grep ^[\>\<]
+
+  Invocation: grep "^>"
+
+  Invocation: grep -v ^@
+
+  Invocation: grep -v "^@"
+
+  Invocation: grep -v "^[[:space:]]*$" /workspace/dir1/a.txt
+
+  Invocation: grep -o "#[0-9]\+"
+
+  Invocation: grep -n .
+
+  Invocation: grep p
+
+  Invocation: egrep "p"
+
+  Invocation: grep -E "^[0-9.]+$"
+
+  Invocation: grep "^[^=]*H[^=]*="
+
+  Invocation: grep -v /subdir1/
+
+  Invocation: grep -v src
+
+  Invocation: grep -v nvm.sh
+
+  Invocation: grep -n "^ *server *"
+
+  Invocation: grep -v server_name
+
+  Invocation: grep -n "^ *server *" >/dev/null
+
+  Invocation: grep "^ *include +.*;" >/dev/null
+
+  Invocation: grep "^ *include +.*;"
+
+  Invocation: grep -i "^Location.*$"
+
+  Invocation: grep -i "^Retry-After *:"
+
+  Invocation: grep "^ *include *.*;" >/dev/null
+
+  Invocation: grep "^ *include *.*;"
+
+  Invocation: _egrep_o "\"authorizations\" *: *\[[^\[]*\]"
+
+  Invocation: grep "^Location:"
+
+  Invocation: grep "${LOCAL_ANY_ADDRESS}:${_checkport}"
+
+  Invocation: grep SunOS >/dev/null
+
+  Invocation: grep -i "^Retry-After *: *[0-9]\+ *"
+
+  Invocation: _egrep_o "^ *Public.Key:.*"
+
+  Invocation: grep default
+
+  Invocation: grep "${IPv4bare}/"
+
+  Invocation: grep --color=never -i Location:
+
+  Invocation: grep -v "state DOWN\\|lo"
+
+  Invocation: grep "^set-cookie:" "${HTTP_HEADER}"
+
+  Invocation: _egrep_o "sessionid=[^;]*;"
+
+  Invocation: grep -E "^\?\?" 2>/dev/null
+
+  Invocation: grep "Manufacturer:"
+
+  Invocation: grep "^## [^ ]\+ .*ahead"
+
+  Invocation: grep "^## [^ ]\+ .*behind"
+
+  Invocation: grep "^## [^ ]\+ .*diverged"
+
+  Invocation: grep "^ D "
+
+  Invocation: grep -E "^\?\? "
+
+  Invocation: grep -v "^ *\."
+
+  Invocation: grep -e "^v"
+
+  Invocation: grep -Po "(?<=dev )(\S+)"
+
+  Invocation: grep "inet addr:"
+
+  Invocation: grep -v inet6
+
+  Invocation: grep -vE "127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+
+  Invocation: grep -E "inet "
+
+  Invocation: command grep -v "rate information unavailable"
+
+  Invocation: command grep -E "^Battery.*(Disc|C)harging"
+
+  Invocation: grep -v "iex -S"
+
+  Invocation: grep branch:
+
+  Invocation: grep parent:
+
+  Invocation: grep -oE "[0-9A-Fa-f]+" a.txt
+
+  Invocation: grep grep
+
+  Invocation: grep -oE "[0-9a-f]+" a.txt
+
+  Invocation: grep -vwE "0"
+
+  Invocation: grep -oE "[0-9a-f]+"
+
+  Invocation: grep .
+
+  Invocation: grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}"
+
+  Invocation: grep "#[0-9]\+"
+
+  Invocation: grep -oE /etc/networks
+
+  Invocation: grep "active"
+
+  Invocation: grep "\.txt"
+
+  Invocation: grep "^[^.]"
+
+  Invocation: grep "a"
+
+  Invocation: grep -v "a"
+
+  Invocation: grep "pattern"
+
+  Invocation: grep [02468]
+
+  Invocation: grep "^/"
+
+  Invocation: grep -v [13579]
+
+  Invocation: grep "\.log$"
+
+  Invocation: grep "[a-z]"
+
+  Invocation: grep "^[0-9]"
+
+  Invocation: grep "[0-9]"
+
+  Invocation: grep "WARNING"
+
+  Invocation: grep "^("
+
+  Invocation: grep -v "^$"
+
+  Invocation: grep "[k-z]"
+
+  Invocation: grep "^[A-Z]"
+
+  Invocation: grep -v "^#"
+
+  Invocation: grep -v "[0-9]"
+
+  Invocation: grep "foo"
+
+  Invocation: grep -v "^\\."
+
+  Invocation: grep "[A-J]"
+
+  Invocation: grep -v "txt"
+
+  Invocation: grep "txt"
+
+  Invocation: grep "[a-j]"
+
+  Invocation: grep ":"
+
+  Invocation: grep "."
+
+  Invocation: grep -v "."
+
+  Invocation: grep "x:"
+
+  Invocation: grep "pattern" file.txt
+
+  Invocation: grep "/"
+
+  Invocation: grep -v "^[[:space:]]*$"
+
+  Invocation: grep [0-9]
+
+  Invocation: grep ".txt"
+
+  Invocation: grep -v "^[0-9]*5$"
+
+  Invocation: grep "^[0-9]*[02468]$"
+
+  Invocation: grep "[13579]$"
+
+  Invocation: grep "\.txt$"
+
+  Invocation: grep -v "txt$"
+
+  Invocation: grep -v "^[0-9]*0$"
+
+  Invocation: grep ".sh"
+
+  Invocation: grep ".*\.txt"
+
+  Invocation: grep "*"
+
+  Invocation: grep "^[a-z]"
+
+  Invocation: grep "([0-9])"
+
+  Invocation: grep -v "^\."
+
+  Invocation: grep celery
+
+  Invocation: grep -v grep
+
+  Invocation: egrep -wi "exception|critical" /var/log/cloudera-scm-server/cloudera- scm-server.log
+
+  Invocation: grep "/dev/sdb"
+
+  Invocation: grep -v "word2" ${list}
+
+  Invocation: grep -n "^ *server *{"
+
+  Invocation: grep -n "^ *server *{" >/dev/null
+
+  Invocation: grep "^ *include *;" >/dev/null
+
+  Invocation: grep "^ *include *;"
+
+  Invocation: _egrep_o "\"authorizations\" *: *\[[^\[]]*\]"
+
+  Invocation: grep "${LOCAL_ANY_ADDRESS}"
+
+  Invocation: grep solaris >/dev/null
+
+  Invocation: _egrep_o "^ *Public-Key:.*"
+
+  Invocation: grep "${IPv4bare}"
+
+  Invocation: grep --color=never -i Location
+
+  Invocation: grep "state UP"
+
+  Invocation: grep "^Set-Cookie:" "${HTTP_HEADER}"
+
+  Invocation: grep -E "^??" 2>/dev/null
+
+  Invocation: grep "Manufacturer"
+
+  Invocation: grep "^## .*ahead"
+
+  Invocation: grep "^## .*behind"
+
+  Invocation: grep "^## .*diverged"
+
+  Invocation: grep "^D "
+
+  Invocation: grep "^\?\? "
+
+  Invocation: grep branch
+
+  Invocation: grep parent
+
+  Invocation: grep powerpc >/dev/null
+
+  Invocation: grep "shell script"
+
+  Invocation: grep -v "^0$"
+
+
+Command: sed
+~~~~~~~~~~~~
+  Invocation: sed -e "s/SN:\([0-9XY]\)/SN:chr\1/" -e "s/SN:MT/SN:chrM/"
+
+  Invocation: sed -e "s/^ //" -e "s/ \$//"
+
+  Invocation: sed "s/T..:..:..//"
+
+  Invocation: sed "s/T\(..\):..:../,\1/"
+
+  Invocation: sed "s/T\(..\):..:../,\1/" <in.csv
+
+  Invocation: sed "s;^;${URL};"
+
+  Invocation: sed "s/ly\$/-ly/g"
+
+  Invocation: sed "s/ .*//g"
+
+  Invocation: sed -n "s/.*version \(.*\)/\1/p"
+
+  Invocation: sed -e "s/[\\\"]/\\&/g" -e "s/\\\"/\"/" -e "s/\\\";\$/\";/" -e "s/  */ /g" >>auto/pathdef.c
+
+  Invocation: sed "/^[^>]/ y/uU/tT/" >ribosomal.fa
+
+  Invocation: sed "s/\tcDNA_match\t/\texon\t/g"
+
+  Invocation: sed "s/\tgenome\t/\tsilva\t/g" >ribosomal.hsa.gmap.gff3
+
+  Invocation: sed "s/\tgmapidx\t/\tsilva\t/g"
+
+  Invocation: sed "s/;\$/; gene_biotype \"rRNA\"; transcript_biotype \"rRNA\";/g"
+
+  Invocation: sed "s/^chrM/MT/g"
+
+  Invocation: sed "s/^chr//g"
+
+  Invocation: sed "s/chr1_KI270713v1_random/KI270713.1/g"
+
+  Invocation: sed "s/14_GL000009v2_random/GL000009.2/g"
+
+  Invocation: sed "s/1_KI270706v1_random/KI270706.1/g"
+
+  Invocation: sed "s/Un_KI270742v1/KI270742.1/g"
+
+  Invocation: sed "s/\tgenome\t/\tsilva\t/g" >ribosomal.mmu.gmap.gff3
+
+  Invocation: sed s/\$/"0s"/
+
+  Invocation: sed 4d
+
+  Invocation: sed 1d
+
+  Invocation: sed 3d
+
+  Invocation: sed 2d
+
+  Invocation: sed 5d
+
+  Invocation: sed -e "/.\$/a\"
+
+  Invocation: sed "s#^#${WIKI}#"
+
+  Invocation: sed "s|./wikipedia/en/articles/||"
+
+  Invocation: sed "s;^;http://data\.com/chunk/;"
+
+  Invocation: sed -e "s@^.*/@@"
+
+  Invocation: sed -e "s/.*\.//"
+
+  Invocation: sed -e "s/.*\///"
+
+  Invocation: sed -e "s;[^/]*/;|___;g;s;___|; |;g"
+
+  Invocation: sed "s/\r\$//"
+
+  Invocation: sed -e "s/(.*)//" -e "s/[^0-9]/ /g"
+
+  Invocation: sed "s/([^)]*)//g"
+
+  Invocation: sed -n "s/.*\.//p"
+
+  Invocation: sed "s@^@/usr/@"
+
+  Invocation: sed -E "s|https?://([^/]+).*|\1|"
+
+  Invocation: sed "s/;/\\;/g"
+
+  Invocation: sed "s/[^0-9;]//g"
+
+  Invocation: sed -e "s/^[ \t]*//"
+
+  Invocation: sed -e "s/[ \t]*\$//"
+
+  Invocation: sed "s/^[ \t]*//;s/[ \t]*\$//"
+
+  Invocation: sed "s/...\$//"
+
+  Invocation: sed "s/,/' '/g"
+
+  Invocation: sed "s/include //"
+
+  Invocation: sed "s/^\.*//"
+
+  Invocation: sed "s/[]\.|$(){}?+*^]/\\&/g"
+
+  Invocation: sed "s/\//\\\//g"
+
+  Invocation: sed -e "s/^\s*#.*\$//" -e "/^\$/d"
+
+  Invocation: sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/@.*//g;s/: <.*//g;"
+
+  Invocation: sed "s/ /\\ /g;s/&/\\&/;s/^/pushd -q /;1!G;h;\$!d;" >~/.zdirstore
+
+  Invocation: sed "s/addr://g"
+
+  Invocation: sed "s/\[.*\]//g" >.rake_tasks
+
+  Invocation: sed -ne "s|^.* inet \([^/]*\)/.* scope global.*$|\1|p"
+
+  Invocation: sed "s;^;;"
+
+  Invocation: sed "s/,/, /g"
+
+  Invocation: sed "s/[0-9]*/&&/"
+
+  Invocation: sed "s/:/ /g"
+
+  Invocation: sed "s/^ *//"
+
+  Invocation: sed "s/localhost/127.0.0.1/"
+
+  Invocation: sed "s/127.0.0.1/localhost/"
+
+  Invocation: sed "s/0x[0-9a-f]*/\n&\n/g"
+
+  Invocation: sed "s/,/\n/g"
+
+  Invocation: sed "s/^/Line /"
+
+  Invocation: sed "s/[0-9]/(&)/g"
+
+  Invocation: sed "s/ERROR/error/g"
+
+  Invocation: sed "s/error/WARNING/g"
+
+  Invocation: sed "s/[0-9]/#/g"
+
+  Invocation: sed "s/#/*/g"
+
+  Invocation: sed "s/^[ ]*//"
+
+  Invocation: sed "d"
+
+  Invocation: sed "s/\$//"
+
+  Invocation: sed "s/ /\n/g"
+
+  Invocation: sed "s/foo/bar/g"
+
+  Invocation: sed "s/[0-9]//g"
+
+  Invocation: sed "s/_txt\$//"
+
+  Invocation: sed "s/[0-9]/X/g"
+
+  Invocation: sed "s/X/#/g"
+
+  Invocation: sed "s/,\$/\n/"
+
+  Invocation: sed "s/\./X/g"
+
+  Invocation: sed "s/X/Y/g"
+
+  Invocation: sed "s/:[^:]*\$//g"
+
+  Invocation: sed "s/\///g"
+
+  Invocation: sed "s/ \+/ /g"
+
+  Invocation: sed "s/\n//g"
+
+  Invocation: sed "s/^/File: /"
+
+  Invocation: sed "s/^/Sizes: /"
+
+  Invocation: sed "s/\$/XX/"
+
+  Invocation: sed "s/error/ERROR/g"
+
+  Invocation: sed "s/.*ERROR://g"
+
+  Invocation: sed "s/[0-9]/&,/g"
+
+  Invocation: sed "s/[aeiou]/*/g"
+
+  Invocation: sed "/^\$/d"
+
+  Invocation: sed "s/[0-9]/& /g"
+
+  Invocation: sed "s/^/Line: /"
+
+  Invocation: sed "s/ HELLO.*'[^']*'/ /"
+
+  Invocation: sed -r "s/[^ ]* //"
+
+  Invocation: sed "s/\"//g"
+
+  Invocation: sed "s/^\.//"
+
+  Invocation: sed -e "s/#.*\$//" -e "/^\$/d"
+
+  Invocation: sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/: <.*//g;"
+
+  Invocation: sed "s/ /\\ /g;s/^/pushd -q /;1!G;h;\$!d;" >~/.zdirstore
+
+  Invocation: sed "s/\/.*\$//"
+
+
+Command: tr
+~~~~~~~~~~~
+  Invocation: tr ";" "\n"
+
+  Invocation: tr -c "A-Za-z" "[\n*]"
+
+  Invocation: tr -sc "[A-Z][a-z]" "[\012*]"
+
+  Invocation: tr "[a-z]" "[A-Z]"
+
+  Invocation: tr -sc "BCDFGHJKLMNPQRSTVWXYZ" "[\012*]"
+
+  Invocation: tr "a-z" "[A-Z]"
+
+  Invocation: tr -sc "AEIOU" "[\012*]"
+
+  Invocation: tr -sc "[AEIOUaeiou\012]" " " <${TEMPDIR}/${input}.words
+
+  Invocation: tr -sc "AEIOUaeiou" "[\012*]"
+
+  Invocation: tr A-Z a-z
+
+  Invocation: tr [:lower:] [:upper:]
+
+  Invocation: tr [:upper:] [:lower:]
+
+  Invocation: tr -cs A-Za-z "\n"
+
+  Invocation: tr -d "[:punct:]"
+
+  Invocation: tr -d "\012" >>auto/pathdef.c
+
+  Invocation: tr "a-z+-." "A-ZX__"
+
+  Invocation: tr "a-z+-" "A-ZX_"
+
+  Invocation: tr " " "\n"
+
+  Invocation: tr "[a-z]" "P"
+
+  Invocation: tr -s " " "\n"
+
+  Invocation: tr -c "[a-z][A-Z]" "\n"
+
+  Invocation: tr "[a-z]" "\n"
+
+  Invocation: tr -d "\n"
+
+  Invocation: tr -c "[A-Z]" "\n"
+
+  Invocation: tr "[A-Z]" "[a-z]"
+
+  Invocation: tr -d ","
+
+  Invocation: tr -d "\n\r"
+
+  Invocation: tr -c "0-9" " "
+
+  Invocation: tr -s " "
+
+  Invocation: tr -d " "
+
+  Invocation: tr -d " \n"
+
+  Invocation: tr -cd ";0-9"
+
+  Invocation: tr -d "[:digit:]"
+
+  Invocation: tr "\t" " " <"${2}"
+
+  Invocation: tr "\t" " "
+
+  Invocation: tr -d " ;"
+
+  Invocation: tr -d "\r\n \t"
+
+  Invocation: tr -d "\r"
+
+  Invocation: tr -d "]"
+
+  Invocation: tr -d "\""
+
+  Invocation: tr -d "\r\n"
+
+  Invocation: tr -d "[:cntrl:]"
+
+  Invocation: tr -d ";"
+
+  Invocation: tr -cd "[:digit:]"
+
+  Invocation: tr A-F a-f
+
+  Invocation: tr -s "\n"
+
+  Invocation: tr "[A-Z]" "\n"
+
+  Invocation: tr "[a-z][A-Z]" "\n"
+
+  Invocation: tr "\n" ","
+
+  Invocation: tr "\n" " "
+
+  Invocation: tr " " "\t"
+
+  Invocation: tr "/" "\t"
+
+  Invocation: tr " " "_"
+
+  Invocation: tr "_" "\t"
+
+  Invocation: tr "\t" ","
+
+  Invocation: tr "/" " "
+
+  Invocation: tr " " "/"
+
+  Invocation: tr ":" " "
+
+  Invocation: tr " " ","
+
+  Invocation: tr "[:lower:]" "[:upper:]"
+
+  Invocation: tr -d "[:blank:]"
+
+  Invocation: tr ")(" "\n"
+
+  Invocation: tr "a-z" "A-Z"
+
+  Invocation: tr "[:upper:]" "[:lower:]"
+
+  Invocation: tr "0-9" "a-j"
+
+  Invocation: tr -d ":"
+
+  Invocation: tr -d "/"
+
+  Invocation: tr -d "a-z"
+
+  Invocation: tr "." "_"
+
+  Invocation: tr "A-Z" "a-z"
+
+  Invocation: tr -d "x"
+
+  Invocation: tr "a-z" "0-9"
+
+  Invocation: tr -d [:alnum:]
+
+  Invocation: tr [:space:] "\n"
+
+  Invocation: tr ":" "\n"
+
+  Invocation: tr "*" "\n"
+
+  Invocation: tr "/" "\n"
+
+  Invocation: tr "/" "_"
+
+  Invocation: tr "1-9" "a-i"
+
+  Invocation: tr "a-j" "0-9"
+
+  Invocation: tr "." " "
+
+  Invocation: tr " " ":"
+
+  Invocation: tr "_" " "
+
+  Invocation: tr ":" "\t"
+
+  Invocation: tr "," " "
+
+  Invocation: tr "*" "X"
+
+
+UNSUPPORTED COMMANDS
+--------------------------------
+
+Command: awk
+~~~~~~~~~~~~
+  Invocation: awk "{print $1}"
+
+  Invocation: awk "{for (i=1; i<=NF; i++) if ($i ~ /([0-9]{1,3}\.){3}[0-9]{1,3}/) print $i}" /etc/networks
+
+
+Command: grep
+~~~~~~~~~~~~~
+  Invocation: grep -c 1
+
+  Invocation: grep -c "^....$" >${OUT}/${input}.out0
+
+  Invocation: grep -c "^....$" >${OUT}/${input}.out1
+
+  Invocation: grep -c "^[A-Z]" >${OUT}/${input}.out
+
+  Invocation: grep -c "light.\*light" >${OUT}/${input}.out0
+
+  Invocation: grep -c "light.\*light.\*light" >${OUT}/${input}.out1
+
+  Invocation: grep -vc "light.\*light.\*light" >${OUT}/${input}.out2
+
+  Invocation: grep -A 1 --no-group-separator "Homo sapiens" ribosomal.fa
+
+  Invocation: grep -A 1 --no-group-separator "Mus musculus" ribosomal.fa
+
+  Invocation: grep -m 1 "."
+
+  Invocation: grep -rl "Hello" /testbed
+
+  Invocation: grep -r "foo" /system
+
+  Invocation: grep -q "screen"
+
+  Invocation: grep -m 1 "^[0-9]"
+
+  Invocation: grep -q "^. main\s*$"
+
+  Invocation: grep -qv "^-P.*ACCEPT$"
+
+  Invocation: grep -qE "REJECT|DROP"
+
+  Invocation: grep -q -c "\-\-wip\-\-"
+
+  Invocation: grep -rHn "word1" ${list}
+
+  Invocation: grep -q "\smain\s"
+
+  Invocation: grep -qv "ACCEPT$"
+
+  Invocation: grep -q REJECT
+
+  Invocation: grep -rl . /testbed/dir2
+
+
+Command: sed
+~~~~~~~~~~~~
+  Invocation: sed 5q
+
+  Invocation: sed 5q >${OUT}/${input}.out
+
+  Invocation: sed 5q >${OUT}${input}.out
+
+  Invocation: sed 5q >${OUT}/${input}.0.out
+
+  Invocation: sed 5q >${OUT}/${input}.1.out
+
+  Invocation: sed "$d"
+
+  Invocation: sed 100q
+
+  Invocation: sed "1i transcript_id\tlength" >SIRV_Set1_Sequences_170612a/SIRVome_isoforms_170612a.transcripts_sirv1.E2.length.tab
+
+  Invocation: sed "1i transcript_id\tlength" >sirv1.length.tab
+
+  Invocation: sed "\$d"
+
+  Invocation: sed "s/\$/\/abc.txt/g"
+
+  Invocation: sed "1,/Available commands/d"
+
+  Invocation: sed -E \ -e "s/\\([0-9, \.]+( .+)?\\)/${fg}[blue]&${reset_color}/g" \ -e "s|$(echo ${rvm_path})|${fg}[magenta]\$rvm_path${reset_color}|g" \ -e "s/${current_ruby}@global/${fg}[yellow]&${reset_color}/g" \ -e "s/${current_ruby}${current_gemset}\$/${fg}[green]&${reset_color}/g"
+
+  Invocation: sed \ -Ee "s/\\([0-9, \.]+( .+)?\\)/${fg}[blue]&${reset_color}/g" \ -Ee "s|$(echo ${rvm_path})|${fg}[magenta]\$rvm_path${reset_color}|g" \ -Ee "s/${current_ruby}@global/${fg}[yellow]&${reset_color}/g" \ -Ee "s/${current_ruby}${current_gemset}\$/${fg}[green]&${reset_color}/g"
+
+
+UNCLASSIFIED COMMANDS
+-----------------------------------
+
+Command: awk
+~~~~~~~~~~~~
+  Invocation: awk "{print \$2,\$1}"
+
+  Invocation: awk -F, "
+!seen[$1 $2 $4] { seen[$1 $2 $4] = 1; hours[$1 $4]++; bus[$4] = 1; day[$1] = 1; }
+END {
+   PROCINFO[\"sorted_in\"] = \"@ind_str_asc\"
+   for (d in day)
+     printf(\"\t%s\", d);
+   printf(\"\n\");
+   for (b in bus) {
+     printf(\"%s\", b);
+     for (d in day)
+       printf(\"\t%s\", hours[d b]);
+     printf(\"\n\");
+   }
+}" >out
+
+  Invocation: awk "{print $9}" ${tempfile}
+
+  Invocation: awk "($9 ~ /404/)" ${tempfile}
+
+  Invocation: awk "{print $7}"
+
+  Invocation: awk "($9 ~ /502/)" ${tempfile}
+
+  Invocation: awk -F\" "($2 ~ \"/wp-admin/install.php\"){print $1}" ${tempfile}
+
+  Invocation: awk "{print $1}"
+
+  Invocation: awk -F\" "($2 ~ \"^GET .*.php\")"
+
+  Invocation: awk -F\" "{print $2}" ${tempfile}
+
+  Invocation: awk "{print $2}"
+
+  Invocation: awk -F\" "($2 ~ \"ref\"){print $2}" ${tempfile}
+
+  Invocation: awk "{ total += \$1; count++ } END { print total/count }" >${statistics_dir}/average.txt
+
+  Invocation: awk "{ print $1 }"
+
+  Invocation: awk "{ print $1 }" >"${file}.hash"
+
+  Invocation: awk "\$1 >= 2 {print \$2}"
+
+  Invocation: awk "{print NF}" >${TEMPDIR}/${input}.syl
+
+  Invocation: awk "\$1 >= 1000" >${OUT}/${input}.out
+
+  Invocation: awk -v var="exon" "BEGIN {FS=\"\t\";OFS=\"\t\"} {if ($3==var) {print $1, $4-1,$5, \".\", \".\", $7, $3, $9}}"
+
+  Invocation: awk "{print \$2, \$0}"
+
+  Invocation: awk "length <= 45"
+
+  Invocation: awk "{\$1=\$1};1"
+
+  Invocation: awk "length >= 16"
+
+  Invocation: awk "$1 < 6 {v += $1; c++} END {print v/c}"
+
+  Invocation: awk "$1 < 6 {v += $1; c++} END {print v/c, \"words\"}"
+
+  Invocation: awk "NF{print $NF; exit}"
+
+  Invocation: awk "NF" /workspace/dir1/a.txt
+
+  Invocation: awk -F/ "{print NF, $0}"
+
+  Invocation: awk -F/ "{print $NF}"
+
+  Invocation: awk -F. "{if (NF>1) print $NF}"
+
+  Invocation: awk "{s+=$1} END {print s}"
+
+  Invocation: awk -F/ "{print tolower($NF)}"
+
+  Invocation: awk "{print} END {print NR}"
+
+  Invocation: awk -F "[^0-9]*" "{print $2}"
+
+  Invocation: awk "END { print $1/(NR-1) }"
+
+  Invocation: awk "{print $2 \" \" $1}"
+
+  Invocation: awk -F. "NF>1 {ext=tolower($NF); if (length(ext) >= 3 && length(ext) <= 6) print ext}"
+
+  Invocation: awk "{print tolower($0)}"
+
+  Invocation: awk "{print $0}" /workspace/files.txt
+
+  Invocation: awk "{sum += $1} END {print sum}"
+
+  Invocation: awk "{print $5}"
+
+  Invocation: awk "NR==2 {print $5}"
+
+  Invocation: awk -F"-" "{print $2}"
+
+  Invocation: awk "NR==2 {print $1}"
+
+  Invocation: awk -F= "{if($1 ~ /H/) print $1}"
+
+  Invocation: awk -F= "{print $1}"
+
+  Invocation: awk -F" " "{print $1}"
+
+  Invocation: awk "{print $1}" >total_size.txt
+
+  Invocation: awk "{print $4}"
+
+  Invocation: awk "END {print}"
+
+  Invocation: awk -F / "{print $NF}"
+
+  Invocation: awk "!/^[[:space:]]*\$/ {++i} END{print i}"
+
+  Invocation: awk "{ print $1}"
+
+  Invocation: awk "/^[ \t]*[a-z]+/ { print $1 }"
+
+  Invocation: awk "/^ +[a-z\-:]+/ { print $1 }"
+
+  Invocation: awk -F"-"
+
+  Invocation: awk "{w = $0; sub(\".*/\", \"\", w); sub(\"_[0-9_][0-9_]*.*\", \"\", w);} !a[w]++"
+
+  Invocation: awk "!/^[[:space:]]*$ {++i} END{print i}"
+
+  Invocation: awk "/inet /{ print $2 }"
+
+  Invocation: awk "/^\s*[a-z]+/ { print $1 }"
+
+  Invocation: awk "/^\s+[a-z]+/ { print $1 }"
+
+  Invocation: awk "/[a-zA-Z0-9]/ {i++} END{print i}"
+
+
+Command: fmt
+~~~~~~~~~~~~
+  Invocation: fmt -w1
+
+
+Command: grep
+~~~~~~~~~~~~~
+  Invocation: grep "print"
+
+  Invocation: grep -q -c "--wip--"
+
+
+Command: paste
+~~~~~~~~~~~~~~
+  Invocation: paste ${TEMPDIR}/${input}.input.words ${TEMPDIR}/${input}.input.nextwords
+
+  Invocation: paste ${TEMPDIR}/${input}.words ${TEMPDIR}/${input}.nextwords ${TEMPDIR}/${input}.nextwords2
+
+  Invocation: paste ${TEMPDIR}/${input}.syl ${TEMPDIR}/${input}.words
+
+  Invocation: paste ${s2} -
+
+  Invocation: paste ${aux3} - >${OUT}
+
+  Invocation: paste - - - -
+
+  Invocation: paste s3 -
+
+  Invocation: paste ${s3} -
+
+  Invocation: paste -sd:
+
+  Invocation: paste
+
+
+Command: sed
+~~~~~~~~~~~~
+  Invocation: sed "s/\\(/\(/g"
+
+  Invocation: sed "s/INSERT INTO transcr VALUES(/INSERT INTO transcr VALUES(${add_num}/g" \  >>${sdir}/db/sqlite.transcr.sql
+
+  Invocation: sed "s/INSERT INTO genome VALUES(/INSERT INTO genome VALUES(${add_num}/g" \  >>${sdir}/db/sqlite.genome.sql
+
+  Invocation: sed "s/INSERT INTO transcr VALUES(/INSERT INTO transcr VALUES(${add_num}/g" >>"${sdir}"/db/sqlite.transcr.sql
+
+  Invocation: sed "s/INSERT INTO genome VALUES(/INSERT INTO genome VALUES(${add_num}/g" >>"${sdir}"/db/sqlite.genome.sql
+
+  Invocation: sed "s,^[^\,]*\,\\(.*\\),\1,"
+
+  Invocation: sed "s,^\\([^\,]*\\)\,.*,\1,"
+
+  Invocation: sed -h 2>&1
+
+  Invocation: sed -n "s/URL:\ .*${SVN_ROOT}\///p"
+
+
+SUMMARY
+---------------
+Total invocations: 592
+Supported: 469
+Unsupported: 39
+Unclassified: 84
+Original total (before deduplication): 1659
