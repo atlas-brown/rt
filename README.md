@@ -6,6 +6,17 @@
 pip3 install shasta libdash pash_annotations pytest z3-solver
 ```
 
+
+## Test things out
+
+Use `typecheck.sh`; see `-h` for details
+``` bash
+sh typecheck.sh -h
+```
+
+
+
+
 ## Run evaluations
 
 ```bash
