@@ -1,6 +1,7 @@
 import json
 import os
 import datetime
+import traceback
 from typing import Dict, List, Any, Optional
 
 
@@ -24,6 +25,8 @@ class LogManager:
         self._command_logs: Dict[str, int] = {}
         self._detailed_command_invocations: List[Dict[str, Any]] = []
         self._pattern_analysis_logs: List[Dict[str, Any]] = []
+        self._command_pattern_logs: Dict[str, Dict[str, int]] = {}  # Track patterns by command and flag combination
+        self._sed_pattern_logs: Dict[str, Dict[str, int]] = {}  # Track detailed sed patterns by flag combination
     
     def add_regex_log(self, regex: str) -> None:
         """
@@ -125,6 +128,49 @@ class LogManager:
         """
         if self._pattern_analysis_logs:
             self._pattern_analysis_logs.pop()
+    
+    def add_command_pattern_log(self, command_name: str, flag_pattern: str) -> None:
+        """
+        Add or increment a command pattern based on command name and flag combination.
+        
+        Args:
+            command_name: The command name (e.g., 'grep', 'cut', 'awk', 'sed', 'tr', 'paste', 'fmt')
+            flag_pattern: The pattern of flags (e.g., '-w', '-wo', '-E', '-i', etc.)
+        """
+        try:
+            if command_name not in self._command_pattern_logs:
+                self._command_pattern_logs[command_name] = {}
+            
+            if flag_pattern not in self._command_pattern_logs[command_name]:
+                self._command_pattern_logs[command_name][flag_pattern] = 0
+            
+            self._command_pattern_logs[command_name][flag_pattern] += 1
+        except Exception as e:
+            traceback.print_exc()
+            exit(1)
+    
+    def get_flag_pattern_from_invocation(self, parsed_command_invocation) -> str:
+        """
+        Extract flag pattern from a command invocation.
+        
+        Args:
+            parsed_command_invocation: The parsed command invocation
+            
+        Returns:
+            str: The flag pattern (sorted flags concatenated)
+        """
+        try:
+            flags = []
+            for flag in parsed_command_invocation.flag_option_list:
+                flags.append(flag.get_name())
+            
+            # Sort flags to ensure consistent pattern naming
+            flags = list(set(flags))
+            flags.sort()
+            return "".join(flags) if flags else "(no_flags)"
+        except Exception as e:
+            traceback.print_exc()
+            exit(1)
     
     def write_regex_logs_to_file(self, filepath: Optional[str] = None) -> str:
         """
@@ -793,6 +839,198 @@ class LogManager:
                 writer.writerow(record)
         
         return filepath
+    
+    def write_command_pattern_logs_to_file(self, filepath: Optional[str] = None) -> str:
+        """
+        Write command pattern logs to a text file.
+        
+        Args:
+            filepath: Path to the file where pattern logs will be written.
+                     If None, a default path will be generated.
+            
+        Returns:
+            str: Path to the written file
+        """
+        if filepath is None:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"command_pattern_logs_{timestamp}.txt"
+            logs_dir = os.path.join(os.getcwd(), "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            filepath = os.path.join(logs_dir, filename)
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(filepath)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+        
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write("COMMAND PATTERN LOGS\n")
+            f.write("=" * 40 + "\n\n")
+            
+            for command_name in sorted(self._command_pattern_logs.keys()):
+                patterns = self._command_pattern_logs[command_name]
+                f.write(f"Command: {command_name.upper()}\n")
+                f.write("-" * (len(command_name) + 9) + "\n\n")
+                
+                # Sort patterns by count (descending) then by pattern name
+                sorted_patterns = sorted(patterns.items(), key=lambda x: (-x[1], x[0]))
+                
+                for pattern, count in sorted_patterns:
+                    f.write(f"  Pattern: {pattern}\n")
+                    f.write(f"  Count: {count}\n\n")
+                
+                f.write("\n")
+            
+            # Write summary statistics
+            f.write("SUMMARY\n")
+            f.write("-" * 15 + "\n")
+            total_patterns = sum(len(patterns) for patterns in self._command_pattern_logs.values())
+            total_invocations = sum(sum(patterns.values()) for patterns in self._command_pattern_logs.values())
+            f.write(f"Total unique patterns: {total_patterns}\n")
+            f.write(f"Total invocations: {total_invocations}\n")
+            for command_name in sorted(self._command_pattern_logs.keys()):
+                patterns = self._command_pattern_logs[command_name]
+                cmd_patterns = len(patterns)
+                cmd_invocations = sum(patterns.values())
+                f.write(f"{command_name}: {cmd_patterns} patterns, {cmd_invocations} invocations\n")
+        
+        return filepath
+    
+    def write_command_pattern_logs_to_csv(self, filepath: Optional[str] = None) -> str:
+        """
+        Write command pattern logs to a CSV file.
+        
+        Args:
+            filepath: Path to the CSV file where pattern logs will be written.
+                     If None, a default path will be generated.
+            
+        Returns:
+            str: Path to the written CSV file
+        """
+        import csv
+        
+        if filepath is None:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"command_pattern_logs_{timestamp}.csv"
+            logs_dir = os.path.join(os.getcwd(), "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            filepath = os.path.join(logs_dir, filename)
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(filepath)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+        
+        with open(filepath, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['command_name', 'flag_pattern', 'count']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            
+            writer.writeheader()
+            
+            for command_name in sorted(self._command_pattern_logs.keys()):
+                patterns = self._command_pattern_logs[command_name]
+                # Sort patterns by count (descending) then by pattern name
+                sorted_patterns = sorted(patterns.items(), key=lambda x: (-x[1], x[0]))
+                
+                for pattern, count in sorted_patterns:
+                    writer.writerow({
+                        'command_name': command_name,
+                        'flag_pattern': pattern,
+                        'count': count
+                    })
+        
+        return filepath
+    
+    def add_sed_command_pattern_log(self, parsed_command_invocation) -> None:
+        """
+        Add sed command pattern log by analyzing both flags and operands directly in logger.
+        
+        Args:
+            parsed_command_invocation: The parsed command invocation for sed
+        """
+        try:
+            # Get flag pattern
+            flag_pattern = self.get_flag_pattern_from_invocation(parsed_command_invocation)
+            
+            # Get operands directly
+            operands = []
+            for operand in parsed_command_invocation.operand_list:
+                operands.append(operand.name)
+            
+            # Analyze operand pattern for sed and count each pattern separately
+            if operands:
+                # Handle multiple patterns separated by semicolons
+                if operands[0].startswith('s;'):
+                    pattern_type = "unknown_pattern"
+                    combined_key = f"{flag_pattern}:{pattern_type}"
+                    self.add_command_pattern_log("sed", combined_key)
+                    return
+                patterns = operands[0].split(";")
+                pattern_counts = {}
+                
+                for pattern in patterns:
+                    pattern = pattern.strip()
+                    if not pattern:
+                        continue
+                        
+                    pattern_type = self._classify_single_sed_pattern(pattern)
+                    
+                    # Create combined key with flag pattern
+                    combined_key = f"{flag_pattern}:{pattern_type}"
+                    
+                    # Count this pattern
+                    if combined_key not in pattern_counts:
+                        pattern_counts[combined_key] = 0
+                    pattern_counts[combined_key] += 1
+                
+                # Add each pattern count to the log
+                for combined_key, count in pattern_counts.items():
+                    for _ in range(count):
+                        self.add_command_pattern_log("sed", combined_key)
+            else:
+                self.add_command_pattern_log("sed", flag_pattern)
+                
+        except Exception as e:
+            traceback.print_exc()
+            exit(1)
+    
+    def _classify_single_sed_pattern(self, pattern: str) -> str:
+        """
+        Classify a single sed pattern.
+        
+        Args:
+            pattern: A single sed pattern
+            
+        Returns:
+            str: The pattern classification
+        """
+        try:
+            import re
+            
+            # Pattern for substitution s<delimiter>pattern<delimiter>replacement<delimiter>[flags]
+            # Adaptive delimiter: any non-alphanumeric character after 's'
+            if len(pattern) >= 2 and pattern[0] == 's':
+                delimiter = pattern[1]
+                template = fr"^s{delimiter}.*{delimiter}.*{delimiter}(g|p|q)*$"
+                if re.match(template, pattern):
+                    return "s/.*/.*/g?p?q?"
+                else:
+                    return "unknown_pattern"
+            
+            if re.match(r'^/[^/]*/((!d)|d|p|q)+$', pattern):
+                return "/.*/((!d)|d|p|q)+"
+            
+            # Range deletion like 1,5d or 1,$d  
+            if re.match(r'^([0-9]+(,[0-9$]+)?)?((!d)|d|p|q)+$', pattern):
+                return "([0-9]+(,[0-9$]+)?)?((!d)|d|p|q)+"
+            
+            
+            # Any other patterns - return the original pattern for analysis
+            return "unknown_pattern"
+            
+        except Exception as e:
+            traceback.print_exc()
+            return pattern
 
 
 # Global function to get the singleton instance

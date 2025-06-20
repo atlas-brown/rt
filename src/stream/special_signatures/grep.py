@@ -63,6 +63,10 @@ class GrepSignature(CommandSignature):
         # get_logger().classify_last_invocation_as_supported()
         supported_flags = set(["-e", "-o", "-i", "-v", "-x", "-n", "-G", "-E", "-F", "-w", "-A", "-B", "-C", "-P"])
         
+        # Record command pattern based on flag combination
+        flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
+        get_logger().add_command_pattern_log("grep", flag_pattern)
+        
         self_contained = True
         if len(parsed_command_invocation.operand_list) > 1 or (len(parsed_command_invocation.operand_list) == 1 and "-e" in parsed_command_invocation.flag_option_list):
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)

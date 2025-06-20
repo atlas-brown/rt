@@ -13,6 +13,10 @@ class FmtSignature(CommandSignature):
         # Classify the last detailed command invocation as supported
         # get_logger().classify_last_invocation_as_supported()
         
+        # Record command pattern based on flag combination
+        flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
+        get_logger().add_command_pattern_log("fmt", flag_pattern)
+        
         flags = set()
         flag_args = {}
         for flag in parsed_command_invocation.flag_option_list:

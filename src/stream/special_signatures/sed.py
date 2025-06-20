@@ -48,10 +48,14 @@ class SedSignature(CommandSignature):
         # Classify the last detailed command invocation as supported
         # get_logger().classify_last_invocation_as_supported()
         
+        # Record sed command pattern directly in logger
+        get_logger().add_sed_command_pattern_log(parsed_command_invocation)
+        
         lose_precision = False
         tainted = previous_output_type.tainted
         operands = super().get_operands(parsed_command_invocation)
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
+        mode = "extended" if "-E" in parsed_flags or "-r" in parsed_flags else "basic"
         if len(operands) == 0:
             get_logger().remove_last_pattern_analysis()
             raise ToolError("No operand provided for sed")
@@ -154,7 +158,7 @@ class SedSignature(CommandSignature):
                 if match and (len(match.group(1)) % 2 == 1):
                     parts[1] = parts[1] + delimiter
                 get_logger().add_regex_log(parts[1])
-                mode = "extended" if "-E" in parsed_flags else "basic"
+
                 
                 # Update pattern analysis for main substitution patterns (only once)
                 if not pattern_recorded:

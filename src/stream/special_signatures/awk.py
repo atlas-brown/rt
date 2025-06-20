@@ -13,6 +13,10 @@ class AwkSignature(CommandSignature):
         # Classify the last detailed command invocation as supported
         # get_logger().classify_last_invocation_as_supported()
         
+        # Record command pattern based on flag combination
+        flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
+        get_logger().add_command_pattern_log("awk", flag_pattern)
+        
         if len(parsed_command_invocation.operand_list) != 1:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         operand = parsed_command_invocation.operand_list[0].name

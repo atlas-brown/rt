@@ -80,6 +80,10 @@ class CutSignature(CommandSignature):
         # get_logger().classify_last_invocation_as_supported()
         supported_flags = set(["-b", "-c", "-d", "-f", "--complement"])
         
+        # Record command pattern based on flag combination
+        flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
+        get_logger().add_command_pattern_log("cut", flag_pattern)
+        
         get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         if len(parsed_command_invocation.operand_list) > 0:
             file_name = parsed_command_invocation.operand_list[0].name
