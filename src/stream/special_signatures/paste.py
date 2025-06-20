@@ -23,6 +23,9 @@ class PasteSignature(CommandSignature):
 
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        # Classify the last detailed command invocation as supported
+        # get_logger().classify_last_invocation_as_supported()
+        
         get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         flags = set()
         flag_args : dict[str, list[str]] = {}

@@ -22,6 +22,8 @@ class LogManager:
         self._logs: List[Dict[str, Any]] = []
         self._regex_logs: List[str] = []
         self._command_logs: Dict[str, int] = {}
+        self._detailed_command_invocations: List[Dict[str, Any]] = []
+        self._pattern_analysis_logs: List[Dict[str, Any]] = []
     
     def add_regex_log(self, regex: str) -> None:
         """
@@ -44,6 +46,85 @@ class LogManager:
             self._command_logs[command] += count
         else:
             self._command_logs[command] = count
+    
+    def add_detailed_command_invocation(self, command_name: str, invocation: str, flags: List[str] = None, operands: List[str] = None) -> None:
+        """
+        Add a detailed command invocation to the log.
+        
+        Args:
+            command_name: The name of the command (e.g., 'grep', 'cut', etc.)
+            invocation: The full command invocation string
+            flags: List of flags used in the command
+            operands: List of operands used in the command
+        """
+        invocation_record = {
+            "command_name": command_name,
+            "invocation": invocation,
+            "flags": flags or [],
+            "operands": operands or [],
+            "supported": None  # Will be set later during classification
+        }
+        self._detailed_command_invocations.append(invocation_record)
+    
+    def classify_last_invocation_as_supported(self) -> None:
+        """
+        Classify the last detailed command invocation as supported.
+        """
+        if self._detailed_command_invocations:
+            self._detailed_command_invocations[-1]["supported"] = True
+    
+    def classify_last_invocation_as_unsupported(self) -> None:
+        """
+        Classify the last detailed command invocation as unsupported.
+        """
+        if self._detailed_command_invocations:
+            self._detailed_command_invocations[-1]["supported"] = False
+    
+    def add_pattern_analysis(self, command_name: str, invocation: str, pattern: str, ast_repr: str, is_pure_string: bool, has_references: bool = False) -> None:
+        """
+        Add a pattern analysis record for grep or sed commands.
+        
+        Args:
+            command_name: The command name ('grep' or 'sed')
+            invocation: The full command invocation
+            pattern: The regex pattern string
+            ast_repr: String representation of the AST
+            is_pure_string: Result of is_pure_string_for_ast check
+            has_references: For sed, whether the replacement part has \ or & references
+        """
+        analysis_record = {
+            "command_name": command_name,
+            "invocation": invocation,
+            "pattern": pattern,
+            "ast_repr": ast_repr,
+            "is_pure_string": is_pure_string,
+            "has_references": has_references  # Only relevant for sed
+        }
+        self._pattern_analysis_logs.append(analysis_record)
+    
+    def update_last_pattern_analysis(self, pattern: str, ast_repr: str, is_pure_string: bool, has_references: bool = False) -> None:
+        """
+        Update the last pattern analysis record with pattern details.
+        
+        Args:
+            pattern: The regex pattern string
+            ast_repr: String representation of the AST
+            is_pure_string: Result of is_pure_string_for_ast check
+            has_references: For sed, whether the replacement part has \ or & references
+        """
+        if self._pattern_analysis_logs:
+            last_record = self._pattern_analysis_logs[-1]
+            last_record["pattern"] = pattern
+            last_record["ast_repr"] = ast_repr
+            last_record["is_pure_string"] = is_pure_string
+            last_record["has_references"] = has_references
+    
+    def remove_last_pattern_analysis(self) -> None:
+        """
+        Remove the last pattern analysis record.
+        """
+        if self._pattern_analysis_logs:
+            self._pattern_analysis_logs.pop()
     
     def write_regex_logs_to_file(self, filepath: Optional[str] = None) -> str:
         """
@@ -406,6 +487,312 @@ class LogManager:
         except (json.JSONDecodeError, FileNotFoundError) as e:
             print(f"Error loading object from {filepath}: {e}")
             return None
+    
+    def write_detailed_command_invocations_to_file(self, filepath: Optional[str] = None, deduplicate: bool = False) -> str:
+        """
+        Write detailed command invocations to a text file with classification.
+        Supported commands first, then unsupported, then unclassified, grouped by command name.
+        
+        Args:
+            filepath: Path to the file where invocations will be written.
+                     If None, a default path will be generated.
+            deduplicate: If True, remove duplicate invocations (keep first occurrence)
+            
+        Returns:
+            str: Path to the written file
+        """
+        if filepath is None:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"detailed_command_invocations_{timestamp}.txt"
+            logs_dir = os.path.join(os.getcwd(), "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            filepath = os.path.join(logs_dir, filename)
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(filepath)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+        
+        # Get invocations (with optional deduplication)
+        invocations = self._detailed_command_invocations
+        if deduplicate:
+            seen = set()
+            deduplicated = []
+            for inv in invocations:
+                key = (inv["command_name"], inv["invocation"], inv["supported"])
+                if key not in seen:
+                    seen.add(key)
+                    deduplicated.append(inv)
+            invocations = deduplicated
+        
+        # Separate supported, unsupported, and unclassified invocations
+        supported_invocations = [inv for inv in invocations if inv["supported"] is True]
+        unsupported_invocations = [inv for inv in invocations if inv["supported"] is False]
+        unclassified_invocations = [inv for inv in invocations if inv["supported"] is None]
+        
+        # Group by command name
+        def group_by_command(invocations):
+            grouped = {}
+            for inv in invocations:
+                cmd_name = inv["command_name"]
+                if cmd_name not in grouped:
+                    grouped[cmd_name] = []
+                grouped[cmd_name].append(inv)
+            return grouped
+        
+        supported_grouped = group_by_command(supported_invocations)
+        unsupported_grouped = group_by_command(unsupported_invocations)
+        unclassified_grouped = group_by_command(unclassified_invocations)
+        
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write("DETAILED COMMAND INVOCATIONS LOG\n")
+            f.write("=" * 50 + "\n\n")
+            
+            # Write supported commands first
+            f.write("SUPPORTED COMMANDS\n")
+            f.write("-" * 30 + "\n\n")
+            
+            if supported_grouped:
+                for cmd_name in sorted(supported_grouped.keys()):
+                    f.write(f"Command: {cmd_name}\n")
+                    f.write("~" * (len(cmd_name) + 9) + "\n")
+                    for inv in supported_grouped[cmd_name]:
+                        f.write(f"  Invocation: {inv['invocation']}\n")
+                        f.write("\n")
+                    f.write("\n")
+            else:
+                f.write("  No supported commands recorded.\n\n")
+            
+            # Write unsupported commands
+            f.write("UNSUPPORTED COMMANDS\n")
+            f.write("-" * 32 + "\n\n")
+            
+            if unsupported_grouped:
+                for cmd_name in sorted(unsupported_grouped.keys()):
+                    f.write(f"Command: {cmd_name}\n")
+                    f.write("~" * (len(cmd_name) + 9) + "\n")
+                    for inv in unsupported_grouped[cmd_name]:
+                        f.write(f"  Invocation: {inv['invocation']}\n")
+                        f.write("\n")
+                    f.write("\n")
+            else:
+                f.write("  No unsupported commands recorded.\n\n")
+            
+            # Write unclassified commands
+            f.write("UNCLASSIFIED COMMANDS\n")
+            f.write("-" * 35 + "\n\n")
+            
+            if unclassified_grouped:
+                for cmd_name in sorted(unclassified_grouped.keys()):
+                    f.write(f"Command: {cmd_name}\n")
+                    f.write("~" * (len(cmd_name) + 9) + "\n")
+                    for inv in unclassified_grouped[cmd_name]:
+                        f.write(f"  Invocation: {inv['invocation']}\n")
+                        f.write("\n")
+                    f.write("\n")
+            else:
+                f.write("  No unclassified commands recorded.\n\n")
+            
+            # Write summary statistics
+            f.write("SUMMARY\n")
+            f.write("-" * 15 + "\n")
+            f.write(f"Total invocations: {len(invocations)}\n")
+            f.write(f"Supported: {len(supported_invocations)}\n")
+            f.write(f"Unsupported: {len(unsupported_invocations)}\n")
+            f.write(f"Unclassified: {len(unclassified_invocations)}\n")
+            if deduplicate:
+                f.write(f"Original total (before deduplication): {len(self._detailed_command_invocations)}\n")
+        
+        return filepath
+    
+    def write_detailed_command_invocations_to_csv(self, filepath: Optional[str] = None, deduplicate: bool = False) -> str:
+        """
+        Write detailed command invocations to a CSV file, sorted by command name.
+        
+        Args:
+            filepath: Path to the CSV file where invocations will be written.
+                     If None, a default path will be generated.
+            deduplicate: If True, remove duplicate invocations (keep first occurrence)
+            
+        Returns:
+            str: Path to the written CSV file
+        """
+        import csv
+        
+        if filepath is None:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"detailed_command_invocations_{timestamp}.csv"
+            logs_dir = os.path.join(os.getcwd(), "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            filepath = os.path.join(logs_dir, filename)
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(filepath)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+        
+        # Get invocations (with optional deduplication)
+        invocations = self._detailed_command_invocations
+        if deduplicate:
+            seen = set()
+            deduplicated = []
+            for inv in invocations:
+                key = (inv["command_name"], inv["invocation"], inv["supported"])
+                if key not in seen:
+                    seen.add(key)
+                    deduplicated.append(inv)
+            invocations = deduplicated
+        
+        # Sort by command name
+        invocations_sorted = sorted(invocations, key=lambda x: x["command_name"])
+        
+        with open(filepath, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['command_name', 'invocation', 'classification']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            
+            writer.writeheader()
+            for inv in invocations_sorted:
+                classification = 'supported' if inv['supported'] is True else ('unsupported' if inv['supported'] is False else 'unclassified')
+                writer.writerow({
+                    'command_name': inv['command_name'],
+                    'invocation': inv['invocation'],
+                    'classification': classification
+                })
+        
+        return filepath
+    
+    def write_pattern_analysis_to_file(self, filepath: Optional[str] = None) -> str:
+        """
+        Write pattern analysis logs to a text file, grouped and sorted by command.
+        For sed: commands with references first, then by pure string status
+        For grep: non-pure strings first, then pure strings
+        
+        Args:
+            filepath: Path to the file where analysis will be written.
+                     If None, a default path will be generated.
+            
+        Returns:
+            str: Path to the written file
+        """
+        if filepath is None:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"pattern_analysis_{timestamp}.txt"
+            logs_dir = os.path.join(os.getcwd(), "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            filepath = os.path.join(logs_dir, filename)
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(filepath)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+        
+        # Group by command name
+        grouped = {}
+        for record in self._pattern_analysis_logs:
+            cmd_name = record["command_name"]
+            if cmd_name not in grouped:
+                grouped[cmd_name] = []
+            grouped[cmd_name].append(record)
+        
+        # Sort each group according to the rules
+        for cmd_name, records in grouped.items():
+            if cmd_name == "sed":
+                # For sed: references first, then by pure string status (non-pure first)
+                records.sort(key=lambda x: (not x["has_references"], x["is_pure_string"]))
+            else:  # grep and others
+                # For grep: non-pure strings first
+                records.sort(key=lambda x: x["is_pure_string"])
+        
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write("PATTERN ANALYSIS LOG\n")
+            f.write("=" * 40 + "\n\n")
+            
+            for cmd_name in sorted(grouped.keys()):
+                records = grouped[cmd_name]
+                f.write(f"Command: {cmd_name.upper()}\n")
+                f.write("-" * (len(cmd_name) + 9) + "\n\n")
+                
+                for i, record in enumerate(records, 1):
+                    f.write(f"  {i}. Invocation: {record['invocation']}\n")
+                    f.write(f"     Pattern: {record['pattern']}\n")
+                    f.write(f"     AST: {record['ast_repr']}\n")
+                    f.write(f"     Is Pure String: {record['is_pure_string']}\n")
+                    if record['command_name'] == 'sed':
+                        f.write(f"     Has References (\\, &): {record['has_references']}\n")
+                    f.write("\n")
+                
+                f.write("\n")
+            
+            # Write summary statistics
+            f.write("SUMMARY\n")
+            f.write("-" * 15 + "\n")
+            f.write(f"Total patterns analyzed: {len(self._pattern_analysis_logs)}\n")
+            for cmd_name in sorted(grouped.keys()):
+                records = grouped[cmd_name]
+                pure_count = sum(1 for r in records if r["is_pure_string"])
+                f.write(f"{cmd_name}: {len(records)} total, {pure_count} pure strings, {len(records) - pure_count} non-pure\n")
+                if cmd_name == "sed":
+                    ref_count = sum(1 for r in records if r["has_references"])
+                    f.write(f"         {ref_count} with references, {len(records) - ref_count} without references\n")
+        
+        return filepath
+    
+    def write_pattern_analysis_to_csv(self, filepath: Optional[str] = None) -> str:
+        """
+        Write pattern analysis logs to a CSV file, grouped by command with sorting within each group.
+        
+        Args:
+            filepath: Path to the CSV file where analysis will be written.
+                     If None, a default path will be generated.
+            
+        Returns:
+            str: Path to the written CSV file
+        """
+        import csv
+        
+        if filepath is None:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"pattern_analysis_{timestamp}.csv"
+            logs_dir = os.path.join(os.getcwd(), "logs")
+            os.makedirs(logs_dir, exist_ok=True)
+            filepath = os.path.join(logs_dir, filename)
+        
+        # Create directory if it doesn't exist
+        directory = os.path.dirname(filepath)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+        
+        # Group by command name
+        grouped = {}
+        for record in self._pattern_analysis_logs:
+            cmd_name = record["command_name"]
+            if cmd_name not in grouped:
+                grouped[cmd_name] = []
+            grouped[cmd_name].append(record)
+        
+        # Sort each group according to the rules
+        for cmd_name, records in grouped.items():
+            if cmd_name == "sed":
+                # For sed: references first, then by pure string status (non-pure first)
+                records.sort(key=lambda x: (not x["has_references"], x["is_pure_string"]))
+            else:  # grep and others
+                # For grep: non-pure strings first
+                records.sort(key=lambda x: x["is_pure_string"])
+        
+        # Prepare sorted records by group
+        sorted_records = []
+        for cmd_name in sorted(grouped.keys()):
+            sorted_records.extend(grouped[cmd_name])
+        
+        with open(filepath, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['command_name', 'invocation', 'pattern', 'ast_repr', 'is_pure_string', 'has_references']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            
+            writer.writeheader()
+            for record in sorted_records:
+                writer.writerow(record)
+        
+        return filepath
 
 
 # Global function to get the singleton instance

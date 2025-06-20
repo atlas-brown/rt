@@ -817,4 +817,8 @@ if __name__ == "__main__":
     get_logger().write_command_logs_to_file("general_logs/command.json")
     get_logger().write_regex_logs_to_file("general_logs/regex.txt")
     get_logger().write_assertion_failure_stats_to_file("general_logs/assertion_failure_stats.json")
+    get_logger().write_detailed_command_invocations_to_file("general_logs/detailed_command_invocations.txt", deduplicate=True)
+    get_logger().write_detailed_command_invocations_to_csv("general_logs/detailed_command_invocations_supported.csv", deduplicate=True)
+    get_logger().write_pattern_analysis_to_file("general_logs/pattern_analysis.txt")
+    get_logger().write_pattern_analysis_to_csv("general_logs/pattern_analysis.csv")
     jpype.shutdownJVM()

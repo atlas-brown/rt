@@ -11,7 +11,7 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 from stream.tool_error import ToolError
 from stream.user_annotation import AnnotationType, UserAnnotation
 from stream.utils.logger import get_logger
-from stream.utils.format import pretty_pipe_node
+from stream.utils.format import pretty_command_node, pretty_pipe_node
 from stream.utils.timing import Timing
 from shasta.ast_node import PipeNode
 
@@ -223,9 +223,32 @@ class PipelineChecker:
 
                 command_list = get_logger().get_latest_record()["command_list"]
                 command_list.append({})
-                command_list[-1]["command_name"] = parsed_command_invocation.cmd_name
+                command_list[-1]["command_name"] = pretty_command_node(command_node)
                 get_logger().add_command_log(parsed_command_invocation.cmd_name)
-
+                if parsed_command_invocation.cmd_name in ["grep", "cut", "awk", "sed", "tr", "paste", "fmt"]:
+                    # Extract flags and operands for detailed logging
+                    flags = [flag.get_name() for flag in parsed_command_invocation.flag_option_list]
+                    operands = [op.name for op in parsed_command_invocation.operand_list]
+                    full_invocation = pretty_command_node(command_node)
+                    
+                    # Record the detailed command invocation
+                    get_logger().add_detailed_command_invocation(
+                        command_name=parsed_command_invocation.cmd_name,
+                        invocation=full_invocation,
+                        flags=flags,
+                        operands=operands
+                    )
+                    
+                    # Record pattern analysis for grep and sed commands
+                    if parsed_command_invocation.cmd_name in ["grep", "sed"]:
+                        get_logger().add_pattern_analysis(
+                            command_name=parsed_command_invocation.cmd_name,
+                            invocation=pretty_command_node(command_node),
+                            pattern="",  # Will be updated in special signatures
+                            ast_repr="",  # Will be updated in special signatures
+                            is_pure_string=False,  # Will be updated in special signatures
+                            has_references=False  # Will be updated in special signatures
+                        )
                 corresponding_annotations = self.annotations.get(command_node, [])
                 corresponding_env_annotations = self.env_annotations.get(pipeline_node, {})
                 if len(corresponding_annotations) > 0:

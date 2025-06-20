@@ -10,6 +10,9 @@ class AwkSignature(CommandSignature):
         super().__init__(*args, **kwargs)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        # Classify the last detailed command invocation as supported
+        # get_logger().classify_last_invocation_as_supported()
+        
         if len(parsed_command_invocation.operand_list) != 1:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         operand = parsed_command_invocation.operand_list[0].name

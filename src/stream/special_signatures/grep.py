@@ -8,6 +8,7 @@ from functools import reduce
 
 from stream.user_annotation import AnnotationType
 from stream.utils.logger import get_logger
+from stream.regex_parser import is_pure_string_for_ast
 
 class GrepSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -58,6 +59,10 @@ class GrepSignature(CommandSignature):
             
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        # Classify the last detailed command invocation as supported
+        # get_logger().classify_last_invocation_as_supported()
+        supported_flags = set(["-e", "-o", "-i", "-v", "-x", "-n", "-G", "-E", "-F", "-w", "-A", "-B", "-C", "-P"])
+        
         self_contained = True
         if len(parsed_command_invocation.operand_list) > 1 or (len(parsed_command_invocation.operand_list) == 1 and "-e" in parsed_command_invocation.flag_option_list):
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
@@ -87,9 +92,22 @@ class GrepSignature(CommandSignature):
                 pattern_type = pattern_type | RegularType(arg, mode)
                 original_pattern_type = original_pattern_type | RegularType(arg, mode)
             
+            # Update pattern analysis for first -e pattern
+            if flag_args["-e"]:
+                first_pattern = flag_args["-e"][0]
+                first_pattern_type = RegularType(first_pattern, mode)
+                is_pure = is_pure_string_for_ast(first_pattern_type.ast) if hasattr(first_pattern_type, 'ast') else False
+                get_logger().update_last_pattern_analysis(
+                    pattern=first_pattern,
+                    ast_repr=str(first_pattern_type.ast) if hasattr(first_pattern_type, 'ast') else "N/A",
+                    is_pure_string=is_pure
+                )
+            else:
+                get_logger().remove_last_pattern_analysis()
             
         else:
             if len(parsed_command_invocation.operand_list) == 0 and "-f" not in flags:
+                get_logger().remove_last_pattern_analysis()
                 raise ToolError("No pattern provided for grep")
             pattern = parsed_command_invocation.operand_list[0].name
             pattern = pattern.replace("\\\\", "\\")
@@ -98,6 +116,19 @@ class GrepSignature(CommandSignature):
             pattern_type_str = pattern_type.pattern
             original_pattern_type = RegularType(pattern, mode)
             arg_count = len(parsed_command_invocation.operand_list)
+            
+            # Update pattern analysis
+            is_pure = is_pure_string_for_ast(pattern_type.ast) if hasattr(pattern_type, 'ast') else False
+            get_logger().update_last_pattern_analysis(
+                pattern=pattern,
+                ast_repr=str(pattern_type.ast) if hasattr(pattern_type, 'ast') else "N/A",
+                is_pure_string=is_pure
+            )
+
+        if flags.issubset(supported_flags):
+            get_logger().classify_last_invocation_as_supported()
+        else:
+            get_logger().classify_last_invocation_as_unsupported()
 
         if "-c" in flags:
             get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True

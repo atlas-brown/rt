@@ -10,6 +10,9 @@ class FmtSignature(CommandSignature):
         super().__init__(*args, **kwargs)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        # Classify the last detailed command invocation as supported
+        # get_logger().classify_last_invocation_as_supported()
+        
         flags = set()
         flag_args = {}
         for flag in parsed_command_invocation.flag_option_list:

@@ -76,6 +76,10 @@ class CutSignature(CommandSignature):
         return super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
 
     def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations) -> RegularType:
+        # Classify the last detailed command invocation as supported
+        # get_logger().classify_last_invocation_as_supported()
+        supported_flags = set(["-b", "-c", "-d", "-f", "--complement"])
+        
         get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         if len(parsed_command_invocation.operand_list) > 0:
             file_name = parsed_command_invocation.operand_list[0].name
@@ -93,6 +97,11 @@ class CutSignature(CommandSignature):
             flags.add(name)
             if hasattr(flag, 'get_arg') and flag.get_arg():
                 flag_args[name] = flag.get_arg()
+
+        if flags.issubset(supported_flags):
+            get_logger().classify_last_invocation_as_supported()
+        else:
+            get_logger().classify_last_invocation_as_unsupported()
 
         if "-b" in flags or "-c" in flags:
             args1 = preprocess(flag_args.get('-c'))

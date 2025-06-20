@@ -2,7 +2,7 @@ import re
 from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
-from stream.regex_parser import convert_to_pure_string, is_pure_string
+from stream.regex_parser import convert_to_pure_string, is_pure_string, is_pure_string_for_ast
 from stream.transducer import first_regex_replacement_FST, first_replacement_FST, global_regex_replacement_FST, global_replacement_FST, product_fst_automaton, start_regex_replacement_FST
 from stream.utils.logger import get_logger
 
@@ -45,25 +45,38 @@ class SedSignature(CommandSignature):
 
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+        # Classify the last detailed command invocation as supported
+        # get_logger().classify_last_invocation_as_supported()
+        
         lose_precision = False
         tainted = previous_output_type.tainted
         operands = super().get_operands(parsed_command_invocation)
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if len(operands) == 0:
+            get_logger().remove_last_pattern_analysis()
             raise ToolError("No operand provided for sed")
         operand = operands[0]
         if operand == "d":
             get_logger().get_latest_record()["command_list"][-1]["output_type"] = ""
+            get_logger().classify_last_invocation_as_supported()
+            get_logger().remove_last_pattern_analysis()  # No pattern for 'd' command
             return RegularType("")
         if operand[-1] == "d" and operand[:-1].isdigit():
             get_logger().get_latest_record()["command_list"][-1]["output_type"] = "α"
+            get_logger().classify_last_invocation_as_supported()
+            get_logger().remove_last_pattern_analysis()  # No pattern for line deletion
             return previous_output_type
+        get_logger().classify_last_invocation_as_supported()
         if not operand.startswith("s"):
+            if not operand.startswith("/"):
+                get_logger().classify_last_invocation_as_unsupported()
+            get_logger().remove_last_pattern_analysis()  # No pattern for non-substitution commands
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         delimiter = operand[1]
         parts = operand.split(delimiter)
         segments = [operand]
         if len(parts) < 3:
+            get_logger().remove_last_pattern_analysis()  # Invalid pattern
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         if len(parts) >= 6:
             if delimiter != ";":
@@ -72,6 +85,7 @@ class SedSignature(CommandSignature):
                 segments = [parts[3 * i] + delimiter + parts[3 * i + 1] + delimiter + parts[3 * i + 2] for i in range(len(parts) // 3)]
         
         current_type_str = "α"
+        pattern_recorded = False  # Flag to ensure we only record one pattern
         for segment in segments:
             parts = segment.strip().split(delimiter)
             if parts[1] == '^':
@@ -85,6 +99,19 @@ class SedSignature(CommandSignature):
                     lose_precision = True
                 current_type_str = parts[2] + current_type_str
                 previous_output_type = RegularType(parts[2]) + previous_output_type
+                
+                # Update pattern analysis for '^' patterns (only once)
+                if not pattern_recorded:
+                    pattern_type = RegularType(parts[1], mode)
+                    is_pure = is_pure_string_for_ast(pattern_type.ast) if hasattr(pattern_type, 'ast') else False
+                    has_references = '\\' in parts[2] or '&' in parts[2]
+                    get_logger().update_last_pattern_analysis(
+                        pattern=parts[1],
+                        ast_repr=str(pattern_type.ast) if hasattr(pattern_type, 'ast') else "N/A",
+                        is_pure_string=is_pure,
+                        has_references=has_references
+                    )
+                    pattern_recorded = True
             # FIXME: figure out the difference between $ and \\$
             elif parts[1] == '\\$' or parts[1] == "$":
                 get_logger().add_regex_log(parts[1])
@@ -96,6 +123,19 @@ class SedSignature(CommandSignature):
                     lose_precision = True
                 current_type_str = current_type_str + parts[2]
                 previous_output_type = previous_output_type + RegularType(parts[2])
+                
+                # Update pattern analysis for '$' patterns (only once)
+                if not pattern_recorded:
+                    pattern_type = RegularType(parts[1], mode)
+                    is_pure = is_pure_string_for_ast(pattern_type.ast) if hasattr(pattern_type, 'ast') else False
+                    has_references = '\\' in parts[2] or '&' in parts[2]
+                    get_logger().update_last_pattern_analysis(
+                        pattern=parts[1],
+                        ast_repr=str(pattern_type.ast) if hasattr(pattern_type, 'ast') else "N/A",
+                        is_pure_string=is_pure,
+                        has_references=has_references
+                    )
+                    pattern_recorded = True
             else:
                 parts[1] = parts[1].replace("\\\\", "\\")
                 parts[1] = preprocess(parts[1])
@@ -115,6 +155,19 @@ class SedSignature(CommandSignature):
                     parts[1] = parts[1] + delimiter
                 get_logger().add_regex_log(parts[1])
                 mode = "extended" if "-E" in parsed_flags else "basic"
+                
+                # Update pattern analysis for main substitution patterns (only once)
+                if not pattern_recorded:
+                    pattern_type = RegularType(parts[1], mode)
+                    is_pure = is_pure_string_for_ast(pattern_type.ast) if hasattr(pattern_type, 'ast') else False
+                    has_references = '\\' in parts[2] or '&' in parts[2]
+                    get_logger().update_last_pattern_analysis(
+                        pattern=parts[1],
+                        ast_repr=str(pattern_type.ast) if hasattr(pattern_type, 'ast') else "N/A",
+                        is_pure_string=is_pure,
+                        has_references=has_references
+                    )
+                    pattern_recorded = True
                 if is_pure_string(parts[1], mode):
                     s1 = convert_to_pure_string(parts[1], mode)
                     if operand[-1] == "g":
@@ -165,6 +218,11 @@ class SedSignature(CommandSignature):
         previous_output_type.tainted = tainted
         get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
         get_logger().get_latest_record()["command_list"][-1]["output_type"] = current_type_str
+        
+        # If no pattern was recorded, remove the empty record
+        if not pattern_recorded:
+            get_logger().remove_last_pattern_analysis()
+            
         return previous_output_type
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         
