@@ -12,6 +12,7 @@
 ```
 <field_list> ::= [0-9]+ | [0-9]+-[0-9]+ | [0-9]+- | <field_list>,<field_list>
 ```
+\<delimiter> is a single character, which should not be "\n".
 
 The default delimiter is tab.
 
@@ -72,7 +73,7 @@ Again, there is an implicit type constraint that could be $a \not\subseteq$ `.{0
 
 There are two ways to construct the model:
 
-1. **Precise Construction:** Use the precise construction of translate-match (to be introduced later).
+1. **Precise translate-match Construction:** Use the precise construction of translate-match (to be introduced later).
 
 2. **FST Model for field-select:**
 
@@ -94,3 +95,81 @@ Following the method described for flag `-f`, we can transform a line-based func
 #### Flag `-b`
 
 Same as `-c`.
+
+### tr
+
+#### Character Sets Related Flags `-c`/`-C`
+
+This flag is related to character sets. In the implementation, this flag will be eliminated by preprocessing the character sets.
+
+With the assumption that locale is `C`, we can expand the character set1 to the complement of the previous character set1.
+
+#### Character Set Related Flag `-t`
+
+This flag is related to character sets. In the implementation, this flag will be eliminated by preprocessing the character sets.
+
+If there is only one character set, `-t` will be ignored.
+
+The preprocessing order is: first complement the character set1 (if `-c` is used), then cut the character set1 if the character set1 is longer than the character set2, to ensure the length of the character set1 is not greater than the length of the character set2.
+
+#### No Operation-Related Flags
+
+**Pattern:** `tr (<character-sets-related-flags>) <character-set1> <character-set2>`
+
+**Character Set Syntax:**
+```
+<character-set> ::= c | c-c | <POSIX-character-class> | <character-set><character-set>
+```
+
+`<character-set1>` and `<character-set2>` may contain "\n".
+
+**Implementation Approaches:**
+
+Use whole stream reasoning to directly model `tr`, to avoid the complexity introduced by "\n" in the character sets. If the input is line-based `r`, whose alphabet does not contain "\n", we can transform it into a whole-stream-based input `(r\n)*r(\n)?`. Note: We assume every stream is finite. We cannot handle the infinite line stream like the output of `yes`.
+
+**FST Construction:**
+- Expand character set1 and character set2 to a list of characters. If the length of expanded character set1 is greater than the length of expanded character set2, then repeat appending the last character of expanded character set2 to the end of expanded character set2 until the length of expanded character set2 is equal to the length of expanded character set1.
+- Create an FST which has 1 state.
+- This state has a transition to itself that accepts any character. If the character is in character set1, this transition outputs the corresponding character in character set2; otherwise, it outputs the character itself.
+- The state is both the initial state and the final state.
+
+#### Flag `-d`
+
+**Pattern:** `tr (<character-sets-related-flags>)? -d <input-character-set>`
+
+**Implementation Approaches:**
+
+Again, use whole stream reasoning to directly model `tr`, to avoid the complexity introduced by "\n" in the character sets.
+
+**FST Construction:**
+- Expand the input character set to a list of characters.
+- Create an FST which has 1 state.
+- This state has a transition to itself that accepts any character. If the character is in the input character set, this transition outputs $\epsilon$; otherwise, it outputs itself.
+- This state is both the initial state and the final state.
+
+#### Flag `-s` with One Operand (Character Set)
+
+**Pattern:** `tr (<character-sets-related-flags>)? -s <character-set>`
+
+**Implementation Approaches:**
+
+Use whole stream reasoning to directly model `tr`, to avoid the complexity introduced by "\n" in the character sets.
+
+**FST Construction:**
+- Expand the character set to a list of characters $c_1, c_2, \ldots, c_n$.
+- Create an FST which has $n+1$ states: $q_0, q_1, \ldots, q_n$. For $i > 0$, $c_i$ maps to $q_i$.
+- For each state $q_i$ where $i \geq 0$:
+  - For each character $c_j$ in the character set, there is a transition from $q_i$ to $q_j$. If $q_i$ is $q_j$, this transition outputs $\epsilon$; otherwise, it outputs $c_j$.
+  - For each character $c$ in the alphabet but not in the character set, there is a transition from $q_i$ to $q_0$ that outputs $c$.
+- Every state is a final state.
+- $q_0$ is the initial state.
+
+#### Flag `-s` with Two Operands (Character Sets)
+
+**Pattern:** `tr (<character-sets-related-flags>)? -s <character-set-1> <character-set-2>`
+
+This is equivalent to `tr <character-sets-related-flags> <character-set-1> <character-set-2> | tr -s <character-set-2>`.
+
+**Implementation Approaches:**
+
+Compose the corresponding two FSTs.
