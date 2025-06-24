@@ -125,7 +125,7 @@ The preprocessing order is: first complement the character set1 (if `-c` is used
 
 **Implementation Approaches:**
 
-Use whole stream reasoning to directly model `tr`, to avoid the complexity introduced by "\n" in the character sets. If the input is line-based `r`, whose alphabet does not contain "\n", we can transform it into a whole-stream-based input `(r\n)*r(\n)?`. Note: We assume every stream is finite. We cannot handle the infinite line stream like the output of `yes`.
+Use whole stream reasoning to directly model `tr`, to avoid the complexity introduced by "\n" in the character sets. If the input is line-based `r`, whose alphabet does not contain "\n", we can transform it into a whole-stream-based input `(r\n)*(r(\n)?)?`. Note: We assume every stream is finite. We cannot handle the infinite line stream like the output of `yes`.
 
 **FST Construction:**
 - Expand character set1 and character set2 to a list of characters. If the length of expanded character set1 is greater than the length of expanded character set2, then repeat appending the last character of expanded character set2 to the end of expanded character set2 until the length of expanded character set2 is equal to the length of expanded character set1.
@@ -173,3 +173,130 @@ This is equivalent to `tr <character-sets-related-flags> <character-set-1> <char
 **Implementation Approaches:**
 
 Compose the corresponding two FSTs.
+
+
+### grep
+
+#### Pattern-Related Flag `-w`
+
+Update pattern: `(^|[^[:alnum:]_])(<pattern>)([^[:alnum:]_]|$)`
+
+#### Pattern-Related Flag `-x`
+
+Update pattern: `^(<pattern>)$`
+
+#### Pattern-Related Flag `-E`
+
+Use the extended regular expression parser to parse the pattern.
+
+#### Pattern-Related Flag `-i`
+
+For each transition in the NFA/DFA of the pattern, if the transition accepts a lowercase letter, add a new transition between the two states of the previous transition that accepts the corresponding uppercase letter and vice versa.
+
+#### Flag `-c`
+
+The output type is `[0-9]+\n` (an imprecise model).
+
+#### Flag `-o`
+
+**Note:** We assume `grep -vo` is meaningless.
+
+**Note:** `grep -o` will not output empty lines, even if the pattern matches empty lines. For example, `grep -o ".*"` will not output empty lines.
+
+**Pattern:** `grep <pattern-related-flags> -o <pattern>`
+
+**Implementation Approaches:**
+
+Preprocess the regular expression pattern to eliminate the pattern-related flags (`-w`, `-x`) and make sure each disjunct of the expression has at most one start anchor and one end anchor. For example, the pattern `(^|[^[:alnum:]_])((^a)|(b$))([^[:alnum:]_]|$)` should be transformed to `(^a([^[:alnum:]_]|$))|(^|[^[:alnum:]_])b$`.
+
+Start-anchor and end-anchor will be shown on the NFA's transition edges. The end anchor will be added to the input alphabet of FST.
+
+Then eliminate `-E` and `-i` flags to get the NFA of the pattern.
+
+**Transition Function Definition:**
+
+The transition function of the NFA is defined as follows:
+- Given a state or a set of states, a character, and a flag, it returns a set of states: `δ :: (2^Q | Q) × Σ × Bool -> 2^Q`
+- If the flag is true, the start anchor will be treated as an epsilon transition; otherwise, the transition that accepts the start anchor will be ignored. We will omit this flag when it is false for simplicity.
+- If the first given parameter is a state, the transition function will return the set of states that can be reached from the given state by the given character.
+- If the first given parameter is a set of states, the transition function will return the set of states that can be reached from any state in the set by the given character.
+
+`.` and character classes will not match the anchor characters.
+
+The input can be line-based or whole-stream-based. The output is whole-stream-based.
+
+**FST Construction:**
+
+**First FST:** Used to add the end-anchor to the input.
+
+It is a 2-state non-deterministic but functional FST:
+- There is a transition from the initial state to the second state that accepts epsilon and outputs the end-anchor.
+- There is a transition from the initial state to itself that accepts any character and outputs the character itself.
+- The second state does not have any transition and is the final state.
+
+**Second FST:** Suppose we have an NFA for the pattern. The state set of the NFA is $Q$. We construct a non-deterministic but functional FST which has $O(|Q|4^{|Q|})$ states. The states are represented as $(s_1, s_2, s_3, s_4) \in \{\text{init}, \text{start}, \text{scan}, \text{match}\} \times Q \times 2^Q \times 2^Q$.
+
+For any state $(\text{mode}, q_i, s_1, s_2)$, if $s_1$ contains any final states in the NFA, then $(\text{mode}, q_i, s_1, s_2)$ will not be a final state and have no transitions. For the rest of the states, they satisfy the following conditions:
+
+**Init Mode:**
+- The init state is $(\text{init}, q_0, \emptyset, \emptyset)$. This is the only state under init mode.
+- For any character $c$ which is not end anchor, $(\text{init}, q_0, \emptyset, \emptyset)$ has transitions to $\{(\text{scan}, q_i, \emptyset, \delta(q_0, c, \text{true}) - q_i) \mid q_i \in \delta(q_0, c, \text{true})\}$.
+- For any character $c$ which is not end anchor, another transition that accepts $c$ from this state is to $(\text{start}, q_0, \delta(q_0, c, \text{true}), \emptyset)$ with epsilon outputs.
+- For the end anchor, $(\text{init}, q_0, \emptyset, \emptyset)$ has a transtion that accepts the end anchor to $(\text{start}, q_0, \emptyset, \emptyset)$ with epsilon outputs.
+
+**Start Mode:**
+- All states are in the form of $(\text{start}, q_0, s_1, \emptyset)$.
+- For any character $c$, if $c$ is not an end anchor, $(\text{start}, q_0, s_1, \emptyset)$ has transitions to $\{(\text{scan}, q_i, \delta(s_1, c), \delta(q_0, c) - q_i) \mid q_i \in \delta(q_0, c)\}$. These transitions output the character $c$.
+- For any character $c$, if $c$ is not an end anchor, $(\text{start}, q_0, s_1, \emptyset)$ also has a transition to $(\text{start}, q_0, \delta(s_1, c) \cup \delta(q_0, c), \emptyset)$.
+- If $c$ is an end anchor, $(\text{start}, q_0, s_1, \emptyset)$ has a transition to $(\text{start}, q_0, \delta(s_1, c), \emptyset)$ that accepts $c$ and outputs $c$.
+
+**Scan Mode:**
+- For any character $c$, $(\text{scan}, q_i, s_1, s_2)$ has transitions to $\{(\text{scan}, q_j, \delta(s_1, c), \delta(q_0, c) - q_j) \mid q_j \in \delta(q_0, c)\}$.
+- If $c$ is not an end anchor, these transitions output the character $c$. Otherwise, these transitions output epsilon.
+- If $q_i$ is a final state in the original NFA, $(\text{scan}, q_i, s_1, s_2)$ has a transition to $(\text{match}, q_i, s_1, s_2)$ that accepts epsilon and outputs "\n".
+
+**Match Mode:**
+- For any character $c$ which is not the end anchor, $(\text{match}, q_i, s_1, s_2)$ has transitions that accept $c$ to $\{(\text{scan}, q_j, \delta(s_1, c) \cup \delta(s_2, c) \cup \delta(q_i, c), \delta(q_0, c) - q_j) \mid q_j \in \delta(q_0, c)\}$ with output the character $c$.
+- For any character $c$, if $c$ is not an end anchor, $(\text{match}, q_i, s_1, s_2)$ has a transition to $(\text{start}, q_0, \delta(s_1, c) \cup \delta(s_2, c) \cup \delta(q_i, c) \cup \delta(q_0, c), \emptyset)$ that accepts $c$ and outputs epsilon.
+- If $c$ is an end anchor, $(\text{match}, q_i, s_1, s_2)$ has a transition to $(\text{start}, q_0, \delta(s_1, c) \cup \delta(s_2, c) \cup \delta(q_i, c), \emptyset)$ that accepts $c$ and outputs epsilon.
+
+**Final States:**
+- For any start mode states $(\text{start}, q_i, s_1, \emptyset)$, if $s_1$ does not contain any final states in the NFA, then it will be a final state.
+- For any match mode states $(\text{match}, q_i, s_1, s_2)$, if $s_1$ does not contain any final states in the NFA, then it will be a final state.
+
+The final FST is the composition of the two FSTs.
+
+#### No Operation-Related Flags
+
+**Pattern:** `grep <pattern-related-flags> <pattern>`
+
+**Implementation Approaches:**
+
+**Preprocessing:** Eliminate the pattern-related flags (`-w`, `-x`) and make sure each disjunct of the expression has at most one start anchor and one end anchor. For example, the pattern `(^|[^[:alnum:]_])((^a)|(b$))([^[:alnum:]_]|$)` should be transformed to `(^a([^[:alnum:]_]|$))|(^|[^[:alnum:]_])b$`. Then add `.*` as prefix to each disjunct which does not have a start anchor, and add `.*` as suffix to each disjunct which does not have an end anchor. Then remove all the start anchors and end anchors. Then eliminate `-E` and `-i` flags to get the NFA of the pattern.
+
+**First Approach:** We can directly compute the intersection between the input and the NFA of the pattern.
+
+**Second Approach:** A pure FST approach. We can construct an FST that represents the identity translation, and compute the product of this FST and the NFA of the pattern. This FST (FST1) is a single-valued FST (0 or 1 output). If we want a functional FST, we can construct another FST (FST2) that represents a constant empty output. We compute the product of this FST and the complement of the NFA of the pattern. Then we construct a new FST (FST3) by creating a new initial state and add empty transitions from it to the initial states of these two sub-FSTs (FST1 and FST2).
+
+**Whole Stream Reasoning:** For the first approach, we cannot directly get the whole stream output. For the second approach, we can construct a new FST that represents the whole stream translation. For all final states in FST3, if it belongs to FST1, add a transition that accepts "\n" and outputs "\n". If it belongs to FST2, add a transition that accepts "\n" and outputs epsilon. Non-final states in FST3 have no transitions that accept "\n".
+
+#### Operation-Related Flag `-v`
+
+Same preprocessing as the no operation-related flags. Then compute the complement of the NFA/DFA of the preprocessed pattern.
+
+**Implementation Approaches:**
+Same as the no operation-related flags.
+
+#### Context Flags `-A`, `-B`, `-C`
+
+Not implemented now.
+
+TODO
+
+
+
+
+
+
+
+
