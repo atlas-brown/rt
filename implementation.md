@@ -205,6 +205,8 @@ The output type is `[0-9]+\n` (an imprecise model).
 
 **Pattern:** `grep <pattern-related-flags> -o <pattern>`
 
+`<pattern>`'s alphabet does not contain "\n".
+
 **Implementation Approaches:**
 
 Preprocess the regular expression pattern to eliminate the pattern-related flags (`-w`, `-x`) and make sure each disjunct of the expression has at most one start anchor and one end anchor. For example, the pattern `(^|[^[:alnum:]_])((^a)|(b$))([^[:alnum:]_]|$)` should be transformed to `(^a([^[:alnum:]_]|$))|(^|[^[:alnum:]_])b$`.
@@ -225,7 +227,7 @@ The transition function of the NFA is defined as follows:
 
 The input can be line-based or whole-stream-based. The output is whole-stream-based.
 
-**FST Construction:**
+**FST Construction (line-based to whole-stream-based):**
 
 **First FST:** Used to add the end-anchor to the input.
 
@@ -263,13 +265,17 @@ For any state $(\text{mode}, q_i, s_1, s_2)$, if $s_1$ contains any final states
 **Final States:**
 - For any start mode states $(\text{start}, q_i, s_1, \emptyset)$, if $s_1$ does not contain any final states in the NFA, then it will be a final state.
 - For any match mode states $(\text{match}, q_i, s_1, s_2)$, if $s_1$ does not contain any final states in the NFA, then it will be a final state.
+- The initial state is a final state.
 
 The final FST is the composition of the two FSTs.
+
+**Whole Stream Reasoning:** The above composed FST is a functional FST. We can transform it into a whole-stream-based-to-whole-stream-based FST: for all final states, add a transition that accepts "\n" and outputs epsilon to the initial state.
 
 #### No Operation-Related Flags
 
 **Pattern:** `grep <pattern-related-flags> <pattern>`
 
+`<pattern>`'s alphabet does not contain "\n".
 **Implementation Approaches:**
 
 **Preprocessing:** Eliminate the pattern-related flags (`-w`, `-x`) and make sure each disjunct of the expression has at most one start anchor and one end anchor. For example, the pattern `(^|[^[:alnum:]_])((^a)|(b$))([^[:alnum:]_]|$)` should be transformed to `(^a([^[:alnum:]_]|$))|(^|[^[:alnum:]_])b$`. Then add `.*` as prefix to each disjunct which does not have a start anchor, and add `.*` as suffix to each disjunct which does not have an end anchor. Then remove all the start anchors and end anchors. Then eliminate `-E` and `-i` flags to get the NFA of the pattern.
@@ -292,6 +298,10 @@ Same as the no operation-related flags.
 Not implemented now.
 
 TODO
+
+
+### sed
+
 
 
 
