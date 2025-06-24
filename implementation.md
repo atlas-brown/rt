@@ -177,6 +177,12 @@ Compose the corresponding two FSTs.
 
 ### grep
 
+#### Flag `-c`
+
+pattern: `grep <any-flags> -c <pattern>`
+
+The output type is `[0-9]+\n` (an imprecise model).
+
 #### Pattern-Related Flag `-w`
 
 Update pattern: `(^|[^[:alnum:]_])(<pattern>)([^[:alnum:]_]|$)`
@@ -192,10 +198,6 @@ Use the extended regular expression parser to parse the pattern.
 #### Pattern-Related Flag `-i`
 
 For each transition in the NFA/DFA of the pattern, if the transition accepts a lowercase letter, add a new transition between the two states of the previous transition that accepts the corresponding uppercase letter and vice versa.
-
-#### Flag `-c`
-
-The output type is `[0-9]+\n` (an imprecise model).
 
 #### Flag `-o`
 
@@ -286,7 +288,9 @@ The final FST is the composition of the two FSTs.
 
 **Whole Stream Reasoning:** For the first approach, we cannot directly get the whole stream output. For the second approach, we can construct a new FST that represents the whole stream translation. For all final states in FST3, if it belongs to FST1, add a transition that accepts "\n" and outputs "\n". If it belongs to FST2, add a transition that accepts "\n" and outputs epsilon. Non-final states in FST3 have no transitions that accept "\n".
 
-#### Operation-Related Flag `-v`
+#### Flag `-v`
+
+pattern: `grep <pattern-related-flags> -v <pattern>`
 
 Same preprocessing as the no operation-related flags. Then compute the complement of the NFA/DFA of the preprocessed pattern.
 
@@ -299,6 +303,13 @@ Not implemented now.
 
 TODO
 
+#### Postprocessing Flag `-n`
+
+**Pattern:** `grep <any-flags except -c> -n <pattern>`
+
+**Line-based Type:** For all $a$: $a \rightarrow$ [0-9]+:$a$
+
+**Whole Stream Reasoning:** We can construct a non-deterministic infinite-valued FST that represents line-based concatenation. For each final state, add a transition that accepts "\n" and outputs "\n" to the initial state.
 
 ### sed
 
