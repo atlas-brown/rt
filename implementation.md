@@ -350,7 +350,7 @@ The transition function of the NFA is defined as follows:
 
 The input can be line-based or whole-stream-based. The output is whole-stream-based.
 
-**FST Construction (Line-based to Whole-stream-based):**
+**FST Construction (Line-based):**
 
 **First FST:** Used to add the end-anchor to the input.
 
