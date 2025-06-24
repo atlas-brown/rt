@@ -401,6 +401,12 @@ Keep the transitions under init, start, scan mode, update the match mode:
 - The states under pass mode are in the form of $(\text{pass}, q_0, s_1, \emptyset)$.
 - For any character $c$, $(\text{pass}, q_0, s_1, \emptyset)$ has a transition that accepts $c$ to $(\text{pass}, q_0, \delta(s_1, c), \emptyset)$. If $c$ is not an end anchor, this transition outputs the character $c$, otherwise, this transition outputs epsilon.
 
+**Final States:**
+- For any start mode states $(\text{start}, q_i, s_1, \emptyset)$, if $s_1$ does not contain any final states in the NFA, then it will be a final state.
+- For any match mode states $(\text{match}, q_i, s_1, s_2)$, if $s_1$ does not contain any final states in the NFA, then it will be a final state.
+- The initial state is a final state.
+- For any pass mode states $(\text{pass}, q_0, s_1, \emptyset)$, if $s_1$ does not contain any final states in the NFA, then it will be a final state.
+
 The final FST is the composition of the two FSTs. This is a functional FST.
 
 **Whole Stream Reasoning:**
