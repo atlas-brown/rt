@@ -40,9 +40,9 @@ There are three ways to construct the model:
    **FST Construction:**
    - Create an FST with $x_n + 1$ states, mapping $1 \ldots x_n + 1$ to corresponding states.
    - For each $i \in 1 \ldots x_n$:
-     - State $i$ has a transition to state $i+1$ that accepts the delimiter. If $i+1$ is not selected, this transition outputs $\epsilon$; otherwise, it outputs the delimiter.
+     - State $i$ has a transition to state $i+1$ that accepts the delimiter. If $i$ is selected and $i$ is not the maximum selected field (including the case when the `<field_list>` has no upper bound), this transition outputs the delimiter; otherwise, it outputs $\epsilon$.
      - State $i$ has a transition to itself that accepts any character except the delimiter. If $i$ is selected, this transition outputs the accepted character; otherwise, it outputs $\epsilon$.
-   - State $x_n + 1$ has a transition to itself that accepts any character. If $x_n + 1$ is not selected, this transition outputs nothing; otherwise, it outputs the accepted character.
+   - State $x_n + 1$ has a transition to itself that accepts any character. If $x_n + 1$ is not selected, this transition outputs $\epsilon$; otherwise, it outputs the accepted character.
    - State 1 is the initial state.
    - Every state is a final state.
 
