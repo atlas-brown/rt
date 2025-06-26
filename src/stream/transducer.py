@@ -213,6 +213,33 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
     fst._process_not_consumed_transitions()
     return fst
 
+def line_based_functional_to_stream_FST(fst: FST) -> FST:
+    start_state_id = fst.initial.id
+    for state in fst.states.values():
+        new_transitions: List[FST_Transition] = []
+        for transition in state.transitions:
+            min_char = transition.min
+            max_char = transition.max
+            if min_char == None:
+                if max_char != "\n":
+                    new_transitions.append(transition)
+                continue
+            if max_char == None:
+                if min_char != "\n":
+                    new_transitions.append(transition)
+                continue
+            if ord(min_char) > ord("\n") or ord(max_char) < ord("\n"):
+                new_transitions.append(transition)
+                continue
+            m = chr(ord("\n") - 1)
+            n = chr(ord("\n") + 1)
+            new_transitions.append(FST_Transition(min_char, m, transition.output, transition.to, transition.is_other, transition.is_not_consumed))
+            new_transitions.append(FST_Transition(n, max_char, transition.output, transition.to, transition.is_other, transition.is_not_consumed))
+        state.transitions = new_transitions
+        if state.accept:
+            fst.add_transition(state.id, "\n", "\n", "\n", start_state_id)
+    return fst
+
 
 def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
     if not CONFIG.get("enable_FST", True):
@@ -329,6 +356,10 @@ def process_empty_transitions(empty_transitions: Set[Tuple[State, State]]) -> No
 
 def full_stream_to_line_based_FST() -> FST:
     specs = [
+        (-1, "\n", "", 100),
+        (-1, "\n", "", 0),
+        (-1, "$other", "$self", 1),
+        (-1, "$other", "", 2),
         (0, "\n", "", 100),
         (0, "\n", "", 0),
         (0, "$other", "$self", 1),
@@ -339,7 +370,7 @@ def full_stream_to_line_based_FST() -> FST:
         (2, "$other", "", 2),
         (100, "$other", "", 100),
     ]
-    return create_fst(specs, start_state=0, final_states={1, 100})
+    return create_fst(specs, start_state=-1, final_states={-1, 1, 100})
 
 def translate_to_line_delimited_FST(set1: str) -> FST:
     specs = []
@@ -397,14 +428,15 @@ def deletion_FST(set1: str) -> FST:
     specs.append((0, "$other", "$self", 0))
     return create_fst(specs, start_state=0, final_states={0})
 
-def cut_field_FST(delimiter: str, fields: List[int]) -> FST:
+def cut_field_FST(delimiter: str, fields: List[int], has_upperbound: bool = True) -> FST:
     # cut -f 1 -> [1]
     # cut -f 1,3 -> [1, 3]
     # cut -f 1-3 -> [1, 2, 3]
+    # cut -f 1- -> [1], no upperbound
     specs = []
     max_field = max(fields)
     for i in range(1, max_field + 1):
-        if i in fields and i != max_field:
+        if i in fields and (i != max_field or not has_upperbound):
             specs.append((i, delimiter, delimiter, i + 1))
         else:
             specs.append((i, delimiter, "", i + 1))
@@ -413,23 +445,61 @@ def cut_field_FST(delimiter: str, fields: List[int]) -> FST:
             specs.append((i, "$other", "$self", i))
         else:
             specs.append((i, "$other", "", i))
-
-    specs.append((max_field + 1, "$other", "", max_field + 1))
+    if has_upperbound:
+        specs.append((max_field + 1, "$other", "", max_field + 1))
+    else:
+        specs.append((max_field + 1, "$other", "$self", max_field + 1))
     return create_fst(specs, start_state=1, final_states={i for i in range(1, max_field + 2)})
 
-def cut_field_no_upperbound_FST(delimiter: str, start_field: int, leading_delimiter : bool = False) -> FST:
+
+def correct_cut_field_FST(delimiter: str, fields: List[int], has_upperbound: bool = True, cut_stream: bool = False) -> FST:
+    if delimiter == "\n" and not cut_stream:
+        raise ToolError("cut: invalid field specification")
+    if delimiter != "\n" and cut_stream:
+        raise ValueError("cut: invalid field specification")
     specs = []
-    for i in range(1, start_field):
-        if i == start_field - 1 and leading_delimiter:
-            specs.append((i, delimiter, "$self", i + 1))
+    max_field = max(fields)
+    for i in range(1, max_field + 1):
+        if i in fields and (i != max_field or not has_upperbound):
+            specs.append((i, delimiter, delimiter, i + 1))
         else:
             specs.append((i, delimiter, "", i + 1))
-        specs.append((i, "$other", "", i))
+        
+        if i in fields:
+            specs.append((i, "$other", "$self", i))
+        else:
+            specs.append((i, "$other", "", i))
+    if has_upperbound:
+        specs.append((max_field + 1, "$other", "", max_field + 1))
+    else:
+        specs.append((max_field + 1, "$other", "$self", max_field + 1))
 
-    specs.append((start_field, "$other", "$self", start_field))
-    return create_fst(specs, start_state=1, final_states={i for i in range(1, start_field + 1)})
+    if 1 in fields and (i != max_field or not has_upperbound):
+        specs.append((0, delimiter, delimiter, 2))
+    else:
+        specs.append((0, delimiter, "", 2))
+    if 1 in fields:
+        specs.append((0, "$other", "$self", 1))
+    else:
+        specs.append((0, "$other", "", 1))
+    specs.append((0, "$other", "$self", -1))
+    specs.append((-1, delimiter, "", -2))
+    specs.append((-1, "$other", "$self", -1))
+    return create_fst(specs, start_state=0, final_states={i for i in range(2, max_field + 2)} | {0, -1})
 
-def cut_char_FST(fields: List[int]) -> FST:
+# def cut_field_no_upperbound_FST(delimiter: str, start_field: int, leading_delimiter : bool = False) -> FST:
+#     specs = []
+#     for i in range(1, start_field):
+#         if i == start_field - 1 and leading_delimiter:
+#             specs.append((i, delimiter, "$self", i + 1))
+#         else:
+#             specs.append((i, delimiter, "", i + 1))
+#         specs.append((i, "$other", "", i))
+
+#     specs.append((start_field, "$other", "$self", start_field))
+#     return create_fst(specs, start_state=1, final_states={i for i in range(1, start_field + 1)})
+
+def cut_char_FST(fields: List[int], has_upperbound: bool = True) -> FST:
     specs = []
     max_field = max(fields)
     for i in range(1, max_field + 1):
@@ -437,16 +507,25 @@ def cut_char_FST(fields: List[int]) -> FST:
             specs.append((i, "$other", "$self", i + 1))
         else:
             specs.append((i, "$other", "", i + 1))
-    specs.append((max_field + 1, "$other", "", max_field + 1))
+    if has_upperbound:
+        specs.append((max_field + 1, "$other", "", max_field + 1))
+    else:
+        specs.append((max_field + 1, "$other", "$self", max_field + 1))
     return create_fst(specs, start_state=1, final_states={i for i in range(1, max_field + 2)})
 
 
-def cut_char_no_upperbound_FST(start_field: int) -> FST:
-    specs = []
-    for i in range(1, start_field):
-        specs.append((i, "$other", "", i + 1))
-    specs.append((start_field, "$other", "$self", start_field))
-    return create_fst(specs, start_state=1, final_states={i for i in range(1, start_field + 1)})
+# def cut_char_no_upperbound_FST(start_field: int) -> FST:
+#     specs = []
+#     for i in range(1, start_field):
+#         specs.append((i, "$other", "", i + 1))
+#     specs.append((start_field, "$other", "$self", start_field))
+#     return create_fst(specs, start_state=1, final_states={i for i in range(1, start_field + 1)})
+
+# TODO
+# def add_newline_if_not_end_with_newline() -> FST:
+#     specs = [
+
+#     ]
 
 def global_replacement_FST(s1: str, s2: str) -> FST:
     m = len(s1)
