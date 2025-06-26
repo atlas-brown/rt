@@ -53,10 +53,23 @@ There are three ways to construct the model:
    Then obtain 2 FSTs and construct a new FST by creating a new initial state and adding two epsilon transitions to the initial states of the 2 previous FSTs respectively. This creates a non-deterministic but functional FST because these 2 sub-FSTs have disjoint domains.
 
 **Whole Stream Reasoning:**
+**Note:** The whole stream output of `cut` always ends with "\n".
 
 - For approach 2: There is no way to handle the whole stream case precisely. We need to transform the input into line-based representation and then compute the line-based output.
 
-- For approaches 1 and 3: Since we have a line-based functional FST, we can easily transform it into a whole-stream-based functional FST. For each non-final state, there is no transition from it that accepts "\n". For each final state, we add a transition from it to the initial state that accepts "\n" and outputs "\n".
+  - For approaches 1 and 3: Since we have a line-based functional FST, we can easily transform it into a whole-stream-based functional FST. For each non-final state, there is no transition from it that accepts "\n". For each final state, we add a transition from it to the initial state that accepts "\n" and outputs "\n".
+    
+    Then we construct a new FST to append "\n" to the end of the output if the output does not end with "\n". This FST has three states:
+    - State 1 has a transition to itself that accepts any character except "\n" and outputs the character itself.
+    - State 1 has a transition to state 2 that accepts "\n" and outputs "\n".
+    - State 2 has a transition to state 1 that accepts any character except "\n" and outputs the character itself.
+    - State 2 has a transition to itself that accepts "\n" and outputs "\n".
+    - State 1 has a transition to state 3 that accepts epsilon and outputs "\n".
+    - State 3 has no transitions.
+    - State 1 is the initial state.
+    - States 2 and 3 are final states.
+    
+    Then we compose the previous whole-stream-based FST with the new FST.
 
 #### Flag `-c`
 
@@ -271,6 +284,8 @@ For any state $(mode, q_i, s_1, s_2)$, if $s_1$ contains any final states in the
 
 The final FST is the composition of the two FSTs.
 
+If `-w` flag is used, the above construction may output additional characters, i.e., `[^[:alnum:]_]`. We assume the pattern does not start with/end with these characters, so we can compose the above FST with the pattern with prefix/suffix added to the pattern and the FST that without the prefix/suffix to get the final correct FST.
+
 **Whole Stream Reasoning:** The above composed FST is a functional FST. We can transform it into a whole-stream-based-to-whole-stream-based FST: for all final states, add a transition that accepts "\n" and outputs epsilon to the initial state.
 
 #### No Operation-Related Flags
@@ -350,7 +365,7 @@ The transition function of the NFA is defined as follows:
 
 The input can be line-based or whole-stream-based. The output is whole-stream-based.
 
-**FST Construction (Line-based):**
+**FST Construction (Line-based to Whole-stream-based):**
 
 **First FST:** Used to add the end-anchor to the input.
 
