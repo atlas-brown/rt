@@ -178,6 +178,91 @@ class FST:
         results: Set[str] = {out for state, out in configurations if state.accept}
         return results
     
+    def output_projection(self) -> Automaton:
+        """Compute the output projection of this FST to get an Automaton"""
+        result = Automaton()
+        state_mapping: Dict[FST_State, State] = {}
+        
+        # Create initial state
+        if self.initial is not None:
+            state_mapping[self.initial] = result.getInitialState()
+            state_mapping[self.initial].setAccept(self.initial.accept)
+        
+        # Process all states and transitions
+        empty_transitions: Set[Tuple[State, State]] = set()
+        
+        for fst_state in self.states.values():
+            if fst_state not in state_mapping:
+                state_mapping[fst_state] = State()
+                state_mapping[fst_state].setAccept(fst_state.accept)
+            
+            current_state = state_mapping[fst_state]
+            
+            for trans in fst_state.transitions:
+                if trans.to not in state_mapping:
+                    state_mapping[trans.to] = State()
+                    state_mapping[trans.to].setAccept(trans.to.accept)
+                
+                target_state = state_mapping[trans.to]
+                
+                # Handle output
+                if trans.min is None or trans.max is None:
+                    continue
+                    
+                min_out = trans.transform(trans.min)
+                max_out = trans.transform(trans.max)
+                
+                if len(min_out) == 0 or len(max_out) == 0:
+                    if min_out != max_out:
+                        raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                    empty_transitions.add((current_state, target_state))
+                elif len(min_out) > 1 or len(max_out) > 1:
+                    if "$self" in trans.output:
+                        if not trans.output.endswith("$self") and not trans.output.startswith("$self"):
+                            raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                        if trans.output.endswith("$self"):
+                            prefix = trans.output[:-5]
+                            if prefix:
+                                temp_state = current_state
+                                for i, c in enumerate(prefix):
+                                    next_state = State()
+                                    temp_state.addTransition(Transition(c, c, next_state))
+                                    temp_state = next_state
+                                temp_state.addTransition(Transition(min_out[-1], max_out[-1], target_state))
+                            else:
+                                current_state.addTransition(Transition(min_out, max_out, target_state))
+                        elif trans.output.startswith("$self"):
+                            suffix = trans.output[5:]
+                            if suffix:
+                                temp_state = State()
+                                current_state.addTransition(Transition(min_out[0], max_out[0], temp_state))
+                                for i, c in enumerate(suffix):
+                                    if i != len(suffix) - 1:
+                                        next_state = State()
+                                        temp_state.addTransition(Transition(c, c, next_state))
+                                        temp_state = next_state
+                                    else:
+                                        temp_state.addTransition(Transition(c, c, target_state))
+                            else:
+                                current_state.addTransition(Transition(min_out, max_out, target_state))
+                    else:
+                        temp_state = current_state
+                        for i, c in enumerate(min_out):
+                            if i != len(min_out) - 1:
+                                next_state = State()
+                                temp_state.addTransition(Transition(c, c, next_state))
+                                temp_state = next_state
+                            else:
+                                temp_state.addTransition(Transition(c, c, target_state))
+                else:
+                    current_state.addTransition(Transition(min_out, max_out, target_state))
+        
+        process_empty_transitions(empty_transitions)
+        result.setDeterministic(False)
+        result.removeDeadTransitions()
+        result.minimize()
+        return result
+
     def __repr__(self) -> str:
         sorted_states = sorted(self.states.items(), key=lambda x: x[0])
         return f"Initial: {self.initial.id}\n" + "\n".join(f"{state_id}: {state}" for state_id, state in sorted_states)
@@ -239,6 +324,92 @@ def line_based_functional_to_stream_FST(fst: FST) -> FST:
         if state.accept:
             fst.add_transition(state.id, "\n", "\n", "\n", start_state_id)
     return fst
+
+def product_fst_automaton_with_projection(fst: FST, automaton: Automaton) -> Automaton:
+    if not CONFIG.get("enable_FST", True):
+        return RegExp(".*").toAutomaton()
+    
+    # First, compute the complete FST (FST x NFA = FST)
+    product_fst = FST()
+    worklist: Deque[Tuple[FST_State, State]] = deque()
+    state_to_id: Dict[State, int] = {}  # Map automaton states to unique IDs
+    state_mapping: Dict[Tuple[int, int], int] = {}  # (fst_state_id, automaton_state_id) -> product_state_id
+    state_counter = 0
+    auto_state_counter = 0
+    
+    # Assign unique ID to initial automaton state
+    initial_auto_state = automaton.getInitialState()
+    state_to_id[initial_auto_state] = auto_state_counter
+    auto_state_counter += 1
+    
+    # Create initial state
+    initial_pair = (fst.initial.id, state_to_id[initial_auto_state])
+    state_mapping[initial_pair] = state_counter
+    product_fst.set_start(state_counter)
+    state_counter += 1
+    
+    worklist.append((fst.initial, initial_auto_state))
+    
+    while worklist:
+        fst_state, auto_state = worklist.popleft()
+        
+        # Ensure automaton state has an ID
+        if auto_state not in state_to_id:
+            state_to_id[auto_state] = auto_state_counter
+            auto_state_counter += 1
+        
+        current_state_id = state_mapping[(fst_state.id, state_to_id[auto_state])]
+        
+        # Set accept state if both are accepting
+        if fst_state.accept and auto_state.isAccept():
+            product_fst.set_accept(current_state_id)
+        
+        # Compute product transitions
+        for fst_trans in fst_state.transitions:
+            for auto_trans in auto_state.getSortedTransitions(True):
+                # Check if input ranges overlap
+                if (fst_trans.min is not None and fst_trans.max is not None and
+                    ord(auto_trans.getMax()) >= ord(fst_trans.min) and 
+                    ord(auto_trans.getMin()) <= ord(fst_trans.max)):
+                    
+                    # Compute intersection of input ranges
+                    min_in = fst_trans.min if ord(fst_trans.min) > ord(auto_trans.getMin()) else auto_trans.getMin()
+                    max_in = fst_trans.max if ord(fst_trans.max) < ord(auto_trans.getMax()) else auto_trans.getMax()
+                    
+                    # Ensure target automaton state has an ID
+                    target_auto_state = auto_trans.getDest()
+                    if target_auto_state not in state_to_id:
+                        state_to_id[target_auto_state] = auto_state_counter
+                        auto_state_counter += 1
+                    
+                    # Create target state if not exists
+                    target_pair = (fst_trans.to.id, state_to_id[target_auto_state])
+                    if target_pair not in state_mapping:
+                        state_mapping[target_pair] = state_counter
+                        state_counter += 1
+                        worklist.append((fst_trans.to, target_auto_state))
+                    
+                    target_state_id = state_mapping[target_pair]
+                    
+                    # Add transition to product FST
+                    # Input is the intersection range, output is the FST's output
+                    product_fst.add_transition(
+                        current_state_id, 
+                        min_in, 
+                        max_in, 
+                        fst_trans.output, 
+                        target_state_id,
+                        fst_trans.is_not_consumed
+                    )
+    
+    # Process the FST to handle special transitions
+    product_fst._process_other_transitions()
+    product_fst._process_not_consumed_transitions()
+    
+    # Now compute the output projection
+    return product_fst.output_projection()
+
+
 
 
 def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:

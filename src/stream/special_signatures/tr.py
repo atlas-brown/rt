@@ -44,7 +44,7 @@ class TrSignature(CommandSignature):
             get_logger().classify_last_invocation_as_unsupported()
         
         arg1 = parsed_command_invocation.operand_list[0].name
-        arg2 = "\"\""
+        arg2 = ""
         if len(parsed_command_invocation.operand_list) > 1:
             arg2 = parsed_command_invocation.operand_list[1].name
         complement = False
@@ -54,6 +54,34 @@ class TrSignature(CommandSignature):
         if "-c" in parsed_flags:
             complement = True
         get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"translate-chars(α, {refine_log(arg1)}, {refine_log(arg2)}, complement={complement}, squeeze={squeeze})"
+
+        set1 = preprocess_set(arg1)
+        set2 = preprocess_set(arg2)
+        flags = parsed_flags.copy()
+        if "-c" in flags:
+            set1 = complement_set(set1)
+            flags.remove("-c")
+        if flags == {}:
+            previous_output_type = previous_output_type.to_full_stream_repr()
+            fst = translation_FST(set1, set2)
+            output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode="stream")
+            return output_type
+        if flags == {"-d"}:
+            fst = deletion_FST(set1)
+            output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode="stream")
+            return output_type
+        if flags == {"-s"}:
+            if set2 == "":
+                fst = compression_FST(set1)
+                output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode="stream")
+                return output_type
+            else:
+                fst1 = translation_FST(set1, set2)
+                fst2 = compression_FST(set2)
+                output_type = RegularType(automaton=product_fst_automaton(fst1, product_fst_automaton(fst2, previous_output_type.nfa)), tainted=previous_output_type.tainted, repr_mode="stream")
+                return output_type
+            
+        return RegularType(".*")
 
 
         if set1 == "\n":
@@ -225,4 +253,6 @@ def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> s
 def refine_log(s: str) -> str:
     if s == " ":
         return "\" \""
+    if s == "":
+        return "\"\""
     return s

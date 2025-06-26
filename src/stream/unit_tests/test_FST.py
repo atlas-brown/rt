@@ -17,7 +17,7 @@ from stream.transducer import (
     first_replacement_FST,
     full_stream_to_line_based_FST, 
     global_replacement_FST,
-    line_based_functional_to_stream_FST, 
+    line_based_functional_to_stream_FST,
     start_regex_replacement_FST, 
     translate_to_line_delimited_FST, 
     translation_FST, 
@@ -203,7 +203,8 @@ class TestCutFieldFST:
         assert fst.transform_all("1 2 3\n4 5 6\n") == {"1 3\n4 6\n"}
         assert fst.transform_all("1 2 3\n1\n1 2 3 ") == {"1 3\n1\n1 3 "}
 
-
+        fst = line_based_functional_to_stream_FST(correct_cut_field_FST(" ", [3], has_upperbound=True))
+        assert fst.transform_all("total 80\ndrwxrwxr-x  2 user user  4096 Jun  10 12:34  bin\n") == {"\n2\n"}
     
     @pytest.mark.parametrize("test_iteration", range(5))
     def test_random_cut_field(self, random_seed: None, test_iteration: int) -> None:
