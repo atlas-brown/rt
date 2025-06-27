@@ -1,0 +1,372 @@
+# Interesting pipelines containing high-frequency commands
+# Target commands: awk, cut, fmt, grep, head, paste, sed, tail, tr
+# Source: GitHub commits dataset only
+# Generated on: 2025-06-27 14:17:27
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/acme.sh_acme_06580bf.sh
+# Commands: grep, sed, tr
+cat "${2}" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/acme.sh_acme_0c9c1ae.sh
+# Commands: cut, grep, tr
+echo "${responseHeaders}" | grep -i "^Location.*$" | _tail_n 1 | tr -d "\r\n \t" | cut -d ":" -f 2-
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/acme.sh_acme_15dded7.sh
+# Commands: cut, grep, tr
+echo "${responseHeaders}" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d " " | tr -d "\r"
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/acme.sh_acme_2b5e2d4.sh
+# Commands: grep, sed, tr
+cat "${2}" | tr "\t" " " | grep "^ *include *.*;" | sed "s/include //" | tr -d " ;"
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/acme.sh_acme_48f02fb.sh
+# Commands: cut, grep, tr
+echo "${responseHeaders}" | grep "^Location:" | cut -d " " -f 2 | tr -d "\r\n"
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/acme.sh_acme_70f4cad.sh
+# Commands: cut, grep, tr
+echo "${responseHeaders}" | grep -i "^Retry-After *: *[0-9]\+ *" | cut -d : -f 2 | tr -d " " | tr -d "\r"
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/advanced_Scripts_chronometer.sh_chronometer_dac27f1.sh
+# Commands: cut, grep, head
+ip route | grep default | cut -d " " -f 3 | head -n 1
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/automated install_basic-install.sh_basic-install_523f650.sh
+# Commands: awk, grep, tr
+curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location: | awk -F / "{print $NF}" | tr -d "[:cntrl:]"
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/automated install_basic-install.sh_basic-install_9212eea.sh
+# Commands: awk, cut, grep
+ip -o link | grep -v "state DOWN\\|lo" | awk "{print $2}" | cut -d":" -f1 | cut -d"@" -f1
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/openvpn-install_Nyr_6d89279.sh
+# Commands: awk, cut, grep, head
+ifconfig | grep "inet addr:" | grep -v inet6 | grep -vE "127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" | cut -d: -f2 | awk "{ print $1}" | head -1
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/wireguard-install.sh_wireguard-install_e05e633.sh
+# Commands: awk, head, sed
+ip -4 addr | sed -ne "s|^.* inet \([^/]*\)/.* scope global.*$|\1|p" | awk "{print $1}" | head -1
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/plugins_available_base.plugin.bash_base.plugin_e687857.bash
+# Commands: awk, grep, sed
+ifconfig | grep -E "inet " | sed "s/addr://g" | awk "{print $2}"
+
+# Source: full_benchmark/github_repos_commits/collected/post_commit/plugins_mix-fast_mix-fast.plugin.zsh_mix-fast.plugin_bf87e99.zsh
+# Commands: cut, grep, tail
+mix help | grep -v "iex -S" | tail -n +2 | cut -d " " -f 2 >.mix_tasks
+
+# Source: full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_06580bf.sh
+# Commands: grep, sed, tr
+cat "${2}" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"
+
+# Source: full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_0c9c1ae.sh
+# Commands: cut, grep, tr
+echo "${responseHeaders}" | grep -i "^Location.*$" | _tail_n 1 | tr -d "\r\n" | cut -d ":" -f 2-
+
+# Source: full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_15dded7.sh
+# Commands: cut, grep, tr
+echo "${responseHeaders}" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d " "
+
+# Source: full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_2b5e2d4.sh
+# Commands: grep, sed, tr
+cat "${2}" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"
+
+# Source: full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_70f4cad.sh
+# Commands: cut, grep, tr
+echo "${responseHeaders}" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d " " | tr -d "\r"
+
+# Source: full_benchmark/github_repos_commits/collected/pre_commit/automated install_basic-install.sh_basic-install_523f650.sh
+# Commands: awk, grep, tr
+curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location | awk -F / "{print $NF}" | tr -d "[:cntrl:]"
+
+# Source: full_benchmark/github_repos_commits/collected/pre_commit/automated install_basic-install.sh_basic-install_9212eea.sh
+# Commands: awk, cut, grep
+ip -o link | grep "state UP" | awk "{print $2}" | cut -d":" -f1 | cut -d"@" -f1
+
+# Source: full_benchmark/github_repos_commits/collected/pre_commit/openvpn-install_Nyr_6d89279.sh
+# Commands: awk, cut, grep
+ifconfig | grep "inet addr:" | grep -v inet6 | grep -vE "127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" | cut -d: -f2 | awk "{ print $1}"
+
+# Source: full_benchmark/github_repos_commits/collected/pre_commit/plugins_mix-fast_mix-fast.plugin.zsh_mix-fast.plugin_bf87e99.zsh
+# Commands: cut, grep, tail
+mix --help | grep -v "iex -S" | tail -n +2 | cut -d " " -f 2 >.mix_tasks
+
+# Source: full_benchmark/pash_benchmark/benchmarks/bio/bio-align/genquality.sh
+# Commands: grep, head, sed, tail, tr
+cat ${IN} | csvcut -t -K 1 -c "excluded_from_refseq" | tail -n +2 | tr ";" "\n" | sed -e "s/^ //" -e "s/ \$//" | grep -v "\"\"" | sort | uniq -c | sort -nr | head -n 10 | nl >${OUT}
+
+# Source: full_benchmark/pash_benchmark/benchmarks/covid-mts/scripts/1.sh
+# Commands: awk, cut, sed
+cat "${1}" | sed "s/T..:..:..//" | cut -d "," -f 1,3 | sort -u | cut -d "," -f 1 | sort | uniq -c | awk "{print \$2,\$1}"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/covid-mts/scripts/2.sh
+# Commands: awk, cut, sed
+cat "${1}" | sed "s/T..:..:..//" | cut -d "," -f 3,1 | sort -u | cut -d "," -f 2 | sort | uniq -c | sort -k 1 -n | awk "{print \$2,\$1}"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/covid-mts/scripts/3.sh
+# Commands: awk, cut, sed
+cat "${1}" | sed "s/T\(..\):..:../,\1/" | cut -d "," -f 1,2,4 | sort -u | cut -d "," -f 3 | sort | uniq -c | sort -k 1 -n | awk "{print \$2,\$1}"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/covid-mts/scripts/4.sh
+# Commands: awk, cut, sed
+cat "${1}" | sed "s/T\(..\):..:../,\1/" | cut -d "," -f 1,2 | sort -u | cut -d "," -f 1 | sort | uniq -c | awk "{print \$2,\$1}"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/max-temp/input.sh
+# Commands: grep, head, sed, tail
+seq ${FROM} ${TO} | sed "s;^;${URL};" | sed "s;$;/;" | xargs -n1 -r curl --insecure | grep gz | sed "s;.*\"\\(.*\\)\\(20[0-9][0-9]\\).gz\".*;${URL}\2/\1\2.gz;" | tail -n +${sample_starting_index} | head -n ${sample_count} | xargs -n1 curl --insecure | gunzip >"${input_dir}/temperatures.full.txt"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/max-temp/scripts/temp-analytics.sh
+# Commands: cut, grep, head
+cat "${input_file}" | cut -c 89-92 | grep -v 999 | sort -rn | head -n1 >${statistics_dir}/max.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/max-temp/scripts/temp-analytics.sh
+# Commands: cut, grep, head
+cat "${input_file}" | cut -c 89-92 | grep -v 999 | sort -n | head -n1 >${statistics_dir}/min.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/max-temp/scripts/temp-analytics.sh
+# Commands: awk, cut, grep
+cat "${input_file}" | cut -c 89-92 | grep -v 999 | awk "{ total += \$1; count++ } END { print total/count }" >${statistics_dir}/average.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/nlp/scripts/syllable_words_1.sh
+# Commands: grep, sed, tr
+cat ${IN}/${input} | tr -c "A-Za-z" "[\n*]" | grep -v "^\s*$" | grep -i "^[^aeiou]*[aeiou][^aeiou]*$" | sort | uniq -c | sed 5q >${OUT}/${input}.out
+
+# Source: full_benchmark/pash_benchmark/benchmarks/nlp/scripts/syllable_words_2.sh
+# Commands: grep, sed, tr
+cat ${IN}/${input} | tr -c "A-Za-z" "[\n*]" | grep -v "^\s*$" | grep -i "^[^aeiou]*[aeiou][^aeiou]*[aeiou][^aeiou]$" | sort | uniq -c | sed 5q >${OUT}${input}.out
+
+# Source: full_benchmark/pash_benchmark/benchmarks/nlp/scripts/vowel_sequencies_gr_1K.sh
+# Commands: awk, grep, tr
+cat ${IN}/${input} | tr -c "A-Za-z" "[\n*]" | grep -v "^\s*$" | tr -sc "AEIOUaeiou" "[\012*]" | sort | uniq -c | awk "\$1 >= 1000" >${OUT}/${input}.out
+
+# Source: full_benchmark/pash_benchmark/benchmarks/oneliners/scripts/bi-gram.aux.sh
+# Commands: paste, sed, tail
+tee ${s2} | tail -n +2 | paste ${s2} - | sed "$d"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/oneliners/scripts/top-n.sh
+# Commands: grep, sed, tr
+cat ${1} | tr -c "A-Za-z" "[\n*]" | grep -v "^\s*$" | tr A-Z a-z | sort | uniq -c | sort -rn | sed 100q
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA/run.sh
+# Commands: cut, paste, sed
+zcat "${sdir}"/fastq/reads.1.sanitize.w_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.w_rel5.names.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA/run.sh
+# Commands: cut, paste, sed
+zcat "${sdir}"/fastq/reads.1.sanitize.wo_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.wo_rel5.names.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA/run_5TERA.sh
+# Commands: cut, paste, sed
+{ zcat "${sdir}"/fastq/reads.1.sanitize.w_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.w_rel5.names.txt & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA/run_5TERA.sh
+# Commands: cut, paste, sed
+{ zcat "${sdir}"/fastq/reads.1.sanitize.wo_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.wo_rel5.names.txt & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA-short/run.sh
+# Commands: cut, paste, sed
+zcat "${sdir}"/fastq/reads.1.sanitize.w_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.w_rel5.names.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA-short/run.sh
+# Commands: cut, paste, sed
+zcat "${sdir}"/fastq/reads.1.sanitize.wo_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.wo_rel5.names.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA-short/run_5TERA-short.sh
+# Commands: cut, paste, sed
+{ zcat "${sdir}"/fastq/reads.1.sanitize.w_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.w_rel5.names.txt & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA-short/run_5TERA-short.sh
+# Commands: cut, paste, sed
+{ zcat "${sdir}"/fastq/reads.1.sanitize.wo_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.wo_rel5.names.txt & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run-merge.sh
+# Commands: cut, grep, head
+head -100 ${sdir}/db/ | grep -nP "^CREATE TABLE transcr" | cut -d":" -f1
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run-merge.sh
+# Commands: cut, grep, head
+head -100 ${sdir}/db/ | grep -nP "^CREATE TABLE genome" | cut -d":" -f1
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run.sh
+# Commands: cut, paste, sed
+zcat "${sdir}"/fastq/reads.1.sanitize.w_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.w_rel5.names.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run.sh
+# Commands: cut, paste, sed
+zcat "${sdir}"/fastq/reads.1.sanitize.wo_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.wo_rel5.names.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run.sh
+# Commands: cut, paste, sed
+zcat "${sdir}"/fastq/tmp.w_rel3.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.w_rel3.names.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run.sh
+# Commands: cut, paste, sed
+zcat "${sdir}"/fastq/tmp.wo_rel3.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.wo_rel3.names.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run_5TERA3-merge.sh
+# Commands: cut, grep, head
+head -100 "${sdir}"/db/"${firstsample}".sqlite.transcr.sql | grep -nP "^CREATE TABLE transcr" | cut -d":" -f1
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run_5TERA3-merge.sh
+# Commands: cut, grep, head
+head -100 "${sdir}"/db/"${firstsample}".sqlite.genome.sql | grep -nP "^CREATE TABLE genome" | cut -d":" -f1
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run_5TERA3.sh
+# Commands: cut, paste, sed
+{ zcat "${sdir}"/fastq/reads.1.sanitize.w_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.w_rel5.names.txt & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run_5TERA3.sh
+# Commands: cut, paste, sed
+{ zcat "${sdir}"/fastq/reads.1.sanitize.wo_rel5.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.wo_rel5.names.txt & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run_5TERA3.sh
+# Commands: cut, paste, sed
+{ zcat "${sdir}"/fastq/tmp.w_rel3.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.w_rel3.names.txt & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run_5TERA3.sh
+# Commands: cut, paste, sed
+
+# annotation1:
+# @assume: "zcat "${sdir}"/fastq/tmp.wo_rel3.fastq.gz" --> "(\ 
+# @[A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+ [0-9A-Z:]+\n\
+# [AGCT]+\n\
+# +\n\
+# [A-Z]+\n\
+# )*"
+# @output: "([A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+ [0-9A-Z:]+\n)*"
+
+# annotation2:
+# @assume: "zcat "${sdir}"/fastq/tmp.wo_rel3.fastq.gz" --> "(\ 
+# @[A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+\t[0-9A-Z:]+\n\
+# [AGCT]+\n\
+# +\n\
+# [A-Z]+\n\
+# )*"
+# @output: "([A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+\n)*"
+
+
+# annotation3:
+# @assume: "zcat "${sdir}"/fastq/tmp.wo_rel3.fastq.gz" --> "(\ 
+# @[A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+\t[0-9A-Z:]+\n\
+# [AGCT]+\n\
+# [A-Z]+\n\
+# )*"
+# @output: "(([A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+|[AGCT]+|[A-Z]+)\n)*"
+{ zcat "${sdir}"/fastq/tmp.wo_rel3.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.wo_rel3.names.txt & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run_merge.sh
+# Commands: cut, grep, head
+head -100 "${sdir}"/db/"${firstsample}".sqlite.transcr.sql | grep -nP "^CREATE TABLE transcr" | cut -d":" -f1
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run_merge.sh
+# Commands: cut, grep, head
+head -100 "${sdir}"/db/"${firstsample}".sqlite.genome.sql | grep -nP "^CREATE TABLE genome" | cut -d":" -f1
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/data/run.sh
+# Commands: cut, grep, sed
+grep -w -i sirv transcripts_sirv1.fa.fai | cut -f1-2 | sed "1i transcript_id\tlength" >sirv1.length.tab
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/TERA3/run.sh
+# Commands: cut, paste, sed
+zcat "${sdir}"/fastq/tmp.w_rel3.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.w_rel3.names.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/TERA3/run.sh
+# Commands: cut, paste, sed
+zcat "${sdir}"/fastq/tmp.wo_rel3.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.wo_rel3.names.txt
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/TERA3/run_TERA3.sh
+# Commands: cut, paste, sed
+{ zcat "${sdir}"/fastq/tmp.w_rel3.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.w_rel3.names.txt & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/TERA3/run_TERA3.sh
+# Commands: cut, paste, sed
+{ zcat "${sdir}"/fastq/tmp.wo_rel3.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g" >"${sdir}"/fastq/reads.1.sanitize.wo_rel3.names.txt & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/10.sh
+# Commands: cut, grep, tr
+cat ${1} | tr " " "\n" | grep "x" | grep "\." | cut -d "." -f 2 | grep "[KQRBN]" | cut -c 1-1 | sort | uniq -c | sort -nr
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/11.sh
+# Commands: cut, grep, tr
+cat ${1} | tr " " "\n" | grep "x" | grep "\." | cut -d "." -f 2 | cut -c 1-1 | tr "[a-z]" "P" | sort | uniq -c | sort -nr
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/12.sh
+# Commands: cut, grep, head, tail, tr
+cat ${1} | tr " " "\n" | grep "\." | cut -d "." -f 2 | cut -c 1-1 | tr "[a-z]" "P" | sort -r | uniq | head -n 3 | tail -n 1
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/16.sh
+# Commands: cut, head, tail, tr
+cat ${1} | cut -f 2 | sort -n | uniq -c | sort -nr | head -n 1 | tr -s " " "\n" | tail -n 1
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/19.sh
+# Commands: awk, cut, grep
+cat ${1} | grep "Bell" | awk "length <= 45" | cut -d "," -f 2 | awk "{\$1=\$1};1"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/20.sh
+# Commands: cut, grep, head
+cat ${1} | grep "(" | cut -d "(" -f 2 | cut -d ")" -f 1 | head -n 1
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/23.sh
+# Commands: cut, grep, tr
+cat ${1} | tr " " "\n" | grep "[A-Z]" | tr "[a-z]" "\n" | grep "[A-Z]" | tr -d "\n" | cut -c 1-4
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/26.sh
+# Commands: cut, grep, sed, tr
+cat ${1} | tr " " "\n" | grep "\"" | sed 4d | cut -d "\"" -f 2 | tr -d "\n"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/28.sh
+# Commands: grep, sed, tr
+cat ${1} | tr " " "\n" | grep "[A-Z]" | sed 1d | sed 3d | sed 3d | tr "[a-z]" "\n" | grep "[A-Z]" | sed 3d | tr -c "[A-Z]" "\n" | tr -d "\n"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/30.sh
+# Commands: grep, sed, tr
+cat ${1} | tr -c "[a-z][A-Z]" "\n" | grep "[A-Z]" | sed 1d | sed 2d | sed 3d | sed 4d | tr -c "[A-Z]" "\n" | tr -d "\n"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/31.sh
+# Commands: grep, sed, tr
+cat ${1} | tr -c "[a-z][A-Z]" "\n" | grep "[A-Z]" | sed 1d | sed 1d | sed 2d | sed 3d | sed 5d | tr -c "[A-Z]" "\n" | tr -d "\n"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/32.sh
+# Commands: cut, grep, sed
+cat ${1} | sed 1d | grep "Bell" | cut -f 2 | wc -l
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/33.sh
+# Commands: cut, grep, sed
+cat ${1} | sed 1d | grep "Bell" | cut -f 2
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/34.sh
+# Commands: cut, fmt, grep, head, tr
+cat ${1} | grep "Bell" | cut -f 2 | head -n 1 | fmt -w1 | cut -c 1-1 | tr -d "\n" | tr "[A-Z]" "[a-z]"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/36.sh
+# Commands: cut, fmt, head, sed
+cat ${1} | cut -f 2 | cut -d " " -f 1 | sort | uniq -c | sort -nr | head -n 1 | fmt -w1 | sed 1d
+
+# Source: full_benchmark/pash_benchmark/benchmarks/unix50/scripts/9.sh
+# Commands: cut, grep, tr
+cat ${1} | tr " " "\n" | grep "x" | grep "\." | cut -d "." -f 2 | grep -v "[KQRBN]" | wc -l
+
+# Source: full_benchmark/pash_benchmark/benchmarks/web-index/p2.sh
+# Commands: grep, sed, tr
+cat ${WIKI}/input/index.txt | sed "s#^#${WIKI}#" | iconv -c -t ascii//TRANSLIT | pandoc +RTS -K64m -RTS --from html --to plain --quiet | tr -cs A-Za-z "\n" | tr A-Z a-z | grep -vwFf ${WIKI}/stopwords.txt | ${WIKI}/stem-words.js
+
+# Source: full_benchmark/pash_benchmark/benchmarks/web-index/web-index-aux.sh
+# Commands: cut, paste, sed, tail
+tee ${s2} | tail +2 | paste ${s2} - | tee ${s3} | cut -f 1 | tail +3 | paste ${s3} - | sed "\$d" | sed "\$d"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/web-index/web-index-aux.sh
+# Commands: grep, sed, tr
+{ cat ${IN} | sed "s#^#${WIKI}#" | extract_text | tr -cs A-Za-z "\n" | tr A-Z a-z | grep -vwFf ${WEB_INDEX_DIR}/stopwords.txt | ${WEB_INDEX_DIR}/stem-words.js | tee 3grams 2grams 1grams >/dev/null & }
+
+# Source: full_benchmark/pash_benchmark/benchmarks/web-index/web-index.sh
+# Commands: cut, paste, sed, tail
+tee ${s2} | tail +2 | paste ${s2} - | tee ${s3} | cut -f 1 | tail +3 | paste ${s3} - | sed "\$d" | sed "\$d"
+
+# Source: full_benchmark/pash_benchmark/benchmarks/web-index/web-index.sh
+# Commands: grep, sed, tr
+{ head ${IN} | sed "s#^#${WIKI}#" | extract_text | tr -cs A-Za-z "\n" | tr A-Z a-z | grep -vwFf ${WIKI}/stopwords.txt | ${WIKI}/stem-words.js | tee 3grams 2grams 1grams >/dev/null & }
+
+# Source: full_benchmark/pash_benchmark/Bad label/shortest-scripts.sh
+# Commands: cut, grep, head
+cat ${1} | xargs file | grep "shell script" | cut -d: -f1 | xargs -L 1 wc -l | grep -v "^0$" | sort -n | head -15
+
