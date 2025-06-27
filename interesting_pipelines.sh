@@ -2,7 +2,6 @@
 # @output "(\\[]\\.|$(){}?+*^/]|[^]\\.|$(){}?+*^/])*"
 # stream enable
     echo $* | sed "s/[]\\.|$(){}?+*^]/\\\\&/g" | sed "s/\\//\\\\\//g"
-}
 
 # @output "~([0-9]*: | master |@.*|: <.*)UP~( master |@.*|: <.*)"
 # stream enable
@@ -46,3 +45,76 @@
 
 # @output "www.google.com"
 echo "http://www.google.com" | sed -E 's|https?://([^/]+).*|\1|'
+
+
+
+# Source: full_benchmark/pash_benchmark/benchmarks/teraseq/5TERA3/run_5TERA3.sh
+# Commands: cut, paste, sed
+
+# annotation1:
+# @assume: "zcat ${sdir}/fastq/tmp.wo_rel3.fastq.gz" --> "("\ 
+# "@[A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+ [0-9A-Z:]+\n"\
+# "[AGCT]+\n"\
+# "+\n"\
+# "[A-Z]+\n"\
+# ")*"
+# @output: "([A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+ [0-9A-Z:]+\n)*"
+
+# annotation2:
+# @assume: "zcat ${sdir}/fastq/tmp.wo_rel3.fastq.gz" --> "("\ 
+# "@[A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+\t[0-9A-Z:]+\n"\
+# "[AGCT]+\n"\
+# "+\n"\
+# "[A-Z]+\n"\
+# ")*"
+# @output: "([A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+\n)*"
+
+
+# annotation3:
+# @assume: "zcat ${sdir}/fastq/tmp.wo_rel3.fastq.gz" --> "("\ 
+# "@[A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+\t[0-9A-Z:]+\n"\
+# "[AGCT]+\n"\
+# "[A-Z]+\n"\
+# ")*"
+# @output: "(([A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+|[AGCT]+|[A-Z]+)\n)*"
+
+# annotation4:
+# @assume: "zcat ${sdir}/fastq/tmp.wo_rel3.fastq.gz" --> \
+# "FASTQ\n"\
+# "("\ 
+# "@[A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+ [0-9A-Z:]+\n"\
+# "[AGCT]+\n"\
+# "+\n"\
+# "[A-Z]+\n"\
+# ")*"
+# @output: "FASTQ\n(([A-Z]:[0-9]+:[0-9]+-[0-9A-Z:]+ [0-9A-Z:]+|[AGCT]+|[A-Z]+)\n)*"
+zcat "${sdir}"/fastq/tmp.wo_rel3.fastq.gz | paste - - - - | cut -f1 | sed "s/^@//g"
+
+# annotation1:
+# @assume: "cat ${1}" --> "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2},(login|logout),[a-zA-Z0-9_]+"
+# @assert: "cut -d "," -f 1" --> "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+
+
+# annotation2:
+# @assume: "cat ${1}" --> "[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}T[0-9]{1,2}:[0-9]{2}:[0-9]{2},(login|logout),[a-zA-Z0-9_]+"
+# @assert: "cut -d "," -f 1" --> "[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}|[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}T[0-9]:[0-9]{2}:[0-9]{2}"
+cat "${1}" | sed "s/T..:..:..//" | cut -d "," -f 1,3 | sort -u | cut -d "," -f 1 | sort | uniq -c | awk "{print \$2,\$1}"
+
+
+# annotation1:
+# @assume: "curl -sI https://github.com/pi-hole/FTL/releases/latest" --> \
+# "HTTP/2 302\r\n"\
+# "content-type: text/html; charset=utf-8\r\n"\
+# "location: https://github.com/pi-hole/FTL/releases/tag/v[0-9]+\.[0-9]+\.[0-9]+\r\n"\
+# "server: github.com\r\n"
+# @assert (whole stream): "v[0-9]+\.[0-9]+\.[0-9]+"
+
+# annotation2:
+# @assume: "curl -sI https://github.com/pi-hole/FTL/releases/latest" --> \
+# "HTTP/2 302\r\n"\
+# "content-type: text/html; charset=utf-8\r\n"\
+# "location: https://github.com/pi-hole/FTL/releases/tag/v[0-9]+\.[0-9]+\.[0-9]+\r\n"\
+# "content-location: https://github.com/pi-hole/FTL/releases/download/v[0-9]+\.[0-9]+\.[0-9]+/FTL\.tar\.gz\r\n"\
+# "server: github.com\r\n"
+# @assert (whole stream): "v[0-9]+\.[0-9]+\.[0-9]+FTL\.tar\.gz"
+curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location | awk -F / '{print $NF}' | tr -d '[:cntrl:]'
