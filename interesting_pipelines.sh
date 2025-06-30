@@ -208,6 +208,8 @@ cat ${1} | tr -c "[a-z][A-Z]" "\n" | grep "[A-Z]" | sed 1d | sed 2d | sed 3d | s
 # 2018	Geoffrey Hinton	Male	Canada	 	1947	Google, Vector Institute and University of Toronto, Canada
 # 2018	Yann LeCun	Male	France	 	1960	New York University, USA, and Facebook
 # 2017	John Leroy Hennessy	Male	United States	 	1952	Stanford University, USA
+# 1983	Dennis MacAlistair Ritchie	Male	United States	 	1941	Bell Telephone Laboratories
+# 1983	Kenneth Lane Thompson	Male	United States	 	1943	Bell Telephone Laboratories
 
 # annotation1: # I want to write a regex that ensures the output should contain Ritchie, but it is too complex
 
