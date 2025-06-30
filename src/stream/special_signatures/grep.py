@@ -6,6 +6,7 @@ from stream.regular_type import RegularType, ends_with_end_anchor, remove_anchor
 from stream.tool_error import ToolError
 from functools import reduce
 
+from stream.transducer import product_fst_automaton, stream_based_filter_FST
 from stream.user_annotation import AnnotationType
 from stream.utils.logger import get_logger
 from stream.regex_parser import is_pure_string_for_ast
@@ -114,6 +115,8 @@ class GrepSignature(CommandSignature):
                 get_logger().remove_last_pattern_analysis()
                 raise ToolError("No pattern provided for grep")
             pattern = parsed_command_invocation.operand_list[0].name
+            if pattern.startswith("--"):
+                raise ToolError("Pattern cannot start with '--'")
             pattern = pattern.replace("\\\\", "\\")
             get_logger().add_regex_log(pattern)
             pattern_type = RegularType(pattern, mode)
@@ -170,6 +173,10 @@ class GrepSignature(CommandSignature):
             pattern_type = ~pattern_type
             pattern_type_str = "(~(" + pattern_type_str + "))"
         pattern_type = previous_output_type & pattern_type
+        if previous_output_type.repr_mode == "stream":
+            fst = stream_based_filter_FST(pattern_type.nfa)
+            pattern_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), repr_mode="stream", tainted=False)
+            
         current_type_str = f"α&{pattern_type_str}"
 
         if "-n" in flags:

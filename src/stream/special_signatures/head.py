@@ -2,6 +2,7 @@ import re
 from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
+from stream.transducer import correct_cut_field_FST, cut_field_FST, head_FST, product_fst_automaton, tail_FST
 from stream.utils.logger import get_logger
 
 class HeadSignature(CommandSignature):
@@ -28,9 +29,12 @@ class HeadSignature(CommandSignature):
         if "-n" in flags:
             try:
                 num_lines = int(flag_args["-n"][0])
-                output_type = previous_output_type
+                if num_lines <= 7:
+                    output_type = RegularType(automaton=product_fst_automaton(head_FST("\n", num_lines), previous_output_type.to_full_stream_repr().nfa), repr_mode="stream", tainted=previous_output_type.tainted)
+                else:
+                    output_type = previous_output_type.to_line_based_repr()
                 # output_type.possible_line_numbers = (num_lines, num_lines)
-                output_type.tainted = True
+                # output_type.tainted = True
             except Exception as e:
                 output_type = previous_output_type
                 output_type.tainted = True

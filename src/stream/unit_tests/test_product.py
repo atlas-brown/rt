@@ -76,6 +76,13 @@ class TestCutCharFST:
         actual = product_fst_automaton(cut_fst, nfa3)
         assert_equal(expected, actual)
 
+    def test_cut_char_whole_stream(self) -> None:
+        cut_fst = line_based_functional_to_stream_FST(cut_char_FST([1, 2], has_upperbound=True))
+        nfa1 = create_nfa("FLying so high,\nAMong modern net's\nINspired world-view:\nGOod as it gets!")
+        expected = create_nfa("FL\nAM\nIN\nGO")
+        actual = product_fst_automaton(cut_fst, nfa1)
+        assert_equal(expected, actual)
+
 
 
 if __name__ == "__main__":

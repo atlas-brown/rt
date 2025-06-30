@@ -57,14 +57,15 @@ class TrSignature(CommandSignature):
 
         set1 = preprocess_set(arg1)
         set2 = preprocess_set(arg2)
+        previous_output_type = previous_output_type.to_full_stream_repr()
         flags = parsed_flags.copy()
         if "-c" in flags:
             set1 = complement_set(set1)
             flags.remove("-c")
-        if flags == {}:
-            previous_output_type = previous_output_type.to_full_stream_repr()
+        if flags == set():
             fst = translation_FST(set1, set2)
             output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode="stream")
+            print(output_type)
             return output_type
         if flags == {"-d"}:
             fst = deletion_FST(set1)
@@ -78,7 +79,9 @@ class TrSignature(CommandSignature):
             else:
                 fst1 = translation_FST(set1, set2)
                 fst2 = compression_FST(set2)
-                output_type = RegularType(automaton=product_fst_automaton(fst1, product_fst_automaton(fst2, previous_output_type.nfa)), tainted=previous_output_type.tainted, repr_mode="stream")
+                output_type = RegularType(automaton=product_fst_automaton(fst2, product_fst_automaton(fst1, previous_output_type.nfa)), tainted=previous_output_type.tainted, repr_mode="stream")
+                print(output_type)
+                print(previous_output_type.nfa)
                 return output_type
             
         return RegularType(".*")
@@ -232,6 +235,8 @@ def preprocess_set(set1: str) -> str:
         '\\': '\\'
     }
     set1 = re.sub(r'\\([\\ntrvfbs+{}|&~*?.^$()[\]"\']|-)', lambda m: escape_dict[m.group(1)], set1)
+    # [\n*] -> \n (handle character set with *)
+    set1 = re.sub(r"\[([^*\]]+)\*\]", r"\1", set1)
     return expand_ranges(replace_POSIX_class(set1))
 
 

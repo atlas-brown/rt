@@ -11,7 +11,7 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 from stream.tool_error import ToolError
 from stream.user_annotation import AnnotationType, UserAnnotation
 from stream.utils.logger import get_logger
-from stream.utils.format import pretty_command_node, pretty_pipe_node
+from stream.utils.format import pretty_ast_node
 from stream.utils.timing import Timing
 from shasta.ast_node import PipeNode
 
@@ -31,6 +31,20 @@ class ErrorResult:
     # pipeline_length: int = 0
     # max_automata_size: int = 1
     tainted: Optional[bool] = None
+
+
+#
+# self_contained (ground truth): True
+# errors(ground): [{
+     # serious_violation: True
+     # all_input: True
+# }]
+# self_contained (compute): True
+# errors(compute): [{
+     # serious_violation: True
+     # all_input: True
+# }]
+
 
 @dataclass
 class CheckingResult:
@@ -93,7 +107,7 @@ class ScriptChecker:
         self.current_index = 0
         
         for pipeline in self.pipeline_nodes:
-            logging.debug(f"Pipeline: {pretty_pipe_node(pipeline)}")
+            logging.debug(f"Pipeline: {pretty_ast_node(pipeline)}")
 
     def check_next(self) -> Optional[CheckingResult]:
         if not self.pipelines:
@@ -121,12 +135,12 @@ class ScriptChecker:
         record = get_logger().create_record()
         record["script_address"] = self.pipeline_address
         record["buggy (ground truth)"] = not self.label
-        record["pipeline"] = pretty_pipe_node(pipeline_node)
+        record["pipeline"] = pretty_ast_node(pipeline_node)
         record["command_list"] = []
         record["error_results"] = []
         record["RT_warning"] = False
 
-        logging.info(f"Checking pipeline: {pretty_pipe_node(pipeline_node)}")
+        logging.info(f"Checking pipeline: {pretty_ast_node(pipeline_node)}")
 
 
 
@@ -141,7 +155,7 @@ class ScriptChecker:
         return CheckingResult(
             error_results=pipeline_checker.check(pipeline_node, parsed_commands, initial_output_type),
             self_contained=pipeline_checker.self_contained,
-            pipeline_content=pretty_pipe_node(pipeline_node),
+            pipeline_content=pretty_ast_node(pipeline_node),
             pipeline_length=pipeline_checker.pipeline_length,
             max_automata_size=pipeline_checker.max_automata_size
         )
@@ -223,13 +237,13 @@ class PipelineChecker:
 
                 command_list = get_logger().get_latest_record()["command_list"]
                 command_list.append({})
-                command_list[-1]["command_name"] = pretty_command_node(command_node)
+                command_list[-1]["command_name"] = pretty_ast_node(command_node)
                 get_logger().add_command_log(parsed_command_invocation.cmd_name)
                 if parsed_command_invocation.cmd_name in ["grep", "cut", "awk", "sed", "tr", "paste", "fmt"]:
                     # Extract flags and operands for detailed logging
                     flags = [flag.get_name() for flag in parsed_command_invocation.flag_option_list]
                     operands = [op.name for op in parsed_command_invocation.operand_list]
-                    full_invocation = pretty_command_node(command_node)
+                    full_invocation = pretty_ast_node(command_node)
                     
                     # Record the detailed command invocation
                     get_logger().add_detailed_command_invocation(
@@ -243,7 +257,7 @@ class PipelineChecker:
                     if parsed_command_invocation.cmd_name in ["grep", "sed"]:
                         get_logger().add_pattern_analysis(
                             command_name=parsed_command_invocation.cmd_name,
-                            invocation=pretty_command_node(command_node),
+                            invocation=pretty_ast_node(command_node),
                             pattern="",  # Will be updated in special signatures
                             ast_repr="",  # Will be updated in special signatures
                             is_pure_string=False,  # Will be updated in special signatures

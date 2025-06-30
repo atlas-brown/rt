@@ -18,6 +18,7 @@ from stream.special_signatures.awk import AwkSignature
 from stream.special_signatures.find import FindSignature
 from stream.special_signatures.head import HeadSignature
 from stream.special_signatures.tail import TailSignature
+from stream.special_signatures.echo import EchoSignature
 
 class SignatureLoader:
     _instance: Optional['SignatureLoader'] = None
@@ -55,6 +56,7 @@ class SignatureLoader:
             "find": FindSignature,
             "head": HeadSignature,
             "tail": TailSignature,
+            "echo": EchoSignature,
         }
         self.signatures = self.load_all_signatures()
         self.unknown_signature = CommandSignature(

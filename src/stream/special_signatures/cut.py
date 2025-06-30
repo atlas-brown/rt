@@ -6,7 +6,7 @@ from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from stream.tool_error import ToolError
-from stream.transducer import cut_char_FST, cut_char_no_upperbound_FST, cut_field_FST, cut_field_no_upperbound_FST, product_fst_automaton
+from stream.transducer import correct_cut_field_FST, cut_char_FST, cut_field_FST, line_based_functional_to_stream_FST, product_fst_automaton
 from stream.user_annotation import AnnotationType
 from stream.utils.logger import get_logger
 
@@ -107,6 +107,42 @@ class CutSignature(CommandSignature):
         else:
             get_logger().classify_last_invocation_as_unsupported()
 
+        if flags == {"-b"} or flags == {"-c"}:
+            flag_arg = flag_args.get('-c') if "-c" in flags else flag_args.get('-b')
+            args, has_upperbound = preprocess(flag_arg)
+            if len(args) == 0:
+                get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+                return RegularType(".*")
+            fst = cut_char_FST(args, has_upperbound)
+            if previous_output_type.repr_mode == "stream":
+                fst = line_based_functional_to_stream_FST(fst)
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α, {flag_arg}, \"\")"
+            output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode=previous_output_type.repr_mode)
+            return output_type
+        if flags == {"-f"} or flags == {"-d", "-f"}:
+            flag_arg = flag_args.get('-f') if "-f" in flags else flag_args.get('-d')
+            args, has_upperbound = preprocess(flag_arg)
+            delimiter = "\t"
+            if '-d' in flags:
+                delimiter = f"{flag_args['-d']}"
+            while (delimiter[0] == "(" and delimiter[-1] == ")") or (delimiter[0] == "[" and delimiter[-1] == "]") or (delimiter[0] == "'" and delimiter[-1] == "'") or (delimiter[0] == '"' and delimiter[-1] == '"'):
+                delimiter = delimiter[1:-1]
+            delimiter = delimiter[-1] # \" -> "
+            if len(args) == 0:
+                get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+                return RegularType(".*")
+            fst = correct_cut_field_FST(delimiter, args, has_upperbound)
+            if previous_output_type.repr_mode == "stream":
+                fst = line_based_functional_to_stream_FST(fst)
+            get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α&.*[{delimiter}].*, {flag_arg}, {delimiter})|α&[^{delimiter}]*"
+            output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode=previous_output_type.repr_mode)
+            return output_type
+        
+        get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+        return RegularType(".*")
+
+
+
         if "-b" in flags or "-c" in flags:
             args1 = preprocess(flag_args.get('-c'))
             args2 = preprocess(flag_args.get('-b'))
@@ -167,21 +203,21 @@ class CutSignature(CommandSignature):
             
         # return super().inference_output_type(previous_output_type, parsed_command_node)
 
-def preprocess(arg: str) -> list[int]:
-    # 1- -> 1, -1
-    # -2 -> 1, 2
-    # 1-3 -> 1, 2, 3
-    # 1, 3 -> 1, 3
+def preprocess(arg: str) -> Tuple[list[int], bool]: # return value: fields, has_upperbound
+    # 1- -> [1], False
+    # -2 -> [1, 2], True
+    # 1-3 -> [1, 2, 3], True
+    # 1, 3 -> [1, 3], True
     if not arg:
-        return []
+        return [], False
     
     if "${" in arg or "$(" in arg:
-        return []
+        return [], False
         
     result = []
     parts = arg.split(',')
-    no_upper_bound = False
-    no_upper_bound_start = 1000000
+    has_upperbound = True
+    no_upperbound_start = float('inf')
         
     for part in parts:
         if "-" in part:
@@ -193,13 +229,13 @@ def preprocess(arg: str) -> list[int]:
             if not start:
                 start = 1
             if not end:
-                no_upper_bound = True
+                has_upperbound = False
                 end = -1
                 
             try:
                 start, end = int(start), int(end)
                 if end == -1:
-                    no_upper_bound_start = min(start, no_upper_bound_start)
+                    no_upperbound_start = int(min(start, no_upperbound_start))
                 else:
                     result.extend(range(start, end + 1))
             except ValueError:
@@ -210,11 +246,11 @@ def preprocess(arg: str) -> list[int]:
                 result.append(int(part))
             except ValueError:
                 raise ToolError(f"invalid field number: {part}")
-    if no_upper_bound:
-        result = [x for x in result if x < no_upper_bound_start]
-        result.extend([no_upper_bound_start, -1])
+    if not has_upperbound:
+        result = [x for x in result if x < no_upperbound_start]
+        result.append(no_upperbound_start)
 
-    return result
+    return result, has_upperbound
 
 
     # args: list[str] = re.split(",|-", arg)

@@ -821,4 +821,6 @@ if __name__ == "__main__":
     get_logger().write_detailed_command_invocations_to_csv("general_logs/detailed_command_invocations_supported.csv", deduplicate=True)
     get_logger().write_pattern_analysis_to_file("general_logs/pattern_analysis.txt")
     get_logger().write_pattern_analysis_to_csv("general_logs/pattern_analysis.csv")
+    get_logger().write_command_pattern_logs_to_file("general_logs/command_pattern.txt")
+    get_logger().write_command_pattern_logs_to_csv("general_logs/command_pattern.csv")
     jpype.shutdownJVM()
