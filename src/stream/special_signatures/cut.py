@@ -1,6 +1,6 @@
 import re
 from typing import Optional, Tuple
-from stream.command_signature import CommandSignature
+from stream.command_signature import CommandSignature, InferenceResult
 from stream.regex_parser import convert_to_pure_string
 from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
@@ -112,13 +112,13 @@ class CutSignature(CommandSignature):
             args, has_upperbound = preprocess(flag_arg)
             if len(args) == 0:
                 get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
-                return RegularType(".*")
+                return InferenceResult(RegularType(".*"), None, True)
             fst = cut_char_FST(args, has_upperbound)
             if previous_output_type.repr_mode == "stream":
                 fst = line_based_functional_to_stream_FST(fst)
             get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α, {flag_arg}, \"\")"
             output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode=previous_output_type.repr_mode)
-            return output_type
+            return InferenceResult(output_type, None, True)
         if flags == {"-f"} or flags == {"-d", "-f"}:
             flag_arg = flag_args.get('-f') if "-f" in flags else flag_args.get('-d')
             args, has_upperbound = preprocess(flag_arg)
@@ -130,16 +130,16 @@ class CutSignature(CommandSignature):
             delimiter = delimiter[-1] # \" -> "
             if len(args) == 0:
                 get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
-                return RegularType(".*")
+                return InferenceResult(RegularType(".*"), None, True)
             fst = correct_cut_field_FST(delimiter, args, has_upperbound)
             if previous_output_type.repr_mode == "stream":
                 fst = line_based_functional_to_stream_FST(fst)
             get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α&.*[{delimiter}].*, {flag_arg}, {delimiter})|α&[^{delimiter}]*"
             output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode=previous_output_type.repr_mode)
-            return output_type
+            return InferenceResult(output_type, None, True)
         
         get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
-        return RegularType(".*")
+        return InferenceResult(RegularType(".*"), None, True)
 
 
 

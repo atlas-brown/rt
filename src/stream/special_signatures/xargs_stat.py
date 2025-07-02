@@ -24,5 +24,10 @@ class XargsStatSignature(CommandSignature):
                     get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
                     return InferenceResult(RegularType(".*"), lambda x: previous_output_type.get_shortest_example(), False)
                 
-        return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+        inference_result = super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+        if isinstance(inference_result, InferenceResult):
+            inference_result.self_contained = False
+        elif isinstance(inference_result, RegularType):
+            inference_result = InferenceResult(inference_result, None, False)
+        return inference_result
         

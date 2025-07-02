@@ -1,5 +1,5 @@
 import re
-from stream.command_signature import CommandSignature
+from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.transducer import compression_FST, cut_field_FST, first_regex_replacement_FST, product_fst_automaton, start_regex_replacement_FST, translate_to_line_delimited_FST, translation_FST
@@ -49,11 +49,11 @@ class AwkSignature(CommandSignature):
             if var_name == "NF":
                 # NF is a special variable representing number of fields
                 get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
-                return RegularType("[0-9]+")
+                return InferenceResult(RegularType("[0-9]+"), None, True)
             elif var_name in int_variables:
                 # The variable is an integer, so return a regex pattern for integers
                 get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
-                return RegularType("[0-9]+")
+                return InferenceResult(RegularType("[0-9]+"), None, True)
         
         # Special handling for print statements with NF and/or column references
         has_nf = re.search(r'\bNF\b', print_content) is not None
@@ -75,7 +75,7 @@ class AwkSignature(CommandSignature):
             
             if result_parts:
                 get_logger().get_latest_record()["command_list"][-1]["output_type"] = "".join(result_parts)
-                return RegularType("".join(result_parts))
+                return InferenceResult(RegularType("".join(result_parts)), None, True)
             
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         
@@ -138,7 +138,7 @@ class AwkSignature(CommandSignature):
                 last_end = end
             
             get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type_str
-            return result_type if result_type else super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+            return InferenceResult(result_type, None, True) if result_type else super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         except Exception:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         

@@ -27,6 +27,7 @@ class ErrorResult:
     derivation_trace: Optional[List[str]] = None
     all_input: Optional[bool]= None
     serious_violation: Optional[bool] = None
+    command_name: Optional[str] = None
     # pipeline_content: Optional[str] = None
     # pipeline_length: int = 0
     # max_automata_size: int = 1
@@ -152,8 +153,11 @@ class ScriptChecker:
             heuristic_rules=self.heuristic_rules,
             enable_detailed_error_reporting=self.enable_detailed_error_reporting,
         )
+        error_results = pipeline_checker.check(pipeline_node, parsed_commands, initial_output_type)
+        record["error_results"] = error_results
+        record["self_contained"] = pipeline_checker.self_contained
         return CheckingResult(
-            error_results=pipeline_checker.check(pipeline_node, parsed_commands, initial_output_type),
+            error_results=error_results,
             self_contained=pipeline_checker.self_contained,
             pipeline_content=pretty_ast_node(pipeline_node),
             pipeline_length=pipeline_checker.pipeline_length,
@@ -365,6 +369,8 @@ class PipelineChecker:
                 # ----------------------------------------------
                 is_subtype, witness = previous_output_type.is_subtype(input_type)
                 if not is_subtype:
+                    intersection = previous_output_type & input_type
+                    all_input = intersection.is_empty()
                     previous_output_type_str = get_logger().get_latest_record()["command_list"][-2]["output_language"] if len(get_logger().get_latest_record()["command_list"]) > 1 else ""
                     error_message = f"Input type '{previous_output_type_str}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'. For example: '{witness}'."
                     
@@ -376,6 +382,8 @@ class PipelineChecker:
                         # max_automata_size=max_automata_size,
                         # tainted=True,
                         serious_violation=True,
+                        all_input=all_input,
+                        command_name=signature.command_name,
                     )
                     if self.enable_detailed_error_reporting:
                         error_result.all_input = previous_output_type.empty_intersection(input_type)
@@ -403,6 +411,7 @@ class PipelineChecker:
                             # tainted=no_input_type.tainted,
                             all_input=True,
                             serious_violation=False,
+                            command_name=signature.command_name,
                         )
                         
                         get_logger().get_latest_record()["RT_warning"] = True
@@ -429,6 +438,7 @@ class PipelineChecker:
                             # tainted=False,
                             all_input=True,
                             serious_violation=False,
+                            command_name=signature.command_name,
                         )
                         
                         get_logger().get_latest_record()["RT_warning"] = True
@@ -447,6 +457,9 @@ class PipelineChecker:
                         is_assertion_violated, witness = current_output_type.is_subtype(RegularType(annotation.pattern))
                         is_assertion_violated = not is_assertion_violated  # Negate because we want to check if assertion is violated
                         if is_assertion_violated:
+                            intersection = current_output_type & RegularType(annotation.pattern)
+                            all_input = intersection.is_empty()
+                                                        
                             current_output_type_str = cmd_log_entry['output_language']
                             error_message = f"Output type '{current_output_type_str}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{witness}'."
                             
@@ -459,7 +472,9 @@ class PipelineChecker:
                                 # pipeline_length=pipeline_length,
                                 # max_automata_size=max_automata_size,
                                 # tainted=tainted,
+                                all_input=all_input,
                                 serious_violation=True,
+                                command_name=signature.command_name,
                             )
                             if self.enable_detailed_error_reporting:
                                 error_result.all_input = current_output_type.empty_intersection(RegularType(annotation.pattern))
@@ -488,7 +503,9 @@ class PipelineChecker:
                                 # pipeline_length=pipeline_length,
                                 # max_automata_size=max_automata_size,
                                 # tainted=False,
+                                all_input=True,
                                 serious_violation=True,
+                                command_name=signature.command_name,
                             )
                             if self.enable_detailed_error_reporting:
                                 error_result.all_input = current_output_type.empty_intersection(RegularType(annotation.pattern))
@@ -518,7 +535,10 @@ class PipelineChecker:
                 message=str(e),
                 # pipeline_length=pipeline_length,
                 # max_automata_size=max_automata_size,
-                tainted=True
+                tainted=True,
+                command_name=signature.command_name,
+                all_input=True,
+                serious_violation=True,
             )
             get_logger().get_latest_record()["error_message"] = str(e)
             get_logger().get_latest_record()["RT_warning"] = True

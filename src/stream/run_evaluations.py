@@ -88,6 +88,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
         CRASH_REASON_LABEL: None,
         "pash annotations error": None,
         "error message generated": None,
+        "error_results": [],  # Add field to store detailed error results
         "evaluation_time": "0s",  # Default to 0s for evaluation time
         "tainted": None,
         "pipeline_length": 0,     # Track pipeline length
@@ -128,6 +129,23 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
                 pipeline_data["evaluation_time"] = f"{elapsed_time:.8f}s"
                 pipeline_data["automata_size"] = checking_result.max_automata_size
                 pipeline_data["pipeline_length"] = checking_result.pipeline_length
+                pipeline_data["self_contained"] = checking_result.self_contained
+                
+                # Convert ErrorResult objects to dictionaries for JSON serialization
+                error_results_dicts = []
+                for error_result in checking_result.error_results:
+                    error_dict = {
+                        "message": error_result.message,
+                        "witness": error_result.witness,
+                        # "derivation_trace": error_result.derivation_trace,
+                        "all_input": error_result.all_input,
+                        "serious_violation": error_result.serious_violation,
+                        "command_name": error_result.command_name,
+                        # "tainted": error_result.tainted
+                    }
+                    error_results_dicts.append(error_dict)
+                pipeline_data["error_results"] = error_results_dicts
+                
                 # pipeline_data["tainted"] = checking_result.tainted
                 if len(checking_result.error_results) > 0:
                     pipeline_data["error message generated"] = checking_result.error_results[0].message
@@ -171,7 +189,7 @@ def process_pipeline(pipeline_info: Tuple[str, bool], evaluation_notes: List[dic
     if file_dir in not_check_all_dirs:
         check_all_pipelines = False
     local_results = []
-    for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines):
+    for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines, label):
         notes = notes_lookup(address, evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
         pipeline_result[IS_BUGGY_LABEL] = not label
         pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
@@ -268,6 +286,7 @@ def add_parsing_failures_to_results(results, statistics):
             "tainted": True,
             "address": file_path,
             "content": file_content,
+            "error_results": [],     # No detailed error results for parse failures
             "evaluation_time": "0s",  # Set evaluation time to 0 for parse failures
             "automata_size": 0,       # No automata for parse failures
             "pipeline_length": 0      # No valid pipeline length for parse failures
