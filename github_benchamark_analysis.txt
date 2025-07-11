@@ -1,0 +1,215 @@
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_0c9c1ae.sh
+
+need assumption (echo variable), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_2b5e2d4.sh
+
+need assumption (variable as file name), heuristic can catch the bug
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_04a609b.sh
+
+need assumption (variable as file name), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_5a44e63.sh
+
+need assumption (variable as file name), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_5cc1d95.sh
+
+need assumption (echo variable), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_6bdf689.sh
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_14f3dbb.sh
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_15dded7.sh
+
+need assumption (echo variable), dont need assertion (by dataflow analysis)
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_37d22a1.sh
+
+need assumption (echo variable), heuristic can catch the bug
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_48f02fb.sh
+
+need assumption (echo variable), dont need assertion (by dataflow analysis)
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_70f4cad.sh
+
+need assumption (echo variable), dont need assertion (by dataflow analysis)
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_72af092.sh
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_90b65c6.sh
+
+need assumption (echo variable), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_06580bf.sh
+
+need assumption (variable as file name), heuristic can catch the bug
+
+full_benchmark/github_repos_commits/collected/pre_commit/advanced_Scripts_chronometer.sh_chronometer_dac27f1.sh
+
+dont need assumption (directly run the command), need assertion (assert the output should be one line)
+
+full_benchmark/github_repos_commits/collected/pre_commit/advanced_Scripts_list.sh_list_1bf43b0.sh
+
+need assumption (echo variable), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/advanced_Scripts_list.sh_list_2061daa.sh
+
+need assumption (echo variable), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/advanced_Scripts_piholeDebug.sh_piholeDebug_5cebcea.sh
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/advanced_Scripts_piholeDebug.sh_piholeDebug_36937b1.sh
+
+need assumption (variable can be determined file content by dataflow analysis, but file name is a variable), need assertion (assert contains)
+
+full_benchmark/github_repos_commits/collected/pre_commit/aliases_available_git.aliases.bash_git.aliases_2a23598.bash
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/automated install_basic-install.sh_basic-install_8ee2bde.sh
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/automated install_basic-install.sh_basic-install_466fd79.sh
+
+dont need assumption (directly run the command); variable in the grep pattern, which is not supported now
+
+full_benchmark/github_repos_commits/collected/pre_commit/automated install_basic-install.sh_basic-install_523f650.sh
+
+dont need assumption (directly run the command, need internet access); need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/automated install_basic-install.sh_basic-install_9212eea.sh
+
+dont need assumption (directly run the command); need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/dnsapi_dns_1984hosting.sh_dns_1984hosting_0ab1439.sh
+
+need assumption (variable as file name); heuristic can catch the bug
+
+full_benchmark/github_repos_commits/collected/pre_commit/functions_vcs.zsh_vcs_cb5d33a.zsh
+
+need assumption (variable as argument); need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/install_fix-framework-text-scaling.sh_fix-framework-text-scaling_9b08be1.sh
+
+dont need assumption (directly run the command); need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/install.sh_install_67be567.sh
+
+dont need assumption (.* does not influence the result); dont need assertion (by dataflow analysis)
+
+full_benchmark/github_repos_commits/collected/pre_commit/lib_dirspersist.zsh_dirspersist_21e2a91.zsh
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/lib_git.zsh_git_27fff27.zsh
+
+dont need assumption (directly run the command and dataflow analysis); need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/lib_git.zsh_git_6774fb3.zsh
+
+dont need assumption (directly run the command and dataflow analysis); need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/lib_git.zsh_git_8890450.zsh
+
+dont need assumption (directly run the command and dataflow analysis); need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/lib_helpers.bash_helpers_1e77c26.bash
+
+the awk pattern is not valid (undeterminated regex)
+
+full_benchmark/github_repos_commits/collected/pre_commit/modes_stealth.sh_stealth_ca08f79.sh
+
+command argument usage is wrong
+
+full_benchmark/github_repos_commits/collected/pre_commit/nvm.sh_nvm_6dc602b.sh
+
+dont need assumption, need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/nvm.sh_nvm_578a601.sh
+
+dont need assumption, need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/nvm.sh_nvm_b59ecb9.sh
+
+dont need assumption, need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/nvm.sh_nvm_cb87c31.sh
+
+dont need assumption (by dataflow analysis and directly run the command); need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/openvpn-install_Nyr_6d89279.sh
+
+dont need assumption (directly run the command); dont need assertion (by dataflow analysis)
+
+full_benchmark/github_repos_commits/collected/pre_commit/openvpn-install.sh_openvpn-install_aca3b4a.sh
+
+dont need assumption (directly run the command); dont need assertion (by dataflow analysis)
+
+full_benchmark/github_repos_commits/collected/pre_commit/openvpn-install.sh_openvpn-install_d324165.sh
+
+dont need assumption (directly run the command); need assertion (assert contains)
+
+full_benchmark/github_repos_commits/collected/pre_commit/plugins_available_base.plugin.bash_base.plugin_e687857.bash
+
+dont need assumption (directly run the command), may not need assertion (the output is a IP address, and this is a function output)
+
+full_benchmark/github_repos_commits/collected/pre_commit/plugins_battery_battery.plugin.zsh_battery.plugin_15a0374.zsh
+
+dont need assumption (directly run the command), may not need assertion (the output is a IP address, and this is a function output)
+
+full_benchmark/github_repos_commits/collected/pre_commit/plugins_composer_composer.plugin.zsh_composer.plugin_8b5950b.zsh
+
+the awk pattern is not valid
+
+full_benchmark/github_repos_commits/collected/pre_commit/plugins_git_git.plugin.zsh_git.plugin_d60522c.zsh
+
+the grep pattern is not valid
+
+full_benchmark/github_repos_commits/collected/pre_commit/plugins_mix-fast_mix-fast.plugin.zsh_mix-fast.plugin_bf87e99.zsh
+
+command argument usage is wrong
+
+full_benchmark/github_repos_commits/collected/pre_commit/plugins_n98-magerun_n98-magerun.plugin.zsh_n98-magerun.plugin_de76905.zsh
+
+the awk pattern is not valid
+
+full_benchmark/github_repos_commits/collected/pre_commit/plugins_rake-fast_rake-fast.plugin.zsh_rake-fast.plugin_c56fa99.zsh
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/plugins_rvm_rvm.plugin.zsh_rvm.plugin_d20c111.zsh
+
+command argument usage is wrong
+
+full_benchmark/github_repos_commits/collected/pre_commit/plugins_svn_svn.plugin.zsh_svn.plugin_e2f7623.zsh
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/themes_base.theme.bash_base.theme_24c1cd1.bash
+
+dont need assumption (directly run the command), dont need assertion (by dataflow analysis and different platform support)
+
+full_benchmark/github_repos_commits/collected/pre_commit/themes_base.theme.bash_base.theme_70e4ac9.bash
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/themes_base.theme.bash_base.theme_ba02955.bash
+
+dont need assumption (directly run the command), need assertion
+
+full_benchmark/github_repos_commits/collected/pre_commit/wireguard-install.sh_wireguard-install_e05e633.sh
+
+dont need assumption (directly run the command), need assertion
