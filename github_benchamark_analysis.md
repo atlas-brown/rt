@@ -384,9 +384,6 @@ dont need assumption, need assertion
 ### result
 dont need assumption, dont need assertion
 
-### note
-Interesting.
-
 ## full_benchmark/github_repos_commits/collected/pre_commit/openvpn-install.sh_openvpn-install_aca3b4a.sh
 
 ### assumption
@@ -530,8 +527,9 @@ dont need assumption, need assertion
 
   - 5 pipeline: Annotations can be eliminated via concretization with additional information.
 
-  - 11 pipelies: Annotations can be eliminated via concretization with complicated control flow. The result is deterministic after concretization.
+  - 5 pipelies: Annotations can be eliminated via concretization with complicated control flow and dataflow analysis. The result is deterministic after concretization.
 
+  - 6 pipelines: Annotations can be eliminated via concretization with complicated control flow, dataflow analysis, and a simple model of side effect.
 
 
 * 21 pipelines: No assertions are needed.
@@ -545,3 +543,14 @@ dont need assumption, need assertion
 * 5 pipelines: I dont know how to assert.
 
 * 4 pipelines: Require an "assert_contains" assertion, which is difficult for developers to write correctly.
+
+
+## Interesting pipelines
+
+* full_benchmark/github_repos_commits/collected/pre_commit/openvpn-install_Nyr_6d89279.sh
+
+* full_benchmark/github_repos_commits/collected/pre_commit/openvpn-install.sh_openvpn-install_aca3b4a.sh
+
+* full_benchmark/github_repos_commits/collected/pre_commit/install.sh_install_67be567.sh
+
+* full_benchmark/github_repos_commits/collected/pre_commit/themes_base.theme.bash_base.theme_24c1cd1.bash
