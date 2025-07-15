@@ -22,7 +22,7 @@ The assumption can be eliminated by concretization with addional information fro
 
 ### assumption
 1. need concretization with addional information: $2 is a nginx config file; we need to provide the content of the file.
-2. Enable the heuristic.
+2. Enable the heuristic
 
 ### result
 dont need assumption, dont need assertion
@@ -68,7 +68,7 @@ dont need assumption, dont know how to assert
 
 ### analysis
 
-dont need assumption (directly run the command). The output is hard to assert. It is always empty on every platform. However, after concretization, we cannot use the heuristic to catch the bug.
+The output is hard to assert. It is always empty on every platform. However, after concretization, we cannot use the heuristic to catch the bug.
 
 ### assumption
 1. need concretization
@@ -161,7 +161,7 @@ dont need assumption, need assertion
 
 ### assumption
 1. need concretization with addional information: $2 is a nginx config file; we need to provide the content of the file.
-2. Enable the heuristic.
+2. Enable the heuristic
 
 ### result
 dont need assumption, dont need assertion
@@ -520,3 +520,24 @@ dont need assumption, need assertion
 
 ### result
 dont need assumption, need assertion
+
+
+## Result
+
+* All 53 pipelines: No assumption annotations with some system level assumptions.
+
+  - 26 pipelines: Annotations can be eliminated directly via command execution and dataflow analysis.
+
+
+
+* 21 pipelines: No assertions are needed.
+
+  - 7 of these have (non-trivial) syntactic issues and are likely out of scope.
+
+  - 5 require heuristics that may conflict with concretization.
+
+  - 9 can have their assertions eliminated via dataflow analysis.
+
+* 5 pipelines: I dont know how to assert.
+
+* 4 pipelines: Require an "assert_contains" assertion, which is difficult for developers to write correctly.
