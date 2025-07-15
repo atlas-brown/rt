@@ -528,6 +528,10 @@ dont need assumption, need assertion
 
   - 26 pipelines: Annotations can be eliminated directly via command execution and dataflow analysis.
 
+  - 5 pipeline: Annotations can be eliminated via concretization with additional information.
+
+  - 11 pipelies: Annotations can be eliminated via concretization with complicated control flow. The result is deterministic after concretization.
+
 
 
 * 21 pipelines: No assertions are needed.
