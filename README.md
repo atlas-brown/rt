@@ -3,7 +3,7 @@
 ## Install dependencies (Ignore if building from Docker)
 
 ```bash
-pip3 install shasta libdash pash_annotations pytest z3-solver
+pip3 install shasta libdash pash_annotations pytest jpype1
 ```
 
 
@@ -24,8 +24,8 @@ sh typecheck.sh -h
 ./run_evaluations.sh --log_level DEBUG # logging level: DEBUG
 ./run_evaluations.sh --disable_annotation # without annotations
 # currently not supported
-./run_evaluations.sh --workers 16 # 16 workers
-./run_evaluations.sh --timeout 30 # timeout for each z3 query: 30 seconds
+# ./run_evaluations.sh --workers 16 # 16 workers
+# ./run_evaluations.sh --timeout 30 # timeout for each z3 query: 30 seconds
 ```
 
 ## Run unit tests

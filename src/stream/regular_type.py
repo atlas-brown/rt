@@ -2,7 +2,6 @@ import functools
 import re
 import traceback
 from typing import Optional, Set, Tuple
-import z3
 from stream.regex_parser import CharacterClass, Dot, EmptyLanguageNode, Literal, Range, Repeat, Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, ast_to_z3, Node, ast_to_regex
 import logging
 from stream.tool_error import TimeoutError, ToolError

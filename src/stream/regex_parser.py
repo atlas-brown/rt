@@ -1,5 +1,5 @@
 from typing import Optional
-import z3
+# import z3
 import jpype.imports
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
@@ -469,6 +469,7 @@ def escape_char_class(ch):
     
 
 def ast_to_z3(node):
+    import z3
     any_char = z3.Range(chr(0), chr(127))
     # any_char = z3.Range(chr(0), chr(126))
     if isinstance(node, EmptyLanguageNode):
