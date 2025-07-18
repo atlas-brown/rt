@@ -9,11 +9,11 @@ from stream.parser.shell_parser import ShellParser
 from typing import Callable, Dict, Optional, List, Tuple
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 from stream.tool_error import ToolError
-from stream.user_annotation import AnnotationType, UserAnnotation
+from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 from stream.utils.logger import get_logger
 from stream.utils.format import pretty_ast_node
 from stream.utils.timing import Timing
-from shasta.ast_node import PipeNode
+from shasta.ast_node import PipeNode, CommandNode
 
 @dataclass
 class ErrorResult:
@@ -113,6 +113,7 @@ class ScriptChecker:
     def check_next(self) -> Optional[CheckingResult]:
         if not self.pipelines:
             self.initialize_check()
+            assert self.pipelines is not None
 
         if self.pipeline_nodes is None:
             return None
@@ -176,6 +177,9 @@ class ScriptChecker:
 
     def get_current_pipeline_content_when_error(self) -> Optional[str]:
         try:
+            if self.pipeline_nodes is None:
+                return None
+
             return self.pipeline_nodes[self.current_index - 1].pretty()
         except Exception:
             return None
@@ -191,8 +195,8 @@ class PipelineChecker:
 
     def __init__(
         self,
-        annotations: Dict[PipeNode, List[UserAnnotation]],
-        env_annotations: Dict[PipeNode, Dict[str, List[UserAnnotation]]],
+        annotations: Dict[CommandNode, List[UserAnnotation]],
+        env_annotations: Dict[PipeNode, Dict[str, List[EnvAnnotation]]],
         heuristic_rules: List[str],
         enable_detailed_error_reporting: bool = True,
     ) -> None:
@@ -229,8 +233,11 @@ class PipelineChecker:
         # Logging record initialisation (same as original behaviour)
         # ---------------------------------------------------------
         self.pipeline_length = len(parsed_commands)
-        try:
 
+        # dummy command signature to ensure `signature` is not unbound in the `except` block
+        signature = CommandSignature("fake command", "", "", [], [], [], True, True)
+        
+        try:
             # --------------------------------------------------
             # Iterate through each command in the pipeline
             # --------------------------------------------------
@@ -267,7 +274,7 @@ class PipelineChecker:
                             is_pure_string=False,  # Will be updated in special signatures
                             has_references=False  # Will be updated in special signatures
                         )
-                corresponding_annotations = self.annotations.get(command_node, [])
+                corresponding_annotations = self.annotations.get(command_node, []) if isinstance(command_node, CommandNode) else []
                 corresponding_env_annotations = self.env_annotations.get(pipeline_node, {})
                 if len(corresponding_annotations) > 0:
                     get_logger().get_latest_record()["annotations"] = corresponding_annotations
@@ -321,7 +328,7 @@ class PipelineChecker:
                 current_output_type_str = refine_log(current_output_type_str)
 
                 command_type_str = ""
-                input_type_str = refine_log(input_type_str)
+                input_type_str = refine_log(input_type_str) if input_type_str is not None else ""
                 current_output_type_str = refine_log(current_output_type_str)
                 if "α" not in current_output_type_str and no_input_type_str is None:
                     if input_type_str == "":
@@ -564,7 +571,7 @@ class PipelineChecker:
     
 
     def backward(self, witness: str) -> str:
-        pass
+        raise Exception("not implemented yet")
 
 def refine_log(s: str) -> str:
     s = re.sub(r"((?<!\\)(?:\\\\)*)\\ ", r"\1 ", s)
