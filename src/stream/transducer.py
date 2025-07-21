@@ -24,15 +24,20 @@ class FST_State:
         return f"FST_State(id={self.id}, accept={self.accept})\n" + "\n".join(f"  {t}" for t in self.transitions) + "\n"
 
 class FST_Transition:
-    def __init__(self, min: Optional[str], max: Optional[str], output: str, to: FST_State, is_other: bool = False, is_not_consumed = False) -> None:
+    def __init__(self, min: Optional[str], max: Optional[str], output: str, to: FST_State, is_other: bool = False, is_not_consumed = False, is_epsilon: bool = False) -> None:
         self.min: Optional[str] = min
         self.max: Optional[str] = max
         self.output: str = output
         self.to: FST_State = to
         self.is_other: bool = is_other
         self.is_not_consumed: bool = is_not_consumed
+        self.is_epsilon: bool = is_epsilon
 
     def applies(self, c: str) -> bool:
+        # Epsilon transition: min=None, max=None, is_epsilon=True
+        # Can accept any character but doesn't consume it
+        if self.min is None and self.max is None and self.is_epsilon:
+            return True
         if self.min is None or self.max is None:
             return False
         return ord(self.min) <= ord(c) <= ord(self.max)
@@ -85,22 +90,25 @@ class FST:
         state = self.add_state(state_id, accept=True)
         state.accept = True
 
-    def add_transition(self, from_state_id: int, min_in: str, max_in: Optional[str], output: str, next_state_id: int, is_not_consumed = False) -> None:
+    def add_transition(self, from_state_id: int, min_in: str, max_in: Optional[str], output: str, next_state_id: int, is_not_consumed = False, is_epsilon: bool = False) -> None:
         from_state = self.add_state(from_state_id)
         next_state = self.add_state(next_state_id)
         is_other = False
         # is_other_not_consume = False
-        if min_in == "$other":
+        if min_in == "$epsilon":
+            is_epsilon = True
+            start_val, end_val = None, None
+        elif min_in == "$other":
             is_other = True
             start_val, end_val = None, None
-        if min_in == "$all":
+        elif min_in == "$all":
             start_val, end_val = chr(0), chr(65535)
         # elif min_in == "$other_not_consume":
         #     is_other_not_consume = True
         #     start_val, end_val = None, None
         else:
             start_val, end_val = min_in, max_in
-        trans = FST_Transition(start_val, end_val, output, to=next_state, is_other=is_other, is_not_consumed=is_not_consumed)
+        trans = FST_Transition(start_val, end_val, output, to=next_state, is_other=is_other, is_not_consumed=is_not_consumed, is_epsilon=is_epsilon)
         from_state.add_transition(trans)
 
     def _merge_intervals(self, intervals: List[Tuple[int, int]]) -> List[Tuple[int, int]]:
@@ -154,6 +162,14 @@ class FST:
             if not not_consumed_transtion:
                 continue
             for t in not_consumed_transtion:
+                # Check if target state has not_consumed or epsilon transitions
+                target_state = t.to
+                has_not_consumed = any(trans.is_not_consumed for trans in target_state.transitions)
+                has_epsilon = any(trans.is_epsilon for trans in target_state.transitions)
+                
+                if has_not_consumed or has_epsilon:
+                    raise ToolError(f"Cannot eliminate not_consumed transition: target state {target_state.id} has not_consumed or epsilon transitions")
+                
                 for des_transition in t.to.transitions:
                     if ord(t.max) >= ord(des_transition.min) and ord(t.min) <= ord(des_transition.max):
                         new_min = t.min if ord(t.min) > ord(des_transition.min) else des_transition.min
@@ -165,16 +181,38 @@ class FST:
     def transform_all(self, input_string: str) -> Set[str]:
         if self.initial is None:
             return set()
-        configurations: Set[Tuple[FST_State, str]] = {(self.initial, "")}
+        
+        def epsilon_closure(configurations: Set[Tuple[FST_State, str]]) -> Set[Tuple[FST_State, str]]:
+            """Compute epsilon closure of the given configurations"""
+            closure = set(configurations)
+            changed = True
+            while changed:
+                changed = False
+                new_configs = set()
+                for state, output_so_far in closure:
+                    for trans in state.transitions:
+                        if trans.is_epsilon:
+                            new_state = trans.to
+                            new_output = output_so_far + trans.output
+                            new_config = (new_state, new_output)
+                            if new_config not in closure:
+                                new_configs.add(new_config)
+                                changed = True
+                closure.update(new_configs)
+            return closure
+        
+        configurations: Set[Tuple[FST_State, str]] = epsilon_closure({(self.initial, "")})
+        
         for c in input_string:
             next_configurations: Set[Tuple[FST_State, str]] = set()
             for state, output_so_far in configurations:
                 for trans in state.transitions:
-                    if trans.applies(c):
+                    if not trans.is_epsilon and trans.applies(c):
                         new_state = trans.to
                         new_output = output_so_far + trans.transform(c)
                         next_configurations.add((new_state, new_output))
-            configurations = next_configurations
+            configurations = epsilon_closure(next_configurations)
+        
         results: Set[str] = {out for state, out in configurations if state.accept}
         return results
     
@@ -205,7 +243,24 @@ class FST:
                 
                 target_state = state_mapping[trans.to]
                 
-                # Handle output
+                # Handle epsilon transitions
+                if trans.is_epsilon:
+                    if trans.output:
+                        # Create transitions for the output string
+                        temp_state = current_state
+                        for i, c in enumerate(trans.output):
+                            if i == len(trans.output) - 1:
+                                temp_state.addTransition(Transition(c, c, target_state))
+                            else:
+                                next_state = State()
+                                temp_state.addTransition(Transition(c, c, next_state))
+                                temp_state = next_state
+                    else:
+                        # Empty output - add to empty transitions
+                        empty_transitions.add((current_state, target_state))
+                    continue
+                
+                # Handle output for regular transitions
                 if trans.min is None or trans.max is None:
                     continue
                     
@@ -267,7 +322,7 @@ class FST:
         sorted_states = sorted(self.states.items(), key=lambda x: x[0])
         return f"Initial: {self.initial.id}\n" + "\n".join(f"{state_id}: {state}" for state_id, state in sorted_states)
 
-def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: int = 0, final_states: Optional[Set[int]] = None) -> FST:
+def create_fst(transition_specs: List[Tuple[int, str, str, int] | Tuple[int, str, str, int, bool]], start_state: int = 0, final_states: Optional[Set[int]] = None) -> FST:
     fst = FST()
     fst.set_start(start_state)
     if final_states is None:
@@ -278,8 +333,11 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
         else:
             from_state, input_range, output, next_state = spec
             is_not_consumed = False
-        if input_range == "$other":
-            fst.add_transition(from_state, "$other", None, output, next_state, is_not_consumed)
+        
+        if input_range == "$epsilon":
+            fst.add_transition(from_state, "$epsilon", None, output, next_state, is_not_consumed=False, is_epsilon=True)
+        elif input_range == "$other":
+            fst.add_transition(from_state, "$other", None, output, next_state, is_not_consumed, is_epsilon = False)
         # elif input_range == "$other_not_consume":
         #     fst.add_transition(from_state, "$other_not_consume", None, output, next_state)
         else:
@@ -288,7 +346,7 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
                     if input_range.startswith("---"):
                         min_in = "-"
                         max_in = input_range[3:]
-                    if input_range.endswith("---"):
+                    elif input_range.endswith("---"):
                         min_in = input_range[:-3]
                         max_in = "-"
                     else:
@@ -301,7 +359,7 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int]], start_state: i
             else:
                 min_in = input_range
                 max_in = input_range
-            fst.add_transition(from_state, min_in, max_in, output, next_state, is_not_consumed)
+            fst.add_transition(from_state, min_in, max_in, output, next_state, is_not_consumed, is_epsilon = False)
     for fs in final_states:
         fst.set_accept(fs)
     fst._process_other_transitions()
@@ -384,47 +442,74 @@ def product_fst_automaton_with_projection(fst: FST, automaton: Automaton) -> Aut
         
         # Compute product transitions
         for fst_trans in fst_state.transitions:
-            for auto_trans in auto_state.getSortedTransitions(True):
-                # Check if input ranges overlap
-                if (fst_trans.min is not None and fst_trans.max is not None and
-                    ord(auto_trans.getMax()) >= ord(fst_trans.min) and 
-                    ord(auto_trans.getMin()) <= ord(fst_trans.max)):
-                    
-                    # Compute intersection of input ranges
-                    min_in = fst_trans.min if ord(fst_trans.min) > ord(auto_trans.getMin()) else auto_trans.getMin()
-                    max_in = fst_trans.max if ord(fst_trans.max) < ord(auto_trans.getMax()) else auto_trans.getMax()
-                    
-                    # Ensure target automaton state has an ID
-                    target_auto_state = auto_trans.getDest()
-                    if target_auto_state not in state_to_id:
-                        state_to_id[target_auto_state] = auto_state_counter
-                        auto_state_counter += 1
-                    
-                    # Create target state if not exists
-                    target_pair = (fst_trans.to.id, state_to_id[target_auto_state])
-                    if target_pair not in state_mapping:
-                        state_mapping[target_pair] = state_counter
-                        state_counter += 1
-                        worklist.append((fst_trans.to, target_auto_state))
-                    
-                    target_state_id = state_mapping[target_pair]
-                    
-                    # Add transition to product FST
-                    # Input is the intersection range, output is the FST's output
-                    product_fst.add_transition(
-                        current_state_id, 
-                        min_in, 
-                        max_in, 
-                        fst_trans.output, 
-                        target_state_id,
-                        fst_trans.is_not_consumed
-                    )
+            # Handle epsilon transitions (don't consume input)
+            if fst_trans.is_epsilon:
+                # Epsilon transitions don't require input overlap with automaton
+                # The automaton state stays the same, only FST state changes
+                if fst_trans.to.id not in state_to_id:
+                    state_to_id[auto_state] = auto_state_counter if auto_state not in state_to_id else state_to_id[auto_state]
+                
+                target_pair = (fst_trans.to.id, state_to_id[auto_state])
+                if target_pair not in state_mapping:
+                    state_mapping[target_pair] = state_counter
+                    state_counter += 1
+                    worklist.append((fst_trans.to, auto_state))
+                
+                target_state_id = state_mapping[target_pair]
+                
+                # Add epsilon transition to product FST
+                product_fst.add_transition(
+                    current_state_id,
+                    "$epsilon",
+                    None,
+                    fst_trans.output,
+                    target_state_id,
+                    fst_trans.is_not_consumed,
+                    is_epsilon=True
+                )
+            else:
+                # Handle regular transitions
+                for auto_trans in auto_state.getSortedTransitions(True):
+                    # Check if input ranges overlap
+                    if (fst_trans.min is not None and fst_trans.max is not None and
+                        ord(auto_trans.getMax()) >= ord(fst_trans.min) and 
+                        ord(auto_trans.getMin()) <= ord(fst_trans.max)):
+                        
+                        # Compute intersection of input ranges
+                        min_in = fst_trans.min if ord(fst_trans.min) > ord(auto_trans.getMin()) else auto_trans.getMin()
+                        max_in = fst_trans.max if ord(fst_trans.max) < ord(auto_trans.getMax()) else auto_trans.getMax()
+                        
+                        # Ensure target automaton state has an ID
+                        target_auto_state = auto_trans.getDest()
+                        if target_auto_state not in state_to_id:
+                            state_to_id[target_auto_state] = auto_state_counter
+                            auto_state_counter += 1
+                        
+                        # Create target state if not exists
+                        target_pair = (fst_trans.to.id, state_to_id[target_auto_state])
+                        if target_pair not in state_mapping:
+                            state_mapping[target_pair] = state_counter
+                            state_counter += 1
+                            worklist.append((fst_trans.to, target_auto_state))
+                        
+                        target_state_id = state_mapping[target_pair]
+                        
+                        # Add transition to product FST
+                        # Input is the intersection range, output is the FST's output
+                        product_fst.add_transition(
+                            current_state_id, 
+                            min_in, 
+                            max_in, 
+                            fst_trans.output, 
+                            target_state_id,
+                            fst_trans.is_not_consumed
+                        )
     
     # Process the FST to handle special transitions
     product_fst._process_other_transitions()
     product_fst._process_not_consumed_transitions()
     
-    # Now compute the output projection
+    # compute the output projection
     return product_fst.output_projection()
 
 
@@ -448,46 +533,81 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
         transitions_fst = fst.states[s_fst.id].transitions
         transitions_automaton = s_automaton.getSortedTransitions(True)
         for t_fst in transitions_fst:
-            for t_automaton in transitions_automaton:
-                if ord(t_automaton.getMax()) >= ord(t_fst.min) and ord(t_automaton.getMin()) <= ord(t_fst.max):
-                    p = (t_fst.to, t_automaton.getDest())
-                    if p not in new_states:
-                        s = State()
-                        new_states[p] = s
-                        worklist.append(p)
-                    s = new_states[p]
-                    min_in = t_fst.min if ord(t_fst.min) > ord(t_automaton.getMin()) else t_automaton.getMin()
-                    max_in = t_fst.max if ord(t_fst.max) < ord(t_automaton.getMax()) else t_automaton.getMax()
-                    min_out = t_fst.transform(min_in)
-                    max_out = t_fst.transform(max_in)
-                    if len(min_out) == 0 or len(max_out) == 0:
-                        if min_out != max_out:
-                            raise ToolError(f"Output range not supported: {min_out}--{max_out}")
-                        empty_transitions.add((s_product, s))
-                    elif len(min_out) > 1 or len(max_out) > 1:
-                        # if min_out != max_out:
-                        #     raise ToolError(f"Output range not supported: {min_out}--{max_out}")
-                        if "$self" in t_fst.output:
-                            if not t_fst.output.endswith("$self") and not t_fst.output.startswith("$self"):
+            # Handle epsilon transitions (don't consume input)
+            if t_fst.is_epsilon:
+                # Epsilon transitions don't require input overlap with automaton
+                # The automaton state stays the same, only FST state changes
+                p_epsilon = (t_fst.to, s_automaton)
+                if p_epsilon not in new_states:
+                    s_epsilon = State()
+                    new_states[p_epsilon] = s_epsilon
+                    worklist.append(p_epsilon)
+                s_epsilon = new_states[p_epsilon]
+                
+                # Add epsilon transition (empty output)
+                if t_fst.output:
+                    # Create transitions for the output string
+                    current_state = s_product
+                    for i, c in enumerate(t_fst.output):
+                        if i == len(t_fst.output) - 1:
+                            current_state.addTransition(Transition(c, c, s_epsilon))
+                        else:
+                            next_state = State()
+                            current_state.addTransition(Transition(c, c, next_state))
+                            current_state = next_state
+                else:
+                    empty_transitions.add((s_product, s_epsilon))
+            else:
+                # Handle regular transitions
+                for t_automaton in transitions_automaton:
+                    if ord(t_automaton.getMax()) >= ord(t_fst.min) and ord(t_automaton.getMin()) <= ord(t_fst.max):
+                        p = (t_fst.to, t_automaton.getDest())
+                        if p not in new_states:
+                            s = State()
+                            new_states[p] = s
+                            worklist.append(p)
+                        s = new_states[p]
+                        min_in = t_fst.min if ord(t_fst.min) > ord(t_automaton.getMin()) else t_automaton.getMin()
+                        max_in = t_fst.max if ord(t_fst.max) < ord(t_automaton.getMax()) else t_automaton.getMax()
+                        min_out = t_fst.transform(min_in)
+                        max_out = t_fst.transform(max_in)
+                        if len(min_out) == 0 or len(max_out) == 0:
+                            if min_out != max_out:
                                 raise ToolError(f"Output range not supported: {min_out}--{max_out}")
-                            if t_fst.output.endswith("$self"):
-                                min_out = t_fst.output[:-5]
-                                max_out = t_fst.output[:-5]
-                                if min_out != max_out:
+                            empty_transitions.add((s_product, s))
+                        elif len(min_out) > 1 or len(max_out) > 1:
+                            # if min_out != max_out:
+                            #     raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                            if "$self" in t_fst.output:
+                                if not t_fst.output.endswith("$self") and not t_fst.output.startswith("$self"):
                                     raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                                if t_fst.output.endswith("$self"):
+                                    min_out = t_fst.output[:-5]
+                                    max_out = t_fst.output[:-5]
+                                    if min_out != max_out:
+                                        raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                                    current_state = s_product
+                                    for i, c in enumerate(min_out):
+                                        s_1 = State()
+                                        current_state.addTransition(Transition(c, c, s_1))
+                                        current_state = s_1
+                                    current_state.addTransition(Transition(min_in, max_in, s))
+                                if t_fst.output.startswith("$self"):
+                                    min_out = t_fst.output[5:]
+                                    max_out = t_fst.output[5:]
+                                    if min_out != max_out:
+                                        raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                                    current_state = State()
+                                    s_product.addTransition(Transition(min_in, max_in, current_state))
+                                    for i, c in enumerate(min_out):
+                                        if i != len(min_out) - 1:
+                                            s_1 = State()
+                                            current_state.addTransition(Transition(c, c, s_1))
+                                            current_state = s_1
+                                        else:
+                                            current_state.addTransition(Transition(c, c, s))
+                            else:
                                 current_state = s_product
-                                for i, c in enumerate(min_out):
-                                    s_1 = State()
-                                    current_state.addTransition(Transition(c, c, s_1))
-                                    current_state = s_1
-                                current_state.addTransition(Transition(min_in, max_in, s))
-                            if t_fst.output.startswith("$self"):
-                                min_out = t_fst.output[5:]
-                                max_out = t_fst.output[5:]
-                                if min_out != max_out:
-                                    raise ToolError(f"Output range not supported: {min_out}--{max_out}")
-                                current_state = State()
-                                s_product.addTransition(Transition(min_in, max_in, current_state))
                                 for i, c in enumerate(min_out):
                                     if i != len(min_out) - 1:
                                         s_1 = State()
@@ -496,16 +616,7 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                                     else:
                                         current_state.addTransition(Transition(c, c, s))
                         else:
-                            current_state = s_product
-                            for i, c in enumerate(min_out):
-                                if i != len(min_out) - 1:
-                                    s_1 = State()
-                                    current_state.addTransition(Transition(c, c, s_1))
-                                    current_state = s_1
-                                else:
-                                    current_state.addTransition(Transition(c, c, s))
-                    else:
-                        s_product.addTransition(Transition(min_out, max_out, s))
+                            s_product.addTransition(Transition(min_out, max_out, s))
 
     process_empty_transitions(empty_transitions)
     product.setDeterministic(False)

@@ -60,7 +60,7 @@ class CommandSignature:
                 get_logger().get_latest_record()["command_list"][-1]["output_assumed"] = annotation.pattern
                 return RegularType(annotation.pattern, tainted=False)
             
-        if parsed_command_invocation.cmd_name != "xargs" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
+        if parsed_command_invocation.cmd_name != "xargs" and parsed_command_invocation.cmd_name != "grep" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
             operand = parsed_command_invocation.operand_list[0].name
             if operand.startswith("-"):
                 raise PashAnnotationParsingError(f"pash_annotations.parser might be wrong, command: {parsed_command_invocation}, operand: {operand}")

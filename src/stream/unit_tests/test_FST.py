@@ -34,20 +34,16 @@ from stream.transducer import (
 from stream.regex_parser import ast_to_automaton, RegexParser
 
 
-# Test fixtures and helper functions
 @pytest.fixture
 def random_seed() -> None:
-    """Set random seed for reproducible tests."""
     random.seed(42)
 
 
 def generate_random_string(length: int = 10, letters: str = string.ascii_lowercase) -> str:
-    """Generate a random string of specified length from given characters."""
     return ''.join(random.choice(letters) for _ in range(length))
 
 
 def generate_random_string_unique_chars(length: int = 10) -> str:
-    """Generate a random string with unique characters."""
     letters = list(string.ascii_lowercase)
     random.shuffle(letters)
     if length > len(letters):
@@ -56,10 +52,8 @@ def generate_random_string_unique_chars(length: int = 10) -> str:
 
 
 class TestTranslationFST:
-    """Test suite for translation FST operations."""
     
     def test_basic_translation(self) -> None:
-        """Test basic string translation functionality."""
         fst = translation_FST("abc", "def")
         
         assert fst.transform_all("abc") == {"def"}
@@ -70,7 +64,6 @@ class TestTranslationFST:
     
     @pytest.mark.parametrize("test_iteration", range(10))
     def test_random_translation(self, random_seed: None, test_iteration: int) -> None:
-        """Test translation with random character sets."""
         set1 = generate_random_string_unique_chars()
         set2 = generate_random_string_unique_chars()
         fst = translation_FST(set1, set2)
@@ -92,10 +85,8 @@ class TestTranslationFST:
 
 
 class TestCompressionFST:
-    """Test suite for compression FST operations."""
     
     def test_basic_compression(self) -> None:
-        """Test basic character compression functionality."""
         fst = compression_FST("ab")
         
         assert fst.transform_all("aaa") == {"a"}

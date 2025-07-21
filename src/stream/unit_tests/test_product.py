@@ -1,7 +1,7 @@
 import jpype
 import pytest
 from stream.regex_parser import RegexParser, ast_to_automaton
-from stream.transducer import correct_cut_field_FST, cut_char_FST, line_based_functional_to_stream_FST, product_fst_automaton, product_fst_automaton_with_projection
+from stream.transducer import correct_cut_field_FST, create_fst, cut_char_FST, line_based_functional_to_stream_FST, product_fst_automaton, product_fst_automaton_with_projection
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition # type: ignore
@@ -83,6 +83,45 @@ class TestCutCharFST:
         actual = product_fst_automaton(cut_fst, nfa1)
         assert_equal(expected, actual)
 
+
+
+class TestEpsilonTransitions:
+    def test_epsilon_transitions(self) -> None:
+        fst = create_fst([
+            (0, "$epsilon", "hello", 1),
+            (1, "a", "world", 2),
+        ], 0, {2})
+        nfa1 = create_nfa("a*")
+        expected = create_nfa("helloworld")
+        actual = product_fst_automaton(fst, nfa1)
+        assert_equal(expected, actual)
+
+        fst = create_fst([
+            (0, "$epsilon", "hello", 0),
+            (0, "a", "world", 1),
+        ], 0, {1})
+        nfa1 = create_nfa("a")
+        expected = create_nfa("(hello)*world")
+        actual = product_fst_automaton(fst, nfa1)
+        assert_equal(expected, actual)
+        nfa2 = create_nfa("a*")
+        expected = create_nfa("(hello)*world")
+        actual = product_fst_automaton(fst, nfa2)
+        assert_equal(expected, actual)
+        nfa3 = create_nfa("a*b+")
+        actual = product_fst_automaton(fst, nfa3)
+        assert actual.isEmpty()
+
+        fst = create_fst([
+            (0, "$epsilon", "x", 1),
+            (1, "$epsilon", "y", 1),
+            (1, "a", "z", 1),
+        ], 0, {1})
+        nfa1 = create_nfa("a*")
+        expected = create_nfa("x(y|z)*")
+        actual = product_fst_automaton(fst, nfa1)
+        print(actual)
+        assert_equal(expected, actual)
 
 
 if __name__ == "__main__":
