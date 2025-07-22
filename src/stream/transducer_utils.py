@@ -976,9 +976,9 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                     elif isinstance(t_fst.output_type, RangeOutput):
                         # One-to-one range output from epsilon transition
                         s_product.addTransition(Transition(t_fst.output_type.min_char, t_fst.output_type.max_char, s_epsilon))
-                    elif isinstance(t_fst.output_type, (LiteralOutput, VariableOutput)):
-                        # Create transitions for the output string
-                        output_str = t_fst.output_type.to_string()
+                    elif isinstance(t_fst.output_type, LiteralOutput):
+                        # Create transitions for the literal output string
+                        output_str = t_fst.output_type.value
                         current_state = s_product
                         for i, c in enumerate(output_str):
                             if i == len(output_str) - 1:
@@ -987,17 +987,14 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                                 next_state = State()
                                 current_state.addTransition(Transition(c, c, next_state))
                                 current_state = next_state
+                    elif isinstance(t_fst.output_type, SelfOutput):
+                        # SelfOutput from epsilon transition is invalid - no input context
+                        raise ValueError("SelfOutput from epsilon transition is invalid - no input context")
+                    elif isinstance(t_fst.output_type, VariableOutput):
+                        # VariableOutput from epsilon transition is invalid - $self undefined
+                        raise ValueError("VariableOutput from epsilon transition is invalid - $self is undefined")
                     else:
-                        # Create transitions for the output string
-                        output_str = t_fst.output_type.to_string()
-                        current_state = s_product
-                        for i, c in enumerate(output_str):
-                            if i == len(output_str) - 1:
-                                current_state.addTransition(Transition(c, c, s_epsilon))
-                            else:
-                                next_state = State()
-                                current_state.addTransition(Transition(c, c, next_state))
-                                current_state = next_state
+                        raise ValueError(f"Unsupported output type for epsilon transition: {type(t_fst.output_type)}")
                 else:
                     empty_transitions.add((s_product, s_epsilon))
             else:
@@ -1023,9 +1020,17 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                             # One-to-one range mapping
                             # Use pattern matching for output range
                             if isinstance(t_fst.output_type, SelfOutput):
-                                output_min, output_max = t_fst.min, t_fst.max
+                                # For SelfOutput, use the intersection range, not the full FST range
+                                output_min, output_max = min_in, max_in
                             elif isinstance(t_fst.output_type, RangeOutput):
-                                output_min, output_max = t_fst.output_type.min_char, t_fst.output_type.max_char
+                                # For RangeOutput, calculate the corresponding output range based on intersection
+                                input_offset_min = ord(min_in) - ord(t_fst.min)
+                                input_offset_max = ord(max_in) - ord(t_fst.min)
+                                output_char_min = chr(ord(t_fst.output_type.min_char) + input_offset_min)
+                                output_char_max = chr(ord(t_fst.output_type.min_char) + input_offset_max)
+                                # Clamp to max if needed
+                                output_min = chr(min(ord(output_char_min), ord(t_fst.output_type.max_char)))
+                                output_max = chr(min(ord(output_char_max), ord(t_fst.output_type.max_char)))
                             else:
                                 output_min = output_max = t_fst.output_type.to_string()
                             s_product.addTransition(Transition(output_min, output_max, s))
@@ -1048,21 +1053,21 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                                 min_out = chr(min(ord(min_output_char), ord(t_fst.output_type.max_char)))
                                 max_out = chr(min(ord(max_output_char), ord(t_fst.output_type.max_char)))
                             else:
-                                min_out = max_out = t_fst.output_type.to_string()
+                                raise ValueError(f"Unsupported output type for regular transition: {type(t_fst.output_type)}")
                             if len(min_out) == 0 or len(max_out) == 0:
                                 if min_out != max_out:
-                                    raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                                    raise ValueError(f"Output range not supported: {min_out}--{max_out}")
                                 empty_transitions.add((s_product, s))
                             elif len(min_out) > 1 or len(max_out) > 1:
                                 # Handle variable outputs with $self
                                 if isinstance(t_fst.output_type, VariableOutput):
                                     template = t_fst.output_type.template
                                     if not template.endswith("$self") and not template.startswith("$self"):
-                                        raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                                        raise ValueError(f"Output range not supported: {min_out}--{max_out}")
                                     if template.endswith("$self"):
                                         prefix = template[:-5]
                                         if min_out != max_out:
-                                            raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                                            raise ValueError(f"Output range not supported: {min_out}--{max_out}")
                                         current_state = s_product
                                         for i, c in enumerate(prefix):
                                             s_1 = State()
@@ -1072,7 +1077,7 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                                     elif template.startswith("$self"):
                                         suffix = template[5:]
                                         if min_out != max_out:
-                                            raise ToolError(f"Output range not supported: {min_out}--{max_out}")
+                                            raise ValueError(f"Output range not supported: {min_out}--{max_out}")
                                         current_state = State()
                                         s_product.addTransition(Transition(min_in, max_in, current_state))
                                         for i, c in enumerate(suffix):

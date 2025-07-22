@@ -2,7 +2,7 @@ import traceback
 import jpype
 import pytest
 from stream.regex_parser import RegexParser, ast_to_automaton
-from stream.transducer import compression_FST, correct_cut_field_FST, create_fst, cut_char_FST, line_based_functional_to_stream_FST, product_fst_automaton, product_fst_automaton_with_projection, start_regex_replacement_FST, translation_FST
+from stream.transducer import compression_FST, correct_cut_field_FST, create_fst, cut_char_FST, global_replacement_FST, line_based_functional_to_stream_FST, product_fst_automaton, product_fst_automaton_with_projection, start_regex_replacement_FST, translation_FST
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition # type: ignore
@@ -25,7 +25,7 @@ def diff(a: Automaton, b: Automaton) -> str:
     s = s.replace("\n", "\\n")
     return s
 
-product_fst_automaton = product_fst_automaton_with_projection
+# product_fst_automaton = product_fst_automaton_with_projection
 
 class TestInverseFST:
     def test_inverse_fst(self) -> None:
@@ -74,6 +74,10 @@ class TestInverseFST:
         nfa = create_nfa("bab")
         expected = create_nfa("ba+b")
         actual = product_fst_automaton(fst_inverse, nfa)
+        print("fst: ", fst_inverse)
+        print("nfa: ", nfa)
+        print("result: ", actual)
+        print(diff(actual, expected))
         assert_equal(expected, actual)
 
     def test_cut_field_fst(self) -> None:
@@ -116,7 +120,35 @@ class TestInverseFST:
         actual = product_fst_automaton(fst_inverse, nfa)
         assert_equal(expected, actual)
 
+        fst = start_regex_replacement_FST(create_nfa("a.*b"), "xyz")
+        fst_inverse = fst.inverse()
+        nfa = create_nfa("a*b*")
+        expected = create_nfa("a*|b*")
+        actual = product_fst_automaton(fst_inverse, nfa)
+        assert_equal(expected, actual)
+        nfa = create_nfa("xyz|a*b*")
+        expected = create_nfa("a*b*|a.*b|xyz")
+        actual = product_fst_automaton(fst_inverse, nfa)
+        assert_equal(expected, actual)
 
+    def test_string_replacement_fst(self) -> None:
+        fst = global_replacement_FST("ababc", "xyxyz")
+        fst_inverse = fst.inverse()
+        nfa = create_nfa("abababababc")
+        actual = product_fst_automaton(fst_inverse, nfa)
+        assert actual.isEmpty()
+        nfa = create_nfa("xyxyxyz")
+        expected = create_nfa("xy(ababc|xyxyz)")
+        actual = product_fst_automaton(fst_inverse, nfa)
+        assert_equal(expected, actual)
+        nfa = create_nfa("xyxyxyxyxyxyxyxyz")
+        expected = create_nfa("xyxyxyxyxyxy(ababc|xyxyz)")
+        actual = product_fst_automaton(fst_inverse, nfa)
+        assert_equal(expected, actual)
+        nfa = create_nfa("abab(x*y*)*z*")
+        expected = create_nfa("abab(x*y*)*z*|abab(x*y*)*ababcz*")
+        actual = product_fst_automaton(fst_inverse, nfa)
+        assert_equal(expected, actual)
     
         
 
