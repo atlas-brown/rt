@@ -32,6 +32,8 @@ class ErrorResult:
     # pipeline_length: int = 0
     # max_automata_size: int = 1
     tainted: Optional[bool] = None
+    better_witness: Optional[Tuple[str, int]] = None
+    command_index: Optional[int] = None
 
 
 #
@@ -208,7 +210,7 @@ class PipelineChecker:
         self.pipeline_length = 0
         self.max_automata_size = 1
         self.self_contained = True
-        self.backward_map: Dict[PipeNode, Callable[[str], str] | None] = {}
+        self.backward_map: Dict[int, Callable[[str], str] | None] = {}
 
     # -------------------------------------------------------------
     # Public API
@@ -241,7 +243,7 @@ class PipelineChecker:
             # --------------------------------------------------
             # Iterate through each command in the pipeline
             # --------------------------------------------------
-            for command_node, parsed_command in zip(pipeline_node.items, parsed_commands):
+            for command_node, parsed_command, command_index in zip(pipeline_node.items, parsed_commands, range(len(parsed_commands))):
                 signature, parsed_command_invocation = parsed_command
 
                 assert isinstance(parsed_command_invocation, CommandInvocationInitial)
@@ -317,7 +319,7 @@ class PipelineChecker:
                     if self_contained is not None and not self_contained:
                         self.self_contained = False
                     
-                    self.backward_map[pipeline_node] = backward_func
+                    self.backward_map[command_index] = backward_func
 
                 # ----------------------------------------------
                 # Pretty printing of type information for logging
@@ -378,6 +380,7 @@ class PipelineChecker:
                 if not is_subtype:
                     intersection = previous_output_type & input_type
                     all_input = intersection.is_empty()
+                    serious_violation = not input_type.is_empty() # if input type is empty, it is caught by a heuristic rule which is not serious violation
                     previous_output_type_str = get_logger().get_latest_record()["command_list"][-2]["output_language"] if len(get_logger().get_latest_record()["command_list"]) > 1 else ""
                     error_message = f"Input type '{previous_output_type_str}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'. For example: '{witness}'."
                     
@@ -388,9 +391,10 @@ class PipelineChecker:
                         # pipeline_length=pipeline_length,
                         # max_automata_size=max_automata_size,
                         # tainted=True,
-                        serious_violation=True,
+                        serious_violation=serious_violation,
                         all_input=all_input,
                         command_name=signature.command_name,
+                        command_index=command_index + 1,
                     )
                     if self.enable_detailed_error_reporting:
                         error_result.all_input = previous_output_type.empty_intersection(input_type)
@@ -419,6 +423,7 @@ class PipelineChecker:
                             all_input=True,
                             serious_violation=False,
                             command_name=signature.command_name,
+                            command_index=command_index + 1,
                         )
                         
                         get_logger().get_latest_record()["RT_warning"] = True
@@ -446,6 +451,7 @@ class PipelineChecker:
                             all_input=True,
                             serious_violation=False,
                             command_name=signature.command_name,
+                            command_index=command_index + 2,
                         )
                         
                         get_logger().get_latest_record()["RT_warning"] = True
@@ -482,6 +488,7 @@ class PipelineChecker:
                                 all_input=all_input,
                                 serious_violation=True,
                                 command_name=signature.command_name,
+                                command_index=command_index + 2,
                             )
                             if self.enable_detailed_error_reporting:
                                 error_result.all_input = current_output_type.empty_intersection(RegularType(annotation.pattern))
@@ -513,6 +520,7 @@ class PipelineChecker:
                                 all_input=True,
                                 serious_violation=True,
                                 command_name=signature.command_name,
+                                command_index=command_index + 2,
                             )
                             if self.enable_detailed_error_reporting:
                                 error_result.all_input = current_output_type.empty_intersection(RegularType(annotation.pattern))
@@ -536,6 +544,18 @@ class PipelineChecker:
                 logging.debug(f"Output type: {current_output_type}")
                 logging.debug("-" * 60)
 
+            try:
+                for error_result in error_results:
+                    if error_result.witness is not None and error_result.command_index is not None:
+                        witness, command_index = self.backward(error_result.witness, error_result.command_index)
+                        error_result.better_witness = (witness, command_index)
+            except Exception as e:
+                # print(self.error_results)
+                # print(self.backward_map)
+                # traceback.print_exc()
+                # exit()
+                # FIXME
+                pass
         except ToolError as e:
             error_result = ErrorResult(
                 # pipe_node=pipeline_node,
@@ -570,8 +590,21 @@ class PipelineChecker:
         return error_results
     
 
-    def backward(self, witness: str) -> str:
-        raise Exception("not implemented yet")
+    def backward(self, witness: str, command_index: int) -> Tuple[str, int]:
+        real_command_index = command_index - 1 # offset by 1 because command_index is 1-indexed
+        witness = re.escape(witness)
+        witness_nfa = RegularType(witness).nfa
+        current_nfa = witness_nfa
+        while (real_command_index - 1) in self.backward_map:
+            backward_func = self.backward_map[real_command_index - 1]
+            if backward_func is None:
+                break
+            current_nfa = backward_func(current_nfa)
+            if isinstance(current_nfa, str):
+                current_nfa = RegularType(re.escape(current_nfa)).nfa
+            real_command_index -= 1
+        return str(current_nfa.getShortestExample(True)), real_command_index
+
 
 def refine_log(s: str) -> str:
     s = re.sub(r"((?<!\\)(?:\\\\)*)\\ ", r"\1 ", s)

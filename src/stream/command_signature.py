@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 import logging
+from stream.transducer_utils import FST, compute_fst_automaton_product, product_fst_automaton
 from stream.utils.logger import get_logger
 from stream.regular_type import RegularType
 import re
@@ -7,16 +8,22 @@ from typing import Callable, List, Dict, Any, Optional, Tuple
 from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
-
+from dk.brics.automaton import Automaton # type: ignore
 from stream.tool_error import ToolError, PashAnnotationParsingError
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 
 @dataclass
 class InferenceResult:
     output_type: RegularType
-    backward_func: Optional[Callable[[str], str]] = None
+    backward_func: Optional[Callable[[Automaton], Automaton]] = None
     self_contained: Optional[bool] = None
 
+
+def inverse_fst_product(fst: FST, previous_nfa: Automaton | None = None) -> Callable[[Automaton], Automaton]:
+    if previous_nfa is None:
+        return lambda x: product_fst_automaton(fst.inverse(), x)
+    else:
+        return lambda x: product_fst_automaton(fst.inverse(), x).intersection(previous_nfa)
 
 class CommandSignature:
     def __init__(

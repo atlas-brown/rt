@@ -1,6 +1,6 @@
 import re
 from stream.command_signature import CommandSignature, InferenceResult
-from stream.regular_type import RegularType
+from stream.regular_type import RegularType, reverse_automaton
 from stream.tool_error import ToolError
 from stream.utils.logger import get_logger
 
@@ -25,5 +25,5 @@ class RevSignature(CommandSignature):
         else:
             get_logger().get_latest_record()["command_list"][-1]["output_type"] = "reverse(α)"
         
-        return InferenceResult(previous_output_type.reverse(), lambda x: x[::-1], self_contained)
+        return InferenceResult(previous_output_type.reverse(), reverse_automaton, self_contained)
         

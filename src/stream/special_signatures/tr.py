@@ -1,11 +1,12 @@
 import re
 from typing import Optional, Tuple
-from stream.command_signature import CommandSignature
+from stream.command_signature import CommandSignature, InferenceResult, inverse_fst_product
 from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from stream.tool_error import ToolError
 from stream.transducer import translate_to_line_delimited_FST, translation_FST, product_fst_automaton, compression_FST, deletion_FST
+from stream.transducer_utils import compute_fst_automaton_product
 from stream.utils.logger import get_logger
 
 class TrSignature(CommandSignature):
@@ -65,24 +66,21 @@ class TrSignature(CommandSignature):
         if flags == set():
             fst = translation_FST(set1, set2)
             output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode="stream")
-            print(output_type)
-            return output_type
+            return InferenceResult(output_type, inverse_fst_product(fst, previous_output_type.nfa), True)
         if flags == {"-d"}:
             fst = deletion_FST(set1)
             output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode="stream")
-            return output_type
+            return InferenceResult(output_type, inverse_fst_product(fst, previous_output_type.nfa), True)
         if flags == {"-s"}:
             if set2 == "":
                 fst = compression_FST(set1)
                 output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode="stream")
-                return output_type
+                return InferenceResult(output_type, inverse_fst_product(fst, previous_output_type.nfa), True)
             else:
                 fst1 = translation_FST(set1, set2)
                 fst2 = compression_FST(set2)
                 output_type = RegularType(automaton=product_fst_automaton(fst2, product_fst_automaton(fst1, previous_output_type.nfa)), tainted=previous_output_type.tainted, repr_mode="stream")
-                print(output_type)
-                print(previous_output_type.nfa)
-                return output_type
+                return InferenceResult(output_type, lambda x: inverse_fst_product(inverse_fst_product(fst2)(x), previous_output_type.nfa), True)
             
         return RegularType(".*")
 

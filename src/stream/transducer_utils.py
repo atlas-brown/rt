@@ -823,9 +823,9 @@ def line_based_functional_to_stream_FST(fst: FST) -> FST:
             fst.add_transition(state.id, "\n", "\n", "\n", start_state_id)
     return fst
 
-def product_fst_automaton_with_projection(fst: FST, automaton: Automaton) -> Automaton:
+def compute_fst_automaton_product(fst: FST, automaton: Automaton) -> FST:
     if not CONFIG.get("enable_FST", True):
-        return RegExp(".*").toAutomaton()
+        raise ToolError("FST is disabled")
     
     # First, compute the complete FST (FST x NFA = FST)
     product_fst = FST()
@@ -930,7 +930,12 @@ def product_fst_automaton_with_projection(fst: FST, automaton: Automaton) -> Aut
     # Process the FST to handle special transitions
     product_fst._process_other_transitions()
     product_fst._process_not_consumed_transitions()
-    
+    return product_fst
+
+def product_fst_automaton_with_projection(fst: FST, automaton: Automaton) -> Automaton:
+    if not CONFIG.get("enable_FST", True):
+        return RegExp(".*").toAutomaton()
+    product_fst = compute_fst_automaton_product(fst, automaton)
     # compute the output projection
     return product_fst.output_projection()
 
@@ -1066,8 +1071,8 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                                         raise ValueError(f"Output range not supported: {min_out}--{max_out}")
                                     if template.endswith("$self"):
                                         prefix = template[:-5]
-                                        if min_out != max_out:
-                                            raise ValueError(f"Output range not supported: {min_out}--{max_out}")
+                                        # if min_out != max_out:
+                                        #     raise ValueError(f"Output range not supported: {min_out}--{max_out}")
                                         current_state = s_product
                                         for i, c in enumerate(prefix):
                                             s_1 = State()
@@ -1076,8 +1081,8 @@ def product_fst_automaton(fst: FST, automaton: Automaton) -> Automaton:
                                         current_state.addTransition(Transition(min_in, max_in, s))
                                     elif template.startswith("$self"):
                                         suffix = template[5:]
-                                        if min_out != max_out:
-                                            raise ValueError(f"Output range not supported: {min_out}--{max_out}")
+                                        # if min_out != max_out:
+                                        #     raise ValueError(f"Output range not supported: {min_out}--{max_out}")
                                         current_state = State()
                                         s_product.addTransition(Transition(min_in, max_in, current_state))
                                         for i, c in enumerate(suffix):

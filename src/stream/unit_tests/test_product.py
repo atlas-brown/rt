@@ -1,7 +1,7 @@
 import jpype
 import pytest
 from stream.regex_parser import RegexParser, ast_to_automaton
-from stream.transducer import correct_cut_field_FST, create_fst, cut_char_FST, line_based_functional_to_stream_FST, product_fst_automaton, product_fst_automaton_with_projection
+from stream.transducer import add_newline_if_not_end_with_newline_FST, correct_cut_field_FST, create_fst, cut_char_FST, line_based_functional_to_stream_FST, product_fst_automaton, product_fst_automaton_with_projection
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition # type: ignore
@@ -84,6 +84,18 @@ class TestCutCharFST:
         nfa1 = create_nfa("FLying so high,\nAMong modern net's\nINspired world-view:\nGOod as it gets!")
         expected = create_nfa("FL\nAM\nIN\nGO")
         actual = product_fst_automaton(cut_fst, nfa1)
+        assert_equal(expected, actual)
+
+    def test_add_newline_if_not_end_with_newline_FST(self) -> None:
+        fst = add_newline_if_not_end_with_newline_FST()
+        nfa1 = create_nfa("(a*\n)+b+")
+        expected = create_nfa("(a*\n)+b+\n")
+        actual = product_fst_automaton(fst, nfa1)
+        assert_equal(expected, actual)
+
+        nfa1 = create_nfa("(a*\n)+b+\n")
+        expected = create_nfa("(a*\n)+b+\n")
+        actual = product_fst_automaton(fst, nfa1)
         assert_equal(expected, actual)
 
 

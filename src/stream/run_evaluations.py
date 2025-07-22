@@ -89,6 +89,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
         "pash annotations error": None,
         "error message generated": None,
         "error_results": [],  # Add field to store detailed error results
+        "ground_truth_error_results": [],
         "evaluation_time": "0s",  # Default to 0s for evaluation time
         "tainted": None,
         "pipeline_length": 0,     # Track pipeline length
@@ -130,9 +131,11 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
                 pipeline_data["automata_size"] = checking_result.max_automata_size
                 pipeline_data["pipeline_length"] = checking_result.pipeline_length
                 pipeline_data["self_contained"] = checking_result.self_contained
+                pipeline_data["ground_truth_self_contained"] = checking_result.self_contained
                 
                 # Convert ErrorResult objects to dictionaries for JSON serialization
                 error_results_dicts = []
+                ground_truth_error_results_dicts = []
                 for error_result in checking_result.error_results:
                     error_dict = {
                         "message": error_result.message,
@@ -141,10 +144,19 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
                         "all_input": error_result.all_input,
                         "serious_violation": error_result.serious_violation,
                         "command_name": error_result.command_name,
+                        "better_witness": error_result.better_witness,
+                        "command_index": error_result.command_index,
                         # "tainted": error_result.tainted
                     }
+                    ground_truth_error_dict = {
+                        "command_index": error_result.command_index,
+                        "all_input": error_result.all_input,
+                        "serious_violation": error_result.serious_violation,
+                    }
                     error_results_dicts.append(error_dict)
+                    ground_truth_error_results_dicts.append(ground_truth_error_dict)
                 pipeline_data["error_results"] = error_results_dicts
+                pipeline_data["ground_truth_error_results"] = ground_truth_error_results_dicts
                 
                 # pipeline_data["tainted"] = checking_result.tainted
                 if len(checking_result.error_results) > 0:

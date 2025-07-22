@@ -19,6 +19,30 @@ no_newline_automaton = ast_to_automaton(RegexParser("[^\\n]*").parse())
 alphabet_size = 255
 alphabet_automaton = RegExp(f"[{chr(0)}-{chr(alphabet_size)}]*").toAutomaton()
 
+
+def reverse_automaton(automaton: Automaton) -> Automaton:
+        empty_transitions: Set[Tuple[State, State]] = set()
+        mapping: dict[State, State] = {}
+        out_nfa = Automaton()
+        initial_state = out_nfa.getInitialState()
+        for state in automaton.getStates():
+            mapping[state] = State()
+        for state in automaton.getStates():
+            if state.isAccept():
+                empty_transitions.add((initial_state, mapping[state]))
+            for transition in state.getTransitions():
+                min_in = transition.getMin()
+                max_in = transition.getMax()
+                dest = transition.getDest()
+                mapping[dest].addTransition(Transition(min_in, max_in, mapping[state]))
+        mapping[automaton.getInitialState()].setAccept(True)
+        # handle empty transitions
+        process_empty_transitions(empty_transitions)
+        out_nfa.setDeterministic(False)
+        out_nfa.removeDeadTransitions()
+        out_nfa.minimize()
+        return out_nfa
+
 class RegularType:
     def __init__(
             self, 
@@ -27,7 +51,7 @@ class RegularType:
             repr_mode: str = "line",
             automaton: Optional[Automaton] = None,
             hole_dict: Optional[dict[str, 'RegularType']] = None,
-            tainted: bool = True
+            tainted: bool = True,
         ) -> None:
         if pattern is None and automaton is None:
             raise ValueError("Invalid RegularType object, pattern is None and automaton is None")
@@ -312,27 +336,8 @@ class RegularType:
     
 
     def reverse(self) -> 'RegularType':
-        empty_transitions: Set[Tuple[State, State]] = set()
-        mapping: dict[State, State] = {}
-        out_nfa = Automaton()
-        initial_state = out_nfa.getInitialState()
         a = self.to_line_based_repr().nfa
-        for state in a.getStates():
-            mapping[state] = State()
-        for state in a.getStates():
-            if state.isAccept():
-                empty_transitions.add((initial_state, mapping[state]))
-            for transition in state.getTransitions():
-                min_in = transition.getMin()
-                max_in = transition.getMax()
-                dest = transition.getDest()
-                mapping[dest].addTransition(Transition(min_in, max_in, mapping[state]))
-        mapping[a.getInitialState()].setAccept(True)
-        # handle empty transitions
-        process_empty_transitions(empty_transitions)
-        out_nfa.setDeterministic(False)
-        out_nfa.removeDeadTransitions()
-        out_nfa.minimize()
+        out_nfa = reverse_automaton(a)
         reverse = RegularType(automaton=out_nfa)
         if self.pattern is not None:
             reverse.pattern = f"({self.pattern})^R"

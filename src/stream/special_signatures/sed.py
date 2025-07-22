@@ -1,5 +1,5 @@
 import re
-from stream.command_signature import CommandSignature
+from stream.command_signature import CommandSignature, InferenceResult, inverse_fst_product
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.regex_parser import convert_to_pure_string, is_pure_string, is_pure_string_for_ast
@@ -226,8 +226,10 @@ class SedSignature(CommandSignature):
         # If no pattern was recorded, remove the empty record
         if not pattern_recorded:
             get_logger().remove_last_pattern_analysis()
-            
-        return previous_output_type
+        try:
+            return InferenceResult(previous_output_type, inverse_fst_product(fst, previous_output_type.nfa), True)
+        except:
+            return InferenceResult(previous_output_type, None, True)
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         
 def preprocess(string: str) -> str:
