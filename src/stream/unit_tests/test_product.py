@@ -20,8 +20,11 @@ def diff(a: Automaton, b: Automaton) -> str:
     s = s.replace("\n", "\\n")
     return s
 
+alphabet_size = 255
+alphabet_automaton = RegExp(f"[{chr(0)}-{chr(alphabet_size)}]*").toAutomaton()
+
 def create_nfa(regex: str) -> Automaton:
-    return ast_to_automaton(RegexParser(regex).parse())
+    return ast_to_automaton(RegexParser(regex).parse()).intersection(alphabet_automaton)
 
 class TestCutCharFST:
     """Test suite for product FST automaton operations."""
@@ -120,7 +123,6 @@ class TestEpsilonTransitions:
         nfa1 = create_nfa("a*")
         expected = create_nfa("x(y|z)*")
         actual = product_fst_automaton(fst, nfa1)
-        print(actual)
         assert_equal(expected, actual)
 
 

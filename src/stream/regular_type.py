@@ -11,10 +11,13 @@ from stream.transducer import add_newline_if_not_end_with_newline_FST, full_stre
 from stream.automata_to_regex import automaton_to_ast, get_singleton
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition # type: ignore
+from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition, RegExp # type: ignore
 from stream.transducer import process_empty_transitions
 
 no_newline_automaton = ast_to_automaton(RegexParser("[^\\n]*").parse())
+
+alphabet_size = 255
+alphabet_automaton = RegExp(f"[{chr(0)}-{chr(alphabet_size)}]*").toAutomaton()
 
 class RegularType:
     def __init__(
@@ -35,6 +38,7 @@ class RegularType:
             self.pattern = None
             self.ast = None
             self.nfa = automaton
+            self.nfa = self.nfa.intersection(alphabet_automaton)
             if repr_mode == "line":
                 self.nfa = self.nfa.intersection(no_newline_automaton)
             return
@@ -49,6 +53,7 @@ class RegularType:
         else:
             automaton_dict = None
         self.nfa = ast_to_automaton(self.ast, hole_dict=automaton_dict)
+        self.nfa = self.nfa.intersection(alphabet_automaton)
         if self.repr_mode == "line":
             self.nfa = self.nfa.intersection(no_newline_automaton)
 
