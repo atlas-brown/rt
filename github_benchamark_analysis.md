@@ -22,7 +22,7 @@ The assumption can be eliminated by concretization with addional information fro
 
 ### assumption
 1. need concretization with addional information: $2 is a nginx config file; we need to provide the content of the file.
-2. Enable the heuristic
+2. Enable the empty output heuristic
 
 ### result
 dont need assumption, dont need assertion
@@ -35,21 +35,22 @@ The assumption can be eliminated by concretization with addional information fro
 
 ### assumption
 1. need concretization with addional information: $2 is a nginx config file; we need to provide the content of the file.
+2. need dataflow analysis with constraints about input shape to `math`
 
 ### result
-dont need assumption, dont know how to assert
+dont need assumption, dont know how to assert -- half of the bug could potentially be caught by dataflow into `math`, but other half unclear
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_5cc1d95.sh
 
 ### analysis
-Concretization + dataflow analysis may eliminate the assumption annotation, but should handle control flow. The assertion is hard to assert.
+Concretization + dataflow analysis may eliminate the assumption annotation, but should handle control flow. The assertion is hard to assert -- desired property of user-facing output.
 
 ### assumption
 1. need dataflow analysis
 2. need concretization with complicated control flow
 
 ### result
-dont need assumption, dont know how to assert
+dont need assumption, assertion is *still required*
 
 ### note
 Interesting. Seems to be a expressiveness problem.
@@ -62,7 +63,7 @@ Interesting. Seems to be a expressiveness problem.
 1. need concretization
 
 ### result
-dont need assumption, dont know how to assert
+dont need assumption, dont know how to assert --- empty output heuristic would flag the pipeline, but in a not-likely-useful-for-the-developer way
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_14f3dbb.sh
 
@@ -76,6 +77,7 @@ The output is hard to assert. It is always empty on every platform. However, aft
 
 ### result
 dont need assumption, dont need assertion
+empty output heuristic would flag the pipeline, but in a not-likely-useful-for-the-developer way
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_15dded7.sh
 
@@ -95,7 +97,7 @@ dont need assumption, dont need assertion
 
 ### analysis
 
-Assumption part is same as full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_0c9c1ae.sh. Assertion can be eliminated by heuristic.
+Assumption part is same as full_benchmark/github_repos_commits/collected/pre_commit/acme.sh_acme_0c9c1ae.sh. Assertion can be eliminated by empty output heuristic.
 
 ### assumption
 1. need dataflow analysis
@@ -141,7 +143,7 @@ dont need assumption, dont need assertion
 1. need concretization with addional information: $_outcsr is a result of openssl command; we need to provide the content of this
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- constraint is about user-facing output shape
 
 ### note
 Interesting.
@@ -150,6 +152,8 @@ Interesting.
 
 ### analysis
 assert the output should use single quote to avoid globing
+
+Note: we could have some kind of expansion heuristic that catches this bug without an assertion - doubt it's worthwhile
 
 ### assumption
 1. need concretization with addional information: $domainlist is a result of idn command; we need to provide the content of this
@@ -174,24 +178,25 @@ dont need assumption, dont need assertion
 
 ### result
 
-dont need assumption, need assertion
+dont need assumption, need assertion -- constraint is about user-facing output shape
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/advanced_Scripts_list.sh_list_1bf43b0.sh
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- usage of the result does not imply constraint, which is implicit in the system about the shape of certain system-managed files
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/advanced_Scripts_list.sh_list_2061daa.sh
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- usage of the result does not imply constraint, which is implicit in the system about the shape of certain system-managed files
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/advanced_Scripts_piholeDebug.sh_piholeDebug_5cebcea.sh
 
 ### assumption
 1. need concretization
+2. have a precise argument type for `ip address show dev <device-name>`
 
-dont need assumption, need assertion
+dont need assumption, don't need assertion
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/advanced_Scripts_piholeDebug.sh_piholeDebug_36937b1.sh
 
@@ -199,16 +204,17 @@ dont need assumption, need assertion
 the assertion is "assert contains"
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- containment assertions by definition cannot be inferred by a datafow analysis, as they describe an expansion of the valid values
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/aliases_available_git.aliases.bash_git.aliases_2a23598.bash
 
 ### assumption
 1. need concretization
 
-dont need assumption, dont know how to assert
+### result
+dont need assumption, dont know how to assert -- incorrectness unclear in the presence of concretization
 
-full_benchmark/github_repos_commits/collected/pre_commit/automated install_basic-install.sh_basic-install_8ee2bde.sh
+## full_benchmark/github_repos_commits/collected/pre_commit/automated install_basic-install.sh_basic-install_8ee2bde.sh
 
 ### analysis
 the assertion is "assert contains"
@@ -217,7 +223,7 @@ the assertion is "assert contains"
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- containment assertions by definition cannot be inferred by a datafow analysis, as they describe an expansion of the valid values
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/automated install_basic-install.sh_basic-install_466fd79.sh
 
@@ -236,7 +242,7 @@ dont need assumption, dont know how to assert
 1. need concretization with internet access
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- usage of the result value does not imply any constraint about its shape, so the constraint is some implicit thing known by the developer
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/automated install_basic-install.sh_basic-install_9212eea.sh
 
@@ -267,7 +273,7 @@ dont need assumption, dont need assertion
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- empty output heuristic could catch, but incorrectness unclear in the presence of concretization
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/install_fix-framework-text-scaling.sh_fix-framework-text-scaling_9b08be1.sh
 
@@ -275,12 +281,13 @@ dont need assumption, need assertion
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- output constraint is an implicit one known by the developer, not explicitly demanded by usage in program
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/install.sh_install_67be567.sh
 
 ### assumption
 1. need dataflow analysis
+2. need a heuristic constraint that the arguments to an unquoted mkdir should never contain spaces
 
 ### result
 dont need assumption, dont need assertion
@@ -291,7 +298,7 @@ dont need assumption, dont need assertion
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- output constraint is an implicit one known by the developer, not explicitly demanded by usage in program
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/lib_git.zsh_git_27fff27.zsh
 
@@ -300,7 +307,7 @@ dont need assumption, need assertion
 2. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- output constraint is an implicit one known by the developer, not explicitly demanded by usage in program
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/lib_git.zsh_git_6774fb3.zsh
 
@@ -309,7 +316,7 @@ dont need assumption, need assertion
 2. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- output constraint is an implicit one known by the developer, not explicitly demanded by usage in program
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/lib_git.zsh_git_8890450.zsh
 
@@ -318,7 +325,7 @@ dont need assumption, need assertion
 2. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- output constraint is an implicit one known by the developer, not explicitly demanded by usage in program
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/lib_helpers.bash_helpers_1e77c26.bash
 
@@ -346,7 +353,7 @@ dont need assumption, dont need assertion
 2. need dataflow analysis
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- constraint is about the shape of user facing output
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/nvm.sh_nvm_578a601.sh
 
@@ -355,7 +362,7 @@ dont need assumption, need assertion
 2. need dataflow analysis
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- constraint is about the shape of user facing output
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/nvm.sh_nvm_b59ecb9.sh
 
@@ -364,7 +371,7 @@ dont need assumption, need assertion
 2. need dataflow analysis
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- constraint is about the shape of user facing output
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/nvm.sh_nvm_cb87c31.sh
 
@@ -373,13 +380,14 @@ dont need assumption, need assertion
 2. need dataflow analysis
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- constraint is about the shape of user facing output
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/openvpn-install_Nyr_6d89279.sh
 
 ### assumption
 1. need concretization
 2. need dataflow analysis
+3. need argument shape constraints for iptables
 
 ### result
 dont need assumption, dont need assertion
@@ -389,6 +397,7 @@ dont need assumption, dont need assertion
 ### assumption
 1. need concretization
 2. need dataflow analysis
+3. need argument shape constraints for iptables
 
 ### result
 dont need assumption, dont need assertion
@@ -402,29 +411,29 @@ the assertion is "assert contains"
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- constraint reflects implicit knowledge about the system developer has, and also containment assertions can't be inferred
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/plugins_available_base.plugin.bash_base.plugin_e687857.bash
 
 ### analysis
-may not need assertion (the output is a IP address, and this is a function output)
+If we had a useage of the function we may not need assertion (the output is IP addresses), but the function is never used
 
 ### assumption
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- dead code (this is a library?)
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/plugins_battery_battery.plugin.zsh_battery.plugin_15a0374.zsh
 
 ### analysis
-may not need assertion (the output is a IP address, and this is a function output)
+If we had a useage of the function we may not need assertion, but the function is never used
 
 ### assumption
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- dead code (this is a library?)
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/plugins_composer_composer.plugin.zsh_composer.plugin_8b5950b.zsh
 
@@ -467,9 +476,9 @@ dont need assumption, dont need assertion
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- the constraint is about desired user-facing output shape
 
-full_benchmark/github_repos_commits/collected/pre_commit/plugins_rvm_rvm.plugin.zsh_rvm.plugin_d20c111.zsh
+## full_benchmark/github_repos_commits/collected/pre_commit/plugins_rvm_rvm.plugin.zsh_rvm.plugin_d20c111.zsh
 
 ### analysis
 command argument usage is wrong. Maybe out of scope.
@@ -477,13 +486,13 @@ command argument usage is wrong. Maybe out of scope.
 ### result
 dont need assumption, dont need assertion
 
-full_benchmark/github_repos_commits/collected/pre_commit/plugins_svn_svn.plugin.zsh_svn.plugin_e2f7623.zsh
+## full_benchmark/github_repos_commits/collected/pre_commit/plugins_svn_svn.plugin.zsh_svn.plugin_e2f7623.zsh
 
 ### assumption
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- the constraint is about desired user-facing output shape
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/themes_base.theme.bash_base.theme_24c1cd1.bash
 
@@ -492,7 +501,7 @@ dont need assumption, need assertion
 2. need models for different platforms
 
 ### result
-dont need assumption, dont need assertion
+dont need assumption, need assertion -- the constraint is about desired user-facing output shape
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/themes_base.theme.bash_base.theme_70e4ac9.bash
 
@@ -500,7 +509,7 @@ dont need assumption, dont need assertion
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- the constraint is about desired user-facing output shape
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/themes_base.theme.bash_base.theme_ba02955.bash
 
@@ -508,7 +517,7 @@ dont need assumption, need assertion
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- the constraint is about desired user-facing output shape
 
 ## full_benchmark/github_repos_commits/collected/pre_commit/wireguard-install.sh_wireguard-install_e05e633.sh
 
@@ -516,7 +525,7 @@ dont need assumption, need assertion
 1. need concretization
 
 ### result
-dont need assumption, need assertion
+dont need assumption, need assertion -- the constraint is about output shape requirements implicitly demanded about a config file shape
 
 
 ## Result
