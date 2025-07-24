@@ -24,10 +24,11 @@ output_summary_path_raw: evaluation_results/raw/summary.csv
 
 # Pipeline directories
 valid_dirs:
-  - ./full_benchmark/pash_benchmark/benchmarks
+  # - ./full_benchmark/pash_benchmark/benchmarks
   - ./evaluation_pipelines/valid
   - ./full_benchmark/intercode/pipelines
   - ./full_benchmark/github_repos_commits/collected/post_commit
+  - ./full_benchmark/koala
 invalid_dirs:
   - ./evaluation_pipelines/invalid
   - ./full_benchmark/curated_mutants
@@ -35,7 +36,7 @@ invalid_dirs:
   - ./full_benchmark/stackoverflow/buggy
   - ./full_benchmark/github_repos_commits/collected/pre_commit
   - ./evaluation_pipelines/Bad label
-  - ./full_benchmark/pash_benchmark/Bad label
+  # - ./full_benchmark/pash_benchmark/Bad label
   - ./full_benchmark/intercode/Bad label
 
 not_check_all_dirs:
@@ -54,7 +55,8 @@ not_check_all_dirs:
     "full_benchmark/llm_injection/.*": "LLM",
     "full_benchmark/pash_benchmark/.*": "PaSh",
     "full_benchmark/github_repos_commits/.*": "GitHub",
-    "full_benchmark/stackoverflow/.*": "StackOverflow"
+    "full_benchmark/stackoverflow/.*": "StackOverflow",
+    "full_benchmark/koala/.*": "Koala"
 }
 
 # Logging

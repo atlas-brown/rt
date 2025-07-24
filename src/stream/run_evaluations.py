@@ -57,26 +57,211 @@ def find_scripts(directories: list[str]) -> list[str]:
     return script_addresses
 
 
-def calculate_accuracy(labels, preds):
-    correct_count = sum(1 for label, pred in zip(labels, preds) if label == pred)
-    denom = sum(1 for label in labels if label is not None)
-    if denom == 0:
-        return 0.0
-    return correct_count / denom
+# Functional filters for result classification
+def is_timeout(result):
+    """Filter for timeout cases"""
+    return result.get(CRASH_REASON_LABEL) == TIMEOUT_REASON
 
-def calculate_precision(labels, preds):
-    TP = sum(1 for label, pred in zip(labels, preds) if label == pred and label)
-    denom = sum(1 for pred in preds if pred)
-    if denom == 0:
-        return 0.0
-    return TP / denom
+def is_true_positive(result):
+    """Filter for True Positive cases: buggy and warning signaled"""
+    return result.get("is buggy?") and result.get("warning signaled?")
 
-def calculate_recall(labels, preds):
-    denom = sum(1 for label in labels if label)
-    if denom == 0:
+def is_true_negative(result):
+    """Filter for True Negative cases: not buggy and no warning signaled"""
+    return not result.get("is buggy?") and not result.get("warning signaled?")
+
+def is_false_positive(result):
+    """Filter for False Positive cases: not buggy but warning signaled (exclude crashes)"""
+    return (not result.get("is buggy?") and 
+            result.get("warning signaled?") is True)
+
+def is_false_negative(result):
+    """Filter for False Negative cases: buggy but no warning signaled (exclude crashes)"""
+    return (result.get("is buggy?") and 
+            result.get("warning signaled?") is False)
+
+def is_correct_prediction(result):
+    """Filter for correct predictions (TP + TN)"""
+    return result.get("is buggy?") == result.get("warning signaled?")
+
+def is_incorrect_prediction(result):
+    """Filter for incorrect predictions (FP + FN)"""
+    return result.get("is buggy?") != result.get("warning signaled?")
+
+def is_crash(result):
+    """Filter for crash cases where warning signaled is None"""
+    return result.get("warning signaled?") is None
+
+def is_valid_pipeline_crash(result):
+    """Filter for crashes in valid pipelines (not buggy but crashed)"""
+    return (is_crash(result) and 
+            not result.get("is buggy?") and 
+            (result.get(CRASH_REASON_LABEL) is not None or result.get("pash annotations error") is not None))
+
+def is_buggy_pipeline_crash(result):
+    """Filter for crashes in buggy pipelines"""
+    return (is_crash(result) and 
+            result.get("is buggy?") and 
+            (result.get(CRASH_REASON_LABEL) is not None or result.get("pash annotations error") is not None))
+
+def is_buggy_pipeline(result):
+    """Filter for buggy pipelines"""
+    return result.get("is buggy?")
+
+def is_valid_pipeline(result):
+    """Filter for valid (non-buggy) pipelines"""
+    return not result.get("is buggy?")
+
+def is_untainted(result):
+    """Filter for untainted pipelines"""
+    return result.get("tainted") == False
+
+def detailed_comparison_matches(result, ground_truths):
+    """Check if TP result matches ground truth in detail"""
+    
+    def ground_truth_lookup(address, ground_truths, content):
+        """Find matching ground truth record using similar logic to notes_lookup"""
+        matching_truths = []
+        complete_matching_truths = []
+
+        if "full_benchmark/llm_injection" in address:
+            for truth in ground_truths:
+                if truth.get("address", "") == address:
+                    matching_truths.append(truth)
+        else:
+            for truth in ground_truths:
+                if truth.get("content", "") == content or truth.get("content", "").replace("\\\\", "\\") == content:
+                    if truth.get("address", "") == address:
+                        complete_matching_truths.append(truth)
+                    else:
+                        matching_truths.append(truth)
+
+        if not matching_truths and not complete_matching_truths:
+            return None
+
+        # Return the first match (similar to notes_lookup logic)
+        if complete_matching_truths:
+            return complete_matching_truths[0]
+        else:
+            return matching_truths[0]
+    
+    def compare_error_results(ground_truth_errors, evaluation_errors):
+        """Compare ground truth error results with evaluation error results"""
+        if len(ground_truth_errors) != len(evaluation_errors):
+            return False
+        
+        for gt_error, eval_error in zip(ground_truth_errors, evaluation_errors):
+            # Compare all fields that exist in ground truth
+            for field in ["command_index", "all_input", "serious_violation"]:
+                if gt_error.get(field) != eval_error.get(field):
+                    return False
+        
+        return True
+    
+    ground_truth = ground_truth_lookup(result.get("address", ""), ground_truths, result.get("content", ""))
+    
+    if ground_truth is None:
+        logging.warning(f"No ground truth found for address: {result.get('address', '')}")
+        return True  # Count as correct for backward compatibility
+    
+    # Compare error results
+    gt_error_results = ground_truth.get("ground_truth_error_results", [])
+    eval_error_results = result.get("error_results", [])
+    
+    # Compare self_contained
+    gt_self_contained = ground_truth.get("ground_truth_self_contained")
+    eval_self_contained = result.get("self_contained")
+    
+    # Check if both error results and self_contained match
+    error_results_match = compare_error_results(gt_error_results, eval_error_results)
+    self_contained_match = (gt_self_contained == eval_self_contained)
+    
+    return error_results_match and self_contained_match
+
+def calculate_accuracy_functional(results):
+    """Calculate accuracy using functional approach"""
+    # Filter out timeout cases
+    valid_results = [r for r in results if not is_timeout(r)]
+    
+    if not valid_results:
         return 0.0
-    recall = sum(1 for label, pred in zip(labels, preds) if label == pred and label) / denom
-    return recall
+    
+    # Count correct predictions
+    correct_count = len([r for r in valid_results if is_correct_prediction(r)])
+    
+    return correct_count / len(valid_results)
+
+def calculate_precision_functional(results):
+    """Calculate precision using functional approach"""
+    valid_results = [r for r in results if not is_timeout(r)]
+    
+    true_positives = [r for r in valid_results if is_true_positive(r)]
+    false_positives = [r for r in valid_results if is_false_positive(r)]
+
+    denominator = len(true_positives) + len(false_positives)
+    if denominator == 0:
+        return 0.0
+    
+    return len(true_positives) / denominator
+
+def calculate_recall_functional(results):
+    """Calculate recall using functional approach"""
+    valid_results = [r for r in results if not is_timeout(r)]
+    
+    true_positives = [r for r in valid_results if is_true_positive(r)]
+    false_negatives = [r for r in valid_results if is_false_negative(r)]
+    
+    denominator = len(true_positives) + len(false_negatives)
+    if denominator == 0:
+        return 0.0
+    
+    return len(true_positives) / denominator
+
+def calculate_refined_accuracy_functional(results):
+    """Calculate refined accuracy: same as regular accuracy except TP cases require detailed comparison"""
+    ground_truth_path = "./ground_truth_trimodel_label.json"
+    
+    if not os.path.exists(ground_truth_path):
+        logging.warning(f"Ground truth file not found: {ground_truth_path}")
+        return None
+    
+    try:
+        with open(ground_truth_path, 'r') as f:
+            ground_truths = json.load(f)
+        logging.info(f"Loaded {len(ground_truths)} ground truth records")
+    except Exception as e:
+        logging.error(f"Error loading ground truth file: {e}")
+        return None
+    
+    # Filter out timeout cases
+    valid_results = [r for r in results if not is_timeout(r)]
+    
+    if not valid_results:
+        return 0.0
+    
+    # Count correct predictions with detailed comparison for TP
+    correct_count = 0
+    
+    # True Negatives: count as correct
+    true_negatives = [r for r in valid_results if is_true_negative(r)]
+    correct_count += len(true_negatives)
+    
+    # True Positives: require detailed comparison
+    true_positives = [r for r in valid_results if is_true_positive(r)]
+    detailed_correct_tp = [r for r in true_positives if detailed_comparison_matches(r, ground_truths)]
+    correct_count += len(detailed_correct_tp)
+
+    refined_accuracy = correct_count / len(valid_results)
+    logging.info(f"Refined accuracy calculation: {correct_count}/{len(valid_results)} = {refined_accuracy}")
+    logging.info(f"  - True Negatives: {len(true_negatives)}")
+    logging.info(f"  - True Positives (detailed correct): {len(detailed_correct_tp)}/{len(true_positives)}")
+    
+    return refined_accuracy
+
+
+
+
+
 
 
 def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bool) -> list[dict]:
@@ -89,7 +274,6 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
         "pash annotations error": None,
         "error message generated": None,
         "error_results": [],  # Add field to store detailed error results
-        "ground_truth_error_results": [],
         "evaluation_time": "0s",  # Default to 0s for evaluation time
         "tainted": None,
         "pipeline_length": 0,     # Track pipeline length
@@ -131,11 +315,9 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
                 pipeline_data["automata_size"] = checking_result.max_automata_size
                 pipeline_data["pipeline_length"] = checking_result.pipeline_length
                 pipeline_data["self_contained"] = checking_result.self_contained
-                pipeline_data["ground_truth_self_contained"] = checking_result.self_contained
                 
                 # Convert ErrorResult objects to dictionaries for JSON serialization
                 error_results_dicts = []
-                ground_truth_error_results_dicts = []
                 for error_result in checking_result.error_results:
                     error_dict = {
                         "message": error_result.message,
@@ -148,15 +330,8 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
                         "command_index": error_result.command_index,
                         # "tainted": error_result.tainted
                     }
-                    ground_truth_error_dict = {
-                        "command_index": error_result.command_index,
-                        "all_input": error_result.all_input,
-                        "serious_violation": error_result.serious_violation,
-                    }
                     error_results_dicts.append(error_dict)
-                    ground_truth_error_results_dicts.append(ground_truth_error_dict)
                 pipeline_data["error_results"] = error_results_dicts
-                pipeline_data["ground_truth_error_results"] = ground_truth_error_results_dicts
                 
                 # pipeline_data["tainted"] = checking_result.tainted
                 if len(checking_result.error_results) > 0:
@@ -328,24 +503,25 @@ def add_parsing_failures_to_results(results, statistics):
 
 def deduplicate_results(results):
     """
-    Deduplicate evaluation results based on identical address and content.
-    Returns a new list with duplicates removed, keeping the first occurrence.
-    """
-    seen = set()
-    deduplicated = []
+    # Deduplicate evaluation results based on identical address and content.
+    # Returns a new list with duplicates removed, keeping the first occurrence.
+    # """
+    # seen = set()
+    # deduplicated = []
     
-    for result in results:
-        # Create a unique identifier from address and content
-        identifier = (result.get("address", ""), result.get("content", ""))
+    # for result in results:
+    #     # Create a unique identifier from address and content
+    #     identifier = (result.get("address", ""), result.get("content", ""))
         
-        if identifier not in seen:
-            seen.add(identifier)
-            deduplicated.append(result)
-        else:
-            logging.info(f"Removing duplicate result with address: {result.get('address')} and content: {result.get('content')[:50]}...")
+    #     if identifier not in seen:
+    #         seen.add(identifier)
+    #         deduplicated.append(result)
+    #     else:
+    #         logging.info(f"Removing duplicate result with address: {result.get('address')} and content: {result.get('content')[:50]}...")
     
-    logging.info(f"Deduplication: removed {len(results) - len(deduplicated)} duplicate entries from {len(results)} total")
-    return deduplicated
+    # logging.info(f"Deduplication: removed {len(results) - len(deduplicated)} duplicate entries from {len(results)} total")
+    # return deduplicated
+    return results
 
 def run_all_evaluations(valid_dirs: list[str] = None,
                         invalid_dirs: list[str] = None,
@@ -416,52 +592,40 @@ def run_all_evaluations(valid_dirs: list[str] = None,
                 pipeline_result["tag"] = category_to_tag(notes[CATEGORY_LABEL])
                 results.append(pipeline_result)
 
-    unlabeled_inconsistent_results = [
-        result for result in results 
-        if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL] and result[CATEGORY_LABEL] == "<missing>"
-    ]
-
-    labeled_inconsistent_results = [
-        result for result in results 
-        if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL] and result[CATEGORY_LABEL] != "<missing>"
-    ]
-
-    failures = [result for result in results if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL]]
-    crash_pipelines = [r for r in failures if r[SIGNALED_LABEL] == None]
-    timeout_pipelines =      [r for r in crash_pipelines if r[CRASH_REASON_LABEL] == TIMEOUT_REASON]
-    valid_pipeline_crashes = [r for r in crash_pipelines if not r[IS_BUGGY_LABEL] and (r[CRASH_REASON_LABEL] != None or r["pash annotations error"] != None)]
-    buggy_pipeline_crashes = [r for r in crash_pipelines if     r[IS_BUGGY_LABEL] and (r[CRASH_REASON_LABEL] != None or r["pash annotations error"] != None)]
-    false_positive_pipelines = [r for r in failures if not r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
-    false_negative_pipelines = [r for r in failures if     r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
-
+    # Use functional approach for all statistics calculations
+    unlabeled_inconsistent_results = [r for r in results if is_incorrect_prediction(r) and r[CATEGORY_LABEL] == "<missing>"]
+    labeled_inconsistent_results = [r for r in results if is_incorrect_prediction(r) and r[CATEGORY_LABEL] != "<missing>"]
+    
+    false_positive_pipelines = [r for r in results if is_false_positive(r)]
+    false_negative_pipelines = [r for r in results if is_false_negative(r)]
+    timeout_pipelines = [r for r in results if is_timeout(r)]
+    valid_pipeline_crashes = [r for r in results if is_valid_pipeline_crash(r)]
+    buggy_pipeline_crashes = [r for r in results if is_buggy_pipeline_crash(r)]
+    
     # Count tainted pipelines
-    untainted_pipelines = [r for r in results if r.get("tainted") == False]
+    untainted_pipelines = [r for r in results if is_untainted(r)]
 
     total_false_positives = len(false_positive_pipelines)
     total_false_negatives = len(false_negative_pipelines)
     total_correct_pipeline_crashes = len(valid_pipeline_crashes)
     total_buggy_pipeline_crashes = len(buggy_pipeline_crashes)
     total_timeouts = len(timeout_pipelines)
-    total_correct_pipelines = sum(1 for r in results if not r[IS_BUGGY_LABEL])
-    total_buggy_pipelines = sum(1 for r in results if r[IS_BUGGY_LABEL])
+    total_correct_pipelines = len([r for r in results if is_valid_pipeline(r)])
+    total_buggy_pipelines = len([r for r in results if is_buggy_pipeline(r)])
     
-    preds = [result[SIGNALED_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
-    labels = [result[IS_BUGGY_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
-    
-    statistics = {}
-    if preds and labels:
-        statistics.update({
-            "accuracy": calculate_accuracy(labels, preds),
-            "precision": calculate_precision(labels, preds),
-            "recall": calculate_recall(labels, preds),
-        })
+    # Calculate metrics using functional approach
+    statistics = {
+        "accuracy": calculate_accuracy_functional(results),
+        "precision": calculate_precision_functional(results),
+        "recall": calculate_recall_functional(results),
+    }
 
-        logging.info(f'Accuracy: {statistics["accuracy"]}')
-        logging.info(f'Precision: {statistics["precision"]}')
-        logging.info(f'Recall: {statistics["recall"]}')
-        logging.info(f'Total timeouts: {total_timeouts}')
-        logging.info(f'Crashes (including timeouts): {total_correct_pipeline_crashes + total_buggy_pipeline_crashes}')
-        logging.info(f'Untainted pipelines: {len(untainted_pipelines)}')
+    logging.info(f'Accuracy: {statistics["accuracy"]}')
+    logging.info(f'Precision: {statistics["precision"]}')
+    logging.info(f'Recall: {statistics["recall"]}')
+    logging.info(f'Total timeouts: {total_timeouts}')
+    logging.info(f'Crashes (including timeouts): {total_correct_pipeline_crashes + total_buggy_pipeline_crashes}')
+    logging.info(f'Untainted pipelines: {len(untainted_pipelines)}')
     end_time_total = time.time()
     total_time = end_time_total - start_time_total
 
@@ -494,21 +658,17 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     }
     
     # Add parsing failures to results
-    results, output_data["statistics"] = add_parsing_failures_to_results(results, output_data["statistics"])
+    # results, output_data["statistics"] = add_parsing_failures_to_results(results, output_data["statistics"])
     
     # Deduplicate results based on address and content
-    results = deduplicate_results(results)
+    # results = deduplicate_results(results)
     
-    # Recalculate failures after deduplication
-    failures = [result for result in results if result[IS_BUGGY_LABEL] != result[SIGNALED_LABEL]]
-    false_positive_pipelines = [r for r in failures if not r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
-    false_negative_pipelines = [r for r in failures if r[IS_BUGGY_LABEL] and r[SIGNALED_LABEL] != None]
-    
-    # Update statistics after deduplication
-    crash_pipelines = [r for r in failures if r[SIGNALED_LABEL] == None]
-    timeout_pipelines = [r for r in crash_pipelines if r[CRASH_REASON_LABEL] == TIMEOUT_REASON]
-    valid_pipeline_crashes = [r for r in crash_pipelines if not r[IS_BUGGY_LABEL] and (r[CRASH_REASON_LABEL] != None or r["pash annotations error"] != None)]
-    buggy_pipeline_crashes = [r for r in crash_pipelines if r[IS_BUGGY_LABEL] and (r[CRASH_REASON_LABEL] != None or r["pash annotations error"] != None)]
+    # Use functional approach for all statistics after deduplication
+    false_positive_pipelines = [r for r in results if is_false_positive(r)]
+    false_negative_pipelines = [r for r in results if is_false_negative(r)]
+    timeout_pipelines = [r for r in results if is_timeout(r)]
+    valid_pipeline_crashes = [r for r in results if is_valid_pipeline_crash(r)]
+    buggy_pipeline_crashes = [r for r in results if is_buggy_pipeline_crash(r)]
     
     # Update statistics in output_data
     output_data["evaluation_results"] = results
@@ -517,29 +677,29 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     output_data["statistics"]["crashes"] = len(valid_pipeline_crashes) + len(buggy_pipeline_crashes)
     output_data["statistics"]["correct_crashes"] = len(valid_pipeline_crashes)
     output_data["statistics"]["buggy_crashes"] = len(buggy_pipeline_crashes)
-    output_data["statistics"]["total_correct_pipelines"] = sum(1 for r in results if not r[IS_BUGGY_LABEL])
+    output_data["statistics"]["total_correct_pipelines"] = len([r for r in results if is_valid_pipeline(r)])
     output_data["statistics"]["false_positives"] = len(false_positive_pipelines)
     output_data["statistics"]["false_positive_categories"] = categorize(false_positive_pipelines)
-    output_data["statistics"]["total_buggy_pipelines"] = sum(1 for r in results if r[IS_BUGGY_LABEL])
+    output_data["statistics"]["total_buggy_pipelines"] = len([r for r in results if is_buggy_pipeline(r)])
     output_data["statistics"]["false_negatives"] = len(false_negative_pipelines)
     output_data["statistics"]["false_negative_categories"] = categorize(false_negative_pipelines)
     output_data["statistics"]["total_wrong_predictions"] = len(false_positive_pipelines) + len(false_negative_pipelines)
     
-    # Recalculate metrics after deduplication
-    preds = [result[SIGNALED_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
-    labels = [result[IS_BUGGY_LABEL] for result in results if result[CRASH_REASON_LABEL] != TIMEOUT_REASON]
-    
-    if preds and labels:
-        output_data["statistics"]["accuracy"] = calculate_accuracy(labels, preds)
-        output_data["statistics"]["precision"] = calculate_precision(labels, preds)
-        output_data["statistics"]["recall"] = calculate_recall(labels, preds)
+    # Add refined accuracy calculation
+    refined_accuracy = calculate_refined_accuracy_functional(results)
+    if refined_accuracy is not None:
+        output_data["statistics"]["refined_accuracy"] = refined_accuracy
     
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
     
+    # Update output_data with filtered results for main JSON
+    main_output_data = output_data.copy()
+    main_output_data["evaluation_results"] = results
+    
     # Write main results JSON
     with open(output_json, 'w') as json_file:
-        json.dump(output_data, json_file, indent=4)
+        json.dump(main_output_data, json_file, indent=4)
     logging.info(f"Results written to {output_json}")
     
     # Write summary CSV
