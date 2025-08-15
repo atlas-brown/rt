@@ -677,6 +677,11 @@ class AwkParser:
             while self.current_token.type == TokenType.COMMA:
                 self._advance()
                 expressions.append(self._parse_expression())
+            
+            # Handle space-separated expressions (concatenation)
+            while (self.current_token.type not in [TokenType.SEMICOLON, TokenType.RBRACE, TokenType.NEWLINE, TokenType.EOF] and
+                   self.current_token.type not in [TokenType.COMMA]):
+                expressions.append(self._parse_expression())
         
         return PrintStatement(expressions)
     
@@ -965,10 +970,28 @@ def parse_awk_program(program_text: str, field_separator: Optional[str] = None) 
 
 if __name__ == "__main__":
 
-    awk_program = "{print $1, $2, $3, $NF, $0}"
+    awk_program = "{print \"fields: \", $1, $2, $3, $NF, \"abc\", $0}"
     ast = parse_awk_program(awk_program)
     print(ast)
 
+    print("--------------------------------")
+
+    awk_program = "length($0) > 80"
+    ast = parse_awk_program(awk_program)
+    print(ast)
+
+    print("--------------------------------")
+
+    awk_program = "{ print $1 $1 }"
+    ast = parse_awk_program(awk_program)
+    print(ast)
+
+    print("--------------------------------")
+
+    awk_program = "{ if (x < length($0)) x = length($0) } END { print \"maximum line length is \" x }"
+    ast = parse_awk_program(awk_program)
+    print(ast)
+    
     print("--------------------------------")
 
     program_text = "NR > 1 { printf \", \" } { printf \"%s\", $0 }"
