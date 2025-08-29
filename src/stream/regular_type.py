@@ -5,6 +5,7 @@ from typing import Optional, Set, Tuple
 from stream.regex_parser import CharacterClass, Dot, EmptyLanguageNode, Literal, Range, Repeat, Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, ast_to_z3, Node, ast_to_regex
 import logging
 from stream.tool_error import TimeoutError, ToolError
+from stream.utils.function_timer import timer
 from stream.utils.timing import Timing
 import jpype.imports
 from stream.transducer import add_newline_if_not_end_with_newline_FST, full_stream_to_line_based_FST, product_fst_automaton
@@ -14,11 +15,14 @@ if not jpype.isJVMStarted():
 from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition, RegExp # type: ignore
 from stream.transducer import process_empty_transitions
 
+
+# inclusion_timing = Timing("inclusion_timing", "general_logs/inclusion_timing.json")
+# counterexample_timing = Timing("counterexample_timing", "general_logs/counterexample_timing.json")
+
 no_newline_automaton = ast_to_automaton(RegexParser("[^\\n]*").parse())
 
 alphabet_size = 255
 alphabet_automaton = RegExp(f"[{chr(0)}-{chr(alphabet_size)}]*").toAutomaton()
-
 
 def reverse_automaton(automaton: Automaton) -> Automaton:
         empty_transitions: Set[Tuple[State, State]] = set()
@@ -92,107 +96,56 @@ class RegularType:
         return str(self.nfa.getShortestExample(True))
     
     def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 10, enable_witness: bool = True) -> Tuple[bool, str | None]:
-        logging.debug("-"*60)
-        # logging.debug(f"checking: {self.pattern} is subtype of {other.pattern}")
-        # logging.debug(f"self_regex: {self.regex}")
-        # logging.debug(f"other_regex: {other.regex}")
-        # logging.debug(f"self_ast: {self.ast}")
-        # logging.debug(f"other_ast: {other.ast}")
-        # if self.possible_line_numbers[0] < other.possible_line_numbers[0]:
-        #     return CheckingResult(ill_typed=True)
-        # if other.possible_line_numbers[1] != -1 and (self.possible_line_numbers[1] > other.possible_line_numbers[1] or self.possible_line_numbers[1] == -1):
-        #     return CheckingResult(ill_typed=True)
-        logging.debug("-"*60)
-        print(other)
-        print(other.nfa)
-        print(other.nfa.getShortestExample(True))
-        # if (other.pattern == ".*"):
-        #     return True, None
-        # if (r"\n" in self.pattern) or (r"\n" in other.pattern):
-        #     self.to_full_stream_regex()
-        #     other.to_full_stream_regex()
-        with Timing("timing intersection creation = "):
-            # intersection_regex = z3.Intersect(self.regex, z3.Complement(other.regex))
-            # # checking_result = CheckingResult(ill_typed=(s.check() == z3.sat))
-            # s = z3.Solver()
-            # s.add(z3.Distinct(intersection_regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
-            # output = run_z3(s, enable_timeout=enable_timeout, timeout=timeout)
-            # # if output == "unknown":
-            # #     raise TimeoutError("Timeout in z3")
-            # # checking_result = CheckingResult(ill_typed=(output == "sat"))
-            # checking_result = CheckingResult(ill_typed=(output == z3.sat))
-
-            if self.repr_mode == "stream" or other.repr_mode == "stream":
-                a = self.to_full_stream_repr().nfa
-                a = a.intersection(ast_to_automaton(RegexParser(".+").parse()))
-                a = product_fst_automaton(add_newline_if_not_end_with_newline_FST(), a)
-                b = other.to_full_stream_repr().nfa
-                b = b.intersection(ast_to_automaton(RegexParser(".+").parse()))
-                b = product_fst_automaton(add_newline_if_not_end_with_newline_FST(), b)
-            else:
-                a = self.nfa
-                b = other.nfa
-            # else:
-            #     a = self.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
-            #     b = other.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
-            logging.debug("checking subsumption")
-            is_subtype = a.subsetOf(b)
+        # with inclusion_timing(a_size=len(self.nfa.getStates()), b_size=len(other.nfa.getStates())):
+        if self.repr_mode == "stream" or other.repr_mode == "stream":
+            a = self.to_full_stream_repr().nfa
+            a = a.intersection(ast_to_automaton(RegexParser(".+").parse()))
+            a = product_fst_automaton(add_newline_if_not_end_with_newline_FST(), a)
+            b = other.to_full_stream_repr().nfa
+            b = b.intersection(ast_to_automaton(RegexParser(".+").parse()))
+            b = product_fst_automaton(add_newline_if_not_end_with_newline_FST(), b)
+        else:
+            a = self.nfa
+            b = other.nfa
+        logging.debug("checking subsumption")
+        is_subtype = a.subsetOf(b)
         witness = None
 
         if not is_subtype and enable_witness:
-            with Timing(f"timing counterexample gen = "):
-                # s = z3.Solver()
-                # x = z3.String('x')
-                # s.add(z3.InRe(x, intersection_regex))
-                # # s.check()
-                # # counterexample = s.model()[x].as_string()
-                # counterexample = run_z3(s, get_model=True, enable_timeout=enable_timeout, timeout=timeout)
-                # checking_result.set_counterexample(counterexample)
-
-                logging.debug("generating counterexample")
-                diff_nfa = a.minus(b)
-                print_diff_nfa = diff_nfa.intersection(ast_to_automaton(RegexParser("[[:print:]]*").parse()))
-                no_newline_diff_nfa = print_diff_nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
-                if not no_newline_diff_nfa.isEmpty():
-                    counterexample = str(no_newline_diff_nfa.getShortestExample(True))
-                elif not print_diff_nfa.isEmpty():
-                    counterexample = str(print_diff_nfa.getShortestExample(True))
+            # with counterexample_timing(a_size=len(a.getStates()), b_size=len(b.getStates())):
+            logging.debug("generating counterexample")
+            diff_nfa = a.minus(b)
+            print_diff_nfa = diff_nfa.intersection(ast_to_automaton(RegexParser("[[:print:]]*").parse()))
+            no_newline_diff_nfa = print_diff_nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
+            if not no_newline_diff_nfa.isEmpty():
+                counterexample = str(no_newline_diff_nfa.getShortestExample(True))
+            elif not print_diff_nfa.isEmpty():
+                counterexample = str(print_diff_nfa.getShortestExample(True))
+            else:
+                counterexample = str(diff_nfa.getShortestExample(True))
+            escaped_counterexample = ""
+            for c in counterexample:
+                if c == "\n":
+                    escaped_counterexample += "\\n"
+                elif c == "\t":
+                    escaped_counterexample += "\\t"
+                elif c == "\r":
+                    escaped_counterexample += "\\r"
                 else:
-                    counterexample = str(diff_nfa.getShortestExample(True))
-                escaped_counterexample = ""
-                for c in counterexample:
-                    if c == "\n":
-                        escaped_counterexample += "\\n"
-                    elif c == "\t":
-                        escaped_counterexample += "\\t"
-                    elif c == "\r":
-                        escaped_counterexample += "\\r"
-                    else:
-                        escaped_counterexample += c
-                witness = escaped_counterexample
+                    escaped_counterexample += c
+            witness = escaped_counterexample
 
         return is_subtype, witness
 
     def is_empty(self) -> bool:
-        # s = z3.Solver()
-        # logging.debug(f"checking: {self.pattern} is empty")
-        # logging.debug(f"self_regex: {self.regex}")
-        # s.add(z3.Distinct(self.regex, z3.Intersect(z3.Re("a"), z3.Re("b"))))
-        # output = run_z3(s)
-        # return output == z3.unsat
-
         logging.debug("checking emptiness")
         return self.to_line_based_repr().nfa.isEmpty()
     
     def is_empty_string(self) -> bool:
-        # s = z3.Solver()
-        # s.add(z3.Distinct(self.regex, z3.Re("")))
-        # output = run_z3(s)
-        # return output == z3.unsat
-
         logging.debug("checking empty string")
         return self.to_line_based_repr().nfa.isEmptyString()
     
+    @timer
     def to_full_stream_repr(self) -> "RegularType":
         if self.repr_mode == "stream":
             return self
@@ -227,6 +180,7 @@ class RegularType:
             # TODO
             return self
 
+    @timer
     def to_line_based_repr(self) -> "RegularType":
         if self.repr_mode == "line":
             return self
@@ -248,9 +202,9 @@ class RegularType:
         a = self.to_line_based_repr().nfa
         b = other.to_line_based_repr().nfa
         out = RegularType(automaton=BasicOperations.concatenate(a, b))
-        out.nfa.setDeterministic(False)
-        out.nfa.removeDeadTransitions()
-        out.nfa.minimize()
+        # out.nfa.setDeterministic(False)
+        # out.nfa.removeDeadTransitions()
+        # out.nfa.minimize()
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})({other.pattern})"
         out.tainted = self.tainted or other.tainted
@@ -260,9 +214,9 @@ class RegularType:
         a = self.to_line_based_repr().nfa
         b = other.to_line_based_repr().nfa
         out = RegularType(automaton=BasicOperations.minus(a, b))
-        out.nfa.setDeterministic(False)
-        out.nfa.removeDeadTransitions()
-        out.nfa.minimize()
+        # out.nfa.setDeterministic(False)
+        # out.nfa.removeDeadTransitions()
+        # out.nfa.minimize()
         out.tainted = self.tainted or other.tainted
         return out
 
@@ -270,9 +224,9 @@ class RegularType:
         a = self.to_line_based_repr().nfa
         b = other.to_line_based_repr().nfa
         out = RegularType(automaton=BasicOperations.intersection(a, b))
-        out.nfa.setDeterministic(False)
-        out.nfa.removeDeadTransitions()
-        out.nfa.minimize()
+        # out.nfa.setDeterministic(False)
+        # out.nfa.removeDeadTransitions()
+        # out.nfa.minimize()
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})&({other.pattern})"
         out.tainted = self.tainted or other.tainted
@@ -282,9 +236,9 @@ class RegularType:
         a = self.to_line_based_repr().nfa
         b = other.to_line_based_repr().nfa
         out = RegularType(automaton=BasicOperations.union(a, b))
-        out.nfa.setDeterministic(False)
-        out.nfa.removeDeadTransitions()
-        out.nfa.minimize()
+        # out.nfa.setDeterministic(False)
+        # out.nfa.removeDeadTransitions()
+        # out.nfa.minimize()
         if self.pattern is not None and other.pattern is not None:
             out.pattern = f"({self.pattern})|({other.pattern})"
         out.tainted = self.tainted or other.tainted
@@ -293,9 +247,9 @@ class RegularType:
     def __invert__(self) -> 'RegularType':
         a = self.to_line_based_repr().nfa
         out = RegularType(automaton=BasicOperations.minus(no_newline_automaton, a))
-        out.nfa.setDeterministic(False)
-        out.nfa.removeDeadTransitions()
-        out.nfa.minimize()
+        # out.nfa.setDeterministic(False)
+        # out.nfa.removeDeadTransitions()
+        # out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"~({self.pattern})"
         out.tainted = self.tainted
@@ -304,9 +258,9 @@ class RegularType:
     def optional(self) -> 'RegularType':
         a = self.to_line_based_repr().nfa
         out = RegularType(automaton=BasicOperations.optional(a))
-        out.nfa.setDeterministic(False)
-        out.nfa.removeDeadTransitions()
-        out.nfa.minimize()
+        # out.nfa.setDeterministic(False)
+        # out.nfa.removeDeadTransitions()
+        # out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"({self.pattern})?"
         out.tainted = self.tainted
@@ -315,9 +269,9 @@ class RegularType:
     def kleene_star(self) -> 'RegularType':
         a = self.to_line_based_repr().nfa
         out = RegularType(automaton=BasicOperations.repeat(a, 0))
-        out.nfa.setDeterministic(False)
-        out.nfa.removeDeadTransitions()
-        out.nfa.minimize()
+        # out.nfa.setDeterministic(False)
+        # out.nfa.removeDeadTransitions()
+        # out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"({self.pattern})*"
         out.tainted = self.tainted
@@ -326,9 +280,9 @@ class RegularType:
     def kleene_plus(self) -> 'RegularType':
         a = self.to_line_based_repr().nfa
         out = RegularType(automaton=BasicOperations.repeat(a, 1))
-        out.nfa.setDeterministic(False)
-        out.nfa.removeDeadTransitions()
-        out.nfa.minimize()
+        # out.nfa.setDeterministic(False)
+        # out.nfa.removeDeadTransitions()
+        # out.nfa.minimize()
         if self.pattern is not None:
             out.pattern = f"({self.pattern})+"
         out.tainted = self.tainted
@@ -350,6 +304,7 @@ class RegularType:
            return "RegularType(Automaton)\n" + str(self.nfa)
        return f"RegularType({self.pattern})"
     
+    @timer
     def get_singleton(self) -> Optional[str]:
         singleton = get_singleton(self.nfa)
         if singleton is not None:
@@ -390,6 +345,7 @@ class RegularType:
             return escaped_singleton
         return None
 
+    @timer
     def to_regex(self) -> str:
         """Convert automaton to a regular expression string."""
             

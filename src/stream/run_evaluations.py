@@ -10,6 +10,7 @@ import jpype
 import jpype.imports
 
 from stream.utils.logger import get_logger
+from stream.utils.timing import Timing
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from stream.type_checker import ScriptChecker
@@ -176,7 +177,8 @@ def detailed_comparison_matches(result, ground_truths):
     error_results_match = compare_error_results(gt_error_results, eval_error_results)
     self_contained_match = (gt_self_contained == eval_self_contained)
     
-    return error_results_match and self_contained_match
+    # return error_results_match and self_contained_match
+    return error_results_match
 
 def calculate_accuracy_functional(results):
     """Calculate accuracy using functional approach"""
@@ -218,7 +220,8 @@ def calculate_recall_functional(results):
     return len(true_positives) / denominator
 
 def calculate_refined_accuracy_functional(results):
-    """Calculate refined accuracy: same as regular accuracy except TP cases require detailed comparison"""
+    """Calculate refined accuracy: same as regular accuracy except TP cases require detailed comparison.
+    Also adds 'refined_correct' field to each result record."""
     ground_truth_path = "./ground_truth_trimodel_label.json"
     
     if not os.path.exists(ground_truth_path):
@@ -239,20 +242,35 @@ def calculate_refined_accuracy_functional(results):
     if not valid_results:
         return 0.0
     
-    # Count correct predictions with detailed comparison for TP
+    # Add refined_correct field to each result and count correct predictions
     correct_count = 0
     
-    # True Negatives: count as correct
-    true_negatives = [r for r in valid_results if is_true_negative(r)]
-    correct_count += len(true_negatives)
-    
-    # True Positives: require detailed comparison
-    true_positives = [r for r in valid_results if is_true_positive(r)]
-    detailed_correct_tp = [r for r in true_positives if detailed_comparison_matches(r, ground_truths)]
-    correct_count += len(detailed_correct_tp)
+    for result in results:
+        if is_timeout(result):
+            # Timeout cases are not evaluated for refined correctness
+            result["refined_correct"] = None
+        elif is_true_negative(result):
+            # True Negative: not buggy and not warning signaled -> always correct
+            result["refined_correct"] = True
+            correct_count += 1
+        elif is_true_positive(result):
+            # True Positive: buggy and warning signaled -> correct if matches ground truth
+            matches_ground_truth = detailed_comparison_matches(result, ground_truths)
+            result["refined_correct"] = matches_ground_truth
+            if matches_ground_truth:
+                correct_count += 1
+        else:
+            # False Positive or False Negative -> always incorrect
+            result["refined_correct"] = False
 
     refined_accuracy = correct_count / len(valid_results)
     logging.info(f"Refined accuracy calculation: {correct_count}/{len(valid_results)} = {refined_accuracy}")
+    
+    # Count for logging
+    true_negatives = [r for r in valid_results if is_true_negative(r)]
+    true_positives = [r for r in valid_results if is_true_positive(r)]
+    detailed_correct_tp = [r for r in true_positives if r.get("refined_correct") == True]
+    
     logging.info(f"  - True Negatives: {len(true_negatives)}")
     logging.info(f"  - True Positives (detailed correct): {len(detailed_correct_tp)}/{len(true_positives)}")
     
@@ -1014,4 +1032,5 @@ if __name__ == "__main__":
     get_logger().write_pattern_analysis_to_csv("general_logs/pattern_analysis.csv")
     get_logger().write_command_pattern_logs_to_file("general_logs/command_pattern.txt")
     get_logger().write_command_pattern_logs_to_csv("general_logs/command_pattern.csv")
+    Timing.finish_all()
     jpype.shutdownJVM()

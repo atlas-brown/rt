@@ -1,9 +1,11 @@
 import logging
 import re
+import time
 import traceback
 import copy
 from dataclasses import dataclass
 from stream.command_signature import CommandSignature, InferenceResult
+from stream.config.global_config import CONFIG
 from stream.regular_type import RegularType
 from stream.parser.shell_parser import ShellParser
 from typing import Callable, Dict, Optional, List, Tuple
@@ -14,6 +16,14 @@ from stream.utils.logger import get_logger
 from stream.utils.format import pretty_ast_node
 from stream.utils.timing import Timing
 from shasta.ast_node import PipeNode, CommandNode
+from stream.utils.function_timer import timer
+
+
+# inference_timing = Timing("inference_timing", "general_logs/inference_timing.json", skip_on_error=True)
+inclusion_timing = Timing("inclusion_timing", "general_logs/inclusion_timing.json")
+determinize_timing = Timing("determinize_timing", "general_logs/determinize_timing.json")
+minimization_timing = Timing("minimization_timing", "general_logs/minimization_timing.json")
+
 
 @dataclass
 class ErrorResult:
@@ -243,6 +253,7 @@ class PipelineChecker:
             # --------------------------------------------------
             # Iterate through each command in the pipeline
             # --------------------------------------------------
+            pipeline_id = time.time_ns()
             for command_node, parsed_command, command_index in zip(pipeline_node.items, parsed_commands, range(len(parsed_commands))):
                 signature, parsed_command_invocation = parsed_command
 
@@ -288,38 +299,48 @@ class PipelineChecker:
                 # ----------------------------------------------
                 # Input type derivation
                 # ----------------------------------------------
-                with Timing("timing input type creation = "):
-                    input_type, no_input_type = signature.determine_input_type(
-                        parsed_command_invocation,
-                        corresponding_annotations,
-                        self.heuristic_rules,
-                        corresponding_env_annotations,
-                    )
+                input_type, no_input_type = signature.determine_input_type(
+                    parsed_command_invocation,
+                    corresponding_annotations,
+                    self.heuristic_rules,
+                    corresponding_env_annotations,
+                )
 
                 # ----------------------------------------------
                 # Output type derivation
                 # ----------------------------------------------
-                with Timing("timing output type creation = "):
-                    inference_result = signature.determine_output_type(
-                        previous_output_type,
-                        parsed_command_invocation,
-                        corresponding_annotations,
-                        corresponding_env_annotations,
-                    )
-                    self_contained = True
-                    backward_func = None
-                    if isinstance(inference_result, InferenceResult):
-                        backward_func = inference_result.backward_func
-                        self_contained = inference_result.self_contained
-                        current_output_type = inference_result.output_type
-                    else:
-                        current_output_type = inference_result
-                    assert isinstance(current_output_type, RegularType)
+                # with inference_timing(invocation=pretty_ast_node(command_node), input_size=len(previous_output_type.nfa.getStates())):
+                inference_result = signature.determine_output_type(
+                    previous_output_type,
+                    parsed_command_invocation,
+                    corresponding_annotations,
+                    corresponding_env_annotations,
+                )
+                self_contained = True
+                backward_func = None
+                if isinstance(inference_result, InferenceResult):
+                    backward_func = inference_result.backward_func
+                    self_contained = inference_result.self_contained
+                    current_output_type = inference_result.output_type
+                else:
+                    current_output_type = inference_result
+                assert isinstance(current_output_type, RegularType)
 
-                    if self_contained is not None and not self_contained:
-                        self.self_contained = False
-                    
-                    self.backward_map[command_index] = backward_func
+                if self_contained is not None and not self_contained:
+                    self.self_contained = False
+                
+                self.backward_map[command_index] = backward_func
+
+                # ----------------------------------------------
+                # Output automata post-processing & stats
+                # ----------------------------------------------
+                current_output_type.nfa.setDeterministic(False)
+                # current_output_type.nfa.removeDeadTransitions()
+                with determinize_timing(pipeline_id=pipeline_id, automata_size=len(current_output_type.nfa.getStates())):
+                    current_output_type.nfa.determinize()
+                with minimization_timing(pipeline_id=pipeline_id, automata_size=len(current_output_type.nfa.getStates())):
+                    current_output_type.nfa.removeDeadTransitions()
+                    current_output_type.nfa.minimize()
 
                 # ----------------------------------------------
                 # Pretty printing of type information for logging
@@ -348,13 +369,6 @@ class PipelineChecker:
                 get_logger().get_latest_record()["command_list"][-1]["command_type"] = command_type_str
                 get_logger().get_latest_record()["command_list"][-1].pop("output_type")
 
-                # ----------------------------------------------
-                # Output automata post-processing & stats
-                # ----------------------------------------------
-                current_output_type.nfa.setDeterministic(False)
-                current_output_type.nfa.removeDeadTransitions()
-                current_output_type.nfa.minimize()
-
                 current_automata_size = len(current_output_type.nfa.getStates())
                 self.max_automata_size = max(self.max_automata_size, current_automata_size)
 
@@ -376,7 +390,8 @@ class PipelineChecker:
                 # ----------------------------------------------
                 # Type constraint checks (domain constraints & heuristics)
                 # ----------------------------------------------
-                is_subtype, witness = previous_output_type.is_subtype(input_type)
+                with inclusion_timing(pipeline_id=pipeline_id, a_size=len(previous_output_type.nfa.getStates()), b_size=len(input_type.nfa.getStates())):
+                    is_subtype, witness = previous_output_type.is_subtype(input_type)
                 if not is_subtype:
                     intersection = previous_output_type & input_type
                     all_input = intersection.is_empty()
@@ -544,18 +559,19 @@ class PipelineChecker:
                 logging.debug(f"Output type: {current_output_type}")
                 logging.debug("-" * 60)
 
-            try:
-                for error_result in error_results:
-                    if error_result.witness is not None and error_result.command_index is not None:
-                        witness, command_index = self.backward(error_result.witness, error_result.command_index)
-                        error_result.better_witness = (witness, command_index)
-            except Exception as e:
-                # print(self.error_results)
-                # print(self.backward_map)
-                # traceback.print_exc()
-                # exit()
-                # FIXME
-                pass
+# FIXME
+            # try:
+            #     for error_result in error_results:
+            #         if error_result.witness is not None and error_result.command_index is not None:
+            #             witness, command_index = self.backward(error_result.witness, error_result.command_index)
+            #             error_result.better_witness = (witness, command_index)
+            # except Exception as e:
+            #     # print(self.error_results)
+            #     # print(self.backward_map)
+            #     # traceback.print_exc()
+            #     # exit()
+            #     # FIXME
+            #     pass
         except ToolError as e:
             error_result = ErrorResult(
                 # pipe_node=pipeline_node,
@@ -591,6 +607,8 @@ class PipelineChecker:
     
 
     def backward(self, witness: str, command_index: int) -> Tuple[str, int]:
+        if not CONFIG["enable_FST"]:
+            return witness, command_index
         real_command_index = command_index - 1 # offset by 1 because command_index is 1-indexed
         witness = re.escape(witness)
         witness_nfa = RegularType(witness).nfa
@@ -605,7 +623,7 @@ class PipelineChecker:
             real_command_index -= 1
         return str(current_nfa.getShortestExample(True)), real_command_index
 
-
+@timer
 def refine_log(s: str) -> str:
     s = re.sub(r"((?<!\\)(?:\\\\)*)\\ ", r"\1 ", s)
     s = s.replace("\t", "\\t")

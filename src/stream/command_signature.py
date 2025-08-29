@@ -79,6 +79,7 @@ class CommandSignature:
         trans_to_line_based = False
         if parsed_command_invocation.cmd_name not in ["cut", "tr", "grep", "head", "tail"]:
             previous_output_type, trans_to_line_based = self.process_stream_input(previous_output_type)
+        # previous_output_type, trans_to_line_based = self.process_stream_input(previous_output_type)
         out = self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         if trans_to_line_based:
             original_output_type = get_logger().get_latest_record()["command_list"][-1]["output_type"]

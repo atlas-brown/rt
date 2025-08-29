@@ -3,7 +3,7 @@ import os
 import datetime
 import traceback
 from typing import Dict, List, Any, Optional
-
+from stream.utils.function_timer import timer
 
 class LogManager:
     """
@@ -306,6 +306,7 @@ class LogManager:
         self._logs.append(record)
         return record
     
+    @timer
     def get_latest_record(self) -> Optional[Dict[str, Any]]:
         """
         Get a reference to the latest log record.
@@ -1034,6 +1035,7 @@ class LogManager:
 
 
 # Global function to get the singleton instance
+@timer
 def get_logger() -> LogManager:
     """
     Get the singleton LogManager instance.

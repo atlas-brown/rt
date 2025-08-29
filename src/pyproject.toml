@@ -11,7 +11,7 @@ dependencies = [
   "pash_annotations == 0.2.2",
   "libdash == 0.3.1",
   "shasta == 0.1.0",
-  "z3-solver",
+  "jpype1",
   "pytest"
 ]
 
