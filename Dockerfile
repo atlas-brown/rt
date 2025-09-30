@@ -1,60 +1,40 @@
-# Use the official Ubuntu base image
-FROM ubuntu:20.04
+# https://hub.docker.com/_/python#simple-tags
+FROM python:3.12.11-slim-bookworm
 
-ENV DEBIAN_FRONTEND=noninteractive
+# https://hub.docker.com/_/eclipse-temurin#using-a-different-base-image
+ENV JAVA_HOME="/opt/java/openjdk"
+COPY --from=eclipse-temurin:21 $JAVA_HOME $JAVA_HOME
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
-# Update and install basic packages
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
-    git \
-    wget \
-    software-properties-common \
-    unzip \
-    vim \
-    sudo \ 
-    graphviz \
-    && rm -rf /var/lib/apt/lists/*
+# https://github.com/binpash/libdash?tab=readme-ov-file#what-are-the-dependencies
+RUN apt-get update && \
+    apt-get install --yes \
+        autoconf \
+        libtool \
+        make && \
+    apt-get clean
 
-# Add deadsnakes PPA and install Python 3.10
-RUN add-apt-repository ppa:deadsnakes/ppa && \
-    apt-get update && \
-    apt-get install -y python3.10 python3.10-venv && \
-    rm -rf /var/lib/apt/lists/*
+# rt dependencies
+RUN pip install --no-cache-dir \
+    jpype1 \
+    libdash \
+    pash_annotations \
+    pytest \
+    pyyaml \
+    shasta
 
-# Set Python 3.10 as the default python3
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+# create non-root user and copy local files to home directory
+RUN useradd --create-home --shell /bin/bash rt
+WORKDIR /home/rt
+ADD ./ ./
 
-# Install pip for Python 3.10
-RUN python3 -m ensurepip --upgrade
+# set PYTHONPATH and run debug
+ENV PYTHONPATH="src"
+CMD [ "python", "-m", "stream.run_evaluations" ]
 
-# Verify Python and pip versions
-RUN python3 --version && pip3 --version
-
-
-#COPY z3 install script
-# COPY install_z3.sh /home/stream/install_z3.sh
-# RUN chmod +x /home/stream/install_z3.sh
-# RUN /home/stream/install_z3.sh
-
-# Install Python dependencies
-# RUN sudo apt-get install libtool m4 automake -y
-
-RUN pip3 install --no-cache-dir shasta libdash pash_annotations pytest jpype1
-
-RUN apt-get update && apt-get install -y openjdk-11-jdk && rm -rf /var/lib/apt/lists/*
-
-# todo install https://github.com/michaelsippel/ltsh# and shellcheck, ensure they're in the PATH
-# todo install plotting deps
-
-# Set the working directory in the container
-WORKDIR /home/stream
-
-ADD . /home/stream
-# RUN bash /home/stream/run_tests.sh
-
-# The command the container will run by default
-SHELL ["/bin/bash", "-c"]
-
-CMD ["/bin/bash"]
-
+# ideally, at some point, the entrypoint will a "main" executable,
+# the user will specify commands through the command line (docker run rt run-benchmark --bare),
+# and a CMD directive will have the "default" set of commands
+# as CMD directives are made to be easily overriden
+#ENTRYPOINT [ "python", "-m", "main" ]
+#CMD [ "run-benchmark", "--bare" ]

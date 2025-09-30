@@ -1,0 +1,7 @@
+{
+  "name": "streamtypes-dev",
+  "build": {
+    "context": "..",
+    "dockerfile": "../Dockerfile"
+  }
+}
