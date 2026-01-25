@@ -1,7 +1,35 @@
 {
-  "name": "streamtypes-dev",
+  "name": "stream-type-dev",
   "build": {
-    "context": "..",
-    "dockerfile": "../Dockerfile"
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspaces/StreamTypes",
+  "remoteUser": "root",
+  "updateRemoteUserUID": true,
+  "containerEnv": {
+    "PYTHONPATH": "/workspaces/StreamTypes/src"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3.12"
+      },
+      "extensions": [
+        // "ms-python.python",
+        // "mads-hartmann.bash-ide-vscode",
+        // "openai.chatgpt",
+        // "github.copilot-chat"
+      ]
+    }
   }
+  // "features": {
+  //   "ghcr.io/devcontainers/features/common-utils:2.5.6": {
+  //       "installZsh": true,
+  //       "installOhMyZsh": true,
+  //       "installOhMyZshConfig": true,
+  //       "upgradePackages": false
+  //   }
+  // },
+  // "postCreateCommand": "bash .devcontainer/setup-zsh.sh"
 }

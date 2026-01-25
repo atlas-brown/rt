@@ -3,7 +3,7 @@
 ## Install dependencies (Ignore if building from Docker)
 
 ```bash
-pip3 install shasta libdash pash_annotations pytest jpype1 pyyaml
+pip3 install -r requirements.txt
 ```
 
 

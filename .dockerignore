@@ -1,0 +1,15 @@
+**/.venv/
+**/__pycache__/
+
+*.pyc
+.DS_Store
+
+**/target/**
+
+generated_dfas/**
+src/generated_scripts/**
+src/test_scripts/**
+
+.devcontainer/**
+.gitignore
+.git/
