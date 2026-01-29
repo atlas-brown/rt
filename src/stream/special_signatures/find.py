@@ -3,14 +3,15 @@ from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 import re
 
-from stream.utils.logger import get_logger
+# from stream.utils.logger import get_logger
 
 class FindSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
-        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
+        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         # find keywords in parsed_command_invocation.operand_list, e.g., -exec will be "-e", "-x", "-e", "-c"  in order, keywords can be arbitrary
         # example operand_list: [/workspace, -t, -y, -p, -e, f, -s, -i, -z, -e, +1k, -e, -x, -e, -c, ls, -l, -s, {}, +]
         keywords = ["exec"]
@@ -128,5 +129,6 @@ class FindSignature(CommandSignature):
                     else:
                         # Pattern matches the path itself or any subdirectory/file under it
                         output_type = RegularType(f"{escaped_path}(/.+)?")
-        get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type.pattern
+        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+        # get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type.pattern
         return InferenceResult(output_type, None, False)

@@ -3,7 +3,7 @@ from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.transducer import compression_FST, cut_field_FST, first_regex_replacement_FST, product_fst_automaton, start_regex_replacement_FST, translate_to_line_delimited_FST, translation_FST
-from stream.utils.logger import get_logger
+# from stream.utils.logger import get_logger
 
 class AwkSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -14,13 +14,14 @@ class AwkSignature(CommandSignature):
         # get_logger().classify_last_invocation_as_supported()
         
         # Record command pattern based on flag combination
-        flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
-        get_logger().add_command_pattern_log("awk", flag_pattern)
+        # flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
+        # get_logger().add_command_pattern_log("awk", flag_pattern)
         
         if len(parsed_command_invocation.operand_list) != 1:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         operand = parsed_command_invocation.operand_list[0].name
-        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
+        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         
         # First, identify variables used in increment/decrement operations (i++, ++i, i--, --i)
         # These variables can be inferred to be integers
@@ -46,14 +47,15 @@ class AwkSignature(CommandSignature):
         var_match = re.match(r'^([a-zA-Z_][a-zA-Z0-9_]*)$', print_content)
         if var_match:
             var_name = var_match.group(1)
-            if var_name == "NF":
-                # NF is a special variable representing number of fields
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
-                return InferenceResult(RegularType("[0-9]+"), None, True)
-            elif var_name in int_variables:
-                # The variable is an integer, so return a regex pattern for integers
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
-                return InferenceResult(RegularType("[0-9]+"), None, True)
+            return InferenceResult(RegularType("[0-9]+"), None, True)
+            # if var_name == "NF":
+            #     # NF is a special variable representing number of fields
+            #     get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
+            #     return InferenceResult(RegularType("[0-9]+"), None, True)
+            # elif var_name in int_variables:
+            #     # The variable is an integer, so return a regex pattern for integers
+            #     get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
+            #     return InferenceResult(RegularType("[0-9]+"), None, True)
         
         # Special handling for print statements with NF and/or column references
         has_nf = re.search(r'\bNF\b', print_content) is not None
@@ -74,7 +76,7 @@ class AwkSignature(CommandSignature):
                     result_parts.append(".*")
             
             if result_parts:
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = "".join(result_parts)
+                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = "".join(result_parts)
                 return InferenceResult(RegularType("".join(result_parts)), None, True)
             
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
@@ -137,7 +139,7 @@ class AwkSignature(CommandSignature):
                 
                 last_end = end
             
-            get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type_str
+            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type_str
             return InferenceResult(result_type, None, True) if result_type else super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         except Exception:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)

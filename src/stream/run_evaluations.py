@@ -9,7 +9,7 @@ from typing import List, Tuple
 import jpype
 import jpype.imports
 
-from stream.utils.logger import get_logger
+# from stream.utils.logger import get_logger  # get_logger disabled per request
 from stream.utils.timing import Timing
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
@@ -1022,15 +1022,16 @@ if __name__ == "__main__":
         output_json=output_json,
         output_summary_csv=output_summary_csv
     )
-    get_logger().write_to_text("general_logs/type.txt")
-    get_logger().write_command_logs_to_file("general_logs/command.json")
-    get_logger().write_regex_logs_to_file("general_logs/regex.txt")
-    get_logger().write_assertion_failure_stats_to_file("general_logs/assertion_failure_stats.json")
-    get_logger().write_detailed_command_invocations_to_file("general_logs/detailed_command_invocations.txt", deduplicate=True)
-    get_logger().write_detailed_command_invocations_to_csv("general_logs/detailed_command_invocations_supported.csv", deduplicate=True)
-    get_logger().write_pattern_analysis_to_file("general_logs/pattern_analysis.txt")
-    get_logger().write_pattern_analysis_to_csv("general_logs/pattern_analysis.csv")
-    get_logger().write_command_pattern_logs_to_file("general_logs/command_pattern.txt")
-    get_logger().write_command_pattern_logs_to_csv("general_logs/command_pattern.csv")
+    # NOTE(logger-disabled): file-based logging via get_logger is disabled per request.
+    # get_logger().write_to_text("general_logs/type.txt")
+    # get_logger().write_command_logs_to_file("general_logs/command.json")
+    # get_logger().write_regex_logs_to_file("general_logs/regex.txt")
+    # get_logger().write_assertion_failure_stats_to_file("general_logs/assertion_failure_stats.json")
+    # get_logger().write_detailed_command_invocations_to_file("general_logs/detailed_command_invocations.txt", deduplicate=True)
+    # get_logger().write_detailed_command_invocations_to_csv("general_logs/detailed_command_invocations_supported.csv", deduplicate=True)
+    # get_logger().write_pattern_analysis_to_file("general_logs/pattern_analysis.txt")
+    # get_logger().write_pattern_analysis_to_csv("general_logs/pattern_analysis.csv")
+    # get_logger().write_command_pattern_logs_to_file("general_logs/command_pattern.txt")
+    # get_logger().write_command_pattern_logs_to_csv("general_logs/command_pattern.csv")
     Timing.finish_all()
     jpype.shutdownJVM()

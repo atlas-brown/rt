@@ -7,7 +7,7 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 from stream.tool_error import ToolError
 from stream.transducer import translate_to_line_delimited_FST, translation_FST, product_fst_automaton, compression_FST, deletion_FST
 from stream.transducer_utils import compute_fst_automaton_product
-from stream.utils.logger import get_logger
+# from stream.utils.logger import get_logger
 
 class TrSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -31,18 +31,19 @@ class TrSignature(CommandSignature):
         supported_flags = set(["-c", "-d", "-s", "-t"])
         
         # Record command pattern based on flag combination
-        flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
-        get_logger().add_command_pattern_log("tr", flag_pattern)
-        
-        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
+        # flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
+        # get_logger().add_command_pattern_log("tr", flag_pattern)
+
+        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         # FIXME: may have some issues
         set1 = parsed_command_invocation.operand_list[0].name
         set1 = preprocess_set(set1)
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
-        if parsed_flags.issubset(supported_flags):
-            get_logger().classify_last_invocation_as_supported()
-        else:
-            get_logger().classify_last_invocation_as_unsupported()
+        # if parsed_flags.issubset(supported_flags):
+        #     get_logger().classify_last_invocation_as_supported()
+        # else:
+        #     get_logger().classify_last_invocation_as_unsupported()
         
         arg1 = parsed_command_invocation.operand_list[0].name
         arg2 = ""
@@ -54,7 +55,7 @@ class TrSignature(CommandSignature):
             squeeze = True
         if "-c" in parsed_flags:
             complement = True
-        get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"translate-chars(α, {refine_log(arg1)}, {refine_log(arg2)}, complement={complement}, squeeze={squeeze})"
+        # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"translate-chars(α, {refine_log(arg1)}, {refine_log(arg2)}, complement={complement}, squeeze={squeeze})"
 
         set1 = preprocess_set(arg1)
         set2 = preprocess_set(arg2)

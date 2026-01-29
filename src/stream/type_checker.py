@@ -12,7 +12,7 @@ from typing import Callable, Dict, Optional, List, Tuple
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 from stream.tool_error import ToolError
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
-from stream.utils.logger import get_logger
+# from stream.utils.logger import get_logger
 from stream.utils.format import pretty_ast_node
 from stream.utils.timing import Timing
 from shasta.ast_node import PipeNode, CommandNode
@@ -146,13 +146,14 @@ class ScriptChecker:
         # from the caller's perspective.
         self.current_index += 1
 
-        record = get_logger().create_record()
-        record["script_address"] = self.pipeline_address
-        record["buggy (ground truth)"] = not self.label
-        record["pipeline"] = pretty_ast_node(pipeline_node)
-        record["command_list"] = []
-        record["error_results"] = []
-        record["RT_warning"] = False
+        # NOTE(logger-state): record is used later for type summaries/error messaging.
+        # record = get_logger().create_record()
+        # record["script_address"] = self.pipeline_address
+        # record["buggy (ground truth)"] = not self.label
+        # record["pipeline"] = pretty_ast_node(pipeline_node)
+        # record["command_list"] = []
+        # record["error_results"] = []
+        # record["RT_warning"] = False
 
         logging.info(f"Checking pipeline: {pretty_ast_node(pipeline_node)}")
 
@@ -167,8 +168,8 @@ class ScriptChecker:
             enable_detailed_error_reporting=self.enable_detailed_error_reporting,
         )
         error_results = pipeline_checker.check(pipeline_node, parsed_commands, initial_output_type)
-        record["error_results"] = error_results
-        record["self_contained"] = pipeline_checker.self_contained
+        # record["error_results"] = error_results
+        # record["self_contained"] = pipeline_checker.self_contained
         return CheckingResult(
             error_results=error_results,
             self_contained=pipeline_checker.self_contained,
@@ -259,40 +260,41 @@ class PipelineChecker:
 
                 assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
-                command_list = get_logger().get_latest_record()["command_list"]
-                command_list.append({})
-                command_list[-1]["command_name"] = pretty_ast_node(command_node)
-                get_logger().add_command_log(parsed_command_invocation.cmd_name)
-                if parsed_command_invocation.cmd_name in ["grep", "cut", "awk", "sed", "tr", "paste", "fmt"]:
-                    # Extract flags and operands for detailed logging
-                    flags = [flag.get_name() for flag in parsed_command_invocation.flag_option_list]
-                    operands = [op.name for op in parsed_command_invocation.operand_list]
-                    full_invocation = pretty_ast_node(command_node)
+                # NOTE(logger-state): command_list feeds type summaries and error messaging.
+                # command_list = get_logger().get_latest_record()["command_list"]
+                # command_list.append({})
+                # command_list[-1]["command_name"] = pretty_ast_node(command_node)
+                # get_logger().add_command_log(parsed_command_invocation.cmd_name)
+                # if parsed_command_invocation.cmd_name in ["grep", "cut", "awk", "sed", "tr", "paste", "fmt"]:
+                #     # Extract flags and operands for detailed logging
+                #     flags = [flag.get_name() for flag in parsed_command_invocation.flag_option_list]
+                #     operands = [op.name for op in parsed_command_invocation.operand_list]
+                #     full_invocation = pretty_ast_node(command_node)
                     
                     # Record the detailed command invocation
-                    get_logger().add_detailed_command_invocation(
-                        command_name=parsed_command_invocation.cmd_name,
-                        invocation=full_invocation,
-                        flags=flags,
-                        operands=operands
-                    )
+                    # get_logger().add_detailed_command_invocation(
+                    #     command_name=parsed_command_invocation.cmd_name,
+                    #     invocation=full_invocation,
+                    #     flags=flags,
+                    #     operands=operands
+                    # )
                     
                     # Record pattern analysis for grep and sed commands
-                    if parsed_command_invocation.cmd_name in ["grep", "sed"]:
-                        get_logger().add_pattern_analysis(
-                            command_name=parsed_command_invocation.cmd_name,
-                            invocation=pretty_ast_node(command_node),
-                            pattern="",  # Will be updated in special signatures
-                            ast_repr="",  # Will be updated in special signatures
-                            is_pure_string=False,  # Will be updated in special signatures
-                            has_references=False  # Will be updated in special signatures
-                        )
+                    # if parsed_command_invocation.cmd_name in ["grep", "sed"]:
+                    #     # get_logger().add_pattern_analysis(
+                    #     #     command_name=parsed_command_invocation.cmd_name,
+                    #     #     invocation=pretty_ast_node(command_node),
+                    #     #     pattern="",  # Will be updated in special signatures
+                    #     #     ast_repr="",  # Will be updated in special signatures
+                    #     #     is_pure_string=False,  # Will be updated in special signatures
+                    #     #     has_references=False  # Will be updated in special signatures
+                    #     # )
                 corresponding_annotations = self.annotations.get(command_node, []) if isinstance(command_node, CommandNode) else []
                 corresponding_env_annotations = self.env_annotations.get(pipeline_node, {})
-                if len(corresponding_annotations) > 0:
-                    get_logger().get_latest_record()["annotations"] = corresponding_annotations
-                if len(corresponding_env_annotations) > 0:
-                    get_logger().get_latest_record()["env_annotations"] = corresponding_env_annotations
+                # if len(corresponding_annotations) > 0:
+                #     get_logger().get_latest_record()["annotations"] = corresponding_annotations
+                # if len(corresponding_env_annotations) > 0:
+                #     get_logger().get_latest_record()["env_annotations"] = corresponding_env_annotations
 
                 logging.debug(f"Annotations: {corresponding_annotations}")
 
@@ -345,47 +347,49 @@ class PipelineChecker:
                 # ----------------------------------------------
                 # Pretty printing of type information for logging
                 # ----------------------------------------------
-                input_type_str = input_type.pattern
-                no_input_type_str = no_input_type.pattern if no_input_type is not None else None
-                current_output_type_str = get_logger().get_latest_record()["command_list"][-1]["output_type"]
-                current_output_type_str = refine_log(current_output_type_str)
+                # input_type_str = input_type.pattern
+                # no_input_type_str = no_input_type.pattern if no_input_type is not None else None
+                # NOTE(logger-state): output_type stored in logger record is used for error messaging.
+                # current_output_type_str = get_logger().get_latest_record()["command_list"][-1]["output_type"]
+                # current_output_type_str = refine_log(current_output_type_str)
 
-                command_type_str = ""
-                input_type_str = refine_log(input_type_str) if input_type_str is not None else ""
-                current_output_type_str = refine_log(current_output_type_str)
-                if "α" not in current_output_type_str and no_input_type_str is None:
-                    if input_type_str == "":
-                        input_type_str = "()"
-                    command_type_str = f"{input_type_str} -> {current_output_type_str}"
-                elif no_input_type_str is None and input_type_str == ".*":
-                    command_type_str = f"∀ α . α -> {current_output_type_str}"
-                elif no_input_type_str is None and input_type_str != ".*":
-                    command_type_str = f"∀ α ⊆ {input_type_str} . α -> {current_output_type_str}"
-                elif no_input_type_str is not None and input_type_str == ".*":
-                    command_type_str = f"∀ α ⊄ {no_input_type_str} . α -> {current_output_type_str}"
-                elif no_input_type_str is not None and input_type_str != ".*":
-                    command_type_str = f"∀ α ⊆ {input_type_str} ∧ α ⊄ {no_input_type_str}. α -> {current_output_type_str}"
+                # command_type_str = ""
+                # input_type_str = refine_log(input_type_str) if input_type_str is not None else ""
+                # current_output_type_str = refine_log(current_output_type_str)
+                # if "α" not in current_output_type_str and no_input_type_str is None:
+                #     if input_type_str == "":
+                #         input_type_str = "()"
+                #     command_type_str = f"{input_type_str} -> {current_output_type_str}"
+                # elif no_input_type_str is None and input_type_str == ".*":
+                #     command_type_str = f"∀ α . α -> {current_output_type_str}"
+                # elif no_input_type_str is None and input_type_str != ".*":
+                #     command_type_str = f"∀ α ⊆ {input_type_str} . α -> {current_output_type_str}"
+                # elif no_input_type_str is not None and input_type_str == ".*":
+                #     command_type_str = f"∀ α ⊄ {no_input_type_str} . α -> {current_output_type_str}"
+                # elif no_input_type_str is not None and input_type_str != ".*":
+                #     command_type_str = f"∀ α ⊆ {input_type_str} ∧ α ⊄ {no_input_type_str}. α -> {current_output_type_str}"
 
-                get_logger().get_latest_record()["command_list"][-1]["command_type"] = command_type_str
-                get_logger().get_latest_record()["command_list"][-1].pop("output_type")
+                # get_logger().get_latest_record()["command_list"][-1]["command_type"] = command_type_str
+                # get_logger().get_latest_record()["command_list"][-1].pop("output_type")
 
                 current_automata_size = len(current_output_type.nfa.getStates())
                 self.max_automata_size = max(self.max_automata_size, current_automata_size)
 
-                cmd_log_entry = get_logger().get_latest_record()["command_list"][-1]
-                cmd_log_entry["output_language_size"] = current_automata_size
-                if current_output_type.get_singleton() is not None:
-                    cmd_log_entry["output_language"] = current_output_type.get_singleton()
-                elif current_automata_size <= 4:
-                    cmd_log_entry["output_language"] = current_output_type.to_regex()
-                elif len(get_logger().get_latest_record()["command_list"]) > 1:
-                    cmd_log_entry["output_language"] = current_output_type_str.replace(
-                        "α", get_logger().get_latest_record()["command_list"][-2]["output_language"]
-                    )
-                else:
-                    cmd_log_entry["output_language"] = current_output_type_str.replace("α", initial_output_type)
+                # NOTE(logger-state): output_language is used for error messaging.
+                # cmd_log_entry = get_logger().get_latest_record()["command_list"][-1]
+                # cmd_log_entry["output_language_size"] = current_automata_size
+                # if current_output_type.get_singleton() is not None:
+                #     cmd_log_entry["output_language"] = current_output_type.get_singleton()
+                # elif current_automata_size <= 4:
+                #     cmd_log_entry["output_language"] = current_output_type.to_regex()
+                # elif len(get_logger().get_latest_record()["command_list"]) > 1:
+                #     cmd_log_entry["output_language"] = current_output_type_str.replace(
+                #         "α", get_logger().get_latest_record()["command_list"][-2]["output_language"]
+                #     )
+                # else:
+                #     cmd_log_entry["output_language"] = current_output_type_str.replace("α", initial_output_type)
 
-                cmd_log_entry["output_language"] = refine_log(cmd_log_entry["output_language"])
+                # cmd_log_entry["output_language"] = refine_log(cmd_log_entry["output_language"])
 
                 # ----------------------------------------------
                 # Type constraint checks (domain constraints & heuristics)
@@ -396,8 +400,9 @@ class PipelineChecker:
                     intersection = previous_output_type & input_type
                     all_input = intersection.is_empty()
                     serious_violation = not input_type.is_empty() # if input type is empty, it is caught by a heuristic rule which is not serious violation
-                    previous_output_type_str = get_logger().get_latest_record()["command_list"][-2]["output_language"] if len(get_logger().get_latest_record()["command_list"]) > 1 else ""
-                    error_message = f"Input type '{previous_output_type_str}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'. For example: '{witness}'."
+                    # NOTE(logger-state): previous output_language used in error messages.
+                    # previous_output_type_str = get_logger().get_latest_record()["command_list"][-2]["output_language"] if len(get_logger().get_latest_record()["command_list"]) > 1 else ""
+                    error_message = f"Input type '{previous_output_type}' is not compatible with expected input '{input_type}' for command '{signature.command_name}'. For example: '{witness}'."
                     
                     error_result = ErrorResult(
                         # pipe_node=pipeline_node,
@@ -414,9 +419,9 @@ class PipelineChecker:
                     if self.enable_detailed_error_reporting:
                         error_result.all_input = previous_output_type.empty_intersection(input_type)
                     
-                    get_logger().get_latest_record()["RT_warning"] = True
-                    get_logger().get_latest_record()["error_message"] = error_message
-                    get_logger().get_latest_record()["error_type"] = "type mismatch (domain constraint)"
+                    # get_logger().get_latest_record()["RT_warning"] = True
+                    # get_logger().get_latest_record()["error_message"] = error_message
+                    # get_logger().get_latest_record()["error_type"] = "type mismatch (domain constraint)"
                     error_results.append(error_result)
                     # Continue checking subsequent commands
                     previous_output_type = current_output_type
@@ -425,8 +430,9 @@ class PipelineChecker:
                 if no_input_type is not None:
                     is_not_subtype, witness = previous_output_type.not_subtype(no_input_type)
                     if not is_not_subtype:
-                        previous_output_type_str = get_logger().get_latest_record()["command_list"][-2]["output_language"] if len(get_logger().get_latest_record()["command_list"]) > 1 else ""
-                        error_message = f"Command '{signature.command_name}' received input '{previous_output_type_str}' but it should not accept input type which is subset of '{no_input_type}' according to heuristic rules."
+                        # NOTE(logger-state): previous output_language used in error messages.
+                        # previous_output_type_str = get_logger().get_latest_record()["command_list"][-2]["output_language"] if len(get_logger().get_latest_record()["command_list"]) > 1 else ""
+                        error_message = f"Command '{signature.command_name}' received input '{previous_output_type}' but it should not accept input type which is subset of '{no_input_type}' according to heuristic rules."
                         
                         error_result = ErrorResult(
                             # pipe_node=pipeline_node,
@@ -441,10 +447,10 @@ class PipelineChecker:
                             command_index=command_index + 1,
                         )
                         
-                        get_logger().get_latest_record()["RT_warning"] = True
+                        # get_logger().get_latest_record()["RT_warning"] = True
                         # get_logger().get_latest_record()["error_message"] = error_message
                         # get_logger().get_latest_record()["error_type"] = "heuristic rule violation"
-                        get_logger().get_latest_record()["error_results"].append(error_result)
+                        # get_logger().get_latest_record()["error_results"].append(error_result)
                         error_results.append(error_result)
                         previous_output_type = current_output_type
                         continue
@@ -454,8 +460,8 @@ class PipelineChecker:
                 # ----------------------------------------------
                 if "no_empty_output" in self.heuristic_rules:
                     if current_output_type.is_empty() or current_output_type.is_empty_string():
-                        current_output_type_str = cmd_log_entry['output_language']
-                        error_message = f"Output type '{current_output_type_str}' is empty for command '{signature.command_name}'."
+                        # current_output_type_str = cmd_log_entry['output_language']
+                        error_message = f"Output type '{current_output_type}' is empty for command '{signature.command_name}'."
                         
                         error_result = ErrorResult(
                             # pipe_node=pipeline_node,
@@ -469,10 +475,10 @@ class PipelineChecker:
                             command_index=command_index + 2,
                         )
                         
-                        get_logger().get_latest_record()["RT_warning"] = True
+                        # get_logger().get_latest_record()["RT_warning"] = True
                         # get_logger().get_latest_record()["error_message"] = error_message
                         # get_logger().get_latest_record()["error_type"] = "heuristic rule violation"
-                        get_logger().get_latest_record()["error_results"].append(error_result)
+                        # get_logger().get_latest_record()["error_results"].append(error_result)
                         error_results.append(error_result)
                         previous_output_type = current_output_type
                         continue
@@ -488,8 +494,8 @@ class PipelineChecker:
                             intersection = current_output_type & RegularType(annotation.pattern)
                             all_input = intersection.is_empty()
                                                         
-                            current_output_type_str = cmd_log_entry['output_language']
-                            error_message = f"Output type '{current_output_type_str}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{witness}'."
+                            # current_output_type_str = cmd_log_entry['output_language']
+                            error_message = f"Output type '{current_output_type}' is not compatible with asserted output '{annotation}' for command '{signature.command_name}'. For example: '{witness}'."
                             
                             tainted = True if "\n" in annotation.pattern else current_output_type.tainted
                             
@@ -508,11 +514,11 @@ class PipelineChecker:
                             if self.enable_detailed_error_reporting:
                                 error_result.all_input = current_output_type.empty_intersection(RegularType(annotation.pattern))
                             
-                            get_logger().get_latest_record()["RT_warning"] = True
+                            # get_logger().get_latest_record()["RT_warning"] = True
                             # get_logger().get_latest_record()["error_message"] = error_message
                             # get_logger().get_latest_record()["error_type"] = "type mismatch (assertion)"
-                            get_logger().get_latest_record()["error_results"].append(error_result)
-                            cmd_log_entry["output_asserted"] = annotation.pattern
+                            # get_logger().get_latest_record()["error_results"].append(error_result)
+                            # cmd_log_entry["output_asserted"] = annotation.pattern
                             error_results.append(error_result)
                             previous_output_type = current_output_type
                             continue
@@ -522,8 +528,8 @@ class PipelineChecker:
                         is_contains_violated, witness = RegularType(annotation.pattern).is_subtype(current_output_type)
                         is_contains_violated = not is_contains_violated  # Negate because we want to check if assertion is violated
                         if is_contains_violated:
-                            current_output_type_str = cmd_log_entry['output_language']
-                            error_message = f"Output type '{current_output_type_str}' does not contain '{annotation}' for command '{signature.command_name}'. For example: '{witness}'."
+                            # current_output_type_str = cmd_log_entry['output_language']
+                            error_message = f"Output type '{current_output_type}' does not contain '{annotation}' for command '{signature.command_name}'. For example: '{witness}'."
                             
                             error_result = ErrorResult(
                                 # pipe_node=pipeline_node,
@@ -540,11 +546,11 @@ class PipelineChecker:
                             if self.enable_detailed_error_reporting:
                                 error_result.all_input = current_output_type.empty_intersection(RegularType(annotation.pattern))
                             
-                            get_logger().get_latest_record()["RT_warning"] = True
+                            # get_logger().get_latest_record()["RT_warning"] = True
                             # get_logger().get_latest_record()["error_message"] = error_message
                             # get_logger().get_latest_record()["error_type"] = "type mismatch (assertion)"
-                            get_logger().get_latest_record()["error_results"].append(error_result)
-                            cmd_log_entry["output_asserted"] = annotation.pattern
+                            # get_logger().get_latest_record()["error_results"].append(error_result)
+                            # cmd_log_entry["output_asserted"] = annotation.pattern
                             error_results.append(error_result)
                             previous_output_type = current_output_type
                             continue
@@ -583,9 +589,9 @@ class PipelineChecker:
                 all_input=True,
                 serious_violation=True,
             )
-            get_logger().get_latest_record()["error_message"] = str(e)
-            get_logger().get_latest_record()["RT_warning"] = True
-            get_logger().get_latest_record()["error_type"] = "tool error"
+            # get_logger().get_latest_record()["error_message"] = str(e)
+            # get_logger().get_latest_record()["RT_warning"] = True
+            # get_logger().get_latest_record()["error_type"] = "tool error"
             # Tool errors terminate checking immediately.
             return error_results + [error_result]
 
@@ -600,7 +606,7 @@ class PipelineChecker:
                 # max_automata_size=max_automata_size,
                 tainted=True
             )
-            get_logger().remove_latest_record()
+            # get_logger().remove_latest_record()
             return []
 
         return error_results

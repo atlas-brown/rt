@@ -3,7 +3,7 @@ from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.transducer import correct_cut_field_FST, cut_field_FST, head_FST, product_fst_automaton, tail_FST
-from stream.utils.logger import get_logger
+# from stream.utils.logger import get_logger
 
 class HeadSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -16,7 +16,8 @@ class HeadSignature(CommandSignature):
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
             if previous_output_type.tainted:
                 self_contained = False
-        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
+        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         flags = set()
         flag_args : dict[str, list[str]] = {}
         for flag in parsed_command_invocation.flag_option_list:
@@ -38,7 +39,8 @@ class HeadSignature(CommandSignature):
             except Exception as e:
                 output_type = previous_output_type
                 output_type.tainted = True
-            get_logger().get_latest_record()["command_list"][-1]["output_type"] = "α"
+            # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = "α"
             return InferenceResult(output_type, lambda x: x, self_contained)
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         

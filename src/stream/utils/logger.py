@@ -1043,4 +1043,5 @@ def get_logger() -> LogManager:
     Returns:
         LogManager: The singleton LogManager instance
     """
+    raise RuntimeError("depreciated method")
     return LogManager() 

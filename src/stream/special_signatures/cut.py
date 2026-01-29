@@ -8,7 +8,7 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 from stream.tool_error import ToolError
 from stream.transducer import correct_cut_field_FST, cut_char_FST, cut_field_FST, line_based_functional_to_stream_FST, product_fst_automaton
 from stream.user_annotation import AnnotationType
-from stream.utils.logger import get_logger
+# from stream.utils.logger import get_logger
 
 
 # FIXME: if the delimiter does not appear in the input, the output should be the same as the input
@@ -81,10 +81,11 @@ class CutSignature(CommandSignature):
         supported_flags = set(["-b", "-c", "-d", "-f", "--complement"])
         
         # Record command pattern based on flag combination
-        flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
-        get_logger().add_command_pattern_log("cut", flag_pattern)
-        
-        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
+        # flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
+        # get_logger().add_command_pattern_log("cut", flag_pattern)
+
+        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         if len(parsed_command_invocation.operand_list) > 0:
             file_name = parsed_command_invocation.operand_list[0].name
             if any(annotation.annotation_type == AnnotationType.FILE for annotation in env_annotations.get(file_name, [])):
@@ -102,21 +103,21 @@ class CutSignature(CommandSignature):
             if hasattr(flag, 'get_arg') and flag.get_arg():
                 flag_args[name] = flag.get_arg()
 
-        if flags.issubset(supported_flags):
-            get_logger().classify_last_invocation_as_supported()
-        else:
-            get_logger().classify_last_invocation_as_unsupported()
+        # if flags.issubset(supported_flags):
+        #     get_logger().classify_last_invocation_as_supported()
+        # else:
+        #     get_logger().classify_last_invocation_as_unsupported()
 
         if flags == {"-b"} or flags == {"-c"}:
             flag_arg = flag_args.get('-c') if "-c" in flags else flag_args.get('-b')
             args, has_upperbound = preprocess(flag_arg)
             if len(args) == 0:
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
                 return InferenceResult(RegularType(".*"), None, True)
             fst = cut_char_FST(args, has_upperbound)
             if previous_output_type.repr_mode == "stream":
                 fst = line_based_functional_to_stream_FST(fst)
-            get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α, {flag_arg}, \"\")"
+            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α, {flag_arg}, \"\")"
             output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode=previous_output_type.repr_mode)
             return InferenceResult(output_type, inverse_fst_product(fst, previous_output_type.nfa), True)
         if flags == {"-f"} or flags == {"-d", "-f"}:
@@ -129,16 +130,16 @@ class CutSignature(CommandSignature):
                 delimiter = delimiter[1:-1]
             delimiter = delimiter[-1] # \" -> "
             if len(args) == 0:
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
                 return InferenceResult(RegularType(".*"), None, True)
             fst = correct_cut_field_FST(delimiter, args, has_upperbound)
             if previous_output_type.repr_mode == "stream":
                 fst = line_based_functional_to_stream_FST(fst)
-            get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α&.*[{delimiter}].*, {flag_arg}, {delimiter})|α&[^{delimiter}]*"
+            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α&.*[{delimiter}].*, {flag_arg}, {delimiter})|α&[^{delimiter}]*"
             output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode=previous_output_type.repr_mode)
             return InferenceResult(output_type, inverse_fst_product(fst, previous_output_type.nfa), True)
         
-        get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+        # get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
         return InferenceResult(RegularType(".*"), None, True)
 
 
@@ -149,19 +150,19 @@ class CutSignature(CommandSignature):
             flag_arg = flag_args.get('-c') if "-c" in flags else flag_args.get('-b')
             args = args1 + args2
             if len(args) == 0:
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
                 return RegularType(".*")
             if args[-1] == -1:
                 if len(args) == 2:
-                    get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α, {flag_arg}, \"\")"
+                    # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α, {flag_arg}, \"\")"
                     fst = cut_char_no_upperbound_FST(args[-2])
                     return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
                 fst1 = cut_char_FST(args[:-2])
                 fst2 = cut_char_no_upperbound_FST(args[-2])
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α, {flag_arg}, \"\")"
+                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α, {flag_arg}, \"\")"
                 return RegularType(automaton=product_fst_automaton(fst1, previous_output_type.nfa), tainted=previous_output_type.tainted) + RegularType(automaton=product_fst_automaton(fst2, previous_output_type.nfa), tainted=previous_output_type.tainted)
             fst = cut_char_FST(args)
-            get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α, {flag_arg}, \"\")"
+            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α, {flag_arg}, \"\")"
             return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
 
         delimiter = "\t"
@@ -175,19 +176,19 @@ class CutSignature(CommandSignature):
         if '-f' in flags:
             args = preprocess(flag_args.get('-f'))
             if len(args) == 0:
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
                 return RegularType(".*")
             if args[-1] == -1:
                 if len(args) == 2:
                     fst = cut_field_no_upperbound_FST(delimiter, args[-2])
-                    get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α&.*[{delimiter}].*, {flag_args.get('-f')}, {delimiter})|α&[^{delimiter}]*"
+                    # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α&.*[{delimiter}].*, {flag_args.get('-f')}, {delimiter})|α&[^{delimiter}]*"
                     return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
                 fst1 = cut_field_FST(delimiter, args[:-2])
                 fst2 = cut_field_no_upperbound_FST(delimiter, args[-2], leading_delimiter=True)
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α&.*[{delimiter}].*, {flag_args.get('-f')}, {delimiter})|α&[^{delimiter}]*"
+                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α&.*[{delimiter}].*, {flag_args.get('-f')}, {delimiter})|α&[^{delimiter}]*"
                 return RegularType(automaton=product_fst_automaton(fst1, previous_output_type.nfa), tainted=previous_output_type.tainted) + RegularType(automaton=product_fst_automaton(fst2, previous_output_type.nfa), tainted=previous_output_type.tainted)
             fst = cut_field_FST(delimiter, args)
-            get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α&.*[{delimiter}].*, {flag_args.get('-f')}, {delimiter})|α&[^{delimiter}]*"
+            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"field-select(α&.*[{delimiter}].*, {flag_args.get('-f')}, {delimiter})|α&[^{delimiter}]*"
             return RegularType(automaton=product_fst_automaton(fst, (previous_output_type & RegularType(".*[" + delimiter + "].*")).nfa), tainted=previous_output_type.tainted) | (previous_output_type - RegularType(".*[" + delimiter + "].*", tainted=previous_output_type.tainted))
 
         

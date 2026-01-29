@@ -8,7 +8,7 @@ from functools import reduce
 
 from stream.transducer import product_fst_automaton, stream_based_filter_FST
 from stream.user_annotation import AnnotationType
-from stream.utils.logger import get_logger
+# from stream.utils.logger import get_logger
 from stream.regex_parser import is_pure_string_for_ast
 
 class GrepSignature(CommandSignature):
@@ -65,8 +65,8 @@ class GrepSignature(CommandSignature):
         supported_flags = set(["-e", "-o", "-i", "-v", "-x", "-n", "-G", "-E", "-F", "-w", "-A", "-B", "-C", "-P"])
         
         # Record command pattern based on flag combination
-        flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
-        get_logger().add_command_pattern_log("grep", flag_pattern)
+        # flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
+        # get_logger().add_command_pattern_log("grep", flag_pattern)
         
         self_contained = True
         if len(parsed_command_invocation.operand_list) > 1 or (len(parsed_command_invocation.operand_list) == 1 and "-e" in parsed_command_invocation.flag_option_list):
@@ -93,7 +93,7 @@ class GrepSignature(CommandSignature):
             original_pattern_type = RegularType(flag_args["-e"][0], mode)
             for arg in flag_args["-e"][1:]:
                 arg = arg.replace("\\\\", "\\")
-                get_logger().add_regex_log(arg)
+                # get_logger().add_regex_log(arg)
                 pattern_type = pattern_type | RegularType(arg, mode)
                 original_pattern_type = original_pattern_type | RegularType(arg, mode)
             
@@ -102,23 +102,24 @@ class GrepSignature(CommandSignature):
                 first_pattern = flag_args["-e"][0]
                 first_pattern_type = RegularType(first_pattern, mode)
                 is_pure = is_pure_string_for_ast(first_pattern_type.ast) if hasattr(first_pattern_type, 'ast') else False
-                get_logger().update_last_pattern_analysis(
-                    pattern=first_pattern,
-                    ast_repr=str(first_pattern_type.ast) if hasattr(first_pattern_type, 'ast') else "N/A",
-                    is_pure_string=is_pure
-                )
+                # get_logger().update_last_pattern_analysis(
+                #     pattern=first_pattern,
+                #     ast_repr=str(first_pattern_type.ast) if hasattr(first_pattern_type, 'ast') else "N/A",
+                #     is_pure_string=is_pure
+                # )
             else:
-                get_logger().remove_last_pattern_analysis()
+                # get_logger().remove_last_pattern_analysis()
+                pass
             
         else:
             if len(parsed_command_invocation.operand_list) == 0 and "-f" not in flags:
-                get_logger().remove_last_pattern_analysis()
+                # get_logger().remove_last_pattern_analysis()
                 raise ToolError("No pattern provided for grep")
             pattern = parsed_command_invocation.operand_list[0].name
             if pattern.startswith("--"):
                 raise ToolError("Pattern cannot start with '--'")
             pattern = pattern.replace("\\\\", "\\")
-            get_logger().add_regex_log(pattern)
+            # get_logger().add_regex_log(pattern)
             pattern_type = RegularType(pattern, mode)
             pattern_type_str = pattern_type.pattern
             original_pattern_type = RegularType(pattern, mode)
@@ -126,20 +127,21 @@ class GrepSignature(CommandSignature):
             
             # Update pattern analysis
             is_pure = is_pure_string_for_ast(pattern_type.ast) if hasattr(pattern_type, 'ast') else False
-            get_logger().update_last_pattern_analysis(
-                pattern=pattern,
-                ast_repr=str(pattern_type.ast) if hasattr(pattern_type, 'ast') else "N/A",
-                is_pure_string=is_pure
-            )
+            # get_logger().update_last_pattern_analysis(
+            #     pattern=pattern,
+            #     ast_repr=str(pattern_type.ast) if hasattr(pattern_type, 'ast') else "N/A",
+            #     is_pure_string=is_pure
+            # )
 
-        if flags.issubset(supported_flags):
-            get_logger().classify_last_invocation_as_supported()
-        else:
-            get_logger().classify_last_invocation_as_unsupported()
+        # if flags.issubset(supported_flags):
+        #     get_logger().classify_last_invocation_as_supported()
+        # else:
+        #     get_logger().classify_last_invocation_as_unsupported()
 
         if "-c" in flags:
-            get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
-            get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
+            # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+            # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
+            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = "[0-9]+"
             return InferenceResult(RegularType("[0-9]+"), lambda x: previous_output_type.get_shortest_example(), self_contained)
 
         # FIXME: -o processing is wrong!
@@ -157,8 +159,9 @@ class GrepSignature(CommandSignature):
             if not starts_with_start_anchor(original_pattern_type) and not ends_with_end_anchor(original_pattern_type):
                 pattern_type.tainted = True
                 lose_precision = True
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = pattern_type_str
-                get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
+                # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = pattern_type_str
+                # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
                 return InferenceResult(pattern_type, lambda x: x, self_contained)
             else:
                 pattern_type = remove_anchors(pattern_type)
@@ -187,7 +190,8 @@ class GrepSignature(CommandSignature):
             lose_precision = True
         else:   
             pattern_type.tainted = previous_output_type.tainted
-        get_logger().get_latest_record()["command_list"][-1]["output_type"] = current_type_str
-        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
+        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+        # get_logger().get_latest_record()["command_list"][-1]["output_type"] = current_type_str
+        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
         return InferenceResult(pattern_type, lambda x: x, self_contained)
         

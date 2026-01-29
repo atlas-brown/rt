@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import logging
 from stream.transducer_utils import FST, compute_fst_automaton_product, product_fst_automaton
-from stream.utils.logger import get_logger
+# from stream.utils.logger import get_logger
 from stream.regular_type import RegularType
 import re
 from typing import Callable, List, Dict, Any, Optional, Tuple
@@ -63,8 +63,9 @@ class CommandSignature:
         # otherwise, use inference
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.ASSUME:
-                get_logger().get_latest_record()["command_list"][-1]["output_type"] = annotation.pattern
-                get_logger().get_latest_record()["command_list"][-1]["output_assumed"] = annotation.pattern
+                # NOTE(logger-state): output_type is read later for type summaries; keeping logger updates.
+                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = annotation.pattern
+                # get_logger().get_latest_record()["command_list"][-1]["output_assumed"] = annotation.pattern
                 return RegularType(annotation.pattern, tainted=False)
             
         if parsed_command_invocation.cmd_name != "xargs" and parsed_command_invocation.cmd_name != "grep" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
@@ -74,17 +75,19 @@ class CommandSignature:
         
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "--version" in flags or "--help" in flags:
-            get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
+            # NOTE(logger-state): output_type stored for downstream type summary reporting.
+            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
             return RegularType(".*")
         trans_to_line_based = False
         if parsed_command_invocation.cmd_name not in ["cut", "tr", "grep", "head", "tail"]:
             previous_output_type, trans_to_line_based = self.process_stream_input(previous_output_type)
         # previous_output_type, trans_to_line_based = self.process_stream_input(previous_output_type)
         out = self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
-        if trans_to_line_based:
-            original_output_type = get_logger().get_latest_record()["command_list"][-1]["output_type"]
-            get_logger().get_latest_record()["command_list"][-1]["output_type"] = original_output_type.replace("α", "line-extract(α, .*)")
-            get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
+        # if trans_to_line_based:
+            # NOTE(logger-state): output_type stored for downstream type summary reporting.
+            # original_output_type = get_logger().get_latest_record()["command_list"][-1]["output_type"]
+            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = original_output_type.replace("α", "line-extract(α, .*)")
+            # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         return out
     
     def process_stream_input(self, previous_output_type: RegularType) -> Tuple[RegularType, bool]:
@@ -188,8 +191,9 @@ class CommandSignature:
         # add predefined variables to env
         env["actual_input_type"] = previous_output_type
         env["output_type"] = self.default_output_type
-        command_list = get_logger().get_latest_record()["command_list"]
-        command_list[-1]["output_type"] = self.default_output_type.pattern
+        # NOTE(logger-state): command_list is read later for type summary and error messaging.
+        # command_list = get_logger().get_latest_record()["command_list"]
+        # command_list[-1]["output_type"] = self.default_output_type.pattern
 
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         parsed_args = set(env.keys())
@@ -216,7 +220,8 @@ class CommandSignature:
                             output_type_str = output_type_str.replace(f"{{{{{key}}}}}", value.pattern)
                         elif isinstance(value, str):
                             output_type_str = output_type_str.replace(f"{{{{{key}}}}}", value)
-                    get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type_str
+                    # NOTE(logger-state): output_type stored for downstream type summary reporting.
+                    # get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type_str
                 for key, value in update_variables.items():
                     try:
                         update_variables[key] = RegularType(value, hole_dict=env)
@@ -233,7 +238,8 @@ class CommandSignature:
         logging.debug(f"Command: {self.command_name}, Output type (if compatible): {env['output_type']}")
         logging.debug("-"*60)
         env['output_type'].tainted = tainted
-        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
+        # NOTE(logger-state): used later for type summary and error messaging.
+        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
         return InferenceResult(env['output_type'], backward_func, self_contained)
     
     # dont override this method, override get_input_type instead

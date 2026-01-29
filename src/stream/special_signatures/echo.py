@@ -3,14 +3,15 @@ from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.user_annotation import AnnotationType
-from stream.utils.logger import get_logger
+# from stream.utils.logger import get_logger
 
 class EchoSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
-        get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
+        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         self_contained = True
         operands = super().get_operands(parsed_command_invocation)
         if len(operands) == 0:
@@ -59,6 +60,7 @@ class EchoSignature(CommandSignature):
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "-n" not in flags:
             pattern = pattern + "\n"
-        get_logger().get_latest_record()["command_list"][-1]["output_type"] = pattern
+        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
+        # get_logger().get_latest_record()["command_list"][-1]["output_type"] = pattern
         return InferenceResult(RegularType(pattern, repr_mode="stream", tainted=False), self_contained=self_contained)
         

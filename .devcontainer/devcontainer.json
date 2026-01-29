@@ -16,20 +16,23 @@
         "python.defaultInterpreterPath": "/usr/bin/python3.12"
       },
       "extensions": [
-        // "ms-python.python",
-        // "mads-hartmann.bash-ide-vscode",
-        // "openai.chatgpt",
-        // "github.copilot-chat"
+        "ms-python.python",
+        "mads-hartmann.bash-ide-vscode",
+        "openai.chatgpt",
+        "github.copilot-chat"
       ]
     }
-  }
-  // "features": {
-  //   "ghcr.io/devcontainers/features/common-utils:2.5.6": {
-  //       "installZsh": true,
-  //       "installOhMyZsh": true,
-  //       "installOhMyZshConfig": true,
-  //       "upgradePackages": false
-  //   }
-  // },
-  // "postCreateCommand": "bash .devcontainer/setup-zsh.sh"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2.5.6": {
+        "installZsh": true,
+        "installOhMyZsh": true,
+        "installOhMyZshConfig": true,
+        "upgradePackages": false
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup-zsh.sh",
+  "mounts": [
+    "source=${localEnv:HOME}/.codex/auth.json,target=/root/.codex/auth.json,readonly,type=bind"
+  ]
 }
