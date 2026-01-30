@@ -39,6 +39,7 @@ import tempfile
 from datetime import datetime
 from stream.config.global_config import CONFIG
 from stream.utils.function_timer import timer
+from pathlib import Path
 
 INITIALIZE_LIBDASH = True
 
@@ -338,8 +339,8 @@ def annot_parser_wrapper(str_ls_args: list[str]) -> CommandInvocationInitial:
 
     cmd_name: str = parsed_elements_list[0]
     # Check if command annotation exists in extra_annotations directory
-    extra_annotation_path = f'./src/stream/extra_annotations/{cmd_name}.json'
-    if os.path.isfile(extra_annotation_path):
+    extra_annotation_path = Path(__file__).resolve().parent.parent / "extra_annotations" / f"{cmd_name}.json"
+    if extra_annotation_path.is_file():
         # FIXME: ls.json is not complete
         with open(extra_annotation_path, 'r') as file:
             json_data = json.load(file)
