@@ -32,7 +32,10 @@ class FmtSignature(CommandSignature):
                 # NOTE(logger-state): output_type/precision stored for downstream type summaries.
                 # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"translate-match(α, \" \\t\", \\n, squeeze=True)"
                 # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
-                return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa)) & RegularType(".+")
+                base = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa)) & RegularType(".+")
+                # fmt -w1 preserves indentation for the first output line; allow optional leading whitespace.
+                leading_spaces_concat_base = RegularType(" *") + base
+                return leading_spaces_concat_base
             
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
 
