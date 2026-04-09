@@ -35,7 +35,7 @@ In particular, the artifact package includes:
 - the end-to-end evaluation script [full_eval.sh](/home/infinite/Workspace/atlas/StreamTypes/src/stream/scripts/full_eval.sh).
 
 <a id="artifact-functional"></a>
-# Artifact Functional (20 minutes)
+# Artifact Functional (10 minutes)
 
 Confirm sufficient documentation, key components, and basic executability:
 
@@ -89,7 +89,7 @@ These commands exercise:
 **Complete exploration:** To inspect the rest of the artifact, review the benchmark layout under [`full_benchmark/`](/home/infinite/Workspace/atlas/StreamTypes/full_benchmark), the configuration in [`config.yaml`](/home/infinite/Workspace/atlas/StreamTypes/src/stream/config/config.yaml), and the checked-in outputs under [`evaluation_results/`](/home/infinite/Workspace/atlas/StreamTypes/evaluation_results).
 
 <a id="results-reproducible"></a>
-# Results Reproducible (about 5 hours)
+# Results Reproducible (about 1 hour)
 
 The main results supported by this artifact are:
 
