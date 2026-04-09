@@ -2,11 +2,11 @@
 
 This artifact contains the RT prototype for statically checking shell pipelines, the benchmark suites used in the evaluation, and the scripts used to regenerate the paper artifacts.
 
-The paper makes the following high-level claims that this artifact is designed to support:
+The paper makes the following claims that this artifact is designed to support:
 
-1. **A shell-pipeline checker with stream-type reasoning**: the paper presents a system for analyzing shell pipelines using regular-language-based types, command models, and optional user annotations.
-2. **A practical implementation with multiple analysis modes**: the artifact includes the main checker, annotation support, heuristic checks, and an FST-backed reasoning path.
-3. **An empirical evaluation over multiple benchmark suites**: the artifact includes handwritten examples, curated buggy/correct corpora, and scripts for reproducing the aggregate evaluation summaries and plots.
+1. **Regular types**: the artifact implements RT as an overlay type system for stream contents and the commands operating on them, together with an efficient type-checking path that detects shell-pipeline composition errors before execution.
+2. **Regular language operators**: the artifact implements RT's extended regular-language machinery for common input-output transformations, including finite-state-transduction support used to improve expressiveness and precision on real shell programs.
+3. **Extensions and optimizations**: the artifact includes RT's precision-oriented extensions and optimizations, including environment concretization, optional annotations, and heuristics, and reproduces their measured impact on accuracy, false negatives, and throughput across the benchmark suites.
 
 This artifact targets the following badges:
 
@@ -20,27 +20,29 @@ This artifact targets the following badges:
 Confirm that the repository, benchmark corpora, and experiment scripts are available:
 
 1. The artifact code is hosted on GitHub at [brown-cs2952r/StreamTypes](https://github.com/brown-cs2952r/StreamTypes).
-2. The repository contains the checker implementation under [`src/stream/`](/home/infinite/Workspace/atlas/StreamTypes/src/stream).
-3. The repository contains small smoke-test inputs under [`evaluation_pipelines/`](/home/infinite/Workspace/atlas/StreamTypes/evaluation_pipelines).
-4. The repository contains larger benchmark suites under [`full_benchmark/`](/home/infinite/Workspace/atlas/StreamTypes/full_benchmark).
-5. The repository contains experiment scripts and checked-in outputs under [`src/stream/scripts/`](/home/infinite/Workspace/atlas/StreamTypes/src/stream/scripts) and [`evaluation_results/`](/home/infinite/Workspace/atlas/StreamTypes/evaluation_results).
+2. The repository contains the checker implementation under [`src/stream/`](src/stream/).
+3. The repository contains small smoke-test inputs under [`evaluation_pipelines/`](evaluation_pipelines/).
+4. The repository contains larger benchmark suites under [`full_benchmark/`](full_benchmark/).
+5. The repository contains experiment scripts and checked-in outputs under [`src/stream/scripts/`](src/stream/scripts/) and [`evaluation_results/`](evaluation_results/).
 
 In particular, the artifact package includes:
 
-- the top-level [README.md](/home/infinite/Workspace/atlas/StreamTypes/README.md),
-- this [INSTRUCTIONS.md](/home/infinite/Workspace/atlas/StreamTypes/INSTRUCTIONS.md),
-- the single-pipeline checker wrapper [typecheck.sh](/home/infinite/Workspace/atlas/StreamTypes/typecheck.sh),
-- the batch evaluation wrapper [run_evaluations.sh](/home/infinite/Workspace/atlas/StreamTypes/run_evaluations.sh),
-- the test runner [run_tests.sh](/home/infinite/Workspace/atlas/StreamTypes/run_tests.sh),
-- the end-to-end evaluation script [full_eval.sh](/home/infinite/Workspace/atlas/StreamTypes/src/stream/scripts/full_eval.sh).
+- the top-level [README.md](README.md),
+- this [INSTRUCTIONS.md](INSTRUCTIONS.md),
+- the artifact-functional wrapper [check_functionality.sh](scripts/check_functionality.sh),
+- the full reproduction wrapper [reproduce_full.sh](scripts/reproduce_full.sh),
+- the single-pipeline checker wrapper [typecheck.sh](typecheck.sh),
+- the batch evaluation wrapper [run_evaluations.sh](run_evaluations.sh),
+- the test runner [run_tests.sh](run_tests.sh),
+- the end-to-end evaluation script [full_eval.sh](src/stream/scripts/full_eval.sh).
 
 <a id="artifact-functional"></a>
 # Artifact Functional (10 minutes)
 
 Confirm sufficient documentation, key components, and basic executability:
 
-* Documentation: the top-level [README.md](/home/infinite/Workspace/atlas/StreamTypes/README.md) provides the required artifact-facing quick-start instructions, and [INSTRUCTIONS.md](/home/infinite/Workspace/atlas/StreamTypes/INSTRUCTIONS.md) provides the complete runbook for evaluation and reproduction.
-* Key components: the checker and evaluation pipeline live in [`src/stream/`](/home/infinite/Workspace/atlas/StreamTypes/src/stream), especially [debug.py](/home/infinite/Workspace/atlas/StreamTypes/src/stream/debug.py), [run_evaluations.py](/home/infinite/Workspace/atlas/StreamTypes/src/stream/run_evaluations.py), [evaluation_summary.py](/home/infinite/Workspace/atlas/StreamTypes/src/stream/evaluation_summary.py), and the scripts under [`src/stream/scripts/`](/home/infinite/Workspace/atlas/StreamTypes/src/stream/scripts).
+* Documentation: the top-level [README.md](README.md) provides the required artifact-facing quick-start instructions, and [INSTRUCTIONS.md](INSTRUCTIONS.md) provides the complete runbook for evaluation and reproduction.
+* Key components: the checker and evaluation pipeline live in [`src/stream/`](src/stream/), especially [debug.py](src/stream/debug.py), [run_evaluations.py](src/stream/run_evaluations.py), [evaluation_summary.py](src/stream/evaluation_summary.py), and the scripts under [`src/stream/scripts/`](src/stream/scripts/).
 * Exercisability: the quickstart below checks one known-valid example, one known-invalid example, and the unit test suite.
 
 **Quickstart: running the checker and test suite**
@@ -69,24 +71,22 @@ The local path also needs Java because the checker loads `jars/automaton.jar` th
 Then run the basic functionality checks:
 
 ```sh
-sh typecheck.sh -f evaluation_pipelines/valid/3.sh
-sh typecheck.sh -f evaluation_pipelines/invalid/3.sh
-sh run_tests.sh -q
+bash scripts/check_functionality.sh
 ```
 
-Optional annotation-focused smoke test:
-
-```sh
-sh typecheck.sh -f dummy_example.sh
-```
-
-These commands exercise:
+This script exercises:
 
 1. the single-pipeline checker path,
 2. the core command-model and type-checking logic,
 3. the regression test suite under `src/stream/unit_tests/`.
 
-**Complete exploration:** To inspect the rest of the artifact, review the benchmark layout under [`full_benchmark/`](/home/infinite/Workspace/atlas/StreamTypes/full_benchmark), the configuration in [`config.yaml`](/home/infinite/Workspace/atlas/StreamTypes/src/stream/config/config.yaml), and the checked-in outputs under [`evaluation_results/`](/home/infinite/Workspace/atlas/StreamTypes/evaluation_results).
+By default it also runs the annotation-focused example `dummy_example.sh`. If needed, you can skip that part with:
+
+```sh
+RT_SKIP_ANNOTATION_CHECK=1 bash scripts/check_functionality.sh
+```
+
+**Complete exploration:** To inspect the rest of the artifact, review the benchmark layout under [`full_benchmark/`](full_benchmark/), the configuration in [`config.yaml`](src/stream/config/config.yaml), and the checked-in outputs under [`evaluation_results/`](evaluation_results/).
 
 <a id="results-reproducible"></a>
 # Results Reproducible (about 1 hour)
@@ -110,67 +110,37 @@ For the full paper pipeline, the scripts additionally expect:
 - `matplotlib`
 - `matplotlib-set-diagrams`
 
-The benchmark directories and output paths are configured in [`src/stream/config/config.yaml`](/home/infinite/Workspace/atlas/StreamTypes/src/stream/config/config.yaml).
-
-**Main evaluation:**
-
-To reproduce the main configuration used by the checked-in outputs, run:
-
-```sh
-./run_evaluations.sh --outdir evaluation_results/ann:y_heuristic:y_fst:y
-```
-
-This writes:
-
-1. `evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json`
-2. `evaluation_results/ann:y_heuristic:y_fst:y/summary.csv`
-3. `evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv`
-4. `evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv`
-
-**Ablations:**
-
-To reproduce the major ablations, run:
-
-```sh
-# annotations disabled
-./run_evaluations.sh --disable_annotation --outdir evaluation_results/ann:n_heuristic:y_fst:y
-
-# heuristics disabled
-./run_evaluations.sh --disable_rule_no_empty_output \
-  --disable_rule_no_ignored_input \
-  --disable_rule_no_meaningless_command \
-  --disable_rule_no_sort_non_numeric_with_numeric_input \
-  --outdir evaluation_results/ann:y_heuristic:n_fst:y
-
-# FST reasoning disabled
-./run_evaluations.sh --disable_fsts --outdir evaluation_results/ann:y_heuristic:y_fst:n
-
-# annotations disabled and FST reasoning disabled
-./run_evaluations.sh --disable_annotation --disable_fsts \
-  --outdir evaluation_results/ann:n_heuristic:y_fst:n
-```
+The benchmark directories and output paths are configured in [`src/stream/config/config.yaml`](src/stream/config/config.yaml).
 
 **Full evaluation pipeline:**
 
-To reproduce the full artifact pipeline, including baseline comparison and plot generation, run:
+To reproduce the full artifact pipeline, including the main configuration, the ablations, baseline comparison, and plot generation, run:
 
 ```sh
-bash src/stream/scripts/full_eval.sh
+bash scripts/reproduce_full.sh
 ```
 
 To force regeneration even when outputs already exist:
 
 ```sh
-bash src/stream/scripts/full_eval.sh force
+bash scripts/reproduce_full.sh --force
 ```
 
-This script performs the following:
+This wrapper calls the existing end-to-end pipeline and performs the following:
 
 1. generates baseline data with `python3 src/stream/scripts/baseline.py`,
 2. runs the main StreamTypes configuration and the ablations,
 3. merges results with `python3 src/stream/evaluation_summary.py`,
 4. computes timing summaries with `python3 src/stream/scripts/performance.py`,
 5. regenerates the paper plots with `python3 src/stream/scripts/plots.py`.
+
+The main configuration and ablations generated by this pipeline include:
+
+1. `evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json`
+2. `evaluation_results/ann:n_heuristic:y_fst:y/evaluation_results.json`
+3. `evaluation_results/ann:y_heuristic:n_fst:y/evaluation_results.json`
+4. `evaluation_results/ann:y_heuristic:y_fst:n/evaluation_results.json`
+5. `evaluation_results/ann:n_heuristic:y_fst:n/evaluation_results.json`
 
 The final outputs to inspect are:
 
@@ -185,7 +155,7 @@ The final outputs to inspect are:
 9. `evaluation_results/plots/time-length-chart.pdf`
 10. `evaluation_results/plots/automata-sizes.pdf`
 
-If reviewers do not want to wait for the full pipeline, they can inspect the checked-in outputs already present under [`evaluation_results/`](/home/infinite/Workspace/atlas/StreamTypes/evaluation_results) and compare those files to regenerated outputs.
+If reviewers do not want to wait for the full pipeline, they can inspect the checked-in outputs already present under [`evaluation_results/`](evaluation_results/) and compare those files to regenerated outputs.
 
 **Cleanup:**
 
