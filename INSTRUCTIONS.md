@@ -4,15 +4,15 @@ This artifact contains the RT prototype for statically checking shell pipelines,
 
 The paper makes the following claims that this artifact is designed to support:
 
-1. **Regular types**: the artifact implements RT as an overlay type system for stream contents and the commands operating on them, together with an efficient type-checking path that detects shell-pipeline composition errors before execution.
-2. **Regular language operators**: the artifact implements RT's extended regular-language machinery for common input-output transformations, including finite-state-transduction support used to improve expressiveness and precision on real shell programs.
-3. **Extensions and optimizations**: the artifact includes RT's precision-oriented extensions and optimizations, including environment concretization, optional annotations, and heuristics, and reproduces their measured impact on accuracy, false negatives, and throughput across the benchmark suites.
+1. **Regular types**: the artifact implements RT as an overlay type system for stream contents and the commands operating on them, together with an efficient type-checking path that detects shell-pipeline composition errors before execution (§3).
+2. **Regular language operators**: the artifact implements RT's extended regular-language machinery for common input-output transformations, including finite-state-transduction support used to improve expressiveness and precision on real shell programs (§4).
+3. **Extensions and optimizations**: the artifact includes RT's precision-oriented extensions and optimizations, including environment concretization, optional annotations, and heuristics, and reproduces their measured impact on accuracy, false negatives, and throughput across the benchmark suites (§5).
 
 This artifact targets the following badges:
 
-* [ ] [Artifact available](#artifact-available): reviewers confirm that the code, scripts, and benchmark materials are present and publicly hosted.
-* [ ] [Artifact functional](#artifact-functional): reviewers confirm that the checker runs, the test suite executes, and the main components are documented.
-* [ ] [Results reproducible](#results-reproducible): reviewers confirm the main evaluation outputs and plots reported by the artifact.
+* [ ] [Artifact available](#artifact-available): reviewers confirm that the code, scripts, and benchmark materials are present and publicly hosted. (about 10 minutes)
+* [ ] [Artifact functional](#artifact-functional): reviewers confirm that the checker runs, the test suite executes, and the main components are documented. (about 10 minutes)
+* [ ] [Results reproducible](#results-reproducible): reviewers confirm the main evaluation outputs and plots reported by the artifact. (about 1 hour)
 
 <a id="artifact-available"></a>
 # Artifact Available (10 minutes)
@@ -25,7 +25,7 @@ Confirm that the repository, benchmark corpora, and experiment scripts are avail
 4. The repository contains larger benchmark suites under [`full_benchmark/`](full_benchmark/).
 5. The repository contains experiment scripts and checked-in outputs under [`src/stream/scripts/`](src/stream/scripts/) and [`evaluation_results/`](evaluation_results/).
 
-In particular, the artifact package includes:
+<!-- In particular, the artifact package includes:
 
 - the top-level [README.md](README.md),
 - this [INSTRUCTIONS.md](INSTRUCTIONS.md),
@@ -34,7 +34,7 @@ In particular, the artifact package includes:
 - the single-pipeline checker wrapper [typecheck.sh](typecheck.sh),
 - the batch evaluation wrapper [run_evaluations.sh](run_evaluations.sh),
 - the test runner [run_tests.sh](run_tests.sh),
-- the end-to-end evaluation script [full_eval.sh](src/stream/scripts/full_eval.sh).
+- the end-to-end evaluation script [full_eval.sh](src/stream/scripts/full_eval.sh). -->
 
 <a id="artifact-functional"></a>
 # Artifact Functional (10 minutes)
@@ -42,7 +42,7 @@ In particular, the artifact package includes:
 Confirm sufficient documentation, key components, and basic executability:
 
 * Documentation: the top-level [README.md](README.md) provides the required artifact-facing quick-start instructions, and [INSTRUCTIONS.md](INSTRUCTIONS.md) provides the complete runbook for evaluation and reproduction.
-* Key components: the checker and evaluation pipeline live in [`src/stream/`](src/stream/), especially [debug.py](src/stream/debug.py), [run_evaluations.py](src/stream/run_evaluations.py), [evaluation_summary.py](src/stream/evaluation_summary.py), and the scripts under [`src/stream/scripts/`](src/stream/scripts/).
+* Key components: the type-checker and evaluation pipeline live in [`src/stream/`](src/stream/).
 * Exercisability: the quickstart below checks one known-valid example, one known-invalid example, and the unit test suite.
 
 **Quickstart: running the checker and test suite**
