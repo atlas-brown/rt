@@ -1,6 +1,5 @@
 from typing import List
 from stream.regular_type import preprocess, RegularType
-import z3
 
 def test_preprocess():
     pass
