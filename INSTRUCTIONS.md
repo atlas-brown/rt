@@ -74,19 +74,12 @@ Then run the basic functionality checks:
 bash scripts/check_functionality.sh
 ```
 
-This script exercises:
-
-1. the single-pipeline checker path,
-2. the core command-model and type-checking logic,
-3. the regression test suite under `src/stream/unit_tests/`.
-
-By default it also runs the annotation-focused example `dummy_example.sh`. If needed, you can skip that part with:
-
-```sh
-RT_SKIP_ANNOTATION_CHECK=1 bash scripts/check_functionality.sh
+This test suite should report:
+```
+92 passed in 1.08s
 ```
 
-**Complete exploration:** To inspect the rest of the artifact, review the benchmark layout under [`full_benchmark/`](full_benchmark/), the configuration in [`config.yaml`](src/stream/config/config.yaml), and the checked-in outputs under [`evaluation_results/`](evaluation_results/).
+<!-- **Complete exploration:** To inspect the rest of the artifact, review the benchmark layout under [`full_benchmark/`](full_benchmark/), the configuration in [`config.yaml`](src/stream/config/config.yaml), and the checked-in outputs under [`evaluation_results/`](evaluation_results/). -->
 
 <a id="results-reproducible"></a>
 # Results Reproducible (about 1 hour)
@@ -115,12 +108,6 @@ The benchmark directories and output paths are configured in [`src/stream/config
 **Full evaluation pipeline:**
 
 To reproduce the full artifact pipeline, including the main configuration, the ablations, baseline comparison, and plot generation, run:
-
-```sh
-bash scripts/reproduce_full.sh
-```
-
-To force regeneration even when outputs already exist:
 
 ```sh
 bash scripts/reproduce_full.sh --force
