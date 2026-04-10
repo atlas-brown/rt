@@ -19,7 +19,7 @@ This artifact targets the following badges:
 
 Confirm that the repository, benchmark corpora, and experiment scripts are available:
 
-1. The artifact code is hosted on GitHub at [brown-cs2952r/StreamTypes](https://github.com/brown-cs2952r/StreamTypes).
+1. The artifact code is hosted on GitHub at [brown-cs2952r/StreamTypes](https://github.com/brown-cs2952r/StreamTypes/tree/ae).
 2. The repository contains the checker implementation under [`src/stream/`](src/stream/).
 3. The repository contains small smoke-test inputs under [`evaluation_pipelines/`](evaluation_pipelines/).
 4. The repository contains larger benchmark suites under [`full_benchmark/`](full_benchmark/).
