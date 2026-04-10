@@ -1,7 +1,7 @@
 # RT
 
 ## Artifact evaluation
-To evaluate the artifact, jump straight to [INSTRUCTIONS.md](./INSTRUCTIONS.md).
+To evaluate the artifact for the OSDI'26 paper titled "RT: Regular Types for the Streaming Shell", jump straight to [INSTRUCTIONS.md](./INSTRUCTIONS.md).
 
 RT is a prototype for statically checking shell pipelines with stream-type reasoning, command models, and optional user annotations. This repository includes the checker implementation, the benchmark suites used in the evaluation, and the scripts used to regenerate the reported outputs.
 
