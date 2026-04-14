@@ -1,3 +1,4 @@
+import re
 import traceback
 from stream.command_signature import CommandSignature, InferenceResult
 from pash_annotations.datatypes.BasicDatatypes import Operand
@@ -15,14 +16,26 @@ class GrepSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+    @staticmethod
+    def _normalized_operands(parsed_command_invocation):
+        operands = [operand.name for operand in parsed_command_invocation.operand_list]
+        if operands and operands[0] == "--":
+            return operands[1:], True
+        return operands, False
+
+    @staticmethod
+    def _contains_shell_expansion(pattern: str) -> bool:
+        return re.search(r'(\$\{.*?\}|\$[a-zA-Z_][a-zA-Z0-9_]*|\$\()', pattern) is not None
+
     def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations):
         input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         if "no_meaningless_command" not in heuristic_rules:
             return input_type, no_input_type
     
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
+        operands, has_double_dash = self._normalized_operands(parsed_command_invocation)
 
-        if len(parsed_command_invocation.operand_list) > 1 or (len(parsed_command_invocation.operand_list) == 1 and "-e" in parsed_flags):
+        if len(operands) > 1 or (len(operands) == 1 and "-e" in parsed_flags):
             return RegularType(""), None
 
         # FIXME: consider -e
@@ -32,11 +45,15 @@ class GrepSignature(CommandSignature):
         if "-n" in parsed_flags:
             return input_type, no_input_type
         if "-e" not in parsed_flags:
-            pattern = parsed_command_invocation.operand_list[0].name
-            if pattern.startswith("-"):
+            pattern = operands[0]
+            if pattern.startswith("-") and not has_double_dash:
                 raise ToolError("Pattern cannot start with '-'")
+            if self._contains_shell_expansion(pattern):
+                return input_type, None
             pattern = pattern.replace("\\\\", "\\")
             pattern = pattern.replace("\\\\|", "\\|")
+            if "-F" in parsed_flags:
+                pattern = re.escape(pattern)
         
         mode = "extended" if "-E" in parsed_flags else "basic"
         no_input_type = RegularType(pattern, mode)
@@ -69,7 +86,8 @@ class GrepSignature(CommandSignature):
         # get_logger().add_command_pattern_log("grep", flag_pattern)
         
         self_contained = True
-        if len(parsed_command_invocation.operand_list) > 1 or (len(parsed_command_invocation.operand_list) == 1 and "-e" in parsed_command_invocation.flag_option_list):
+        normalized_operands, has_double_dash = self._normalized_operands(parsed_command_invocation)
+        if len(normalized_operands) > 1 or (len(normalized_operands) == 1 and "-e" in parsed_command_invocation.flag_option_list):
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
             if previous_output_type.tainted:
                 self_contained = False
@@ -112,13 +130,15 @@ class GrepSignature(CommandSignature):
                 pass
             
         else:
-            if len(parsed_command_invocation.operand_list) == 0 and "-f" not in flags:
+            if len(normalized_operands) == 0 and "-f" not in flags:
                 # get_logger().remove_last_pattern_analysis()
                 raise ToolError("No pattern provided for grep")
-            pattern = parsed_command_invocation.operand_list[0].name
-            if pattern.startswith("--"):
+            pattern = normalized_operands[0]
+            if pattern.startswith("--") and not has_double_dash:
                 raise ToolError("Pattern cannot start with '--'")
             pattern = pattern.replace("\\\\", "\\")
+            if "-F" in flags:
+                pattern = re.escape(pattern)
             # get_logger().add_regex_log(pattern)
             pattern_type = RegularType(pattern, mode)
             pattern_type_str = pattern_type.pattern

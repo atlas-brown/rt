@@ -74,21 +74,6 @@ def results_to_summary_csv(json_path, out_path):
 def load_results(json_path):
     with open(json_path, 'r', encoding='utf-8') as f:
         results: List[Dict[str, Any]] = json.load(f)["evaluation_results"]
-
-    # Apply refined correctness to evaluation results:
-    # If the pipeline is buggy and a warning was signaled, then use the 'refined_correct' flag.
-    # If refined_correct is True, keep the warning as True; otherwise treat it as False.
-    for rec in results:
-        try:
-            is_buggy: bool = bool(rec.get("is buggy?", False))
-            warned: Optional[bool] = rec.get("warning signaled?")
-            if is_buggy and warned is True:
-                refined: Optional[bool] = rec.get("refined_correct")
-                if refined is not None:
-                    rec["warning signaled?"] = bool(refined)
-        except Exception:
-            # Best-effort refinement; leave record unchanged on any unexpected structure
-            pass
     return results
 
 def load_baseline_results(csv_path):

@@ -5,6 +5,7 @@ import logging
 import time
 import re
 from functools import partial
+from pathlib import Path
 from typing import List, Tuple
 import jpype
 import jpype.imports
@@ -31,6 +32,34 @@ CRASH_REASON_LABEL = "tool runtime error"
 TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
 
 enable_user_annotation = CONFIG.get("enable_user_annotation", True)
+
+
+def annotations_enabled_for_path(address: str) -> bool:
+    if not enable_user_annotation:
+        return False
+
+    disabled_dirs = CONFIG.get("annotation_disabled_dirs", [])
+    if not disabled_dirs:
+        return True
+
+    address_path = Path(address)
+    if not address_path.is_absolute():
+        address_path = Path(CONFIG.PROJECT_ROOT) / address_path
+    address_path = address_path.resolve(strict=False)
+
+    for disabled_dir in disabled_dirs:
+        disabled_path = Path(disabled_dir)
+        if not disabled_path.is_absolute():
+            disabled_path = Path(CONFIG.PROJECT_ROOT) / disabled_path
+        disabled_path = disabled_path.resolve(strict=False)
+
+        try:
+            address_path.relative_to(disabled_path)
+            return False
+        except ValueError:
+            continue
+
+    return True
 
 # class LogHandler(logging.Handler):
 #     def __init__(self):
@@ -117,69 +146,6 @@ def is_untainted(result):
     """Filter for untainted pipelines"""
     return result.get("tainted") == False
 
-def detailed_comparison_matches(result, ground_truths):
-    """Check if TP result matches ground truth in detail"""
-    
-    def ground_truth_lookup(address, ground_truths, content):
-        """Find matching ground truth record using similar logic to notes_lookup"""
-        matching_truths = []
-        complete_matching_truths = []
-
-        if "full_benchmark/llm_injection" in address:
-            for truth in ground_truths:
-                if truth.get("address", "") == address:
-                    matching_truths.append(truth)
-        else:
-            for truth in ground_truths:
-                if truth.get("content", "") == content or truth.get("content", "").replace("\\\\", "\\") == content:
-                    if truth.get("address", "") == address:
-                        complete_matching_truths.append(truth)
-                    else:
-                        matching_truths.append(truth)
-
-        if not matching_truths and not complete_matching_truths:
-            return None
-
-        # Return the first match (similar to notes_lookup logic)
-        if complete_matching_truths:
-            return complete_matching_truths[0]
-        else:
-            return matching_truths[0]
-    
-    def compare_error_results(ground_truth_errors, evaluation_errors):
-        """Compare ground truth error results with evaluation error results"""
-        if len(ground_truth_errors) != len(evaluation_errors):
-            return False
-        
-        for gt_error, eval_error in zip(ground_truth_errors, evaluation_errors):
-            # Compare all fields that exist in ground truth
-            for field in ["command_index", "all_input", "serious_violation"]:
-                if gt_error.get(field) != eval_error.get(field):
-                    return False
-        
-        return True
-    
-    ground_truth = ground_truth_lookup(result.get("address", ""), ground_truths, result.get("content", ""))
-    
-    if ground_truth is None:
-        logging.warning(f"No ground truth found for address: {result.get('address', '')}")
-        return True  # Count as correct for backward compatibility
-    
-    # Compare error results
-    gt_error_results = ground_truth.get("ground_truth_error_results", [])
-    eval_error_results = result.get("error_results", [])
-    
-    # Compare self_contained
-    gt_self_contained = ground_truth.get("ground_truth_self_contained")
-    eval_self_contained = result.get("self_contained")
-    
-    # Check if both error results and self_contained match
-    error_results_match = compare_error_results(gt_error_results, eval_error_results)
-    self_contained_match = (gt_self_contained == eval_self_contained)
-    
-    # return error_results_match and self_contained_match
-    return error_results_match
-
 def calculate_accuracy_functional(results):
     """Calculate accuracy using functional approach"""
     # Filter out timeout cases
@@ -219,63 +185,6 @@ def calculate_recall_functional(results):
     
     return len(true_positives) / denominator
 
-def calculate_refined_accuracy_functional(results):
-    """Calculate refined accuracy: same as regular accuracy except TP cases require detailed comparison.
-    Also adds 'refined_correct' field to each result record."""
-    ground_truth_path = "./ground_truth_trimodel_label.json"
-    
-    if not os.path.exists(ground_truth_path):
-        logging.warning(f"Ground truth file not found: {ground_truth_path}")
-        return None
-    
-    try:
-        with open(ground_truth_path, 'r') as f:
-            ground_truths = json.load(f)
-        logging.info(f"Loaded {len(ground_truths)} ground truth records")
-    except Exception as e:
-        logging.error(f"Error loading ground truth file: {e}")
-        return None
-    
-    # Filter out timeout cases
-    valid_results = [r for r in results if not is_timeout(r)]
-    
-    if not valid_results:
-        return 0.0
-    
-    # Add refined_correct field to each result and count correct predictions
-    correct_count = 0
-    
-    for result in results:
-        if is_timeout(result):
-            # Timeout cases are not evaluated for refined correctness
-            result["refined_correct"] = None
-        elif is_true_negative(result):
-            # True Negative: not buggy and not warning signaled -> always correct
-            result["refined_correct"] = True
-            correct_count += 1
-        elif is_true_positive(result):
-            # True Positive: buggy and warning signaled -> correct if matches ground truth
-            matches_ground_truth = detailed_comparison_matches(result, ground_truths)
-            result["refined_correct"] = matches_ground_truth
-            if matches_ground_truth:
-                correct_count += 1
-        else:
-            # False Positive or False Negative -> always incorrect
-            result["refined_correct"] = False
-
-    refined_accuracy = correct_count / len(valid_results)
-    logging.info(f"Refined accuracy calculation: {correct_count}/{len(valid_results)} = {refined_accuracy}")
-    
-    # Count for logging
-    true_negatives = [r for r in valid_results if is_true_negative(r)]
-    true_positives = [r for r in valid_results if is_true_positive(r)]
-    detailed_correct_tp = [r for r in true_positives if r.get("refined_correct") == True]
-    
-    logging.info(f"  - True Negatives: {len(true_negatives)}")
-    logging.info(f"  - True Positives (detailed correct): {len(detailed_correct_tp)}/{len(true_positives)}")
-    
-    return refined_accuracy
-
 
 
 
@@ -302,9 +211,12 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
     
     try:        
         logging.info(f"Evaluating pipeline from {address}")
+        enable_annotations_for_path = annotations_enabled_for_path(address)
+        if enable_user_annotation and not enable_annotations_for_path:
+            logging.info(f"User annotations disabled for {address} based on path configuration")
         type_checker = ScriptChecker(
             address, 
-            enable_user_annotations=enable_user_annotation, 
+            enable_user_annotations=enable_annotations_for_path,
             enable_stage_timeout=ENABLE_TIMEOUT, 
             stage_timeout=TIMEOUT_SECONDS, 
             check_all_pipelines=check_all_pipelines,
@@ -702,11 +614,6 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     output_data["statistics"]["false_negatives"] = len(false_negative_pipelines)
     output_data["statistics"]["false_negative_categories"] = categorize(false_negative_pipelines)
     output_data["statistics"]["total_wrong_predictions"] = len(false_positive_pipelines) + len(false_negative_pipelines)
-    
-    # Add refined accuracy calculation
-    refined_accuracy = calculate_refined_accuracy_functional(results)
-    if refined_accuracy is not None:
-        output_data["statistics"]["refined_accuracy"] = refined_accuracy
     
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)

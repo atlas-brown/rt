@@ -9,6 +9,20 @@ class EchoSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+    @staticmethod
+    def _variable_pattern(token: str, env_annotations) -> str:
+        candidate_keys = [token]
+        if token.startswith("${") and token.endswith("}"):
+            candidate_keys.append(f"${token[2:-1]}")
+        elif token.startswith("$") and len(token) > 1:
+            candidate_keys.append("${" + token[1:] + "}")
+
+        for key in candidate_keys:
+            for annot in env_annotations.get(key, []):
+                if annot.annotation_type == AnnotationType.VAR:
+                    return annot.pattern
+        return "[^\n]*"
+
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         # NOTE(logger-state): output_type/precision stored for downstream type summaries.
         # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
@@ -20,7 +34,7 @@ class EchoSignature(CommandSignature):
         original_operand = operands[0]
         
         # Find all variable matches and build pattern
-        var_matches = list(re.finditer(r'(\$\{.*?\})', original_operand))
+        var_matches = list(re.finditer(r'(\$\{.*?\}|\$[a-zA-Z_][a-zA-Z0-9_]*)', original_operand))
         
         if not var_matches:
             # No variables, just escape the whole string
@@ -38,15 +52,8 @@ class EchoSignature(CommandSignature):
                 
                 # Add variable replacement (unescaped)
                 var_name = var_match.group(1)
-                replacement = "[^\n]*"  # Default pattern
+                replacement = self._variable_pattern(var_name, env_annotations)
                 self_contained = False
-                
-                if var_name in env_annotations:
-                    for annot in env_annotations[var_name]:
-                        if annot.annotation_type == AnnotationType.VAR:
-                            replacement = annot.pattern
-                            break
-                
                 pattern_parts.append(replacement)
                 last_end = var_match.end()
             

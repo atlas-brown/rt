@@ -31,6 +31,7 @@ class Config:
             "enable_timeout": False,
             "timeout_seconds": 10,
             "enable_user_annotation": True,
+            "annotation_disabled_dirs": [],
             "num_workers": 1,
             
             "enable_rule_no_empty_output": True,

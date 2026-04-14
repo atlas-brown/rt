@@ -10,7 +10,7 @@ rules:
     heuristics:
     - no_sort_non_numeric_with_numeric_input
   update:
-    no_input_type: "[[:blank:]]*[-+]?[0-9]+.*"
+    no_input_type: "[-+]?[0-9]+.*"
 - condition:
     flags:
     - -n

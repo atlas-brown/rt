@@ -6,3 +6,7 @@ pyyaml
 shasta 
 click 
 python-dotenv
+pandas
+numpy
+matplotlib
+matplotlib-set-diagrams
