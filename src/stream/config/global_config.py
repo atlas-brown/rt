@@ -41,6 +41,9 @@ class Config:
             
             "evaluation_notes_path": str(self.PROJECT_ROOT / "evaluation_notes.json"),
             "parsing_error_log_path": str(self.LOGS_DIR / "parsing_errors.log"),
+            "shellcheck_command": "shellcheck",
+            "ltsh_command": "ltsh",
+            "ltsh_typedb_path": "ltsh_config/typedb",
             
             # Output paths with annotations
             "output_results_path_with_annotation": str(default_with_annotation_dir / "evaluation_results.json"),

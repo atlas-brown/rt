@@ -12,11 +12,13 @@ Expected external prerequisites for the full pipeline:
 - Python 3
 - Java runtime
 - shellcheck
-- ltsh
-- pandas
-- numpy
-- matplotlib
-- matplotlib-set-diagrams
+- upstream ltsh installed from https://github.com/michaelsippel/ltsh
+- TYPEDB pointed at this repository's ltsh_config/typedb
+- Python packages from requirements.txt
+  (including pandas, numpy, matplotlib, and matplotlib-set-diagrams)
+
+For a fair baseline comparison, ltsh_config/typedb preserves the original
+ltsh entries and adds RT simple types on top.
 
 It will:
 1. Generate baseline data
@@ -31,7 +33,8 @@ Primary generated outputs include:
 - evaluation_results/bug_detection_heuristic:y_fst:y.csv
 - evaluation_results/overview_heuristic:y_fst:y.csv
 - evaluation_results/analysis_time_stats_fst:y.csv
-- evaluation_results/plots/accuracy-chart.pdf
+- evaluation_results/plots/accuracy-chart-with-annotations.pdf
+- evaluation_results/plots/accuracy-chart-without-annotations.pdf
 - evaluation_results/plots/bug-detection.pdf
 - evaluation_results/plots/time-length-chart.pdf
 - evaluation_results/plots/automata-sizes.pdf

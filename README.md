@@ -9,28 +9,34 @@ The root `README.md` is the short artifact-facing entry point. The fuller artifa
 
 ## Getting Started Instructions
 
-The fastest way to validate the artifact is to build the container or install the Python dependencies locally and then run the functionality-check wrapper script.
+The recommended path is Docker.
 
-Docker path:
+From the repository root:
 
 ```bash
 docker build -t rt-artifact .
 docker run --rm -it -v "$(pwd):/home/StreamTypes" rt-artifact
 ```
 
-Local path:
-
-```bash
-python3 -m pip install -r requirements.txt
-```
-
-The checker uses Java through JPype, so the local path also needs a working Java runtime. From the repository root, run:
+Inside the container, run:
 
 ```bash
 bash scripts/check_functionality.sh
 ```
 
-These commands should be enough for a basic functionality check in well under 30 minutes. For the badge-oriented evaluation flow and the longer reproduction path, see `INSTRUCTIONS.md`.
+These commands are enough for the artifact-functional path. For the full reproduction path, including the baseline comparison, see the detailed instructions below and `INSTRUCTIONS.md`.
+
+## Manual Host Installation (Optional)
+
+If you prefer to install the artifact directly on your own machine instead of using Docker, set up:
+
+- Python packages:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+- Java runtime, because the checker loads `jars/automaton.jar` through JPype
 
 ## Detailed Instructions
 
@@ -43,6 +49,37 @@ The main entry points are:
 
 The benchmark directories used by the batch runner are configured in `src/stream/config/config.yaml`. By default they include the small handwritten examples in `evaluation_pipelines/` plus the larger corpora in `full_benchmark/`.
 
+### Manual Host Installation For Full Paper Pipeline (Optional)
+
+If you are not using Docker for the full paper pipeline, additionally install the baseline-comparison dependencies:
+
+- `shellcheck`
+
+```bash
+sudo apt-get install shellcheck
+```
+
+- Rust toolchain for building `ltsh`
+
+```bash
+sudo apt-get install cargo rustc
+```
+
+- upstream `ltsh`, with this repository's typedb replacing the upstream one
+
+```bash
+git clone --depth 1 --branch dev https://github.com/michaelsippel/ltsh "$HOME/.local/src/ltsh"
+cp ltsh_config/typedb "$HOME/.local/src/ltsh/typedb"
+cargo install --path "$HOME/.local/src/ltsh"
+export TYPEDB="$(pwd)/ltsh_config/typedb"
+```
+
+Keep the cloned `ltsh` checkout in place after `cargo install --path ...`: upstream `ltsh` resolves `gettype.sh` relative to the cloned source tree at runtime.
+
+For a fair baseline comparison, `ltsh_config/typedb` preserves the original upstream `ltsh` entries and adds RT simple types on top. In `src/stream/config/config.yaml`, `shellcheck_command`, `ltsh_command`, and `ltsh_typedb_path` control those external tool paths.
+
+If you prefer macOS or another platform, install `shellcheck` and Rust through your platform package manager, make sure a Java runtime is available, then use the same `git clone`, `cp`, `cargo install`, and `export TYPEDB=...` steps.
+
 To reproduce the main RT results and regenerate the paper artifacts, run:
 
 ```bash
@@ -54,12 +91,6 @@ To force regeneration even when cached outputs already exist:
 ```bash
 bash scripts/reproduce_full.sh --force
 ```
-
-For the full experiment pipeline, including baseline comparison and plot regeneration, install the extra tools required by the scripts:
-
-- `shellcheck`
-- `ltsh`
-- plotting packages such as `pandas`, `numpy`, `matplotlib`, and `matplotlib-set-diagrams`
 
 That wrapper drives the baseline files, the RT runs and ablations, the merged summary CSVs, and the PDFs under `evaluation_results/plots/`.
 

@@ -47,34 +47,51 @@ Confirm sufficient documentation, key components, and basic executability:
 
 **Quickstart: running the checker and test suite**
 
-You can use either Docker or a local Python/Java environment.
+The recommended quickstart path is the provided Docker image.
 
 Requirements for the quickstart:
-1. Docker, or
-2. Python 3 plus a working Java runtime
+1. Docker
 
-From the repository root, either build the container:
+From the repository root, build the container and start a shell in it:
 
 ```sh
 docker build -t streamtypes-ae .
 docker run --rm -it -v "$(pwd):/home/StreamTypes" streamtypes-ae
 ```
 
-or install the base Python dependencies locally:
-
-```sh
-python3 -m pip install -r requirements.txt
-```
-
-The local path also needs Java because the checker loads `jars/automaton.jar` through JPype.
-
-Then run the basic functionality checks:
+Inside the container, run the basic functionality checks:
 
 ```sh
 bash scripts/check_functionality.sh
 ```
 
+If you prefer not to use Docker, see [Optional: local host installation](#optional-local-host-installation) below.
+
 This test suite should report:
+```
+92 passed in 1.08s
+```
+
+<a id="optional-local-host-installation"></a>
+## Optional: local host installation
+
+The Docker image above is the shortest path for the artifact-functional checks. If you want to install the artifact directly on your own machine instead, set up:
+
+1. Python packages:
+
+   ```sh
+   python3 -m pip install -r requirements.txt
+   ```
+
+2. a working Java runtime, because the checker loads `jars/automaton.jar` through JPype
+
+After the local setup, run the same functionality check:
+
+```sh
+bash scripts/check_functionality.sh
+```
+
+It should report:
 ```
 92 passed in 1.08s
 ```
@@ -92,18 +109,41 @@ The main results supported by this artifact are:
 
 **Preparation:**
 
-These steps assume you already have a working Docker container or local environment and that the quickstart checks above succeed.
+These steps assume you already have a working environment and that the quickstart checks above succeed. The recommended path is to use the Docker image above. If you run locally instead, start with the optional host-installation steps above, then add the baseline-comparison dependencies below.
 
-For the full paper pipeline, the scripts additionally expect:
+<a id="optional-local-host-installation-repro"></a>
+## Optional: local host installation for the full paper pipeline
 
-- `shellcheck`
-- `ltsh`
-- `pandas`
-- `numpy`
-- `matplotlib`
-- `matplotlib-set-diagrams`
+If you are not using Docker for the full paper pipeline, additionally install:
+
+1. `shellcheck`:
+
+   ```sh
+   sudo apt-get install shellcheck
+   ```
+
+2. Rust toolchain for building `ltsh`:
+
+   ```sh
+   sudo apt-get install cargo rustc
+   ```
+
+3. upstream `ltsh`, with this repository's typedb replacing the upstream one:
+
+   ```sh
+   git clone --depth 1 --branch dev https://github.com/michaelsippel/ltsh "$HOME/.local/src/ltsh"
+   cp ltsh_config/typedb "$HOME/.local/src/ltsh/typedb"
+   cargo install --path "$HOME/.local/src/ltsh"
+   export TYPEDB="$(pwd)/ltsh_config/typedb"
+   ```
+
+Keep the cloned `ltsh` checkout in place after `cargo install --path ...`: upstream `ltsh` resolves `gettype.sh` relative to the cloned source tree at runtime.
+
+If you prefer macOS or another platform, install `shellcheck` and Rust through your platform package manager, make sure a Java runtime is available, then use the same `git clone`, `cp`, `cargo install`, and `export TYPEDB=...` steps.
 
 The benchmark directories and output paths are configured in [`src/stream/config/config.yaml`](src/stream/config/config.yaml).
+
+The baseline comparison uses `shellcheck` plus upstream `ltsh` with this repository's `ltsh_config/typedb`. For a fair comparison, `ltsh_config/typedb` preserves the original upstream `ltsh` entries and adds RT simple types on top. In [`src/stream/config/config.yaml`](src/stream/config/config.yaml), `shellcheck_command`, `ltsh_command`, and `ltsh_typedb_path` control those external tool paths.
 
 **Full evaluation pipeline:**
 
@@ -137,10 +177,11 @@ The final outputs to inspect are:
 4. `evaluation_results/bug_detection_heuristic:y_fst:y.csv`
 5. `evaluation_results/overview_heuristic:y_fst:y.csv`
 6. `evaluation_results/analysis_time_stats_fst:y.csv`
-7. `evaluation_results/plots/accuracy-chart.pdf`
-8. `evaluation_results/plots/bug-detection.pdf`
-9. `evaluation_results/plots/time-length-chart.pdf`
-10. `evaluation_results/plots/automata-sizes.pdf`
+7. `evaluation_results/plots/accuracy-chart-with-annotations.pdf`
+8. `evaluation_results/plots/accuracy-chart-without-annotations.pdf`
+9. `evaluation_results/plots/bug-detection.pdf`
+10. `evaluation_results/plots/time-length-chart.pdf`
+11. `evaluation_results/plots/automata-sizes.pdf`
 
 If reviewers do not want to wait for the full pipeline, they can inspect the checked-in outputs already present under [`evaluation_results/`](evaluation_results/) and compare those files to regenerated outputs.
 

@@ -4,7 +4,6 @@ import numpy as np
 import os
 
 import matplotlib.pyplot as plt
-from matplotlib_set_diagrams import EulerDiagram
 
 def load_csv(file_path):
     try:
@@ -18,86 +17,119 @@ color_scheme = ["#AA4465", "#FFA69E", "#998650", "#93E1D8"]
 figsize = (7, 4)
 sysname = "RT"
 
-def plot_accuracy(data, output_path):
-    # Filter data by annotation status
-    data_ann = data[data["With Annotations?"] == True]
-    data_unann = data[data["With Annotations?"] == False]
+ACCURACY_PANELS = (
+    (True, "accuracy-chart-with-annotations.pdf"),
+    (False, "accuracy-chart-without-annotations.pdf"),
+)
+ACCURACY_SYSTEMS = ("Rt", "ShellCheck", "LadderTypes")
+ACCURACY_COLORS = {
+    "Rt": "#8B1E3F",
+    "ShellCheck": "#BE9832",
+    "LadderTypes": "#9EDCF0",
+}
+ACCURACY_X_POSITIONS = np.array([0, 1, 2, 5, 6, 7], dtype=float)
 
-    # Get all benchmark sets
-    # benchmarks = sorted(data.dropna()["Benchmark set"].unique())
-    base_benchmarks = ["GitHub", "StackOverflow", "Ladder", "PaSh", "Intercode", "LLM", "Mutants", "Handwritten"]
-    split_benchmarks = [b + t for t in [" (buggy)", " (correct)"] for b in base_benchmarks]
-    
-    # now lets remove any benchmarks labeled "X (correct)" for which the column "# Correct" is 0
-    # and "X (buggy)" for which the column "# Incorrect" is 0
-    benchmarks = []
-    for b in split_benchmarks:
-        count = int(data[data["Benchmark set"] == b]["# Correct" if b.endswith(" (correct)") else "# Incorrect"].values[0])
-        if count != 0:
-            benchmarks.append(b)
+def _weighted_metric(rows, metric_column, weight_column):
+    if rows.empty:
+        return 0.0
 
-    #benchmarks = split_benchmarks
-    
-    # add a none to make a gap in the bar chart
-    last_index_of_split = 0
-    for i, b in enumerate(benchmarks):
-        if isinstance(b, str) and b.endswith(" (buggy)"):
-            last_index_of_split = i
-    benchmarks.insert(last_index_of_split + 1, None)
+    weights = pd.to_numeric(rows[weight_column], errors="coerce").fillna(0)
+    values = pd.to_numeric(rows[metric_column], errors="coerce").fillna(0)
+    valid_rows = weights > 0
+    if not valid_rows.any():
+        return 0.0
 
-    print(f"Benchmark sets with actual examples: {benchmarks}")
+    return float(np.average(values[valid_rows], weights=weights[valid_rows]))
 
-    # Prepare bar heights
-    shtreams_no_ann = [
-        data_unann[data_unann["Benchmark set"] == b]["Accuracy"].values[0]
-        if b in data_unann["Benchmark set"].values else 0
-        for b in benchmarks
+def _weighted_metric_with_weights(rows, metric_column, weights):
+    if rows.empty:
+        return 0.0
+
+    metric_values = pd.to_numeric(rows[metric_column], errors="coerce").fillna(0)
+    numeric_weights = pd.to_numeric(weights, errors="coerce").fillna(0)
+    valid_rows = numeric_weights > 0
+    if not valid_rows.any():
+        return 0.0
+
+    return float(np.average(metric_values[valid_rows], weights=numeric_weights[valid_rows]))
+
+def build_accuracy_chart_data(data, with_annotations):
+    annotation_mask = data["With Annotations?"].astype(str).str.lower() == str(with_annotations).lower()
+    panel_rows = data[annotation_mask].copy()
+    benchmark_labels = panel_rows["Benchmark set"].astype(str)
+    buggy_rows = panel_rows[benchmark_labels.str.endswith(" (buggy)", na=False)]
+    correct_rows = panel_rows[benchmark_labels.str.endswith(" (correct)", na=False)]
+
+    if buggy_rows.empty or correct_rows.empty:
+        raise ValueError("Accuracy plot requires '(buggy)' and '(correct)' rows for the requested annotation setting.")
+
+    return {
+        "Buggy": {
+            "Rt": _weighted_metric(buggy_rows, "Accuracy", "# Incorrect"),
+            "ShellCheck": _weighted_metric(buggy_rows, "SC Accuracy", "# Incorrect"),
+            "LadderTypes": _weighted_metric(buggy_rows, "LT Accuracy", "# Incorrect"),
+        },
+        "Correct": {
+            "Rt": _weighted_metric(correct_rows, "Accuracy", "# Correct"),
+            "ShellCheck": _weighted_metric(correct_rows, "SC Accuracy", "# Correct"),
+            "LadderTypes": _weighted_metric(correct_rows, "LT Accuracy", "# Correct"),
+        },
+    }
+
+def _plot_accuracy_panel(ax, plot_data):
+    heights = [
+        plot_data["Buggy"][system] for system in ACCURACY_SYSTEMS
+    ] + [
+        plot_data["Correct"][system] for system in ACCURACY_SYSTEMS
     ]
-    shtreams_ann = [
-        data_ann[data_ann["Benchmark set"] == b]["Accuracy"].values[0]
-        if b in data_ann["Benchmark set"].values else 0
-        for b in benchmarks
-    ]
-    shellcheck = [
-        data_ann[data_ann["Benchmark set"] == b]["SC Accuracy"].values[0]
-        if b in data_ann["Benchmark set"].values else 0
-        for b in benchmarks
-    ]
-    laddertypes = [
-        data_ann[data_ann["Benchmark set"] == b]["LT Accuracy"].values[0]
-        if b in data_ann["Benchmark set"].values else 0
-        for b in benchmarks
-    ]
+    labels = list(ACCURACY_SYSTEMS) * 2
+    colors = [ACCURACY_COLORS[system] for system in labels]
 
-    x = np.arange(len(benchmarks))
-    width = 0.2
+    ax.set_axisbelow(True)
+    ax.grid(which="major", axis="both", linestyle=":", linewidth=0.9, color="#C9CDD2")
+    ax.bar(
+        ACCURACY_X_POSITIONS,
+        heights,
+        width=0.6,
+        color=colors,
+        edgecolor="black",
+        linewidth=1.6,
+        hatch="//",
+        zorder=3,
+    )
 
-    plt.figure(figsize=(8, 4))
-    plt.rc('axes', axisbelow=True)
-    plt.grid(axis='y', linestyle='-', alpha=0.7)
-    
-    plt.bar(x - 1.5*width, shtreams_ann, width, label=f"{sysname}", color=color_scheme[0], hatch="/")
-    plt.bar(x - 0.5*width, shtreams_no_ann, width, label=f"{sysname} (w/o anns)", color=color_scheme[1], hatch="//")
-    plt.bar(x + 0.5*width, shellcheck, width, label="ShellCheck", color=color_scheme[2], hatch="\\")
-    plt.bar(x + 1.5*width, laddertypes, width, label="LadderTypes", color=color_scheme[3])
-    
-    def mklabel(b):
-        count = int(data[data["Benchmark set"] == b]["# Correct" if b.endswith(" (correct)") else "# Incorrect"].values[0])
-        if b.endswith(" (correct)"):
-            return f"{b[:-10]} ({count})"
-        else:
-            return f"{b[:-8]} ({count})"
+    ax.set_xlim(-0.7, 7.7)
+    ax.set_ylim(0, 1.05)
+    ax.set_yticks(np.linspace(0, 1, 6))
+    ax.set_ylabel("Accuracy")
+    ax.set_xticks(ACCURACY_X_POSITIONS, labels, rotation=25, ha="right")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_linewidth(1.2)
+    ax.spines["bottom"].set_linewidth(1.2)
+    for label, positions in {
+        "Buggy": ACCURACY_X_POSITIONS[:3],
+        "Correct": ACCURACY_X_POSITIONS[3:],
+    }.items():
+        ax.text(float(np.mean(positions)), 1.045, label, ha="center", va="bottom", fontsize=16)
 
-    plt.xticks([i for i, b in enumerate(benchmarks) if b is not None], 
-               [mklabel(b) for    b in benchmarks            if b is not None], 
-               rotation=30, ha="right")
-    plt.ylim(0, 1)
-    plt.ylabel("Accuracy")
-    plt.xlabel("Buggy" + " "*60 + "Correct")
-    plt.title(None)
-    plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.3), ncol=4)
-    plt.tight_layout()
-    plt.savefig(output_path, format="pdf")
+def plot_accuracy(data, output_path, with_annotations):
+    fig, ax = plt.subplots(figsize=(10, 4))
+    plot_data = build_accuracy_chart_data(data, with_annotations)
+    _plot_accuracy_panel(ax, plot_data)
+
+    fig.tight_layout()
+    fig.savefig(output_path, format="pdf")
+    return fig, ax
+
+def plot_accuracy_charts(data, output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+    outputs = []
+    for with_annotations, filename in ACCURACY_PANELS:
+        output_path = os.path.join(output_dir, filename)
+        fig, ax = plot_accuracy(data, output_path, with_annotations)
+        outputs.append((output_path, fig, ax))
+    return outputs
 
 def plot_bug_detection_bar(data, output_path):
     systems = data["System"].unique()
@@ -126,6 +158,8 @@ def plot_bug_detection_bar(data, output_path):
     plt.savefig(output_path, format="pdf")
 
 def plot_bug_detection(data, output_path):
+    from matplotlib_set_diagrams import EulerDiagram
+
     combination_counts = {
         (1, 0, 0): data[data["System"] == "Shtreams"]["Only this detects"].values[0],
         (1, 1, 0): data[data["System"] == "Shtreams"]["and SC"].values[0],
@@ -245,7 +279,7 @@ def main():
     })
 
     overview_data = load_csv(args.overview_csv)
-    plot_accuracy(overview_data, os.path.join(args.output_dir, "accuracy-chart.pdf"))
+    plot_accuracy_charts(overview_data, args.output_dir)
     plt.rc('font', size=23)
     bug_detection_data = load_csv(args.bug_detection_csv)
     plot_bug_detection(bug_detection_data, os.path.join(args.output_dir, "bug-detection.pdf"))

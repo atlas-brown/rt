@@ -5,7 +5,7 @@ This directory contains configuration files for the Stream project, providing a 
 ## Files
 
 - `global_config.py`: Contains the singleton configuration class
-- `config.json`: User-customizable configuration values
+- `config.yaml`: User-customizable configuration values
 
 ## Usage
 
@@ -36,12 +36,15 @@ CONFIG["output_summary_path_raw"] = "evaluation_results/raw/summary.csv"
 
 ## Customizing Configuration
 
-You can customize the configuration by editing the `config.json` file. The configuration includes:
+You can customize the configuration by editing `config.yaml`. The configuration includes:
 
 1. Evaluation settings (timeout, workers, etc.)
 2. File paths (output files, notes)
-3. Pipeline paths for evaluation
-4. Logging settings
+3. External tool settings such as `shellcheck_command`, `ltsh_command`, and `ltsh_typedb_path`
+4. Pipeline paths for evaluation
+5. Logging settings
+
+For the `ltsh` baseline, `ltsh_typedb_path` defaults to the repository's `ltsh_config/typedb`. That file starts from the upstream `michaelsippel/ltsh` `typedb` and adds RT simple types on top while preserving the original `ltsh` entries, so the comparison stays fair.
 
 The singleton will automatically load this file and merge settings with the defaults.
 
@@ -52,6 +55,6 @@ If you need to reload the configuration at runtime:
 ```python
 from src.stream.config import CONFIG
 
-# After making changes to config.json
+# After making changes to config.yaml
 CONFIG.reload()
-``` 
+```

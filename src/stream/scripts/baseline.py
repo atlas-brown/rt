@@ -12,6 +12,22 @@ from stream.config import CONFIG
 from stream.parser.shell_parser_util import extract_pipe_nodes_from_file
 
 ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
+REPO_ROOT = Path(__file__).resolve().parents[3]
+
+
+def get_shellcheck_command():
+    return CONFIG.get("shellcheck_command", "shellcheck")
+
+
+def get_ltsh_command():
+    return CONFIG.get("ltsh_command", "ltsh")
+
+
+def get_ltsh_typedb_path():
+    typedb_path = Path(CONFIG.get("ltsh_typedb_path", "ltsh_config/typedb"))
+    if not typedb_path.is_absolute():
+        typedb_path = REPO_ROOT / typedb_path
+    return typedb_path
 
 def is_meaningful_line(line):
     if line.strip() == "":
@@ -27,7 +43,7 @@ def check_shellcheck(content):
             tmp.write(content)
             tmp.flush()
             tmp_name = tmp.name
-        result = subprocess.run(["shellcheck", tmp_name], capture_output=True, text=True, timeout=20)
+        result = subprocess.run([get_shellcheck_command(), tmp_name], capture_output=True, text=True, timeout=20)
         output = result.stdout + result.stderr
         print(output)
         os.remove(tmp_name)
@@ -38,11 +54,24 @@ def check_shellcheck(content):
 
 def check_ltsh(content):
     try:
+        typedb_path = get_ltsh_typedb_path()
+        if not typedb_path.exists():
+            raise FileNotFoundError(f"ltsh typedb not found at {typedb_path}")
+
         lines = content.split("\n")
         lines = [l for l in lines if is_meaningful_line(l)]
         raw_output = ""
+        env = os.environ.copy()
+        env["TYPEDB"] = str(typedb_path)
         for line in lines:
-            result = subprocess.run(["ltsh"], input=line, capture_output=True, text=True, timeout=20)
+            result = subprocess.run(
+                [get_ltsh_command()],
+                input=line,
+                capture_output=True,
+                text=True,
+                timeout=20,
+                env=env,
+            )
             raw_output += result.stdout + result.stderr
         clean_output = ansi_escape.sub("", raw_output)
         output = clean_output
