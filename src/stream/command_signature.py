@@ -71,7 +71,11 @@ class CommandSignature:
         if parsed_command_invocation.cmd_name != "xargs" and parsed_command_invocation.cmd_name != "grep" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
             operand = parsed_command_invocation.operand_list[0].name
             if operand.startswith("-"):
-                raise PashAnnotationParsingError(f"pash_annotations.parser might be wrong, command: {parsed_command_invocation}, operand: {operand}")
+                logging.debug(
+                    "Treating leading operand %r for %s as parser-normalized input instead of a fatal annotation error",
+                    operand,
+                    parsed_command_invocation.cmd_name,
+                )
         
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "--version" in flags or "--help" in flags:

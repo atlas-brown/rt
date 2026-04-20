@@ -76,14 +76,17 @@ class FindSignature(CommandSignature):
                     
                     for signature in loader.signatures:
                         if signature.matches_command(exec_command):
-                            # Determine output type from the executed command
-                            output_type = signature.output_type_inference(RegularType(".+"), exec_command, env_annotations)
-                            
+                            exec_output = signature.output_type_inference(RegularType(".+"), exec_command, env_annotations)
+                            if isinstance(exec_output, InferenceResult):
+                                output_type = exec_output.output_type
+                            else:
+                                output_type = exec_output
+
                             # FIXME: should use the type declaration of xargs ls instead of ls
                             # Special case for 'ls' command: remove "total" line from output type
                             if cmd_name == "ls":
                                 output_type = output_type - RegularType("total .+")
-                            
+
                             break
                     
                     # Found an -exec, no need to search further

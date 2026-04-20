@@ -6,7 +6,7 @@ if not jpype.isJVMStarted():
 from stream.type_checker import ScriptChecker
 import argparse
 import tempfile
-import os
+import subprocess
 from stream.config import CONFIG
 
 
@@ -29,7 +29,7 @@ def check_pipeline(file_path: str, shellcheck : bool = False):
             for pipeline in type_checker.shell_parser.pipeline_nodes:
                 temp_file.write(pipeline.pretty().encode())
             temp_file.flush()
-            os.system(f"shellcheck {temp_file.name}")
+            subprocess.run([CONFIG.get("shellcheck_command", "shellcheck"), temp_file.name], check=False)
 
 def main():
     parser = argparse.ArgumentParser(description="Debug Stream Type Checker")

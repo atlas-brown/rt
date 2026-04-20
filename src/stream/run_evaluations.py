@@ -4,6 +4,7 @@ import json
 import logging
 import time
 import re
+import traceback
 from functools import partial
 from pathlib import Path
 from typing import List, Tuple
@@ -29,7 +30,11 @@ SIGNALED_LABEL = "warning signaled?"
 PIPELINE_ID_LABEL = "id"
 CATEGORY_LABEL = "category"
 CRASH_REASON_LABEL = "tool runtime error"
+CRASH_TYPE_LABEL = "tool runtime error type"
+CRASH_TRACEBACK_LABEL = "tool runtime traceback"
+PASH_TRACEBACK_LABEL = "pash annotations traceback"
 TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
+RUNTIME_ERROR_LOG_FILENAME = "runtime_errors.log"
 
 enable_user_annotation = CONFIG.get("enable_user_annotation", True)
 
@@ -85,6 +90,49 @@ def find_scripts(directories: list[str]) -> list[str]:
                     script_addresses.append(file_path)
     
     return script_addresses
+
+
+def get_current_pipeline_content_when_error(type_checker) -> str | None:
+    if type_checker is None:
+        return None
+
+    try:
+        return type_checker.get_current_pipeline_content_when_error()
+    except Exception as capture_error:
+        logging.warning(f"Failed to capture current pipeline content after runtime error: {capture_error}")
+        return None
+
+
+def write_runtime_errors_to_file(results: List[dict], output_path: str) -> None:
+    runtime_errors = [
+        result for result in results
+        if result.get(CRASH_TRACEBACK_LABEL) or result.get(PASH_TRACEBACK_LABEL)
+    ]
+
+    os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as handle:
+        if not runtime_errors:
+            handle.write("No runtime errors captured.\n")
+            logging.info(f"No runtime errors captured; wrote empty report to {output_path}")
+            return
+
+        for index, result in enumerate(runtime_errors, start=1):
+            error_kind = "pash annotations error" if result.get(PASH_TRACEBACK_LABEL) else CRASH_REASON_LABEL
+            error_message = result.get("pash annotations error") if result.get(PASH_TRACEBACK_LABEL) else result.get(CRASH_REASON_LABEL, "<unknown>")
+            traceback_text = result.get(PASH_TRACEBACK_LABEL) or result.get(CRASH_TRACEBACK_LABEL) or ""
+            handle.write(f"Runtime error #{index}\n")
+            handle.write(f"Address: {result.get('address', '<unknown>')}\n")
+            handle.write(f"Pipeline: {result.get('content') or '<unknown>'}\n")
+            handle.write(f"Error kind: {error_kind}\n")
+            handle.write(f"Exception type: {result.get(CRASH_TYPE_LABEL, '<unknown>')}\n")
+            handle.write(f"Error: {error_message}\n")
+            handle.write("Traceback:\n")
+            handle.write(traceback_text)
+            if not traceback_text.endswith("\n"):
+                handle.write("\n")
+            handle.write("\n" + ("=" * 80) + "\n\n")
+
+    logging.info(f"Wrote {len(runtime_errors)} runtime error tracebacks to {output_path}")
 
 
 # Functional filters for result classification
@@ -198,7 +246,10 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
         IS_BUGGY_LABEL: None,
         SIGNALED_LABEL: None,
         CRASH_REASON_LABEL: None,
+        CRASH_TYPE_LABEL: None,
+        CRASH_TRACEBACK_LABEL: None,
         "pash annotations error": None,
+        PASH_TRACEBACK_LABEL: None,
         "error message generated": None,
         "error_results": [],  # Add field to store detailed error results
         "evaluation_time": "0s",  # Default to 0s for evaluation time
@@ -208,6 +259,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
         # "notes": ""
     }
     pipeline_data_list = []
+    type_checker = None
     
     try:        
         logging.info(f"Evaluating pipeline from {address}")
@@ -239,7 +291,6 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
                 elapsed_time = end_time - start_time
 
                 pipeline_data = pipeline_data_template.copy()
-                pipeline_data[SIGNALED_LABEL] = len(checking_result.error_results) > 0
                 pipeline_data["content"] = checking_result.pipeline_content
                 pipeline_data["evaluation_time"] = f"{elapsed_time:.8f}s"
                 pipeline_data["automata_size"] = checking_result.max_automata_size
@@ -262,6 +313,27 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
                     }
                     error_results_dicts.append(error_dict)
                 pipeline_data["error_results"] = error_results_dicts
+
+                if checking_result.runtime_error_message is not None:
+                    pipeline_data[CRASH_TYPE_LABEL] = checking_result.runtime_error_type
+                    if checking_result.runtime_error_kind == "pash annotations error":
+                        pipeline_data["pash annotations error"] = checking_result.runtime_error_message
+                        pipeline_data[PASH_TRACEBACK_LABEL] = checking_result.runtime_error_traceback
+                        logging.error(
+                            f'Pash annotation parsing error in pipeline {checking_result.pipeline_content}: '
+                            f'{checking_result.runtime_error_message}'
+                        )
+                    else:
+                        pipeline_data[CRASH_REASON_LABEL] = checking_result.runtime_error_message
+                        pipeline_data[CRASH_TRACEBACK_LABEL] = checking_result.runtime_error_traceback
+                        logging.error(
+                            f'Tool runtime error in pipeline {checking_result.pipeline_content}: '
+                            f'{checking_result.runtime_error_message}'
+                        )
+                    pipeline_data_list.append(pipeline_data)
+                    continue
+
+                pipeline_data[SIGNALED_LABEL] = len(checking_result.error_results) > 0
                 
                 # pipeline_data["tainted"] = checking_result.tainted
                 if len(checking_result.error_results) > 0:
@@ -279,23 +351,27 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
         except TimeoutError:
             pipeline_data = pipeline_data_template.copy()
             pipeline_data[CRASH_REASON_LABEL] = TIMEOUT_REASON
-            pipeline_data["content"] = type_checker.get_current_pipeline_content_when_error()
+            pipeline_data["content"] = get_current_pipeline_content_when_error(type_checker)
             pipeline_data_list.append(pipeline_data)
             logging.warning(f'Pipeline evaluation timed out for {address}')
         except PashAnnotationParsingError as e:
             pipeline_data = pipeline_data_template.copy()
             pipeline_data["pash annotations error"] = str(e)
-            pipeline_data["content"] = type_checker.get_current_pipeline_content_when_error()
+            pipeline_data[CRASH_TYPE_LABEL] = type(e).__name__
+            pipeline_data[PASH_TRACEBACK_LABEL] = traceback.format_exc()
+            pipeline_data["content"] = get_current_pipeline_content_when_error(type_checker)
             pipeline_data_list.append(pipeline_data)
-            logging.error(f'Error while parsing annotations from {address}: {e}')
+            logging.exception(f'Error while parsing annotations from {address}: {e}')
 
             
     except Exception as e:
         pipeline_data = pipeline_data_template.copy()
         pipeline_data[CRASH_REASON_LABEL] = str(e)
-        pipeline_data["content"] = type_checker.get_current_pipeline_content_when_error()
+        pipeline_data[CRASH_TYPE_LABEL] = type(e).__name__
+        pipeline_data[CRASH_TRACEBACK_LABEL] = traceback.format_exc()
+        pipeline_data["content"] = get_current_pipeline_content_when_error(type_checker)
         pipeline_data_list.append(pipeline_data)
-        logging.error(f'Tool runtime error while evaluating pipeline from {address}: {e}')
+        logging.exception(f'Tool runtime error while evaluating pipeline from {address}: {e}')
     
     return pipeline_data_list
 
@@ -471,15 +547,16 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     num_workers = num_workers or CONFIG.get("num_workers", 1)
     
     # Define output paths for additional files
-    output_dir = os.path.dirname(output_json)
+    output_dir = os.path.dirname(output_json) or "."
     automata_csv_path = os.path.join(output_dir, "automata_sizes.csv")
     performance_csv_path = os.path.join(output_dir, "length_time_pairs.csv")
+    runtime_error_log_path = os.path.join(output_dir, RUNTIME_ERROR_LOG_FILENAME)
     
     # Clear the parsing error log file before starting
     parsing_error_log_path = CONFIG.get("parsing_error_log_path")
     if parsing_error_log_path:
         # Create the directory if it doesn't exist
-        os.makedirs(os.path.dirname(parsing_error_log_path), exist_ok=True)
+        os.makedirs(os.path.dirname(parsing_error_log_path) or ".", exist_ok=True)
         # Clear or create the log file
         with open(parsing_error_log_path, 'w') as f:
             f.write("")
@@ -617,6 +694,8 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
+
+    write_runtime_errors_to_file(results, runtime_error_log_path)
     
     # Update output_data with filtered results for main JSON
     main_output_data = output_data.copy()

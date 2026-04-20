@@ -104,11 +104,61 @@ def read_existing_records(csv_file):
                 reader = csv.DictReader(f_csv)
                 for row in reader:
                     # Use pipeline_file and pipeline as composite key
-                    key = (row["pipeline_file"], row["pipeline"])
+                    key = (normalize_path(row["pipeline_file"]), row["pipeline"])
                     existing_records[key] = row
         except Exception as e:
             print(f"Error reading existing records: {e}")
     return existing_records
+
+
+def read_existing_results(json_file):
+    """Read existing JSON results keyed by normalized pipeline identity."""
+    existing_results = {}
+    if os.path.exists(json_file):
+        try:
+            with open(json_file, "r") as f_json:
+                for record in json.load(f_json):
+                    key = (normalize_path(record["pipeline_file"]), record["pipeline"])
+                    existing_results[key] = record
+        except Exception as e:
+            print(f"Error reading existing JSON results: {e}")
+    return existing_results
+
+
+def write_results(csv_file, json_file, results_by_key):
+    """Rewrite CSV/JSON outputs from the canonical keyed result map."""
+    csv_header = [
+        "pipeline_file",
+        "pipeline",
+        "is buggy?",
+        "shell check warning?",
+        "ltsh warning?",
+        "shell check processing time",
+        "ltsh processing time",
+        "shell check links",
+    ]
+    ordered_records = sorted(
+        results_by_key.values(),
+        key=lambda r: (normalize_path(r["pipeline_file"]), r["pipeline"]),
+    )
+
+    with open(csv_file, "w", newline="") as f_csv:
+        writer = csv.writer(f_csv)
+        writer.writerow(csv_header)
+        for record in ordered_records:
+            writer.writerow([
+                record["pipeline_file"],
+                record["pipeline"],
+                str(record["is buggy?"]).lower(),
+                str(record["shell check warning?"]).lower(),
+                str(record["ltsh warning?"]).lower(),
+                f"{record['shell check processing time']:.3f}",
+                f"{record['ltsh processing time']:.3f}",
+                ";".join(record["shell_check_links"]),
+            ])
+
+    with open(json_file, "w") as f_json:
+        json.dump(ordered_records, f_json, indent=2)
 
 def normalize_path(path):
     """Normalize path to handle ./ prefixes and make sure paths are comparable."""
@@ -135,7 +185,7 @@ def is_path_in_not_check_all_dirs(file_dir, not_check_all_dirs):
     
     return False
 
-def process_parsing_failures(json_file, csv_file):
+def process_parsing_failures(results_by_key):
     """Process parsing failure logs and check them with ltsh and shellcheck."""
     parsing_error_log_path = CONFIG.get("parsing_error_log_path")
     if not parsing_error_log_path or not os.path.exists(parsing_error_log_path):
@@ -174,12 +224,6 @@ def process_parsing_failures(json_file, csv_file):
     
     print(f"Found {len(unique_contents)} unique file contents in parsing errors")
     
-    # Load existing records from JSON file
-    all_results = []
-    if os.path.exists(json_file):
-        with open(json_file, "r") as f_json:
-            all_results = json.load(f_json)
-    
     # Create a counter for unknown files
     unknown_counter = 1
     
@@ -194,6 +238,10 @@ def process_parsing_failures(json_file, csv_file):
         if file_path.startswith('/tmp') or file_path.startswith('tmp'):
             result_path = f"full_benchmark/pash_benchmark/unknown_file" + str(unknown_counter)
             unknown_counter += 1
+        result_key = (normalize_path(result_path), content)
+        if result_key in results_by_key:
+            print(f"Skipping already processed parsing failure for {result_path}")
+            continue
         
         # 1. Check with shellcheck (write to temp file with shebang)
         start_shell = time.time()
@@ -228,26 +276,10 @@ def process_parsing_failures(json_file, csv_file):
         }
         
         new_results.append(record)
-        
-        # Write to CSV (append mode)
-        with open(csv_file, "a", newline="") as f_csv:
-            writer = csv.writer(f_csv)
-            writer.writerow([
-                record["pipeline_file"],
-                record["pipeline"],
-                str(record["is buggy?"]).lower(),
-                str(record["shell check warning?"]).lower(),
-                str(record["ltsh warning?"]).lower(),
-                f"{record['shell check processing time']:.3f}",
-                f"{record['ltsh processing time']:.3f}",
-                ";".join(record["shell_check_links"])
-            ])
-    
-    # Update the JSON file with new results
     if new_results:
-        all_results.extend(new_results)
-        with open(json_file, "w") as f_json:
-            json.dump(all_results, f_json, indent=2)
+        for record in new_results:
+            result_key = (normalize_path(record["pipeline_file"]), record["pipeline"])
+            results_by_key[result_key] = record
         print(f"Added {len(new_results)} parsing failure checks to results")
 
 ignored_sc_codes = "SC2148,SC2012,SC2046,SC2086,SC2018,SC2019,SC2002,SC2006,SC2009,SC2035,SC2060,SC2061,SC2062,SC2063,SC2126,SC2154,SC2185,SC2196,SC2225".split(",")
@@ -272,21 +304,9 @@ def main():
     # Read existing records to avoid rechecking
     existing_records = read_existing_records(csv_file)
     print(f"Found {len(existing_records)} existing records to skip rechecking")
-    
-    # Initialize files if they don't exist
-    if not os.path.exists(csv_file):
-        csv_header = ["pipeline_file", "pipeline", "is buggy?", "shell check warning?", "ltsh warning?", "shell check processing time", "ltsh processing time", "shell check links"]
-        with open(csv_file, "w", newline="") as f_csv:
-            writer = csv.writer(f_csv)
-            writer.writerow(csv_header)
-    
-    all_results = []
-    if os.path.exists(json_file):
-        with open(json_file, "r") as f_json:
-            all_results = json.load(f_json)
-            print(f"Loaded {len(all_results)} existing results from JSON")
-    
-    batch_results = []
+    results_by_key = read_existing_results(json_file)
+    print(f"Loaded {len(results_by_key)} canonical results from JSON")
+
     all_shellcheck_codes = set()
     file_counter = 0
     
@@ -340,7 +360,7 @@ def main():
                             pipeline_str = pipeline_str.replace("\\\\", "\\")
                             
                             # Check if this pipeline was already processed
-                            key = (str(file), pipeline_str)
+                            key = (normalize_path(str(file)), pipeline_str)
                             if key in existing_records:
                                 print(f"Skipping already processed pipeline {idx+1}/{len(pipeline_nodes)} in {file}")
                                 continue
@@ -378,48 +398,15 @@ def main():
                                 "ltsh_output": lt_output,
                                 "shell_check_links": sc_codes
                             }
-                            batch_results.append(record)
+                            results_by_key[key] = record
                             file_counter += 1
                             
-                        if file_counter % 5 == 0 and batch_results:
-                            with open(csv_file, "a", newline="") as f_csv:
-                                writer = csv.writer(f_csv)
-                                for r in batch_results:
-                                    writer.writerow([
-                                        r["pipeline_file"],
-                                        r["pipeline"],
-                                        str(r["is buggy?"]).lower(),
-                                        str(r["shell check warning?"]).lower(),
-                                        str(r["ltsh warning?"]).lower(),
-                                        f"{r['shell check processing time']:.3f}",
-                                        f"{r['ltsh processing time']:.3f}",
-                                        ";".join(r["shell_check_links"])
-                                    ])
-                            all_results.extend(batch_results)
-                            with open(json_file, "w") as f_json:
-                                json.dump(all_results, f_json, indent=2)
-                            batch_results = []
-    
-    if batch_results:
-        with open(csv_file, "a", newline="") as f_csv:
-            writer = csv.writer(f_csv)
-            for r in batch_results:
-                writer.writerow([
-                    r["pipeline_file"],
-                    r["pipeline"],
-                    str(r["is buggy?"]).lower(),
-                    str(r["shell check warning?"]).lower(),
-                    str(r["ltsh warning?"]).lower(),
-                    f"{r['shell check processing time']:.3f}",
-                    f"{r['ltsh processing time']:.3f}",
-                    ";".join(r["shell_check_links"])
-                ])
-        all_results.extend(batch_results)
-        with open(json_file, "w") as f_json:
-            json.dump(all_results, f_json, indent=2)
+                        if file_counter % 5 == 0:
+                            write_results(csv_file, json_file, results_by_key)
     
     # Process parsing failures
-    process_parsing_failures(json_file, csv_file)
+    process_parsing_failures(results_by_key)
+    write_results(csv_file, json_file, results_by_key)
     
     # Save shell warning codes
     warnings_list = [{"code": code, "url": f"https://www.shellcheck.net/wiki/{code}", "isInteresting?": True} for code in sorted(all_shellcheck_codes)]

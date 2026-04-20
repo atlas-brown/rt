@@ -10,7 +10,7 @@ from stream.regular_type import RegularType
 from stream.parser.shell_parser import ShellParser
 from typing import Callable, Dict, Optional, List, Tuple
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
-from stream.tool_error import ToolError
+from stream.tool_error import ToolError, PashAnnotationParsingError
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 # from stream.utils.logger import get_logger
 from stream.utils.format import pretty_ast_node
@@ -66,6 +66,10 @@ class CheckingResult:
     pipeline_content: str
     pipeline_length: int
     max_automata_size: int
+    runtime_error_kind: Optional[str] = None
+    runtime_error_message: Optional[str] = None
+    runtime_error_type: Optional[str] = None
+    runtime_error_traceback: Optional[str] = None
 
 
 class ScriptChecker:
@@ -175,7 +179,11 @@ class ScriptChecker:
             self_contained=pipeline_checker.self_contained,
             pipeline_content=pretty_ast_node(pipeline_node),
             pipeline_length=pipeline_checker.pipeline_length,
-            max_automata_size=pipeline_checker.max_automata_size
+            max_automata_size=pipeline_checker.max_automata_size,
+            runtime_error_kind=pipeline_checker.runtime_error_kind,
+            runtime_error_message=pipeline_checker.runtime_error_message,
+            runtime_error_type=pipeline_checker.runtime_error_type,
+            runtime_error_traceback=pipeline_checker.runtime_error_traceback,
         )
 
     def __iter__(self):
@@ -222,6 +230,10 @@ class PipelineChecker:
         self.max_automata_size = 1
         self.self_contained = True
         self.backward_map: Dict[int, Callable[[str], str] | None] = {}
+        self.runtime_error_kind: Optional[str] = None
+        self.runtime_error_message: Optional[str] = None
+        self.runtime_error_type: Optional[str] = None
+        self.runtime_error_traceback: Optional[str] = None
 
     # -------------------------------------------------------------
     # Public API
@@ -488,10 +500,14 @@ class PipelineChecker:
                 # ----------------------------------------------
                 for annotation in corresponding_annotations:
                     if annotation.annotation_type == AnnotationType.ASSERT:
-                        is_assertion_violated, witness = current_output_type.is_subtype(RegularType(annotation.pattern))
+                        # `@output "..."` is typically line-oriented unless the
+                        # asserted regex itself explicitly mentions newlines.
+                        asserted_output_type = RegularType(annotation.pattern)
+                        checked_output_type = current_output_type if "\n" in annotation.pattern else current_output_type.to_line_based_repr()
+                        is_assertion_violated, witness = checked_output_type.is_subtype(asserted_output_type)
                         is_assertion_violated = not is_assertion_violated  # Negate because we want to check if assertion is violated
                         if is_assertion_violated:
-                            intersection = current_output_type & RegularType(annotation.pattern)
+                            intersection = checked_output_type & asserted_output_type
                             all_input = intersection.is_empty()
                                                         
                             # current_output_type_str = cmd_log_entry['output_language']
@@ -512,7 +528,7 @@ class PipelineChecker:
                                 command_index=command_index + 2,
                             )
                             if self.enable_detailed_error_reporting:
-                                error_result.all_input = current_output_type.empty_intersection(RegularType(annotation.pattern))
+                                error_result.all_input = checked_output_type.empty_intersection(asserted_output_type)
                             
                             # get_logger().get_latest_record()["RT_warning"] = True
                             # get_logger().get_latest_record()["error_message"] = error_message
@@ -525,7 +541,12 @@ class PipelineChecker:
 
                 for annotation in corresponding_annotations:
                     if annotation.annotation_type == AnnotationType.ASSERT_CONTAINS:
-                        is_contains_violated, witness = RegularType(annotation.pattern).is_subtype(current_output_type)
+                        # `output_contains` is line-oriented: check membership against the
+                        # line-based language even when the command currently carries a
+                        # stream representation.
+                        line_based_output_type = current_output_type.to_line_based_repr()
+                        asserted_line_type = RegularType(annotation.pattern)
+                        is_contains_violated, witness = asserted_line_type.is_subtype(line_based_output_type)
                         is_contains_violated = not is_contains_violated  # Negate because we want to check if assertion is violated
                         if is_contains_violated:
                             # current_output_type_str = cmd_log_entry['output_language']
@@ -544,7 +565,7 @@ class PipelineChecker:
                                 command_index=command_index + 2,
                             )
                             if self.enable_detailed_error_reporting:
-                                error_result.all_input = current_output_type.empty_intersection(RegularType(annotation.pattern))
+                                error_result.all_input = line_based_output_type.empty_intersection(asserted_line_type)
                             
                             # get_logger().get_latest_record()["RT_warning"] = True
                             # get_logger().get_latest_record()["error_message"] = error_message
@@ -595,21 +616,21 @@ class PipelineChecker:
             # Tool errors terminate checking immediately.
             return error_results + [error_result]
 
+        except PashAnnotationParsingError as e:
+            self._capture_runtime_error("pash annotations error", e)
+            return error_results
+
         except Exception as e:
-            traceback.print_exc()
-            # exit()
-            # FIXME: This is a hack to handle tool errors.
-            error_result = ErrorResult(
-                # pipe_node=pipeline_node,
-                message=str(e),
-                # pipeline_length=pipeline_length,
-                # max_automata_size=max_automata_size,
-                tainted=True
-            )
-            # get_logger().remove_latest_record()
-            return []
+            self._capture_runtime_error("tool runtime error", e)
+            return error_results
 
         return error_results
+
+    def _capture_runtime_error(self, kind: str, error: Exception) -> None:
+        self.runtime_error_kind = kind
+        self.runtime_error_message = str(error)
+        self.runtime_error_type = type(error).__name__
+        self.runtime_error_traceback = traceback.format_exc()
     
 
     def backward(self, witness: str, command_index: int) -> Tuple[str, int]:

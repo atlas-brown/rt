@@ -197,17 +197,20 @@ def results_to_overview_csv(ann_json_path, raw_json_path, baseline_csv_path, bas
             benchmark_set_results = [recs[ann] for recs in merged.values() if recs["benchmark_set"] == benchmark_set]
             correct_benchmarks = [recs for recs in benchmark_set_results if not recs["is buggy?"]]
             buggy_benchmarks = [recs for recs in benchmark_set_results if recs["is buggy?"]]
+            baseline_benchmarks = [recs["baseline"] for recs in benchmark_set_results if "baseline" in recs]
+            baseline_correct = [recs["baseline"] for recs in correct_benchmarks if "baseline" in recs]
+            baseline_buggy = [recs["baseline"] for recs in buggy_benchmarks if "baseline" in recs]
 
             stats = {}
             for key, data in {"all": benchmark_set_results,
                               "correct": correct_benchmarks,
                               "buggy": buggy_benchmarks,
-                              "lt": ([r["baseline"] for r in benchmark_set_results], "ltsh warning?"),
-                              "lt-correct": ([r["baseline"] for r in correct_benchmarks], "ltsh warning?"),
-                              "lt-buggy": ([r["baseline"] for r in buggy_benchmarks], "ltsh warning?"),
-                              "sc": ([r["baseline"] for r in benchmark_set_results], "sc warning?"),
-                              "sc-correct": ([r["baseline"] for r in correct_benchmarks], "sc warning?"),
-                              "sc-buggy": ([r["baseline"] for r in buggy_benchmarks], "sc warning?"),
+                              "lt": (baseline_benchmarks, "ltsh warning?"),
+                              "lt-correct": (baseline_correct, "ltsh warning?"),
+                              "lt-buggy": (baseline_buggy, "ltsh warning?"),
+                              "sc": (baseline_benchmarks, "sc warning?"),
+                              "sc-correct": (baseline_correct, "sc warning?"),
+                              "sc-buggy": (baseline_buggy, "sc warning?"),
                               }.items():
                 if isinstance(data, tuple):
                     stats[key] = recall_precision_f1(data[0], data[1])
@@ -333,6 +336,8 @@ def merged_csv_to_bug_detection(ann_json_path, raw_json_path, baseline_csv_path,
     header = ['System', 'Only this detects', 'and Shtreams', 'and SC', 'and LT', 'All']
     # only raw for a fair comparison
     for recs in merged.values():
+        if "baseline" not in recs["raw"]:
+            continue
         if not recs["raw"]["baseline"]["is buggy?"]:
             continue
         key = (recs["raw"]["warning signaled?"],

@@ -4,6 +4,8 @@ FROM python:3.12.11-slim-bookworm
 ENV JAVA_HOME="/opt/java/openjdk"
 COPY --from=eclipse-temurin:21 $JAVA_HOME $JAVA_HOME
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
+ENV LTSH_REPO_DIR="/opt/ltsh"
+ENV TYPEDB="/home/StreamTypes/ltsh_config/typedb"
 
 # Set up PYTHONPATH
 ENV PYTHONPATH="/home/StreamTypes/src"
@@ -14,37 +16,30 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     build-essential \
+    cargo \
+    rustc \
     pkg-config \
     libssl-dev \
     ca-certificates \
     autoconf \
     libtool \
     make \
+    shellcheck \
     && rm -rf /var/lib/apt/lists/*
-
-# # Install Rust toolchain for stream-monitor
-# RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-# RUN /root/.cargo/bin/cargo install rust-script
-
-# # Add Cargo binaries to PATH
-# ENV PATH="/root/.cargo/bin:$PATH"
-
-# Install python dependencies (includes dependencies for stream types)
-RUN pip install --no-cache-dir \
-    jpype1 \
-    libdash \
-    pash_annotations \
-    pytest \
-    pyyaml \
-    shasta \
-    click \
-    python-dotenv
 
 # Create working directory
 WORKDIR /home/StreamTypes
 
 # Copy the entire project (including submodules)
 COPY . /home/StreamTypes
+
+# Install python dependencies, including plotting packages for the full pipeline
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install upstream ltsh and replace its typedb with the repository's fairness-adjusted copy
+RUN git clone --depth 1 --branch dev https://github.com/michaelsippel/ltsh "${LTSH_REPO_DIR}" \
+    && cp /home/StreamTypes/ltsh_config/typedb "${LTSH_REPO_DIR}/typedb" \
+    && cargo install --root /usr/local --path "${LTSH_REPO_DIR}"
 
 # Default to bash
 CMD [ "/bin/bash" ]

@@ -147,6 +147,14 @@
 >0: <Seq Month~LocaleShortMonth~<Seq Char>>~<SepSeq Char '\n'>~<Seq Char>
 <1: <Seq Month~LocaleShortMonth~<Seq Char>>~<SepSeq Char '\n'>~<Seq Char>
 
+::sort -rn\( .*\)*
+>0: <Seq ℕ>~<Seq <PosInt 10 BigEndian>~<Seq <Digit 10>~Char>>~<SepSeq Char '\n'>~<Seq Char>
+<1: <Seq ℕ>~<Seq <PosInt 10 BigEndian>~<Seq <Digit 10>~Char>>~<SepSeq Char '\n'>~<Seq Char>
+
+::sort -nr\( .*\)*
+>0: <Seq ℕ>~<Seq <PosInt 10 BigEndian>~<Seq <Digit 10>~Char>>~<SepSeq Char '\n'>~<Seq Char>
+<1: <Seq ℕ>~<Seq <PosInt 10 BigEndian>~<Seq <Digit 10>~Char>>~<SepSeq Char '\n'>~<Seq Char>
+
 ::sort\( .*\)*
 >0: <Seq <Seq Char>>~<SepSeq Char '\n'>~<Seq Char>
 <1: <Seq <Seq Char>>~<SepSeq Char '\n'>~<Seq Char>
@@ -253,7 +261,7 @@
 
 ::uniq \(-c\|--count\)
 >0: <Seq <Seq Char>>~<SepSeq Char '\n'>~<Seq Char>
-<1: <Seq <Tuple <Seq ' '> ℕ~<PosInt 10 BigEndian>~<Seq <Digit 10>~Char> ' ' <Seq Char>>~<Seq Char>>~<SepSeq Char '\n'>~<Seq Char>
+<1: <Seq <Tuple <Seq ' '> ℕ~<PosInt 10 BigEndian>~<Seq <Digit 10>~Char> ' ' <Seq Char>>>~<SepSeq Char '\n'>~<Seq Char>
 
 ::xargs find
 >0: <Seq Char>
@@ -262,10 +270,6 @@
 ::wc
 >0: <Seq Char>
 <1: <Tuple <Seq ' '> ℕ~<PosInt 10 BigEndian>~<Seq <Digit 10>~Char> <Seq ' '> ℕ~<PosInt 10 BigEndian>~<Seq <Digit 10>~Char> <Seq ' '> ℕ~<PosInt 10 BigEndian>~<Seq <Digit 10>~Char>>~<Seq Char>
-
-::sort -rn\( .*\)*
->0: <Seq ℕ>~<Seq <PosInt 10 BigEndian>~<Seq <Digit 10>~Char>>~<SepSeq Char '\n'>~<Seq Char>
-<1: <Seq ℕ>~<Seq <PosInt 10 BigEndian>~<Seq <Digit 10>~Char>>~<SepSeq Char '\n'>~<Seq Char>
 
 ::\(.*\)
 >0: <Seq Char>

@@ -27,6 +27,13 @@ class GrepSignature(CommandSignature):
     def _contains_shell_expansion(pattern: str) -> bool:
         return re.search(r'(\$\{.*?\}|\$[a-zA-Z_][a-zA-Z0-9_]*|\$\()', pattern) is not None
 
+    @staticmethod
+    def _patterns_from_e_flags(flag_args: dict[str, list[str]], operands: list[str]) -> list[str]:
+        patterns = list(flag_args.get("-e", []))
+        if not patterns and operands:
+            patterns = [operands[0]]
+        return patterns
+
     def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations):
         input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         if "no_meaningless_command" not in heuristic_rules:
@@ -39,10 +46,12 @@ class GrepSignature(CommandSignature):
             return RegularType(""), None
 
         # FIXME: consider -e
-        if "-e" in parsed_flags or "-c" in parsed_flags:
+        if "-e" in parsed_flags or "-c" in parsed_flags or "-f" in parsed_flags:
             return input_type, no_input_type
 
         if "-n" in parsed_flags:
+            return input_type, no_input_type
+        if not operands:
             return input_type, no_input_type
         if "-e" not in parsed_flags:
             pattern = operands[0]
@@ -106,18 +115,25 @@ class GrepSignature(CommandSignature):
         mode = "extended" if "-E" in flags else "basic"
 
         if "-e" in flags:
+            patterns = self._patterns_from_e_flags(flag_args, normalized_operands)
+            if not patterns:
+                previous_output_type.tainted = True
+                return InferenceResult(previous_output_type, lambda x: x, False)
+
             arg_count = len(parsed_command_invocation.operand_list) + 1
-            pattern_type = RegularType(flag_args["-e"][0], mode)
-            original_pattern_type = RegularType(flag_args["-e"][0], mode)
-            for arg in flag_args["-e"][1:]:
+            pattern_type = RegularType(patterns[0], mode)
+            pattern_type_str = pattern_type.pattern
+            original_pattern_type = RegularType(patterns[0], mode)
+            for arg in patterns[1:]:
                 arg = arg.replace("\\\\", "\\")
                 # get_logger().add_regex_log(arg)
                 pattern_type = pattern_type | RegularType(arg, mode)
                 original_pattern_type = original_pattern_type | RegularType(arg, mode)
+                pattern_type_str = f"({pattern_type_str})|({arg})"
             
             # Update pattern analysis for first -e pattern
-            if flag_args["-e"]:
-                first_pattern = flag_args["-e"][0]
+            if patterns:
+                first_pattern = patterns[0]
                 first_pattern_type = RegularType(first_pattern, mode)
                 is_pure = is_pure_string_for_ast(first_pattern_type.ast) if hasattr(first_pattern_type, 'ast') else False
                 # get_logger().update_last_pattern_analysis(
@@ -133,6 +149,9 @@ class GrepSignature(CommandSignature):
             if len(normalized_operands) == 0 and "-f" not in flags:
                 # get_logger().remove_last_pattern_analysis()
                 raise ToolError("No pattern provided for grep")
+            if len(normalized_operands) == 0:
+                previous_output_type.tainted = True
+                return InferenceResult(previous_output_type, lambda x: x, False)
             pattern = normalized_operands[0]
             if pattern.startswith("--") and not has_double_dash:
                 raise ToolError("Pattern cannot start with '--'")
