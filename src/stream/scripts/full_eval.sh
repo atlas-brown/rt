@@ -25,14 +25,20 @@ fi
 if [ ! -f evaluation_results/ann:y_heuristic:n_fst:y/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
     python3 src/stream/run_evaluations.py $DISABLE_HEURISTICS_FLAGS --outdir evaluation_results/ann:y_heuristic:n_fst:y
 fi
-# if [ ! -f evaluation_results/ann:n_heuristic:n_fst:y/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
-#     python3 src/stream/run_evaluations.py $DISABLE_HEURISTICS_FLAGS --disable_annotation
-# fi
+if [ ! -f evaluation_results/ann:n_heuristic:n_fst:y/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
+    python3 src/stream/run_evaluations.py $DISABLE_HEURISTICS_FLAGS --disable_annotation --outdir evaluation_results/ann:n_heuristic:n_fst:y
+fi
 if [ ! -f evaluation_results/ann:y_heuristic:y_fst:n/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
     python3 src/stream/run_evaluations.py --disable_fsts --outdir evaluation_results/ann:y_heuristic:y_fst:n
 fi
+if [ ! -f evaluation_results/ann:y_heuristic:n_fst:n/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
+    python3 src/stream/run_evaluations.py $DISABLE_HEURISTICS_FLAGS --disable_fsts --outdir evaluation_results/ann:y_heuristic:n_fst:n
+fi
 if [ ! -f evaluation_results/ann:n_heuristic:y_fst:n/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
     python3 src/stream/run_evaluations.py --disable_annotation --disable_fsts --outdir evaluation_results/ann:n_heuristic:y_fst:n
+fi
+if [ ! -f evaluation_results/ann:n_heuristic:n_fst:n/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
+    python3 src/stream/run_evaluations.py $DISABLE_HEURISTICS_FLAGS --disable_annotation --disable_fsts --outdir evaluation_results/ann:n_heuristic:n_fst:n
 fi
 
 for f in y n; do
@@ -57,4 +63,3 @@ python3 src/stream/scripts/performance.py evaluation_results/ann:y_heuristic:y_f
 python3 src/stream/scripts/extract_automata_size.py evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv
 
 python3 src/stream/scripts/plots.py evaluation_results/overview_heuristic:y_fst:y.csv evaluation_results/bug_detection_heuristic:y_fst:y.csv evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv --output_dir evaluation_results/plots/
-
