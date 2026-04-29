@@ -15,16 +15,10 @@ export PYTHONPATH=src
 TYPEDB="$(pwd)/ltsh_config/typedb"
 export TYPEDB
 
-LOG_DIR="evaluation_results/reproduce_logs"
-rm -rf "$LOG_DIR"
-mkdir -p "$LOG_DIR"
+rm -rf evaluation_results/reproduce_logs 2>/dev/null || true
 
 TOTAL_STAGES=18
 STAGE_INDEX=0
-
-slugify() {
-    printf '%s' "$1" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/_/g; s/^_//; s/_$//'
-}
 
 stage_bar() {
     local done="$1"
@@ -43,28 +37,11 @@ start_stage() {
     printf '\n%s %02d/%02d %s\n' "$(stage_bar "$STAGE_INDEX")" "$STAGE_INDEX" "$TOTAL_STAGES" "$label"
 }
 
-log_command() {
-    printf 'Command:'
-    printf ' %q' "$@"
-    printf '\n\n'
-}
-
-append_command() {
-    local log_file="$1"
-    shift
-    log_command "$@" >> "$log_file"
-}
-
 run_logged() {
     local label="$1"
     shift
-    local log_file
-    log_file="$LOG_DIR/$(slugify "$label").log"
     start_stage "$label"
-    {
-        log_command "$@"
-        "$@"
-    } > "$log_file" 2>&1 || {
+    "$@" >/dev/null 2>&1 || {
         local status=$?
         printf '  failed with exit code %s\n' "$status"
         exit "$status"
@@ -76,40 +53,30 @@ run_rt() {
     local label="$1"
     local outdir="$2"
     shift 2
-    local log_file
-    log_file="$LOG_DIR/$(slugify "$label").log"
     start_stage "$label"
     if [ ! -f "$outdir/evaluation_results.json" ] || [ -n "$FORCE" ]; then
-        : > "$log_file"
-        append_command "$log_file" python3 src/stream/run_evaluations.py "$@" --outdir "$outdir" --progress --progress-label "$label" --log-file "$log_file"
-        python3 src/stream/run_evaluations.py "$@" --outdir "$outdir" --progress --progress-label "$label" --log-file "$log_file" || {
+        python3 src/stream/run_evaluations.py "$@" --outdir "$outdir" --progress --progress-label "$label" --log-file /dev/null || {
             local status=$?
             printf '  failed with exit code %s\n' "$status"
             exit "$status"
         }
         printf '  done\n'
     else
-        printf 'cached\n' > "$log_file"
         printf '  cached\n'
     fi
 }
 
 run_baseline() {
     local label="$1"
-    local log_file
-    log_file="$LOG_DIR/$(slugify "$label").log"
     start_stage "$label"
     if [ ! -f evaluation_results/baseline.csv ] || [ -n "$FORCE" ]; then
-        : > "$log_file"
-        append_command "$log_file" python3 src/stream/scripts/baseline.py --progress --progress-label "$label" --log-file "$log_file"
-        python3 src/stream/scripts/baseline.py --progress --progress-label "$label" --log-file "$log_file" || {
+        python3 src/stream/scripts/baseline.py --progress --progress-label "$label" --log-file /dev/null || {
             local status=$?
             printf '  failed with exit code %s\n' "$status"
             exit "$status"
         }
         printf '  done\n'
     else
-        printf 'cached baseline.csv\n' > "$log_file"
         printf '  skipped: cached baseline.csv\n'
     fi
 }
@@ -118,13 +85,8 @@ run_summary() {
     local label="$1"
     local category_output="$2"
     shift 2
-    local log_file
-    log_file="$LOG_DIR/$(slugify "$label").log"
     start_stage "$label"
-    {
-        log_command python3 src/stream/evaluation_summary.py "$@" ">" "$category_output"
-        python3 src/stream/evaluation_summary.py "$@" > "$category_output"
-    } > "$log_file" 2>&1 || {
+    python3 src/stream/evaluation_summary.py "$@" > "$category_output" 2>/dev/null || {
         local status=$?
         printf '  failed with exit code %s\n' "$status"
         exit "$status"
@@ -135,10 +97,7 @@ run_summary() {
 skip_stage() {
     local label="$1"
     local reason="$2"
-    local log_file
-    log_file="$LOG_DIR/$(slugify "$label").log"
     start_stage "$label"
-    printf '%s\n' "$reason" > "$log_file"
     printf '  skipped: %s\n' "$reason"
 }
 
