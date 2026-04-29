@@ -5,6 +5,7 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$repo_root"
 
+if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
 cat <<'EOF'
 This script runs the full reproduction pipeline for the artifact.
 
@@ -26,6 +27,9 @@ It will:
 3. Merge the outputs
 4. Regenerate the summary plots
 
+Detailed command output is written to evaluation_results/reproduce_logs/.
+Stdout is reserved for stage and benchmark-category progress.
+
 Primary generated outputs include:
 - evaluation_results/baseline.csv
 - evaluation_results/baseline.json
@@ -43,6 +47,11 @@ Primary generated outputs include:
 The bug-detection plot compares the unannotated RT run against ShellCheck and
 LadderTypes, with the RT system labeled simply as RT.
 EOF
+  exit 0
+fi
+
+echo "Detailed logs: evaluation_results/reproduce_logs/"
+echo "Stdout: stage and benchmark-category progress."
 
 if [[ "${1:-}" == "--force" ]]; then
   shift

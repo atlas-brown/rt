@@ -5,17 +5,22 @@ import logging
 import time
 import re
 import traceback
+import contextlib
+import sys
 from functools import partial
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, TextIO, Tuple
 import jpype
 import jpype.imports
+from tqdm import tqdm
 
 from stream.utils.timing import Timing
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from stream.type_checker import ScriptChecker
+from stream.parser.shell_parser_util import extract_pipe_nodes_from_file
 from stream.tool_error import PashAnnotationParsingError, TimeoutError
+from stream.utils.format import pretty_ast_node
 import argparse
 from stream.config import CONFIG
 import csv
@@ -35,6 +40,191 @@ TIMEOUT_REASON = f"Timeout after {TIMEOUT_SECONDS}s"
 RUNTIME_ERROR_LOG_FILENAME = "runtime_errors.log"
 
 enable_user_annotation = CONFIG.get("enable_user_annotation", True)
+
+BENCHMARK_PROGRAM_TOTALS = {
+    "GitHub": 114,
+    "StackOverflow": 11,
+    "LadderTypes": 12,
+    "Koala": 481,
+    "Intercode ALPHA": 205,
+    "LLM": 120,
+    "Handwritten": 11,
+}
+BENCHMARK_PROGRAM_ORDER = {category: index for index, category in enumerate(BENCHMARK_PROGRAM_TOTALS)}
+BENCHMARK_CATEGORY_ALIASES = {
+    "Ladder": "LadderTypes",
+    "PaSh": "Koala",
+    "Intercode": "Intercode ALPHA",
+}
+
+
+class CategoryProgress:
+    def __init__(self, label: str, totals: dict[str, int], stream: TextIO, unit: str = "file"):
+        self.label = label
+        self.totals = totals
+        self.stream = stream
+        self.unit = unit
+        self.done = {category: 0 for category in totals}
+        self.current_category: str | None = None
+        self.bar = None
+
+    def advance(self, category: str) -> None:
+        if category not in self.done:
+            self.done[category] = 0
+            self.totals[category] = 1
+
+        if self.current_category != category:
+            self._close_bar()
+            self.current_category = category
+            total = max(self.totals.get(category, 0), 1)
+            self.bar = tqdm(
+                total=total,
+                initial=min(self.done.get(category, 0), total),
+                desc=f"{self.label} on {category}",
+                unit=self.unit,
+                file=self.stream,
+                dynamic_ncols=True,
+                ascii=True,
+                leave=True,
+            )
+
+        total = max(self.totals.get(category, 0), 1)
+        if self.done[category] >= total:
+            return
+        self.done[category] += 1
+        if self.bar is not None:
+            self.bar.update(1)
+
+    def finish(self) -> None:
+        self._close_bar()
+
+    def _close_bar(self) -> None:
+        if self.bar is not None:
+            if self.current_category is not None:
+                total = max(self.totals.get(self.current_category, 0), 1)
+                remaining = total - min(self.done.get(self.current_category, 0), total)
+                if remaining > 0:
+                    self.bar.update(remaining)
+                    self.done[self.current_category] = total
+            self.bar.close()
+            self.bar = None
+
+
+def infer_benchmark_name(address: str) -> str:
+    normalized_address = normalize_result_path(address).lstrip("./")
+    benchmark_patterns = CONFIG.get("benchmark names", {})
+    for pattern, name in benchmark_patterns.items():
+        if re.match(pattern, normalized_address):
+            return BENCHMARK_CATEGORY_ALIASES.get(str(name), str(name))
+
+    parts = Path(normalized_address).parts
+    if "full_benchmark" in parts:
+        index = parts.index("full_benchmark")
+        if index + 1 < len(parts):
+            return BENCHMARK_CATEGORY_ALIASES.get(parts[index + 1], parts[index + 1])
+    if "evaluation_pipelines" in parts:
+        return "Handwritten"
+    return parts[0] if parts else "unknown"
+
+
+def count_pipelines_by_category(pipelines: list[tuple[str, bool]]) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for address, _ in pipelines:
+        category = infer_benchmark_name(address)
+        counts[category] = counts.get(category, 0) + 1
+    return counts
+
+
+def group_pipelines_by_category(pipelines: list[tuple[str, bool]]) -> list[tuple[str, bool]]:
+    return sorted(
+        pipelines,
+        key=lambda item: (
+            BENCHMARK_PROGRAM_ORDER.get(infer_benchmark_name(item[0]), len(BENCHMARK_PROGRAM_ORDER)),
+            normalize_result_path(item[0]),
+        ),
+    )
+
+
+def benchmark_program_totals_for(pipelines: list[tuple[str, bool]]) -> dict[str, int]:
+    categories = {infer_benchmark_name(address) for address, _ in pipelines}
+    return {
+        category: BENCHMARK_PROGRAM_TOTALS[category]
+        for category in BENCHMARK_PROGRAM_TOTALS
+        if category in categories
+    }
+
+
+def check_all_pipelines_for_address(address: str, not_check_all_dirs: list[str]) -> bool:
+    file_dir = "/".join(address.split("/")[:-1])
+    return file_dir not in not_check_all_dirs
+
+
+def extract_progress_pipeline_strings(address: str, check_all_pipelines: bool) -> list[str]:
+    extract_all_pipelines = check_all_pipelines
+    if extract_all_pipelines:
+        try:
+            with open(address, "r", encoding="utf-8") as handle:
+                first_two_lines = [handle.readline().strip(), handle.readline().strip()]
+            if any("# stream disable" in line for line in first_two_lines):
+                extract_all_pipelines = False
+        except OSError as error:
+            logging.warning(f"Failed to read {address} while preparing progress totals: {error}")
+
+    try:
+        pipeline_nodes = extract_pipe_nodes_from_file(address, extract_all_pipelines)
+    except Exception as error:
+        logging.warning(f"Failed to pre-extract pipelines from {address}: {error}")
+        return []
+
+    if not extract_all_pipelines:
+        pipeline_nodes = [node for node, _ in pipeline_nodes]
+
+    return [pretty_ast_node(node) for node in pipeline_nodes]
+
+
+def unique_program_keys_by_category(
+    pipelines: list[tuple[str, bool]],
+    not_check_all_dirs: list[str],
+) -> dict[str, set[tuple[str, str]]]:
+    keys: dict[str, set[tuple[str, str]]] = {}
+    for address, _ in pipelines:
+        category = infer_benchmark_name(address)
+        keys.setdefault(category, set())
+        check_all_pipelines = check_all_pipelines_for_address(address, not_check_all_dirs)
+        for pipeline_content in extract_progress_pipeline_strings(address, check_all_pipelines):
+            keys[category].add((normalize_result_path(address), pipeline_content))
+    return keys
+
+
+def count_unique_program_keys_by_category(keys: dict[str, set[tuple[str, str]]]) -> dict[str, int]:
+    return {category: len(contents) for category, contents in keys.items() if contents}
+
+
+def restore_result_order(results: list[dict], pipelines: list[tuple[str, bool]]) -> list[dict]:
+    order = {address: index for index, (address, _) in enumerate(pipelines)}
+    return sorted(results, key=lambda result: order.get(result.get("address", ""), len(order)))
+
+
+@contextlib.contextmanager
+def redirect_process_output_to_log(log_file: str):
+    os.makedirs(os.path.dirname(log_file) or ".", exist_ok=True)
+    log_handle = open(log_file, "a", encoding="utf-8", buffering=1)
+    saved_stdout_fd = os.dup(1)
+    saved_stderr_fd = os.dup(2)
+    progress_stream = os.fdopen(os.dup(saved_stdout_fd), "w", buffering=1)
+    try:
+        os.dup2(log_handle.fileno(), 1)
+        os.dup2(log_handle.fileno(), 2)
+        with contextlib.redirect_stdout(log_handle), contextlib.redirect_stderr(log_handle):
+            yield progress_stream
+    finally:
+        progress_stream.flush()
+        os.dup2(saved_stdout_fd, 1)
+        os.dup2(saved_stderr_fd, 2)
+        os.close(saved_stdout_fd)
+        os.close(saved_stderr_fd)
+        progress_stream.close()
+        log_handle.close()
 
 
 def annotations_enabled_for_path(address: str) -> bool:
@@ -558,6 +748,8 @@ def run_all_evaluations(valid_dirs: list[str] = None,
                         output_summary_csv: str = None,
                         not_check_all_dirs: list[str] = None,
                         num_workers: int = None,
+                        progress_label: str | None = None,
+                        progress_stream: TextIO | None = None,
                         ):
     # Use CONFIG values as defaults
     valid_dirs = valid_dirs or CONFIG.get("valid_dirs", [])
@@ -595,23 +787,50 @@ def run_all_evaluations(valid_dirs: list[str] = None,
         logging.error("No pipelines found")
         return
 
+    progress = None
+    progress_unique_keys: dict[str, set[tuple[str, str]]] = {}
+    progress_seen_keys: dict[str, set[tuple[str, str]]] = {}
+    if progress_label and progress_stream is not None:
+        progress_unique_keys = unique_program_keys_by_category(pipelines, not_check_all_dirs)
+        progress_seen_keys = {category: set() for category in progress_unique_keys}
+        progress = CategoryProgress(
+            progress_label,
+            benchmark_program_totals_for(pipelines),
+            progress_stream,
+            unit="program",
+        )
+
     results = []
+    work_pipelines = group_pipelines_by_category(pipelines) if progress is not None else pipelines
     if num_workers > 1:
+        if progress is not None:
+            logging.warning("Per-category progress is only shown in sequential evaluation mode")
         logging.info(f"Running in parallel mode with {num_workers} workers")
         with multiprocessing.Pool(processes=num_workers) as pool:
             worker_func = partial(process_pipeline, not_check_all_dirs=not_check_all_dirs)
-            result_lists = pool.map(worker_func, pipelines)
+            result_lists = pool.map(worker_func, work_pipelines)
         results = [r for sublist in result_lists for r in sublist]
     else:
         logging.info("Running in sequential mode")
-        for address, label in pipelines:
+        for address, label in work_pipelines:
             check_all_pipelines = True
-            file_dir = "/".join(address.split("/")[:-1])
-            if file_dir in not_check_all_dirs:
+            if not check_all_pipelines_for_address(address, not_check_all_dirs):
                 check_all_pipelines = False
             for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines, label):
                 add_result_metadata(pipeline_result, label)
                 results.append(pipeline_result)
+                if progress is not None:
+                    category = infer_benchmark_name(address)
+                    pipeline_content = pipeline_result.get("content")
+                    progress_key = (normalize_result_path(address), pipeline_content)
+                    if progress_key in progress_unique_keys.get(category, set()):
+                        seen_keys = progress_seen_keys.setdefault(category, set())
+                        if progress_key not in seen_keys:
+                            seen_keys.add(progress_key)
+                            progress.advance(category)
+    if progress is not None:
+        progress.finish()
+        results = restore_result_order(results, pipelines)
 
     # Use functional approach for all statistics calculations
     unlabeled_inconsistent_results = [r for r in results if is_incorrect_prediction(r) and not has_result_category(r)]
@@ -740,7 +959,11 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     try:
         from stream.utils.function_timer import FunctionTimerRegistry
         logging.info("Function execution statistics:")
-        FunctionTimerRegistry.print_stats()
+        from io import StringIO
+        timer_output = StringIO()
+        with contextlib.redirect_stdout(timer_output):
+            FunctionTimerRegistry.print_stats()
+        logging.info(timer_output.getvalue())
     except ImportError:
         logging.warning("Function timer module not available - no timing statistics will be reported")
     
@@ -858,6 +1081,12 @@ if __name__ == "__main__":
                         help='Disable concretize annotations while leaving other annotations enabled.')
     parser.add_argument('--outdir', default=None, type=str,
                         help='Output directory, to override whatever is in the global_config.yaml (but using the same file names)')
+    parser.add_argument('--progress', action='store_true',
+                        help='Show per-category progress on stdout.')
+    parser.add_argument('--progress-label', default=None, type=str,
+                        help='Label to display before each progress bar.')
+    parser.add_argument('--log-file', default=None, type=str,
+                        help='Write evaluation logs and stray output to this file.')
 
     args = parser.parse_args()
 
@@ -923,7 +1152,19 @@ if __name__ == "__main__":
     if args.disable_rule_no_sort_non_numeric_with_numeric_input:
         CONFIG["enable_rule_no_sort_non_numeric_with_numeric_input"] = False
         
-    logging.basicConfig(level=logging.INFO)
+    log_handlers = []
+    if args.log_file:
+        os.makedirs(os.path.dirname(args.log_file) or ".", exist_ok=True)
+        log_handlers.append(logging.FileHandler(args.log_file, mode="a", encoding="utf-8"))
+    else:
+        log_handlers.append(logging.StreamHandler())
+
+    logging.basicConfig(
+        level=level,
+        handlers=log_handlers,
+        format="%(levelname)s:%(name)s:%(message)s",
+        force=True,
+    )
     logging.info(f"Enable user annotation: {enable_user_annotation}")
     logging.info(f"Logging level: {level_str}")
     if ENABLE_TIMEOUT:
@@ -959,10 +1200,31 @@ if __name__ == "__main__":
         output_json = CONFIG.get("output_results_path_with_annotation" if enable_user_annotation else "output_results_path_raw")
         output_summary_csv = CONFIG.get("output_summary_path_with_annotation" if enable_user_annotation else "output_summary_path_raw")
     
-    run_all_evaluations(
-        num_workers=workers,
-        output_json=output_json,
-        output_summary_csv=output_summary_csv
-    )
-    Timing.finish_all()
-    jpype.shutdownJVM()
+    original_stdout = sys.stdout
+    progress_label = args.progress_label or "RT"
+
+    try:
+        if args.progress and args.log_file:
+            with redirect_process_output_to_log(args.log_file) as progress_stream:
+                run_all_evaluations(
+                    num_workers=workers,
+                    output_json=output_json,
+                    output_summary_csv=output_summary_csv,
+                    progress_label=progress_label,
+                    progress_stream=progress_stream,
+                )
+        else:
+            run_all_evaluations(
+                num_workers=workers,
+                output_json=output_json,
+                output_summary_csv=output_summary_csv,
+                progress_label=progress_label if args.progress else None,
+                progress_stream=original_stdout if args.progress else None,
+            )
+        Timing.finish_all()
+        jpype.shutdownJVM()
+    except Exception:
+        if args.log_file:
+            logging.exception("Evaluation failed")
+            sys.exit(1)
+        raise

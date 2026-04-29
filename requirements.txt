@@ -10,3 +10,4 @@ pandas
 numpy
 matplotlib
 matplotlib-set-diagrams
+tqdm
