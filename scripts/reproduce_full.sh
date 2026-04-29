@@ -23,9 +23,6 @@ It will:
 3. Merge the outputs
 4. Regenerate the summary plots
 
-Detailed command output is captured separately. Stdout is reserved for stage
-and benchmark-category progress.
-
 Primary generated outputs include:
 - evaluation_results/baseline.csv
 - evaluation_results/baseline.json
@@ -46,7 +43,7 @@ EOF
   exit 0
 fi
 
-# Use the repository-local LadderTypes database for artifact reproduction. For a fair comparison, this database preserves the original upstream entries and adds RT simple types on top.
+# Use the repository-local LadderTypes database. For the fair comparison, this database preserves the original upstream entries and adds RT simple types on top.
 export TYPEDB="$repo_root/ltsh_config/typedb"
 
 if [[ "${1:-}" == "--force" ]]; then

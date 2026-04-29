@@ -19,7 +19,7 @@ LOG_DIR="evaluation_results/reproduce_logs"
 rm -rf "$LOG_DIR"
 mkdir -p "$LOG_DIR"
 
-TOTAL_STAGES=21
+TOTAL_STAGES=18
 STAGE_INDEX=0
 
 slugify() {
@@ -39,7 +39,6 @@ stage_bar() {
 
 start_stage() {
     local label="$1"
-    local log_file="$2"
     STAGE_INDEX=$((STAGE_INDEX + 1))
     printf '\n%s %02d/%02d %s\n' "$(stage_bar "$STAGE_INDEX")" "$STAGE_INDEX" "$TOTAL_STAGES" "$label"
 }
@@ -61,7 +60,7 @@ run_logged() {
     shift
     local log_file
     log_file="$LOG_DIR/$(slugify "$label").log"
-    start_stage "$label" "$log_file"
+    start_stage "$label"
     {
         log_command "$@"
         "$@"
@@ -79,7 +78,7 @@ run_rt() {
     shift 2
     local log_file
     log_file="$LOG_DIR/$(slugify "$label").log"
-    start_stage "$label" "$log_file"
+    start_stage "$label"
     if [ ! -f "$outdir/evaluation_results.json" ] || [ -n "$FORCE" ]; then
         : > "$log_file"
         append_command "$log_file" python3 src/stream/run_evaluations.py "$@" --outdir "$outdir" --progress --progress-label "$label" --log-file "$log_file"
@@ -99,7 +98,7 @@ run_baseline() {
     local label="$1"
     local log_file
     log_file="$LOG_DIR/$(slugify "$label").log"
-    start_stage "$label" "$log_file"
+    start_stage "$label"
     if [ ! -f evaluation_results/baseline.csv ] || [ -n "$FORCE" ]; then
         : > "$log_file"
         append_command "$log_file" python3 src/stream/scripts/baseline.py --progress --progress-label "$label" --log-file "$log_file"
@@ -121,7 +120,7 @@ run_summary() {
     shift 2
     local log_file
     log_file="$LOG_DIR/$(slugify "$label").log"
-    start_stage "$label" "$log_file"
+    start_stage "$label"
     {
         log_command python3 src/stream/evaluation_summary.py "$@" ">" "$category_output"
         python3 src/stream/evaluation_summary.py "$@" > "$category_output"
@@ -138,7 +137,7 @@ skip_stage() {
     local reason="$2"
     local log_file
     log_file="$LOG_DIR/$(slugify "$label").log"
-    start_stage "$label" "$log_file"
+    start_stage "$label"
     printf '%s\n' "$reason" > "$log_file"
     printf '  skipped: %s\n' "$reason"
 }
@@ -199,36 +198,30 @@ run_rt "RT w/ ann, w/ heuristics, w/ FSTs, w/o concretization" \
 run_rt "RT w/o ann, w/ heuristics, w/ FSTs, w/o concretization" \
     evaluation_results/ann:n_heuristic:y_fst:y_concretization:n \
     --disable_annotation --disable_concretization
-run_rt "RT w/ ann, w/o heuristics, w/o FSTs, w/ concretization" \
-    evaluation_results/ann:y_heuristic:n_fst:n \
-    "${DISABLE_HEURISTICS_FLAGS[@]}" --disable_fsts
 run_rt "RT w/o ann, w/ heuristics, w/o FSTs, w/ concretization" \
     evaluation_results/ann:n_heuristic:y_fst:n \
     --disable_annotation --disable_fsts
-run_rt "RT w/o ann, w/o heuristics, w/o FSTs, w/ concretization" \
-    evaluation_results/ann:n_heuristic:n_fst:n \
-    "${DISABLE_HEURISTICS_FLAGS[@]}" --disable_annotation --disable_fsts
 
-for f in y n; do
-    for h in y n; do
-        label="summary heuristic:$h fst:$f"
-        ann_dir="evaluation_results/ann:y_heuristic:${h}_fst:${f}"
-        raw_dir="evaluation_results/ann:n_heuristic:${h}_fst:${f}"
-        category_output="evaluation_results/bug_detection_categories_heuristic:${h}_fst:${f}.txt"
-        if [ -f "$ann_dir/evaluation_results.json" ] && [ -f "$raw_dir/evaluation_results.json" ]; then
-            run_summary "$label" "$category_output" \
-                --ann_csv "$ann_dir/results.csv" \
-                --ann_json "$ann_dir/evaluation_results.json" \
-                --raw_csv "$raw_dir/results.csv" \
-                --raw_json "$raw_dir/evaluation_results.json" \
-                --baseline_csv evaluation_results/baseline.csv \
-                --merged_csv "evaluation_results/merged_results_heuristic:${h}_fst:${f}.csv" \
-                --bug_detection_csv "evaluation_results/bug_detection_heuristic:${h}_fst:${f}.csv" \
-                --overview_csv "evaluation_results/overview_heuristic:${h}_fst:${f}.csv"
-        else
-            skip_stage "$label" "missing annotated or raw evaluation output"
-        fi
-    done
+for summary_config in "y y" "n y" "y n"; do
+    h="${summary_config%% *}"
+    f="${summary_config##* }"
+    label="summary heuristic:$h fst:$f"
+    ann_dir="evaluation_results/ann:y_heuristic:${h}_fst:${f}"
+    raw_dir="evaluation_results/ann:n_heuristic:${h}_fst:${f}"
+    category_output="evaluation_results/bug_detection_categories_heuristic:${h}_fst:${f}.txt"
+    if [ -f "$ann_dir/evaluation_results.json" ] && [ -f "$raw_dir/evaluation_results.json" ]; then
+        run_summary "$label" "$category_output" \
+            --ann_csv "$ann_dir/results.csv" \
+            --ann_json "$ann_dir/evaluation_results.json" \
+            --raw_csv "$raw_dir/results.csv" \
+            --raw_json "$raw_dir/evaluation_results.json" \
+            --baseline_csv evaluation_results/baseline.csv \
+            --merged_csv "evaluation_results/merged_results_heuristic:${h}_fst:${f}.csv" \
+            --bug_detection_csv "evaluation_results/bug_detection_heuristic:${h}_fst:${f}.csv" \
+            --overview_csv "evaluation_results/overview_heuristic:${h}_fst:${f}.csv"
+    else
+        skip_stage "$label" "missing annotated or raw evaluation output"
+    fi
 done
 
 run_logged "performance with FSTs" \
