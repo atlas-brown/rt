@@ -14,12 +14,8 @@ Expected external prerequisites for the full pipeline:
 - Java runtime
 - shellcheck
 - upstream ltsh installed from https://github.com/michaelsippel/ltsh
-- TYPEDB pointed at this repository's ltsh_config/typedb
 - Python packages from requirements.txt
-  (including pandas, numpy, matplotlib, and matplotlib-set-diagrams)
-
-For a fair baseline comparison, ltsh_config/typedb preserves the original
-ltsh entries and adds RT simple types on top.
+  (including pandas, numpy, matplotlib, matplotlib-set-diagrams, and tqdm)
 
 It will:
 1. Generate baseline data
@@ -27,8 +23,8 @@ It will:
 3. Merge the outputs
 4. Regenerate the summary plots
 
-Detailed command output is written to evaluation_results/reproduce_logs/.
-Stdout is reserved for stage and benchmark-category progress.
+Detailed command output is captured separately. Stdout is reserved for stage
+and benchmark-category progress.
 
 Primary generated outputs include:
 - evaluation_results/baseline.csv
@@ -50,8 +46,8 @@ EOF
   exit 0
 fi
 
-echo "Detailed logs: evaluation_results/reproduce_logs/"
-echo "Stdout: stage and benchmark-category progress."
+# Use the repository-local LadderTypes database for artifact reproduction. For a fair comparison, this database preserves the original upstream entries and adds RT simple types on top.
+export TYPEDB="$repo_root/ltsh_config/typedb"
 
 if [[ "${1:-}" == "--force" ]]; then
   shift

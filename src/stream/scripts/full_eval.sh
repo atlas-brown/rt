@@ -10,6 +10,10 @@ fi
 FORCE="${1:-}"
 
 export PYTHONPATH=src
+# Keep LadderTypes on the artifact type database for all baseline stages,
+# including direct invocations of this lower-level script.
+TYPEDB="$(pwd)/ltsh_config/typedb"
+export TYPEDB
 
 LOG_DIR="evaluation_results/reproduce_logs"
 rm -rf "$LOG_DIR"
@@ -38,7 +42,6 @@ start_stage() {
     local log_file="$2"
     STAGE_INDEX=$((STAGE_INDEX + 1))
     printf '\n%s %02d/%02d %s\n' "$(stage_bar "$STAGE_INDEX")" "$STAGE_INDEX" "$TOTAL_STAGES" "$label"
-    printf '  log: %s\n' "$log_file"
 }
 
 log_command() {
@@ -64,7 +67,7 @@ run_logged() {
         "$@"
     } > "$log_file" 2>&1 || {
         local status=$?
-        printf '  failed with exit code %s; see %s\n' "$status" "$log_file"
+        printf '  failed with exit code %s\n' "$status"
         exit "$status"
     }
     printf '  done\n'
@@ -82,7 +85,7 @@ run_rt() {
         append_command "$log_file" python3 src/stream/run_evaluations.py "$@" --outdir "$outdir" --progress --progress-label "$label" --log-file "$log_file"
         python3 src/stream/run_evaluations.py "$@" --outdir "$outdir" --progress --progress-label "$label" --log-file "$log_file" || {
             local status=$?
-            printf '  failed with exit code %s; see %s\n' "$status" "$log_file"
+            printf '  failed with exit code %s\n' "$status"
             exit "$status"
         }
         printf '  done\n'
@@ -102,7 +105,7 @@ run_baseline() {
         append_command "$log_file" python3 src/stream/scripts/baseline.py --progress --progress-label "$label" --log-file "$log_file"
         python3 src/stream/scripts/baseline.py --progress --progress-label "$label" --log-file "$log_file" || {
             local status=$?
-            printf '  failed with exit code %s; see %s\n' "$status" "$log_file"
+            printf '  failed with exit code %s\n' "$status"
             exit "$status"
         }
         printf '  done\n'
@@ -124,7 +127,7 @@ run_summary() {
         python3 src/stream/evaluation_summary.py "$@" > "$category_output"
     } > "$log_file" 2>&1 || {
         local status=$?
-        printf '  failed with exit code %s; see %s\n' "$status" "$log_file"
+        printf '  failed with exit code %s\n' "$status"
         exit "$status"
     }
     printf '  done\n'

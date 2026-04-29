@@ -111,22 +111,21 @@ If you are not using Docker for the full paper pipeline, additionally install:
    sudo apt-get install cargo rustc
    ```
 
-3. upstream `ltsh`, with this repository's typedb replacing the upstream one:
+3. upstream `ltsh`, available on `PATH`:
 
    ```sh
-   git clone --depth 1 --branch dev https://github.com/michaelsippel/ltsh "$HOME/.local/src/ltsh"
-   cp ltsh_config/typedb "$HOME/.local/src/ltsh/typedb"
-   cargo install --path "$HOME/.local/src/ltsh"
-   export TYPEDB="$(pwd)/ltsh_config/typedb"
+   LTSH_CHECKOUT=/path/to/ltsh
+   git clone --depth 1 --branch dev https://github.com/michaelsippel/ltsh "$LTSH_CHECKOUT"
+   cargo install --path "$LTSH_CHECKOUT"
    ```
 
 Keep the cloned `ltsh` checkout in place after `cargo install --path ...`: upstream `ltsh` resolves `gettype.sh` relative to the cloned source tree at runtime.
 
-If you prefer macOS or another platform, install `shellcheck` and Rust through your platform package manager, make sure a Java runtime is available, then use the same `git clone`, `cp`, `cargo install`, and `export TYPEDB=...` steps.
+If you prefer macOS or another platform, install `shellcheck` and Rust through your platform package manager, make sure a Java runtime is available, then use the same `git clone` and `cargo install` steps.
 
 The benchmark directories and output paths are configured in [`src/stream/config/config.yaml`](src/stream/config/config.yaml).
 
-The baseline comparison uses `shellcheck` plus upstream `ltsh` with this repository's `ltsh_config/typedb`. For a fair comparison, `ltsh_config/typedb` preserves the original upstream `ltsh` entries and adds RT simple types on top. In [`src/stream/config/config.yaml`](src/stream/config/config.yaml), `shellcheck_command`, `ltsh_command`, and `ltsh_typedb_path` control those external tool paths.
+In [`src/stream/config/config.yaml`](src/stream/config/config.yaml), `shellcheck_command`, `ltsh_command`, and `ltsh_typedb_path` control the external tool paths.
 
 **Full evaluation pipeline:**
 
@@ -157,4 +156,4 @@ If reviewers do not want to wait for the full pipeline, they can inspect the che
 
 **Cleanup:**
 
-This artifact does not require a special cleanup script. If you used Docker, exit the container. If you ran locally, you can remove any temporary output directories you created under `evaluation_results/`.
+This artifact does not require a special cleanup script. If you used Docker, exit the container. If you ran locally, you can remove any temporary output directories you created under `evaluation_results/`. If you installed `ltsh`, `shellcheck`, or Python packages only for this artifact review, remove those installed packages if they are not needed, and remove the cloned `ltsh` checkout.

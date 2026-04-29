@@ -63,20 +63,19 @@ sudo apt-get install shellcheck
 sudo apt-get install cargo rustc
 ```
 
-- upstream `ltsh`, with this repository's typedb replacing the upstream one
+- upstream `ltsh`, available on `PATH`
 
 ```bash
-git clone --depth 1 --branch dev https://github.com/michaelsippel/ltsh "$HOME/.local/src/ltsh"
-cp ltsh_config/typedb "$HOME/.local/src/ltsh/typedb"
-cargo install --path "$HOME/.local/src/ltsh"
-export TYPEDB="$(pwd)/ltsh_config/typedb"
+LTSH_CHECKOUT=/path/to/ltsh
+git clone --depth 1 --branch dev https://github.com/michaelsippel/ltsh "$LTSH_CHECKOUT"
+cargo install --path "$LTSH_CHECKOUT"
 ```
 
 Keep the cloned `ltsh` checkout in place after `cargo install --path ...`: upstream `ltsh` resolves `gettype.sh` relative to the cloned source tree at runtime.
 
-For a fair baseline comparison, `ltsh_config/typedb` preserves the original upstream `ltsh` entries and adds RT simple types on top. In `src/stream/config/config.yaml`, `shellcheck_command`, `ltsh_command`, and `ltsh_typedb_path` control those external tool paths.
+In `src/stream/config/config.yaml`, `shellcheck_command`, `ltsh_command`, and `ltsh_typedb_path` control the external tool paths.
 
-If you prefer macOS or another platform, install `shellcheck` and Rust through your platform package manager, make sure a Java runtime is available, then use the same `git clone`, `cp`, `cargo install`, and `export TYPEDB=...` steps.
+If you prefer macOS or another platform, install `shellcheck` and Rust through your platform package manager, make sure a Java runtime is available, then use the same `git clone` and `cargo install` steps.
 
 To reproduce the main RT results and regenerate the paper artifacts, run:
 
@@ -93,5 +92,7 @@ bash scripts/reproduce_full.sh --force
 That wrapper drives the baseline files, the RT runs and ablations, the merged summary CSVs, and the PDFs under `evaluation_results/plots/`.
 
 The bug-detection plot compares the unannotated RT run against ShellCheck and LadderTypes, with the RT system labeled simply as `RT`.
+
+Cleanup for optional local installation: if you installed `ltsh`, `shellcheck`, or Python packages only for this artifact review, remove those installed packages if they are not needed, and remove the cloned `ltsh` checkout.
 
 The expanded guide, including artifact-available, artifact-functional, and results-reproducible instructions, is in `INSTRUCTIONS.md`.
