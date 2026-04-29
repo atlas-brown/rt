@@ -15,6 +15,8 @@ sample_count=250
 
 mkdir -p "$input_dir"
 
+# @assume "head -n ${sample_count}" --> "https://www1\.ncdc\.noaa\.gov/pub/data/noaa/[0-9]+/.+[.]gz"
+# @assume "sed \"s;\\$;/;\"" --> "https://www1\.ncdc\.noaa\.gov/pub/data/noaa/[0-9]+/"
 seq $FROM $TO |
   sed "s;^;$URL;" |
   sed 's;$;/;' |

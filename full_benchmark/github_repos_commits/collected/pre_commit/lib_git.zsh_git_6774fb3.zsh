@@ -71,6 +71,7 @@ git_prompt_status() {
 # so the bug could be caught if this could be somehow specified
 
 # @assume "echo "$INDEX"" --> "( M| T| D| R| C|??) .*"
+# @output_contains " D .*"
 # stream enable
   if $(echo "$INDEX" | grep '^D ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_DELETED$STATUS"

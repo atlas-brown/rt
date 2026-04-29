@@ -188,7 +188,8 @@ _1984hosting_login() {
 # ---
 
 # By modeling HTTP headers we would know all the exact possible values.
-# @file "$HTTP_HEADER": "set-cookie: sessionId=[0-9a-z]+|~(Set-Cookie.*)"
+# @file "$HTTP_HEADER": "set-cookie: sessionid=[0-9a-z]+|~(Set-Cookie.*)"
+# @output_contains "sessionid=[0-9a-z]+"
 # stream enable
     One984HOSTING_COOKIE="$(grep '^Set-Cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"
     export One984HOSTING_COOKIE

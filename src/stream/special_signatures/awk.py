@@ -3,7 +3,6 @@ from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.transducer import compression_FST, cut_field_FST, first_regex_replacement_FST, product_fst_automaton, start_regex_replacement_FST, translate_to_line_delimited_FST, translation_FST
-# from stream.utils.logger import get_logger
 
 class AwkSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -116,24 +115,18 @@ class AwkSignature(CommandSignature):
         return previous_output_type
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
-        # Classify the last detailed command invocation as supported
-        # get_logger().classify_last_invocation_as_supported()
-        
-        # Record command pattern based on flag combination
-        # flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
-        # get_logger().add_command_pattern_log("awk", flag_pattern)
         
         operand = self._get_awk_program(parsed_command_invocation)
         if operand is None:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+        if "\\s" in operand:
+            raise ToolError("awk regular expressions do not support the '\\s' character class in POSIX awk")
         normalized_operand = re.sub(r'\$\{(NF|\d+)\}', lambda match: f'${match.group(1)}', operand)
         field_separator = self._get_field_separator(parsed_command_invocation)
         operands = [operand.name for operand in parsed_command_invocation.operand_list]
         program_index = self._get_program_operand_index(parsed_command_invocation)
         if program_index is not None and program_index + 1 < len(operands):
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
-        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         
         # First, identify variables used in increment/decrement operations (i++, ++i, i--, --i)
         # These variables can be inferred to be integers
@@ -190,7 +183,6 @@ class AwkSignature(CommandSignature):
                     result_parts.append(".*")
             
             if result_parts:
-                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = "".join(result_parts)
                 return InferenceResult(RegularType("".join(result_parts)), None, True)
             
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
@@ -272,7 +264,6 @@ class AwkSignature(CommandSignature):
                 
                 last_end = end
             
-            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type_str
             return InferenceResult(result_type, None, True) if result_type else super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         except Exception:
             return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)

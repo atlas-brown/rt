@@ -190,7 +190,7 @@ _sed_i() {
 # ---
 
 # put annotation here
-# @assume "sed -h 2" --> ".*\-i\[SUFFIX\].*"|~(.*SUFFIX.*)
+# @output_contains "-i\[SUFFIX\]"
 # stream enable
   if sed -h 2>&1 | grep "\-i[SUFFIX]" ; then
     _debug "Using sed  -i"
@@ -2389,4 +2389,3 @@ else
     "$@"
   fi
 fi
-

@@ -93,7 +93,7 @@ class LogManager:
             pattern: The regex pattern string
             ast_repr: String representation of the AST
             is_pure_string: Result of is_pure_string_for_ast check
-            has_references: For sed, whether the replacement part has \ or & references
+            has_references: For sed, whether the replacement part has \\ or & references
         """
         analysis_record = {
             "command_name": command_name,
@@ -113,7 +113,7 @@ class LogManager:
             pattern: The regex pattern string
             ast_repr: String representation of the AST
             is_pure_string: Result of is_pure_string_for_ast check
-            has_references: For sed, whether the replacement part has \ or & references
+            has_references: For sed, whether the replacement part has \\ or & references
         """
         if self._pattern_analysis_logs:
             last_record = self._pattern_analysis_logs[-1]
@@ -298,9 +298,7 @@ class LogManager:
         Returns:
             Dict[str, Any]: Reference to the created log record
         """
-        # timestamp = datetime.datetime.now().isoformat()
         record = {
-            # "timestamp": timestamp,
             **kwargs
         }
         self._logs.append(record)
@@ -1032,16 +1030,3 @@ class LogManager:
         except Exception as e:
             traceback.print_exc()
             return pattern
-
-
-# Global function to get the singleton instance
-@timer
-def get_logger() -> LogManager:
-    """
-    Get the singleton LogManager instance.
-    
-    Returns:
-        LogManager: The singleton LogManager instance
-    """
-    raise RuntimeError("depreciated method")
-    return LogManager() 

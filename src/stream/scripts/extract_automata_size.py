@@ -1,11 +1,8 @@
 import json
 import csv
-import os
 import argparse
 
 def main(evaluation_result_file, csv_path):
-    #evaluation_result_file = "./evaluation_results/ann:y_heuristic:y/evaluation_results.json"
-
     with open(evaluation_result_file, 'r') as f:
         data = json.load(f)
     
@@ -16,7 +13,6 @@ def main(evaluation_result_file, csv_path):
         if automata_size is not None:
             automata_sizes.append(automata_size)
     
-    #csv_path = "evaluation_results/ann:y_heuristic:y/automata_sizes.csv"
     with open(csv_path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['automata_size'])

@@ -11,7 +11,6 @@ from typing import List, Tuple
 import jpype
 import jpype.imports
 
-# from stream.utils.logger import get_logger  # get_logger disabled per request
 from stream.utils.timing import Timing
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
@@ -21,7 +20,6 @@ import argparse
 from stream.config import CONFIG
 import csv
 
-# Default values now come from CONFIG
 ENABLE_TIMEOUT = CONFIG.get("enable_timeout", False)
 TIMEOUT_SECONDS = CONFIG.get("timeout_seconds", 10)
 
@@ -65,19 +63,6 @@ def annotations_enabled_for_path(address: str) -> bool:
             continue
 
     return True
-
-# class LogHandler(logging.Handler):
-#     def __init__(self):
-#         super().__init__()
-#         self.log_entries = []
-#
-#     def emit(self, record):
-#         log_entry = self.format(record)
-#         self.log_entries.append(log_entry)
-#
-# log_handler = LogHandler()
-# logging.basicConfig(level=logging.INFO, handlers=[log_handler, logging.StreamHandler()])
-# logger = logging.getLogger()
 
 def find_scripts(directories: list[str]) -> list[str]:
     script_addresses = []
@@ -194,6 +179,10 @@ def is_untainted(result):
     """Filter for untainted pipelines"""
     return result.get("tainted") == False
 
+def has_result_category(result):
+    """Whether the result has a human diagnosis category attached."""
+    return result.get(CATEGORY_LABEL) not in (None, "", "<missing>")
+
 def calculate_accuracy_functional(results):
     """Calculate accuracy using functional approach"""
     # Filter out timeout cases
@@ -276,7 +265,8 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
             enable_rule_no_ignored_input=CONFIG.get("enable_rule_no_ignored_input", True),
             enable_rule_no_meaningless_command=CONFIG.get("enable_rule_no_meaningless_command", True),
             enable_rule_no_sort_non_numeric_with_numeric_input=CONFIG.get("enable_rule_no_sort_non_numeric_with_numeric_input", True),
-            label=label
+            label=label,
+            enable_concretization=CONFIG.get("enable_concretization", True)
         )
 
         try:
@@ -288,7 +278,7 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
                     break
 
                 end_time = time.time()
-                elapsed_time = end_time - start_time
+                elapsed_time = max(0, end_time - start_time - checking_result.statistics_time)
 
                 pipeline_data = pipeline_data_template.copy()
                 pipeline_data["content"] = checking_result.pipeline_content
@@ -375,7 +365,14 @@ def evaluate_pipeline_content(address: str, check_all_pipelines: bool, label: bo
     
     return pipeline_data_list
 
-def process_pipeline(pipeline_info: Tuple[str, bool], evaluation_notes: List[dict], not_check_all_dirs: List[str]) -> List[dict]:
+def add_result_metadata(pipeline_result: dict, label: bool) -> None:
+    pipeline_result[IS_BUGGY_LABEL] = not label
+    pipeline_result[CATEGORY_LABEL] = ""
+    pipeline_result["notes"] = ""
+    pipeline_result["tag"] = ""
+
+
+def process_pipeline(pipeline_info: Tuple[str, bool], not_check_all_dirs: List[str]) -> List[dict]:
     address, label = pipeline_info
     check_all_pipelines = True
     file_dir = "/".join(address.split("/")[:-1])
@@ -383,16 +380,45 @@ def process_pipeline(pipeline_info: Tuple[str, bool], evaluation_notes: List[dic
         check_all_pipelines = False
     local_results = []
     for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines, label):
-        notes = notes_lookup(address, evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
-        pipeline_result[IS_BUGGY_LABEL] = not label
-        pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
-        pipeline_result["notes"] = notes["notes"]
-        pipeline_result["tag"] = category_to_tag(notes[CATEGORY_LABEL])
+        add_result_metadata(pipeline_result, label)
         local_results.append(pipeline_result)
     return local_results
 
+def normalize_result_path(path: str) -> str:
+    if not path:
+        return path
+
+    normalized = path.strip()
+    if os.path.isabs(normalized):
+        try:
+            normalized = os.path.relpath(normalized, os.getcwd())
+        except ValueError:
+            return normalized
+
+    normalized = normalized.replace(os.sep, "/")
+    if not normalized.startswith("./"):
+        normalized = f"./{normalized}"
+    return normalized
+
+
+def infer_benchmark_bug_label(address: str) -> bool | None:
+    normalized_address = normalize_result_path(address)
+
+    for directory in CONFIG.get("valid_dirs", []):
+        normalized_dir = normalize_result_path(directory).rstrip("/")
+        if normalized_address == normalized_dir or normalized_address.startswith(f"{normalized_dir}/"):
+            return False
+
+    for directory in CONFIG.get("invalid_dirs", []):
+        normalized_dir = normalize_result_path(directory).rstrip("/")
+        if normalized_address == normalized_dir or normalized_address.startswith(f"{normalized_dir}/"):
+            return True
+
+    return None
+
+
 def add_parsing_failures_to_results(results, statistics):
-    """Add failed parsing examples from logs to the results as false positives."""
+    """Add parser-failed benchmark pipelines to the results as no-warning rows."""
     parsing_error_log_path = CONFIG.get("parsing_error_log_path")
     if not parsing_error_log_path or not os.path.exists(parsing_error_log_path):
         logging.warning(f"Parsing error log not found at {parsing_error_log_path}")
@@ -427,7 +453,6 @@ def add_parsing_failures_to_results(results, statistics):
     
     # Process each entry
     parsing_failures = []
-    unknown_file_count = 1
     for entry_idx, entry in enumerate(entries):
         # Extract file path
         path_match = re.search(r'Error parsing file: (.+)\n', entry)
@@ -436,10 +461,14 @@ def add_parsing_failures_to_results(results, statistics):
             continue
         
         file_path = path_match.group(1).strip()
-        # FIXME: hardcoded path
         if file_path.startswith("/tmp"):
-            file_path = "full_benchmark/pash_benchmark/unknown_file" + str(unknown_file_count)
-            unknown_file_count += 1
+            logging.warning(f"Skipping temporary parser error with no benchmark source path: {file_path}")
+            continue
+        file_path = normalize_result_path(file_path)
+        is_buggy = infer_benchmark_bug_label(file_path)
+        if is_buggy is None:
+            logging.warning(f"Skipping parser error outside configured benchmark dirs: {file_path}")
+            continue
         logging.debug(f"Processing error entry {entry_idx+1} for file: {file_path}")
         
         # Find the content section
@@ -470,12 +499,12 @@ def add_parsing_failures_to_results(results, statistics):
         
         # Create a result entry
         pipeline_data = {
-            IS_BUGGY_LABEL: False,  # Assuming it's a valid pipeline that failed to parse
-            SIGNALED_LABEL: True,   # We're signaling an error
+            IS_BUGGY_LABEL: is_buggy,
+            SIGNALED_LABEL: False,  # Parser failures do not report a bug.
             CRASH_REASON_LABEL: "Parse failure",
             CATEGORY_LABEL: "parse fail",
             "tag": "parse_fail",
-            "notes": "Pipeline failed during parsing phase",
+            "notes": "Pipeline failed during parsing phase; RT emitted no bug report.",
             "tainted": True,
             "address": file_path,
             "content": file_content,
@@ -495,13 +524,6 @@ def add_parsing_failures_to_results(results, statistics):
         logging.info(f"  - {known_content_count} entries have extracted content")
         logging.info(f"  - {len(parsing_failures) - known_content_count} entries have unknown content")
         
-        # Update statistics
-        statistics["false_positives"] += len(parsing_failures)
-        if "parse fail" in statistics["false_positive_categories"]:
-            statistics["false_positive_categories"]["parse fail"] += len(parsing_failures)
-        else:
-            statistics["false_positive_categories"]["parse fail"] = len(parsing_failures)
-        
         # Add to results
         results.extend(parsing_failures)
     
@@ -509,31 +531,31 @@ def add_parsing_failures_to_results(results, statistics):
 
 def deduplicate_results(results):
     """
-    # Deduplicate evaluation results based on identical address and content.
-    # Returns a new list with duplicates removed, keeping the first occurrence.
-    # """
-    # seen = set()
-    # deduplicated = []
-    
-    # for result in results:
-    #     # Create a unique identifier from address and content
-    #     identifier = (result.get("address", ""), result.get("content", ""))
-        
-    #     if identifier not in seen:
-    #         seen.add(identifier)
-    #         deduplicated.append(result)
-    #     else:
-    #         logging.info(f"Removing duplicate result with address: {result.get('address')} and content: {result.get('content')[:50]}...")
-    
-    # logging.info(f"Deduplication: removed {len(results) - len(deduplicated)} duplicate entries from {len(results)} total")
-    # return deduplicated
-    return results
+    Deduplicate evaluation results based on identical address and content.
+    Returns a new list with duplicates removed, keeping the first occurrence.
+    """
+    seen = set()
+    deduplicated = []
+
+    for result in results:
+        identifier = (result.get("address", ""), result.get("content", ""))
+
+        if identifier not in seen:
+            seen.add(identifier)
+            deduplicated.append(result)
+        else:
+            logging.info(
+                f"Removing duplicate result with address: {result.get('address')} "
+                f"and content: {(result.get('content') or '')[:50]}..."
+            )
+
+    logging.info(f"Deduplication: removed {len(results) - len(deduplicated)} duplicate entries from {len(results)} total")
+    return deduplicated
 
 def run_all_evaluations(valid_dirs: list[str] = None,
                         invalid_dirs: list[str] = None,
                         output_json: str = None,
                         output_summary_csv: str = None,
-                        evaluation_notes_json: str = None,
                         not_check_all_dirs: list[str] = None,
                         num_workers: int = None,
                         ):
@@ -542,7 +564,6 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     invalid_dirs = invalid_dirs or CONFIG.get("invalid_dirs", [])
     output_json = output_json or CONFIG.get("output_results_path", "evaluation_results/evaluation_results.json")
     output_summary_csv = output_summary_csv or CONFIG.get("output_summary_path", "evaluation_results/summary.csv")
-    evaluation_notes_json = evaluation_notes_json or CONFIG.get("evaluation_notes_path", "src/stream/evaluation_notes.json")
     not_check_all_dirs = not_check_all_dirs or CONFIG.get("not_check_all_dirs", [])
     num_workers = num_workers or CONFIG.get("num_workers", 1)
     
@@ -562,9 +583,6 @@ def run_all_evaluations(valid_dirs: list[str] = None,
             f.write("")
         logging.info(f"Cleared parsing error log at {parsing_error_log_path}")
     
-    with open(evaluation_notes_json, 'r') as f:
-        evaluation_notes = json.load(f)
-
     pipelines: list[tuple[str, bool]] = []
     start_time_total = time.time()
     
@@ -581,7 +599,7 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     if num_workers > 1:
         logging.info(f"Running in parallel mode with {num_workers} workers")
         with multiprocessing.Pool(processes=num_workers) as pool:
-            worker_func = partial(process_pipeline, evaluation_notes=evaluation_notes, not_check_all_dirs=not_check_all_dirs)
+            worker_func = partial(process_pipeline, not_check_all_dirs=not_check_all_dirs)
             result_lists = pool.map(worker_func, pipelines)
         results = [r for sublist in result_lists for r in sublist]
     else:
@@ -592,16 +610,12 @@ def run_all_evaluations(valid_dirs: list[str] = None,
             if file_dir in not_check_all_dirs:
                 check_all_pipelines = False
             for pipeline_result in evaluate_pipeline_content(address, check_all_pipelines, label):
-                notes = notes_lookup(address, evaluation_notes, pipeline_result["content"]) or {CATEGORY_LABEL: "<missing>", "notes": ""}
-                pipeline_result[IS_BUGGY_LABEL] = not label
-                pipeline_result[CATEGORY_LABEL] = notes[CATEGORY_LABEL]
-                pipeline_result["notes"] = notes["notes"]
-                pipeline_result["tag"] = category_to_tag(notes[CATEGORY_LABEL])
+                add_result_metadata(pipeline_result, label)
                 results.append(pipeline_result)
 
     # Use functional approach for all statistics calculations
-    unlabeled_inconsistent_results = [r for r in results if is_incorrect_prediction(r) and r[CATEGORY_LABEL] == "<missing>"]
-    labeled_inconsistent_results = [r for r in results if is_incorrect_prediction(r) and r[CATEGORY_LABEL] != "<missing>"]
+    unlabeled_inconsistent_results = [r for r in results if is_incorrect_prediction(r) and not has_result_category(r)]
+    labeled_inconsistent_results = [r for r in results if is_incorrect_prediction(r) and has_result_category(r)]
     
     false_positive_pipelines = [r for r in results if is_false_positive(r)]
     false_negative_pipelines = [r for r in results if is_false_negative(r)]
@@ -661,16 +675,16 @@ def run_all_evaluations(valid_dirs: list[str] = None,
 
             "total_evaluation_time": f"{total_time:.2f}s",
         },
-        # "logs": log_handler.log_entries
     }
     
-    # Add parsing failures to results
-    # results, output_data["statistics"] = add_parsing_failures_to_results(results, output_data["statistics"])
-    
-    # Deduplicate results based on address and content
-    # results = deduplicate_results(results)
+    # Add parser failures as no-warning benchmark rows, then deduplicate by
+    # exact source address and pipeline content before writing summaries.
+    results, output_data["statistics"] = add_parsing_failures_to_results(results, output_data["statistics"])
+    results = deduplicate_results(results)
     
     # Use functional approach for all statistics after deduplication
+    unlabeled_inconsistent_results = [r for r in results if is_incorrect_prediction(r) and not has_result_category(r)]
+    labeled_inconsistent_results = [r for r in results if is_incorrect_prediction(r) and has_result_category(r)]
     false_positive_pipelines = [r for r in results if is_false_positive(r)]
     false_negative_pipelines = [r for r in results if is_false_negative(r)]
     timeout_pipelines = [r for r in results if is_timeout(r)]
@@ -678,7 +692,12 @@ def run_all_evaluations(valid_dirs: list[str] = None,
     buggy_pipeline_crashes = [r for r in results if is_buggy_pipeline_crash(r)]
     
     # Update statistics in output_data
+    output_data["unlabeled_inconsistent_results"] = unlabeled_inconsistent_results
+    output_data["labeled_inconsistent_results"] = labeled_inconsistent_results
     output_data["evaluation_results"] = results
+    output_data["statistics"]["accuracy"] = calculate_accuracy_functional(results)
+    output_data["statistics"]["precision"] = calculate_precision_functional(results)
+    output_data["statistics"]["recall"] = calculate_recall_functional(results)
     output_data["statistics"]["total_pipelines"] = len(results)
     output_data["statistics"]["timeout_count"] = len(timeout_pipelines)
     output_data["statistics"]["crashes"] = len(valid_pipeline_crashes) + len(buggy_pipeline_crashes)
@@ -736,82 +755,16 @@ def categorize(results, category_label=CATEGORY_LABEL):
             categories[r[category_label]]  = 1
     return categories
 
-# TODO: might be nice to put this in a separate module to tabulate already-existing results
 def tabulate(result_stats, f):
     s = result_stats
-    f.write("category,total,crash,signaled,false (pos/neg),category, tag\n")
-    f.write("========,=====,=====,========,===============,========,========\n")
-    f.write(f"correct,{s['total_correct_pipelines']},{s['correct_crashes']},{s['false_positives']},{s['false_positives']},, \n")
-    for category, count in s['false_positive_categories'].items():
-        f.write(f" , , , ,{count},{category.replace(',', ';')},{category_to_tag(category)}\n")
-    f.write("--------,-----,-----,--------,---------------,--------,--------\n")
+    f.write("label,total,crash,signaled,false (pos/neg)\n")
+    f.write("========,=====,=====,========,===============\n")
+    f.write(f"correct,{s['total_correct_pipelines']},{s['correct_crashes']},{s['false_positives']},{s['false_positives']}\n")
+    f.write("--------,-----,-----,--------,---------------\n")
     buggy_signals = s['total_buggy_pipelines'] - s['false_negatives'] - s['buggy_crashes']
-    f.write(f"buggy,{s['total_buggy_pipelines']},{s['buggy_crashes']},{buggy_signals},{s['false_negatives']},, \n")
-    for category, count in s['false_negative_categories'].items():
-        f.write(f" , , , ,{count},{category.replace(',', ';')},{category_to_tag(category)}\n")
-    f.write("========,=====,=====,========,===============,========,========\n")
-    f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']},, \n")
-
-def merge_notes(notes_to_merge: List[dict]) -> dict:
-    if not notes_to_merge:
-        return {}
-
-    merged_note = {}
-    for note in notes_to_merge:
-        for key, value in note.items():
-            if key not in merged_note or merged_note[key] == None or merged_note[key] == "":
-                merged_note[key] = value
-            else:
-                if key == "category":
-                    if (merged_note[key] == "<missing>" or merged_note[key] == "") and (value == "<missing>" or value == ""):
-                        merged_note[key] = "<missing>"
-                    elif (merged_note[key] == "<missing>" or merged_note[key] == "") or (value == "<missing>" or value == ""):
-                        merged_note[key] = value if (value != "<missing>" and value != "") else merged_note[key]
-                    else:
-                        print(f"Warning: Conflict in 'category' field. Keeping later value. All notes: {notes_to_merge}")
-                        merged_note[key] = value
-                else:
-                    if merged_note[key] != value:
-                        print(f"Warning: Conflict in field '{key}'. Keeping later value. All notes: {notes_to_merge}")
-                    merged_note[key] = value
-
-    return merged_note
-
-
-# listof(Note) content -> Optional(Note)
-def notes_lookup(address, notes: List[dict], content):
-    matching_notes = []
-    complete_matching_notes = []
-
-    if "full_benchmark/llm_injection" in address:
-        for note in notes:
-            if note.get("address", "") == address:
-                matching_notes.append(note)
-    else:
-        for note in notes:
-            if note.get("content", "") == content or note.get("content", "").replace("\\\\", "\\") == content:
-                if note.get("address", "") == address:
-                    complete_matching_notes.append(note)
-                else:
-                    matching_notes.append(note)
-
-    if not matching_notes and not complete_matching_notes:
-        return None
-
-    if complete_matching_notes:
-        merged_note = merge_notes(complete_matching_notes)
-    else:
-        merged_note = merge_notes(matching_notes)
-    return merged_note
-
-def category_to_tag(category: str):
-    with open("./src/stream/category_to_tag.json", "r") as file:
-        mapping = json.load(file)
-    mapping.sort(key=lambda x: x["priority"])
-    for entry in mapping:
-        if entry["category"] in category:
-            return entry["tag"]
-    return ""
+    f.write(f"buggy,{s['total_buggy_pipelines']},{s['buggy_crashes']},{buggy_signals},{s['false_negatives']}\n")
+    f.write("========,=====,=====,========,===============\n")
+    f.write(f"total,{s['total_pipelines']},{s['crashes']}, ,{s['false_positives'] + s['false_negatives']}\n")
 
 def write_automata_sizes_to_csv(results, csv_path):
     """Extract automata sizes from evaluation results and write to CSV"""
@@ -901,6 +854,8 @@ if __name__ == "__main__":
 
     parser.add_argument('--disable_fsts', action='store_true',
                         help='Disable FSTs. Defaults to enabled.')
+    parser.add_argument('--disable_concretization', action='store_true',
+                        help='Disable concretize annotations while leaving other annotations enabled.')
     parser.add_argument('--outdir', default=None, type=str,
                         help='Output directory, to override whatever is in the global_config.yaml (but using the same file names)')
 
@@ -915,6 +870,9 @@ if __name__ == "__main__":
 
     if args.disable_fsts:
         CONFIG["enable_FST"] = False
+
+    if args.disable_concretization:
+        CONFIG["enable_concretization"] = False
 
     if args.log_level:
         level_str = args.log_level.lower()
@@ -956,13 +914,10 @@ if __name__ == "__main__":
     else:
         workers = CONFIG.get("num_workers", 1)
 
-    # Handle heuristic rule command line arguments
     if args.disable_rule_no_empty_output:
         CONFIG["enable_rule_no_empty_output"] = False
     if args.disable_rule_no_ignored_input:
         CONFIG["enable_rule_no_ignored_input"] = False
-    # if args.disable_rule_no_space_in_file_name:
-    #     CONFIG["enable_rule_no_space_in_file_name"] = False
     if args.disable_rule_no_meaningless_command:
         CONFIG["enable_rule_no_meaningless_command"] = False
     if args.disable_rule_no_sort_non_numeric_with_numeric_input:
@@ -983,6 +938,7 @@ if __name__ == "__main__":
     # logging.info(f"Rule no_space_in_file_name: {CONFIG.get('enable_rule_no_space_in_file_name', True)}")
     logging.info(f"Rule no_meaningless_command: {CONFIG.get('enable_rule_no_meaningless_command', True)}")
     logging.info(f"Rule no_sort_non_numeric_with_numeric_input: {CONFIG.get('enable_rule_no_sort_non_numeric_with_numeric_input', True)}")
+    logging.info(f"Concretization annotations: {CONFIG.get('enable_concretization', True)}")
 
     logging.getLogger().setLevel(level)
 
@@ -1008,16 +964,5 @@ if __name__ == "__main__":
         output_json=output_json,
         output_summary_csv=output_summary_csv
     )
-    # NOTE(logger-disabled): file-based logging via get_logger is disabled per request.
-    # get_logger().write_to_text("general_logs/type.txt")
-    # get_logger().write_command_logs_to_file("general_logs/command.json")
-    # get_logger().write_regex_logs_to_file("general_logs/regex.txt")
-    # get_logger().write_assertion_failure_stats_to_file("general_logs/assertion_failure_stats.json")
-    # get_logger().write_detailed_command_invocations_to_file("general_logs/detailed_command_invocations.txt", deduplicate=True)
-    # get_logger().write_detailed_command_invocations_to_csv("general_logs/detailed_command_invocations_supported.csv", deduplicate=True)
-    # get_logger().write_pattern_analysis_to_file("general_logs/pattern_analysis.txt")
-    # get_logger().write_pattern_analysis_to_csv("general_logs/pattern_analysis.csv")
-    # get_logger().write_command_pattern_logs_to_file("general_logs/command_pattern.txt")
-    # get_logger().write_command_pattern_logs_to_csv("general_logs/command_pattern.csv")
     Timing.finish_all()
     jpype.shutdownJVM()

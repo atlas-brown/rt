@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 import logging
 from stream.transducer_utils import FST, compute_fst_automaton_product, product_fst_automaton
-# from stream.utils.logger import get_logger
 from stream.regular_type import RegularType
 import re
 from typing import Callable, List, Dict, Any, Optional, Tuple
@@ -11,6 +10,11 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 from dk.brics.automaton import Automaton # type: ignore
 from stream.tool_error import ToolError, PashAnnotationParsingError
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
+
+
+def annotation_pattern_mentions_newline(pattern: str) -> bool:
+    return "\n" in pattern or "\\n" in pattern or "\\012" in pattern
+
 
 @dataclass
 class InferenceResult:
@@ -50,23 +54,66 @@ class CommandSignature:
         if command_invocation.cmd_name == self.command_name:
             return True
         if command_invocation.cmd_name == "xargs":
-            if len(command_invocation.operand_list) == 0:
+            xargs_command = self._get_xargs_command(command_invocation)
+            if xargs_command is None:
                 return False
-            if "xargs_" + command_invocation.operand_list[0].name == self.command_name:
+            if "xargs_" + xargs_command == self.command_name:
                 return True
         return False
+
+    @staticmethod
+    def _get_xargs_command(command_invocation: CommandInvocationInitial) -> Optional[str]:
+        operands = [operand.name for operand in command_invocation.operand_list]
+        index = 0
+
+        while index < len(operands):
+            operand = operands[index]
+            if operand == "--":
+                index += 1
+                break
+            if operand in {"-0", "-r", "--null", "--no-run-if-empty"}:
+                index += 1
+                continue
+            if operand in {"-d", "-E", "-e", "-I", "-i", "-L", "-l", "-n", "-P", "-s", "--delimiter", "--eof", "--replace", "--max-lines", "--max-args", "--max-procs", "--max-chars"}:
+                index += 2
+                continue
+            if (
+                re.match(r"^-(d|E|e|I|i|L|l|n|P|s).+", operand)
+                or operand.startswith("--delimiter=")
+                or operand.startswith("--eof=")
+                or operand.startswith("--replace=")
+                or operand.startswith("--max-lines=")
+                or operand.startswith("--max-args=")
+                or operand.startswith("--max-procs=")
+                or operand.startswith("--max-chars=")
+            ):
+                index += 1
+                continue
+            if operand.startswith("-"):
+                index += 1
+                continue
+            return operand
+
+        return operands[index] if index < len(operands) else None
+
+    @staticmethod
+    def _xargs_uses_explicit_delimiter(command_invocation: CommandInvocationInitial) -> bool:
+        if command_invocation.cmd_name != "xargs":
+            return False
+
+        operands = [operand.name for operand in command_invocation.operand_list]
+        flags = {flag_option.get_name() for flag_option in command_invocation.flag_option_list}
+        return bool(
+            {"-0", "--null"} & set(operands)
+            or {"-0", "--null", "-d", "--delimiter"} & flags
+            or any(operand.startswith("-d") and operand != "-d" for operand in operands)
+        )
     
-    # FIXME: simplify the return type
-    # dont override this method, override output_type_inference instead
     def determine_output_type(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], env_annotations: Dict[str, List[EnvAnnotation]]) -> InferenceResult | RegularType:
-        # if user annotation (assume) is available, use it
-        # otherwise, use inference
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.ASSUME:
-                # NOTE(logger-state): output_type is read later for type summaries; keeping logger updates.
-                # get_logger().get_latest_record()["command_list"][-1]["output_type"] = annotation.pattern
-                # get_logger().get_latest_record()["command_list"][-1]["output_assumed"] = annotation.pattern
-                return RegularType(annotation.pattern, tainted=False)
+                repr_mode = "stream" if annotation_pattern_mentions_newline(annotation.pattern) else "line"
+                return RegularType(annotation.pattern, repr_mode=repr_mode, tainted=False)
             
         if parsed_command_invocation.cmd_name != "xargs" and parsed_command_invocation.cmd_name != "grep" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
             operand = parsed_command_invocation.operand_list[0].name
@@ -79,19 +126,10 @@ class CommandSignature:
         
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "--version" in flags or "--help" in flags:
-            # NOTE(logger-state): output_type stored for downstream type summary reporting.
-            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
             return RegularType(".*")
-        trans_to_line_based = False
         if parsed_command_invocation.cmd_name not in ["cut", "tr", "grep", "head", "tail"]:
-            previous_output_type, trans_to_line_based = self.process_stream_input(previous_output_type)
-        # previous_output_type, trans_to_line_based = self.process_stream_input(previous_output_type)
+            previous_output_type, _ = self.process_stream_input(previous_output_type)
         out = self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
-        # if trans_to_line_based:
-            # NOTE(logger-state): output_type stored for downstream type summary reporting.
-            # original_output_type = get_logger().get_latest_record()["command_list"][-1]["output_type"]
-            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = original_output_type.replace("α", "line-extract(α, .*)")
-            # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         return out
     
     def process_stream_input(self, previous_output_type: RegularType) -> Tuple[RegularType, bool]:
@@ -113,7 +151,7 @@ class CommandSignature:
     def get_file_name(self, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
         file_name = parsed_command_invocation.operand_list[-1].name
         for annotation in env_annotations.get(file_name, []):
-            if annotation.annotation_type == AnnotationType.FILE:
+            if annotation.annotation_type in {AnnotationType.FILE, AnnotationType.CONCRETIZE}:
                 return RegularType(annotation.pattern, tainted=False)
         return RegularType(".*")
 
@@ -125,7 +163,6 @@ class CommandSignature:
         self_contained = True
         tainted = self.isTainted
 
-        # FIXME
         env_related_command_names = ["ls", "date", "docker", "du", "ps", "curl"]
         if parsed_command_invocation.cmd_name in env_related_command_names:
             self_contained = False
@@ -143,7 +180,7 @@ class CommandSignature:
                 # Check for FILE annotation with exact pattern match
                 if arg in env_annotations:
                     for annot in env_annotations[arg]:
-                        if annot.annotation_type == AnnotationType.FILE:
+                        if annot.annotation_type in {AnnotationType.FILE, AnnotationType.CONCRETIZE}:
                             env[f"{arg_name}.content"] = RegularType(annot.pattern)
                             lose_precision = False
                             tainted = False
@@ -195,9 +232,6 @@ class CommandSignature:
         # add predefined variables to env
         env["actual_input_type"] = previous_output_type
         env["output_type"] = self.default_output_type
-        # NOTE(logger-state): command_list is read later for type summary and error messaging.
-        # command_list = get_logger().get_latest_record()["command_list"]
-        # command_list[-1]["output_type"] = self.default_output_type.pattern
 
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         parsed_args = set(env.keys())
@@ -224,8 +258,6 @@ class CommandSignature:
                             output_type_str = output_type_str.replace(f"{{{{{key}}}}}", value.pattern)
                         elif isinstance(value, str):
                             output_type_str = output_type_str.replace(f"{{{{{key}}}}}", value)
-                    # NOTE(logger-state): output_type stored for downstream type summary reporting.
-                    # get_logger().get_latest_record()["command_list"][-1]["output_type"] = output_type_str
                 for key, value in update_variables.items():
                     try:
                         update_variables[key] = RegularType(value, hole_dict=env)
@@ -242,18 +274,17 @@ class CommandSignature:
         logging.debug(f"Command: {self.command_name}, Output type (if compatible): {env['output_type']}")
         logging.debug("-"*60)
         env['output_type'].tainted = tainted
-        # NOTE(logger-state): used later for type summary and error messaging.
-        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = lose_precision
         return InferenceResult(env['output_type'], backward_func, self_contained)
     
-    # dont override this method, override get_input_type instead
     def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType]]:
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
-        # if user annotation (expect) is available, use it
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.EXPECT:
                 return RegularType(annotation.pattern), None
+
+        if self._xargs_uses_explicit_delimiter(parsed_command_invocation):
+            heuristic_rules = [rule for rule in heuristic_rules if rule != "no_space_in_file_name"]
             
         return self.get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
     

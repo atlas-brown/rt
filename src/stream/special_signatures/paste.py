@@ -2,7 +2,6 @@ import re
 from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
-# from stream.utils.logger import get_logger
 
 class PasteSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -23,15 +22,6 @@ class PasteSignature(CommandSignature):
 
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
-        # Classify the last detailed command invocation as supported
-        # get_logger().classify_last_invocation_as_supported()
-        
-        # Record command pattern based on flag combination
-        # flag_pattern = get_logger().get_flag_pattern_from_invocation(parsed_command_invocation)
-        # get_logger().add_command_pattern_log("paste", flag_pattern)
-
-        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         flags = set()
         flag_args : dict[str, list[str]] = {}
         for flag in parsed_command_invocation.flag_option_list:
@@ -51,7 +41,6 @@ class PasteSignature(CommandSignature):
 
             delimiter = delimiter[-1] # \" -> "
 
-            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"α({delimiter}α)*"
             return previous_output_type + (RegularType(f"[{delimiter}]") + previous_output_type).kleene_star()
 
         

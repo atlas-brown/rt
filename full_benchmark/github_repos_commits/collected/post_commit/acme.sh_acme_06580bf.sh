@@ -3182,6 +3182,7 @@ _checkConf() {
 
 # If NGINX configs were modeled we would know the possible values of [a-zA-Z]+ and [^ \t]+ in the annotation.
 # @file "$2": "[ \t]*[a-zA-Z]+[ \t]+[^ \t;]+;"
+# @output_contains "include [^ \t;]+;"
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
       _debug "Try include files"
@@ -3196,6 +3197,7 @@ _checkConf() {
 ################################################################################
 
 # @file "$2": "[ \t]*[a-zA-Z]+[ \t]+[^ \t;]+;"
+# @output_contains "[^ \t;]+"
 # stream enable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"

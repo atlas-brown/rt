@@ -44,16 +44,22 @@ from pathlib import Path
 INITIALIZE_LIBDASH = True
 
 @timer
-def log_parsing_error(error_msg: str, file_path: str) -> None:
+def log_parsing_error(error_msg: str, file_path: str, file_contents: str | None = None) -> None:
     """Log parsing error to the configured error log file."""
     error_log_path = CONFIG.get("parsing_error_log_path")
     if error_log_path:
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         error_entry = f"[{timestamp}] Error parsing file: {file_path}\nError: {error_msg}\n"
         
-        # Always include file contents if the file exists
+        # Always include file contents if the file exists.  Stream-enable
+        # extraction may parse a temporary file, but log the original source
+        # path with the extracted pipeline contents so evaluation can account
+        # for the missed benchmark row.
         try:
-            if os.path.exists(file_path):
+            if file_contents is not None:
+                error_entry += "File contents:\n" + file_contents + "\n"
+                logging.debug(f"Used provided contents for parsing error at {file_path}")
+            elif os.path.exists(file_path):
                 with open(file_path, "r") as f:
                     file_contents = f.read()
                 # Add a clear marker for file contents that's consistent and easy to parse
@@ -78,12 +84,13 @@ def log_parsing_error(error_msg: str, file_path: str) -> None:
 ## Parses straight a shell script to an AST
 ## through python without calling it as an executable
 @timer
-def parse_shell_to_asts(input_script_path : str):
+def parse_shell_to_asts(input_script_path : str, error_file_path: str | None = None, error_file_contents: str | None = None):
     global INITIALIZE_LIBDASH
+    logged_file_path = error_file_path or input_script_path
     try:
         if not os.path.isfile(input_script_path):
             error_msg = f"File {input_script_path} does not exist"
-            log_parsing_error(error_msg, input_script_path)
+            log_parsing_error(error_msg, logged_file_path, error_file_contents)
             raise libdash.parser.ParsingException(error_msg)
         logging.debug(f"Calling libdash parser initialization={INITIALIZE_LIBDASH} on {input_script_path}")
         new_ast_objects = libdash.parser.parse(input_script_path,init=INITIALIZE_LIBDASH)
@@ -107,7 +114,7 @@ def parse_shell_to_asts(input_script_path : str):
         return typed_ast_objects
     except Exception as e:
         error_msg = traceback.format_exc()
-        log_parsing_error(error_msg, input_script_path)
+        log_parsing_error(error_msg, logged_file_path, error_file_contents)
         logging.error("Parsing error!", error_msg)
         return None
 
@@ -210,7 +217,7 @@ def extract_pipelines_from_string(filename: str) -> list[tuple[PipeNode, int]]:
     for i in range(len(script_content)):
         if enable_pattern.match(script_content[i]):
             # For each "# stream enable" found, process it independently
-            pipeline_node = extract_single_pipeline(script_content, i)
+            pipeline_node = extract_single_pipeline(script_content, i, filename)
             if pipeline_node:
                 # Store both the pipeline node and the enable line number
                 pipeline_nodes_with_lines.append((pipeline_node, i))
@@ -218,7 +225,7 @@ def extract_pipelines_from_string(filename: str) -> list[tuple[PipeNode, int]]:
     return pipeline_nodes_with_lines
 
 @timer
-def extract_single_pipeline(script_content: list[str], enable_line_index: int) -> Optional[PipeNode]:
+def extract_single_pipeline(script_content: list[str], enable_line_index: int, filename: str) -> Optional[PipeNode]:
     """
     Extract a single pipeline following a "# stream enable" comment.
     Each pipeline is parsed independently in its own temporary file.
@@ -280,7 +287,11 @@ def extract_single_pipeline(script_content: list[str], enable_line_index: int) -
     
     try:
         # Parse only this specific pipeline's temporary file
-        parsed_nodes = parse_shell_to_asts(temp_file_path)
+        parsed_nodes = parse_shell_to_asts(
+            temp_file_path,
+            error_file_path=filename,
+            error_file_contents=pipeline_str,
+        )
         if parsed_nodes and len(parsed_nodes) > 0:
             # Extract pipeline nodes from the parsed AST for this specific pipeline
             pipe_nodes = traverse_node(parsed_nodes[0][0])
@@ -341,12 +352,10 @@ def annot_parser_wrapper(str_ls_args: list[str]) -> CommandInvocationInitial:
     # Check if command annotation exists in extra_annotations directory
     extra_annotation_path = Path(__file__).resolve().parent.parent / "extra_annotations" / f"{cmd_name}.json"
     if extra_annotation_path.is_file():
-        # FIXME: ls.json is not complete
         with open(extra_annotation_path, 'r') as file:
             json_data = json.load(file)
     else:
         json_data = get_json_data(cmd_name)
-    # TODO: if there is an element "\n", we lose the quotation marks currently
 
     set_of_all_flags: Set[str] = get_set_of_all_flags(json_data)
     dict_flag_to_primary_repr: Dict[str, str] = get_dict_flag_to_primary_repr(json_data)
@@ -377,12 +386,6 @@ def annot_parser_wrapper(str_ls_args: list[str]) -> CommandInvocationInitial:
             break  # next one is Operand, and we keep these in separate list
         i += 1
 
-    # we would probably want to skip '--' but then the unparsed command could have a different meaning so we'd need to keep it
-    # for now, omitted
-    # if parsed_elements_list[i] == '--':
-    #     i += 1
-
-    # operand_list = [Operand(operand_name) for operand_name in parsed_elements_list[i:]]
     operand_list = []
     idx_list = []
     for idx in range(i,len(parsed_elements_list)):
@@ -402,7 +405,6 @@ def process_special_cases_in_args(s: list[str]) -> list[str]:
         if s[0].startswith("\\") and len(s[0]) > 1:
             s[0] = s[0][1:]
 
-        # FIXME: use command mapping instead of hardcoding
         # handle _cmd -> cmd
         if s[0].startswith("_") and len(s[0]) > 1:
             s[0] = s[0][1:]
@@ -443,7 +445,6 @@ def process_special_cases_in_args(s: list[str]) -> list[str]:
 
         s = s2
 
-        # FIXME: use command mapping instead of hardcoding
         # tail_n -> tail -n
         if "_" in s[0]:
             s2 = []
@@ -452,7 +453,6 @@ def process_special_cases_in_args(s: list[str]) -> list[str]:
             s2.extend(s[1:])
             s = s2
 
-        # FIXME: use command mapping instead of hardcoding
         # handle egrep -> grep -E
         if s[0] == "egrep":
             s2 = []
@@ -461,7 +461,6 @@ def process_special_cases_in_args(s: list[str]) -> list[str]:
             s2.extend(s[1:])
             s = s2
 
-        # FIXME: add this into extra annotations
         # remove --color=
         if s[0] == "grep":
             s2 = [s[0]]
@@ -469,7 +468,6 @@ def process_special_cases_in_args(s: list[str]) -> list[str]:
                 if not arg.startswith("--color="):
                     s2.append(arg)
             s = s2
-        # FIXME: correctly handle quoted arguments
         # provisional solution: remove quotes
         s2 = []
         for arg in s:

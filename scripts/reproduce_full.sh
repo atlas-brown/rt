@@ -33,11 +33,15 @@ Primary generated outputs include:
 - evaluation_results/bug_detection_heuristic:y_fst:y.csv
 - evaluation_results/overview_heuristic:y_fst:y.csv
 - evaluation_results/analysis_time_stats_fst:y.csv
+- evaluation_results/ablation_table.md
+- evaluation_results/timing_table.md
 - evaluation_results/plots/accuracy-chart-with-annotations.pdf
 - evaluation_results/plots/accuracy-chart-without-annotations.pdf
 - evaluation_results/plots/bug-detection.pdf
-- evaluation_results/plots/time-length-chart.pdf
 - evaluation_results/plots/automata-sizes.pdf
+
+The bug-detection plot compares the unannotated RT run against ShellCheck and
+LadderTypes, with the RT system labeled simply as RT.
 EOF
 
 if [[ "${1:-}" == "--force" ]]; then

@@ -1,12 +1,10 @@
-import functools
 import re
 import traceback
 from typing import Optional, Set, Tuple
-from stream.regex_parser import CharacterClass, Dot, EmptyLanguageNode, Literal, Range, Repeat, Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, ast_to_z3, Node, ast_to_regex
+from stream.regex_parser import CharacterClass, Dot, EmptyLanguageNode, Literal, Range, Repeat, Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, Node, ast_to_regex
 import logging
-from stream.tool_error import TimeoutError, ToolError
+from stream.tool_error import ToolError
 from stream.utils.function_timer import timer
-from stream.utils.timing import Timing
 import jpype.imports
 from stream.transducer import add_newline_if_not_end_with_newline_FST, full_stream_to_line_based_FST, product_fst_automaton
 from stream.automata_to_regex import automaton_to_ast, get_singleton
@@ -14,10 +12,6 @@ if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition, RegExp # type: ignore
 from stream.transducer import process_empty_transitions
-
-
-# inclusion_timing = Timing("inclusion_timing", "general_logs/inclusion_timing.json")
-# counterexample_timing = Timing("counterexample_timing", "general_logs/counterexample_timing.json")
 
 no_newline_automaton = ast_to_automaton(RegexParser("[^\\n]*").parse())
 
@@ -96,7 +90,6 @@ class RegularType:
         return str(self.nfa.getShortestExample(True))
     
     def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 10, enable_witness: bool = True) -> Tuple[bool, str | None]:
-        # with inclusion_timing(a_size=len(self.nfa.getStates()), b_size=len(other.nfa.getStates())):
         if self.repr_mode == "stream" or other.repr_mode == "stream":
             a = self.to_full_stream_repr().nfa
             a = a.intersection(ast_to_automaton(RegexParser(".+").parse()))
@@ -112,7 +105,6 @@ class RegularType:
         witness = None
 
         if not is_subtype and enable_witness:
-            # with counterexample_timing(a_size=len(a.getStates()), b_size=len(b.getStates())):
             logging.debug("generating counterexample")
             diff_nfa = a.minus(b)
             print_diff_nfa = diff_nfa.intersection(ast_to_automaton(RegexParser("[[:print:]]*").parse()))
@@ -169,7 +161,6 @@ class RegularType:
             nfa = BasicOperations.concatenate(line_nfa, BasicAutomata.makeChar('\n'))
             return RegularType(automaton=nfa, repr_mode="stream", tainted=True)
         else:
-            # TODO
             return self
 
     def to_one_line_without_newline_repr(self) -> "RegularType":
@@ -177,7 +168,6 @@ class RegularType:
             line_nfa = self.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
             return RegularType(automaton=line_nfa, repr_mode="stream", tainted=True)
         else:
-            # TODO
             return self
 
     @timer
@@ -374,7 +364,6 @@ class RegularType:
             exit()
 
 
-# FIXME: temporary solution, need to be fixed, consider a|^b
 def starts_with_start_anchor(pattern: RegularType) -> bool:
     if pattern.ast is None:
         return False
@@ -402,165 +391,12 @@ def remove_anchors(pattern: RegularType) -> RegularType:
 
 
 # replace ${A} with (.*)  and  $(A) with (.*)
-# FIXME ?! is not needed currently, provisonal fix: replace ?! with ~
 def preprocess(pattern: str) -> str:
     # process replacement(${A} to (.*)) 
-    # FIXME for $(), cannot handle nested brackets, need to be fixed
     replace_pattern = r'\$\{[^}]*\}|\$\([^)]*\)|\\\$\\\{[^}]*\\\}|\\\$\\\([^)]*\\\)'
     pattern = re.sub(replace_pattern, r'(.*)', pattern)
     # ?! -> ~
     replace_pattern = r'\(\?!'
     pattern = re.sub(replace_pattern, r'~(', pattern)
     return pattern
-
-
-#     if ")&(" not in pattern:
-#         return pattern
-    
-
-#     intersect_index = pattern.index(")&(")
-#     # find ( in the left side
-#     left_index = intersect_index
-#     open_brackets = 1
-#     while left_index >= 1 and open_brackets > 0:
-#         left_index -= 1
-#         if pattern[left_index] == ")" and (left_index == 0 or pattern[left_index-1] != "\\"):
-#             open_brackets += 1
-#         elif pattern[left_index] == "(" and (left_index == 0 or pattern[left_index-1] != "\\"):
-#             open_brackets -= 1
-    
-#     if open_brackets != 0:
-#         raise ToolError("unmatched brackets at the left side of the intersection")
-
-#     assert pattern[left_index] == "("
-    
-#     # find ) in the right side
-#     right_index = intersect_index + 2
-#     open_brackets = 1
-#     while right_index < len(pattern) - 1 and open_brackets > 0:
-#         right_index += 1
-#         if pattern[right_index] == "(" and pattern[right_index-1] != "\\":
-#             open_brackets += 1
-#         elif pattern[right_index] == ")" and pattern[right_index-1] != "\\":
-#             open_brackets -= 1
-
-#     if open_brackets != 0:
-#         raise ToolError("unmatched brackets at the right side of the intersection")
-
-#     assert pattern[right_index] == ")"
-
-#     left = pattern[left_index+1:intersect_index]
-#     right = pattern[intersect_index+3:right_index]
-#     left_rest = pattern[:left_index]
-#     right_rest = pattern[right_index+1:]
-
-#     if is_dot_star(left):
-#         return preprocess(f"{left_rest}({right}){right_rest}")
-#     if is_dot_star(right):
-#         return preprocess(f"{left_rest}({left}){right_rest}")
-
-#     # )&( reduces, so the recursive call will eventually terminate
-#     return preprocess(f"{left_rest}(?!(?!{left})|(?!{right})){right_rest}")
-
-# def is_dot_star(s: str) -> bool:
-#     while len(s) > 0 and s.startswith("(") and s.endswith(")"):
-#         s = s[1:-1]
-#     return s == ".*"
-
-
-
-# def run_z3(solver: z3.Solver, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> z3.CheckSatResult | str:
-#     if not enable_timeout:
-#         result = solver.check()
-#         if get_model and result == z3.sat:
-#             return parse_z3_output_model(str(solver.model()))
-#         elif get_model and result == z3.unsat:
-#             raise Exception("unsat result does not have a model, smt string: " + solver.to_smt2())
-#         else:
-#             return result
-#     smt_string = solver.to_smt2()
-#     smt_string = f"(set-option :timeout {timeout * 1000})\n{smt_string}"
-
-#     constraints = z3.parse_smt2_string(smt_string)
-#     s = z3.Solver()
-#     for c in constraints:
-#         s.add(c)
-#     result = s.check()
-#     if result == z3.unknown:
-#         raise TimeoutError("Timeout in z3")
-#     if get_model and result == z3.sat:
-#         return parse_z3_output_model(str(s.model()))
-#     elif get_model and result == z3.unsat:
-#         raise Exception("unsat result does not have a model, smt string: " + s.to_smt2())
-#     else:
-#         return result
-    
-# def parse_z3_output_model(output: str) -> str:
-#     # Example output: '[x = "A"]'
-#     if output.startswith("[x = \""):
-#         return output[6:-2]
-#     else:
-#         raise Exception("Model not found in z3 output: " + output)
-
-
-# def run_external_z3(solver: z3.Solver, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> str:
-#     smt_string = solver.to_smt2()
-#     output = run_z3_in_shell(smt_string, get_model, enable_timeout, timeout)
-#     # if output.startswith("unknown"):
-#     #     output = run_z3_with_file(smt_string, get_model, enable_timeout, timeout)
-#     return output
-
-# def run_z3_in_shell(smt_string: str, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> str:
-#     cmd = ["z3", "-smt2", "-in"]
-#     if enable_timeout:
-#         smt_string = f"(set-option :timeout {timeout * 1000})\n{smt_string}"
-#     if get_model:
-#         smt_string = f"{smt_string}(get-model)\n"
-#     logging.debug(f"smt2: {smt_string}")
-#     logging.debug("calling z3 in shell")
-#     kwargs = {
-#         "input": smt_string,
-#         "text": True,
-#         "stdout": subprocess.PIPE,
-#         "stderr": subprocess.PIPE,
-#     }
-#     result = subprocess.run(cmd, **kwargs)
-#     return result.stdout.strip()
-
-# def run_z3_with_file(smt_string: str, get_model: bool = False, enable_timeout: bool = False, timeout: int = 10) -> str:
-#     with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8") as f:
-#         if enable_timeout:
-#             smt_string = f"(set-option :timeout {timeout * 1000})\n{smt_string}"
-#         if get_model:
-#             smt_string = f"{smt_string}(get-model)\n"
-#         f.write(smt_string)
-#         f.flush()
-#         cmd = ["z3", "-smt2", f.name]
-#         logging.debug(f"calling z3 with file: {f.name}")
-#         result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-#         return result.stdout.strip()
-
-# def parse_external_z3_output_model(output: str) -> Optional[str]:
-#     """
-#     Example output:
-#     sat
-#     (
-#     (define-fun x () String
-#         "")
-#     )
-#     """
-#     if output == "unknown":
-#         raise TimeoutError("Timeout in z3")
-#     pattern = re.compile(
-#         r'\(define-fun\s+x\s+\(\)\s+String\s+"(.*?)"\)', re.DOTALL)
-#     match = pattern.search(output)
-#     if match:
-#         return match.group(1)
-#     return None
-    
-    
-
-        
-
-        
         

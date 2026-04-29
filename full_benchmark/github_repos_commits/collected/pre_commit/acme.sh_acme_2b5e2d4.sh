@@ -3174,6 +3174,7 @@ _checkConf() {
 # correct version -> buggy version (mislabeled)
 # @file "$2": "\t*include /etc/nginx/conf\.d/.*\.conf;|~(.*include.*)"
 # @output " *include /etc/nginx/conf\.d/.*\.conf;"
+# @output_contains "include /etc/nginx/conf\.d/.*\.conf;"
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include *;" >/dev/null; then
       _debug "Try include files"
@@ -3190,6 +3191,7 @@ _checkConf() {
 # correct version -> buggy version (mislabeled)
 # @file "$2": "\t*include /etc/nginx/conf\.d/.*\.conf;|~(.*include.*)"
 # @output "/etc/nginx/conf\.d/.*\.conf"
+# @output_contains "/etc/nginx/conf\.d/.*\.conf"
 # stream enable
       for included in $(cat "$2" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"); do
         _debug "check included $included"

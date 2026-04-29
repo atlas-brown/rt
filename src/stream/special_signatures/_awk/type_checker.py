@@ -213,7 +213,6 @@ class AwkTypeChecker:
                 self._type_stmt(s)
             return
 
-        # Fallback, FIXME
         return
 
     def _type_assignment(self, stmt: AssignmentStatement) -> None:
@@ -249,7 +248,6 @@ class AwkTypeChecker:
             info.simple.add_hard_min(self._to_simple_min(value_type), f"{field_key} {op} value")
             return
 
-        # Traverse fallback, FIXME
         self._type_expr(target_expr)
 
     def _type_increment(self, stmt: IncrementStatement) -> None:
@@ -333,7 +331,6 @@ class AwkTypeChecker:
             info.element.add_hard_exact(required, f"printf % {spec} on element")
             return
 
-        # fallback traverse, FIXME
         self._type_expr(arg)
 
     def _type_expr(self, expr: AwkExpression) -> SimpleType:
@@ -409,7 +406,6 @@ class AwkTypeChecker:
                 return SimpleType(SimpleTypeName.BOOL)
             return SimpleType(SimpleTypeName.STRING)
 
-        # Default fallback, FIXME
         return SimpleType(SimpleTypeName.STRING)
 
     def _type_function_call(self, call: FunctionCall) -> SimpleType:
@@ -441,7 +437,6 @@ class AwkTypeChecker:
                     for a in call.arguments[1:]:
                         self._type_expr(a)
             return SimpleType(SimpleTypeName.STRING)
-        # Unknown function: traverse args conservatively, FIXME
         for a in call.arguments:
             self._type_expr(a)
         return SimpleType(SimpleTypeName.STRING)
@@ -457,7 +452,6 @@ class AwkTypeChecker:
             self.env.ensure_array(name or "<unknown array>")
             self._type_expr(expr.index)
             return
-        # Fallback, FIXME
         self._type_expr(expr)
 
     def _coerce_to_string(self, expr: AwkExpression, note: str) -> None:
@@ -526,7 +520,6 @@ class AwkTypeChecker:
             info.element.add_hard_min(SimpleTypeName.INT, note)
             info.element.add_soft_pref(SimpleTypeName.INT, note + " preference")
             return
-        # Fallback traverse, FIXME
         self._type_expr(expr)
 
     def _field_key(self, field: FieldReference) -> str:
@@ -536,7 +529,6 @@ class AwkTypeChecker:
             return str(idx_expr.value)
         if isinstance(idx_expr, Variable):
             return idx_expr.name
-        # Default unknown index, FIXME
         return "?"
 
     def _extract_var_name(self, expr: AwkExpression) -> Optional[str]:
@@ -559,7 +551,6 @@ class AwkTypeChecker:
             if i < n and fmt[i] == '%':
                 i += 1
                 continue
-            # FIXME
             while i < n and fmt[i] in ' #+0-':
                 i += 1
             while i < n and fmt[i].isdigit():

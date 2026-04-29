@@ -290,17 +290,7 @@ def main():
     valid_dirs = CONFIG.get("valid_dirs")
     invalid_dirs = CONFIG.get("invalid_dirs")
     not_check_all_dirs = CONFIG.get("not_check_all_dirs", [])
-    
-    # # Clear the parsing error log file before starting
-    # parsing_error_log_path = CONFIG.get("parsing_error_log_path")
-    # if parsing_error_log_path:
-    #     # Create the directory if it doesn't exist
-    #     os.makedirs(os.path.dirname(parsing_error_log_path), exist_ok=True)
-    #     # Clear or create the log file
-    #     with open(parsing_error_log_path, 'w') as f:
-    #         f.write("")
-    #     print(f"Cleared parsing error log at {parsing_error_log_path}")
-    
+
     # Read existing records to avoid rechecking
     existing_records = read_existing_records(csv_file)
     print(f"Found {len(existing_records)} existing records to skip rechecking")

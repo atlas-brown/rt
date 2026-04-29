@@ -552,7 +552,6 @@ find_IPv4_information() {
 # 2. Allow an annotation that contains the IPv4bare variable in it (@output "$IPv4bare/[0-9]{1,5}")
 # ---
 
-# put stream annotation here
 # stream enable
     IPV4_ADDRESS=$(ip -oneline -family inet address show | grep "${IPv4bare}/" |  awk '{print $4}' | awk 'END {print}')
 }

@@ -261,8 +261,8 @@ get_sys_stats() {
 # I have a Mac, so I didn't want to base the regex on my local output.
 # ---
 
-# @assume "ip route" --> "(default|(([0-9]{1,3}\.){3}\.[0-9]{1,3}))( [^ \t]+)+"
-# @output ".*\n"
+# @assume "cut -d ' ' -f 3" --> "[^\n]+\n[^\n]+"
+# @output "[^\n]*\n?"
 # stream enable
         net_gateway=$(ip route | grep default | cut -d ' ' -f 3)
 

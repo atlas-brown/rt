@@ -352,7 +352,6 @@ class RegexParser:
     def parse_escape(self):
         self.consume('\\')
         curr = self.current()
-        # FIXME: fix \s
         if curr is None:
             self.error("Escape character '\\' at end of expression")
         escape_dict = {
@@ -471,7 +470,6 @@ def escape_char_class(ch):
 def ast_to_z3(node):
     import z3
     any_char = z3.Range(chr(0), chr(127))
-    # any_char = z3.Range(chr(0), chr(126))
     if isinstance(node, EmptyLanguageNode):
         return z3.Intersect(z3.Re("a"), z3.Re("b"))
     elif isinstance(node, Literal):

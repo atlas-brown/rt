@@ -4,7 +4,6 @@ from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 
 from stream.tool_error import ToolError
-# from stream.utils.logger import get_logger
 
 class SortSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -25,10 +24,6 @@ class SortSignature(CommandSignature):
                 flag_args[name].append(flag.get_arg())
 
         if "-k" not in flags:
-            # if no_input_type is not None:
-            #     no_input_type.possible_line_numbers = (0, 1)
-            # else:
-            #     no_input_type = RegularType(".*", possible_line_numbers=(0, 1))
             return input_type, no_input_type
         
         input_type = RegularType(".*")
@@ -39,7 +34,6 @@ class SortSignature(CommandSignature):
             if "," in arg:
                 if flag == "":
                     field, start = arg.split(',')
-                    # FIXME: about .
                     try:
                         field, start = int(field), int(start)
                     except Exception as e:
@@ -48,7 +42,6 @@ class SortSignature(CommandSignature):
                     input_type = input_type & RegularType(pattern)
                 else:
                     field, start = arg.split(',')
-                    # FIXME: about .
                     try:
                         field, start = int(field), int(start)
                     except Exception as e:
@@ -65,20 +58,17 @@ class SortSignature(CommandSignature):
                     field = int(arg)
                     if "n" in flag:
                         pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[0-9]+.*"
+                        input_type = input_type & RegularType(pattern)
 
         return input_type, None
                     
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         if len(parsed_command_invocation.operand_list) > 0:
-            # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = ".*"
             return InferenceResult(RegularType(".*"), lambda x: x, False)
         output_type = super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         if isinstance(output_type, InferenceResult):
             output_type = output_type.output_type
         output_type.tainted = previous_output_type.tainted
-        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = False
         return InferenceResult(output_type, lambda x: x, False)
                 
 

@@ -2,15 +2,12 @@ import re
 from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
-# from stream.utils.logger import get_logger
 
 class SeqSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
-        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         operands = super().get_operands(parsed_command_invocation)
         if len(operands) == 0:
             raise ToolError("No operand provided for seq")
@@ -43,12 +40,8 @@ class SeqSignature(CommandSignature):
         delimiter = delimiter[-1] # \" -> "
 
         if delimiter == "\n" and line_type is not None:
-            # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = line_type.pattern
             return line_type
         if delimiter != "\n" and line_type is not None:
-            # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = f"{line_type.pattern}({delimiter}{line_type.pattern})*"
             return line_type + (RegularType(f"{re.escape(delimiter)}") + line_type).kleene_star()
 
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)

@@ -11,6 +11,7 @@ class AnnotationType(Enum):
     OUTPUT = "output"
     VAR = "var"
     FILE = "file"
+    CONCRETIZE = "concretize"
     ASSERT_CONTAINS = "assert_contains"
     OUTPUT_CONTAINS = "output_contains"
 class UserAnnotation:

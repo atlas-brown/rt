@@ -5773,7 +5773,8 @@ uninstallcronjob() {
 # in earlier parts of the script "SunOS" is used correctly in pipelines.
 # ---
 
-# @assert "grep solaris" --> ".*sunOS.*"
+# @assume "uname -a" --> "(SunOS .*)|(Linux .*)"
+# @output_contains "SunOS .*"
 # stream enable
     if _exists uname && uname -a | grep solaris >/dev/null; then
       $_CRONTAB -l | sed "/$PROJECT_ENTRY --cron/d" | $_CRONTAB --

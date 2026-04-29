@@ -5,7 +5,6 @@ from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.regex_parser import convert_to_pure_string, is_pure_string, is_pure_string_for_ast
 from stream.transducer import first_regex_replacement_FST, first_replacement_FST, global_regex_replacement_FST, global_replacement_FST, product_fst_automaton, start_regex_replacement_FST
-# from stream.utils.logger import get_logger
 
 class SedSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -18,7 +17,6 @@ class SedSignature(CommandSignature):
 
         try:
             operands = super().get_operands(parsed_command_invocation)
-            # FIXME: sed -e, sed needs extra pash annotation
             if len(operands) == 0:
                 raise ToolError("No operand provided for sed")
             operand = operands[0]
@@ -28,13 +26,12 @@ class SedSignature(CommandSignature):
             parts = operand.split(delimiter)
             if len(parts) < 3:
                 return input_type, no_input_type
-            if parts[1] == '^' or parts[1] == '\\$':
+            if parts[1] == '^' or parts[1] == '\\$' or parts[1] == '$':
                 return input_type, no_input_type
             # Fixme: handle start and end anchors
             if parts[0] == 's':
                 parts[1] = parts[1].replace("\\\\", "\\")
                 parts[1] = preprocess(parts[1])
-                # FIXME: provisional solution for sed s/\///g : if ends with an odd number of backslashes, then add '/' to the end
                 match = re.search(r'(\\+)$', parts[1])
                 if match and (len(match.group(1)) % 2 == 1):
                     parts[1] = parts[1] + delimiter
@@ -52,28 +49,22 @@ class SedSignature(CommandSignature):
 
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
-        # Classify the last detailed command invocation as supported
-        # get_logger().classify_last_invocation_as_supported()
 
         # Record sed command pattern directly in logger
-        # get_logger().add_sed_command_pattern_log(parsed_command_invocation)
 
         lose_precision = False
         tainted = previous_output_type.tainted
         operands = super().get_operands(parsed_command_invocation)
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         mode = "extended" if "-E" in parsed_flags or "-r" in parsed_flags else "basic"
+        if "-h" in parsed_flags or (len(operands) > 0 and operands[0] == "-h"):
+            return RegularType(".*")
         if len(operands) == 0:
-            # get_logger().remove_last_pattern_analysis()
             raise ToolError("No operand provided for sed")
         operand = operands[0]
         if operand == "d":
-            # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = ""
             return RegularType("")
         if operand[-1] == "d" and operand[:-1].isdigit():
-            # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = "α"
             return previous_output_type
         if not operand.startswith("s"):
             if not operand.startswith("/"):
@@ -103,39 +94,41 @@ class SedSignature(CommandSignature):
 
                 if parts[1] == '^':
                     parts[2] = preprocess(parts[2])
-                    parts[2] = re.escape(parts[2])
+                    parts[2] = escape_literal_for_regular_type(parts[2])
                     parts[2] = parts[2].replace("\\\\\\\\t", "\t")
                     if "\\\\" in parts[2]:
                         tainted = True
                         lose_precision = True
-                    current_type_str = parts[2] + current_type_str
-                    previous_output_type = RegularType(parts[2]) + previous_output_type
+                    if parts[2] != "":
+                        current_type_str = parts[2] + current_type_str
+                        previous_output_type = RegularType(parts[2]) + previous_output_type
 
-                    if not pattern_recorded:
-                        pattern_type = RegularType(parts[1], mode)
-                        is_pure = is_pure_string_for_ast(pattern_type.ast) if hasattr(pattern_type, 'ast') else False
-                        has_references = '\\' in parts[2] or '&' in parts[2]
-                        pattern_recorded = True
+                        if not pattern_recorded:
+                            pattern_type = RegularType(parts[1], mode)
+                            is_pure = is_pure_string_for_ast(pattern_type.ast) if hasattr(pattern_type, 'ast') else False
+                            has_references = '\\' in parts[2] or '&' in parts[2]
+                            pattern_recorded = True
                 elif parts[1] == '\\$' or parts[1] == "$":
                     parts[2] = preprocess(parts[2])
-                    parts[2] = re.escape(parts[2])
+                    parts[2] = escape_literal_for_regular_type(parts[2])
                     parts[2] = parts[2].replace("\\\\\\\\t", "\t")
                     if "\\\\" in parts[2]:
                         tainted = True
                         lose_precision = True
-                    current_type_str = current_type_str + parts[2]
-                    previous_output_type = previous_output_type + RegularType(parts[2])
+                    if parts[2] != "":
+                        current_type_str = current_type_str + parts[2]
+                        previous_output_type = previous_output_type + RegularType(parts[2])
 
-                    if not pattern_recorded:
-                        pattern_type = RegularType(parts[1], mode)
-                        is_pure = is_pure_string_for_ast(pattern_type.ast) if hasattr(pattern_type, 'ast') else False
-                        has_references = '\\' in parts[2] or '&' in parts[2]
-                        pattern_recorded = True
+                        if not pattern_recorded:
+                            pattern_type = RegularType(parts[1], mode)
+                            is_pure = is_pure_string_for_ast(pattern_type.ast) if hasattr(pattern_type, 'ast') else False
+                            has_references = '\\' in parts[2] or '&' in parts[2]
+                            pattern_recorded = True
                 else:
                     parts[1] = parts[1].replace("\\\\", "\\")
                     parts[1] = preprocess(parts[1])
                     parts[2] = preprocess(parts[2])
-                    parts[2] = re.escape(parts[2])
+                    parts[2] = escape_literal_for_regular_type(parts[2])
                     parts[2] = parts[2].replace("\\\\\\\\t", "\t")
                     if "\\\\1" in parts[2]:
                         previous_output_type = RegularType(".*")
@@ -223,6 +216,14 @@ def preprocess(string: str) -> str:
             if (string.startswith("'") and string.endswith("'")) or (string.startswith('"') and string.endswith('"')):
                 string = string[1:-1]
     return string
+
+def escape_literal_for_regular_type(string: str) -> str:
+    return (
+        re.escape(string)
+        .replace("\\$", "[$]")
+        .replace("\\{", "[{]")
+        .replace("\\}", "[}]")
+    )
 
 def refine_log(s: str) -> str:
     if s == "":

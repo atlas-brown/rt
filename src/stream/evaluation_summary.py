@@ -3,7 +3,7 @@ import json
 import os, sys
 import csv
 import re
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 from stream.config import CONFIG
 
 def convert_to_github_address(address):
@@ -18,7 +18,7 @@ def normalize_address(address):
     path, content = address
     if path.startswith('./'):
         path = path[2:]
-    # major hackery going on right here. Please fixme to encode pipeline contents consistently!
+    # Normalize the shell pretty-printer variants used by different runners.
     if '\r' in content:
         content = content.replace('\r', '')
     while '\\\\' in content:
@@ -27,9 +27,6 @@ def normalize_address(address):
 
 def process_runtime_error(error):
     return error if error is not None else ''
-
-def process_category(category):
-    return '' if category is None or category == '<missing>' else category
 
 def process_content(content):
     if content is None:
@@ -52,20 +49,17 @@ def results_to_summary_csv(json_path, out_path):
     # Load and refine evaluation results so downstream correctness reflects refined correctness
     results = load_results(json_path)
     results.sort(key=lambda x: x["address"])
-    header = ['Benchmark', 'Collection', 'Tag', 'Buggy?', 'Correct Result?', 'Time(s)', 'RunTime Error', 'Category', 'Notes', 'Pipeline']
+    header = ['Benchmark', 'Collection', 'Buggy?', 'Correct Result?', 'Time(s)', 'RunTime Error', 'Pipeline']
     rows = []
     for result in results:
         benchmark, collection = convert_to_github_address(result["address"])
         row = {
             'Benchmark': benchmark,
             'Collection': collection,
-            'Tag': category_to_tag(compute_correct_result(result), process_category(result["category"])),
             'Buggy?': result["is buggy?"],
             'Correct Result?': compute_correct_result(result),
             'Time(s)': result.get("evaluation_time", 0),
-            'RunTime Error': process_runtime_error(result["tool runtime error"]),
-            'Category': process_category(result["category"]),
-            'Notes': result["notes"],
+            'RunTime Error': process_runtime_error(result.get("tool runtime error")),
             'Pipeline': process_content(result["content"])
         }
         rows.append(row)
@@ -83,7 +77,28 @@ def load_baseline_results(csv_path):
             rows.append(row)
     return rows[1:] # drop header
 
-def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None, baseline_json_path=None):
+def load_baseline_csv_map(baseline_csv_path):
+    baseline_csv_rows = load_baseline_results(baseline_csv_path) if baseline_csv_path else None
+    baseline_csv_map: Dict[Tuple[str, str], Dict[str, Any]] = {}
+    if not baseline_csv_rows:
+        return baseline_csv_map
+
+    for row in baseline_csv_rows:
+        try:
+            addr = normalize_address((row[0], row[1]))
+            info = {
+                'is buggy?': row[2].lower() == 'true',
+                "sc warning?": row[3].lower() == 'true',
+                "ltsh warning?": row[4].lower() == 'true',
+                "sc time": float(row[5]),
+                "ltsh time": float(row[6])
+            }
+            baseline_csv_map[addr] = info
+        except Exception:
+            continue
+    return baseline_csv_map
+
+def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None):
     results_ann = load_results(ann_json_path)
     results_raw = load_results(raw_json_path)
 
@@ -96,8 +111,7 @@ def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None, ba
         addr = normalize_address((rec["address"], rec["content"]))
         tmp.setdefault(addr, {})["ann"] = rec
 
-    # Compute intersection: keep only addresses present in both ann and raw
-    # FIXME
+    # Keep only pipelines present in both annotated and raw runs.
     merged: Dict[Tuple[str, str], Dict[str, Any]] = {}
     for addr, recs in tmp.items():
         if recs.get("ann") is None or recs.get("raw") is None:
@@ -107,28 +121,11 @@ def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None, ba
             continue
         merged[addr] = recs
 
-    # Load baseline data from CSV and JSON
-    baseline_csv_rows = load_baseline_results(baseline_csv_path) if baseline_csv_path else None
-    baseline_json_map = load_baseline_json_results(baseline_json_path) if baseline_json_path else {}
-    baseline_csv_map: Dict[Tuple[str, str], Dict[str, Any]] = {}
-    if baseline_csv_rows:
-        for row in baseline_csv_rows:
-            try:
-                addr = normalize_address((row[0], row[1]))
-                info = {
-                    'is buggy?': row[2].lower() == 'true',
-                    "sc warning?": row[3].lower() == 'true',
-                    "ltsh warning?": row[4].lower() == 'true',
-                    "sc time": float(row[5]),
-                    "ltsh time": float(row[6])
-                }
-                baseline_csv_map[addr] = info
-            except Exception:
-                continue
+    baseline_csv_map = load_baseline_csv_map(baseline_csv_path)
 
     # Attach baseline to intersection only
     for addr, recs in merged.items():
-        info = baseline_json_map.get(addr) or baseline_csv_map.get(addr)
+        info = baseline_csv_map.get(addr)
         if info is None:
             # Baseline optional; skip if not found
             continue
@@ -137,25 +134,14 @@ def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None, ba
 
     for addr, recs in merged.items():
         recs["benchmark_set"] = path_to_benchmark_set(addr[0])
-        # FIXME
-        # if recs.get("ann") is None or recs.get("raw") is None:
-        #     print(f"Missing record for {addr}: {'ann' if recs.get('ann') is None else 'raw'}")
-        # assert recs["raw"]["is buggy?"] == recs["ann"]["is buggy?"]
-        # if baseline:
-        #     if recs["ann"].get("baseline") is None:
-        #         print(f"Missing baseline data for {addr}", file=sys.stderr)
-        #         assert False
-        #     assert recs["ann"]["is buggy?"] == recs["ann"]["baseline"]["is buggy?"], f"buggy label mismatch between eval results and baseline: {recs['ann']}"
-        #     assert recs["raw"]["is buggy?"] == recs["raw"]["baseline"]["is buggy?"], f"buggy label mismatch between eval results and baseline: {recs['raw']}"
-
     return merged
 
 def results_to_merged_csv(ann_json_path, raw_json_path, out_path):
     merged = load_merged_results(ann_json_path, raw_json_path)
     header = [
         'Benchmark', 'Collection', 'Pipeline',
-        'Raw Buggy?', 'Raw Correct Result?', 'Raw Time(s)', 'Raw RunTime Error', 'Raw Category', 'Raw Notes',
-        'Ann Buggy?', 'Ann Correct Result?', 'Ann Time(s)', 'Ann RunTime Error', 'Ann Category', 'Ann Notes'
+        'Raw Buggy?', 'Raw Correct Result?', 'Raw Time(s)', 'Raw RunTime Error',
+        'Ann Buggy?', 'Ann Correct Result?', 'Ann Time(s)', 'Ann RunTime Error'
     ]
     rows = []
     for addr, recs in merged.items():
@@ -172,21 +158,17 @@ def results_to_merged_csv(ann_json_path, raw_json_path, out_path):
             'Raw Correct Result?': compute_correct_result(raw_rec) if raw_rec else '',
             'Raw Time(s)': raw_rec["evaluation_time"] if raw_rec else '',
             'Raw RunTime Error': process_runtime_error(raw_rec.get("tool runtime error")) if raw_rec else '',
-            'Raw Category': process_category(raw_rec.get("category")) if raw_rec else '',
-            'Raw Notes': raw_rec["notes"] if raw_rec else '',
             'Ann Buggy?': ann_rec["is buggy?"] if ann_rec else '',
             'Ann Correct Result?': compute_correct_result(ann_rec) if ann_rec else '',
             'Ann Time(s)': ann_rec["evaluation_time"] if ann_rec else '',
-            'Ann RunTime Error': process_runtime_error(ann_rec.get("tool runtime error")) if ann_rec else '',
-            'Ann Category': process_category(ann_rec.get("category")) if ann_rec else '',
-            'Ann Notes': ann_rec["notes"] if ann_rec else ''
+            'Ann RunTime Error': process_runtime_error(ann_rec.get("tool runtime error")) if ann_rec else ''
         }
         rows.append(row)
     rows.sort(key=lambda x: x["Benchmark"])
     write_csv(rows, header, out_path)
 
-def results_to_overview_csv(ann_json_path, raw_json_path, baseline_csv_path, baseline_json_path, out_path):
-    merged = load_merged_results(ann_json_path, raw_json_path, baseline_csv_path, baseline_json_path)
+def results_to_overview_csv(ann_json_path, raw_json_path, baseline_csv_path, out_path):
+    merged = load_merged_results(ann_json_path, raw_json_path, baseline_csv_path)
     header = ['Benchmark set', '# Correct', '# Incorrect', 'With Annotations?', 'False Results', 'Accuracy', 'Recall', 'Precision', 'F1', 'SC False', 'SC Accuracy', 'SC Precision', 'SC Recall', 'SC F1', 'LT False', 'LT Accuracy', 'LT Precision', 'LT Recall', 'LT F1', 'Status']
 
     benchmark_sets = set(recs["benchmark_set"] for recs in merged.values())
@@ -329,46 +311,49 @@ def path_to_benchmark_set(collection):
             return value
 
 
-def merged_csv_to_bug_detection(ann_json_path, raw_json_path, baseline_csv_path, baseline_json_path, out_path, eprint_records=False):
-    merged = load_merged_results(ann_json_path, raw_json_path, baseline_csv_path, baseline_json_path)
-    # [shtreams?, SC?, LT?]
-    data = {(us, sc, lt): 0 for us in [True, False] for sc in [True, False] for lt in [True, False]}
-    header = ['System', 'Only this detects', 'and Shtreams', 'and SC', 'and LT', 'All']
-    # only raw for a fair comparison
-    for recs in merged.values():
-        if "baseline" not in recs["raw"]:
+def raw_json_to_bug_detection(raw_json_path, baseline_csv_path, out_path, eprint_records=False):
+    raw_results = load_results(raw_json_path)
+    baseline_map = load_baseline_csv_map(baseline_csv_path)
+    # [raw RT?, SC?, LT?]
+    data = {(rt, sc, lt): 0 for rt in [True, False] for sc in [True, False] for lt in [True, False]}
+    header = ['System', 'Only this detects', 'and RT', 'and SC', 'and LT', 'All']
+
+    for rec in raw_results:
+        addr = normalize_address((rec["address"], rec["content"]))
+        baseline = baseline_map.get(addr)
+        if baseline is None:
             continue
-        if not recs["raw"]["baseline"]["is buggy?"]:
+        if not baseline["is buggy?"]:
             continue
-        key = (recs["raw"]["warning signaled?"],
-               recs["raw"]["baseline"]["sc warning?"],
-               recs["raw"]["baseline"]["ltsh warning?"])
-        if recs["raw"]["warning signaled?"] is None:
-            print("crash!: " + str(recs))
+        key = (rec["warning signaled?"],
+               baseline["sc warning?"],
+               baseline["ltsh warning?"])
+        if rec["warning signaled?"] is None:
+            print("crash!: " + str(rec))
             key = (False, key[1], key[2])
         data[key] += 1
         if eprint_records:
-            print(f"{key}#{recs}")
+            print(f"{key}#{rec}")
 
     def get(us, sc, lt):
         return data[(us == 1, sc == 1, lt ==1)]
 
     rows = []
-    rows.append({"System": "Shtreams",
+    rows.append({"System": "RT",
                  "Only this detects": get(1, 0, 0),
-                 "and Shtreams": 0,
+                 "and RT": 0,
                  "and SC": get(1, 1, 0),
                  "and LT": get(1, 0, 1),
                  "All": get(1, 1, 1)})
     rows.append({"System": "ShellCheck",
                  "Only this detects": get(0, 1, 0),
-                 "and Shtreams": get(1, 1, 0),
+                 "and RT": get(1, 1, 0),
                  "and SC": 0,
                  "and LT": get(0, 1, 1),
                  "All": get(1, 1, 1)})
     rows.append({"System": "LadderTypes",
                  "Only this detects": get(0, 0, 1),
-                 "and Shtreams": get(1, 0, 1),
+                 "and RT": get(1, 0, 1),
                  "and SC": get(0, 1, 1),
                  "and LT": 0,
                  "All": get(1, 1, 1)})
@@ -389,8 +374,6 @@ def main():
                         help='Path to raw CSV file (default: evaluation_results/raw/results.csv)')
     parser.add_argument('--baseline_csv', type=str, default='evaluation_results/baseline.csv',
                         help='Path to baseline results CSV file (default: evaluation_results/baseline.csv)')
-    parser.add_argument('--baseline_json', type=str, default='evaluation_results/baseline_labeled.json',
-                        help='Path to baseline labeled JSON file with correctness fields (default: evaluation_results/baseline_labeled.json)')
     parser.add_argument('--merged_csv', type=str, default='evaluation_results/merged_results.csv',
                         help='Path to merged CSV file (default: evaluation_results/merged_results.csv)')
     parser.add_argument('--bug_detection_csv', type=str, default='evaluation_results/bug_detection.csv',
@@ -406,64 +389,8 @@ def main():
         print(f"Generating merged CSV file: {args.merged_csv}")
         results_to_merged_csv(args.ann_json, args.raw_json, args.merged_csv)
         print(f"Generating overview CSV file: {args.overview_csv}")
-        results_to_overview_csv(args.ann_json, args.raw_json, args.baseline_csv, args.baseline_json, args.overview_csv)
-        merged_csv_to_bug_detection(args.ann_json, args.raw_json, args.baseline_csv, args.baseline_json, args.bug_detection_csv, eprint_records=True)
-
-def category_to_tag(is_correct: bool, category: str):
-    if is_correct:
-        return ""
-    with open("./src/stream/category_to_tag.json", "r") as file:
-        mapping = json.load(file)
-    mapping.sort(key=lambda x: x["priority"])
-    for entry in mapping:
-        if entry["category"] in category:
-            return entry["tag"]
-    return ""
-
-# Baseline JSON loader with refined correctness for buggy pipelines
-def load_baseline_json_results(json_path: Optional[str]) -> Dict[Tuple[str, str], Dict[str, Any]]:
-    data: Dict[Tuple[str, str], Dict[str, Any]] = {}
-    if not json_path:
-        return data
-    if not os.path.exists(json_path):
-        return data
-    try:
-        with open(json_path, 'r', encoding='utf-8') as f:
-            arr: List[Dict[str, Any]] = json.load(f)
-    except Exception:
-        return data
-
-    for rec in arr:
-        try:
-            path = rec.get("pipeline_file")
-            content = rec.get("pipeline")
-            if path is None or content is None:
-                continue
-            addr = normalize_address((path, content))
-            is_buggy: bool = bool(rec.get("is buggy?", False))
-            sc_warn: Optional[bool] = rec.get("shell check warning?")
-            lt_warn: Optional[bool] = rec.get("ltsh warning?")
-            sc_time: Optional[float] = rec.get("shell check processing time")
-            lt_time: Optional[float] = rec.get("ltsh processing time")
-
-            # Refine only for buggy pipelines
-            if is_buggy:
-                if sc_warn is True:
-                    sc_warn = bool(rec.get("shell_check_correctness", False))
-                if lt_warn is True:
-                    lt_warn = bool(rec.get("ltsh_correctness", False))
-
-            info = {
-                'is buggy?': is_buggy,
-                'sc warning?': bool(sc_warn) if sc_warn is not None else False,
-                'ltsh warning?': bool(lt_warn) if lt_warn is not None else False,
-                'sc time': float(sc_time) if sc_time is not None else 0.0,
-                'ltsh time': float(lt_time) if lt_time is not None else 0.0,
-            }
-            data[addr] = info
-        except Exception:
-            continue
-    return data
+        results_to_overview_csv(args.ann_json, args.raw_json, args.baseline_csv, args.overview_csv)
+        raw_json_to_bug_detection(args.raw_json, args.baseline_csv, args.bug_detection_csv, eprint_records=True)
 
 if __name__ == "__main__":
     main()

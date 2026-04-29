@@ -31,6 +31,7 @@ class Config:
             "enable_timeout": False,
             "timeout_seconds": 10,
             "enable_user_annotation": True,
+            "enable_concretization": True,
             "annotation_disabled_dirs": [],
             "num_workers": 1,
             
@@ -39,7 +40,6 @@ class Config:
             "enable_rule_no_meaningless_command": True,
             "enable_rule_no_sort_non_numeric_with_numeric_input": True,
             
-            "evaluation_notes_path": str(self.PROJECT_ROOT / "evaluation_notes.json"),
             "parsing_error_log_path": str(self.LOGS_DIR / "parsing_errors.log"),
             "shellcheck_command": "shellcheck",
             "ltsh_command": "ltsh",

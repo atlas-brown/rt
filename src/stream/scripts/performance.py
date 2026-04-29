@@ -1,12 +1,5 @@
 import json
 import argparse
-import difflib
-import os
-
-# Assuming the 'stream' module is available and has a class ShellParser.
-# Each ShellParser instance should have an attribute 'pipeline_nodes',
-# where each node provides a .pretty() method and an .items attribute.
-from stream.parser.shell_parser import ShellParser
 import csv
 
 def parse_time(time_str):
@@ -15,9 +8,6 @@ def parse_time(time_str):
     return float(time_str)
 
 def main(evaluation_result_file, baseline_csv, length_time_csv, stats_csv):
-    
-    #evaluation_result_file = "./evaluation_results/ann:y_heuristic:y/evaluation_results.json"
-
     with open(evaluation_result_file, 'r') as f:
         data = json.load(f)
     
@@ -25,34 +15,16 @@ def main(evaluation_result_file, baseline_csv, length_time_csv, stats_csv):
     times = []
     
     for result in data.get('evaluation_results', []):
-        address = result.get('address')
         time_val = result.get('evaluation_time')
         if time_val == "0s":
             continue
         time_val = parse_time(time_val)
         times.append(time_val)
         
-        try:
-            raise Exception()
-            shell_parser = ShellParser(address)
-            
-            best_similarity = -1.0
-            best_node_length = 0
-            
-            for node in shell_parser.pipeline_nodes:
-                node_str = node.pretty()
-                similarity = difflib.SequenceMatcher(None, "", node_str).ratio()
-                if similarity > best_similarity:
-                    best_similarity = similarity
-                    best_node_length = len(node.items)
-            
-            lengths.append(best_node_length)
-        except Exception as e:
-            #print(f"Error parsing {address}: {e}")
-            lengths.append(-1)
+        # Length is kept as the historical placeholder because the full
+        # pipeline already records real pipeline lengths in evaluation JSON.
+        lengths.append(-1)
     
-    # Write pairs to CSV
-    #length_time_csv = "evaluation_results/ann:y_heuristic:y/length_time_pairs.csv"
     with open(length_time_csv, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['Length', 'Time'])  # Header
@@ -75,13 +47,13 @@ def main(evaluation_result_file, baseline_csv, length_time_csv, stats_csv):
 
     shell_check_stats = stats(shell_check_times)
     ltsh_stats = stats(ltsh_times)
-    shtreams_stats = stats(times)
+    rt_stats = stats(times)
 
     # Write stats to CSV
     with open(stats_csv, 'w') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(['System', 'Mean', 'Min', 'Max'])  # Header
-        writer.writerow(['shtreams', *shtreams_stats])
+        writer.writerow(['RT', *rt_stats])
         writer.writerow(['sc', *shell_check_stats])
         writer.writerow(['ltsh', *ltsh_stats])
 

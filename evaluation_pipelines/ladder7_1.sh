@@ -1,1 +1,0 @@
-date | xargs expr 2 +

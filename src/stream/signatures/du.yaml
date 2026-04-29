@@ -1,6 +1,6 @@
 command_name: du
 default_input_type: .*
-default_output_type: .+
+default_output_type: '[0-9]+(\.[0-9]+)?[A-Za-z]?([[:blank:]].*)?'
 args: []
 flags: []
 rules:
@@ -9,9 +9,4 @@ rules:
     - no_ignored_input
   update:
     input_type: ''
-- condition:
-    flags:
-    - -a
-  update:
-    output_type: '[0-9]+( )+.*'
 isInteresting: true

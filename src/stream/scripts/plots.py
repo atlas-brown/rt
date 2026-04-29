@@ -15,15 +15,15 @@ def load_csv(file_path):
 
 color_scheme = ["#AA4465", "#FFA69E", "#998650", "#93E1D8"]
 figsize = (7, 4)
-sysname = "RT"
+BUG_DETECTION_RT_SYSTEM = "RT"
 
 ACCURACY_PANELS = (
     (True, "accuracy-chart-with-annotations.pdf"),
     (False, "accuracy-chart-without-annotations.pdf"),
 )
-ACCURACY_SYSTEMS = ("Rt", "ShellCheck", "LadderTypes")
+ACCURACY_SYSTEMS = ("RT", "ShellCheck", "LadderTypes")
 ACCURACY_COLORS = {
-    "Rt": "#8B1E3F",
+    "RT": "#8B1E3F",
     "ShellCheck": "#BE9832",
     "LadderTypes": "#9EDCF0",
 }
@@ -41,18 +41,6 @@ def _weighted_metric(rows, metric_column, weight_column):
 
     return float(np.average(values[valid_rows], weights=weights[valid_rows]))
 
-def _weighted_metric_with_weights(rows, metric_column, weights):
-    if rows.empty:
-        return 0.0
-
-    metric_values = pd.to_numeric(rows[metric_column], errors="coerce").fillna(0)
-    numeric_weights = pd.to_numeric(weights, errors="coerce").fillna(0)
-    valid_rows = numeric_weights > 0
-    if not valid_rows.any():
-        return 0.0
-
-    return float(np.average(metric_values[valid_rows], weights=numeric_weights[valid_rows]))
-
 def build_accuracy_chart_data(data, with_annotations):
     annotation_mask = data["With Annotations?"].astype(str).str.lower() == str(with_annotations).lower()
     panel_rows = data[annotation_mask].copy()
@@ -65,12 +53,12 @@ def build_accuracy_chart_data(data, with_annotations):
 
     return {
         "Buggy": {
-            "Rt": _weighted_metric(buggy_rows, "Accuracy", "# Incorrect"),
+            "RT": _weighted_metric(buggy_rows, "Accuracy", "# Incorrect"),
             "ShellCheck": _weighted_metric(buggy_rows, "SC Accuracy", "# Incorrect"),
             "LadderTypes": _weighted_metric(buggy_rows, "LT Accuracy", "# Incorrect"),
         },
         "Correct": {
-            "Rt": _weighted_metric(correct_rows, "Accuracy", "# Correct"),
+            "RT": _weighted_metric(correct_rows, "Accuracy", "# Correct"),
             "ShellCheck": _weighted_metric(correct_rows, "SC Accuracy", "# Correct"),
             "LadderTypes": _weighted_metric(correct_rows, "LT Accuracy", "# Correct"),
         },
@@ -131,46 +119,20 @@ def plot_accuracy_charts(data, output_dir):
         outputs.append((output_path, fig, ax))
     return outputs
 
-def plot_bug_detection_bar(data, output_path):
-    systems = data["System"].unique()
-    all_detected = [data[data["System"] == s]["All"].values[0] for s in systems]
-    only_this_detects = [data[data["System"] == s]["Only this detects"].values[0] for s in systems]
-    and_shtreams = [data[data["System"] == s]["and Shtreams"].values[0] for s in systems]
-    and_sc = [data[data["System"] == s]["and SC"].values[0] for s in systems]
-    and_lt = [data[data["System"] == s]["and LT"].values[0] for s in systems]
-
-    x = np.arange(len(systems))
-    plt.figure(figsize=figsize)
-    plt.rc('axes', axisbelow=True)
-    plt.grid(axis='y', linestyle='-', alpha=0.7)
-    plt.bar(x, all_detected, label="All", color="gray")
-    plt.bar(x, only_this_detects, bottom=all_detected, label="Only this detects", color=color_scheme[0], hatch="/")
-    plt.bar(x, and_shtreams, bottom=np.array(all_detected) + np.array(only_this_detects), label=f"and {sysname}", color=color_scheme[1], hatch="//")
-    plt.bar(x, and_sc, bottom=np.array(all_detected) + np.array(only_this_detects) + np.array(and_shtreams), label="and SC", color=color_scheme[2], hatch="\\")
-    plt.bar(x, and_lt, bottom=np.array(all_detected) + np.array(only_this_detects) + np.array(and_shtreams) + np.array(and_sc), label="and LT", color=color_scheme[3])
-
-    plt.xticks(x, [sysname, "ShellCheck", "LadderTypes"])#, rotation=40, ha="right")
-    plt.ylabel("Number of bugs detected")
-    plt.title(None)
-    # plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.3), ncol=3)
-    plt.legend(loc=(0.15, 1.025), ncol=3)
-    plt.tight_layout()
-    plt.savefig(output_path, format="pdf")
-
 def plot_bug_detection(data, output_path):
     from matplotlib_set_diagrams import EulerDiagram
 
     combination_counts = {
-        (1, 0, 0): data[data["System"] == "Shtreams"]["Only this detects"].values[0],
-        (1, 1, 0): data[data["System"] == "Shtreams"]["and SC"].values[0],
-        (1, 0, 1): data[data["System"] == "Shtreams"]["and LT"].values[0],
-        (1, 1, 1): data[data["System"] == "Shtreams"]["All"].values[0],
+        (1, 0, 0): data[data["System"] == BUG_DETECTION_RT_SYSTEM]["Only this detects"].values[0],
+        (1, 1, 0): data[data["System"] == BUG_DETECTION_RT_SYSTEM]["and SC"].values[0],
+        (1, 0, 1): data[data["System"] == BUG_DETECTION_RT_SYSTEM]["and LT"].values[0],
+        (1, 1, 1): data[data["System"] == BUG_DETECTION_RT_SYSTEM]["All"].values[0],
         (0, 1, 0): data[data["System"] == "ShellCheck"]["Only this detects"].values[0],
         (0, 1, 1): data[data["System"] == "ShellCheck"]["and LT"].values[0],
         (0, 0, 1): data[data["System"] == "LadderTypes"]["Only this detects"].values[0],
         }
     plt.figure(figsize=figsize)
-    dgm = EulerDiagram(combination_counts, set_labels=[f"{sysname} (w/o anns)", "ShellCheck", "LadderTypes"], set_colors=color_scheme[1:4])
+    dgm = EulerDiagram(combination_counts, set_labels=[BUG_DETECTION_RT_SYSTEM, "ShellCheck", "LadderTypes"], set_colors=color_scheme[1:4])
     for i, text in enumerate(dgm.set_label_artists):
         # move text to the right
         match i:
@@ -180,23 +142,6 @@ def plot_bug_detection(data, output_path):
                 text.set_position((text.get_position()[0], text.get_position()[1] - 0.85))
             case 2:
                 text.set_position((text.get_position()[0] + 1.5, text.get_position()[1] + 0))
-    plt.title(None)
-    plt.tight_layout()
-    plt.savefig(output_path, format="pdf")
-
-def plot_length_time(data, output_path):
-    aggregated_data = data.groupby("Length").agg({
-        "Time": "mean"
-    }).reset_index()
-
-    plt.figure(figsize=figsize)
-    plt.rc('axes', axisbelow=True)
-    plt.scatter(data["Length"], data["Time"], color=color_scheme[1])
-    plt.scatter(aggregated_data["Length"], aggregated_data["Time"], marker="s", color=color_scheme[0])
-    plt.grid(axis='y', linestyle='-', alpha=0.7)
-    plt.xticks(list(range(2, 12)), list(range(2, 12)))
-    plt.xlabel("Pipeline length (stages)")
-    plt.ylabel("Analysis time (s)")
     plt.title(None)
     plt.tight_layout()
     plt.savefig(output_path, format="pdf")
@@ -248,11 +193,6 @@ def parse_arguments():
         help="Path to the input CSV file (e.g., bug_detection.csv)."
     )
     parser.add_argument(
-        "length_time_csv",
-        type=str,
-        help="Path to the input CSV file (e.g., length_time.csv)."
-    )
-    parser.add_argument(
         "automata_csv",
         type=str,
         help="Path to the input CSV file (e.g., automata_sizes.csv)."
@@ -284,8 +224,6 @@ def main():
     bug_detection_data = load_csv(args.bug_detection_csv)
     plot_bug_detection(bug_detection_data, os.path.join(args.output_dir, "bug-detection.pdf"))
     plt.rc('font', size=12)
-    length_time_data = load_csv(args.length_time_csv)
-    plot_length_time(length_time_data, os.path.join(args.output_dir, "time-length-chart.pdf"))
     automata_data = load_csv(args.automata_csv)
     plot_automata_sizes(automata_data, os.path.join(args.output_dir, "automata-sizes.pdf"))
     

@@ -355,7 +355,6 @@ function hg_prompt_vars {
 ################################################################################
 # Output should be no more than one line
 # If "hexdump -v" is modeled this can be caught I think
-# @output ".+\n"
 # stream enable
         SCM_CHANGE=$(hexdump -vn 10 -e '1/1 "%02x"' "$HG_ROOT/dirstate" | cut -c-12)
     else

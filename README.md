@@ -43,9 +43,7 @@ python3 -m pip install -r requirements.txt
 The main entry points are:
 
 - `bash scripts/check_functionality.sh` for the artifact-functional path,
-- `bash scripts/reproduce_full.sh` for the full paper pipeline,
-- `sh typecheck.sh -f <pipeline-file>` for ad hoc single-pipeline checking,
-- `./run_evaluations.sh` for ad hoc batch evaluation over the configured corpora.
+- `bash scripts/reproduce_full.sh` for the full paper pipeline.
 
 The benchmark directories used by the batch runner are configured in `src/stream/config/config.yaml`. By default they include the small handwritten examples in `evaluation_pipelines/` plus the larger corpora in `full_benchmark/`.
 
@@ -93,5 +91,7 @@ bash scripts/reproduce_full.sh --force
 ```
 
 That wrapper drives the baseline files, the RT runs and ablations, the merged summary CSVs, and the PDFs under `evaluation_results/plots/`.
+
+The bug-detection plot compares the unannotated RT run against ShellCheck and LadderTypes, with the RT system labeled simply as `RT`.
 
 The expanded guide, including artifact-available, artifact-functional, and results-reproducible instructions, is in `INSTRUCTIONS.md`.

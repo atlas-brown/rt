@@ -3,7 +3,6 @@ from stream.command_signature import CommandSignature, InferenceResult
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
 from stream.transducer import product_fst_automaton, tail_FST
-# from stream.utils.logger import get_logger
 
 class TailSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -11,8 +10,6 @@ class TailSignature(CommandSignature):
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         self_contained = True
-        # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-        # get_logger().get_latest_record()["command_list"][-1]["command_type_loses_precision"] = True
         if len(parsed_command_invocation.operand_list) > 0:
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
             if previous_output_type.tainted:
@@ -38,8 +35,6 @@ class TailSignature(CommandSignature):
             except Exception as e:
                 output_type = previous_output_type
                 output_type.tainted = True
-            # NOTE(logger-state): output_type/precision stored for downstream type summaries.
-            # get_logger().get_latest_record()["command_list"][-1]["output_type"] = "α"
             return InferenceResult(output_type, lambda x: x, self_contained)
         return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
         

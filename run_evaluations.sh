@@ -1,1 +1,0 @@
-PYTHONPATH=src python3 src/stream/run_evaluations.py "$@"

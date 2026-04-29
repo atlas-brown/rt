@@ -97,7 +97,8 @@ fi
 # + NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
 ################################################################################
 # If `ip -4 route ls` was modeled the annotation would not be needed
-# @output ".*\n"
+# @assume "grep -Po '(?<=dev )(\S+)'" --> "[^\n]+\n[^\n]+"
+# @output "[^\n]*\n?"
 # stream enable
 NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)')
 

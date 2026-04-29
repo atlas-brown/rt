@@ -920,7 +920,7 @@ dig_at() {
 # + interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/@.*//g;s/: <.*//g;")"
 ################################################################################
 
-# @output "~([0-9]*: | master |@.*|: <.*)UP~( master |@.*|: <.*)"
+# @output "(|~([0-9]*: | master |@.*|: <.*)UP~( master |@.*|: <.*))"
 # stream enable
     interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/@.*//g;s/: <.*//g;")"
 

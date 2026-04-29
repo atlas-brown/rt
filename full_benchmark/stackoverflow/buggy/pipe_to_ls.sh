@@ -5,5 +5,6 @@
 # tags: buggy, trivial
 # bug:  piping output to ls
 # ---
+# @input ".+"
 # stream enable
 tail -f | ls -t /var/log/impala/impalad.demo.local.impala.log.INFO.* | head -1

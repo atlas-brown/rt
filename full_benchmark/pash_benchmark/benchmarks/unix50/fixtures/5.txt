@@ -1,0 +1,1 @@
+A is for awk, which runs like a snail, and

@@ -15,13 +15,26 @@ from stream.utils.function_timer import timer
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 
 
-ANNOTATION_PATTERN = re.compile(r'^\s*#\s*@(assume|assert|expect|assert_contains)\s*"(.*)"\s*-->\s*"(.*)"\s*$|^\s*#\s*@(input|output|output_contains)\s*"(.*)"\s*$|^\s*#\s*@(file|var)\s*"(.*)"\s*:\s*"(.*)"\s*$')
+ANNOTATION_PATTERN = re.compile(
+    r'^\s*#\s*@(assume|assert|expect|assert_contains)\s*"(.*)"\s*-->\s*"(.*)"\s*$'
+    r'|^\s*#\s*@(concretize)\s*"(.*)"\s*-->\s*"(.*)"\s*$'
+    r'|^\s*#\s*@(input|output|output_contains)\s*"(.*)"\s*$'
+    r'|^\s*#\s*@(file|var)\s*"(.*)"\s*:\s*"(.*)"\s*$'
+)
 
 class ShellParser:
     @timer
-    def __init__(self, pipeline_address: str, enable_user_annotations: bool = True, extract_all_pipelines: bool = True) -> None:
+    def __init__(
+        self,
+        pipeline_address: str,
+        enable_user_annotations: bool = True,
+        extract_all_pipelines: bool = True,
+        enable_concretization: bool = True,
+    ) -> None:
         self.signature_loader = SignatureLoader.get_instance()
         self.pipeline_address = pipeline_address
+        self.enable_user_annotations = enable_user_annotations
+        self.enable_concretization = enable_concretization
         
         # Check for stream disable in first two lines if extract_all_pipelines is True
         if extract_all_pipelines:
@@ -48,7 +61,7 @@ class ShellParser:
             self.pipeline_nodes = pipeline_result
             self.enable_line_map = {}
 
-        if enable_user_annotations:
+        if enable_user_annotations or enable_concretization:
             self.annotations, self.input_pattern, self.env_annotations = self.extract_annotations_from_file()
             logging.debug(f"Annotations: {self.annotations}")
             logging.debug(f"Env Annotations: {self.env_annotations}")
@@ -75,13 +88,6 @@ class ShellParser:
         for node in self.pipeline_nodes:
             commands_in_pipe : list[CommandInvocationInitial] = []
             for command_node in node.items:
-                # try:
-                #     cmd_raw = command_node.pretty()
-                #     parsed_command_invocation = annot_parse(cmd_raw)
-                # except Exception as e:
-                #     raise PashAnnotationParsingError(f"Failed to parse command: {cmd_raw}, error: {e}")
-                #     # logging.warning(f"Failed to parse command: {cmd_raw}, error: {e}")
-                #     # parsed_command_invocation = CommandInvocationInitial("parsed_fail_command", [], [])
                 parsed_command_invocation = get_command_invocation(command_node)
                 commands_in_pipe.append(parsed_command_invocation)
             pipelines.append([self.parse_command_node(command) for command in commands_in_pipe])
@@ -101,6 +107,63 @@ class ShellParser:
                 raise ValueError(f"Parsing failed: {command}")
                 
             return ast_nodes[0][0].pretty()
+
+    @staticmethod
+    def _normalize_annotation_var(var: str) -> str:
+        # Keep the same shell-variable normalization used by @file/@var.
+        return re.sub(r'\$(?!\{)([A-Za-z_][A-Za-z0-9_]*|[0-9]+)', r'${\1}', var)
+
+    @staticmethod
+    def _escape_concrete_line(line: str) -> str:
+        escaped = []
+        special_chars = set(r'\|&~*+?.^$()[]{}')
+        for char in line:
+            if char == "\t":
+                escaped.append(r"\t")
+            elif char == "\r":
+                escaped.append(r"\r")
+            elif char in special_chars:
+                escaped.append("\\" + char)
+            else:
+                escaped.append(char)
+        return "".join(escaped)
+
+    def _concretize_file_to_pattern(self, path: str) -> str:
+        file_path = path
+        if not os.path.isabs(file_path):
+            file_path = os.path.join(os.path.dirname(self.pipeline_address), file_path)
+
+        with open(file_path, "r", encoding="utf-8", errors="replace") as handle:
+            lines = handle.read().splitlines()
+
+        seen = set()
+        escaped_lines = []
+        for line in lines:
+            if line in seen:
+                continue
+            seen.add(line)
+            escaped_lines.append(self._escape_concrete_line(line))
+
+        if not escaped_lines:
+            return ""
+        if len(escaped_lines) == 1:
+            return escaped_lines[0]
+        return "(" + "|".join(escaped_lines) + ")"
+
+    def _add_concretize_annotation(
+        self,
+        node: PipeNode,
+        var: str,
+        pattern: str,
+        annotation_line: str,
+        env_annotations: Dict[PipeNode, Dict[str, List[EnvAnnotation]]],
+    ) -> None:
+        var = self._normalize_annotation_var(var)
+        corresponding_annotations = env_annotations.get(node).get(var, [])
+        corresponding_annotations.append(
+            EnvAnnotation(AnnotationType.CONCRETIZE, var, pattern, node, annotation_line)
+        )
+        env_annotations.get(node)[var] = corresponding_annotations
 
     @timer
     def extract_annotations_from_file(self) -> Tuple[Dict[CommandNode, list[UserAnnotation]], Optional[str], Dict[PipeNode, Dict[str, List[EnvAnnotation]]]]:
@@ -143,12 +206,14 @@ class ShellParser:
                         annotation_type = AnnotationType(res.group(1))
                     elif res.group(4) is not None:
                         annotation_type = AnnotationType(res.group(4))
+                    elif res.group(7) is not None:
+                        annotation_type = AnnotationType(res.group(7))
                     else:
-                        annotation_type = AnnotationType(res.group(6))
+                        annotation_type = AnnotationType(res.group(9))
                     
                     match annotation_type:
                         case AnnotationType.INPUT | AnnotationType.OUTPUT | AnnotationType.OUTPUT_CONTAINS:
-                            pattern = res.group(5)
+                            pattern = res.group(8)
                             command = None
                         case AnnotationType.ASSUME | AnnotationType.ASSERT | AnnotationType.ASSERT_CONTAINS:
                             command = res.group(2)
@@ -156,11 +221,29 @@ class ShellParser:
                         case AnnotationType.EXPECT:
                             pattern = res.group(2)
                             command = res.group(3)
+                        case AnnotationType.CONCRETIZE:
+                            var = res.group(5)
+                            pattern = res.group(6)
                         case AnnotationType.VAR | AnnotationType.FILE:
-                            var = res.group(7)
-                            pattern = res.group(8)
+                            var = res.group(10)
+                            pattern = res.group(11)
                         case _:
                             raise ValueError("Invalid annotation type")
+
+                    if annotation_type == AnnotationType.CONCRETIZE:
+                        if self.enable_concretization:
+                            concrete_pattern = self._concretize_file_to_pattern(pattern)
+                            self._add_concretize_annotation(
+                                node,
+                                var,
+                                concrete_pattern,
+                                line,
+                                env_annotations,
+                            )
+                        continue
+
+                    if not self.enable_user_annotations:
+                        continue
                     
                     # Process each annotation type
                     if annotation_type == AnnotationType.INPUT:
@@ -178,14 +261,17 @@ class ShellParser:
                     
                     if annotation_type == AnnotationType.VAR or annotation_type == AnnotationType.FILE:
                         # $1 -> ${1}
-                        var = re.sub(r'\$(.+)(?!\})', r'${\1}', var)
+                        var = self._normalize_annotation_var(var)
                         corresponding_annotations = env_annotations.get(node).get(var, [])
                         corresponding_annotations.append(EnvAnnotation(annotation_type, var, pattern, node, line))
                         env_annotations.get(node)[var] = corresponding_annotations
                         continue
 
                     if command:
-                        refined_command = self.refine_command(command)
+                        # Annotation fields are double-quoted, so command snippets may
+                        # escape embedded shell quotes.  The shell parser should see the
+                        # command the script sees, not the annotation delimiter escapes.
+                        refined_command = self.refine_command(command.replace(r'\"', '"'))
                         
                         for command_node in node.items:
                             if command_node.pretty() == refined_command:

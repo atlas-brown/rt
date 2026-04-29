@@ -11,7 +11,35 @@ FORCE="$1"
 
 export PYTHONPATH=src
 
-DISABLE_HEURISTICS_FLAGS="--disable_rule_no_empty_output --disable_rule_no_ignored_input --disable_rule_no_meaningless_command --disable_rule_no_sort_non_numeric_with_numeric_input"
+if [ ! -z "$FORCE" ]; then
+    rm -rf \
+        evaluation_results/ann:y_heuristic:y_fst:y \
+        evaluation_results/ann:n_heuristic:y_fst:y \
+        evaluation_results/ann:y_heuristic:n_fst:y \
+        evaluation_results/ann:n_heuristic:n_fst:y \
+        evaluation_results/ann:y_heuristic:y_fst:n \
+        evaluation_results/ann:n_heuristic:y_fst:n \
+        evaluation_results/ann:y_heuristic:n_fst:n \
+        evaluation_results/ann:n_heuristic:n_fst:n \
+        evaluation_results/ann:y_heuristic:y_fst:y_concretization:n \
+        evaluation_results/ann:n_heuristic:y_fst:y_concretization:n
+    rm -f \
+        evaluation_results/ablation_table.md \
+        evaluation_results/timing_table.md \
+        evaluation_results/baseline.csv \
+        evaluation_results/baseline.json \
+        evaluation_results/merged_results_heuristic:*.csv \
+        evaluation_results/bug_detection_heuristic:*.csv \
+        evaluation_results/bug_detection_categories_heuristic:*.txt \
+        evaluation_results/overview_heuristic:*.csv \
+        evaluation_results/analysis_time_stats_fst:*.csv \
+        evaluation_results/plots/*.pdf
+fi
+
+# `no_ignored_input` is a core compatibility check: piping non-empty input into
+# a command that does not consume stdin is a direct stream contract violation,
+# not a heuristic. Keep it enabled in the "heuristic:n" ablation.
+DISABLE_HEURISTICS_FLAGS="--disable_rule_no_empty_output --disable_rule_no_meaningless_command --disable_rule_no_sort_non_numeric_with_numeric_input"
 
 if [ ! -f evaluation_results/baseline.csv ] || [ ! -z "$FORCE" ]; then
     python3 src/stream/scripts/baseline.py
@@ -30,6 +58,12 @@ if [ ! -f evaluation_results/ann:n_heuristic:n_fst:y/evaluation_results.json ] |
 fi
 if [ ! -f evaluation_results/ann:y_heuristic:y_fst:n/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
     python3 src/stream/run_evaluations.py --disable_fsts --outdir evaluation_results/ann:y_heuristic:y_fst:n
+fi
+if [ ! -f evaluation_results/ann:y_heuristic:y_fst:y_concretization:n/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
+    python3 src/stream/run_evaluations.py --disable_concretization --outdir evaluation_results/ann:y_heuristic:y_fst:y_concretization:n
+fi
+if [ ! -f evaluation_results/ann:n_heuristic:y_fst:y_concretization:n/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
+    python3 src/stream/run_evaluations.py --disable_annotation --disable_concretization --outdir evaluation_results/ann:n_heuristic:y_fst:y_concretization:n
 fi
 if [ ! -f evaluation_results/ann:y_heuristic:n_fst:n/evaluation_results.json ] || [ ! -z "$FORCE" ]; then
     python3 src/stream/run_evaluations.py $DISABLE_HEURISTICS_FLAGS --disable_fsts --outdir evaluation_results/ann:y_heuristic:n_fst:n
@@ -64,4 +98,4 @@ python3 src/stream/scripts/extract_automata_size.py evaluation_results/ann:y_heu
 
 python3 src/stream/scripts/ablation_table.py
 python3 src/stream/scripts/timing_table.py
-python3 src/stream/scripts/plots.py evaluation_results/overview_heuristic:y_fst:y.csv evaluation_results/bug_detection_heuristic:y_fst:y.csv evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv --output_dir evaluation_results/plots/
+python3 src/stream/scripts/plots.py evaluation_results/overview_heuristic:y_fst:y.csv evaluation_results/bug_detection_heuristic:y_fst:y.csv evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv --output_dir evaluation_results/plots/

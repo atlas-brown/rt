@@ -142,7 +142,7 @@ elif [[ "$OSTYPE" = linux*  ]]; then
 ################################################################################
       # https://chatgpt.com/share/67fa7031-0c74-8006-bdb0-cb4917856ff7
       # @assume "acpi 2>/dev/null" --> "Battery [0-9]+:(Disc|C)harging,[ \t]+[1-9][0-9]{1,2}%,[ \t]+((([0-9]{2}:){2}[0-9]{2} ((until charged)|remaining))|rate information unavailable)|~(Battery.*)"
-      # @output "[1-9][0-9]{1,2}"
+      # @output "[0-9]+"
       # stream enable
       acpi 2>/dev/null | cut -f3 -d ','
     fi

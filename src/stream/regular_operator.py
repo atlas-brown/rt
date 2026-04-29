@@ -242,7 +242,6 @@ def field_select(input_type: RegularType, delimiter: str, field_indices: str, in
             
         
 def translate_match(input_type: RegularType, pattern: str | RegularType, replacement: str, global_match: bool = False) -> RegularType:
-    # FIXME: handle replacement group capture
     original_pattern = None
     if isinstance(pattern, str):
         original_pattern = pattern

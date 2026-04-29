@@ -16,7 +16,6 @@ def full_stream_to_line_based_FST() -> FST:
         (2, "$other", "", 2),
         (100, "$other", "", 100),
     ]
-    # return create_fst(specs, start_state=-1, final_states={-1, 1, 100})
     return create_fst(specs, start_state=-1, final_states={1, 100})
 
 def translate_to_line_delimited_FST(set1: str) -> FST:
@@ -175,20 +174,6 @@ def add_newline_if_not_end_with_newline_FST() -> FST:
     ]
     return create_fst(specs, start_state=0, final_states={1, 2})
     
-        
-
-# def cut_field_no_upperbound_FST(delimiter: str, start_field: int, leading_delimiter : bool = False) -> FST:
-#     specs = []
-#     for i in range(1, start_field):
-#         if i == start_field - 1 and leading_delimiter:
-#             specs.append((i, delimiter, "$self", i + 1))
-#         else:
-#             specs.append((i, delimiter, "", i + 1))
-#         specs.append((i, "$other", "", i))
-
-#     specs.append((start_field, "$other", "$self", start_field))
-#     return create_fst(specs, start_state=1, final_states={i for i in range(1, start_field + 1)})
-
 def cut_char_FST(fields: List[int], has_upperbound: bool = True) -> FST:
     specs = []
     max_field = max(fields)
@@ -292,22 +277,6 @@ def stream_based_filter_FST(automaton: Automaton) -> FST:
     specs.append((fallback_state_id, "$other", "", fallback_state_id))
     return create_fst(specs, start_state=0, final_states=final_states | {0, fallback_state_id})
     
-    
-            
-
-# def cut_char_no_upperbound_FST(start_field: int) -> FST:
-#     specs = []
-#     for i in range(1, start_field):
-#         specs.append((i, "$other", "", i + 1))
-#     specs.append((start_field, "$other", "$self", start_field))
-#     return create_fst(specs, start_state=1, final_states={i for i in range(1, start_field + 1)})
-
-# TODO
-# def add_newline_if_not_end_with_newline() -> FST:
-#     specs = [
-
-#     ]
-
 def global_replacement_FST(s1: str, s2: str) -> FST:
     m = len(s1)
     if m == 0:
@@ -491,9 +460,6 @@ def global_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
 
 
 
-    # FIXME: incorrect leftmost longest match: can handle: aa?; but cannot handle a(aa)?
-    # FIXME: there is no failure function for regex now: cannot handle repalce a.a with x in aaba
-    # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
 
     # 5 modes
     # match: the original automaton i
@@ -510,9 +476,6 @@ def global_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
         raise ToolError("pattern regex is empty")
     if automaton.isEmptyString():
         raise ToolError("pattern regex is empty string")
-    # pattern = automaton.getSingleton()
-    # if pattern is None:
-    #     return global_replacement_FST(pattern, s2)
     state_map: Dict[State, int] = {}
     specs = []
     states = automaton.getStates()
@@ -618,8 +581,6 @@ def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
                 if not a.subsetOf(b):
                     intersentions.append((new_min, new_max))
         return intersentions
-    # FIXME: there is no failure function for regex now: cannot handle repalce a.a with x in aaba
-    # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
 
     # 5 modes
     # match: the original automaton i
@@ -634,9 +595,6 @@ def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
         raise ToolError("pattern regex is empty")
     if automaton.isEmptyString():
         raise ToolError("pattern regex is empty string")
-    # pattern = automaton.getSingleton()
-    # if pattern is None:
-    #     return global_replacement_FST(pattern, s2)
     state_map: Dict[State, int] = {}
     specs = []
     states = automaton.getStates()
@@ -725,7 +683,6 @@ def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
 
 
 def start_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
-    # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
 
     # 5 modes
     # match: the original automaton i
@@ -740,9 +697,6 @@ def start_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
         raise ToolError("pattern regex is empty")
     if automaton.isEmptyString():
         raise ToolError("pattern regex is empty string")
-    # pattern = automaton.getSingleton()
-    # if pattern is None:
-    #     return global_replacement_FST(pattern, s2)
     state_map: Dict[State, int] = {}
     specs = []
     states = automaton.getStates()
@@ -849,9 +803,6 @@ def global_regex_extract_FST(automaton: Automaton) -> FST:
 
 
 
-    # FIXME: incorrect leftmost longest match: can handle: aa?; but cannot handle a(aa)?
-    # FIXME: there is no failure function for regex now: cannot handle repalce a.a with x in aaba
-    # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
 
     # 5 modes
     # match: the original automaton i
@@ -869,9 +820,6 @@ def global_regex_extract_FST(automaton: Automaton) -> FST:
         raise ToolError("pattern regex is empty")
     if automaton.isEmptyString():
         raise ToolError("pattern regex is empty string")
-    # pattern = automaton.getSingleton()
-    # if pattern is None:
-    #     return global_replacement_FST(pattern, s2)
     state_map: Dict[State, int] = {}
     specs = []
     states = automaton.getStates()
@@ -955,7 +903,6 @@ def global_regex_extract_FST(automaton: Automaton) -> FST:
 
 
 def start_regex_extract_FST(automaton: Automaton) -> FST:
-    # FIXME: cannot handle regex that contains empty string: replace a* with b in ac, should be bcb
 
     # 5 modes
     # match: the original automaton i
@@ -970,9 +917,6 @@ def start_regex_extract_FST(automaton: Automaton) -> FST:
         raise ToolError("pattern regex is empty")
     if automaton.isEmptyString():
         raise ToolError("pattern regex is empty string")
-    # pattern = automaton.getSingleton()
-    # if pattern is None:
-    #     return global_replacement_FST(pattern, s2)
     state_map: Dict[State, int] = {}
     specs = []
     states = automaton.getStates()

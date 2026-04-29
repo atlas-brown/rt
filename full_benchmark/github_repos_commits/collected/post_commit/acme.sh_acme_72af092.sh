@@ -1019,6 +1019,7 @@ _readKeyLengthFromCSR() {
 
 # @assume "echo "$_outcsr"" --> " *Public Key: \([1-9][0-9]* bit\)|~( *Public.*)"
 # @output "[1-9][0-9]*"
+# @output_contains "[1-9][0-9]*"
 # stream enable
     echo "$_outcsr" | _egrep_o "^ *Public.Key:.*" | cut -d '(' -f 2 | cut -d ' ' -f 1
   fi
