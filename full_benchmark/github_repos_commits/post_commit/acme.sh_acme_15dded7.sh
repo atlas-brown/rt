@@ -4517,25 +4517,6 @@ $_authorizations_map"
         _info "Pending"
       elif [ "$status" = "processing" ]; then
         _info "Processing"
-################################################################################
-# Commit message: fix retry https://github.com/acmesh-official/acme.sh/issues/2939#issuecomment-632481658
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/15dded712c6c255715887be7ee5b29775257c18b
-# Category: 
-# Notes: 
-# Changed content:
-# - _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ')
-# + _retryafter=$(echo "$responseHeaders" | grep -i "^Retry-After *:" | cut -d : -f 2 | tr -d ' ' | tr -d '\r')
-################################################################################
-
-# (George) ---
-# See https://github.com/acmesh-official/acme.sh/issues/2939#issuecomment-632481658
-# Also see ./acme.sh_acme_48f02fb.sh
-# This is essentially the same bug.
-# NOTE: This might also catch the bug present in ./acme.sh_acme_70f4cad.sh,
-#       although I'm not sure if this is an issue here or not.
-# ---
-
-# If HTTP headers were modeled the @assume annotation would not be needed.
 # @assume "echo "$responseHeaders"" --> "Retry-After *: *[1-9][0-9]*\r?|(~(Retry-After.*)&~(retry-After.*))"
 # @output "[1-9][0-9]*"
 # stream enable

@@ -69,19 +69,6 @@ function installQuestions() {
 	echo "I need to ask you a few questions before starting the setup."
 	echo "You can leave the default options and just press enter if you are ok with them."
 	echo ""
-
-	# Detect public IPv4 or IPv6 address and pre-fill for the user
-################################################################################
-# Commit message: Better IPv4 detection (#278) On some systems like Hetzner VM cloud i have a Point-to-Point interface so i have a peer address on the same line as my public IPv4 (look at peer here : https://linux.die.net/man/8/ip )  An example of `ip a` with peer is :  ``` 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000     link/ether 96:00:00:a2:88:c2 brd ff:ff:ff:ff:ff:ff     altname enp0s3     inet XX.XX.XX.XX peer XX.XX.XX.XX/32 brd XX.XX.XX.XX scope global eth0        valid_lft forever preferred_lft forever     inet6 fe80::9400:ff:fea2:88c2/64 scope link         valid_lft forever preferred_lft forever ``` With a peer, the output of the command line 74 is : `XX.XX.XX.XX peer XX.XX.XX.XX` I just modify this line with awk to print only the first field which is always the IPv4. I think it's correct and it's work like a charm when there is a peer or not now. But tell me if it's not good for you :) Thanks for your work !
-# Commit URL: https://github.com/angristan/wireguard-install/commit/e05e633014628a65942cffab66f68228b6e17f7a
-# Category: 
-# Notes: 
-# Changed content:
-# - SERVER_PUB_IP=$(ip -4 addr | sed -ne 's|^.* inet \([^/]*\)/.* scope global.*$|\1|p' | head -1)
-# + SERVER_PUB_IP=$(ip -4 addr | sed -ne 's|^.* inet \([^/]*\)/.* scope global.*$|\1|p' | awk '{print $1}' | head -1)
-################################################################################
-# This could probably be caught if "ip -4 addr" was modeled
-# Commit message explains the problem quite nicely
 # stream enable
 	SERVER_PUB_IP=$(ip -4 addr | sed -ne 's|^.* inet \([^/]*\)/.* scope global.*$|\1|p' | awk '{print $1}' | head -1)
 	if [[ -z ${SERVER_PUB_IP} ]]; then

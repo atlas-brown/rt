@@ -17,15 +17,6 @@ function +vi-git-untracked() {
     fi
 
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' && \
-################################################################################
-# Commit message: Fix untracked state of the vcs segment
-# Commit URL: https://github.com/romkatv/powerlevel10k/commit/cb5d33affb4fb223ec29f6dfb89ff8b0bb6e9133
-# Category: 
-# Notes: 
-# Changed content:
-# - -n $(git status ${FLAGS} | grep -E '^??' 2> /dev/null | tail -n1) ]]; then
-# + -n $(git status ${FLAGS} | grep -E '^\?\?' 2> /dev/null | tail -n1) ]]; then
-################################################################################
 # @output "\?\?.*"
 # stream enable
             -n $(git status ${FLAGS} | grep -E '^??' 2> /dev/null | tail -n1) ]]; then

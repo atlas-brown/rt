@@ -229,16 +229,6 @@ if [[ "$MODE" = "stealth" ]]; then
       echo -e "${OKGREEN}====================================================================================${RESET}•x${OKGREEN}[`date +"%Y-%m-%d](%H:%M)"`${RESET}x•"
       echo -e "$OKRED FETCHING GUA URLS $RESET"
       echo -e "${OKGREEN}====================================================================================${RESET}•x${OKGREEN}[`date +"%Y-%m-%d](%H:%M)"`${RESET}x•"
-################################################################################
-# Commit message: Gau Syntax Fix  ❌ `gau -subs $TARGET` ✅ `gau --subs $TARGET`
-# Commit URL: https://github.com/1N3/Sn1per/commit/ca08f79ab27349b796cc2d94ce58184ce15e4bfd
-# Category: 
-# Notes: 
-# Changed content:
-# - gau -subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
-# + gau --subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
-################################################################################
-# need gau modeled to catch (or possibly heuristic about long/short options)
 # stream enable
       gau --subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
     fi
@@ -398,16 +388,6 @@ if [[ "$MODE" = "stealth" ]]; then
       echo -e "${OKGREEN}====================================================================================${RESET}•x${OKGREEN}[`date +"%Y-%m-%d](%H:%M)"`${RESET}x•"
       echo -e "$OKRED FETCHING GUA URLS $RESET"
       echo -e "${OKGREEN}====================================================================================${RESET}•x${OKGREEN}[`date +"%Y-%m-%d](%H:%M)"`${RESET}x•"
-################################################################################
-# Commit message: Gau Syntax Fix  ❌ `gau -subs $TARGET` ✅ `gau --subs $TARGET`
-# Commit URL: https://github.com/1N3/Sn1per/commit/ca08f79ab27349b796cc2d94ce58184ce15e4bfd
-# Category: 
-# Notes: 
-# Changed content:
-# - gau -subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
-# + gau --subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
-################################################################################
-# need gau modeled to catch (or possibly heuristic about long/short options)
 # stream enable
       gau --subs $TARGET | tee $LOOT_DIR/web/gua-$TARGET.txt 2> /dev/null | head -n 250
     fi

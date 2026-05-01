@@ -343,18 +343,6 @@ function hg_prompt_vars {
     fi
 
     if [ -f "$HG_ROOT/dirstate" ]; then
-        # Mercurial holds various information about the working directory in .hg/dirstate file. More on http://mercurial.selenic.com/wiki/DirState
-################################################################################
-# Commit message: hg SCM_CHANGE: prevent hexdump squeezing hexdump by default will replace any repeated groups with an asterisk and a newline, which breaks prompts. This can be disabled with the `-v` flag. For example: ``` printf 'aac' | hexdump -e '1/1 "%02x"' 61* 63 printf 'abc' | hexdump -e '1/1 "%02x"' 616263 printf 'aac' | hexdump -ve '1/1 "%02x"' 616163 ```
-# Commit URL: https://github.com/Bash-it/bash-it/commit/ba02955340e84bff4f6d90883eafdcfab341c9e2
-# Category: 
-# Notes: 
-# Changed content:
-# - SCM_CHANGE=$(hexdump -n 10 -e '1/1 "%02x"' "$HG_ROOT/dirstate" | cut -c-12)
-# + SCM_CHANGE=$(hexdump -vn 10 -e '1/1 "%02x"' "$HG_ROOT/dirstate" | cut -c-12)
-################################################################################
-# Output should be no more than one line
-# If "hexdump -v" is modeled this can be caught I think
 # stream enable
         SCM_CHANGE=$(hexdump -n 10 -e '1/1 "%02x"' "$HG_ROOT/dirstate" | cut -c-12)
     else

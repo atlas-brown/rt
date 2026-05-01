@@ -74,15 +74,6 @@ copyManpage()
 response=$( echo "$@" | grep -Eo "\-\-prefix")
 
 if [[ $response == "--prefix" ]]; then
-################################################################################
-# Commit message: Taking away spaces in capture field in installer for homebrew prefix
-# Commit URL: https://github.com/alexanderepstein/Bash-Snippets/commit/67be56791dddc3a07660ce0ae29585a74695b88e
-# Category: 
-# Notes: 
-# Changed content:
-# - prefix=$(echo -n "$@" | sed -e 's/--prefix=\(.*\) .*/\1/' | grep -Eo "^[a-z/A-Z= -- .0-9]*")
-# + prefix=$(echo -n "$@" | sed -e 's/--prefix=\(.*\) .*/\1/' | grep -Eo "^[a-z/A-Z=--.0-9]*")
-################################################################################
 # @output "[a-z/A-Z=--.0-9]*"
 # stream disable
   prefix=$(echo -n "$@" | sed -e 's/--prefix=\(.*\) .*/\1/' | grep -Eo "^[a-z/A-Z= -- .0-9]*")

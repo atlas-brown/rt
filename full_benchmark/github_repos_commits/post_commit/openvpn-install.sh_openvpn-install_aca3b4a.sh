@@ -86,17 +86,6 @@ IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,
 if [[ "$IP" = "" ]]; then
 	IP=$(wget -qO- ipv4.icanhazip.com)
 fi
-# Get Internet network interface with default route
-################################################################################
-# Commit message: Fix the network interface variable Fix for #83 (comment)
-# Commit URL: https://github.com/angristan/openvpn-install/commit/aca3b4a019c3545331e2f8e39af65ac730501d6a
-# Category: 
-# Notes: 
-# Changed content:
-# - NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)')
-# + NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
-################################################################################
-# If `ip -4 route ls` was modeled the annotation would not be needed
 # @assume "grep -Po '(?<=dev )(\S+)'" --> "[^\n]+\n[^\n]+"
 # @output "[^\n]*\n?"
 # stream enable

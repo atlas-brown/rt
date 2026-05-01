@@ -168,25 +168,6 @@ _1984hosting_login() {
   _debug2 response "$response"
 
   if [ "$response" = '{"loggedin": true, "ok": true}' ]; then
-################################################################################
-# Commit message: Fix broken grep so that One984HOSTING_COOKIE actually gets set, and isn't left empty.
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/0ab14399ae1863e949639f78e5b3ac60501c9e46
-# Category: 
-# Notes: 
-# Changed content:
-# - One984HOSTING_COOKIE="$(grep '^Set-Cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"
-# + One984HOSTING_COOKIE="$(grep '^set-cookie:' "$HTTP_HEADER" | _tail_n 1 | _egrep_o 'sessionid=[^;]*;' | tr -d ';')"
-################################################################################
-
-# (George) ---
-# See https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie
-# Very simple: proper HTTP header is Set-Cookie, script greps for set-cookie.
-# If HTTP headers were modeled, the user could annotate the HTTP_HEADERS file as such.
-# The full annotations would include all possible headers (instead of the current workaround, which can be seen below),
-# none of which would match the pattern "^set-cookie:".
-# ---
-
-# By modeling HTTP headers we would know all the exact possible values.
 # @file "$HTTP_HEADER": "set-cookie: sessionid=[0-9a-z]+|~(Set-Cookie.*)"
 # @output_contains "sessionid=[0-9a-z]+"
 # stream enable

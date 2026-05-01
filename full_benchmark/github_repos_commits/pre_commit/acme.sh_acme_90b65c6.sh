@@ -1253,23 +1253,6 @@ _createcsr() {
     domainlist="$(_idn "$domainlist")"
     _debug2 domainlist "$domainlist"
     alt="$(_getIdType "$domain" | _upper_case):$(_idn "$domain")"
-################################################################################
-# Commit message: fix https://github.com/acmesh-official/acme.sh/issues/3898  https://github.com/acmesh-official/acme.sh/issues/3898
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/90b65c6618dbb00f1718667979f8aa375df67fd0
-# Category: 
-# Notes: 
-# Changed content:
-# - for dl in $(echo "$domainlist" | tr "," ' '); do
-# + for dl in $(echo "'$domainlist'" | sed "s/,/' '/g"); do
-################################################################################
-
-# (George) ---
-# See https://github.com/acmesh-official/acme.sh/issues/3898
-# The problem is that $dl can contain "*" that can glob, which is not desired here.
-# The fix surrounds each word with '' to avoid globbing.
-# ---
-
-# put stream annotation here
 # stream enable
     for dl in $(echo "$domainlist" | tr "," ' '); do
       alt="$alt,$(_getIdType "$dl" | _upper_case):$dl"

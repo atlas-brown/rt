@@ -117,16 +117,6 @@ elif [[ "$OSTYPE" = linux*  ]]; then
 
   function battery_pct() {
     if (( $+commands[acpi] )); then
-################################################################################
-# Commit message: Remove invalid batteries (#8275)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/15a03744a9e87b8dd371a4fbac456a73d27d32d5
-# Category: 
-# Notes: 
-# Changed content:
-# - acpi 2>/dev/null | cut -f3 -d ','
-# + acpi 2>/dev/null | command grep -v "rate information unavailable" | cut -f3 -d ','
-################################################################################
-      # https://chatgpt.com/share/67fa7031-0c74-8006-bdb0-cb4917856ff7
       # @assume "acpi 2>/dev/null" --> "Battery [0-9]+:(Disc|C)harging,[ \t]+[1-9][0-9]{1,2}%,[ \t]+((([0-9]{2}:){2}[0-9]{2} ((until charged)|remaining))|rate information unavailable)|~(Battery.*)"
       # @output "[0-9]+"
       # stream enable

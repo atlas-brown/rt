@@ -15,22 +15,6 @@ function in_svn() {
 function svn_get_repo_name {
     if [ $(in_svn) ]; then
         svn info | sed -n 's/Repository\ Root:\ .*\///p' | read SVN_ROOT
-    
-################################################################################
-# Commit message: Don't drop everything after a trailing slash, as this breaks standard svn branches: ^/branches/featurename ^/releases/Release-vx.y ^/trunk
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/e2f7623534054645e849db42a0030a1642e5ba97
-# Category: 
-# Notes: 
-# Changed content:
-# - svn info | sed -n "s/URL:\ .*$SVN_ROOT\///p" | sed "s/\/.*$//"
-# + svn info | sed -n "s/URL:\ .*$SVN_ROOT\///p"
-################################################################################
-# https://chatgpt.com/share/67fbea22-f12c-8006-8cf5-8b8aa20c0953
-# Output is of the form "repos/project/trunk" (basically a relative path)
-# I think the original idea was to just eliminate the final segment,
-# but they ended up eliminating all but the first segment
-
-# The @assume annotation would not be needed if "svn info" was modeled
 # @assume "sed -n "s/URL:\ .*$SVN_ROOT\///p"" --> "[^/]+(/[^/]+)+"
 # @output "[^/]+(/[^/]+)+"
 # stream enable

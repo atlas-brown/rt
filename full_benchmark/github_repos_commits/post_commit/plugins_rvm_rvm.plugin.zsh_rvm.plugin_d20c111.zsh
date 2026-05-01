@@ -60,19 +60,6 @@ function rvm-update {
 function gems {
 	local current_ruby=`rvm-prompt i v p`
 	local current_gemset=`rvm-prompt g`
-
-################################################################################
-# Commit message: rvm plugin: Fix `gems` to work with GNU sed  Fix #1579.
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/d20c111d78f52dfe81bc632532774d3715feb4e3
-# Category: 
-# Notes: 
-# Changed content:
-# - gem list $@ | sed \
-# + gem list $@ | sed -E \
-################################################################################
-# see https://github.com/ohmyzsh/ohmyzsh/pull/1579
-# "-E" appearing multiple times makes the sed invocation fail
-# put stream annotation here
 # stream enable
 	gem list $@ | sed -E \
 		-e "s/\([0-9, \.]+( .+)?\)/$fg[blue]&$reset_color/g" \

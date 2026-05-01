@@ -142,17 +142,6 @@ compdef _git glp=git-log
 #
 # This function return a warning if the current branch is a wip
 function work_in_progress() {
-################################################################################
-# Commit message: escape dashes
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/d60522c7a290565c9de7594817a9d201732d5dd9
-# Category: 
-# Notes: 
-# Changed content:
-# - if $(git log -n 1 2>/dev/null | grep -q -c "--wip--"); then
-# + if $(git log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
-################################################################################
-# grep pattern begins with a dash so it will get interpreted as an argument
-# this shouldn't need annotations
 # stream enable
   if $(git log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
     echo "WIP!!"
@@ -160,17 +149,6 @@ function work_in_progress() {
 }
 # these alias commit and uncomit wip branches
 alias gwip='git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit -m "--wip--"'
-################################################################################
-# Commit message: escape dashes
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/d60522c7a290565c9de7594817a9d201732d5dd9
-# Category: 
-# Notes: 
-# Changed content:
-# - alias gunwip='git log -n 1 | grep -q -c "--wip--" && git reset HEAD~1'
-# + alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
-################################################################################
-# grep pattern begins with a dash so it will get interpreted as an argument
-# this shouldn't need annotations
 # stream enable
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 

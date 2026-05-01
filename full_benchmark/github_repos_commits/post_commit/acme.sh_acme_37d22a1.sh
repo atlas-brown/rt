@@ -4018,28 +4018,7 @@ issue() {
 
       #for dns manual mode
       _savedomainconf "Le_OrderFinalize" "$Le_OrderFinalize"
-
-################################################################################
-# Commit message: fix #2830 Autorization segment typo fixed  This fixes the parsing of the authorization segment in the response of an order. Without this fix the start of the array is not found correctly and therefore the finalize URL is part of the authorization segment. Changing the regex to *\[[^\[]*\] fix this. Seems to be a typo which has not been recognized so far. This can be only recognized if the response is in a single line.
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/37d22a144a0f4e6e08941672b3137a2045cf1d17
-# Category: 
-# Notes: 
-# Changed content:
-# - _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"
-# + _authorizations_seg="$(echo "$response" | _egrep_o '"authorizations" *: *\[[^\[]*\]' | cut -d '[' -f 2 | tr -d ']' | tr -d '"')"
-################################################################################
-
-# (George) ---
-# See https://github.com/acmesh-official/acme.sh/issues/2830
-# Also see https://chatgpt.com/share/67f6508f-0020-8006-a2b4-e24087c53fb9
-# A mistake in grep's regex fails to capture the expected output.
-# Pre-commit, the regex captures zero or more ']' (']*'), instead of zero or more arbitrary characters.
-# Detecting this depends on knowing the contents of the a server response.
-# I'm pretty sure that the output of the entire line is a list of comma-separated URLs (asked ChatGPT, but it makes sense).
 # @output "((https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)?,)*" (URL regex)
-# ---
-
-# The @assume annotation would not be needed if the Let's Encrypt authorizations were modeled.
 # @assume "echo "$response"" --> ""authorizations" *: *\[[^\[]*\]|~(.*authorizations.*)"
 # @output_contains "[^\[\]"]*"
 # stream enable

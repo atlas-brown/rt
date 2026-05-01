@@ -326,16 +326,6 @@ function _bash-it-update-() {
 		fi
 
 		for i in $(git rev-list --merges --first-parent "${revision}"); do
-################################################################################
-# Commit message: helpers: fix awk: unterminated regexp
-# Commit URL: https://github.com/Bash-it/bash-it/commit/1e77c26c0059742467e787f86de515ac4bcbee5d
-# Category: 
-# Notes: 
-# Changed content:
-# - num_of_lines=$(git log -1 --format=%B "$i" | awk '!/^[[:space:]]*$ {++i} END{print i}')
-# + num_of_lines=$(git log -1 --format=%B "$i" | awk '!/^[[:space:]]*$/ {++i} END{print i}')
-################################################################################
-# incorrect awk argument if I'm not mistaken
 # stream enable
 			num_of_lines=$(git log -1 --format=%B "$i" | awk '!/^[[:space:]]*$ {++i} END{print i}')
 			if [[ "$num_of_lines" -eq 1 ]]; then

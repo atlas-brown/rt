@@ -212,22 +212,6 @@ if (( $+commands[xdg-open] )); then
     if [[ -z "$infos" ]]; then
       return
     fi
-################################################################################
-# Commit message: archlinux: fix pacweb breaking when multiple packages found (#9059)  Co-authored-by: Magnus Boman <Kattus@users.noreply.github.com>
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/cea89f54391c810198a7ace05f1063dd7e596bb7
-# Category: 
-# Notes: 
-# Changed content:
-# - repo="$(grep '^Repo' <<< "$infos" | grep -oP '[^ ]+$')"
-# + repo="$(grep -m 1 '^Repo' <<< "$infos" | grep -oP '[^ ]+$')"
-# - arch="$(grep '^Arch' <<< "$infos" | grep -oP '[^ ]+$')"
-# + arch="$(grep -m 1 '^Arch' <<< "$infos" | grep -oP '[^ ]+$')"
-################################################################################
-    # https://chatgpt.com/share/67fa6d9a-fd94-8006-936b-5004b181dedd
-    # input can contain multiple matching lines when multiple packages are found by "pacman -Si"
-    # output must be exactly one line
-    # realistically the output would have been annotated more precisely, but it doesn't matter
-    
     # @input "(Repo[a-z ]*[ \t]+:[ \t]+[A-Za-z0-9\-\_]+)+\n(Arch[a-z ]*[ \t]+:[ \t]+[A-Za-z0-9\-\_]+)+\n([A-Z][a-z ]+[ \t]+:[ \t]+.+)*"
     # @output "[^ \n]+\n"
     # stream disable (libdash parsing error)

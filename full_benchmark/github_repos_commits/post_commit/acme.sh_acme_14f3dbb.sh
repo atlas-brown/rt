@@ -169,27 +169,6 @@ _sed_i() {
     return 1
   fi
   _debug2 options "$options"
-################################################################################
-# Commit message: minor, fix sed_i
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/14f3dbb71aa16cb0c61efc58695dfe09d4ca44c9
-# Category: 
-# Notes: 
-# Changed content:
-# - if sed -h 2>&1 | grep "\-i[SUFFIX]" ; then
-# + if sed -h 2>&1 | grep "\-i\[SUFFIX]" >/dev/null 2>&1; then
-################################################################################
-
-# (George) ---
-# Sed does not have a "-h" option, so "sed -h" outputs "usage: ...".
-# GNU sed contains "-i[SUFFIX]" in the produced output.
-# The sed pre-installed on my machine (macOS) does not contain it.
-# If the output of "sed -h" is known for both, the bug can be caught since the original
-# regex would never match anything from the output.
-# However, if not all versions of sed are known, I don't see how we could infer that the regex is wrong.
-# Hopefully I'm missing something.
-# ---
-
-# put annotation here
 # @output_contains "-i\[SUFFIX\]"
 # stream enable
   if sed -h 2>&1 | grep "\-i\[SUFFIX]" >/dev/null 2>&1; then

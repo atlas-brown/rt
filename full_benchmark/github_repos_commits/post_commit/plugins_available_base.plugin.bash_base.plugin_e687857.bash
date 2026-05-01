@@ -7,21 +7,6 @@ function ips ()
     group 'base'
     if command -v ifconfig &>/dev/null
     then
-################################################################################
-# Commit message: fix ips issue #998
-# Commit URL: https://github.com/Bash-it/bash-it/commit/e687857eb014d1a59773da16d7f67c01e27c4910
-# Category: 
-# Notes: 
-# Changed content:
-# - ifconfig | awk '/inet /{ print $2 }'
-# + ifconfig | grep  -E "inet "|sed 's/addr://g' | awk '{print $2}'
-################################################################################
-
-# See https://github.com/Bash-it/bash-it/issues/998
-# This requires modeling ifconfig's behavior on multiple systems and checking
-# that the pipeline's output is the same on all systems, because the bug
-# occurs due to platform differences
-
 # @assume "ifconfig" --> "inet (addr:)?([0-9]{1,3}\.){3}\.[0-9]{1,3}( [^ \t]+)+|~(.*inet.*)"
 # @output "([0-9]{1,3}\.){3}\.[0-9]{1,3}"
 # stream enable

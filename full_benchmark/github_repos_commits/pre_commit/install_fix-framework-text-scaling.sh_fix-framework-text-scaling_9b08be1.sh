@@ -1,12 +1,3 @@
-################################################################################
-# Commit message: Fix match and condition
-# Commit URL: https://github.com/basecamp/omakub/commit/9b08be176e6a2ed77430825eac715047acfffd52
-# Category: 
-# Notes: 
-# Changed content:
-# - COMPUTER_MAKER=$(sudo dmidecode -t system | grep 'Manufacturer' | awk '{print $2}')
-# + COMPUTER_MAKER=$(sudo dmidecode -t system | grep 'Manufacturer:' | awk '{print $2}')
-################################################################################
 # @assert "grep 'Manufacturer'" --> ".*Manufacturer:.*"
 # stream enable
 COMPUTER_MAKER=$(sudo dmidecode -t system | grep 'Manufacturer' | awk '{print $2}')

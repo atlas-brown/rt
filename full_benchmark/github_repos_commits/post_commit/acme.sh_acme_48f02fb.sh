@@ -2736,29 +2736,6 @@ _deactivate() {
       _err "Can not get domain token."
       return 1
     fi
-    
-################################################################################
-# Commit message: minor
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/48f02fb61bb4874218292a6d724a35dd95cc7982
-# Category: 
-# Notes: 
-# Changed content:
-# - authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2)"
-# + authzUri="$(echo "$responseHeaders" | grep "^Location:" | cut -d ' ' -f 2 | tr -d "\r\n")"
-################################################################################
-
-# (George) ---
-# See https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Location
-# The pipeline extracts the URL from a Location HTTP header.
-# If the request has CRLF line endings then the output of cut can contain
-# a trailing \r (https://google.com\r).
-# The commit adds a "tr -d" invocation to remove it.
-# This is a very good example where built-in regex patterns would help,
-# as the user could just specify '@output "URL"' (which is a fairly complicated regex).
-# NOTE: I could recreate the bug on macOS using 'echo "Location: https://google.com\r\n"' into the pipeline.
-# ---
-
-# The @assume annotation is temporary, until HTTP responses have been modeled.
 # @assume "echo "$responseHeaders"" --> "Location: (https?://)?[a-zA-Z0-9_-.]+(.[a-zA-Z]{2,})(/[a-zA-Z0-9_-./?%&=]*)\r?|~(Location:.*)"
 # @assume "grep \"^Location:\"" --> "Location: https?://[^ \t\r\n]+\r?"
 # @output "https?://[^ \t\r\n]+"

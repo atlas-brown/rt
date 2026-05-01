@@ -62,15 +62,6 @@ function git_prompt_long_sha() {
 git_prompt_status() {
   INDEX=$(git status --porcelain -b 2> /dev/null)
   STATUS=""
-################################################################################
-# Commit message: This fixes checking for git untracked items  The grep expression was incorrect for normal grep. Adding the `-E` option fixed the escaping of the question marks.
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/889045068465c3aac25b212b80b07f3f1755d937
-# Category: 
-# Notes: 
-# Changed content:
-# - if $(echo "$INDEX" | grep '^\?\? ' &> /dev/null); then
-# + if $(echo "$INDEX" | grep -E '^\?\? ' &> /dev/null); then
-################################################################################
 # @output "\?\? .*"
 # stream enable
   if $(echo "$INDEX" | grep -E '^\?\? ' &> /dev/null); then

@@ -3161,43 +3161,11 @@ _checkConf() {
       FOUND_REAL_NGINX_CONF="$2"
       return 0
     fi
-
-################################################################################
-# Commit message: fix https://github.com/acmesh-official/acme.sh/issues/1914#issuecomment-893188476
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/06580bf0e457fafb63fdd2e7aa8fad36dfb86d35
-# Category: 
-# Notes: 
-# Changed content:
-# - if cat "$2" | tr "\t" " " | grep "^ *include *;" >/dev/null; then
-# + if cat "$2" | tr "\t" " " | grep "^ *include +.*;" >/dev/null; then
-################################################################################
-
-# (George) ---
-# See https://github.com/acmesh-official/acme.sh/issues/3648#issuecomment-894045613
-# Also see https://nginx.org/en/docs/ngx_core_module.html#include
-# Also see ./acme.sh_acme_5a44e63.sh
-# The file $2 is an NGINX config. There exists a spec for this so it
-# could definitely be modeled.
-# Note: The script is still buggy post-commit.
-# ---
-
-# If NGINX configs were modeled we would know the possible values of [a-zA-Z]+ and [^ \t]+ in the annotation.
 # @file "$2": "[ \t]*[a-zA-Z]+[ \t]+[^ \t;]+;"
 # @output_contains "include [^ \t;]+;"
 # stream enable
     if cat "$2" | tr "\t" " " | grep "^ *include *;" >/dev/null; then
       _debug "Try include files"
-
-################################################################################
-# Commit message: fix https://github.com/acmesh-official/acme.sh/issues/1914#issuecomment-893188476
-# Commit URL: https://github.com/acmesh-official/acme.sh/commit/06580bf0e457fafb63fdd2e7aa8fad36dfb86d35
-# Category: 
-# Notes: 
-# Changed content:
-# - for included in $(cat "$2" | tr "\t" " " | grep "^ *include *;" | sed "s/include //" | tr -d " ;"); do
-# + for included in $(cat "$2" | tr "\t" " " | grep "^ *include +.*;" | sed "s/include //" | tr -d " ;"); do
-################################################################################
-
 # @file "$2": "[ \t]*[a-zA-Z]+[ \t]+[^ \t;]+;"
 # @output_contains "[^ \t;]+"
 # stream enable

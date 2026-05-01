@@ -7,16 +7,6 @@
 
 # Composer basic command completion
 _composer_get_command_list () {
-################################################################################
-# Commit message: Fix: "\s" is a gawk-specific regexp operator.
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/8b5950b812b56a652ce1101f8d4adc569e516160
-# Category: 
-# Notes: 
-# Changed content:
-# - $_comp_command1 --no-ansi | sed "1,/Available commands/d" | awk '/^\s*[a-z]+/ { print $1 }'
-# + $_comp_command1 --no-ansi | sed "1,/Available commands/d" | awk '/^[ \t]*[a-z]+/ { print $1 }'
-################################################################################
-# not sure if this can be caught, but the bug is that "awk" does not support \s character class (only the GNU version, aka "gawk")
 # stream enable
     $_comp_command1 --no-ansi | sed "1,/Available commands/d" | awk '/^[ \t]*[a-z]+/ { print $1 }'
 }

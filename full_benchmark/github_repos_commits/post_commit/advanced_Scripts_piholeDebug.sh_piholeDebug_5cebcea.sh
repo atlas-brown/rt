@@ -898,28 +898,6 @@ dig_at() {
     #
     # Turn off history expansion such that the "!" in the sed command cannot do silly things
     set +H
-    # Get interfaces
-    # sed logic breakdown:
-    #     / master /d;
-    #          Removes all interfaces that are slaves of others (e.g. virtual docker interfaces)
-    #     /UP/!d;
-    #          Removes all interfaces which are not UP
-    #     s/^[0-9]*: //g;
-    #          Removes interface index
-    #     s/@.*//g;
-    #          Removes everything after @ (if found)
-    #     s/: <.*//g;
-    #          Removes everything after the interface name
-################################################################################
-# Commit message: Remove `@` and following character from interface name  Signed-off-by: RD WebDesign <github@rdwebdesign.com.br>
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/5cebceadda93ceb73038b6d248044933af2e0459
-# Category: 
-# Notes: 
-# Changed content:
-# - interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/: <.*//g;")"
-# + interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/@.*//g;s/: <.*//g;")"
-################################################################################
-
 # @output "(|~([0-9]*: | master |@.*|: <.*)UP~( master |@.*|: <.*))"
 # stream enable
     interfaces="$(ip link show | sed "/ master /d;/UP/!d;s/^[0-9]*: //g;s/@.*//g;s/: <.*//g;")"

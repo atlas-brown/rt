@@ -90,15 +90,6 @@ function git_prompt_vars {
   local behind_re='.+behind ([0-9]+).+'
   [[ "${status}" =~ ${ahead_re} ]] && SCM_GIT_AHEAD=" ${SCM_GIT_AHEAD_CHAR}${BASH_REMATCH[1]}"
   [[ "${status}" =~ ${behind_re} ]] && SCM_GIT_BEHIND=" ${SCM_GIT_BEHIND_CHAR}${BASH_REMATCH[1]}"
-################################################################################
-# Commit message: Trim the whitespace from git stash output
-# Commit URL: https://github.com/Bash-it/bash-it/commit/24c1cd117060d54396046c17a1d98ca034e498a2
-# Category: 
-# Notes: 
-# Changed content:
-# - local stash_count="$(git stash list | wc -l)"
-# + local stash_count="$(git stash list | wc -l | tr -d ' ')"
-################################################################################
 # @output "[^ ]+"
 # stream disable (different platform)
   local stash_count="$(git stash list | wc -l | tr -d ' ')"

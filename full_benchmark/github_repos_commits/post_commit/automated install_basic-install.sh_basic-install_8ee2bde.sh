@@ -889,18 +889,6 @@ configureFirewall() {
     firewall-cmd --reload
   # Check for proper kernel modules to prevent failure
   elif modinfo ip_tables &> /dev/null; then
-    # If chain Policy is not ACCEPT or last Rule is not ACCEPT
-    # then check and insert our Rules above the DROP/REJECT Rule.
-################################################################################
-# Commit message: Plain grep, escape the special characters.  Signed-off-by: Dan Schaper <dan.schaper@pi-hole.net>
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/8ee2bdec4d8a8ecb923d432395c2559eb1fefe69
-# Category: 
-# Notes: 
-# Changed content:
-# - if iptables -S INPUT | head -n1 | grep -qv 'ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '(^-A\|^-P).*ACCEPT$'; then
-# + if iptables -S INPUT | head -n1 | grep -qv '^-P.*ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '^-\(A\|P\).*ACCEPT$'; then
-################################################################################
-
 # @output_contains "-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT"
 # stream enable
     if iptables -S INPUT | head -n1 | grep -qv '^-P.*ACCEPT$' || iptables -S INPUT | tail -n1 | grep -qv '^-\(A\|P\).*ACCEPT$'; then

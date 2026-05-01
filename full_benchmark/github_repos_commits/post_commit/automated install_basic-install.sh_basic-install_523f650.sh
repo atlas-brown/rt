@@ -2554,31 +2554,6 @@ FTLcheckUpdate() {
             local FTLversion
             FTLversion=$(/usr/bin/pihole-FTL tag)
             local FTLlatesttag
-
-################################################################################
-# Commit message: Use the 'Location:' header only.  Signed-off-by: Dan Schaper <dan.schaper@pi-hole.net>
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/523f6501576f76bfcc7e5d3ddc3cf0a287089790
-# Category: 
-# Notes: 
-# Changed content:
-# - if ! FTLlatesttag=$(curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location | awk -F / '{print $NF}' | tr -d '[:cntrl:]'); then
-# + if ! FTLlatesttag=$(curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location: | awk -F / '{print $NF}' | tr -d '[:cntrl:]'); then
-################################################################################
-
-# (George) ---
-# The output of "curl -I" is parsed to extract the Location header.
-# However, the grep pattern "Location" can match multiple different headers
-# making the rest of the pipeline produce incorrect results.
-# Specifically: Location, Content-Location, and custom headers such as X-Location-Whatever
-# I believe the following heuristic could be used:
-#   When parsing HTTP headers:
-#   - If the pattern matches one header exactly (Location) and at least one more
-#     header partially (Content-Location), issue a warning
-#   - If the pattern matches headers only partially or not at all, then assume it is intended
-# Note: I believe the pipeline is technically buggy even after the commit due to
-#       the possible match of Content-Location
-# ---
-
             # @assert "grep --color=never -i Location" --> ".*(L|l)ocation:.*"
             # stream enable
             if ! FTLlatesttag=$(curl -sI https://github.com/pi-hole/FTL/releases/latest | grep --color=never -i Location: | awk -F / '{print $NF}' | tr -d '[:cntrl:]'); then

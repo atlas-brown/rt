@@ -108,17 +108,6 @@ function hg_prompt_vars {
     fi
     SCM_PREFIX=${HG_THEME_PROMPT_PREFIX:-$SCM_THEME_PROMPT_PREFIX}
     SCM_SUFFIX=${HG_THEME_PROMPT_SUFFIX:-$SCM_THEME_PROMPT_SUFFIX}
-################################################################################
-# Commit message: fixed: hg branch grep+awk problem #197
-# Commit URL: https://github.com/Bash-it/bash-it/commit/70e4ac9e553c37a3595643c3cd3ebc22406e955b
-# Category: 
-# Notes: 
-# Changed content:
-# - SCM_BRANCH=$(hg summary 2> /dev/null | grep branch | awk '{print $2}')
-# + SCM_BRANCH=$(hg summary 2> /dev/null | grep branch: | awk '{print $2}')
-# - SCM_CHANGE=$(hg summary 2> /dev/null | grep parent | awk '{print $2}')
-# + SCM_CHANGE=$(hg summary 2> /dev/null | grep parent: | awk '{print $2}')
-################################################################################
 # @assert "grep branch" --> ".*branch:.*"
 # stream enable
     SCM_BRANCH=$(hg summary 2> /dev/null | grep branch: | awk '{print $2}')

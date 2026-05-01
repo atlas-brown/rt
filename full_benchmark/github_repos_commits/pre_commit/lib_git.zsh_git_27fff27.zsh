@@ -165,48 +165,16 @@ function git_prompt_status() {
   if $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_UNMERGED$STATUS"
   fi
-################################################################################
-# Commit message: Fix git_prompt_status() not showing ahead/behind/diverged status correctly (#5388)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/27fff27253ec7f631f3f9e51f0a9f37214d67f17
-# Category: 
-# Notes: 
-# Changed content:
-# - if $(echo "$INDEX" | grep '^## .*ahead' &> /dev/null); then
-# + if $(echo "$INDEX" | grep '^## [^ ]\+ .*ahead' &> /dev/null); then
-################################################################################
-# The output of "git status --porcelain -b 2" (aka the contents of $INDEX)
-# is of the form "## branch-name...remote/master [ahead/behind/diverged <number>]"
-# The problem is that ahead/behind/diverged can appear in the branch name
-# and thus be mistakenly matched by grep
-
 # @output "## .* .*"
 # stream enable
   if $(echo "$INDEX" | grep '^## .*ahead' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_AHEAD$STATUS"
   fi
-################################################################################
-# Commit message: Fix git_prompt_status() not showing ahead/behind/diverged status correctly (#5388)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/27fff27253ec7f631f3f9e51f0a9f37214d67f17
-# Category: 
-# Notes: 
-# Changed content:
-# - if $(echo "$INDEX" | grep '^## .*behind' &> /dev/null); then
-# + if $(echo "$INDEX" | grep '^## [^ ]\+ .*behind' &> /dev/null); then
-################################################################################
 # @output "## .* .*"
 # stream enable
   if $(echo "$INDEX" | grep '^## .*behind' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_BEHIND$STATUS"
   fi
-################################################################################
-# Commit message: Fix git_prompt_status() not showing ahead/behind/diverged status correctly (#5388)
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/27fff27253ec7f631f3f9e51f0a9f37214d67f17
-# Category: 
-# Notes: 
-# Changed content:
-# - if $(echo "$INDEX" | grep '^## .*diverged' &> /dev/null); then
-# + if $(echo "$INDEX" | grep '^## [^ ]\+ .*diverged' &> /dev/null); then
-################################################################################
 # @output "## .* .*"
 # stream enable
   if $(echo "$INDEX" | grep '^## .*diverged' &> /dev/null); then

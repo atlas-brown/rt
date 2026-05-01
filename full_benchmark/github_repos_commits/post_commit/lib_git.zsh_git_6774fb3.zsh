@@ -52,24 +52,6 @@ git_prompt_status() {
   if $(echo "$INDEX" | grep '^R  ' &> /dev/null); then
     STATUS="$ZSH_THEME_GIT_PROMPT_RENAMED$STATUS"
   fi
-################################################################################
-# Commit message: Minor corrections to deletion detection in git_prompt_status
-# Commit URL: https://github.com/ohmyzsh/ohmyzsh/commit/6774fb3d59365ddb8520cdb4d46444720f788be0
-# Category: 
-# Notes: 
-# Changed content:
-# - if $(echo "$INDEX" | grep '^D ' &> /dev/null); then
-# + if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
-################################################################################
-# See https://git-scm.com/docs/git-status#_short_format
-# This could have been caught legitimately, with a small problem:
-# - The assumed output refers to files in the working tree,
-#   but the executed command can output information about files in index
-#   and about merge information between branches
-
-# The dev in this case cares only about the working tree output (see comment above function name),
-# so the bug could be caught if this could be somehow specified
-
 # @assume "echo "$INDEX"" --> "( M| T| D| R| C|??) .*"
 # @output_contains " D .*"
 # stream enable

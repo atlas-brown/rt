@@ -242,25 +242,6 @@ get_sys_stats() {
         disk_used="${disk_raw[0]}"
         disk_total="${disk_raw[1]}"
         disk_perc="${disk_raw[2]}"
-
-################################################################################
-# Commit message: Only get the first gateway for chronometer  Signed-off-by: Mark Drobnak <mark.drobnak@gmail.com>
-# Commit URL: https://github.com/pi-hole/pi-hole/commit/dac27f1f181f0c107ed623ca17e946fc9aafc045
-# Category: 
-# Notes: 
-# Changed content:
-# - net_gateway=$(ip route | grep default | cut -d ' ' -f 3)
-# + net_gateway=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1)
-################################################################################
-
-# (George) ---
-# The bug here is that the output of "ip route" might contain multiple default
-# gateways. By asserting that the output can only contain one line the bug should be caught.
-# I tried to very crudely model "ip route" based on this website:
-# https://www.cyberciti.biz/faq/ip-route-add-network-command-for-linux-explained/
-# I have a Mac, so I didn't want to base the regex on my local output.
-# ---
-
 # @assume "cut -d ' ' -f 3" --> "[^\n]+\n[^\n]+"
 # @output "[^\n]*\n?"
 # stream enable
