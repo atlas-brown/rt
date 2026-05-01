@@ -28,13 +28,37 @@ class GrepSignature(CommandSignature):
             patterns = [operands[0]]
         return patterns
 
+    @classmethod
+    def _parsed_flags_and_operands(cls, parsed_command_invocation):
+        operands, has_double_dash = cls._normalized_operands(parsed_command_invocation)
+        operands = list(operands)
+        flags = set()
+        flag_args: dict[str, list[str]] = {}
+
+        for flag in parsed_command_invocation.flag_option_list:
+            name = flag.get_name()
+            arg = flag.get_arg() if hasattr(flag, "get_arg") else None
+
+            if name == "-f" and arg and arg.startswith("-") and len(arg) > 1 and operands:
+                flags.add("-f")
+                for option_char in arg[1:]:
+                    flags.add(f"-{option_char}")
+                flag_args.setdefault("-f", []).append(operands[0])
+                operands = operands[1:]
+                continue
+
+            flags.add(name)
+            if arg:
+                flag_args.setdefault(name, []).append(arg)
+
+        return flags, flag_args, operands, has_double_dash
+
     def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations):
         input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         if "no_meaningless_command" not in heuristic_rules:
             return input_type, no_input_type
     
-        parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
-        operands, has_double_dash = self._normalized_operands(parsed_command_invocation)
+        parsed_flags, _, operands, has_double_dash = self._parsed_flags_and_operands(parsed_command_invocation)
 
         if len(operands) > 1 or (len(operands) == 1 and "-e" in parsed_flags):
             return RegularType(""), None
@@ -79,24 +103,20 @@ class GrepSignature(CommandSignature):
 
     def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
         self_contained = True
-        normalized_operands, has_double_dash = self._normalized_operands(parsed_command_invocation)
-        if len(normalized_operands) > 1 or (len(normalized_operands) == 1 and "-e" in parsed_command_invocation.flag_option_list):
+        flags, flag_args, normalized_operands, has_double_dash = self._parsed_flags_and_operands(parsed_command_invocation)
+        if len(normalized_operands) > 1 or (len(normalized_operands) == 1 and ("-e" in flags or "-f" in flags)):
             previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
             if previous_output_type.tainted:
                 self_contained = False
         lose_precision = False
 
-        flags = set()
-        flag_args : dict[str, list[str]] = {}
-        for flag in parsed_command_invocation.flag_option_list:
-            name = flag.get_name()
-            flags.add(name)
-            if hasattr(flag, 'get_arg') and flag.get_arg():
-                if name not in flag_args:
-                    flag_args[name] = []
-                flag_args[name].append(flag.get_arg())
-
         mode = "extended" if "-E" in flags else "basic"
+
+        if "-c" in flags:
+            return InferenceResult(RegularType("[0-9]+"), lambda x: previous_output_type.get_shortest_example(), self_contained)
+
+        if "-f" in flags and "-o" not in flags:
+            return InferenceResult(previous_output_type, lambda x: x, self_contained)
 
         if "-e" in flags:
             patterns = self._patterns_from_e_flags(flag_args, normalized_operands)
@@ -130,9 +150,6 @@ class GrepSignature(CommandSignature):
             pattern_type_str = pattern_type.pattern
             original_pattern_type = RegularType(pattern, mode)
             arg_count = len(parsed_command_invocation.operand_list)
-
-        if "-c" in flags:
-            return InferenceResult(RegularType("[0-9]+"), lambda x: previous_output_type.get_shortest_example(), self_contained)
 
         if "-o" not in flags:
             if not starts_with_start_anchor(original_pattern_type):

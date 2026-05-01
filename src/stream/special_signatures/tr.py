@@ -293,7 +293,7 @@ def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> s
     set1 = parsed_command_invocation.operand_list[0].name
     set1 = set1.replace("\\\\", "\\")
     set1 = replace_POSIX_class(set1)
-    set1 = re.sub(r"([[\]])", r"\\\1", set1)
+    set1 = re.sub(r"([\[\]])", r"\\\1", set1)
     if "-c" in parsed_flags:
         return f"[{set1}]*"
 

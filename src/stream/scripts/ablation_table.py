@@ -39,7 +39,7 @@ def main() -> None:
     for key, path in summaries.items():
         table[key] = load_summary_counts(path)
 
-    output_path = evaluation_results / "ablation_table.md"
+    output_path = evaluation_results / "tables" / "ablation_table.md"
     lines = [
         "| Ann | Label | RT | w/o heus | w/o FSTs | w/o con |",
         "|---|---|---:|---:|---:|---:|",
@@ -58,6 +58,7 @@ def main() -> None:
             f"| {ann_label} | buggy | {buggy_rt} / {buggy_total} | {buggy_wo_heus} / {buggy_total} | {buggy_wo_fsts} / {buggy_total} | {buggy_wo_con} / {buggy_total} |"
         )
 
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

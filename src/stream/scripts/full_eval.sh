@@ -18,19 +18,17 @@ export TYPEDB
 EVAL_ROOT=evaluation_results
 BASELINE_DIR="$EVAL_ROOT/baseline"
 DERIVED_DIR="$EVAL_ROOT/derived"
+TABLES_DIR="$EVAL_ROOT/tables"
 PLOTS_DIR="$EVAL_ROOT/plots"
 BASELINE_CSV="$BASELINE_DIR/baseline.csv"
 BASELINE_JSON="$BASELINE_DIR/baseline.json"
 BASELINE_WARNINGS_JSON="$BASELINE_DIR/shellcheck_warnings.json"
 
-mkdir -p "$BASELINE_DIR" "$DERIVED_DIR" "$PLOTS_DIR"
+mkdir -p "$BASELINE_DIR" "$DERIVED_DIR" "$TABLES_DIR" "$PLOTS_DIR"
 rm -rf "$EVAL_ROOT/reproduce_logs" 2>/dev/null || true
 
 clean_eval_root_files() {
-    find "$EVAL_ROOT" -maxdepth 1 -type f \
-        ! -name 'ablation_table.md' \
-        ! -name 'timing_table.md' \
-        -delete
+    find "$EVAL_ROOT" -maxdepth 1 -type f -delete
 }
 
 clean_eval_root_files
@@ -140,8 +138,10 @@ if [ -n "$FORCE" ]; then
     rm -f \
         evaluation_results/ablation_table.md \
         evaluation_results/timing_table.md \
+        "$TABLES_DIR"/ablation_table.md \
+        "$TABLES_DIR"/timing_table.md \
         "$PLOTS_DIR"/*.pdf
-    mkdir -p "$BASELINE_DIR" "$DERIVED_DIR" "$PLOTS_DIR"
+    mkdir -p "$BASELINE_DIR" "$DERIVED_DIR" "$TABLES_DIR" "$PLOTS_DIR"
 fi
 
 # `no_ignored_input` is a core compatibility check: piping non-empty input into

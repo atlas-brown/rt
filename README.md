@@ -24,7 +24,7 @@ Inside the container, run:
 bash scripts/check_functionality.sh
 ```
 
-These commands are enough for the artifact-functional path. For the full reproduction path, including the baseline comparison, see the detailed instructions below and `INSTRUCTIONS.md`.
+This script runs the unit test suite and one smoke test on `examples/motivating_example.sh` through the top-level `rt.sh` entry point. These commands are enough for the artifact-functional path. For the full reproduction path, including the baseline comparison, see the detailed instructions below and `INSTRUCTIONS.md`.
 
 ## Manual Host Installation (Optional)
 
@@ -42,7 +42,7 @@ python3 -m pip install -r requirements.txt
 
 The main entry points are:
 
-- `bash scripts/check_functionality.sh` for the artifact-functional path,
+- `bash scripts/check_functionality.sh` for the artifact-functional path: unit tests plus one RT smoke test,
 - `bash scripts/reproduce_full.sh` for the full paper pipeline.
 
 The benchmark directories used by the batch runner are configured in `src/stream/config/config.yaml`. By default they include the small handwritten and ladder examples in `full_benchmark/handwritten/` and `full_benchmark/ladder/`, plus the larger corpora in `full_benchmark/`.
@@ -89,7 +89,7 @@ To force regeneration even when cached outputs already exist:
 bash scripts/reproduce_full.sh --force
 ```
 
-That wrapper drives the baseline files, the RT runs and ablations, the merged summary CSVs, and the PDFs under `evaluation_results/plots/`.
+The RT runs and ablations, the derived summary CSVs under `evaluation_results/derived/`, and the PDFs under `evaluation_results/plots/`.
 
 The bug-detection plot compares the unannotated RT run against ShellCheck and LadderTypes, with the RT system labeled simply as `RT`.
 

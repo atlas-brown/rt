@@ -29,7 +29,7 @@ def main() -> None:
 
     raw_json_path = evaluation_results / "ann:n_heuristic:y_fst:y" / "evaluation_results.json"
     baseline_csv_path = evaluation_results / "baseline" / "baseline.csv"
-    output_path = evaluation_results / "timing_table.md"
+    output_path = evaluation_results / "tables" / "timing_table.md"
 
     raw_results = json.loads(raw_json_path.read_text(encoding="utf-8"))["evaluation_results"]
     baseline_rows = list(csv.DictReader(baseline_csv_path.open(newline="", encoding="utf-8")))
@@ -65,6 +65,7 @@ def main() -> None:
     for system, mean, min_value, max_value in rows:
         lines.append(f"| {system} | {mean:.3f} | {min_value:.3f} | {max_value:.3f} |")
 
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

@@ -24,8 +24,8 @@ It will:
 4. Regenerate the summary plots
 
 Primary generated outputs include:
-- evaluation_results/ablation_table.md
-- evaluation_results/timing_table.md
+- evaluation_results/tables/ablation_table.md
+- evaluation_results/tables/timing_table.md
 - evaluation_results/plots/accuracy-chart-with-annotations.pdf
 - evaluation_results/plots/accuracy-chart-without-annotations.pdf
 - evaluation_results/plots/bug-detection.pdf

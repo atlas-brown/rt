@@ -19,11 +19,14 @@ This artifact targets the following badges:
 
 Confirm that the repository, benchmark corpora, and experiment scripts are available:
 
-1. The artifact code is available in this repository root; start from [README.md](README.md) and [INSTRUCTIONS.md](INSTRUCTIONS.md).
-2. The repository contains the checker implementation under [`src/stream/`](src/stream/).
-3. The repository contains small smoke-test inputs under [`full_benchmark/handwritten/`](full_benchmark/handwritten/) and [`full_benchmark/ladder/`](full_benchmark/ladder/).
-4. The repository contains larger benchmark suites under [`full_benchmark/`](full_benchmark/).
-5. The repository contains experiment scripts and checked-in outputs under [`src/stream/scripts/`](src/stream/scripts/) and [`evaluation_results/`](evaluation_results/).
+1. The top-level RT entry point is [`rt.sh`](rt.sh). It runs the checker on a shell script.
+2. The checker implementation is under [`src/stream/`](src/stream/), with the technical contributions mapped as follows:
+   * Regular types: [`src/stream/regular_type.py`](src/stream/regular_type.py), [`src/stream/command_type.py`](src/stream/command_type.py).
+   * Type database: [`src/stream/signatures/`](src/stream/signatures/), [`src/stream/special_signatures/`](src/stream/special_signatures/), [`src/stream/command_signature.py`](src/stream/command_signature.py).
+   * Typechecker: [`src/stream/type_checker.py`](src/stream/type_checker.py).
+   * Regular-language operators and transducers: [`src/stream/regular_operator.py`](src/stream/regular_operator.py), [`src/stream/transducer.py`](src/stream/transducer.py), [`src/stream/transducer_utils.py`](src/stream/transducer_utils.py).
+3. The large benchmark suites are under [`full_benchmark/`](full_benchmark/).
+4. The experiment scripts and checked-in outputs are under [`src/stream/scripts/`](src/stream/scripts/) and [`evaluation_results/`](evaluation_results/).
 
 <a id="artifact-functional"></a>
 # Artifact Functional (10 minutes)
@@ -32,9 +35,9 @@ Confirm sufficient documentation, key components, and basic executability:
 
 * Documentation: the top-level [README.md](README.md) provides the required artifact-facing quick-start instructions, and [INSTRUCTIONS.md](INSTRUCTIONS.md) provides the complete runbook for evaluation and reproduction.
 * Key components: the type-checker and evaluation pipeline live in [`src/stream/`](src/stream/).
-* Exercisability: the quickstart below checks one known-valid example, one known-invalid example, and the unit test suite.
+* Exercisability: the quickstart below runs the unit test suite and one RT smoke test.
 
-**Quickstart: running the checker and test suite**
+**Quickstart: running the test suite and smoke test**
 
 The recommended quickstart path is the provided Docker image.
 
@@ -56,7 +59,17 @@ bash scripts/check_functionality.sh
 
 If you prefer not to use Docker, see [Optional: local host installation](#optional-local-host-installation) below.
 
-This test suite should complete with all tests passing.
+ This script should complete with all unit tests passing, then run RT on the paper motivating example and print the first expected RT diagnostic.
+
+```text
+Running smoke tests: bash rt.sh examples/motivating_example.sh
+Error (ln. 2):
+> grep -E "book[0-9]+\.txt" | xargs cat | ...
+  grep -E "book[0-9]+\.txt" > (\.(/.+)?)&(((.*)(book[0-9]+\.txt))(.*))
+maybe incompatible w/
+  xargs cat > [^[:blank:]]+|".+"|'.+'
+Counterexample: "./\tbook0.txt"
+```
 
 <a id="optional-local-host-installation"></a>
 ## Optional: local host installation
@@ -77,7 +90,7 @@ After the local setup, run the same functionality check:
 bash scripts/check_functionality.sh
 ```
 
-It should complete with all tests passing.
+It should complete with all unit tests passing and then print the same expected RT smoke-test diagnostic shown above.
 
 <!-- **Complete exploration:** To inspect the rest of the artifact, review the benchmark layout under [`full_benchmark/`](full_benchmark/), the configuration in [`config.yaml`](src/stream/config/config.yaml), and the checked-in outputs under [`evaluation_results/`](evaluation_results/). -->
 
@@ -143,14 +156,14 @@ This wrapper calls the existing end-to-end pipeline and performs the following:
 
 The final outputs to inspect are:
 
-1. `evaluation_results/ablation_table.md`
-2. `evaluation_results/timing_table.md`
+1. `evaluation_results/tables/ablation_table.md`
+2. `evaluation_results/tables/timing_table.md`
 3. `evaluation_results/plots/accuracy-chart-with-annotations.pdf`
-4.  `evaluation_results/plots/accuracy-chart-without-annotations.pdf`
-5.  `evaluation_results/plots/bug-detection.pdf`
-6.  `evaluation_results/plots/automata-sizes.pdf`
+4. `evaluation_results/plots/accuracy-chart-without-annotations.pdf`
+5. `evaluation_results/plots/bug-detection.pdf`
+6. `evaluation_results/plots/automata-sizes.pdf`
 
-The bug-detection plot compares the unannotated RT run against ShellCheck and LadderTypes. The plot labels that system as `RT`.
+The bug-detection plot compares the RT without annotations run against ShellCheck and LadderTypes. The plot labels that system as `RT`.
 
 If reviewers do not want to wait for the full pipeline, they can inspect the checked-in outputs already present under [`evaluation_results/`](evaluation_results/) and compare those files to regenerated outputs.
 
