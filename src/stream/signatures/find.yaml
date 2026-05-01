@@ -1,0 +1,12 @@
+command_name: find
+default_input_type: .*
+default_output_type: .+
+args: []
+flags: []
+rules:
+- condition:
+    heuristics:
+    - no_ignored_input
+  update:
+    input_type: ''
+isInteresting: true

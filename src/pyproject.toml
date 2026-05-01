@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "streamtypes"
+version = "0.0.1"
+description = "My small project"
+
+dependencies = [
+  "jpype1",
+  "libdash",
+  "pash_annotations",
+  "pytest",
+  "pyyaml",
+  "shasta",
+  "click",
+  "python-dotenv"
+]
+
+

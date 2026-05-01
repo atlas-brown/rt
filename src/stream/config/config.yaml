@@ -1,0 +1,67 @@
+# Evaluation settings
+enable_timeout: false
+timeout_seconds: 10
+enable_user_annotation: true
+num_workers: 1
+
+# Heuristic rules
+enable_rule_no_empty_output: true
+enable_rule_no_ignored_input: true
+enable_rule_no_meaningless_command: true
+enable_rule_no_sort_non_numeric_with_numeric_input: true
+
+# File paths
+parsing_error_log_path: evaluation_results/logs/parsing_errors.log
+
+# External tool paths
+shellcheck_command: shellcheck
+ltsh_command: ltsh
+ltsh_typedb_path: ltsh_config/typedb
+
+# Output paths with annotations
+output_results_path_with_annotation: evaluation_results/with_annotations/evaluation_results.json
+output_summary_path_with_annotation: evaluation_results/with_annotations/summary.csv
+
+# Output paths without annotations
+output_results_path_raw: evaluation_results/raw/evaluation_results.json
+output_summary_path_raw: evaluation_results/raw/summary.csv
+
+# Pipeline directories
+valid_dirs:
+  - ./full_benchmark/handwritten/valid
+  - ./full_benchmark/ladder/valid
+  - ./full_benchmark/intercode/pipelines
+  - ./full_benchmark/github_repos_commits/post_commit
+  - ./full_benchmark/koala/benchmarks
+invalid_dirs:
+  - ./full_benchmark/handwritten/invalid
+  - ./full_benchmark/ladder/invalid
+  - ./full_benchmark/llm/pipelines
+  - ./full_benchmark/stackoverflow/buggy
+  - ./full_benchmark/github_repos_commits/pre_commit
+  - ./full_benchmark/ladder/Bad label
+  - ./full_benchmark/koala/Bad label
+  - ./full_benchmark/intercode/Bad label
+
+not_check_all_dirs:
+  - ./full_benchmark/stackoverflow/buggy
+  # - ./full_benchmark/stackoverflow/correct
+  - ./full_benchmark/github_repos_commits/pre_commit
+  - ./full_benchmark/github_repos_commits/post_commit
+
+"benchmark names": {
+    "full_benchmark/handwritten/.*": "Handwritten",
+    "full_benchmark/ladder/.*": "Ladder",
+    "full_benchmark/intercode/.*": "Intercode",
+    "full_benchmark/llm/.*": "LLM",
+    "full_benchmark/github_repos_commits/.*": "GitHub",
+    "full_benchmark/stackoverflow/.*": "StackOverflow",
+    "full_benchmark/koala/.*": "Koala"
+}
+
+# Logging
+log_level: INFO
+
+# Feature flags
+enable_FST: true
+enable_concretization: true

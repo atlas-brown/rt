@@ -1,0 +1,13 @@
+jpype1 
+libdash 
+pash_annotations 
+pytest 
+pyyaml 
+shasta 
+click 
+python-dotenv
+pandas
+numpy
+matplotlib
+matplotlib-set-diagrams
+tqdm

@@ -1,0 +1,1 @@
+printf '%s: %s\n' foo

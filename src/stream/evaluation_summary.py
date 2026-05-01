@@ -1,0 +1,396 @@
+import argparse
+import json
+import os, sys
+import csv
+import re
+from typing import Any, Dict, List, Tuple
+from stream.config import CONFIG
+
+def convert_to_github_address(address):
+    if address.startswith('./'):
+        address = address[2:]
+    parts = address.split('/')
+    collection = '/'.join(parts[:-1])
+    benchmark = "https://github.com/brown-cs2952r/StreamTypes/blob/main/" + address
+    return benchmark, collection
+
+def normalize_address(address):
+    path, content = address
+    if path.startswith('./'):
+        path = path[2:]
+    # Normalize the shell pretty-printer variants used by different runners.
+    if '\r' in content:
+        content = content.replace('\r', '')
+    while '\\\\' in content:
+        content = content.replace('\\\\', '\\')
+    return path, content
+
+def process_runtime_error(error):
+    return error if error is not None else ''
+
+def process_content(content):
+    if content is None:
+        return ''
+    s = content.replace('\n', ' ')
+    return s[:300] + '...' if len(s) > 300 else s
+
+def compute_correct_result(record):
+    return record["warning signaled?"] == record["is buggy?"] if "warning signaled?" in record and "is buggy?" in record else ''
+
+def write_csv(rows, header, out_path):
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with open(out_path, 'w', encoding='utf-8', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=header)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
+
+def results_to_summary_csv(json_path, out_path):
+    # Load and refine evaluation results so downstream correctness reflects refined correctness
+    results = load_results(json_path)
+    results.sort(key=lambda x: x["address"])
+    header = ['Benchmark', 'Collection', 'Buggy?', 'Correct Result?', 'Time(s)', 'RunTime Error', 'Pipeline']
+    rows = []
+    for result in results:
+        benchmark, collection = convert_to_github_address(result["address"])
+        row = {
+            'Benchmark': benchmark,
+            'Collection': collection,
+            'Buggy?': result["is buggy?"],
+            'Correct Result?': compute_correct_result(result),
+            'Time(s)': result.get("evaluation_time", 0),
+            'RunTime Error': process_runtime_error(result.get("tool runtime error")),
+            'Pipeline': process_content(result["content"])
+        }
+        rows.append(row)
+    write_csv(rows, header, out_path)
+
+def load_results(json_path):
+    with open(json_path, 'r', encoding='utf-8') as f:
+        results: List[Dict[str, Any]] = json.load(f)["evaluation_results"]
+    return results
+
+def load_baseline_results(csv_path):
+    rows = []
+    with open(csv_path, 'r', newline='', encoding='utf-8') as f:
+        for row in csv.reader(f, delimiter=','):
+            rows.append(row)
+    return rows[1:] # drop header
+
+def load_baseline_csv_map(baseline_csv_path):
+    baseline_csv_rows = load_baseline_results(baseline_csv_path) if baseline_csv_path else None
+    baseline_csv_map: Dict[Tuple[str, str], Dict[str, Any]] = {}
+    if not baseline_csv_rows:
+        return baseline_csv_map
+
+    for row in baseline_csv_rows:
+        try:
+            addr = normalize_address((row[0], row[1]))
+            info = {
+                'is buggy?': row[2].lower() == 'true',
+                "sc warning?": row[3].lower() == 'true',
+                "ltsh warning?": row[4].lower() == 'true',
+                "sc time": float(row[5]),
+                "ltsh time": float(row[6])
+            }
+            baseline_csv_map[addr] = info
+        except Exception:
+            continue
+    return baseline_csv_map
+
+def load_merged_results(ann_json_path, raw_json_path, baseline_csv_path=None):
+    results_ann = load_results(ann_json_path)
+    results_raw = load_results(raw_json_path)
+
+    # Build temporary map
+    tmp: Dict[Tuple[str, str], Dict[str, Any]] = {}
+    for rec in results_raw:
+        addr = normalize_address((rec["address"], rec["content"]))
+        tmp.setdefault(addr, {})["raw"] = rec
+    for rec in results_ann:
+        addr = normalize_address((rec["address"], rec["content"]))
+        tmp.setdefault(addr, {})["ann"] = rec
+
+    # Keep only pipelines present in both annotated and raw runs.
+    merged: Dict[Tuple[str, str], Dict[str, Any]] = {}
+    for addr, recs in tmp.items():
+        if recs.get("ann") is None or recs.get("raw") is None:
+            continue
+        if recs["raw"].get("is buggy?") != recs["ann"].get("is buggy?"):
+            print(f"Buggy label mismatch between ann and raw for {addr}", file=sys.stderr)
+            continue
+        merged[addr] = recs
+
+    baseline_csv_map = load_baseline_csv_map(baseline_csv_path)
+
+    # Attach baseline to intersection only
+    for addr, recs in merged.items():
+        info = baseline_csv_map.get(addr)
+        if info is None:
+            # Baseline optional; skip if not found
+            continue
+        recs["raw"]["baseline"] = info
+        recs["ann"]["baseline"] = info
+
+    for addr, recs in merged.items():
+        recs["benchmark_set"] = path_to_benchmark_set(addr[0])
+    return merged
+
+def results_to_merged_csv(ann_json_path, raw_json_path, out_path):
+    merged = load_merged_results(ann_json_path, raw_json_path)
+    header = [
+        'Benchmark', 'Collection', 'Pipeline',
+        'Raw Buggy?', 'Raw Correct Result?', 'Raw Time(s)', 'Raw RunTime Error',
+        'Ann Buggy?', 'Ann Correct Result?', 'Ann Time(s)', 'Ann RunTime Error'
+    ]
+    rows = []
+    for addr, recs in merged.items():
+        common_rec = recs.get("ann") or recs.get("raw")
+        benchmark, collection = convert_to_github_address(common_rec["address"])
+        pipeline = process_content(common_rec["content"])
+        raw_rec = recs.get("raw")
+        ann_rec = recs.get("ann")
+        row = {
+            'Benchmark': benchmark,
+            'Collection': collection,
+            'Pipeline': pipeline,
+            'Raw Buggy?': raw_rec["is buggy?"] if raw_rec else '',
+            'Raw Correct Result?': compute_correct_result(raw_rec) if raw_rec else '',
+            'Raw Time(s)': raw_rec["evaluation_time"] if raw_rec else '',
+            'Raw RunTime Error': process_runtime_error(raw_rec.get("tool runtime error")) if raw_rec else '',
+            'Ann Buggy?': ann_rec["is buggy?"] if ann_rec else '',
+            'Ann Correct Result?': compute_correct_result(ann_rec) if ann_rec else '',
+            'Ann Time(s)': ann_rec["evaluation_time"] if ann_rec else '',
+            'Ann RunTime Error': process_runtime_error(ann_rec.get("tool runtime error")) if ann_rec else ''
+        }
+        rows.append(row)
+    rows.sort(key=lambda x: x["Benchmark"])
+    write_csv(rows, header, out_path)
+
+def results_to_overview_csv(ann_json_path, raw_json_path, baseline_csv_path, out_path):
+    merged = load_merged_results(ann_json_path, raw_json_path, baseline_csv_path)
+    header = ['Benchmark set', '# Correct', '# Incorrect', 'With Annotations?', 'False Results', 'Accuracy', 'Recall', 'Precision', 'F1', 'SC False', 'SC Accuracy', 'SC Precision', 'SC Recall', 'SC F1', 'LT False', 'LT Accuracy', 'LT Precision', 'LT Recall', 'LT F1', 'Status']
+
+    benchmark_sets = set(recs["benchmark_set"] for recs in merged.values())
+    rows = []
+    plot_rows = []
+    for ann in ["ann", "raw"]:
+        for benchmark_set in benchmark_sets:
+            benchmark_set_results = [recs[ann] for recs in merged.values() if recs["benchmark_set"] == benchmark_set]
+            correct_benchmarks = [recs for recs in benchmark_set_results if not recs["is buggy?"]]
+            buggy_benchmarks = [recs for recs in benchmark_set_results if recs["is buggy?"]]
+            baseline_benchmarks = [recs["baseline"] for recs in benchmark_set_results if "baseline" in recs]
+            baseline_correct = [recs["baseline"] for recs in correct_benchmarks if "baseline" in recs]
+            baseline_buggy = [recs["baseline"] for recs in buggy_benchmarks if "baseline" in recs]
+
+            stats = {}
+            for key, data in {"all": benchmark_set_results,
+                              "correct": correct_benchmarks,
+                              "buggy": buggy_benchmarks,
+                              "lt": (baseline_benchmarks, "ltsh warning?"),
+                              "lt-correct": (baseline_correct, "ltsh warning?"),
+                              "lt-buggy": (baseline_buggy, "ltsh warning?"),
+                              "sc": (baseline_benchmarks, "sc warning?"),
+                              "sc-correct": (baseline_correct, "sc warning?"),
+                              "sc-buggy": (baseline_buggy, "sc warning?"),
+                              }.items():
+                if isinstance(data, tuple):
+                    stats[key] = recall_precision_f1(data[0], data[1])
+                else:
+                    stats[key] = recall_precision_f1(data)
+            assert stats["correct"]["false_negatives"] == 0
+            assert stats["buggy"]["false_positives"] == 0
+            overall = {
+                'Benchmark set': benchmark_set,
+                '# Correct': len(correct_benchmarks),
+                '# Incorrect': len(buggy_benchmarks),
+                'With Annotations?': ann == "ann",
+                'False Results': stats["all"]["false_positives"] + stats["all"]["false_negatives"],
+                'Accuracy': stats["all"]["accuracy"],
+                'Recall': stats["all"]["recall"],
+                'Precision': stats["all"]["precision"],
+                'F1': stats["all"]["f1"],
+                'SC Precision': stats["sc"]["precision"],
+                'SC Recall': stats["sc"]["recall"],
+                'SC F1': stats["sc"]["f1"],
+                'SC False': stats["sc"]["false_positives"] + stats["sc"]["false_negatives"],
+                'SC Accuracy': stats["sc"]["accuracy"],
+                'LT Precision': stats["lt"]["precision"],
+                'LT Recall': stats["lt"]["recall"],
+                'LT F1': stats["lt"]["f1"],
+                'LT False': stats["lt"]["false_positives"] + stats["lt"]["false_negatives"],
+                'LT Accuracy': stats["lt"]["accuracy"],
+                'Status': 'Included'
+            }
+            rows.append(overall)
+            plot_rows.append(overall)
+            rows.append({# a row for just the correct benchmarks
+                'Benchmark set': benchmark_set + " (correct)",
+                '# Correct': len(correct_benchmarks),
+                '# Incorrect': 0,
+                'With Annotations?': ann == "ann",
+                'False Results': stats["correct"]["false_positives"],
+                'Accuracy': stats["correct"]["accuracy"],
+                'Recall': '',
+                'Precision': '',
+                'F1': '',
+                'SC Precision': '',
+                'SC Recall': '',
+                'SC F1': '',
+                'SC False': '',
+                'SC Accuracy': stats["sc-correct"]["accuracy"],
+                'LT Precision': '',
+                'LT Recall': '',
+                'LT F1': '',
+                'LT False': '',
+                'LT Accuracy': stats["lt-correct"]["accuracy"],
+                'Status': 'Included'
+            })
+            rows.append({# a row for just the buggy benchmarks
+                'Benchmark set': benchmark_set + " (buggy)",
+                '# Correct': 0,
+                '# Incorrect': len(buggy_benchmarks),
+                'With Annotations?': ann == "ann",
+                'False Results': stats["buggy"]["false_negatives"],
+                'Accuracy': stats["buggy"]["accuracy"],
+                'Recall': '',
+                'Precision': '',
+                'F1': '',
+                'SC Precision': '',
+                'SC Recall': '',
+                'SC F1': '',
+                'SC False': '',
+                'SC Accuracy': stats["sc-buggy"]["accuracy"],
+                'LT Precision': '',
+                'LT Recall': '',
+                'LT F1': '',
+                'LT False': '',
+                'LT Accuracy': stats["lt-buggy"]["accuracy"],
+                'Status': 'Included'
+            })
+        # append a blank row between the two annotations
+        rows.append({key: '' for key in header})
+        # plot_rows.append({key: '' for key in header})
+    
+    # rows.append({key: '' for key in header})
+    # rows.append({key: '' for key in header})
+    write_csv(rows + plot_rows, header, out_path)
+
+def recall_precision_f1(benchmark_results, signaled_key="warning signaled?"):
+    # each benchmark_result is a dictionary with the keys "warning signaled?" and "is buggy?"
+    # the prediction of the system is in the field "warning signaled?"; the prediction is correct if "is buggy?" and "warning signaled?" are the same
+
+    # LL: these metrics are perhaps not very helpful in our breakdown by benchmark set, because some sets have no pos or neg examples
+    # Something like Accuracy does not depend on having one or the other (as opposed to recall, false-pos-rate, and precision, which do)
+    true_positives = sum(1 for rec in benchmark_results if rec[signaled_key] == True and rec["is buggy?"])
+    false_positives = sum(1 for rec in benchmark_results if rec[signaled_key] == True and not rec["is buggy?"])
+    false_negatives = sum(1 for rec in benchmark_results if rec[signaled_key] == False and rec["is buggy?"])
+
+    recall = true_positives / (true_positives + false_negatives) if (true_positives + false_negatives) > 0 else 0
+    precision = true_positives / (true_positives + false_positives) if (true_positives + false_positives) > 0 else 0
+    f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+
+    accuracy = sum(1 for rec in benchmark_results if rec[signaled_key] == rec["is buggy?"]) / len(benchmark_results) if len(benchmark_results) > 0 else 0
+
+    return {
+        "recall": recall,
+        "precision": precision,
+        "f1": f1,
+        "false_positives": false_positives,
+        "false_negatives": false_negatives,
+        "accuracy": accuracy
+    }
+
+benchmark_mapping = None
+def path_to_benchmark_set(collection):
+    global benchmark_mapping
+    if not benchmark_mapping:
+        benchmark_mapping = CONFIG.get("benchmark names")
+    for key, value in benchmark_mapping.items():
+        if re.search(key, collection):
+            return value
+
+
+def raw_json_to_bug_detection(raw_json_path, baseline_csv_path, out_path, eprint_records=False):
+    raw_results = load_results(raw_json_path)
+    baseline_map = load_baseline_csv_map(baseline_csv_path)
+    # [raw RT?, SC?, LT?]
+    data = {(rt, sc, lt): 0 for rt in [True, False] for sc in [True, False] for lt in [True, False]}
+    header = ['System', 'Only this detects', 'and RT', 'and SC', 'and LT', 'All']
+
+    for rec in raw_results:
+        addr = normalize_address((rec["address"], rec["content"]))
+        baseline = baseline_map.get(addr)
+        if baseline is None:
+            continue
+        if not baseline["is buggy?"]:
+            continue
+        key = (rec["warning signaled?"],
+               baseline["sc warning?"],
+               baseline["ltsh warning?"])
+        if rec["warning signaled?"] is None:
+            print("crash!: " + str(rec))
+            key = (False, key[1], key[2])
+        data[key] += 1
+        if eprint_records:
+            print(f"{key}#{rec}")
+
+    def get(us, sc, lt):
+        return data[(us == 1, sc == 1, lt ==1)]
+
+    rows = []
+    rows.append({"System": "RT",
+                 "Only this detects": get(1, 0, 0),
+                 "and RT": 0,
+                 "and SC": get(1, 1, 0),
+                 "and LT": get(1, 0, 1),
+                 "All": get(1, 1, 1)})
+    rows.append({"System": "ShellCheck",
+                 "Only this detects": get(0, 1, 0),
+                 "and RT": get(1, 1, 0),
+                 "and SC": 0,
+                 "and LT": get(0, 1, 1),
+                 "All": get(1, 1, 1)})
+    rows.append({"System": "LadderTypes",
+                 "Only this detects": get(0, 0, 1),
+                 "and RT": get(1, 0, 1),
+                 "and SC": get(0, 1, 1),
+                 "and LT": 0,
+                 "All": get(1, 1, 1)})
+    write_csv(rows, header, out_path)
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Process evaluation results from JSON and generate CSV summaries.')
+    parser.add_argument('--mode', type=str, choices=['separate', 'merged', 'all'], default='all',
+                        help='Mode: separate - generate CSV for with_annotations and raw separately; merged - merge two JSON files into one CSV; all - generate both separate and merged CSV files.')
+    parser.add_argument('--ann_json', type=str, default='evaluation_results/with_annotations/evaluation_results.json',
+                        help='Path to with_annotations JSON file (default: evaluation_results/with_annotations/evaluation_results.json)')
+    parser.add_argument('--ann_csv', type=str, default='evaluation_results/with_annotations/results.csv',
+                        help='Path to with_annotations CSV file (default: evaluation_results/with_annotations/results.csv)')
+    parser.add_argument('--raw_json', type=str, default='evaluation_results/raw/evaluation_results.json',
+                        help='Path to raw JSON file (default: evaluation_results/raw/evaluation_results.json)')
+    parser.add_argument('--raw_csv', type=str, default='evaluation_results/raw/results.csv',
+                        help='Path to raw CSV file (default: evaluation_results/raw/results.csv)')
+    parser.add_argument('--baseline_csv', type=str, default='evaluation_results/baseline/baseline.csv',
+                        help='Path to baseline results CSV file (default: evaluation_results/baseline/baseline.csv)')
+    parser.add_argument('--merged_csv', type=str, default='evaluation_results/derived/merged_results.csv',
+                        help='Path to merged CSV file (default: evaluation_results/derived/merged_results.csv)')
+    parser.add_argument('--bug_detection_csv', type=str, default='evaluation_results/derived/bug_detection.csv',
+                        help='Path to bug detection CSV file to write (default: evaluation_results/derived/bug_detection.csv)')
+    parser.add_argument('--overview_csv', type=str, default='evaluation_results/derived/overview_results.csv',
+                        help='Path to overview CSV file (default: evaluation_results/derived/overview_results.csv)')
+    args = parser.parse_args()
+    if args.mode in ['separate', 'all']:
+        print(f"Generating separate CSV files: {args.ann_csv} and {args.raw_csv}")
+        results_to_summary_csv(args.ann_json, args.ann_csv)
+        results_to_summary_csv(args.raw_json, args.raw_csv)
+    if args.mode in ['merged', 'all']:
+        print(f"Generating merged CSV file: {args.merged_csv}")
+        results_to_merged_csv(args.ann_json, args.raw_json, args.merged_csv)
+        print(f"Generating overview CSV file: {args.overview_csv}")
+        results_to_overview_csv(args.ann_json, args.raw_json, args.baseline_csv, args.overview_csv)
+        raw_json_to_bug_detection(args.raw_json, args.baseline_csv, args.bug_detection_csv, eprint_records=True)
+
+if __name__ == "__main__":
+    main()

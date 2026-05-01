@@ -1,0 +1,11 @@
+class ToolError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+
+class TimeoutError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+
+class PashAnnotationParsingError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
