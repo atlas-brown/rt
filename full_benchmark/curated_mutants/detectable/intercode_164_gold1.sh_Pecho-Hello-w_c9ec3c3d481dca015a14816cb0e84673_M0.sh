@@ -1,1 +1,0 @@
-tr -cd ";0-9" | echo "  Hello world;876	  "

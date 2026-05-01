@@ -34,7 +34,6 @@ valid_dirs:
   - ./full_benchmark/pash_benchmark/benchmarks
 invalid_dirs:
   - ./evaluation_pipelines/invalid
-  # - ./full_benchmark/curated_mutants
   - ./full_benchmark/llm_injection/pipelines
   - ./full_benchmark/stackoverflow/buggy
   - ./full_benchmark/github_repos_commits/collected/pre_commit
@@ -53,7 +52,6 @@ not_check_all_dirs:
 "benchmark names": {
     "evaluation_pipelines/.*ladder.*": "Ladder",
     "evaluation_pipelines/.*/[0-9_]*.sh": "Handwritten",
-    "full_benchmark/curated_mutants/*": "Mutants",
     "full_benchmark/intercode/.*": "Intercode",
     "full_benchmark/llm_injection/.*": "LLM",
     "full_benchmark/pash_benchmark/.*": "PaSh",

@@ -1,1 +1,0 @@
-sed "s/^[ \\t]*//;s/[ \\t]*\$//" | echo -n "  Hello world!    "

@@ -251,15 +251,19 @@ class CommandSignature:
                 # update env
                 update_variables: Dict[str, RegularType | str] = rule.get('update', {}).copy()
                 logging.debug(f"Command: {self.command_name}, Rule: {rule['condition']} -> {rule['update']}")
-                if "output_type" in update_variables:
-                    output_type_str = update_variables["output_type"].replace("{{actual_input_type}}", "α")
-                    for key, value in env.items():
-                        if isinstance(value, RegularType) and value.pattern is not None:
-                            output_type_str = output_type_str.replace(f"{{{{{key}}}}}", value.pattern)
-                        elif isinstance(value, str):
-                            output_type_str = output_type_str.replace(f"{{{{{key}}}}}", value)
                 for key, value in update_variables.items():
                     try:
+                        if isinstance(value, str):
+                            exact_hole = re.fullmatch(r"\{\{([^{}]+)\}\}", value)
+                            if exact_hole is not None:
+                                hole_value = env.get(exact_hole.group(1))
+                                if isinstance(hole_value, RegularType):
+                                    update_variables[key] = RegularType(
+                                        automaton=hole_value.nfa.clone(),
+                                        repr_mode=hole_value.repr_mode,
+                                        tainted=hole_value.tainted,
+                                    )
+                                    continue
                         update_variables[key] = RegularType(value, hole_dict=env)
                     except:
                         raise ToolError(f"Error in updating env for command, missing argument when updating {key} with {value}")

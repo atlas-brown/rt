@@ -1,1 +1,0 @@
-tr -d "[:digit:]" | seq -s= 100

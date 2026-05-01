@@ -1,1 +1,0 @@
-seq 10 | xargs -n 1 expr 2 +

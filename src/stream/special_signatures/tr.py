@@ -1,6 +1,7 @@
 import re
 from typing import Optional, Tuple
 from stream.command_signature import CommandSignature, InferenceResult, inverse_fst_product
+from stream.config.global_config import CONFIG
 from stream.regular_type import RegularType
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
@@ -46,6 +47,9 @@ class TrSignature(CommandSignature):
         if "-c" in flags:
             set1 = complement_set(set1)
             flags.remove("-c")
+        if not CONFIG.get("enable_FST", True):
+            return approximate_output_without_fst(flags, set1, set2, previous_output_type.tainted)
+
         if flags == set():
             fst = translation_FST(set1, set2)
             output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode="stream")
@@ -216,6 +220,68 @@ def preprocess_set(set1: str) -> str:
     # [\n*] -> \n (handle character set with *)
     set1 = re.sub(r"\[([^*\]]+)\*\]", r"\1", set1)
     return expand_ranges(replace_POSIX_class(set1))
+
+
+def approximate_output_without_fst(flags: set[str], set1: str, set2: str, tainted: bool) -> RegularType:
+    if "-d" in flags:
+        return type_excluding_chars(set1, tainted)
+
+    if flags.issubset({"-s"}):
+        if not set2:
+            return RegularType(".*", repr_mode="stream", tainted=tainted)
+        output_chars = translated_output_chars(set1, set2)
+        excluded_chars = "".join(ch for ch in set1 if ch not in output_chars)
+        return type_excluding_chars(excluded_chars, tainted)
+
+    return RegularType(".*", repr_mode="stream", tainted=tainted)
+
+
+def translated_output_chars(set1: str, set2: str) -> set[str]:
+    output_chars = set()
+    for index, _ in enumerate(set1):
+        output_chars.add(set2[index] if index < len(set2) else set2[-1])
+    return output_chars
+
+
+def type_excluding_chars(chars: str, tainted: bool) -> RegularType:
+    char_class = regex_char_class(chars)
+    if not char_class:
+        return RegularType(".*", repr_mode="stream", tainted=tainted)
+    return RegularType(f"~(.*[{char_class}].*)", repr_mode="stream", tainted=tainted)
+
+
+def regex_char_class(chars: str) -> str:
+    escaped_chars = []
+    seen = set()
+    for ch in chars:
+        if ch in seen:
+            continue
+        seen.add(ch)
+        escaped = escape_char_class_member(ch)
+        if escaped is not None:
+            escaped_chars.append(escaped)
+    return "".join(escaped_chars)
+
+
+def escape_char_class_member(ch: str) -> Optional[str]:
+    escape_dict = {
+        "\n": r"\n",
+        "\t": r"\t",
+        "\r": r"\r",
+        "\v": r"\v",
+        "\f": r"\f",
+        "\b": r"\b",
+        "\\": r"\\",
+        "]": r"\]",
+        "[": r"\[",
+        "-": r"\-",
+        "^": r"\^",
+    }
+    if ch in escape_dict:
+        return escape_dict[ch]
+    if ord(ch) < 32 or ord(ch) > 126:
+        return None
+    return ch
 
 
 def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> str:

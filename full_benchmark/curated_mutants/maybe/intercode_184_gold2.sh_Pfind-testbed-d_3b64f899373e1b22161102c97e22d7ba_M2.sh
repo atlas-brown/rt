@@ -1,1 +1,0 @@
-sort -rh -k5 | head -n 3

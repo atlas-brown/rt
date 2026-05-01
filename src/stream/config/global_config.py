@@ -64,7 +64,6 @@ class Config:
             ],
             "invalid_dirs": [
                 "./evaluation_pipelines/invalid",
-                "./full_benchmark/curated_mutants",
                 "./full_benchmark/llm_injection/pipelines"
             ],
             "not_check_all_dirs": [],
