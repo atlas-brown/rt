@@ -15,7 +15,25 @@ export PYTHONPATH=src
 TYPEDB="$(pwd)/ltsh_config/typedb"
 export TYPEDB
 
-rm -rf evaluation_results/reproduce_logs 2>/dev/null || true
+EVAL_ROOT=evaluation_results
+BASELINE_DIR="$EVAL_ROOT/baseline"
+DERIVED_DIR="$EVAL_ROOT/derived"
+PLOTS_DIR="$EVAL_ROOT/plots"
+BASELINE_CSV="$BASELINE_DIR/baseline.csv"
+BASELINE_JSON="$BASELINE_DIR/baseline.json"
+BASELINE_WARNINGS_JSON="$BASELINE_DIR/shellcheck_warnings.json"
+
+mkdir -p "$BASELINE_DIR" "$DERIVED_DIR" "$PLOTS_DIR"
+rm -rf "$EVAL_ROOT/reproduce_logs" 2>/dev/null || true
+
+clean_eval_root_files() {
+    find "$EVAL_ROOT" -maxdepth 1 -type f \
+        ! -name 'ablation_table.md' \
+        ! -name 'timing_table.md' \
+        -delete
+}
+
+clean_eval_root_files
 
 TOTAL_STAGES=18
 STAGE_INDEX=0
@@ -69,15 +87,19 @@ run_rt() {
 run_baseline() {
     local label="$1"
     start_stage "$label"
-    if [ ! -f evaluation_results/baseline.csv ] || [ -n "$FORCE" ]; then
-        python3 src/stream/scripts/baseline.py --progress --progress-label "$label" --log-file /dev/null || {
+    if [ ! -f "$BASELINE_CSV" ] || [ -n "$FORCE" ]; then
+        python3 src/stream/scripts/baseline.py \
+            --csv-file "$BASELINE_CSV" \
+            --json-file "$BASELINE_JSON" \
+            --warnings-json-file "$BASELINE_WARNINGS_JSON" \
+            --progress --progress-label "$label" --log-file /dev/null || {
             local status=$?
             printf '  failed with exit code %s\n' "$status"
             exit "$status"
         }
         printf '  done\n'
     else
-        printf '  skipped: cached baseline.csv\n'
+        printf '  skipped: cached %s\n' "$BASELINE_CSV"
     fi
 }
 
@@ -103,6 +125,8 @@ skip_stage() {
 
 if [ -n "$FORCE" ]; then
     rm -rf \
+        "$BASELINE_DIR" \
+        "$DERIVED_DIR" \
         evaluation_results/ann:y_heuristic:y_fst:y \
         evaluation_results/ann:n_heuristic:y_fst:y \
         evaluation_results/ann:y_heuristic:n_fst:y \
@@ -116,14 +140,8 @@ if [ -n "$FORCE" ]; then
     rm -f \
         evaluation_results/ablation_table.md \
         evaluation_results/timing_table.md \
-        evaluation_results/baseline.csv \
-        evaluation_results/baseline.json \
-        evaluation_results/merged_results_heuristic:*.csv \
-        evaluation_results/bug_detection_heuristic:*.csv \
-        evaluation_results/bug_detection_categories_heuristic:*.txt \
-        evaluation_results/overview_heuristic:*.csv \
-        evaluation_results/analysis_time_stats_fst:*.csv \
-        evaluation_results/plots/*.pdf
+        "$PLOTS_DIR"/*.pdf
+    mkdir -p "$BASELINE_DIR" "$DERIVED_DIR" "$PLOTS_DIR"
 fi
 
 # `no_ignored_input` is a core compatibility check: piping non-empty input into
@@ -167,17 +185,17 @@ for summary_config in "y y" "n y" "y n"; do
     label="summary heuristic:$h fst:$f"
     ann_dir="evaluation_results/ann:y_heuristic:${h}_fst:${f}"
     raw_dir="evaluation_results/ann:n_heuristic:${h}_fst:${f}"
-    category_output="evaluation_results/bug_detection_categories_heuristic:${h}_fst:${f}.txt"
+    category_output="$DERIVED_DIR/bug_detection_categories_heuristic:${h}_fst:${f}.txt"
     if [ -f "$ann_dir/evaluation_results.json" ] && [ -f "$raw_dir/evaluation_results.json" ]; then
         run_summary "$label" "$category_output" \
             --ann_csv "$ann_dir/results.csv" \
             --ann_json "$ann_dir/evaluation_results.json" \
             --raw_csv "$raw_dir/results.csv" \
             --raw_json "$raw_dir/evaluation_results.json" \
-            --baseline_csv evaluation_results/baseline.csv \
-            --merged_csv "evaluation_results/merged_results_heuristic:${h}_fst:${f}.csv" \
-            --bug_detection_csv "evaluation_results/bug_detection_heuristic:${h}_fst:${f}.csv" \
-            --overview_csv "evaluation_results/overview_heuristic:${h}_fst:${f}.csv"
+            --baseline_csv "$BASELINE_CSV" \
+            --merged_csv "$DERIVED_DIR/merged_results_heuristic:${h}_fst:${f}.csv" \
+            --bug_detection_csv "$DERIVED_DIR/bug_detection_heuristic:${h}_fst:${f}.csv" \
+            --overview_csv "$DERIVED_DIR/overview_heuristic:${h}_fst:${f}.csv"
     else
         skip_stage "$label" "missing annotated or raw evaluation output"
     fi
@@ -186,15 +204,15 @@ done
 run_logged "performance with FSTs" \
     python3 src/stream/scripts/performance.py \
     evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json \
-    evaluation_results/baseline.csv \
+    "$BASELINE_CSV" \
     evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv \
-    evaluation_results/analysis_time_stats_fst:y.csv
+    "$DERIVED_DIR/analysis_time_stats_fst:y.csv"
 run_logged "performance without FSTs" \
     python3 src/stream/scripts/performance.py \
     evaluation_results/ann:y_heuristic:y_fst:n/evaluation_results.json \
-    evaluation_results/baseline.csv \
+    "$BASELINE_CSV" \
     evaluation_results/ann:y_heuristic:y_fst:n/length_time_pairs.csv \
-    evaluation_results/analysis_time_stats_fst:n.csv
+    "$DERIVED_DIR/analysis_time_stats_fst:n.csv"
 run_logged "automata sizes" \
     python3 src/stream/scripts/extract_automata_size.py \
     evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json \
@@ -204,7 +222,8 @@ run_logged "ablation table" python3 src/stream/scripts/ablation_table.py
 run_logged "timing table" python3 src/stream/scripts/timing_table.py
 run_logged "plots" \
     python3 src/stream/scripts/plots.py \
-    evaluation_results/overview_heuristic:y_fst:y.csv \
-    evaluation_results/bug_detection_heuristic:y_fst:y.csv \
+    "$DERIVED_DIR/overview_heuristic:y_fst:y.csv" \
+    "$DERIVED_DIR/bug_detection_heuristic:y_fst:y.csv" \
     evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv \
-    --output_dir evaluation_results/plots/
+    --output_dir "$PLOTS_DIR/"
+clean_eval_root_files

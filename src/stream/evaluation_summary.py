@@ -372,14 +372,14 @@ def main():
                         help='Path to raw JSON file (default: evaluation_results/raw/evaluation_results.json)')
     parser.add_argument('--raw_csv', type=str, default='evaluation_results/raw/results.csv',
                         help='Path to raw CSV file (default: evaluation_results/raw/results.csv)')
-    parser.add_argument('--baseline_csv', type=str, default='evaluation_results/baseline.csv',
-                        help='Path to baseline results CSV file (default: evaluation_results/baseline.csv)')
-    parser.add_argument('--merged_csv', type=str, default='evaluation_results/merged_results.csv',
-                        help='Path to merged CSV file (default: evaluation_results/merged_results.csv)')
-    parser.add_argument('--bug_detection_csv', type=str, default='evaluation_results/bug_detection.csv',
-                        help='Path to bug detection CSV file to write (default: evaluation_results/bug_detection.csv)')
-    parser.add_argument('--overview_csv', type=str, default='evaluation_results/overview_results.csv',
-                        help='Path to overview CSV file (default: evaluation_results/overview_results.csv)')
+    parser.add_argument('--baseline_csv', type=str, default='evaluation_results/baseline/baseline.csv',
+                        help='Path to baseline results CSV file (default: evaluation_results/baseline/baseline.csv)')
+    parser.add_argument('--merged_csv', type=str, default='evaluation_results/derived/merged_results.csv',
+                        help='Path to merged CSV file (default: evaluation_results/derived/merged_results.csv)')
+    parser.add_argument('--bug_detection_csv', type=str, default='evaluation_results/derived/bug_detection.csv',
+                        help='Path to bug detection CSV file to write (default: evaluation_results/derived/bug_detection.csv)')
+    parser.add_argument('--overview_csv', type=str, default='evaluation_results/derived/overview_results.csv',
+                        help='Path to overview CSV file (default: evaluation_results/derived/overview_results.csv)')
     args = parser.parse_args()
     if args.mode in ['separate', 'all']:
         print(f"Generating separate CSV files: {args.ann_csv} and {args.raw_csv}")

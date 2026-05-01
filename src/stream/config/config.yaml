@@ -11,7 +11,7 @@ enable_rule_no_meaningless_command: true
 enable_rule_no_sort_non_numeric_with_numeric_input: true
 
 # File paths
-parsing_error_log_path: evaluation_results/parsing_errors.log
+parsing_error_log_path: evaluation_results/logs/parsing_errors.log
 
 # External tool paths
 shellcheck_command: shellcheck

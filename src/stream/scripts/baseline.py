@@ -225,6 +225,8 @@ def read_existing_results(json_file):
 
 def write_results(csv_file, json_file, results_by_key):
     """Rewrite CSV/JSON outputs from the canonical keyed result map."""
+    os.makedirs(os.path.dirname(csv_file) or ".", exist_ok=True)
+    os.makedirs(os.path.dirname(json_file) or ".", exist_ok=True)
     csv_header = [
         "pipeline_file",
         "pipeline",
@@ -478,10 +480,13 @@ def process_parsing_failures(results_by_key):
         print(f"Added {len(new_results)} parsing failure checks to results")
 
 ignored_sc_codes = "SC2148,SC2012,SC2046,SC2086,SC2018,SC2019,SC2002,SC2006,SC2009,SC2035,SC2060,SC2061,SC2062,SC2063,SC2126,SC2154,SC2185,SC2196,SC2225".split(",")
-def main(progress_label=None, progress_stream=None):
-    csv_file = "evaluation_results/baseline.csv"
-    json_file = "evaluation_results/baseline.json"
-    warnings_json_file = "evaluation_results/shellcheck_warnings.json"
+def main(
+    progress_label=None,
+    progress_stream=None,
+    csv_file="evaluation_results/baseline/baseline.csv",
+    json_file="evaluation_results/baseline/baseline.json",
+    warnings_json_file="evaluation_results/baseline/shellcheck_warnings.json",
+):
     valid_dirs = CONFIG.get("valid_dirs")
     invalid_dirs = CONFIG.get("invalid_dirs")
     not_check_all_dirs = CONFIG.get("not_check_all_dirs", [])
@@ -575,6 +580,7 @@ def main(progress_label=None, progress_stream=None):
     
     # Save shell warning codes
     warnings_list = [{"code": code, "url": f"https://www.shellcheck.net/wiki/{code}", "isInteresting?": True} for code in sorted(all_shellcheck_codes)]
+    os.makedirs(os.path.dirname(warnings_json_file) or ".", exist_ok=True)
     with open(warnings_json_file, "w") as f_warn:
         json.dump(warnings_list, f_warn, indent=2)
     print(f"Results saved to {csv_file}, {json_file} and {warnings_json_file}")
@@ -587,6 +593,12 @@ if __name__ == "__main__":
                         help="Label to display before each progress bar.")
     parser.add_argument("--log-file", default=None,
                         help="Write baseline logs and tool output to this file.")
+    parser.add_argument("--csv-file", default="evaluation_results/baseline/baseline.csv",
+                        help="Path to write baseline CSV results.")
+    parser.add_argument("--json-file", default="evaluation_results/baseline/baseline.json",
+                        help="Path to write baseline JSON results.")
+    parser.add_argument("--warnings-json-file", default="evaluation_results/baseline/shellcheck_warnings.json",
+                        help="Path to write ShellCheck warning metadata.")
     args = parser.parse_args()
 
     original_stdout = sys.stdout
@@ -594,11 +606,20 @@ if __name__ == "__main__":
     try:
         if args.progress and args.log_file:
             with redirect_process_output_to_log(args.log_file) as progress_stream:
-                main(progress_label=args.progress_label, progress_stream=progress_stream)
+                main(
+                    progress_label=args.progress_label,
+                    progress_stream=progress_stream,
+                    csv_file=args.csv_file,
+                    json_file=args.json_file,
+                    warnings_json_file=args.warnings_json_file,
+                )
         else:
             main(
                 progress_label=args.progress_label if args.progress else None,
                 progress_stream=original_stdout if args.progress else None,
+                csv_file=args.csv_file,
+                json_file=args.json_file,
+                warnings_json_file=args.warnings_json_file,
             )
     except Exception:
         if args.log_file:

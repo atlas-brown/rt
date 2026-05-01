@@ -24,12 +24,6 @@ It will:
 4. Regenerate the summary plots
 
 Primary generated outputs include:
-- evaluation_results/baseline.csv
-- evaluation_results/baseline.json
-- evaluation_results/merged_results_heuristic:y_fst:y.csv
-- evaluation_results/bug_detection_heuristic:y_fst:y.csv
-- evaluation_results/overview_heuristic:y_fst:y.csv
-- evaluation_results/analysis_time_stats_fst:y.csv
 - evaluation_results/ablation_table.md
 - evaluation_results/timing_table.md
 - evaluation_results/plots/accuracy-chart-with-annotations.pdf

@@ -28,7 +28,7 @@ def main() -> None:
     evaluation_results = repo_root / "evaluation_results"
 
     raw_json_path = evaluation_results / "ann:n_heuristic:y_fst:y" / "evaluation_results.json"
-    baseline_csv_path = evaluation_results / "baseline.csv"
+    baseline_csv_path = evaluation_results / "baseline" / "baseline.csv"
     output_path = evaluation_results / "timing_table.md"
 
     raw_results = json.loads(raw_json_path.read_text(encoding="utf-8"))["evaluation_results"]
