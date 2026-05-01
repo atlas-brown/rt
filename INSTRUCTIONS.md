@@ -21,7 +21,7 @@ Confirm that the repository, benchmark corpora, and experiment scripts are avail
 
 1. The artifact code is available in this repository root; start from [README.md](README.md) and [INSTRUCTIONS.md](INSTRUCTIONS.md).
 2. The repository contains the checker implementation under [`src/stream/`](src/stream/).
-3. The repository contains small smoke-test inputs under [`evaluation_pipelines/`](evaluation_pipelines/).
+3. The repository contains small smoke-test inputs under [`full_benchmark/handwritten/`](full_benchmark/handwritten/) and [`full_benchmark/ladder/`](full_benchmark/ladder/).
 4. The repository contains larger benchmark suites under [`full_benchmark/`](full_benchmark/).
 5. The repository contains experiment scripts and checked-in outputs under [`src/stream/scripts/`](src/stream/scripts/) and [`evaluation_results/`](evaluation_results/).
 

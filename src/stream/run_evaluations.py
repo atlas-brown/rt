@@ -53,6 +53,8 @@ BENCHMARK_PROGRAM_TOTALS = {
 BENCHMARK_PROGRAM_ORDER = {category: index for index, category in enumerate(BENCHMARK_PROGRAM_TOTALS)}
 BENCHMARK_CATEGORY_ALIASES = {
     "Ladder": "LadderTypes",
+    "ladder": "LadderTypes",
+    "handwritten": "Handwritten",
     "PaSh": "Koala",
     "Intercode": "Intercode ALPHA",
 }
@@ -122,8 +124,6 @@ def infer_benchmark_name(address: str) -> str:
         index = parts.index("full_benchmark")
         if index + 1 < len(parts):
             return BENCHMARK_CATEGORY_ALIASES.get(parts[index + 1], parts[index + 1])
-    if "evaluation_pipelines" in parts:
-        return "Handwritten"
     return parts[0] if parts else "unknown"
 
 

@@ -32,6 +32,8 @@ BENCHMARK_PROGRAM_TOTALS = {
 BENCHMARK_PROGRAM_ORDER = {category: index for index, category in enumerate(BENCHMARK_PROGRAM_TOTALS)}
 BENCHMARK_CATEGORY_ALIASES = {
     "Ladder": "LadderTypes",
+    "ladder": "LadderTypes",
+    "handwritten": "Handwritten",
     "PaSh": "Koala",
     "Intercode": "Intercode ALPHA",
 }
@@ -276,8 +278,6 @@ def infer_benchmark_name(path):
         index = parts.index("full_benchmark")
         if index + 1 < len(parts):
             return BENCHMARK_CATEGORY_ALIASES.get(parts[index + 1], parts[index + 1])
-    if "evaluation_pipelines" in parts:
-        return "Handwritten"
     return parts[0] if parts else "unknown"
 
 def collect_script_files(directories, buggy):
@@ -431,7 +431,7 @@ def process_parsing_failures(results_by_key):
         # Determine the path to use in results
         result_path = file_path
         if file_path.startswith('/tmp') or file_path.startswith('tmp'):
-            result_path = f"full_benchmark/pash_benchmark/unknown_file" + str(unknown_counter)
+            result_path = f"full_benchmark/koala/unknown_file" + str(unknown_counter)
             unknown_counter += 1
         result_key = (normalize_path(result_path), content)
         if result_key in results_by_key:

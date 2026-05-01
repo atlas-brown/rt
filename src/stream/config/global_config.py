@@ -58,13 +58,16 @@ class Config:
             "output_summary_path": str(default_with_annotation_dir / "summary.csv"),
             
             "valid_dirs": [
-                "./evaluation_pipelines/valid",
+                "./full_benchmark/handwritten/valid",
+                "./full_benchmark/ladder/valid",
                 "./full_benchmark/intercode/pipelines",
-                "./full_benchmark/pash_benchmark/benchmarks/unix50/scripts"
+                "./full_benchmark/koala/benchmarks/unix50/scripts"
             ],
             "invalid_dirs": [
-                "./evaluation_pipelines/invalid",
-                "./full_benchmark/llm_injection/pipelines"
+                "./full_benchmark/handwritten/invalid",
+                "./full_benchmark/ladder/invalid",
+                "./full_benchmark/ladder/Bad label",
+                "./full_benchmark/llm/pipelines"
             ],
             "not_check_all_dirs": [],
             

@@ -45,7 +45,7 @@ The main entry points are:
 - `bash scripts/check_functionality.sh` for the artifact-functional path,
 - `bash scripts/reproduce_full.sh` for the full paper pipeline.
 
-The benchmark directories used by the batch runner are configured in `src/stream/config/config.yaml`. By default they include the small handwritten examples in `evaluation_pipelines/` plus the larger corpora in `full_benchmark/`.
+The benchmark directories used by the batch runner are configured in `src/stream/config/config.yaml`. By default they include the small handwritten and ladder examples in `full_benchmark/handwritten/` and `full_benchmark/ladder/`, plus the larger corpora in `full_benchmark/`.
 
 ### Manual Host Installation For Full Paper Pipeline (Optional)
 

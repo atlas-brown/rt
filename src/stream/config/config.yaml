@@ -28,33 +28,32 @@ output_summary_path_raw: evaluation_results/raw/summary.csv
 
 # Pipeline directories
 valid_dirs:
-  - ./evaluation_pipelines/valid
+  - ./full_benchmark/handwritten/valid
+  - ./full_benchmark/ladder/valid
   - ./full_benchmark/intercode/pipelines
-  - ./full_benchmark/github_repos_commits/collected/post_commit
-  - ./full_benchmark/pash_benchmark/benchmarks
+  - ./full_benchmark/github_repos_commits/post_commit
+  - ./full_benchmark/koala/benchmarks
 invalid_dirs:
-  - ./evaluation_pipelines/invalid
-  - ./full_benchmark/llm_injection/pipelines
+  - ./full_benchmark/handwritten/invalid
+  - ./full_benchmark/ladder/invalid
+  - ./full_benchmark/llm/pipelines
   - ./full_benchmark/stackoverflow/buggy
-  - ./full_benchmark/github_repos_commits/collected/pre_commit
-  - ./evaluation_pipelines/Bad label
-  - ./full_benchmark/pash_benchmark/Bad label
+  - ./full_benchmark/github_repos_commits/pre_commit
+  - ./full_benchmark/ladder/Bad label
+  - ./full_benchmark/koala/Bad label
   - ./full_benchmark/intercode/Bad label
 
 not_check_all_dirs:
-  # - ./full_benchmark/github_repos_commits/output/post_commit
-  # - ./full_benchmark/github_repos_commits/output/pre_commit
   - ./full_benchmark/stackoverflow/buggy
   # - ./full_benchmark/stackoverflow/correct
-  - ./full_benchmark/github_repos_commits/collected/pre_commit
-  - ./full_benchmark/github_repos_commits/collected/post_commit
+  - ./full_benchmark/github_repos_commits/pre_commit
+  - ./full_benchmark/github_repos_commits/post_commit
 
 "benchmark names": {
-    "evaluation_pipelines/.*ladder.*": "Ladder",
-    "evaluation_pipelines/.*/[0-9_]*.sh": "Handwritten",
+    "full_benchmark/handwritten/.*": "Handwritten",
+    "full_benchmark/ladder/.*": "Ladder",
     "full_benchmark/intercode/.*": "Intercode",
-    "full_benchmark/llm_injection/.*": "LLM",
-    "full_benchmark/pash_benchmark/.*": "PaSh",
+    "full_benchmark/llm/.*": "LLM",
     "full_benchmark/github_repos_commits/.*": "GitHub",
     "full_benchmark/stackoverflow/.*": "StackOverflow",
     "full_benchmark/koala/.*": "Koala"
