@@ -112,10 +112,9 @@ class GrepSignature(CommandSignature):
 
         mode = "extended" if "-E" in flags else "basic"
 
-        if "-c" in flags:
-            return InferenceResult(RegularType("[0-9]+"), lambda x: previous_output_type.get_shortest_example(), self_contained)
-
         if "-f" in flags and "-o" not in flags:
+            if "-c" in flags:
+                return InferenceResult(RegularType("[0-9]+"), lambda x: previous_output_type.get_shortest_example(), self_contained)
             return InferenceResult(previous_output_type, lambda x: x, self_contained)
 
         if "-e" in flags:
@@ -150,6 +149,9 @@ class GrepSignature(CommandSignature):
             pattern_type_str = pattern_type.pattern
             original_pattern_type = RegularType(pattern, mode)
             arg_count = len(parsed_command_invocation.operand_list)
+
+        if "-c" in flags:
+            return InferenceResult(RegularType("[0-9]+"), lambda x: previous_output_type.get_shortest_example(), self_contained)
 
         if "-o" not in flags:
             if not starts_with_start_anchor(original_pattern_type):
