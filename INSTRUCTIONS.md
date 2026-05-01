@@ -41,9 +41,6 @@ Confirm sufficient documentation, key components, and basic executability:
 
 The recommended quickstart path is the provided Docker image.
 
-Requirements for the quickstart:
-1. Docker
-
 From the repository root, build the container and start a shell in it:
 
 ```sh
@@ -57,9 +54,9 @@ Inside the container, run the basic functionality checks:
 bash scripts/check_functionality.sh
 ```
 
-If you prefer not to use Docker, see [Optional: local host installation](#optional-local-host-installation) below.
+If you prefer not to use Docker, see [Optional local host installation](#optional-local-host-installation).
 
- This script should complete with all unit tests passing, then run RT on the paper motivating example and print the first expected RT diagnostic.
+This script should complete with all unit tests passing, then run RT on the paper motivating example and print the first expected RT diagnostic.
 
 ```text
 Running smoke tests: bash rt.sh examples/motivating_example.sh
@@ -71,31 +68,10 @@ maybe incompatible w/
 Counterexample: "./\tbook0.txt"
 ```
 
-<a id="optional-local-host-installation"></a>
-## Optional: local host installation
-
-The Docker image above is the shortest path for the artifact-functional checks. If you want to install the artifact directly on your own machine instead, set up:
-
-1. Python packages:
-
-   ```sh
-   python3 -m pip install -r requirements.txt
-   ```
-
-2. a working Java runtime, because the checker loads `jars/automaton.jar` through JPype
-
-After the local setup, run the same functionality check:
-
-```sh
-bash scripts/check_functionality.sh
-```
-
-It should complete with all unit tests passing and then print the same expected RT smoke-test diagnostic shown above.
-
 <!-- **Complete exploration:** To inspect the rest of the artifact, review the benchmark layout under [`full_benchmark/`](full_benchmark/), the configuration in [`config.yaml`](src/stream/config/config.yaml), and the checked-in outputs under [`evaluation_results/`](evaluation_results/). -->
 
 <a id="results-reproducible"></a>
-# Results Reproducible (about 1 hour)
+# Results Reproducible (about 1 hour, depending on the machine)
 
 The main results supported by this artifact are:
 
@@ -105,40 +81,9 @@ The main results supported by this artifact are:
 
 **Preparation:**
 
-These steps assume you already have a working environment and that the quickstart checks above succeed. The recommended path is to use the Docker image above. If you run locally instead, start with the optional host-installation steps above, then add the baseline-comparison dependencies below.
+These steps assume you already have a working environment and that the quickstart checks above succeed. The recommended path is to use the Docker image above. If you run locally instead, complete [Optional local host installation](#optional-local-host-installation) before running the full pipeline.
 
-<a id="optional-local-host-installation-repro"></a>
-## Optional: local host installation for the full paper pipeline
-
-If you are not using Docker for the full paper pipeline, additionally install:
-
-1. `shellcheck`:
-
-   ```sh
-   sudo apt-get install shellcheck
-   ```
-
-2. Rust toolchain for building `ltsh`:
-
-   ```sh
-   sudo apt-get install cargo rustc
-   ```
-
-3. upstream `ltsh`, available on `PATH`:
-
-   ```sh
-   LTSH_CHECKOUT=/path/to/ltsh
-   git clone --depth 1 --branch dev https://github.com/michaelsippel/ltsh "$LTSH_CHECKOUT"
-   cargo install --path "$LTSH_CHECKOUT"
-   ```
-
-Keep the cloned `ltsh` checkout in place after `cargo install --path ...`: upstream `ltsh` resolves `gettype.sh` relative to the cloned source tree at runtime.
-
-If you prefer macOS or another platform, install `shellcheck` and Rust through your platform package manager, make sure a Java runtime is available, then use the same `git clone` and `cargo install` steps.
-
-The benchmark directories and output paths are configured in [`src/stream/config/config.yaml`](src/stream/config/config.yaml).
-
-In [`src/stream/config/config.yaml`](src/stream/config/config.yaml), `shellcheck_command`, `ltsh_command`, and `ltsh_typedb_path` control the external tool paths.
+The benchmark directories and output paths are configured in [`src/stream/config/config.yaml`](src/stream/config/config.yaml), where `shellcheck_command` and `ltsh_command` control the external tool paths.
 
 **Full evaluation pipeline:**
 
@@ -165,8 +110,55 @@ The final outputs to inspect are:
 
 The bug-detection plot compares the RT without annotations run against ShellCheck and LadderTypes. The plot labels that system as `RT`.
 
-If reviewers do not want to wait for the full pipeline, they can inspect the checked-in outputs already present under [`evaluation_results/`](evaluation_results/) and compare those files to regenerated outputs.
+If you do not want to wait for the full pipeline, you can inspect the checked-in outputs already present under [`evaluation_results/`](evaluation_results/).
 
 **Cleanup:**
 
 This artifact does not require a special cleanup script. If you used Docker, exit the container. If you ran locally, you can remove any temporary output directories you created under `evaluation_results/`. If you installed `ltsh`, `shellcheck`, or Python packages only for this artifact review, remove those installed packages if they are not needed, and remove the cloned `ltsh` checkout.
+
+<a id="optional-local-host-installation"></a>
+# Optional Local Host Installation
+
+The Docker image is the shortest supported path for both badge checks. If you install the artifact directly on your own machine instead, use the following setup.
+
+For the artifact-functional checks, install:
+
+1. Python packages:
+
+   ```sh
+   python3 -m pip install -r requirements.txt
+   ```
+
+2. a working Java runtime, because the checker loads `jars/automaton.jar` through JPype
+
+After this setup, run:
+
+```sh
+bash scripts/check_functionality.sh
+```
+
+For the full paper pipeline, also install:
+
+1. `shellcheck`:
+
+   ```sh
+   sudo apt-get install shellcheck
+   ```
+
+2. Rust toolchain for building `ltsh`:
+
+   ```sh
+   sudo apt-get install cargo rustc
+   ```
+
+3. upstream `ltsh`, available on `PATH`:
+
+   ```sh
+   LTSH_CHECKOUT=/path/to/ltsh
+   git clone --depth 1 --branch dev https://github.com/michaelsippel/ltsh "$LTSH_CHECKOUT"
+   cargo install --path "$LTSH_CHECKOUT"
+   ```
+
+Keep the cloned `ltsh` checkout in place after `cargo install --path ...`: upstream `ltsh` resolves `gettype.sh` relative to the cloned source tree at runtime.
+
+If you prefer macOS or another platform, install `shellcheck` and Rust through your platform package manager, make sure a Java runtime is available, then use the same `git clone` and `cargo install` steps.

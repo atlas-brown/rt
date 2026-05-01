@@ -1,98 +1,44 @@
-# RT
+# RT Artifact README
 
-## Artifact evaluation
 To evaluate the artifact for the OSDI'26 paper titled "RT: Regular Types for the Streaming Shell", jump straight to [INSTRUCTIONS.md](INSTRUCTIONS.md).
-
-RT is a prototype for statically checking shell pipelines with stream-type reasoning, command models, and optional user annotations. This repository includes the checker implementation, the benchmark suites used in the evaluation, and the scripts used to regenerate the reported outputs.
-
-The root `README.md` is the short artifact-facing entry point. The fuller artifact-evaluation flow, including badge-oriented instructions and the longer reproduction path, is in `INSTRUCTIONS.md`.
 
 ## Getting Started Instructions
 
-The recommended path is Docker.
+RT is a prototype for statically checking shell pipelines with regular types, command models, finite-state reasoning, and optional user annotations. This artifact includes the checker implementation, the benchmark suites used in the paper evaluation for functional checks and result reproduction.
 
-From the repository root:
+The fastest way to check the basic functionality is to use the provided Docker image. From the repository root, build the image and start a shell in it:
 
-```bash
+```sh
 docker build -t rt-artifact .
 docker run --rm -it -v "$(pwd):/home/StreamTypes" rt-artifact
 ```
 
 Inside the container, run:
 
-```bash
+```sh
 bash scripts/check_functionality.sh
 ```
 
-This script runs the unit test suite and one smoke test on `examples/motivating_example.sh` through the top-level `rt.sh` entry point. These commands are enough for the artifact-functional path. For the full reproduction path, including the baseline comparison, see the detailed instructions below and `INSTRUCTIONS.md`.
+This script runs the unit test suite and then runs RT on `examples/motivating_example.sh` through the top-level `rt.sh` entry point. The smoke test should print the first expected RT diagnostic for the motivating example. This is the short artifact-functional path and should complete within the short review window.
 
-## Manual Host Installation (Optional)
-
-If you prefer to install the artifact directly on your own machine instead of using Docker, set up:
-
-- Python packages:
-
-```bash
-python3 -m pip install -r requirements.txt
-```
-
-- Java runtime, because the checker loads `jars/automaton.jar` through JPype
+For local host installation instead of Docker, install the Python requirements and a Java runtime before running the same command.
 
 ## Detailed Instructions
 
 The main entry points are:
 
-- `bash scripts/check_functionality.sh` for the artifact-functional path: unit tests plus one RT smoke test,
-- `bash scripts/reproduce_full.sh` for the full paper pipeline.
+1. `bash scripts/check_functionality.sh` for the short functionality check.
+2. `bash scripts/reproduce_full.sh --force` for the full paper-result reproduction.
 
-The benchmark directories used by the batch runner are configured in `src/stream/config/config.yaml`. By default they include the small handwritten and ladder examples in `full_benchmark/handwritten/` and `full_benchmark/ladder/`, plus the larger corpora in `full_benchmark/`.
+The full reproduction pipeline runs the baseline comparison, the main RT configuration, the ablations, and the plot/table generation. Its runtime depends on the machine and storage speed; on a typical review machine, expect roughly one hour.
 
-### Manual Host Installation For Full Paper Pipeline (Optional)
+The primary outputs to inspect after full reproduction are:
 
-If you are not using Docker for the full paper pipeline, additionally install the baseline-comparison dependencies:
+1. `evaluation_results/tables/ablation_table.md`
+2. `evaluation_results/tables/timing_table.md`
+3. `evaluation_results/plots/accuracy-chart-with-annotations.pdf`
+4. `evaluation_results/plots/accuracy-chart-without-annotations.pdf`
+5. `evaluation_results/plots/bug-detection.pdf`
+6. `evaluation_results/plots/automata-sizes.pdf`
 
-- `shellcheck`
-
-```bash
-sudo apt-get install shellcheck
-```
-
-- Rust toolchain for building `ltsh`
-
-```bash
-sudo apt-get install cargo rustc
-```
-
-- upstream `ltsh`, available on `PATH`
-
-```bash
-LTSH_CHECKOUT=/path/to/ltsh
-git clone --depth 1 --branch dev https://github.com/michaelsippel/ltsh "$LTSH_CHECKOUT"
-cargo install --path "$LTSH_CHECKOUT"
-```
-
-Keep the cloned `ltsh` checkout in place after `cargo install --path ...`: upstream `ltsh` resolves `gettype.sh` relative to the cloned source tree at runtime.
-
-In `src/stream/config/config.yaml`, `shellcheck_command`, `ltsh_command`, and `ltsh_typedb_path` control the external tool paths.
-
-If you prefer macOS or another platform, install `shellcheck` and Rust through your platform package manager, make sure a Java runtime is available, then use the same `git clone` and `cargo install` steps.
-
-To reproduce the main RT results and regenerate the paper artifacts, run:
-
-```bash
-bash scripts/reproduce_full.sh
-```
-
-To force regeneration even when cached outputs already exist:
-
-```bash
-bash scripts/reproduce_full.sh --force
-```
-
-The RT runs and ablations, the derived summary CSVs under `evaluation_results/derived/`, and the PDFs under `evaluation_results/plots/`.
-
-The bug-detection plot compares the unannotated RT run against ShellCheck and LadderTypes, with the RT system labeled simply as `RT`.
-
-Cleanup for optional local installation: if you installed `ltsh`, `shellcheck`, or Python packages only for this artifact review, remove those installed packages if they are not needed, and remove the cloned `ltsh` checkout.
-
-The expanded guide, including artifact-available, artifact-functional, and results-reproducible instructions, is in `INSTRUCTIONS.md`.
+The benchmark directories and output paths are configured in `src/stream/config/config.yaml`. For local non-Docker reproduction, make sure Python, Java, ShellCheck, Rust, and LadderTypes are available before running the full pipeline.
