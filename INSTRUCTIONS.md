@@ -68,8 +68,6 @@ maybe incompatible w/
 Counterexample: "./\tbook0.txt"
 ```
 
-<!-- **Complete exploration:** To inspect the rest of the artifact, review the benchmark layout under [`full_benchmark/`](full_benchmark/), the configuration in [`config.yaml`](src/stream/config/config.yaml), and the checked-in outputs under [`evaluation_results/`](evaluation_results/). -->
-
 <a id="results-reproducible"></a>
 # Results Reproducible (about 1 hour, depending on the machine)
 

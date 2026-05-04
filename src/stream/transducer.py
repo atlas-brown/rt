@@ -1,5 +1,180 @@
 from stream.transducer_utils import *
 
+def _clone_automaton_from_state(automaton: Automaton, initial_state: State) -> Automaton:
+    state_mapping: Dict[State, State] = {}
+    for state in automaton.getStates():
+        cloned_state = State()
+        cloned_state.setAccept(state.isAccept())
+        state_mapping[state] = cloned_state
+
+    for state, cloned_state in state_mapping.items():
+        for transition in state.getTransitions():
+            cloned_state.addTransition(
+                Transition(
+                    transition.getMin(),
+                    transition.getMax(),
+                    state_mapping[transition.getDest()],
+                )
+            )
+
+    cloned_automaton = Automaton()
+    cloned_automaton.setInitialState(state_mapping[initial_state])
+    cloned_automaton.setDeterministic(automaton.isDeterministic())
+    return cloned_automaton
+
+
+def _intersect_ranges(
+    left_min: int,
+    left_max: int,
+    right_min: int,
+    right_max: int,
+) -> Optional[Tuple[int, int]]:
+    min_value = max(left_min, right_min)
+    max_value = min(left_max, right_max)
+    if min_value > max_value:
+        return None
+    return min_value, max_value
+
+
+def _complement_ranges(
+    ranges: List[Tuple[int, int]],
+    min_value: int,
+    max_value: int,
+) -> List[Tuple[int, int]]:
+    if min_value > max_value:
+        return []
+    if not ranges:
+        return [(min_value, max_value)]
+
+    merged: List[Tuple[int, int]] = []
+    for start, end in sorted(ranges):
+        if end < min_value or start > max_value:
+            continue
+        start = max(start, min_value)
+        end = min(end, max_value)
+        if not merged or start > merged[-1][1] + 1:
+            merged.append((start, end))
+        else:
+            merged[-1] = (merged[-1][0], max(merged[-1][1], end))
+
+    complement: List[Tuple[int, int]] = []
+    cursor = min_value
+    for start, end in merged:
+        if cursor < start:
+            complement.append((cursor, start - 1))
+        cursor = end + 1
+    if cursor <= max_value:
+        complement.append((cursor, max_value))
+    return complement
+
+
+def _add_guarded_fallbacks(
+    fst: FST,
+    automaton: Automaton,
+    state_map: Dict[State, int],
+    guarded_fallbacks: List[Tuple[int, str, str, int]],
+    restart_state_id: int,
+    abort_state_id: int,
+) -> None:
+    if not guarded_fallbacks:
+        return
+
+    base_state_ids = list(fst.states)
+    min_base_state_id = min(base_state_ids)
+    state_span = max(base_state_ids) - min_base_state_id + 1
+    first_guarded_state_id = max(base_state_ids) + 1
+    id_to_state = {state_id: state for state, state_id in state_map.items()}
+
+    def guarded_state_id(base_state_id: int, guard_state_id: int) -> int:
+        return first_guarded_state_id + guard_state_id * state_span + (base_state_id - min_base_state_id)
+
+    for guard_state_id, guard_state in id_to_state.items():
+        if guard_state.isAccept():
+            continue
+        for base_state_id in base_state_ids:
+            base_state = fst.states[base_state_id]
+            fst.add_state(
+                guarded_state_id(base_state_id, guard_state_id),
+                accept=base_state.accept,
+            )
+
+    for guard_state_id, guard_state in id_to_state.items():
+        if guard_state.isAccept():
+            continue
+        guard_transitions = list(guard_state.getSortedTransitions(True))
+        for base_state_id in base_state_ids:
+            base_state = fst.states[base_state_id]
+            source_state_id = guarded_state_id(base_state_id, guard_state_id)
+            for base_transition in base_state.transitions:
+                if base_transition.min is None or base_transition.max is None:
+                    continue
+                base_min = ord(base_transition.min)
+                base_max = ord(base_transition.max)
+                guarded_ranges: List[Tuple[int, int]] = []
+
+                for guard_transition in guard_transitions:
+                    intersection = _intersect_ranges(
+                        base_min,
+                        base_max,
+                        ord(guard_transition.getMin()),
+                        ord(guard_transition.getMax()),
+                    )
+                    if intersection is None:
+                        continue
+                    transition_min, transition_max = intersection
+                    guarded_ranges.append((transition_min, transition_max))
+                    guard_dest_state_id = state_map[guard_transition.getDest()]
+                    if guard_transition.getDest().isAccept():
+                        target_state_id = abort_state_id
+                    else:
+                        target_state_id = guarded_state_id(
+                            base_transition.to.id,
+                            guard_dest_state_id,
+                        )
+                    fst.add_transition(
+                        source_state_id,
+                        chr(transition_min),
+                        chr(transition_max),
+                        base_transition.output,
+                        target_state_id,
+                    )
+
+                for transition_min, transition_max in _complement_ranges(
+                    guarded_ranges,
+                    base_min,
+                    base_max,
+                ):
+                    fst.add_transition(
+                        source_state_id,
+                        chr(transition_min),
+                        chr(transition_max),
+                        base_transition.output,
+                        base_transition.to.id,
+                    )
+
+    restart_transitions = list(fst.states[restart_state_id].transitions)
+    for source_state_id, fallback_min, fallback_max, guard_state_id in guarded_fallbacks:
+        for restart_transition in restart_transitions:
+            if restart_transition.min is None or restart_transition.max is None:
+                continue
+            intersection = _intersect_ranges(
+                ord(fallback_min),
+                ord(fallback_max),
+                ord(restart_transition.min),
+                ord(restart_transition.max),
+            )
+            if intersection is None:
+                continue
+            transition_min, transition_max = intersection
+            fst.add_transition(
+                source_state_id,
+                chr(transition_min),
+                chr(transition_max),
+                restart_transition.output,
+                guarded_state_id(restart_transition.to.id, guard_state_id),
+            )
+
+
 def full_stream_to_line_based_FST() -> FST:
     specs = [
         (-1, "\n", "", 100),
@@ -450,10 +625,8 @@ def global_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
             if ord(t.getMax()) >= ord(min_char) and ord(t.getMin()) <= ord(max_char):
                 new_min = min_char if ord(min_char) > ord(t.getMin()) else t.getMin()
                 new_max = max_char if ord(max_char) < ord(t.getMax()) else t.getMax()
-                a = automata.clone()
-                b = automata.clone()
-                a.setInitialState(t.getDest())
-                b.setInitialState(trans.getDest())
+                a = _clone_automaton_from_state(automata, t.getDest())
+                b = _clone_automaton_from_state(automata, trans.getDest())
                 if not a.subsetOf(b):
                     intersentions.append((new_min, new_max))
         return intersentions
@@ -574,10 +747,8 @@ def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
             if ord(t.getMax()) >= ord(min_char) and ord(t.getMin()) <= ord(max_char):
                 new_min = min_char if ord(min_char) > ord(t.getMin()) else t.getMin()
                 new_max = max_char if ord(max_char) < ord(t.getMax()) else t.getMax()
-                a = automata.clone()
-                b = automata.clone()
-                a.setInitialState(t.getDest())
-                b.setInitialState(trans.getDest())
+                a = _clone_automaton_from_state(automata, t.getDest())
+                b = _clone_automaton_from_state(automata, trans.getDest())
                 if not a.subsetOf(b):
                     intersentions.append((new_min, new_max))
         return intersentions
@@ -597,6 +768,7 @@ def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
         raise ToolError("pattern regex is empty string")
     state_map: Dict[State, int] = {}
     specs = []
+    guarded_fallbacks: List[Tuple[int, str, str, int]] = []
     states = automaton.getStates()
     num_states = len(states)
     for i, state in enumerate(states):
@@ -640,7 +812,7 @@ def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
                     # non-deteministic guess
                     intersentions = check_fallback(trans, automaton)
                     for new_min, new_max in intersentions:
-                        specs.append((state_id + num_states, new_min + "--" + new_max, "", new_initial_state, True))
+                        guarded_fallbacks.append((state_id + num_states, new_min, new_max, dest_state_id))
                 else:
                     specs.append((state_id + num_states, input_range, "$self", abort_state))
             
@@ -679,7 +851,9 @@ def first_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
     
     final_states = {new_initial_state} | {i + 3 * num_states for i in final_states} | {i + num_states for i in range(num_states)} | {end_state} |  {i + 4 * num_states for i in range(num_states) if i not in final_states}
         
-    return create_fst(specs, start_state=new_initial_state, final_states=final_states)
+    fst = create_fst(specs, start_state=new_initial_state, final_states=final_states)
+    _add_guarded_fallbacks(fst, automaton, state_map, guarded_fallbacks, new_initial_state, abort_state)
+    return fst
 
 
 def start_regex_replacement_FST(automaton: Automaton, s2: str) -> FST:
@@ -793,10 +967,8 @@ def global_regex_extract_FST(automaton: Automaton) -> FST:
             if ord(t.getMax()) >= ord(min_char) and ord(t.getMin()) <= ord(max_char):
                 new_min = min_char if ord(min_char) > ord(t.getMin()) else t.getMin()
                 new_max = max_char if ord(max_char) < ord(t.getMax()) else t.getMax()
-                a = automata.clone()
-                b = automata.clone()
-                a.setInitialState(t.getDest())
-                b.setInitialState(trans.getDest())
+                a = _clone_automaton_from_state(automata, t.getDest())
+                b = _clone_automaton_from_state(automata, trans.getDest())
                 if not a.subsetOf(b):
                     intersentions.append((new_min, new_max))
         return intersentions

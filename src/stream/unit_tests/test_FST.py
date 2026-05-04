@@ -188,8 +188,6 @@ class TestCutFieldFST:
         assert fst.transform_all("1 2 3 ") == {"1 3 "}
 
         # Test whole stream
-        # the output should always end with a newline no matter whether the input ends with a newline or not
-        # FIXME
         fst = line_based_functional_to_stream_FST(correct_cut_field_FST(" ", [1, 3], has_upperbound=False))
         assert fst.transform_all("h e l l o") == {"h l l o"}
         assert fst.transform_all("hi") == {"hi"}
@@ -231,7 +229,6 @@ class TestWholeStreamToLineBasedFST:
         assert fst.transform_all("abc\n") == {"abc"}
         assert fst.transform_all("abc\n\n") == {"abc", ""}
         assert fst.transform_all("\nabc\n") == {"abc", ""}
-        # assert fst.transform_all("") == {""} # FIXME
         assert fst.transform_all("abc") == {"abc"}
         assert fst.transform_all("abc\n\n\n") == {"abc", ""}
         assert fst.transform_all("abc\nxyzzzzzzzzzzzz\nz") == {"abc", "xyzzzzzzzzzzzz", "z"}
@@ -475,7 +472,6 @@ class TestFilterFST:
         assert fst.transform_all("XXX123") == {"XXX123"}
         assert fst.transform_all("XXX123XXX") == set()
 
-    # FIXME the output should always end with a newline no matter whether the input ends with a newline or not
     def test_stream_based_filter(self) -> None:
         fst = stream_based_filter_FST(ast_to_automaton(RegexParser(".*a.*").parse()))
         assert fst.transform_all("") == {""}
@@ -534,7 +530,6 @@ class TestHeadFST:
 class TestAddNewlineIfNotEndWithNewlineFST:
     def test_add_newline_if_not_end_with_newline_fst(self) -> None:
         fst = add_newline_if_not_end_with_newline_FST()
-        # assert fst.transform_all("") == {""} # FIXME
         assert fst.transform_all("\n") == {"\n"}
         assert fst.transform_all("a\n") == {"a\n"}
         assert fst.transform_all("a\n\n") == {"a\n\n"}
