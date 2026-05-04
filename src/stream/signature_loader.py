@@ -19,6 +19,7 @@ from stream.special_signatures.find import FindSignature
 from stream.special_signatures.head import HeadSignature
 from stream.special_signatures.tail import TailSignature
 from stream.special_signatures.echo import EchoSignature
+from stream.special_signatures.tee import TeeSignature
 
 class SignatureLoader:
     _instance: Optional['SignatureLoader'] = None
@@ -57,6 +58,7 @@ class SignatureLoader:
             "head": HeadSignature,
             "tail": TailSignature,
             "echo": EchoSignature,
+            "tee": TeeSignature,
         }
         self.signatures = self.load_all_signatures()
         self.unknown_signature = CommandSignature(

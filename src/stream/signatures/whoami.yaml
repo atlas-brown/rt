@@ -1,0 +1,12 @@
+command_name: whoami
+default_input_type: .*
+default_output_type: '[A-Za-z_][A-Za-z0-9_-]*'
+args: []
+flags: []
+rules:
+- condition:
+    heuristics:
+    - no_ignored_input
+  update:
+    input_type: ''
+isInteresting: true

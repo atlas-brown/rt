@@ -1,0 +1,17 @@
+command_name: sha224sum
+default_input_type: .*
+default_output_type: .*
+args: []
+flags: []
+rules:
+- condition:
+    no_flags:
+    - -c
+    - --check
+    - --status
+    - --quiet
+    - --strict
+    - --tag
+  update:
+    output_type: '[[:xdigit:]]{56} [ *](-|.+)'
+isInteresting: true

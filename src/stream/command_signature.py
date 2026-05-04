@@ -163,7 +163,45 @@ class CommandSignature:
         self_contained = True
         tainted = self.isTainted
 
-        env_related_command_names = ["ls", "date", "docker", "du", "ps", "curl"]
+        env_related_command_names = {
+            "arch",
+            "chroot",
+            "date",
+            "df",
+            "dir",
+            "dircolors",
+            "docker",
+            "du",
+            "groups",
+            "hostid",
+            "hostname",
+            "id",
+            "logname",
+            "ls",
+            "mktemp",
+            "nice",
+            "nohup",
+            "nproc",
+            "pinky",
+            "printenv",
+            "ps",
+            "pwd",
+            "readlink",
+            "realpath",
+            "runcon",
+            "stat",
+            "stdbuf",
+            "stty",
+            "timeout",
+            "tty",
+            "uname",
+            "uptime",
+            "users",
+            "vdir",
+            "who",
+            "whoami",
+            "curl",
+        }
         if parsed_command_invocation.cmd_name in env_related_command_names:
             self_contained = False
 
