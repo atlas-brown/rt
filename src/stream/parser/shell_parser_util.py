@@ -115,7 +115,7 @@ def parse_shell_to_asts(input_script_path : str, error_file_path: str | None = N
     except Exception as e:
         error_msg = traceback.format_exc()
         log_parsing_error(error_msg, logged_file_path, error_file_contents)
-        logging.error("Parsing error!", error_msg)
+        logging.error("Parsing error while parsing %s:\n%s", logged_file_path, error_msg)
         return None
 
 

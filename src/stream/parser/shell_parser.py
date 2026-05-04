@@ -76,7 +76,6 @@ class ShellParser:
         for signature in self.signature_loader.signatures:
             if signature.matches_command(node):
                 return (signature, node)
-        logging.warning(f'No matching signature found for command {node.cmd_name if node.cmd_name != "xargs" or len(node.operand_list) == 0 else "xargs_" + node.operand_list[0].name}')
         return (self.signature_loader.get_unknown_sigature(), node)
         
     @timer
