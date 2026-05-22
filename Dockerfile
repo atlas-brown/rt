@@ -1,50 +1,63 @@
-FROM python:3.12.11-slim-bookworm
+# Target 1: Containerized development of the system
+FROM python:3.12-slim-trixie AS dev
 
 # https://hub.docker.com/_/eclipse-temurin#using-a-different-base-image
 ENV JAVA_HOME="/opt/java/openjdk"
 COPY --from=eclipse-temurin:21 $JAVA_HOME $JAVA_HOME
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
-# Set up PYTHONPATH
-ENV PYTHONPATH="/home/StreamTypes/src"
+# Copy the uv binaries from the official Astral image
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# Install base dependencies
-RUN apt-get update && apt-get install -y \
-    software-properties-common \
-    git \
-    curl \
-    build-essential \
-    pkg-config \
-    libssl-dev \
-    ca-certificates \
-    autoconf \
-    libtool \
-    make \
-    && rm -rf /var/lib/apt/lists/*
+# See https://github.com/binpash/libdash?tab=readme-ov-file#what-are-the-dependencies
+# Certificates are needed for uv to be able to clone libdash over HTTPS
+RUN apt-get update && \
+    apt-get install --yes --no-install-recommends \
+        git \
+        autoconf \
+        automake \
+        libtool \
+        make \
+        ca-certificates && \
+    update-ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
 
-# # Install Rust toolchain for stream-monitor
-# RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-# RUN /root/.cargo/bin/cargo install rust-script
-
-# # Add Cargo binaries to PATH
-# ENV PATH="/root/.cargo/bin:$PATH"
-
-# Install python dependencies (includes dependencies for stream types)
-RUN pip install --no-cache-dir \
-    jpype1 \
-    libdash \
-    pash_annotations \
-    pytest \
-    pyyaml \
-    shasta \
-    click \
-    python-dotenv
-
-# Create working directory
+# Change working directory
 WORKDIR /home/StreamTypes
 
-# Copy the entire project (including submodules)
-COPY . /home/StreamTypes
+# Copy from the cache instead of linking since it's a mounted volume
+# See https://docs.astral.sh/uv/guides/integration/docker/#caching
+ENV UV_LINK_MODE=copy
 
-# Default to bash
-CMD [ "/bin/bash" ]
+# Install dependencies
+# See https://docs.astral.sh/uv/guides/integration/docker/#intermediate-layers
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync --locked --no-install-project
+
+# Easily overwritable entry for development
+CMD ["/bin/bash"]
+
+# ----------------------------------------
+
+# Target 2: Containerized usage of the system
+FROM dev AS sys
+
+# Setup a non-root user
+RUN groupadd --system --gid 999 nonroot && \
+    useradd --system --gid 999 --uid 999 --create-home nonroot
+
+# Copy the necessary project files and install
+COPY pyproject.toml uv.lock README.md ./
+COPY jars ./jars
+COPY src ./src
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --locked --no-dev
+
+# Change into the non root user
+RUN chown -R nonroot:nonroot /home/StreamTypes
+USER nonroot
+
+# Entry for system usage
+ENTRYPOINT ["/home/StreamTypes/.venv/bin/rt"]

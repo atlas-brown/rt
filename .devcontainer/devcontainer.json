@@ -2,7 +2,8 @@
   "name": "stream-type-dev",
   "build": {
     "dockerfile": "../Dockerfile",
-    "context": ".."
+    "context": "..",
+    "target": "dev"
   },
   "workspaceFolder": "/workspaces/StreamTypes",
   "remoteUser": "root",
