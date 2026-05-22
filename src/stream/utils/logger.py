@@ -93,7 +93,7 @@ class LogManager:
             pattern: The regex pattern string
             ast_repr: String representation of the AST
             is_pure_string: Result of is_pure_string_for_ast check
-            has_references: For sed, whether the replacement part has \ or & references
+            has_references: For sed, whether the replacement part has \\ or & references
         """
         analysis_record = {
             "command_name": command_name,
@@ -113,7 +113,7 @@ class LogManager:
             pattern: The regex pattern string
             ast_repr: String representation of the AST
             is_pure_string: Result of is_pure_string_for_ast check
-            has_references: For sed, whether the replacement part has \ or & references
+            has_references: For sed, whether the replacement part has \\ or & references
         """
         if self._pattern_analysis_logs:
             last_record = self._pattern_analysis_logs[-1]
