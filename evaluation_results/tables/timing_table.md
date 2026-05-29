@@ -1,5 +1,5 @@
 | System | Mean (s) | Min (s) | Max (s) |
 |---|---:|---:|---:|
-| RT (without ann) | 0.047 | 0.000 | 7.829 |
-| ShellCheck | 0.010 | 0.006 | 0.035 |
-| LadderTypes | 1.123 | 0.084 | 5.685 |
+| RT (without ann) | 0.051 | 0.000 | 8.721 |
+| ShellCheck | 0.017 | 0.011 | 0.052 |
+| LadderTypes | 2.449 | 0.180 | 20.012 |
