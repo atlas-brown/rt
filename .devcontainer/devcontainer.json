@@ -1,39 +1,25 @@
 {
-  "name": "stream-type-dev",
+  "name": "rt",
   "build": {
     "dockerfile": "../Dockerfile",
     "context": "..",
     "target": "dev"
   },
-  "workspaceFolder": "/workspaces/StreamTypes",
-  "remoteUser": "root",
-  "updateRemoteUserUID": true,
-  "containerEnv": {
-    "PYTHONPATH": "/workspaces/StreamTypes/src"
-  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind",
+  "workspaceFolder": "/app",
   "customizations": {
     "vscode": {
-      "settings": {
-        "python.defaultInterpreterPath": "/usr/bin/python3.12"
-      },
       "extensions": [
-        "ms-python.python",
-        "mads-hartmann.bash-ide-vscode",
-        "openai.chatgpt",
-        "github.copilot-chat"
-      ]
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/app/.venv/bin/python",
+        "python.terminal.activateEnvInCurrentTerminal": true
+      }
     }
   },
-  "features": {
-    "ghcr.io/devcontainers/features/common-utils:2.5.6": {
-        "installZsh": true,
-        "installOhMyZsh": true,
-        "installOhMyZshConfig": true,
-        "upgradePackages": false
-    }
-  },
-  "postCreateCommand": "bash .devcontainer/setup-zsh.sh",
-  "mounts": [
-    "source=${localEnv:HOME}/.codex/auth.json,target=/root/.codex/auth.json,readonly,type=bind"
-  ]
+  "remoteUser": "root",
+  // Ensure the virtual environment is always up to date with the lock file
+  "postCreateCommand": "uv sync --locked"
 }
