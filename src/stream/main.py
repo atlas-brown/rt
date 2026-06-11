@@ -35,6 +35,7 @@ def cli_main():
         metavar="LEVEL",
         type=str,
         choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL", "DISABLED"],
+        default=signature(main).parameters["log_level"].default,  # Define like this to avoid duplication of the defaults
         help=f"Set the logging level to one of DEBUG, INFO, WARNING, ERROR, CRITICAL or DISABLED (default: %(default)s)",
     )
 
@@ -69,7 +70,8 @@ def interactive_main(
     .default,
 ):
     preamble(disable_annotations, log_level)
-    print("Reading pipelines from stdin; use Ctrl+D to exit")
+    if sys.stdin.isatty():
+        print("Reading pipelines from stdin; use Ctrl+D to exit")
     while True:
         try:
             if pipeline := input("> "):
@@ -86,7 +88,7 @@ def preamble(
     disable_annotations: bool,
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL", "DISABLED"],
 ) -> None:
-    logging.basicConfig(level=log_level)
+    logging.basicConfig(level=getattr(logging, log_level.upper()) if log_level.upper() != "DISABLED" else logging.CRITICAL + 10)
     logging.info(
         "Annotations are %s", "enabled" if not disable_annotations else "disabled"
     )
