@@ -47,7 +47,7 @@ def main(command: str, args: list[str], prev_out_type: RegularType | None):
 
     # Determine output type
     if prev_out_type is None:
-        prev_out_type = RegularType()
+        prev_out_type = RegularType(".*")
 
     out_type = signature.determine_output_type(prev_out_type, invocation, [], {})
     if isinstance(out_type, RegularType):
