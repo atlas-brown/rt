@@ -1,5 +1,5 @@
 import re
-import traceback
+from contextlib import contextmanager
 from typing import Optional, Set, Tuple
 from stream.regex_parser import CharacterClass, Dot, EmptyLanguageNode, Literal, Range, Repeat, Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, Node, ast_to_regex
 import logging
@@ -7,7 +7,7 @@ from stream.tool_error import ToolError
 from stream.utils.function_timer import timer
 import jpype.imports
 from stream.transducer import add_newline_if_not_end_with_newline_FST, full_stream_to_line_based_FST, product_fst_automaton
-from stream.automata_to_regex import automaton_to_ast, get_singleton
+from stream.automata_to_regex import automaton_to_regex, get_singleton
 if not jpype.isJVMStarted():
     jpype.startJVM(classpath=["jars/automaton.jar"])
 from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition, RegExp # type: ignore
@@ -17,6 +17,26 @@ no_newline_automaton = ast_to_automaton(RegexParser("[^\\n]*").parse())
 
 alphabet_size = 255
 alphabet_automaton = RegExp(f"[{chr(0)}-{chr(alphabet_size)}]*").toAutomaton()
+READABLE_AUTOMATA_REPR_ENABLED = False
+
+
+def set_readable_automata_repr_enabled(enabled: bool) -> None:
+    global READABLE_AUTOMATA_REPR_ENABLED
+    READABLE_AUTOMATA_REPR_ENABLED = enabled
+
+
+def get_readable_automata_repr_enabled() -> bool:
+    return READABLE_AUTOMATA_REPR_ENABLED
+
+
+@contextmanager
+def readable_automata_repr(enabled: bool):
+    previous = get_readable_automata_repr_enabled()
+    set_readable_automata_repr_enabled(enabled)
+    try:
+        yield
+    finally:
+        set_readable_automata_repr_enabled(previous)
 
 def reverse_automaton(automaton: Automaton) -> Automaton:
         empty_transitions: Set[Tuple[State, State]] = set()
@@ -291,6 +311,17 @@ class RegularType:
 
     def __repr__(self) -> str:
        if self.pattern is None:
+           if READABLE_AUTOMATA_REPR_ENABLED:
+               regex = automaton_to_regex(
+                   self.nfa,
+                   max_states=18,
+                   max_transitions=120,
+                   max_regex_length=1000,
+                   max_edge_length=600,
+                   line_based=self.repr_mode == "line",
+               )
+               if regex is not None:
+                   return f"RegularType({regex})"
            return "RegularType(Automaton)\n" + str(self.nfa)
        return f"RegularType({self.pattern})"
     
@@ -338,30 +369,10 @@ class RegularType:
     @timer
     def to_regex(self) -> str:
         """Convert automaton to a regular expression string."""
-            
-        try:
-            ast = automaton_to_ast(self.nfa)
-            regex_str: str = ast_to_regex(ast)
-            
-            # Escape non-printable characters
-            escaped_chars_list = []
-            for char in regex_str:
-                if char == '\t':
-                    escaped_chars_list.append('\\t')
-                elif char == '\n':
-                    escaped_chars_list.append('\\n')
-                else:
-                    if char.isprintable():
-                        escaped_chars_list.append(char)
-                    else:
-                        codepoint = ord(char)
-                        escaped_chars_list.append(f"\\u{codepoint:04x}")
-            escaped_str = "".join(escaped_chars_list)
-                    
-            return escaped_str
-        except Exception as e:
-            traceback.print_exc()
-            exit()
+        regex = automaton_to_regex(self.nfa, line_based=self.repr_mode == "line")
+        if regex is not None:
+            return regex
+        return str(self.nfa)
 
 
 def starts_with_start_anchor(pattern: RegularType) -> bool:

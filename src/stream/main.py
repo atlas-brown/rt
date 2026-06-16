@@ -12,6 +12,7 @@ import jpype
 
 from stream.config.global_config import CONFIG
 from stream.type_checker import ErrorResult, ScriptChecker
+from stream.regular_type import readable_automata_repr
 from stream.utils.format import pretty_ast_node
 
 
@@ -38,12 +39,26 @@ def cli_main():
         default=signature(main).parameters["log_level"].default,  # Define like this to avoid duplication of the defaults
         help=f"Set the logging level to one of DEBUG, INFO, WARNING, ERROR, CRITICAL or DISABLED (default: %(default)s)",
     )
+    readable_group = parser.add_mutually_exclusive_group()
+    readable_group.add_argument(
+        "--readable-types",
+        dest="readable_types",
+        action="store_true",
+        default=True,
+        help="Render automaton-backed regular types as readable regexes when possible.",
+    )
+    readable_group.add_argument(
+        "--no-readable-types",
+        dest="readable_types",
+        action="store_false",
+        help="Keep automaton-backed regular types in raw automaton form.",
+    )
 
     args = parser.parse_args()
     if args.file:
-        main(args.file, args.disable_annotations, args.log_level)
+        main(args.file, args.disable_annotations, args.log_level, args.readable_types)
     else:
-        interactive_main(args.disable_annotations, args.log_level)
+        interactive_main(args.disable_annotations, args.log_level, args.readable_types)
 
 
 def main(
@@ -52,9 +67,10 @@ def main(
     log_level: Literal[
         "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL", "DISABLED"
     ] = "DISABLED",
+    readable_types: bool = True,
 ):
     preamble(disable_annotations, log_level)
-    exit_code = check_pipeline(file.resolve(strict=True).as_posix())
+    exit_code = check_pipeline(file.resolve(strict=True).as_posix(), readable_types)
     postamble()
     sys.exit(exit_code)
 
@@ -68,6 +84,7 @@ def interactive_main(
     ] = signature(main)
     .parameters["log_level"]
     .default,
+    readable_types: bool = signature(main).parameters["readable_types"].default,
 ):
     preamble(disable_annotations, log_level)
     if sys.stdin.isatty():
@@ -78,7 +95,7 @@ def interactive_main(
                 with tempfile.NamedTemporaryFile(suffix=".sh") as temp_file:
                     temp_file.write(pipeline.encode("utf-8"))
                     temp_file.flush()
-                    check_pipeline(temp_file.name)
+                    check_pipeline(temp_file.name, readable_types)
         except EOFError:
             break
     postamble()
@@ -118,8 +135,8 @@ def postamble() -> None:
 
 
 # Code taken from the artifact evaluation branch
-def check_pipeline(file: str) -> int:
-    first_error = next(iter_formatted_errors(file), None)
+def check_pipeline(file: str, readable_types: bool = True) -> int:
+    first_error = next(iter_formatted_errors(file, readable_types=readable_types), None)
     if first_error is None:
         print("No RT errors found.")
         return 0
@@ -136,23 +153,17 @@ INPUT_MISMATCH_RE = re.compile(
 OUTPUT_EMPTY_RE = re.compile(
     r"Output type '(?P<actual>.*?)' is empty for command", re.DOTALL
 )
-SIMPLE_SELF_LOOP_RE = re.compile(
-    r"RegularType\(Automaton\).*?state 0 \[accept\]:\s*(?P<label>[^\n]+?) -> 0\s*$",
-    re.DOTALL,
-)
-
 
 def _strip_regular_type(type_text: str | None) -> str:
     if not type_text:
         return "unknown"
     type_text = type_text.strip()
-    self_loop_match = SIMPLE_SELF_LOOP_RE.search(type_text)
-    if self_loop_match:
-        return f"[{self_loop_match.group('label').strip()}]*"
     if type_text.startswith("RegularType(") and type_text.endswith(")"):
         inner = type_text[len("RegularType(") : -1]
         if "\n" not in inner:
             return inner
+    if type_text.startswith("RegularType(Automaton)\n"):
+        return type_text
     if "\n" in type_text:
         return " ".join(line.strip() for line in type_text.splitlines() if line.strip())
     return type_text
@@ -241,22 +252,25 @@ def format_error(error: ErrorResult, pipe_node) -> str:
     return "\n".join(lines)
 
 
-def iter_formatted_errors(script_path: str) -> Iterator[str]:
-    checker = ScriptChecker(script_path)
-    for pipeline_index, result in enumerate(checker):
-        if checker.pipeline_nodes is None:
-            continue
-        pipe_node = checker.pipeline_nodes[pipeline_index]
-        for error in result.error_results:
-            yield format_error(error, pipe_node)
-        if getattr(result, "runtime_error_message", None):
-            yield "\n".join(
-                [
-                    f"Error (ln. {getattr(pipe_node.items[0], 'line_number', '?')}):",
-                    f"> {pretty_ast_node(pipe_node)}",
-                    result.runtime_error_message,
-                ]
-            )
+def iter_formatted_errors(
+    script_path: str, *, readable_types: bool = True
+) -> Iterator[str]:
+    with readable_automata_repr(readable_types):
+        checker = ScriptChecker(script_path)
+        for pipeline_index, result in enumerate(checker):
+            if checker.pipeline_nodes is None:
+                continue
+            pipe_node = checker.pipeline_nodes[pipeline_index]
+            for error in result.error_results:
+                yield format_error(error, pipe_node)
+            if getattr(result, "runtime_error_message", None):
+                yield "\n".join(
+                    [
+                        f"Error (ln. {getattr(pipe_node.items[0], 'line_number', '?')}):",
+                        f"> {pretty_ast_node(pipe_node)}",
+                        result.runtime_error_message,
+                    ]
+                )
 
 
 if __name__ == "__main__":
