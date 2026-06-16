@@ -8,6 +8,7 @@ from typing import Iterable
 
 
 from stream.type_checker import ErrorResult, ScriptChecker
+from stream.regular_type import readable_automata_repr
 from stream.utils.format import pretty_ast_node
 
 
@@ -17,23 +18,17 @@ INPUT_MISMATCH_RE = re.compile(
     re.DOTALL,
 )
 OUTPUT_EMPTY_RE = re.compile(r"Output type '(?P<actual>.*?)' is empty for command", re.DOTALL)
-SIMPLE_SELF_LOOP_RE = re.compile(
-    r"RegularType\(Automaton\).*?state 0 \[accept\]:\s*(?P<label>[^\n]+?) -> 0\s*$",
-    re.DOTALL,
-)
-
 
 def _strip_regular_type(type_text: str | None) -> str:
     if not type_text:
         return "unknown"
     type_text = type_text.strip()
-    self_loop_match = SIMPLE_SELF_LOOP_RE.search(type_text)
-    if self_loop_match:
-        return f"[{self_loop_match.group('label').strip()}]*"
     if type_text.startswith("RegularType(") and type_text.endswith(")"):
         inner = type_text[len("RegularType("):-1]
         if "\n" not in inner:
             return inner
+    if type_text.startswith("RegularType(Automaton)\n"):
+        return type_text
     if "\n" in type_text:
         return " ".join(line.strip() for line in type_text.splitlines() if line.strip())
     return type_text
@@ -125,26 +120,41 @@ def format_error(error: ErrorResult, pipe_node) -> str:
     return "\n".join(lines)
 
 
-def iter_formatted_errors(script_path: str) -> Iterable[str]:
-    checker = ScriptChecker(script_path)
-    for pipeline_index, result in enumerate(checker):
-        pipe_node = checker.pipeline_nodes[pipeline_index]
-        for error in result.error_results:
-            yield format_error(error, pipe_node)
-        if result.runtime_error_message:
-            yield "\n".join([
-                f"Error (ln. {getattr(pipe_node.items[0], 'line_number', '?')}):",
-                f"> {pretty_ast_node(pipe_node)}",
-                result.runtime_error_message,
-            ])
+def iter_formatted_errors(script_path: str, *, readable_types: bool = True) -> Iterable[str]:
+    with readable_automata_repr(readable_types):
+        checker = ScriptChecker(script_path)
+        for pipeline_index, result in enumerate(checker):
+            pipe_node = checker.pipeline_nodes[pipeline_index]
+            for error in result.error_results:
+                yield format_error(error, pipe_node)
+            if result.runtime_error_message:
+                yield "\n".join([
+                    f"Error (ln. {getattr(pipe_node.items[0], 'line_number', '?')}):",
+                    f"> {pretty_ast_node(pipe_node)}",
+                    result.runtime_error_message,
+                ])
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run RT and print paper-style diagnostics.")
     parser.add_argument("script", help="Shell script to check")
+    readable_group = parser.add_mutually_exclusive_group()
+    readable_group.add_argument(
+        "--readable-types",
+        dest="readable_types",
+        action="store_true",
+        default=True,
+        help="Render automaton-backed regular types as readable regexes when possible.",
+    )
+    readable_group.add_argument(
+        "--no-readable-types",
+        dest="readable_types",
+        action="store_false",
+        help="Keep automaton-backed regular types in raw automaton form.",
+    )
     args = parser.parse_args()
 
-    first_error = next(iter_formatted_errors(args.script), None)
+    first_error = next(iter_formatted_errors(args.script, readable_types=args.readable_types), None)
     if first_error is None:
         print("No RT errors found.")
         return 0
