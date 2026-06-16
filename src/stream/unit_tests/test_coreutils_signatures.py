@@ -130,6 +130,13 @@ def _lookup(command_name: str):
     raise AssertionError(f"missing signature for {command_name}")
 
 
+def _apply_signature(signature, input_type, invocation, env_annotations=None):
+    if env_annotations is None:
+        env_annotations = {}
+    command_type = signature.determine_command_type(invocation, [], env_annotations)
+    return signature.apply_command_type(command_type, input_type)
+
+
 def test_independent_coreutils_yaml_signatures_match_paper_claim():
     loader = _load_signatures()
     signature_names = {signature.command_name for signature in loader.signatures}
@@ -147,22 +154,20 @@ def test_coreutils_identity_filters_preserve_line_type():
     tee_signature = _lookup("tee")
     input_type = RegularType("[a-z]+")
 
-    result = tee_signature.determine_output_type(
+    result = _apply_signature(
+        tee_signature,
         input_type,
         CommandInvocationInitial("tee", [], []),
-        [],
-        {},
     )
 
     assert isinstance(result, InferenceResult)
     assert result.output_type.is_subtype(input_type)[0]
     assert input_type.is_subtype(result.output_type)[0]
 
-    source_result = tee_signature.determine_output_type(
+    source_result = _apply_signature(
+        tee_signature,
         RegularType(""),
         CommandInvocationInitial("tee", [], []),
-        [],
-        {},
     )
 
     assert isinstance(source_result, InferenceResult)
@@ -173,11 +178,10 @@ def test_coreutils_identity_filters_preserve_line_type():
 def test_coreutils_file_operands_fall_back_to_unknown_content():
     tac_signature = _lookup("tac")
 
-    result = tac_signature.determine_output_type(
+    result = _apply_signature(
+        tac_signature,
         RegularType(""),
         CommandInvocationInitial("tac", [], [Operand("/tmp/input.txt")]),
-        [],
-        {},
     )
 
     assert isinstance(result, InferenceResult)
@@ -189,11 +193,10 @@ def test_coreutils_stable_output_shapes_and_no_stdin_heuristic():
     nproc_signature = _lookup("nproc")
     whoami_signature = _lookup("whoami")
 
-    nproc_result = nproc_signature.determine_output_type(
+    nproc_result = _apply_signature(
+        nproc_signature,
         RegularType(".*"),
         CommandInvocationInitial("nproc", [], []),
-        [],
-        {},
     )
     whoami_input, no_input_type = whoami_signature.get_input_type(
         CommandInvocationInitial("whoami", [], []),

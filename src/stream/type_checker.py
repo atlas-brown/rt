@@ -276,12 +276,12 @@ class PipelineChecker:
                 # ----------------------------------------------
                 # Output type derivation
                 # ----------------------------------------------
-                inference_result = signature.determine_output_type(
-                    previous_output_type,
+                command_type = signature.determine_command_type(
                     parsed_command_invocation,
                     corresponding_annotations,
                     corresponding_env_annotations,
                 )
+                inference_result = signature.apply_command_type(command_type, previous_output_type)
                 self_contained = True
                 backward_func = None
                 if isinstance(inference_result, InferenceResult):

@@ -1,13 +1,11 @@
 import re
 from typing import Optional, Tuple
-from stream.command_signature import CommandSignature, InferenceResult, inverse_fst_product
-from stream.regex_parser import convert_to_pure_string
+from stream.command_signature import CommandSignature
+from stream.command_type import PolymorphicCommandType
 from stream.regular_type import RegularType
-from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
+from stream.transformation_ast import ALPHA, ConstantTransform, FieldSelectTransform
 
 from stream.tool_error import ToolError
-from stream.transducer import correct_cut_field_FST, cut_char_FST, cut_field_FST, line_based_functional_to_stream_FST, product_fst_automaton
-from stream.user_annotation import AnnotationType
 
 
 class CutSignature(CommandSignature):
@@ -73,99 +71,41 @@ class CutSignature(CommandSignature):
             
         return super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
 
-    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations) -> RegularType:
+    def construct_command_type(self, parsed_command_invocation, env_annotations):
+        source = ALPHA
+        self_contained = True
         if len(parsed_command_invocation.operand_list) > 0:
             file_name = parsed_command_invocation.operand_list[0].name
-            if any(
-                annotation.annotation_type in {AnnotationType.FILE, AnnotationType.CONCRETIZE}
-                for annotation in env_annotations.get(file_name, [])
-            ):
-                for annotation in env_annotations.get(file_name, []):
-                    if annotation.annotation_type in {AnnotationType.FILE, AnnotationType.CONCRETIZE}:
-                        previous_output_type = RegularType(annotation.pattern)
-                        break
-            else:
-                previous_output_type = RegularType(".*")
+            annotated = self._annotated_content_type(file_name, env_annotations)
+            if annotated is None:
+                annotated = RegularType(".*")
+                self_contained = False
+            source = ConstantTransform(annotated)
+
         flags = set()
         flag_args = {}
         for flag in parsed_command_invocation.flag_option_list:
             name = flag.get_name()
             flags.add(name)
-            if hasattr(flag, 'get_arg') and flag.get_arg():
+            if hasattr(flag, "get_arg") and flag.get_arg():
                 flag_args[name] = flag.get_arg()
 
-        if flags == {"-b"} or flags == {"-c"}:
-            flag_arg = flag_args.get('-c') if "-c" in flags else flag_args.get('-b')
-            args, has_upperbound = preprocess(flag_arg)
-            if len(args) == 0:
-                return InferenceResult(RegularType(".*"), None, True)
-            fst = cut_char_FST(args, has_upperbound)
-            if previous_output_type.repr_mode == "stream":
-                fst = line_based_functional_to_stream_FST(fst)
-            output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode=previous_output_type.repr_mode)
-            return InferenceResult(output_type, inverse_fst_product(fst, previous_output_type.nfa), True)
-        if flags == {"-f"} or flags == {"-d", "-f"}:
-            flag_arg = flag_args.get('-f') if "-f" in flags else flag_args.get('-d')
-            args, has_upperbound = preprocess(flag_arg)
-            delimiter = "\t"
-            if '-d' in flags:
-                delimiter = f"{flag_args['-d']}"
-            while (delimiter[0] == "(" and delimiter[-1] == ")") or (delimiter[0] == "[" and delimiter[-1] == "]") or (delimiter[0] == "'" and delimiter[-1] == "'") or (delimiter[0] == '"' and delimiter[-1] == '"'):
-                delimiter = delimiter[1:-1]
-            delimiter = delimiter[-1] # \" -> "
-            if len(args) == 0:
-                return InferenceResult(RegularType(".*"), None, True)
-            fst = correct_cut_field_FST(delimiter, args, has_upperbound)
-            if previous_output_type.repr_mode == "stream":
-                fst = line_based_functional_to_stream_FST(fst)
-            output_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted, repr_mode=previous_output_type.repr_mode)
-            return InferenceResult(output_type, inverse_fst_product(fst, previous_output_type.nfa), True)
-        
-        return InferenceResult(RegularType(".*"), None, True)
+        try:
+            if flags == {"-b"} or flags == {"-c"}:
+                flag_arg = flag_args.get("-c") if "-c" in flags else flag_args.get("-b")
+                transform = FieldSelectTransform(source, "", flag_arg)
+            elif flags == {"-f"} or flags == {"-d", "-f"}:
+                flag_arg = flag_args.get("-f")
+                delimiter = "\t"
+                if "-d" in flags:
+                    delimiter = f"{flag_args['-d']}"
+                transform = FieldSelectTransform(source, delimiter, flag_arg)
+            else:
+                transform = ConstantTransform(RegularType(".*"))
+        except Exception:
+            transform = ConstantTransform(RegularType(".*"))
 
-
-
-        if "-b" in flags or "-c" in flags:
-            args1 = preprocess(flag_args.get('-c'))
-            args2 = preprocess(flag_args.get('-b'))
-            flag_arg = flag_args.get('-c') if "-c" in flags else flag_args.get('-b')
-            args = args1 + args2
-            if len(args) == 0:
-                return RegularType(".*")
-            if args[-1] == -1:
-                if len(args) == 2:
-                    fst = cut_char_no_upperbound_FST(args[-2])
-                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
-                fst1 = cut_char_FST(args[:-2])
-                fst2 = cut_char_no_upperbound_FST(args[-2])
-                return RegularType(automaton=product_fst_automaton(fst1, previous_output_type.nfa), tainted=previous_output_type.tainted) + RegularType(automaton=product_fst_automaton(fst2, previous_output_type.nfa), tainted=previous_output_type.tainted)
-            fst = cut_char_FST(args)
-            return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
-
-        delimiter = "\t"
-        if '-d' in flags:
-            delimiter = f"{flag_args['-d']}"
-
-        while (delimiter[0] == "(" and delimiter[-1] == ")") or (delimiter[0] == "[" and delimiter[-1] == "]") or (delimiter[0] == "'" and delimiter[-1] == "'") or (delimiter[0] == '"' and delimiter[-1] == '"'):
-            delimiter = delimiter[1:-1]
-        delimiter = delimiter[-1] # \" -> "
-
-        if '-f' in flags:
-            args = preprocess(flag_args.get('-f'))
-            if len(args) == 0:
-                return RegularType(".*")
-            if args[-1] == -1:
-                if len(args) == 2:
-                    fst = cut_field_no_upperbound_FST(delimiter, args[-2])
-                    return RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), tainted=previous_output_type.tainted)
-                fst1 = cut_field_FST(delimiter, args[:-2])
-                fst2 = cut_field_no_upperbound_FST(delimiter, args[-2], leading_delimiter=True)
-                return RegularType(automaton=product_fst_automaton(fst1, previous_output_type.nfa), tainted=previous_output_type.tainted) + RegularType(automaton=product_fst_automaton(fst2, previous_output_type.nfa), tainted=previous_output_type.tainted)
-            fst = cut_field_FST(delimiter, args)
-            return RegularType(automaton=product_fst_automaton(fst, (previous_output_type & RegularType(".*[" + delimiter + "].*")).nfa), tainted=previous_output_type.tainted) | (previous_output_type - RegularType(".*[" + delimiter + "].*", tainted=previous_output_type.tainted))
-
-        
-        return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+        return PolymorphicCommandType(transform, self_contained=self_contained)
 
 def preprocess(arg: str) -> Tuple[list[int], bool]: # return value: fields, has_upperbound
     # 1- -> [1], False

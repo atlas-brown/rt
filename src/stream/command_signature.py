@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 import logging
-from stream.transducer_utils import FST, compute_fst_automaton_product, product_fst_automaton
+from stream.command_type import CommandType, CommandTypeResult, PolymorphicCommandType, SimpleCommandType
 from stream.regular_type import RegularType
+from stream.transformation_ast import ALPHA, ConstantTransform, TransformationNode, regex_ast_to_transform_node
 import re
 from typing import Callable, List, Dict, Any, Optional, Tuple
 from shasta.ast_node import *
@@ -22,12 +23,6 @@ class InferenceResult:
     backward_func: Optional[Callable[[Automaton], Automaton]] = None
     self_contained: Optional[bool] = None
 
-
-def inverse_fst_product(fst: FST, previous_nfa: Automaton | None = None) -> Callable[[Automaton], Automaton]:
-    if previous_nfa is None:
-        return lambda x: product_fst_automaton(fst.inverse(), x)
-    else:
-        return lambda x: product_fst_automaton(fst.inverse(), x).intersection(previous_nfa)
 
 class CommandSignature:
     def __init__(
@@ -109,12 +104,16 @@ class CommandSignature:
             or any(operand.startswith("-d") and operand != "-d" for operand in operands)
         )
     
-    def determine_output_type(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], env_annotations: Dict[str, List[EnvAnnotation]]) -> InferenceResult | RegularType:
+    def determine_command_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], env_annotations: Dict[str, List[EnvAnnotation]]) -> CommandType:
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.ASSUME:
                 repr_mode = "stream" if annotation_pattern_mentions_newline(annotation.pattern) else "line"
-                return RegularType(annotation.pattern, repr_mode=repr_mode, tainted=False)
-            
+                return SimpleCommandType(
+                    RegularType(".*"),
+                    RegularType(annotation.pattern, repr_mode=repr_mode, tainted=False),
+                    self_contained=True,
+                )
+
         if parsed_command_invocation.cmd_name != "xargs" and parsed_command_invocation.cmd_name != "grep" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
             operand = parsed_command_invocation.operand_list[0].name
             if operand.startswith("-"):
@@ -123,43 +122,56 @@ class CommandSignature:
                     operand,
                     parsed_command_invocation.cmd_name,
                 )
-        
+
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "--version" in flags or "--help" in flags:
-            return RegularType(".*")
-        if parsed_command_invocation.cmd_name not in ["cut", "tr", "grep", "head", "tail"]:
-            previous_output_type, _ = self.process_stream_input(previous_output_type)
-        out = self.output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
-        return out
-    
-    def process_stream_input(self, previous_output_type: RegularType) -> Tuple[RegularType, bool]:
-        if previous_output_type.repr_mode == "stream":
-            return previous_output_type.to_line_based_repr(), True
-        return previous_output_type, False
+            return SimpleCommandType(RegularType(".*"), RegularType(".*"), self_contained=True)
+        return self._finalize_command_type(
+            self.construct_command_type(parsed_command_invocation, env_annotations),
+            parsed_command_invocation,
+        )
 
+    def _finalize_command_type(
+        self,
+        command_type: CommandType,
+        parsed_command_invocation: CommandInvocationInitial,
+    ) -> CommandType:
+        if (
+            isinstance(command_type, PolymorphicCommandType)
+            and command_type.normalize_input_to_line is None
+        ):
+            command_type.normalize_input_to_line = parsed_command_invocation.cmd_name not in [
+                "cut",
+                "tr",
+                "grep",
+                "head",
+                "tail",
+            ]
+        return command_type
 
-    def get_operands(self, parsed_command_node: CommandInvocationInitial) -> List[str]:
-        assert isinstance(parsed_command_node, CommandInvocationInitial)
-        operand_list = parsed_command_node.operand_list.copy()
-        if len(operand_list) == 0:
-            return []
-        if parsed_command_node.cmd_name == "xargs":
-            return [operand.name for operand in operand_list[1:]]
-        return [operand.name for operand in operand_list]
-    
+    def construct_command_type(self, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> CommandType:
+        output_transform, self_contained, tainted = self.construct_output_transform(
+            parsed_command_invocation,
+            env_annotations,
+        )
+        normalize_input_to_line = parsed_command_invocation.cmd_name not in ["cut", "tr", "grep", "head", "tail"]
+        return PolymorphicCommandType(
+            output_transform,
+            self_contained=self_contained,
+            normalize_input_to_line=normalize_input_to_line,
+            output_tainted=tainted,
+        )
 
-    def get_file_name(self, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
-        file_name = parsed_command_invocation.operand_list[-1].name
-        for annotation in env_annotations.get(file_name, []):
-            if annotation.annotation_type in {AnnotationType.FILE, AnnotationType.CONCRETIZE}:
-                return RegularType(annotation.pattern, tainted=False)
-        return RegularType(".*")
+    def apply_command_type(self, command_type: CommandType, input_type: RegularType) -> InferenceResult:
+        result: CommandTypeResult = command_type.apply_to_input(input_type)
+        return InferenceResult(result.output_type, result.backward_func, result.self_contained)
 
-    def output_type_inference(self, previous_output_type: RegularType, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> InferenceResult | RegularType:
-        assert isinstance(previous_output_type, RegularType)
-        assert isinstance(parsed_command_invocation, CommandInvocationInitial)
+    def construct_output_transform(
+        self,
+        parsed_command_invocation: CommandInvocationInitial,
+        env_annotations: Dict[str, List[EnvAnnotation]],
+    ) -> Tuple[TransformationNode, bool, bool]:
         lose_precision = True
-        backward_func = None
         self_contained = True
         tainted = self.isTainted
 
@@ -205,118 +217,163 @@ class CommandSignature:
         if parsed_command_invocation.cmd_name in env_related_command_names:
             self_contained = False
 
-        env: Dict[str, RegularType] = {}
-        env_raw: Dict[str, str] = {}
+        env: Dict[str, TransformationNode] = {}
 
-        for i, arg in enumerate(self.args):
-            arg_name: str = arg['name']
-            is_regex: bool = arg.get('is_regex', False)
-            if i < len(parsed_command_invocation.operand_list):
-                arg = parsed_command_invocation.operand_list[i].name
-                env_raw[arg_name] = arg
-                
-                # Check for FILE annotation with exact pattern match
-                if arg in env_annotations:
-                    for annot in env_annotations[arg]:
-                        if annot.annotation_type in {AnnotationType.FILE, AnnotationType.CONCRETIZE}:
-                            env[f"{arg_name}.content"] = RegularType(annot.pattern)
-                            lose_precision = False
-                            tainted = False
-                            break
-                if f"{arg_name}.content" not in env:
-                    env[f"{arg_name}.content"] = RegularType(".*")
-                    lose_precision = True
-                    tainted = True
-                    self_contained = False
-                
-                # Process ${} patterns and escape non-pattern parts if not regex
-                parts = []
-                last_end = 0
-                for var_match in re.finditer(r'(\$\{.*?\})', arg):
-                    # Add text before match (escaped if not regex)
-                    if var_match.start() > last_end:
-                        text = arg[last_end:var_match.start()]
-                        parts.append(re.escape(text) if not is_regex else text)
-                    
-                    # Add the variable pattern
-                    var_name = var_match.group(1)
-                    var_pattern = ".*"  # Default pattern if not found
-                    match_var_pattern = False
-                    if var_name in env_annotations:
-                        for annot in env_annotations[var_name]:
-                            if annot.annotation_type == AnnotationType.VAR:
-                                var_pattern = annot.pattern
-                                tainted = False
-                                lose_precision = False
-                                match_var_pattern = True
-                                break
-                    if not match_var_pattern:
-                        self_contained = False
-                    parts.append(var_pattern)
-                    last_end = var_match.end()
-                
-                # Add remaining text (escaped if not regex)
-                if last_end < len(arg):
-                    text = arg[last_end:]
-                    parts.append(re.escape(text) if not is_regex else text)
-                
-                if parts:
-                    # Joined parts with variable substitutions
-                    env[arg_name] = RegularType(''.join(parts))
-                else:
-                    # No matches found, escape if not regex
-                    env[arg_name] = RegularType(re.escape(arg) if not is_regex else arg)
+        for i, arg_info in enumerate(self.args):
+            arg_name: str = arg_info["name"]
+            is_regex: bool = arg_info.get("is_regex", False)
+            if i >= len(parsed_command_invocation.operand_list):
+                continue
 
-        # add predefined variables to env
-        env["actual_input_type"] = previous_output_type
-        env["output_type"] = self.default_output_type
+            arg = parsed_command_invocation.operand_list[i].name
+
+            file_content = self._annotated_content_type(arg, env_annotations)
+            if file_content is not None:
+                env[f"{arg_name}.content"] = ConstantTransform(file_content)
+                lose_precision = False
+                tainted = False
+            else:
+                env[f"{arg_name}.content"] = ConstantTransform(RegularType(".*"))
+                lose_precision = True
+                tainted = True
+                self_contained = False
+
+            pattern, variable_self_contained, variable_precise = self._argument_pattern(
+                arg,
+                is_regex,
+                env_annotations,
+            )
+            env[arg_name] = ConstantTransform(RegularType(pattern))
+            if not variable_self_contained:
+                self_contained = False
+            if variable_precise:
+                lose_precision = False
+                tainted = False
+
+        env["actual_input_type"] = ALPHA
+        env["output_type"] = ConstantTransform(self.default_output_type)
 
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         parsed_args = set(env.keys())
 
-        for rule in self.rules: # iterate over all rules, from top to bottom
-            required_flags = set(rule['condition'].get('flags', []))
-            required_args = set(rule['condition'].get('args', []))
-            no_flags = set(rule['condition'].get('no_flags', []))
-            no_args = set(rule['condition'].get('no_args', []))
+        for rule in self.rules:
+            required_flags = set(rule["condition"].get("flags", []))
+            required_args = set(rule["condition"].get("args", []))
+            no_flags = set(rule["condition"].get("no_flags", []))
+            no_args = set(rule["condition"].get("no_args", []))
 
-            # match the rule, required flags and args are subset of actual flags and args, and no_flags and no_args are not in actual flags and args
-            if (required_flags.issubset(parsed_flags) and
-                required_args.issubset(parsed_args) and
-                not any(flag in parsed_flags for flag in no_flags) and
-                not any(arg in parsed_args for arg in no_args)):
-
-                # update env
-                update_variables: Dict[str, RegularType | str] = rule.get('update', {}).copy()
+            if (
+                required_flags.issubset(parsed_flags)
+                and required_args.issubset(parsed_args)
+                and not any(flag in parsed_flags for flag in no_flags)
+                and not any(arg in parsed_args for arg in no_args)
+            ):
+                update_variables: Dict[str, str] = rule.get("update", {}).copy()
                 logging.debug(f"Command: {self.command_name}, Rule: {rule['condition']} -> {rule['update']}")
                 for key, value in update_variables.items():
                     try:
-                        if isinstance(value, str):
-                            exact_hole = re.fullmatch(r"\{\{([^{}]+)\}\}", value)
-                            if exact_hole is not None:
-                                hole_value = env.get(exact_hole.group(1))
-                                if isinstance(hole_value, RegularType):
-                                    update_variables[key] = RegularType(
-                                        automaton=hole_value.nfa.clone(),
-                                        repr_mode=hole_value.repr_mode,
-                                        tainted=hole_value.tainted,
-                                    )
-                                    continue
-                        update_variables[key] = RegularType(value, hole_dict=env)
-                    except:
+                        env[key] = self._build_transform(value, env)
+                    except Exception:
                         raise ToolError(f"Error in updating env for command, missing argument when updating {key} with {value}")
-                env.update(update_variables)
-                logging.debug(f"Command: {self.command_name}, Updated env: {env}")
-                if rule.get('output_tainted', tainted):
-                    tainted = rule.get('output_tainted', tainted)
+                logging.debug(f"Command: {self.command_name}, Updated AST env: {env}")
+                if rule.get("output_tainted", tainted):
+                    tainted = rule.get("output_tainted", tainted)
                     lose_precision = tainted
-                if rule.get('stop', False):
+                if rule.get("stop", False):
                     break
 
-        logging.debug(f"Command: {self.command_name}, Output type (if compatible): {env['output_type']}")
+        logging.debug(f"Command: {self.command_name}, Output AST (if compatible): {env['output_type']}")
         logging.debug("-"*60)
-        env['output_type'].tainted = tainted
-        return InferenceResult(env['output_type'], backward_func, self_contained)
+        return env["output_type"], self_contained, tainted
+
+    def _annotated_content_type(
+        self,
+        arg: str,
+        env_annotations: Dict[str, List[EnvAnnotation]],
+    ) -> Optional[RegularType]:
+        for annot in env_annotations.get(arg, []):
+            if annot.annotation_type in {AnnotationType.FILE, AnnotationType.CONCRETIZE}:
+                return RegularType(annot.pattern)
+        return None
+
+    def _argument_pattern(
+        self,
+        arg: str,
+        is_regex: bool,
+        env_annotations: Dict[str, List[EnvAnnotation]],
+    ) -> Tuple[str, bool, bool]:
+        parts = []
+        last_end = 0
+        self_contained = True
+        precise = False
+
+        for var_match in re.finditer(r"(\$\{.*?\})", arg):
+            if var_match.start() > last_end:
+                text = arg[last_end:var_match.start()]
+                parts.append(re.escape(text) if not is_regex else text)
+
+            var_name = var_match.group(1)
+            var_pattern = ".*"
+            matched = False
+            for annot in env_annotations.get(var_name, []):
+                if annot.annotation_type == AnnotationType.VAR:
+                    var_pattern = annot.pattern
+                    precise = True
+                    matched = True
+                    break
+            if not matched:
+                self_contained = False
+            parts.append(var_pattern)
+            last_end = var_match.end()
+
+        if last_end < len(arg):
+            text = arg[last_end:]
+            parts.append(re.escape(text) if not is_regex else text)
+
+        if parts:
+            return "".join(parts), self_contained, precise
+        return re.escape(arg) if not is_regex else arg, self_contained, precise
+
+    def _build_transform(self, value: str | RegularType | TransformationNode, env: Dict[str, TransformationNode]) -> TransformationNode:
+        if isinstance(value, TransformationNode):
+            return value
+        if isinstance(value, RegularType):
+            return ConstantTransform(value)
+        if not isinstance(value, str):
+            return ConstantTransform(RegularType(str(value)))
+
+        exact_hole = re.fullmatch(r"\{\{([^{}]+)\}\}", value)
+        if exact_hole is not None:
+            hole_name = exact_hole.group(1)
+            if hole_name in env:
+                return env[hole_name]
+
+        from stream.regex_parser import RegexParser
+
+        return regex_ast_to_transform_node(RegexParser(value).parse(), env)
+
+    def process_stream_input(self, previous_output_type: RegularType) -> Tuple[RegularType, bool]:
+        if previous_output_type.repr_mode == "stream":
+            return previous_output_type.to_line_based_repr(), True
+        return previous_output_type, False
+
+
+    def get_operands(self, parsed_command_node: CommandInvocationInitial) -> List[str]:
+        assert isinstance(parsed_command_node, CommandInvocationInitial)
+        operand_list = parsed_command_node.operand_list.copy()
+        if len(operand_list) == 0:
+            return []
+        if parsed_command_node.cmd_name == "xargs":
+            return [operand.name for operand in operand_list[1:]]
+        return [operand.name for operand in operand_list]
+
+
+    def get_file_name(self, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> RegularType:
+        file_name = parsed_command_invocation.operand_list[-1].name
+        for annotation in env_annotations.get(file_name, []):
+            if annotation.annotation_type in {AnnotationType.FILE, AnnotationType.CONCRETIZE}:
+                return RegularType(annotation.pattern, tainted=False)
+        return RegularType(".*")
     
     def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType]]:
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)

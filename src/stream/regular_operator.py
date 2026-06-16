@@ -1,4 +1,4 @@
-from stream.regex_parser import convert_to_pure_string, is_pure_string_for_ast
+from stream.regex_parser import convert_to_pure_string, convert_to_pure_string_for_ast, is_pure_string_for_ast
 from stream.regular_type import RegularType
 from stream.transducer import *
 from typing import List, Set, Optional, Dict, Tuple, Union, Callable
@@ -92,7 +92,7 @@ def process_escape_chars(source_chars: str) -> str:
     
 def complement_set(source_chars: str) -> str:
     result = ""
-    for i in range(128):
+    for i in range(256):
         if chr(i) not in source_chars:
             result += chr(i)
     if result == "":
@@ -113,7 +113,7 @@ def translate_chars(input_type: RegularType, source_chars: str, target_chars: st
     if invert:
         source_chars = complement_set(source_chars)
     fst = translation_FST(source_chars, target_chars)
-    input_automaton = input_type.automaton
+    input_automaton = input_type.nfa
     output_automaton = product_fst_automaton(fst, input_automaton)
     if squeeze:
         fst = compression_FST(target_chars)
@@ -205,7 +205,7 @@ def field_select(input_type: RegularType, delimiter: str, field_indices: str, in
         fields = inverted_fields
     
     # Process automation based on field selection
-    input_automaton = input_type.automaton
+    input_automaton = input_type.nfa
     
     if has_unbounded_range:
         if len(fields) > 2:
@@ -241,42 +241,50 @@ def field_select(input_type: RegularType, delimiter: str, field_indices: str, in
     return RegularType(automaton=output_automaton)
             
         
-def translate_match(input_type: RegularType, pattern: str | RegularType, replacement: str, global_match: bool = False) -> RegularType:
+def translate_match(
+    input_type: RegularType,
+    pattern: str | RegularType,
+    replacement: str,
+    global_match: bool = False,
+    mode: str = "compat",
+) -> RegularType:
     original_pattern = None
     if isinstance(pattern, str):
         original_pattern = pattern
-        pattern = RegularType(pattern)
+        pattern = RegularType(pattern, mode)
     if is_pure_string_for_ast(pattern.ast):
-        s1 = convert_to_pure_string(pattern.ast)
+        s1 = convert_to_pure_string_for_ast(pattern.ast)
         if global_match:
             fst = global_replacement_FST(s1, replacement)
         else:
             fst = first_replacement_FST(s1, replacement)
-        output_automaton = product_fst_automaton(fst, input_type.automaton)
+        output_automaton = product_fst_automaton(fst, input_type.nfa)
         return RegularType(automaton=output_automaton)
     else:
         if original_pattern:
             if original_pattern.startswith("^") and original_pattern.endswith("$"):
-                fst = start_regex_replacement_FST(RegularType(".*").automaton, replacement)
+                fst = start_regex_replacement_FST(RegularType(".*").nfa, replacement)
                 input_typ1 = input_type & pattern
                 input_typ2 = input_type - pattern
-                output_automaton = product_fst_automaton(fst, input_typ1.automaton)
+                output_automaton = product_fst_automaton(fst, input_typ1.nfa)
                 return RegularType(automaton=output_automaton) | input_typ2
             elif original_pattern.startswith("^"):
-                fst = start_regex_replacement_FST(pattern.automaton, replacement)
-                output_automaton = product_fst_automaton(fst, input_type.automaton)
+                fst = start_regex_replacement_FST(pattern.nfa, replacement)
+                output_automaton = product_fst_automaton(fst, input_type.nfa)
                 return RegularType(automaton=output_automaton)
             elif original_pattern.endswith("$"):
-                fst = start_regex_replacement_FST(pattern.reverse().automaton, replacement)
-                output_automaton = product_fst_automaton(fst, input_type.reverse().automaton)
+                end_pattern = original_pattern[:-2]
+                automata = RegularType(end_pattern, mode).reverse().nfa
+                fst = start_regex_replacement_FST(automata, replacement[::-1])
+                output_automaton = product_fst_automaton(fst, input_type.reverse().nfa)
                 return RegularType(automaton=output_automaton).reverse()
         if global_match:
-            fst = global_regex_replacement_FST(pattern.automaton, replacement)
-            output_automaton = product_fst_automaton(fst, input_type.automaton)
+            fst = global_regex_replacement_FST(pattern.nfa, replacement)
+            output_automaton = product_fst_automaton(fst, input_type.nfa)
             output_type = RegularType(automaton=output_automaton)
         else:
-            fst = first_regex_replacement_FST(pattern.automaton, replacement)
-            output_automaton = product_fst_automaton(fst, input_type.automaton)
+            fst = first_regex_replacement_FST(pattern.nfa, replacement)
+            output_automaton = product_fst_automaton(fst, input_type.nfa)
             output_type = RegularType(automaton=output_automaton)
         return output_type
     
@@ -296,15 +304,14 @@ def line_extract(input_type: RegularType, pattern: str | RegularType) -> Regular
             if original_pattern.startswith("^") and original_pattern.endswith("$"):
                 return input_type & pattern
             elif original_pattern.startswith("^"):
-                fst = start_regex_extract_FST(pattern.automaton)
-                output_automaton = product_fst_automaton(fst, input_type.automaton)
+                fst = start_regex_extract_FST(pattern.nfa)
+                output_automaton = product_fst_automaton(fst, input_type.nfa)
                 return RegularType(automaton=output_automaton)
             elif original_pattern.endswith("$"):
-                fst = start_regex_extract_FST(pattern.reverse().automaton)
-                output_automaton = product_fst_automaton(fst, input_type.reverse().automaton)
+                fst = start_regex_extract_FST(pattern.reverse().nfa)
+                output_automaton = product_fst_automaton(fst, input_type.reverse().nfa)
                 return RegularType(automaton=output_automaton).reverse()
-        fst = global_regex_extract_FST(pattern.automaton)
-        output_automaton = product_fst_automaton(fst, input_type.automaton)
+        fst = global_regex_extract_FST(pattern.nfa)
+        output_automaton = product_fst_automaton(fst, input_type.nfa)
         return RegularType(automaton=output_automaton)
         
-

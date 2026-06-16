@@ -1,6 +1,8 @@
 import re
 from stream.command_signature import CommandSignature
+from stream.command_type import PolymorphicCommandType
 from stream.regular_type import RegularType
+from stream.transformation_ast import ALPHA, ConcatenateTransform, ConstantTransform, KleeneStarTransform
 from stream.tool_error import ToolError
 
 class PasteSignature(CommandSignature):
@@ -20,30 +22,26 @@ class PasteSignature(CommandSignature):
         
         return input_type, no_input_type
 
-
-    def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+    def construct_command_type(self, parsed_command_invocation, env_annotations):
         flags = set()
         flag_args : dict[str, list[str]] = {}
         for flag in parsed_command_invocation.flag_option_list:
             name = flag.get_name()
             flags.add(name)
-            if hasattr(flag, 'get_arg') and flag.get_arg():
+            if hasattr(flag, "get_arg") and flag.get_arg():
                 if name not in flag_args:
                     flag_args[name] = []
                 flag_args[name].append(flag.get_arg())
         if "-s" in flags:
             delimiter = "\t"
-            if '-d' in flags:
+            if "-d" in flags:
                 delimiter = f"{flag_args['-d']}"
 
             while (delimiter[0] == "(" and delimiter[-1] == ")") or (delimiter[0] == "[" and delimiter[-1] == "]") or (delimiter[0] == "'" and delimiter[-1] == "'") or (delimiter[0] == '"' and delimiter[-1] == '"'):
                 delimiter = delimiter[1:-1]
 
-            delimiter = delimiter[-1] # \" -> "
-
-            return previous_output_type + (RegularType(f"[{delimiter}]") + previous_output_type).kleene_star()
-
-        
-            
-        return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
-        
+            delimiter = delimiter[-1]
+            separator = ConstantTransform(RegularType(f"[{delimiter}]", tainted=False))
+            transform = ConcatenateTransform(ALPHA, KleeneStarTransform(ConcatenateTransform(separator, ALPHA)))
+            return PolymorphicCommandType(transform, self_contained=True)
+        return super().construct_command_type(parsed_command_invocation, env_annotations)

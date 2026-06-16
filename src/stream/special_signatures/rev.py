@@ -1,6 +1,8 @@
 import re
-from stream.command_signature import CommandSignature, InferenceResult
-from stream.regular_type import RegularType, reverse_automaton
+from stream.command_signature import CommandSignature
+from stream.command_type import PolymorphicCommandType
+from stream.regular_type import RegularType
+from stream.transformation_ast import ALPHA, ConstantTransform, ReverseTransform
 from stream.tool_error import ToolError
 
 class RevSignature(CommandSignature):
@@ -12,15 +14,12 @@ class RevSignature(CommandSignature):
             return RegularType(""), None
         return super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
 
-
-    def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+    def construct_command_type(self, parsed_command_invocation, env_annotations):
+        source = ALPHA
         self_contained = True
         if len(parsed_command_invocation.operand_list) > 0:
-            previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
-            if previous_output_type.tainted:
+            file_type = super().get_file_name(parsed_command_invocation, env_annotations)
+            if file_type.tainted:
                 self_contained = False
-        else:
-            pass
-        
-        return InferenceResult(previous_output_type.reverse(), reverse_automaton, self_contained)
-        
+            source = ConstantTransform(file_type)
+        return PolymorphicCommandType(ReverseTransform(source), self_contained=self_contained)

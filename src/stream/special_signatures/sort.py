@@ -1,7 +1,9 @@
 import re
 from typing import Optional, Tuple
-from stream.command_signature import CommandSignature, InferenceResult
+from stream.command_signature import CommandSignature
+from stream.command_type import PolymorphicCommandType
 from stream.regular_type import RegularType
+from stream.transformation_ast import ConstantTransform
 
 from stream.tool_error import ToolError
 
@@ -61,21 +63,13 @@ class SortSignature(CommandSignature):
                         input_type = input_type & RegularType(pattern)
 
         return input_type, None
-                    
-    def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+
+    def construct_command_type(self, parsed_command_invocation, env_annotations):
         if len(parsed_command_invocation.operand_list) > 0:
-            return InferenceResult(RegularType(".*"), lambda x: x, False)
-        output_type = super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
-        if isinstance(output_type, InferenceResult):
-            output_type = output_type.output_type
-        output_type.tainted = previous_output_type.tainted
-        return InferenceResult(output_type, lambda x: x, False)
-                
-
-                    
-                
-
-        
+            return PolymorphicCommandType(ConstantTransform(RegularType(".*")), self_contained=False)
+        command_type = super().construct_command_type(parsed_command_invocation, env_annotations)
+        command_type.self_contained = False
+        return command_type
 
 def preprocess(arg: str) -> list[int]:
     # 1- -> 1, -1

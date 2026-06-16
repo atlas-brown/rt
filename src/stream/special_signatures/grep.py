@@ -1,10 +1,10 @@
 import re
-from stream.command_signature import CommandSignature, InferenceResult
+from stream.command_signature import CommandSignature
+from stream.command_type import PolymorphicCommandType
+from stream.transformation_ast import ALPHA, ComplementTransform, ConcatenateTransform, ConstantTransform, IntersectionTransform, LineExtractTransform, TaintTransform
 
 from stream.regular_type import RegularType, ends_with_end_anchor, remove_anchors, starts_with_start_anchor
 from stream.tool_error import ToolError
-
-from stream.transducer import product_fst_automaton, stream_based_filter_FST
 
 class GrepSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -100,97 +100,76 @@ class GrepSignature(CommandSignature):
             return input_type, ~no_input_type
 
             
-
-    def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
+    def construct_command_type(self, parsed_command_invocation, env_annotations):
         self_contained = True
+        source = ALPHA
         flags, flag_args, normalized_operands, has_double_dash = self._parsed_flags_and_operands(parsed_command_invocation)
+
         if len(normalized_operands) > 1 or (len(normalized_operands) == 1 and ("-e" in flags or "-f" in flags)):
-            previous_output_type = super().get_file_name(parsed_command_invocation, env_annotations)
-            if previous_output_type.tainted:
+            file_type = super().get_file_name(parsed_command_invocation, env_annotations)
+            if file_type.tainted:
                 self_contained = False
-        lose_precision = False
+            source = ConstantTransform(file_type)
 
         mode = "extended" if "-E" in flags else "basic"
 
         if "-f" in flags and "-o" not in flags:
             if "-c" in flags:
-                return InferenceResult(RegularType("[0-9]+"), lambda x: previous_output_type.get_shortest_example(), self_contained)
-            return InferenceResult(previous_output_type, lambda x: x, self_contained)
+                return PolymorphicCommandType(ConstantTransform(RegularType("[0-9]+")), self_contained=self_contained)
+            return PolymorphicCommandType(source, self_contained=self_contained)
 
         if "-e" in flags:
             patterns = self._patterns_from_e_flags(flag_args, normalized_operands)
             if not patterns:
-                previous_output_type.tainted = True
-                return InferenceResult(previous_output_type, lambda x: x, False)
+                return PolymorphicCommandType(TaintTransform(source, True), self_contained=False)
 
-            arg_count = len(parsed_command_invocation.operand_list) + 1
-            pattern_type = RegularType(patterns[0], mode)
-            pattern_type_str = pattern_type.pattern
-            original_pattern_type = RegularType(patterns[0], mode)
+            pattern_type = RegularType(patterns[0], mode, tainted=False)
+            original_pattern_type = RegularType(patterns[0], mode, tainted=False)
             for arg in patterns[1:]:
                 arg = arg.replace("\\\\", "\\")
-                pattern_type = pattern_type | RegularType(arg, mode)
-                original_pattern_type = original_pattern_type | RegularType(arg, mode)
-                pattern_type_str = f"({pattern_type_str})|({arg})"
-            
+                pattern_type = pattern_type | RegularType(arg, mode, tainted=False)
+                original_pattern_type = original_pattern_type | RegularType(arg, mode, tainted=False)
         else:
             if len(normalized_operands) == 0 and "-f" not in flags:
                 raise ToolError("No pattern provided for grep")
             if len(normalized_operands) == 0:
-                previous_output_type.tainted = True
-                return InferenceResult(previous_output_type, lambda x: x, False)
+                return PolymorphicCommandType(TaintTransform(source, True), self_contained=False)
             pattern = normalized_operands[0]
             if pattern.startswith("--") and not has_double_dash:
                 raise ToolError("Pattern cannot start with '--'")
             pattern = pattern.replace("\\\\", "\\")
             if "-F" in flags:
                 pattern = re.escape(pattern)
-            pattern_type = RegularType(pattern, mode)
-            pattern_type_str = pattern_type.pattern
-            original_pattern_type = RegularType(pattern, mode)
-            arg_count = len(parsed_command_invocation.operand_list)
+            pattern_type = RegularType(pattern, mode, tainted=False)
+            original_pattern_type = RegularType(pattern, mode, tainted=False)
 
         if "-c" in flags:
-            return InferenceResult(RegularType("[0-9]+"), lambda x: previous_output_type.get_shortest_example(), self_contained)
+            return PolymorphicCommandType(ConstantTransform(RegularType("[0-9]+")), self_contained=self_contained)
 
         if "-o" not in flags:
             if not starts_with_start_anchor(original_pattern_type):
-                pattern_type = RegularType(".*") + pattern_type
-                pattern_type_str = ".*" + pattern_type_str
+                pattern_type = RegularType(".*", tainted=False) + pattern_type
             if not ends_with_end_anchor(original_pattern_type):
-                pattern_type = pattern_type + RegularType(".*")
-                pattern_type_str = pattern_type_str + ".*"
-
+                pattern_type = pattern_type + RegularType(".*", tainted=False)
+            pattern_type = remove_anchors(pattern_type)
+            pattern_node = ConstantTransform(pattern_type)
+            transform = IntersectionTransform(source, pattern_node)
         else:
             if not starts_with_start_anchor(original_pattern_type) and not ends_with_end_anchor(original_pattern_type):
                 pattern_type.tainted = True
-                lose_precision = True
-                return InferenceResult(pattern_type, lambda x: x, self_contained)
-            else:
-                pattern_type = remove_anchors(pattern_type)
-        
-        pattern_type = remove_anchors(pattern_type)
-        
-        if "-w" in flags:
-            pattern_type = RegularType("(.*[^a-zA-Z0-9_])?") + pattern_type + RegularType("([^a-zA-Z0-9_].*)?")
-            pattern_type_str = "(.*[^a-zA-Z0-9_])?" + pattern_type_str + "([^a-zA-Z0-9_].*)?"
-        if "-v" in flags:
-            pattern_type = ~pattern_type
-            pattern_type_str = "(~(" + pattern_type_str + "))"
-        pattern_type = previous_output_type & pattern_type
-        if previous_output_type.repr_mode == "stream":
-            fst = stream_based_filter_FST(pattern_type.nfa)
-            pattern_type = RegularType(automaton=product_fst_automaton(fst, previous_output_type.nfa), repr_mode="stream", tainted=False)
-            
-        current_type_str = f"α&{pattern_type_str}"
+                return PolymorphicCommandType(ConstantTransform(pattern_type), self_contained=self_contained)
+            pattern_type = remove_anchors(pattern_type)
+            transform = IntersectionTransform(source, ConstantTransform(pattern_type))
 
+        if "-w" in flags:
+            word_pattern = RegularType("(.*[^a-zA-Z0-9_])?", tainted=False) + pattern_type + RegularType("([^a-zA-Z0-9_].*)?", tainted=False)
+            pattern_type = word_pattern
+            transform = IntersectionTransform(source, ConstantTransform(word_pattern))
+        if "-v" in flags:
+            transform = IntersectionTransform(source, ComplementTransform(ConstantTransform(pattern_type)))
         if "-n" in flags:
-            current_type_str = f"[0-9]+:({current_type_str})"
-            pattern_type = RegularType("[0-9]+:") + pattern_type
+            transform = ConcatenateTransform(ConstantTransform(RegularType("[0-9]+:", tainted=False)), transform)
         if "-P" in flags or "-m" in flags:
-            pattern_type.tainted = True
-            lose_precision = True
-        else:   
-            pattern_type.tainted = previous_output_type.tainted
-        return InferenceResult(pattern_type, lambda x: x, self_contained)
-        
+            transform = TaintTransform(transform, True)
+
+        return PolymorphicCommandType(transform, self_contained=self_contained)

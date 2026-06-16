@@ -1,9 +1,10 @@
-from stream.command_signature import CommandSignature, InferenceResult
+from stream.command_signature import CommandSignature
+from stream.command_type import PolymorphicCommandType
 from stream.regular_type import RegularType
+from stream.transformation_ast import ALPHA, ConstantTransform, DefaultIfEmptyStringTransform
 
 
 class TeeSignature(CommandSignature):
-    def output_type_inference(self, previous_output_type, parsed_command_invocation, env_annotations):
-        if previous_output_type.is_empty_string():
-            return InferenceResult(RegularType(".*"), None, False)
-        return super().output_type_inference(previous_output_type, parsed_command_invocation, env_annotations)
+    def construct_command_type(self, parsed_command_invocation, env_annotations):
+        transform = DefaultIfEmptyStringTransform(ALPHA, ConstantTransform(RegularType(".*")))
+        return PolymorphicCommandType(transform, self_contained=False)
