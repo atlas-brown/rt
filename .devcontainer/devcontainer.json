@@ -1,0 +1,25 @@
+{
+  "name": "rt",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": "..",
+    "target": "dev"
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/app/.venv/bin/python",
+        "python.terminal.activateEnvInCurrentTerminal": true
+      }
+    }
+  },
+  "remoteUser": "root",
+  // Ensure the virtual environment is always up to date with the lock file
+  "postCreateCommand": "uv sync --locked"
+}

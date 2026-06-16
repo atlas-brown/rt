@@ -19,7 +19,7 @@ This artifact targets the following badges:
 
 Confirm that the repository, benchmark corpora, and experiment scripts are available:
 
-1. The top-level RT entry point is [`rt.sh`](rt.sh). It runs the checker on a shell script.
+1. The top-level RT entry point is `rt`. From a source checkout, use `PYTHONPATH=src python3 -m stream.main`.
 2. The checker implementation is under [`src/stream/`](src/stream/), with the technical contributions mapped as follows:
    * Regular types: [`src/stream/regular_type.py`](src/stream/regular_type.py), [`src/stream/command_type.py`](src/stream/command_type.py).
    * Type database: [`src/stream/signatures/`](src/stream/signatures/), [`src/stream/special_signatures/`](src/stream/special_signatures/), [`src/stream/command_signature.py`](src/stream/command_signature.py).
@@ -59,7 +59,7 @@ If you prefer not to use Docker, see [Optional local host installation](#optiona
 This script should complete with all unit tests passing, then run RT on the paper motivating example and print the first expected RT diagnostic.
 
 ```text
-Running smoke tests: bash rt.sh examples/motivating_example.sh
+Running smoke tests: rt examples/motivating_example.sh
 Error (ln. 2):
 > grep -E "book[0-9]+\.txt" | xargs cat | ...
   grep -E "book[0-9]+\.txt" > (\.(/.+)?)&(((.*)(book[0-9]+\.txt))(.*))
