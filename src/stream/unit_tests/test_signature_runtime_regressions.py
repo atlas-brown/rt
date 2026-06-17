@@ -100,6 +100,31 @@ def test_grep_e_pattern_from_operands_initializes_pattern_type_string():
     assert isinstance(result.output_type, RegularType)
 
 
+def test_constructed_command_type_carries_input_constraints():
+    whoami_signature = _lookup_signature("whoami")
+    whoami_type = whoami_signature.determine_command_type(
+        CommandInvocationInitial("whoami", [], []),
+        [],
+        {},
+        ["no_ignored_input"],
+    )
+
+    assert whoami_type.input_type.pattern == ""
+    assert whoami_type.no_input_type is None
+
+    sort_signature = _lookup_signature("sort")
+    sort_type = sort_signature.determine_command_type(
+        CommandInvocationInitial("sort", [], []),
+        [],
+        {},
+        ["no_sort_non_numeric_with_numeric_input"],
+    )
+
+    assert isinstance(sort_type.input_type, RegularType)
+    assert isinstance(sort_type.no_input_type, RegularType)
+    assert sort_type.negative_constraint is sort_type.no_input_type
+
+
 def test_find_exec_ls_unwraps_nested_inference_result():
     find_signature = _lookup_signature("find")
     invocation = CommandInvocationInitial(

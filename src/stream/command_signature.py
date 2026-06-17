@@ -104,14 +104,39 @@ class CommandSignature:
             or any(operand.startswith("-d") and operand != "-d" for operand in operands)
         )
     
-    def determine_command_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], env_annotations: Dict[str, List[EnvAnnotation]]) -> CommandType:
+    def determine_command_type(
+        self,
+        parsed_command_invocation: CommandInvocationInitial,
+        user_annotations: List[UserAnnotation],
+        env_annotations: Dict[str, List[EnvAnnotation]],
+        heuristic_rules: Optional[List[str]] = None,
+    ) -> CommandType:
+        heuristic_rules = heuristic_rules or []
+        input_type, no_input_type = self.determine_input_type(
+            parsed_command_invocation,
+            user_annotations,
+            heuristic_rules,
+            env_annotations,
+        )
+
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.ASSUME:
                 repr_mode = "stream" if annotation_pattern_mentions_newline(annotation.pattern) else "line"
-                return SimpleCommandType(
-                    RegularType(".*"),
-                    RegularType(annotation.pattern, repr_mode=repr_mode, tainted=False),
+                command_type = SimpleCommandType(
+                    input_type,
+                    RegularType(
+                        annotation.pattern,
+                        repr_mode=repr_mode,
+                        tainted=False,
+                    ),
+                    no_input_type=no_input_type,
                     self_contained=True,
+                )
+                return self._finalize_command_type(
+                    command_type,
+                    parsed_command_invocation,
+                    input_type,
+                    no_input_type,
                 )
 
         if parsed_command_invocation.cmd_name != "xargs" and parsed_command_invocation.cmd_name != "grep" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
@@ -125,16 +150,31 @@ class CommandSignature:
 
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
         if "--version" in flags or "--help" in flags:
-            return SimpleCommandType(RegularType(".*"), RegularType(".*"), self_contained=True)
+            command_type = SimpleCommandType(
+                input_type,
+                RegularType(".*"),
+                no_input_type=no_input_type,
+                self_contained=True,
+            )
+            return self._finalize_command_type(
+                command_type,
+                parsed_command_invocation,
+                input_type,
+                no_input_type,
+            )
         return self._finalize_command_type(
             self.construct_command_type(parsed_command_invocation, env_annotations),
             parsed_command_invocation,
+            input_type,
+            no_input_type,
         )
 
     def _finalize_command_type(
         self,
         command_type: CommandType,
         parsed_command_invocation: CommandInvocationInitial,
+        input_type: RegularType,
+        no_input_type: Optional[RegularType],
     ) -> CommandType:
         if (
             isinstance(command_type, PolymorphicCommandType)
@@ -147,6 +187,7 @@ class CommandSignature:
                 "head",
                 "tail",
             ]
+        command_type.set_input_constraints(input_type, no_input_type)
         return command_type
 
     def construct_command_type(self, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> CommandType:
