@@ -264,23 +264,17 @@ class PipelineChecker:
                 logging.debug(f"Annotations: {corresponding_annotations}")
 
                 # ----------------------------------------------
-                # Input type derivation
-                # ----------------------------------------------
-                input_type, no_input_type = signature.determine_input_type(
-                    parsed_command_invocation,
-                    corresponding_annotations,
-                    self.heuristic_rules,
-                    corresponding_env_annotations,
-                )
-
-                # ----------------------------------------------
-                # Output type derivation
+                # Command type derivation
                 # ----------------------------------------------
                 command_type = signature.determine_command_type(
                     parsed_command_invocation,
                     corresponding_annotations,
                     corresponding_env_annotations,
+                    self.heuristic_rules,
                 )
+                input_type = command_type.input_type
+                no_input_type = command_type.no_input_type
+
                 inference_result = signature.apply_command_type(command_type, previous_output_type)
                 self_contained = True
                 backward_func = None

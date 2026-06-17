@@ -17,11 +17,23 @@ class CommandType:
     """Base class for representing the type of a command."""
     def __init__(
         self,
+        input_type: Optional[RegularType] = None,
+        no_input_type: Optional[RegularType] = None,
         backward_func: Optional[Callable[[Any], Any]] = None,
         self_contained: Optional[bool] = None,
     ):
+        self.input_type = input_type if input_type is not None else RegularType(".*")
+        self.no_input_type = no_input_type
         self.backward_func = backward_func
         self.self_contained = self_contained
+
+    def set_input_constraints(
+        self,
+        input_type: RegularType,
+        no_input_type: Optional[RegularType],
+    ) -> None:
+        self.input_type = input_type
+        self.no_input_type = no_input_type
     
     def apply_to_input(self, input_type: RegularType) -> CommandTypeResult:
         """Apply this command type to the given input type to produce the output type."""
@@ -49,11 +61,26 @@ class SimpleCommandType(CommandType):
         negative_constraint: Optional[RegularType] = None,
         backward_func: Optional[Callable[[Any], Any]] = None,
         self_contained: Optional[bool] = None,
+        no_input_type: Optional[RegularType] = None,
     ):
-        super().__init__(backward_func=backward_func, self_contained=self_contained)
-        self.input_type = input_type
-        self.negative_constraint = negative_constraint
+        if no_input_type is None:
+            no_input_type = negative_constraint
+        super().__init__(
+            input_type=input_type,
+            no_input_type=no_input_type,
+            backward_func=backward_func,
+            self_contained=self_contained,
+        )
+        self.negative_constraint = self.no_input_type
         self.output_type = output_type
+
+    def set_input_constraints(
+        self,
+        input_type: RegularType,
+        no_input_type: Optional[RegularType],
+    ) -> None:
+        super().set_input_constraints(input_type, no_input_type)
+        self.negative_constraint = no_input_type
     
     def apply_to_input(self, input_type: RegularType) -> CommandTypeResult:
         # For simple command types, the output is always the same regardless of input
@@ -88,13 +115,33 @@ class PolymorphicCommandType(CommandType):
                  backward_func: Optional[Callable[[Any], Any]] = None,
                  self_contained: Optional[bool] = None,
                  normalize_input_to_line: Optional[bool] = None,
-                 output_tainted: Optional[bool] = None):
-        super().__init__(backward_func=backward_func, self_contained=self_contained)
-        self.bound = bound  # Upper bound on the type parameter
-        self.negative_constraint = negative_constraint  # Negative constraint on the type parameter
+                 output_tainted: Optional[bool] = None,
+                 input_type: Optional[RegularType] = None,
+                 no_input_type: Optional[RegularType] = None):
+        if input_type is None:
+            input_type = bound
+        if no_input_type is None:
+            no_input_type = negative_constraint
+        super().__init__(
+            input_type=input_type,
+            no_input_type=no_input_type,
+            backward_func=backward_func,
+            self_contained=self_contained,
+        )
+        self.bound = input_type  # Upper bound on the type parameter
+        self.negative_constraint = self.no_input_type  # Negative constraint on the type parameter
         self.transformation = transformation
         self.normalize_input_to_line = normalize_input_to_line
         self.output_tainted = output_tainted
+
+    def set_input_constraints(
+        self,
+        input_type: RegularType,
+        no_input_type: Optional[RegularType],
+    ) -> None:
+        super().set_input_constraints(input_type, no_input_type)
+        self.bound = input_type
+        self.negative_constraint = no_input_type
     
     def apply_to_input(self, input_type: RegularType) -> CommandTypeResult:
         actual_input = input_type
