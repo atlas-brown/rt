@@ -109,7 +109,7 @@ class FindSignature(CommandSignature):
         from stream.signature_loader import SignatureLoader
         loader = SignatureLoader.get_instance()
 
-        for signature in loader.signatures:
-            if signature.matches_command(command_invocation):
-                return signature.determine_command_type(command_invocation, [], env_annotations)
-        return None
+        signature = loader.find_signature(command_invocation)
+        if signature is loader.get_unknown_sigature():
+            return None
+        return signature.determine_command_type(command_invocation, [], env_annotations)

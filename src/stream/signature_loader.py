@@ -89,7 +89,8 @@ class SignatureLoader:
             'flags': data.get('flags', []),
             'rules': data.get('rules', []),
             'isInteresting': data.get('isInteresting', False),
-            'isTainted': data.get('isTainted', True)
+            'isTainted': data.get('isTainted', True),
+            'match': data.get('match', {}),
         }
         
         if command_name in self.special_signatures:
@@ -101,14 +102,25 @@ class SignatureLoader:
         command_names = set()
         
         # Collect all YAML signature files
-        for file_name in os.listdir(self.signature_dir):
+        for file_name in sorted(os.listdir(self.signature_dir)):
             if file_name.endswith('.yaml'):
                 command_name = os.path.splitext(file_name)[0]
                 if command_name not in command_names:
                     command_names.add(command_name)
                     signatures.append(self.load_signature(command_name))
+
+        signatures.sort(key=lambda signature: signature.match_specificity(), reverse=True)
         
         return signatures
+
+    def reload(self) -> None:
+        self.signatures = self.load_all_signatures()
+
+    def find_signature(self, command_invocation) -> CommandSignature:
+        for signature in self.signatures:
+            if signature.matches_command(command_invocation):
+                return signature
+        return self.get_unknown_sigature()
     
     def get_unknown_sigature(self) -> CommandSignature:
         return self.unknown_signature

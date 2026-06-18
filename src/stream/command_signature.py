@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 import logging
+from stream.command_type_parser import parse_transform_expression
 from stream.command_type import CommandType, CommandTypeResult, PolymorphicCommandType, SimpleCommandType
 from stream.regular_type import RegularType
-from stream.transformation_ast import ALPHA, ConstantTransform, TransformationNode, regex_ast_to_transform_node
+from stream.transformation_ast import ALPHA, ConstantTransform, TransformationNode
 import re
 from typing import Callable, List, Dict, Any, Optional, Tuple
 from shasta.ast_node import *
@@ -34,7 +35,8 @@ class CommandSignature:
         flags: List[Dict[str, Any]],
         rules: List[Dict[str, Any]],
         isInteresting: bool,
-        isTainted: bool
+        isTainted: bool,
+        match: Optional[Dict[str, Any]] = None,
     ) -> None:
         self.command_name = command_name
         self.default_input_type = RegularType(default_input_type)
@@ -44,16 +46,91 @@ class CommandSignature:
         self.rules = rules
         self.isInteresting = isInteresting
         self.isTainted = isTainted
+        self.match = match or {}
+
+    @staticmethod
+    def _flag_option_value(flag_option: Any) -> Optional[str]:
+        for attr in ("arg", "argument", "option_arg", "value"):
+            if hasattr(flag_option, attr):
+                value = getattr(flag_option, attr)
+                return str(value) if value is not None else None
+        for method_name in ("get_arg", "get_argument", "get_option_arg", "get_value"):
+            method = getattr(flag_option, method_name, None)
+            if callable(method):
+                value = method()
+                return str(value) if value is not None else None
+        return None
+
+    @classmethod
+    def _flag_option_entry(cls, flag_option: Any) -> Dict[str, str]:
+        entry = {"name": flag_option.get_name()}
+        value = cls._flag_option_value(flag_option)
+        if value is not None:
+            entry["value"] = value
+        return entry
+
+    @staticmethod
+    def _normalize_expected_flag_option(entry: Any) -> Dict[str, str]:
+        if isinstance(entry, str):
+            return {"name": entry}
+        if isinstance(entry, dict) and "name" in entry:
+            normalized = {"name": str(entry["name"])}
+            if "value" in entry and entry["value"] is not None:
+                normalized["value"] = str(entry["value"])
+            return normalized
+        raise ValueError(f"Invalid flag option match entry: {entry!r}")
+
+    def _matches_invocation_constraints(self, command_invocation: CommandInvocationInitial) -> bool:
+        if not self.match:
+            return True
+
+        actual_flag_options = [
+            self._flag_option_entry(flag_option)
+            for flag_option in command_invocation.flag_option_list
+        ]
+        actual_flag_names = [flag_option["name"] for flag_option in actual_flag_options]
+        actual_operands = [operand.name for operand in command_invocation.operand_list]
+
+        if "flag_options" in self.match:
+            expected_flag_options = [
+                self._normalize_expected_flag_option(flag_option)
+                for flag_option in self.match["flag_options"]
+            ]
+            if actual_flag_options != expected_flag_options:
+                return False
+
+        if "flags" in self.match:
+            expected_flags = [str(flag) for flag in self.match["flags"]]
+            if actual_flag_names != expected_flags:
+                return False
+
+        if "operands" in self.match:
+            expected_operands = [str(operand) for operand in self.match["operands"]]
+            if actual_operands != expected_operands:
+                return False
+
+        return True
+
+    def match_specificity(self) -> int:
+        if not self.match:
+            return 0
+        return (
+            1
+            + len(self.match.get("flag_options", []))
+            + len(self.match.get("flags", []))
+            + len(self.match.get("operands", []))
+        )
+
     def matches_command(self, command_invocation: CommandInvocationInitial) -> bool:
         assert isinstance(command_invocation, CommandInvocationInitial)
         if command_invocation.cmd_name == self.command_name:
-            return True
+            return self._matches_invocation_constraints(command_invocation)
         if command_invocation.cmd_name == "xargs":
             xargs_command = self._get_xargs_command(command_invocation)
             if xargs_command is None:
                 return False
             if "xargs_" + xargs_command == self.command_name:
-                return True
+                return self._matches_invocation_constraints(command_invocation)
         return False
 
     @staticmethod
@@ -389,9 +466,7 @@ class CommandSignature:
             if hole_name in env:
                 return env[hole_name]
 
-        from stream.regex_parser import RegexParser
-
-        return regex_ast_to_transform_node(RegexParser(value).parse(), env)
+        return parse_transform_expression(value, env)
 
     def process_stream_input(self, previous_output_type: RegularType) -> Tuple[RegularType, bool]:
         if previous_output_type.repr_mode == "stream":
@@ -470,4 +545,4 @@ class CommandSignature:
         return RegularType(input_type), RegularType(no_input_type) if no_input_type is not None else None
     
     def __repr__(self) -> str:
-        return f"CommandSignature({self.command_name}, {self.default_input_type}, {self.default_output_type}, {self.args}, {self.flags}, {self.rules})"
+        return f"CommandSignature({self.command_name}, {self.default_input_type}, {self.default_output_type}, {self.args}, {self.flags}, {self.rules}, match={self.match})"

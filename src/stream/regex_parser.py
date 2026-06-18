@@ -446,9 +446,9 @@ def get_prec(node):
         return 2
     elif isinstance(node, Concatenate):
         return 3
-    elif isinstance(node, Complement):
-        return 4
     elif isinstance(node, Repeat):
+        return 4
+    elif isinstance(node, Complement):
         return 5
     elif isinstance(node, Hole):
         return 6

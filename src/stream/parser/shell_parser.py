@@ -73,10 +73,7 @@ class ShellParser:
     @timer
     def parse_command_node(self, node: CommandInvocationInitial) -> Tuple[CommandSignature, CommandInvocationInitial]:
         assert isinstance(node, CommandInvocationInitial)
-        for signature in self.signature_loader.signatures:
-            if signature.matches_command(node):
-                return (signature, node)
-        return (self.signature_loader.get_unknown_sigature(), node)
+        return (self.signature_loader.find_signature(node), node)
         
     @timer
     def parse_pipeline(self) -> List[List[Tuple[CommandSignature, CommandInvocationInitial]]]:
