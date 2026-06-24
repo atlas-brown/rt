@@ -6,7 +6,7 @@ from pash_annotations.datatypes.BasicDatatypes import Flag, Operand
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from rtr import main as rtr_main
-from stream.command_type_parser import parse_command_type_annotation
+from stream.command_type_parser import parse_command_type_annotation, parse_transform_expression
 from stream.regular_type import RegularType
 from stream.signature_loader import SignatureLoader
 
@@ -204,6 +204,13 @@ def test_command_type_parser_supports_simple_and_forall_annotations():
         == 'reverse(translate-match({{actual_input_type}}, "a", "b", global=true))'
     )
     assert nested.polymorphic is True
+
+
+def test_transform_expression_preserves_regex_leading_space():
+    output_type = parse_transform_expression(" *[0-9]+").apply(RegularType(".*"))
+
+    assert RegularType(" 0").is_subtype(output_type)[0]
+    assert not RegularType("[*]0").is_subtype(output_type)[0]
 
 
 @pytest.mark.parametrize(

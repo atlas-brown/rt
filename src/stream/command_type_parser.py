@@ -152,14 +152,14 @@ def parse_transform_expression(
     expression: str,
     hole_transforms: Optional[Mapping[str, TransformationNode]] = None,
 ) -> TransformationNode:
-    expression = expression.strip()
-    if not expression:
+    stripped_expression = expression.strip()
+    if expression == "":
         return regex_ast_to_transform_node(RegexParser("").parse(), hole_transforms)
 
-    if expression in {"α", "actual_input_type", TYPE_VARIABLE_OUTPUT}:
+    if stripped_expression in {"α", "actual_input_type", TYPE_VARIABLE_OUTPUT}:
         return ALPHA
 
-    hole_match = re.fullmatch(r"\{\{\s*([^{}]+?)\s*\}\}", expression)
+    hole_match = re.fullmatch(r"\{\{\s*([^{}]+?)\s*\}\}", stripped_expression)
     if hole_match is not None:
         hole_name = hole_match.group(1)
         if hole_transforms and hole_name in hole_transforms:
@@ -168,7 +168,7 @@ def parse_transform_expression(
             return ALPHA
         return HoleNode(hole_name)
 
-    call = _parse_call(expression)
+    call = _parse_call(stripped_expression)
     if call is not None:
         name, positional, keyword = call
         if _canonical_operator_name(name) in KNOWN_REGULAR_OPERATORS:

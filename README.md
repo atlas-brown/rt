@@ -1,48 +1,44 @@
-# RT
+# RT Artifact README
 
-## Installation
+To evaluate the artifact for the OSDI'26 paper titled "RT: Regular Types for the Streaming Shell", jump straight to [INSTRUCTIONS.md](INSTRUCTIONS.md).
 
-### Native (Linux)
+## Getting Started Instructions
 
-Make sure you have the following installed:
-* `git`
-* `make`
-* `automake`
-* `autoconf`
-* `libtool`
-* [`uv`](https://github.com/astral-sh/uv) (recommended) or `pipx`
+RT is a prototype for statically checking shell pipelines with regular types, command models, finite-state reasoning, and optional user annotations. This artifact includes the checker implementation, the benchmark suites used in the paper evaluation for functional checks and result reproduction.
 
-Then, run:
-```bash
-uv tool install git+https://github.com/brown-cs2952r/StreamTypes.git
-uv tool update-shell  # If PATH needs to be updated
+The fastest way to check the basic functionality is to use the provided Docker image. From the repository root, build the image and start a shell in it:
+
+```sh
+docker build -t rt-artifact .
+docker run --rm -it -v "$(pwd):/home/StreamTypes" rt-artifact
 ```
 
-Or:
+Inside the container, run:
 
-```bash
-pipx install git+https://github.com/brown-cs2952r/StreamTypes.git
-pipx ensurepath  # If PATH needs to be updated
+```sh
+bash scripts/check_functionality.sh
 ```
 
-### Containerized (Linux, MacOS)
+This script runs the unit test suite and then runs RT on `examples/motivating_example.sh` through the top-level `rt.sh` entry point. The smoke test should print the first expected RT diagnostic for the motivating example. This is the short artifact-functional path and should complete within the short review window.
 
-Unfortunately some of the dependencies don't build on MacOS, so the best option for now is using a Docker image.
+For local host installation instead of Docker, install the Python requirements and a Java runtime before running the same command.
 
-To install:
+## Detailed Instructions
 
-```bash
-git clone https://github.com/brown-cs2952r/StreamTypes.git
-docker build --target sys -t rt ./StreamTypes
-docker run --rm rt --help  # Should output a help message
-rm -rf ./StreamTypes
-```
+The main entry points are:
 
-**(IMPORTANT)** To run:
+1. `bash scripts/check_functionality.sh` for the short functionality check.
+2. `bash scripts/reproduce_full.sh --force` for the full paper-result reproduction.
 
-```bash
-# RT needs to be able to either accept interactive input, or read files on the host machine, so it must be run as:
-docker run --rm -i -v "$(pwd)":/ws -w /ws rt file.sh
-# Thus, it's recommended to create an alias or a function:
-echo "alias rt='docker run --rm -i -v \"\$(pwd)\":/ws -w /ws rt'" >> ~/.bashrc  # Or equivalent rc file
-```
+The full reproduction pipeline runs the baseline comparison, the main RT configuration, the ablations, and the plot/table generation. Its runtime depends on the machine and storage speed; on a typical review machine, expect roughly one hour.
+
+The primary outputs to inspect after full reproduction are:
+
+1. `evaluation_results/tables/ablation_table.md`
+2. `evaluation_results/tables/timing_table.md`
+3. `evaluation_results/plots/accuracy-chart-with-annotations.pdf`
+4. `evaluation_results/plots/accuracy-chart-without-annotations.pdf`
+5. `evaluation_results/plots/bug-detection.pdf`
+6. `evaluation_results/plots/automata-sizes.pdf`
+
+The benchmark directories and output paths are configured in `src/stream/config/config.yaml`. For local non-Docker reproduction, make sure Python, Java, ShellCheck, Rust, and LadderTypes are available before running the full pipeline.
