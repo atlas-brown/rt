@@ -41,7 +41,6 @@ class TrSignature(CommandSignature):
                 set1,
                 set2,
                 invert=invert,
-                stream=True,
                 approximate_when_fst_disabled=True,
                 preprocessed=True,
             )
@@ -50,7 +49,6 @@ class TrSignature(CommandSignature):
                 ALPHA,
                 set1,
                 invert=invert,
-                stream=True,
                 approximate_when_fst_disabled=True,
                 preprocessed=True,
             )
@@ -62,7 +60,6 @@ class TrSignature(CommandSignature):
                 target,
                 invert=invert,
                 squeeze=True,
-                stream=True,
                 approximate_when_fst_disabled=True,
                 preprocessed=True,
             )

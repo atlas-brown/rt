@@ -175,23 +175,6 @@ def _add_guarded_fallbacks(
             )
 
 
-def full_stream_to_line_based_FST() -> FST:
-    specs = [
-        (-1, "\n", "", 100),
-        (-1, "\n", "", 0),
-        (-1, "$other", "$self", 1),
-        (-1, "$other", "", 2),
-        (0, "\n", "", 100),
-        (0, "\n", "", 0),
-        (0, "$other", "$self", 1),
-        (0, "$other", "", 2),
-        (1, "\n", "", 100),
-        (1, "$other", "$self", 1),
-        (2, "\n", "", 0),
-        (2, "$other", "", 2),
-        (100, "$other", "", 100),
-    ]
-    return create_fst(specs, start_state=-1, final_states={1, 100})
 
 def translate_to_line_delimited_FST(set1: str) -> FST:
     specs = []
@@ -308,47 +291,7 @@ def correct_cut_field_FST(delimiter: str, fields: List[int], has_upperbound: boo
     specs.append((-1, "$other", "$self", -1))
     return create_fst(specs, start_state=0, final_states={i for i in range(2, max_field + 2)} | {0, -1})
 
-def tail_FST(delimiter: str, n: int) -> FST:
-    specs = []
-    specs.append((0, delimiter, "", 0))
-    specs.append((0, delimiter, "", 1))
-    specs.append((0, "$other", "", 0))
-    specs.append((-1, delimiter, "", 0))
-    specs.append((-1, delimiter, "", 1))
-    specs.append((-1, "$other", "", 0))
-    for i in range(1, n):
-        specs.append((i, delimiter, "$self", i + 1))
-        specs.append((i, "$other", "$self", i))
-        specs.append((-1, delimiter, "$self", i + 1))
-        specs.append((-1, "$other", "$self", i))
-    specs.append((n, delimiter, "$self", n + 1))
-    specs.append((-1, delimiter, "$self", n + 1))
-    specs.append((n, "$other", "$self", n + 2))
-    specs.append((-1, "$other", "$self", n + 2))
-    specs.append((n + 2, delimiter, "$self", n + 1))
-    specs.append((n + 2, "$other", "$self", n + 2))
-    return create_fst(specs, start_state=-1, final_states={-1, n + 1, n + 2})
 
-def head_FST(delimiter: str, n: int) -> FST:
-    specs = []
-    for i in range(0, n):
-        specs.append((i, delimiter, "$self", i + 1))
-        specs.append((i, "$other", "$self", i))
-    specs.append((n, "$other", "", n))
-    return create_fst(specs, start_state=0, final_states={i for i in range(0, n + 1)})
-
-
-def add_newline_if_not_end_with_newline_FST() -> FST:
-    specs = [
-        (0, "\n", "$self", 1),
-        (0, "$other", "$self", 0),
-        (0, "$other", "$self" + "\n", 2),
-        (1, "\n", "$self", 1),
-        (1, "$other", "$self", 0),
-        (1, "$other", "$self" + "\n", 2),
-    ]
-    return create_fst(specs, start_state=0, final_states={1, 2})
-    
 def cut_char_FST(fields: List[int], has_upperbound: bool = True) -> FST:
     specs = []
     max_field = max(fields)
@@ -389,69 +332,6 @@ def filter_FST(automaton: Automaton) -> FST:
     return create_fst(specs, start_state=initial_state_id, final_states=final_states)
 
 
-def stream_based_filter_FST(automaton: Automaton) -> FST:
-    automaton.determinize()
-    automaton.minimize()
-    automaton.removeDeadTransitions()
-    state_map: Dict[State, int] = {}
-    specs = []
-    states = automaton.getStates()
-    for i, state in enumerate(states):
-        state_map[state] = i + 1
-    initial_state = automaton.getInitialState()
-    final_states = set()
-    garbage_state_id = -max(state_map.values()) - 1
-    fallback_state_id = -garbage_state_id
-    for state in states:
-        state_id = state_map[state]
-        if state.isAccept():
-            final_states.add(state_id)
-            specs.append((state_id, "\n", "\n", 0))
-            specs.append((-state_id, "\n", "", garbage_state_id))
-        else:
-            final_states.add(-state_id)
-            specs.append((-state_id, "\n", "", 0))
-        trans_specs = []
-        for trans in state.getSortedTransitions(True):
-            min_char = trans.getMin()
-            max_char = trans.getMax()
-            dest_state_id = state_map[trans.getDest()]
-
-            m = chr(ord("\n") - 1)
-            n = chr(ord("\n") + 1)
-            if ord(min_char) == ord("\n") and ord(max_char) == ord("\n"):
-                continue
-            if ord(min_char) == ord("\n"):
-                trans_specs.append((state_id, n + "--" + max_char, "$self", dest_state_id))
-                trans_specs.append((-state_id, n + "--" + max_char, "", -dest_state_id))
-                continue
-            if ord(max_char) == ord("\n"):
-                trans_specs.append((state_id, min_char + "--" + m, "$self", dest_state_id))
-                trans_specs.append((-state_id, min_char + "--" + m, "", -dest_state_id))
-                continue
-            if ord(min_char) <= ord("\n") and ord(max_char) >= ord("\n"):
-                trans_specs.append((state_id, min_char + "--" + m, "$self", dest_state_id))
-                trans_specs.append((state_id, n + "--" + max_char, "$self", dest_state_id))
-                trans_specs.append((-state_id, n + "--" + max_char, "", -dest_state_id))
-                trans_specs.append((-state_id, min_char + "--" + m, "", -dest_state_id))
-                continue
-            trans_specs.append((state_id, min_char + "--" + max_char, "$self", dest_state_id))
-            trans_specs.append((-state_id, min_char + "--" + max_char, "", -dest_state_id))
-        specs.extend(trans_specs)
-        # specs.append((state_id, "$other", "$self", garbage_state_id))
-        specs.append((-state_id, "$other", "", fallback_state_id))
-        if state == initial_state:
-            for trans_spec in trans_specs:
-                specs.append((0, trans_spec[1], trans_spec[2], trans_spec[3]))
-    if initial_state.isAccept():
-        specs.append((0, "\n", "\n", 0))
-    else:
-        specs.append((0, "\n", "", 0))
-    specs.append((0, "$other", "", fallback_state_id))
-    specs.append((fallback_state_id, "\n", "", 0))
-    specs.append((fallback_state_id, "$other", "", fallback_state_id))
-    return create_fst(specs, start_state=0, final_states=final_states | {0, fallback_state_id})
-    
 def global_replacement_FST(s1: str, s2: str) -> FST:
     m = len(s1)
     if m == 0:

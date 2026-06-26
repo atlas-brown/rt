@@ -45,10 +45,9 @@ def test_constant_transform_applies_to_env():
 
 
 def test_regex_pattern_transform_applies_to_env():
-    rt = RegexPatternTransform("[a-z]+", mode="compat", repr_mode="line", tainted=False)
+    rt = RegexPatternTransform("[a-z]+", mode="compat", tainted=False)
     result = rt.apply({})
     assert result.pattern == "[a-z]+"
-    assert result.repr_mode == "line"
     assert result.tainted is False
 
 
@@ -64,12 +63,11 @@ def test_hole_node_applies_to_env():
 # ---------------------------------------------------------------------------
 
 
-def test_compose_transform_with_normalize_input_to_line_on_line_based_type():
-    inner = RegexPatternTransform("[a-z]+", repr_mode="line")
+def test_compose_transform_on_line_based_type():
+    inner = RegexPatternTransform("[a-z]+")
     outer = HoleNode("actual_input_type")
-    compose = ComposeTransform(outer, inner, normalize_input_to_line=True)
+    compose = ComposeTransform(outer, inner)
     result = compose.apply({})
-    assert result.repr_mode == "line"
     assert result.pattern == "[a-z]+"
 
 
@@ -106,28 +104,28 @@ def test_field_select_parse_indices_invalid_range_raises_tool_error():
 # ---------------------------------------------------------------------------
 
 
-def test_head_lines_transform_fst_path_for_small_line_count():
-    head = HeadLinesTransform(RegexPatternTransform(".*", repr_mode="stream"), 3)
+def test_head_lines_transform_for_small_line_count():
+    head = HeadLinesTransform(RegexPatternTransform(".*"), 3)
     result = head.apply({})
-    assert result.repr_mode == "stream"
+    assert result.pattern == ".*"
 
 
-def test_head_lines_transform_line_based_for_large_line_count():
-    head = HeadLinesTransform(RegexPatternTransform(".*", repr_mode="stream"), 10)
+def test_head_lines_transform_for_large_line_count():
+    head = HeadLinesTransform(RegexPatternTransform(".*"), 10)
     result = head.apply({})
-    assert result.repr_mode == "line"
+    assert result.pattern == ".*"
 
 
-def test_tail_lines_transform_fst_path_for_small_line_count():
-    tail = TailLinesTransform(RegexPatternTransform(".*", repr_mode="stream"), 5)
+def test_tail_lines_transform_for_small_line_count():
+    tail = TailLinesTransform(RegexPatternTransform(".*"), 5)
     result = tail.apply({})
-    assert result.repr_mode == "stream"
+    assert result.pattern == ".*"
 
 
-def test_tail_lines_transform_line_based_for_large_line_count():
-    tail = TailLinesTransform(RegexPatternTransform(".*", repr_mode="stream"), 10)
+def test_tail_lines_transform_for_large_line_count():
+    tail = TailLinesTransform(RegexPatternTransform(".*"), 10)
     result = tail.apply({})
-    assert result.repr_mode == "line"
+    assert result.pattern == ".*"
 
 
 # ---------------------------------------------------------------------------
@@ -136,27 +134,24 @@ def test_tail_lines_transform_line_based_for_large_line_count():
 
 
 def test_translate_chars_line_delimited_modifies_output():
-    input_node = RegexPatternTransform("aa", repr_mode="line")
+    input_node = RegexPatternTransform("aa")
     default = TranslateCharsTransform(input_node, "a", "x").apply({})
     line_delimited = TranslateCharsTransform(
         input_node, "a", "x", line_delimited=True
     ).apply({})
-    assert line_delimited.repr_mode == "line"
     # line_delimited must produce a different automaton than the default path
     assert line_delimited.get_shortest_example() != default.get_shortest_example()
 
 
 def test_translate_chars_squeeze_modifies_output():
-    input_node = RegexPatternTransform("aa", repr_mode="line")
+    input_node = RegexPatternTransform("aa")
     result = TranslateCharsTransform(input_node, "a", "x", squeeze=True).apply({})
-    assert result.repr_mode == "line"
     assert result.get_shortest_example() == "x"
 
 
 def test_translate_chars_invert_modifies_output():
-    input_node = RegexPatternTransform("abc", repr_mode="line")
+    input_node = RegexPatternTransform("abc")
     result = TranslateCharsTransform(input_node, "a", "x", invert=True).apply({})
-    assert result.repr_mode == "line"
     assert result.get_shortest_example() == "axx"
 
 

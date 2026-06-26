@@ -52,7 +52,5 @@ class EchoSignature(CommandSignature):
             pattern = "".join(pattern_parts)
 
         flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))
-        if "-n" not in flags:
-            pattern = pattern + "\n"
-        transform = ConstantTransform(RegularType(pattern, repr_mode="stream", tainted=False))
+        transform = ConstantTransform(RegularType(pattern, tainted=False))
         return PolymorphicCommandType(transform, self_contained=self_contained)

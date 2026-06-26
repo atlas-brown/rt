@@ -16,18 +16,8 @@ from shasta.ast_node import PipeNode, CommandNode
 from stream.utils.function_timer import timer
 
 
-def pattern_mentions_newline(pattern: str) -> bool:
-    return "\n" in pattern or "\\n" in pattern or "\\012" in pattern
-
-
 def automata_size_for_statistics(regular_type: RegularType) -> int:
     """Count states in line-based form without changing checker semantics."""
-    if regular_type.repr_mode == "stream" and CONFIG.get("enable_FST", True):
-        regular_type = regular_type.to_line_based_repr()
-        regular_type.nfa.setDeterministic(False)
-        regular_type.nfa.determinize()
-        regular_type.nfa.removeDeadTransitions()
-        regular_type.nfa.minimize()
     return len(regular_type.nfa.getStates())
 
 
@@ -371,11 +361,8 @@ class PipelineChecker:
                 # ----------------------------------------------
                 for annotation in corresponding_annotations:
                     if annotation.annotation_type == AnnotationType.ASSERT:
-                        # `@output "..."` is typically line-oriented unless the
-                        # asserted regex itself explicitly mentions newlines.
                         asserted_output_type = RegularType(annotation.pattern)
-                        stream_assertion = pattern_mentions_newline(annotation.pattern)
-                        checked_output_type = current_output_type if stream_assertion else current_output_type.to_line_based_repr()
+                        checked_output_type = current_output_type
                         is_assertion_violated, witness = checked_output_type.is_subtype(asserted_output_type)
                         is_assertion_violated = not is_assertion_violated  # Negate because we want to check if assertion is violated
                         if is_assertion_violated:
@@ -401,10 +388,7 @@ class PipelineChecker:
 
                 for annotation in corresponding_annotations:
                     if annotation.annotation_type == AnnotationType.ASSERT_CONTAINS:
-                        # `output_contains` is line-oriented: check membership against the
-                        # line-based language even when the command currently carries a
-                        # stream representation.
-                        line_based_output_type = current_output_type.to_line_based_repr()
+                        line_based_output_type = current_output_type
                         asserted_line_type = RegularType(annotation.pattern)
                         is_contains_violated, witness = asserted_line_type.is_subtype(line_based_output_type)
                         is_contains_violated = not is_contains_violated  # Negate because we want to check if assertion is violated

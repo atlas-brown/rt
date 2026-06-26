@@ -14,10 +14,6 @@ from stream.tool_error import ToolError, PashAnnotationParsingError
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
 
 
-def annotation_pattern_mentions_newline(pattern: str) -> bool:
-    return "\n" in pattern or "\\n" in pattern or "\\012" in pattern
-
-
 @dataclass
 class InferenceResult:
     output_type: RegularType
@@ -198,12 +194,10 @@ class CommandSignature:
 
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.ASSUME:
-                repr_mode = "stream" if annotation_pattern_mentions_newline(annotation.pattern) else "line"
                 command_type = SimpleCommandType(
                     input_type,
                     RegularType(
                         annotation.pattern,
-                        repr_mode=repr_mode,
                         tainted=False,
                     ),
                     no_input_type=no_input_type,
@@ -253,17 +247,6 @@ class CommandSignature:
         input_type: RegularType,
         no_input_type: Optional[RegularType],
     ) -> CommandType:
-        if (
-            isinstance(command_type, PolymorphicCommandType)
-            and command_type.normalize_input_to_line is None
-        ):
-            command_type.normalize_input_to_line = parsed_command_invocation.cmd_name not in [
-                "cut",
-                "tr",
-                "grep",
-                "head",
-                "tail",
-            ]
         command_type.set_input_constraints(input_type, no_input_type)
         return command_type
 
@@ -272,11 +255,9 @@ class CommandSignature:
             parsed_command_invocation,
             env_annotations,
         )
-        normalize_input_to_line = parsed_command_invocation.cmd_name not in ["cut", "tr", "grep", "head", "tail"]
         return PolymorphicCommandType(
             output_transform,
             self_contained=self_contained,
-            normalize_input_to_line=normalize_input_to_line,
             output_tainted=tainted,
         )
 
@@ -467,12 +448,6 @@ class CommandSignature:
                 return env[hole_name]
 
         return parse_transform_expression(value, env)
-
-    def process_stream_input(self, previous_output_type: RegularType) -> Tuple[RegularType, bool]:
-        if previous_output_type.repr_mode == "stream":
-            return previous_output_type.to_line_based_repr(), True
-        return previous_output_type, False
-
 
     def get_operands(self, parsed_command_node: CommandInvocationInitial) -> List[str]:
         assert isinstance(parsed_command_node, CommandInvocationInitial)

@@ -114,7 +114,6 @@ class PolymorphicCommandType(CommandType):
                  negative_constraint: Optional[RegularType] = None,
                  backward_func: Optional[Callable[[Any], Any]] = None,
                  self_contained: Optional[bool] = None,
-                 normalize_input_to_line: Optional[bool] = None,
                  output_tainted: Optional[bool] = None,
                  input_type: Optional[RegularType] = None,
                  no_input_type: Optional[RegularType] = None):
@@ -131,7 +130,6 @@ class PolymorphicCommandType(CommandType):
         self.bound = input_type  # Upper bound on the type parameter
         self.negative_constraint = self.no_input_type  # Negative constraint on the type parameter
         self.transformation = transformation
-        self.normalize_input_to_line = normalize_input_to_line
         self.output_tainted = output_tainted
 
     def set_input_constraints(
@@ -145,8 +143,6 @@ class PolymorphicCommandType(CommandType):
     
     def apply_to_input(self, input_type: RegularType) -> CommandTypeResult:
         actual_input = input_type
-        if self.normalize_input_to_line is True and input_type.repr_mode == "stream":
-            actual_input = input_type.to_line_based_repr()
         env = {"α": actual_input, "actual_input_type": actual_input}
         result = self._coerce_result(self.transformation.apply(env))
         if self.output_tainted is not None:

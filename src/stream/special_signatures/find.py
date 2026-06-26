@@ -35,7 +35,6 @@ class FindSignature(CommandSignature):
             output_transform = ComposeTransform(
                 exec_command_type.transformation,
                 ConstantTransform(RegularType(".+")),
-                normalize_input_to_line=exec_command_type.normalize_input_to_line,
                 output_tainted=exec_command_type.output_tainted,
             )
 
