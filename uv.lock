@@ -148,6 +148,18 @@ wheels = [
 ]
 
 [[package]]
+name = "hypothesis"
+version = "6.155.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "sortedcontainers" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f2/55/983b6bc1b6b343a5ff6020388f9d0680ab477be59a731517e6c4a0387100/hypothesis-6.155.7.tar.gz", hash = "sha256:d8d6091753d0669db3c90c5e5b346cb37c72f3dd9378c8413acb1fd5da63f7ea", size = 478291, upload-time = "2026-06-21T05:54:31.573Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/01/f8/c151e196d4f397ed9436a071e52666c70a2f021138dea828b0a461e245db/hypothesis-6.155.7-py3-none-any.whl", hash = "sha256:9f634bdb1f9e9b8ab6ba09431cf2deedb750c96978125a6fb3c5a0f6c6db4131", size = 544762, upload-time = "2026-06-21T05:54:29.506Z" },
+]
+
+[[package]]
 name = "iniconfig"
 version = "2.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -768,11 +780,21 @@ wheels = [
 ]
 
 [[package]]
+name = "sortedcontainers"
+version = "2.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e8/c4/ba2f8066cceb6f23394729afe52f3bf7adec04bf9ed2c820b39e19299111/sortedcontainers-2.4.0.tar.gz", hash = "sha256:25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88", size = 30594, upload-time = "2021-05-16T22:03:42.897Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl", hash = "sha256:a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0", size = 29575, upload-time = "2021-05-16T22:03:41.177Z" },
+]
+
+[[package]]
 name = "stream"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
+    { name = "hypothesis" },
     { name = "jpype1" },
     { name = "libdash" },
     { name = "matplotlib" },
@@ -787,9 +809,15 @@ dependencies = [
     { name = "tqdm" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "stubgenj" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "click", specifier = ">=8.4.0" },
+    { name = "hypothesis", specifier = ">=6.155.7" },
     { name = "jpype1", specifier = ">=1.7.1" },
     { name = "libdash", git = "https://github.com/binpash/libdash" },
     { name = "matplotlib", specifier = ">=3.11.0" },
@@ -802,6 +830,21 @@ requires-dist = [
     { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "shasta", git = "https://github.com/binpash/shasta" },
     { name = "tqdm", specifier = ">=4.68.3" },
+]
+
+[package.metadata.requires-dev]
+dev = [{ name = "stubgenj", specifier = ">=0.2.12" }]
+
+[[package]]
+name = "stubgenj"
+version = "0.2.12"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "jpype1" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3e/fb/a437e750af248b89d871ef011d56d00fd4d3cf6539d74b5f6d4e4d4b7c4b/stubgenj-0.2.12.tar.gz", hash = "sha256:b49240edbbb1c89f449b7cb547b0dac8fde531366641dad07b0a83e634c91f1f", size = 23705, upload-time = "2023-04-20T10:45:38.277Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/47/ba/408d9c326f8f6a7dcb6ca181f97b256f32cd64289b4c59ff224964be5f8a/stubgenj-0.2.12-py3-none-any.whl", hash = "sha256:bf7cc475536e92e5958c8e2dcbb5c1d7cfbb3753b17f4df2ac86e0b385ee6683", size = 22067, upload-time = "2023-04-20T10:45:36.063Z" },
 ]
 
 [[package]]
