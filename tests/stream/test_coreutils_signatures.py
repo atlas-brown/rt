@@ -2,10 +2,10 @@ from pathlib import Path
 
 from pash_annotations.datatypes.BasicDatatypes import Operand
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
+
 from stream.command_signature import InferenceResult
 from stream.regular_type import RegularType
 from stream.signature_loader import SignatureLoader
-
 
 GNU_COREUTILS_COMMANDS = {
     "[",
@@ -122,27 +122,14 @@ def _load_signatures():
     return SignatureLoader.get_instance("./src/stream/signatures")
 
 
-def _lookup(command_name: str):
-    loader = _load_signatures()
-    for signature in loader.signatures:
-        if signature.command_name == command_name:
-            return signature
-    raise AssertionError(f"missing signature for {command_name}")
-
-
-def _apply_signature(signature, input_type, invocation, env_annotations=None):
-    if env_annotations is None:
-        env_annotations = {}
-    command_type = signature.determine_command_type(invocation, [], env_annotations)
-    return signature.apply_command_type(command_type, input_type)
-
-
 def test_independent_coreutils_yaml_signatures_match_paper_claim():
     loader = _load_signatures()
     signature_names = {signature.command_name for signature in loader.signatures}
     yaml_names = {path.stem for path in Path("src/stream/signatures").glob("*.yaml")}
     supported_coreutils = GNU_COREUTILS_COMMANDS & yaml_names
-    xargs_signatures = {name for name in yaml_names if name == "xargs" or name.startswith("xargs_")}
+    xargs_signatures = {
+        name for name in yaml_names if name == "xargs" or name.startswith("xargs_")
+    }
 
     assert len(GNU_COREUTILS_COMMANDS) == 106
     assert supported_coreutils <= signature_names
@@ -150,11 +137,11 @@ def test_independent_coreutils_yaml_signatures_match_paper_claim():
     assert xargs_signatures.isdisjoint(GNU_COREUTILS_COMMANDS)
 
 
-def test_coreutils_identity_filters_preserve_line_type():
-    tee_signature = _lookup("tee")
+def test_coreutils_identity_filters_preserve_line_type(lookup_signature, apply_signature):
+    tee_signature = lookup_signature("tee")
     input_type = RegularType("[a-z]+")
 
-    result = _apply_signature(
+    result = apply_signature(
         tee_signature,
         input_type,
         CommandInvocationInitial("tee", [], []),
@@ -164,7 +151,7 @@ def test_coreutils_identity_filters_preserve_line_type():
     assert result.output_type.is_subtype(input_type)[0]
     assert input_type.is_subtype(result.output_type)[0]
 
-    source_result = _apply_signature(
+    source_result = apply_signature(
         tee_signature,
         RegularType(""),
         CommandInvocationInitial("tee", [], []),
@@ -175,10 +162,10 @@ def test_coreutils_identity_filters_preserve_line_type():
     assert source_result.self_contained is False
 
 
-def test_coreutils_file_operands_fall_back_to_unknown_content():
-    tac_signature = _lookup("tac")
+def test_coreutils_file_operands_fall_back_to_unknown_content(lookup_signature, apply_signature):
+    tac_signature = lookup_signature("tac")
 
-    result = _apply_signature(
+    result = apply_signature(
         tac_signature,
         RegularType(""),
         CommandInvocationInitial("tac", [], [Operand("/tmp/input.txt")]),
@@ -189,11 +176,11 @@ def test_coreutils_file_operands_fall_back_to_unknown_content():
     assert result.self_contained is False
 
 
-def test_coreutils_stable_output_shapes_and_no_stdin_heuristic():
-    nproc_signature = _lookup("nproc")
-    whoami_signature = _lookup("whoami")
+def test_coreutils_stable_output_shapes_and_no_stdin_heuristic(lookup_signature, apply_signature):
+    nproc_signature = lookup_signature("nproc")
+    whoami_signature = lookup_signature("whoami")
 
-    nproc_result = _apply_signature(
+    nproc_result = apply_signature(
         nproc_signature,
         RegularType(".*"),
         CommandInvocationInitial("nproc", [], []),

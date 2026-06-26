@@ -1,12 +1,14 @@
 from pathlib import Path
 
 import pytest
-
 from pash_annotations.datatypes.BasicDatatypes import Flag, Operand
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from rtr import main as rtr_main
-from stream.command_type_parser import parse_command_type_annotation, parse_transform_expression
+from stream.command_type_parser import (
+    parse_command_type_annotation,
+    parse_transform_expression,
+)
 from stream.regular_type import RegularType
 from stream.signature_loader import SignatureLoader
 
@@ -15,11 +17,6 @@ def _resolve_signature(signature_dir, invocation):
     SignatureLoader.reset_instance()
     loader = SignatureLoader.get_instance(signature_dir.as_posix())
     return loader.find_signature(invocation)
-
-
-def _apply_signature(signature, invocation, input_type):
-    command_type = signature.determine_command_type(invocation, [], {})
-    return signature.apply_command_type(command_type, input_type)
 
 
 def test_cli_registers_simple_invocation_annotation(tmp_path, monkeypatch, capsys):
@@ -96,7 +93,7 @@ def test_cli_registers_option_value_specific_annotation(tmp_path, monkeypatch, c
     assert ".* -> .*" in other_output
 
 
-def test_specific_invocation_annotation_precedes_generic_signature(tmp_path):
+def test_specific_invocation_annotation_precedes_generic_signature(tmp_path, apply_signature):
     (tmp_path / "customcmd.yaml").write_text(
         "\n".join(
             [
@@ -130,15 +127,15 @@ def test_specific_invocation_annotation_precedes_generic_signature(tmp_path):
         CommandInvocationInitial("customcmd", [], [Operand("other")]),
     )
 
-    specific_result = _apply_signature(
+    specific_result = apply_signature(
         specific_signature,
-        specific_invocation,
         RegularType(""),
+        specific_invocation,
     )
-    generic_result = _apply_signature(
+    generic_result = apply_signature(
         generic_signature,
-        CommandInvocationInitial("customcmd", [], [Operand("other")]),
         RegularType("abc"),
+        CommandInvocationInitial("customcmd", [], [Operand("other")]),
     )
 
     assert specific_signature.match
@@ -147,7 +144,10 @@ def test_specific_invocation_annotation_precedes_generic_signature(tmp_path):
     assert generic_result.output_type.pattern == ".*"
 
 
-def test_invocation_annotation_overrides_special_signature_only_for_exact_invocation(tmp_path):
+def test_invocation_annotation_overrides_special_signature_only_for_exact_invocation(
+    tmp_path,
+    apply_signature,
+):
     (tmp_path / "grep.yaml").write_text(
         Path("src/stream/signatures/grep.yaml").read_text(encoding="utf-8"),
         encoding="utf-8",
@@ -166,15 +166,15 @@ def test_invocation_annotation_overrides_special_signature_only_for_exact_invoca
     exact_signature = loader.find_signature(exact_invocation)
     other_signature = loader.find_signature(other_invocation)
 
-    exact_result = _apply_signature(
+    exact_result = apply_signature(
         exact_signature,
-        exact_invocation,
         RegularType("foo"),
+        exact_invocation,
     )
-    other_result = _apply_signature(
+    other_result = apply_signature(
         other_signature,
-        other_invocation,
         RegularType("bar"),
+        other_invocation,
     )
 
     assert exact_signature.match
@@ -232,12 +232,12 @@ def test_transform_expression_preserves_regex_leading_space():
             'compose(reverse({{actual_input_type}}), translate-match({{actual_input_type}}, "a,b", "x,y", global=true))',
         ),
         (
-            'forall a . .+ -> default-if-empty(head-lines(a, 2), tail-lines(a, 1))',
+            "forall a . .+ -> default-if-empty(head-lines(a, 2), tail-lines(a, 1))",
             ".+",
             "default-if-empty(head-lines({{actual_input_type}}, 2), tail-lines({{actual_input_type}}, 1))",
         ),
         (
-            'forall a . .+ -> concat(intersect(a, [a-z]+), optional(union(a, reverse(a))))',
+            "forall a . .+ -> concat(intersect(a, [a-z]+), optional(union(a, reverse(a))))",
             ".+",
             "concat(intersect({{actual_input_type}}, [a-z]+), optional(union({{actual_input_type}}, reverse({{actual_input_type}}))))",
         ),
@@ -328,11 +328,11 @@ def test_command_type_parser_normalizes_direct_regular_type_operators(
             RegularType("a,b"),
         ),
         (
-            'forall a . .+ -> default-if-empty(head-lines(a, 2), tail-lines(a, 1))',
+            "forall a . .+ -> default-if-empty(head-lines(a, 2), tail-lines(a, 1))",
             RegularType("a\\nb\\n"),
         ),
         (
-            'forall a . .+ -> concat(intersect(a, [a-z]+), optional(union(a, reverse(a))))',
+            "forall a . .+ -> concat(intersect(a, [a-z]+), optional(union(a, reverse(a))))",
             RegularType("[a-z]+"),
         ),
         (
@@ -391,7 +391,9 @@ def test_cli_registers_polymorphic_regular_operator(tmp_path, monkeypatch, capsy
     assert "[a-z]+ -> ([a-z]+)^R" in output
 
 
-def test_cli_registers_direct_regular_type_operator_annotation(tmp_path, monkeypatch, capsys):
+def test_cli_registers_direct_regular_type_operator_annotation(
+    tmp_path, monkeypatch, capsys
+):
     monkeypatch.setattr(
         "sys.argv",
         [
@@ -416,7 +418,9 @@ def test_cli_registers_direct_regular_type_operator_annotation(tmp_path, monkeyp
     assert "output_type: ({{actual_input_type}}|[0-9]+)[A-Z]?" in yaml_text
 
 
-def test_cli_regular_operator_annotation_allows_automaton_output(tmp_path, monkeypatch, capsys):
+def test_cli_regular_operator_annotation_allows_automaton_output(
+    tmp_path, monkeypatch, capsys
+):
     monkeypatch.setattr(
         "sys.argv",
         [
@@ -436,7 +440,9 @@ def test_cli_regular_operator_annotation_allows_automaton_output(tmp_path, monke
     assert "Type:" in output
 
 
-def test_cli_registers_nested_regular_operator_annotation(tmp_path, monkeypatch, capsys):
+def test_cli_registers_nested_regular_operator_annotation(
+    tmp_path, monkeypatch, capsys
+):
     monkeypatch.setattr(
         "sys.argv",
         [

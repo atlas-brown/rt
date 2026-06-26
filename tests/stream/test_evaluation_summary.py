@@ -33,37 +33,47 @@ def test_overview_and_bug_detection_skip_records_missing_baseline(tmp_path):
     pipeline_a = "echo a | wc -l"
     pipeline_b = "echo b | wc -l"
 
-    _write_json(ann_json, [
-        _record(shared_with_baseline, pipeline_a, False, False),
-        _record(shared_without_baseline, pipeline_b, True, True),
-    ])
-    _write_json(raw_json, [
-        _record(shared_with_baseline, pipeline_a, False, False),
-        _record(shared_without_baseline, pipeline_b, True, False),
-    ])
+    _write_json(
+        ann_json,
+        [
+            _record(shared_with_baseline, pipeline_a, False, False),
+            _record(shared_without_baseline, pipeline_b, True, True),
+        ],
+    )
+    _write_json(
+        raw_json,
+        [
+            _record(shared_with_baseline, pipeline_a, False, False),
+            _record(shared_without_baseline, pipeline_b, True, False),
+        ],
+    )
 
     with baseline_csv.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.writer(handle)
-        writer.writerow([
-            "pipeline_file",
-            "pipeline",
-            "is buggy?",
-            "shell check warning?",
-            "ltsh warning?",
-            "shell check processing time",
-            "ltsh processing time",
-            "shell check links",
-        ])
-        writer.writerow([
-            shared_with_baseline,
-            pipeline_a,
-            "false",
-            "false",
-            "false",
-            "0.0",
-            "0.0",
-            "",
-        ])
+        writer.writerow(
+            [
+                "pipeline_file",
+                "pipeline",
+                "is buggy?",
+                "shell check warning?",
+                "ltsh warning?",
+                "shell check processing time",
+                "ltsh processing time",
+                "shell check links",
+            ]
+        )
+        writer.writerow(
+            [
+                shared_with_baseline,
+                pipeline_a,
+                "false",
+                "false",
+                "false",
+                "0.0",
+                "0.0",
+                "",
+            ]
+        )
 
     results_to_overview_csv(
         str(ann_json),

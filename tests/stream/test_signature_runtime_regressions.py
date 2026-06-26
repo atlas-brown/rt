@@ -3,27 +3,13 @@ from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocatio
 
 from stream.command_signature import InferenceResult
 from stream.regular_type import RegularType
-from stream.signature_loader import SignatureLoader
 
 
-def _lookup_signature(command_name: str):
-    SignatureLoader.reset_instance()
-    loader = SignatureLoader.get_instance("./src/stream/signatures")
-    for signature in loader.signatures:
-        if signature.command_name == command_name:
-            return signature
-    raise AssertionError(f"missing signature for {command_name}")
-
-
-def _apply_signature(signature, input_type, invocation, env_annotations=None):
-    if env_annotations is None:
-        env_annotations = {}
-    command_type = signature.determine_command_type(invocation, [], env_annotations)
-    return signature.apply_command_type(command_type, input_type)
-
-
-def test_sort_allows_leading_option_like_operands_without_parser_crash():
-    sort_signature = _lookup_signature("sort")
+def test_sort_allows_leading_option_like_operands_without_parser_crash(
+    lookup_signature,
+    apply_signature,
+):
+    sort_signature = lookup_signature("sort")
     invocation = CommandInvocationInitial(
         "sort",
         [],
@@ -36,14 +22,17 @@ def test_sort_allows_leading_option_like_operands_without_parser_crash():
         ],
     )
 
-    result = _apply_signature(sort_signature, RegularType(".+"), invocation)
+    result = apply_signature(sort_signature, RegularType(".+"), invocation)
 
     assert isinstance(result, InferenceResult)
     assert isinstance(result.output_type, RegularType)
 
 
-def test_grep_f_file_without_pattern_operand_falls_back_without_index_error():
-    grep_signature = _lookup_signature("grep")
+def test_grep_f_file_without_pattern_operand_falls_back_without_index_error(
+    lookup_signature,
+    apply_signature,
+):
+    grep_signature = lookup_signature("grep")
     invocation = CommandInvocationInitial(
         "grep",
         [Option("-f", "stopwords.txt"), Flag("-v"), Flag("-w"), Flag("-F")],
@@ -55,7 +44,7 @@ def test_grep_f_file_without_pattern_operand_falls_back_without_index_error():
         ["no_meaningless_command"],
         {},
     )
-    result = _apply_signature(grep_signature, RegularType(".+"), invocation)
+    result = apply_signature(grep_signature, RegularType(".+"), invocation)
 
     assert isinstance(input_type, RegularType)
     assert no_input_type is None
@@ -63,8 +52,8 @@ def test_grep_f_file_without_pattern_operand_falls_back_without_index_error():
     assert isinstance(result.output_type, RegularType)
 
 
-def test_grep_combined_fw_file_keeps_input_type():
-    grep_signature = _lookup_signature("grep")
+def test_grep_combined_fw_file_keeps_input_type(lookup_signature, apply_signature):
+    grep_signature = lookup_signature("grep")
     invocation = CommandInvocationInitial(
         "grep",
         [Option("-f", "-w")],
@@ -77,7 +66,7 @@ def test_grep_combined_fw_file_keeps_input_type():
         ["no_meaningless_command"],
         {},
     )
-    result = _apply_signature(grep_signature, input_type, invocation)
+    result = apply_signature(grep_signature, input_type, invocation)
 
     assert isinstance(expected_input_type, RegularType)
     assert no_input_type is None
@@ -86,22 +75,22 @@ def test_grep_combined_fw_file_keeps_input_type():
     assert input_type.is_subtype(result.output_type)[0]
 
 
-def test_grep_e_pattern_from_operands_initializes_pattern_type_string():
-    grep_signature = _lookup_signature("grep")
+def test_grep_e_pattern_from_operands_initializes_pattern_type_string(lookup_signature, apply_signature):
+    grep_signature = lookup_signature("grep")
     invocation = CommandInvocationInitial(
         "grep",
         [Flag("-e")],
         [Operand("^v")],
     )
 
-    result = _apply_signature(grep_signature, RegularType(".+"), invocation)
+    result = apply_signature(grep_signature, RegularType(".+"), invocation)
 
     assert isinstance(result, InferenceResult)
     assert isinstance(result.output_type, RegularType)
 
 
-def test_constructed_command_type_carries_input_constraints():
-    whoami_signature = _lookup_signature("whoami")
+def test_constructed_command_type_carries_input_constraints(lookup_signature):
+    whoami_signature = lookup_signature("whoami")
     whoami_type = whoami_signature.determine_command_type(
         CommandInvocationInitial("whoami", [], []),
         [],
@@ -112,7 +101,7 @@ def test_constructed_command_type_carries_input_constraints():
     assert whoami_type.input_type.pattern == ""
     assert whoami_type.no_input_type is None
 
-    sort_signature = _lookup_signature("sort")
+    sort_signature = lookup_signature("sort")
     sort_type = sort_signature.determine_command_type(
         CommandInvocationInitial("sort", [], []),
         [],
@@ -125,8 +114,8 @@ def test_constructed_command_type_carries_input_constraints():
     assert sort_type.negative_constraint is sort_type.no_input_type
 
 
-def test_find_exec_ls_unwraps_nested_inference_result():
-    find_signature = _lookup_signature("find")
+def test_find_exec_ls_unwraps_nested_inference_result(lookup_signature):
+    find_signature = lookup_signature("find")
     invocation = CommandInvocationInitial(
         "find",
         [],
@@ -150,8 +139,11 @@ def test_find_exec_ls_unwraps_nested_inference_result():
     assert isinstance(result.output_type, RegularType)
 
 
-def test_sed_falls_back_for_complex_patterns_and_multi_command_operands():
-    sed_signature = _lookup_signature("sed")
+def test_sed_falls_back_for_complex_patterns_and_multi_command_operands(
+    lookup_signature,
+    apply_signature,
+):
+    sed_signature = lookup_signature("sed")
 
     malformed_pattern = CommandInvocationInitial(
         "sed",
@@ -169,8 +161,10 @@ def test_sed_falls_back_for_complex_patterns_and_multi_command_operands():
         ["no_meaningless_command"],
         {},
     )
-    malformed_result = _apply_signature(sed_signature, RegularType(".+"), malformed_pattern)
-    multi_result = _apply_signature(sed_signature, RegularType(".+"), multi_command)
+    malformed_result = apply_signature(
+        sed_signature, RegularType(".+"), malformed_pattern
+    )
+    multi_result = apply_signature(sed_signature, RegularType(".+"), multi_command)
 
     assert isinstance(input_type, RegularType)
     assert no_input_type is None

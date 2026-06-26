@@ -54,17 +54,38 @@ def test_run_all_evaluations_writes_runtime_error_report(monkeypatch, tmp_path):
     assert "Exception type: RuntimeError" in log_text
     assert "Error: synthetic crash for test" in log_text
     assert "Traceback:" in log_text
-    assert "raise RuntimeError(\"synthetic crash for test\")" in log_text
+    assert 'raise RuntimeError("synthetic crash for test")' in log_text
 
     payload = json.loads(output_json.read_text(encoding="utf-8"))
-    assert payload["evaluation_results"][0]["tool runtime error"] == "synthetic crash for test"
+    assert (
+        payload["evaluation_results"][0]["tool runtime error"]
+        == "synthetic crash for test"
+    )
 
 
 @pytest.mark.parametrize(
-    ("runtime_kind", "runtime_message", "exception_type", "json_field", "traceback_field"),
+    (
+        "runtime_kind",
+        "runtime_message",
+        "exception_type",
+        "json_field",
+        "traceback_field",
+    ),
     [
-        ("tool runtime error", "inner synthetic crash", "RuntimeError", "tool runtime error", "tool runtime traceback"),
-        ("pash annotations error", "inner synthetic annotation crash", "PashAnnotationParsingError", "pash annotations error", "pash annotations traceback"),
+        (
+            "tool runtime error",
+            "inner synthetic crash",
+            "RuntimeError",
+            "tool runtime error",
+            "tool runtime traceback",
+        ),
+        (
+            "pash annotations error",
+            "inner synthetic annotation crash",
+            "PashAnnotationParsingError",
+            "pash annotations error",
+            "pash annotations traceback",
+        ),
     ],
 )
 def test_run_all_evaluations_writes_pipeline_runtime_details(

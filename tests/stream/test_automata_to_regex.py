@@ -2,6 +2,8 @@ import random
 import string
 import time
 
+from hypothesis import given, settings, strategies as st
+
 from stream.automata_to_regex import automaton_to_regex
 from stream.regex_parser import (
     CharacterClass,
@@ -15,20 +17,6 @@ from stream.regex_parser import (
 )
 from stream.regular_type import RegularType, readable_automata_repr
 from stream.main import _strip_regular_type
-
-
-def assert_equivalent(left, right) -> None:
-    assert left.subsetOf(right)
-    assert right.subsetOf(left)
-
-
-def minimized_automaton(pattern: str):
-    automaton = RegularType(pattern).nfa.clone()
-    automaton.setDeterministic(False)
-    automaton.removeDeadTransitions()
-    automaton.determinize()
-    automaton.minimize()
-    return automaton
 
 
 def transition_count(automaton) -> int:
@@ -73,10 +61,12 @@ def random_literal_tree(rng: random.Random, text: str):
     if len(text) == 1:
         return Literal(text)
     split = rng.randint(1, len(text) - 1)
-    return Concatenate([
-        random_literal_tree(rng, text[:split]),
-        random_literal_tree(rng, text[split:]),
-    ])
+    return Concatenate(
+        [
+            random_literal_tree(rng, text[:split]),
+            random_literal_tree(rng, text[split:]),
+        ]
+    )
 
 
 def random_star_tree(rng: random.Random, base, leaves: int):
@@ -91,7 +81,9 @@ def random_star_tree(rng: random.Random, base, leaves: int):
         return Union(left, right)
     if op < 4:
         return Concatenate([left, right])
-    return Repeat(Concatenate([left, right]), rng.choice([0, 1]), rng.choice([None, 1, 3]))
+    return Repeat(
+        Concatenate([left, right]), rng.choice([0, 1]), rng.choice([None, 1, 3])
+    )
 
 
 def random_hard_tree(rng: random.Random, leaves: int, union_budget: int = 3):
@@ -185,14 +177,16 @@ def generated_hard_regex(seed: int, target_length: int = 180) -> str:
 
 def generated_readable_regex(seed: int, target_length: int = 180) -> str:
     rng = random.Random(seed + 10_000)
-    literal = random_literal_tree(rng, large_literal(seed + 10_000, max(180, target_length)))
+    literal = random_literal_tree(
+        rng, large_literal(seed + 10_000, max(180, target_length))
+    )
     shape = (seed // 4) % 2
     if shape == 0:
         return rendered(literal)
     return rendered(concat_ast(literal, Repeat(Dot(), 0, None)))
 
 
-def assert_round_trip_is_equivalent_and_readable(original: str) -> str:
+def assert_round_trip_is_equivalent_and_readable(original: str, minimized_automaton, assert_equivalent) -> str:
     original_automaton = minimized_automaton(original)
     length_budget = max(256, len(original) * 30)
 
@@ -216,17 +210,17 @@ def assert_round_trip_is_equivalent_and_readable(original: str) -> str:
     return converted
 
 
-def test_large_structured_regexes_round_trip_and_stay_readable():
+def test_large_structured_regexes_round_trip_and_stay_readable(minimized_automaton, assert_equivalent):
     cases = large_shape_regexes()
     assert len(cases) >= 100
     assert min(len(case) for case in cases) >= 48
     assert max(len(case) for case in cases) >= 360
 
     for original in cases:
-        assert_round_trip_is_equivalent_and_readable(original)
+        assert_round_trip_is_equivalent_and_readable(original, minimized_automaton, assert_equivalent)
 
 
-def test_large_generated_regexes_round_trip_when_automata_are_moderate():
+def test_large_generated_regexes_round_trip_when_automata_are_moderate(minimized_automaton, assert_equivalent):
     successes = 0
     fallbacks = 0
     for seed in range(120):
@@ -239,7 +233,10 @@ def test_large_generated_regexes_round_trip_when_automata_are_moderate():
             original = generated_hard_regex(seed, target_length=target_length)
         assert len(original) >= 320
         original_automaton = minimized_automaton(original)
-        if len(original_automaton.getStates()) > 48 or transition_count(original_automaton) > 420:
+        if (
+            len(original_automaton.getStates()) > 48
+            or transition_count(original_automaton) > 420
+        ):
             fallbacks += 1
             converted, elapsed = translate_with_elapsed(
                 original_automaton,
@@ -272,26 +269,26 @@ def test_large_generated_regexes_round_trip_when_automata_are_moderate():
     assert fallbacks >= 40
 
 
-def test_automaton_repr_is_raw_by_default_for_benchmark_path():
+def test_automaton_repr_is_raw_by_default_for_benchmark_path(minimized_automaton):
     rendered = repr(RegularType(automaton=minimized_automaton(".*foo.*")))
     assert rendered.startswith("RegularType(Automaton)\n")
 
 
-def test_common_automaton_only_regular_types_are_human_readable_when_enabled():
+def test_common_automaton_only_regular_types_are_human_readable_when_enabled(minimized_automaton):
     for pattern in [".*", ".+", "[0-9]+", "[^ ]*", "foo"]:
         with readable_automata_repr(True):
             rendered = repr(RegularType(automaton=minimized_automaton(pattern)))
         assert rendered == f"RegularType({pattern})"
 
 
-def test_contains_literal_uses_short_readable_candidate_for_long_literals():
+def test_contains_literal_uses_short_readable_candidate_for_long_literals(minimized_automaton):
     literal = large_literal(9001, 128)
     for pattern in [literal, literal + ".*", ".*" + literal, ".*" + literal + ".*"]:
         converted, _ = translate_with_elapsed(minimized_automaton(pattern))
         assert converted == pattern
 
 
-def test_large_automata_are_rejected_before_state_elimination_explodes():
+def test_large_automata_are_rejected_before_state_elimination_explodes(minimized_automaton):
     large = minimized_automaton("a{0,80}")
 
     converted, elapsed = translate_with_elapsed(large, max_states=4)
@@ -303,7 +300,7 @@ def test_large_automata_are_rejected_before_state_elimination_explodes():
     assert rendered.startswith("RegularType(Automaton)\n")
 
 
-def test_rt_cli_formatting_uses_readable_regular_type_and_preserves_automaton_fallback():
+def test_rt_cli_formatting_uses_readable_regular_type_and_preserves_automaton_fallback(minimized_automaton):
     with readable_automata_repr(True):
         readable = repr(RegularType(automaton=minimized_automaton(".*foo.*")))
     assert _strip_regular_type(readable) == ".*foo.*"
@@ -312,3 +309,35 @@ def test_rt_cli_formatting_uses_readable_regular_type_and_preserves_automaton_fa
         fallback = repr(RegularType(automaton=minimized_automaton("a{0,80}")))
     assert fallback.startswith("RegularType(Automaton)\n")
     assert _strip_regular_type(fallback).startswith("RegularType(Automaton)\n")
+
+
+# ---------------------------------------------------------------------------
+# Hypothesis property-based tests
+# ---------------------------------------------------------------------------
+
+_SMALL_REGEX_STRATEGY = st.sampled_from(
+    ["a", "b", "c", "a|b", "ab", "a*", "b+", "[a-z]+", "foo|bar", "([0-9]+)", "abc", ""]
+)
+
+
+@given(regex=_SMALL_REGEX_STRATEGY)
+def test_small_regex_round_trip(regex: str, minimized_automaton, assert_equivalent) -> None:
+    original_automaton = minimized_automaton(regex)
+    converted = automaton_to_regex(
+        original_automaton, max_regex_length=256, max_edge_length=256
+    )
+    assert converted is not None
+    assert_equivalent(original_automaton, minimized_automaton(converted))
+
+
+@given(regex=_SMALL_REGEX_STRATEGY)
+def test_automaton_to_regex_budget_compliance(regex: str, minimized_automaton) -> None:
+    original_automaton = minimized_automaton(regex)
+    start = time.perf_counter()
+    converted = automaton_to_regex(
+        original_automaton, max_regex_length=256, max_edge_length=256
+    )
+    elapsed = time.perf_counter() - start
+    assert converted is not None
+    assert len(converted) <= 256
+    assert elapsed < 1.0
