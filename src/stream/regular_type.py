@@ -1,17 +1,44 @@
+import logging
 import re
 from contextlib import contextmanager
 from typing import Optional, Set, Tuple
-from stream.regex_parser import CharacterClass, Dot, EmptyLanguageNode, Literal, Range, Repeat, Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, Node, ast_to_regex
-import logging
-from stream.tool_error import ToolError
-from stream.utils.function_timer import timer
-import jpype.imports
-from stream.transducer import add_newline_if_not_end_with_newline_FST, full_stream_to_line_based_FST, product_fst_automaton
+
 from stream.automata_to_regex import automaton_to_regex, get_singleton
-if not jpype.isJVMStarted():
-    jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition, RegExp # type: ignore
-from stream.transducer import process_empty_transitions
+from stream.java_api import (
+    Automaton,
+    BasicAutomata,
+    BasicOperations,
+    RegExp,
+    SpecialOperations,
+    State,
+    Transition,
+)
+from stream.regex_parser import (
+    CharacterClass,
+    Complement,
+    Concatenate,
+    Dot,
+    EmptyLanguageNode,
+    EndAnchor,
+    Intersection,
+    Literal,
+    Node,
+    Range,
+    RegexParser,
+    Repeat,
+    StartAnchor,
+    Union,
+    ast_to_automaton,
+    ast_to_regex,
+)
+from stream.tool_error import ToolError
+from stream.transducer import (
+    add_newline_if_not_end_with_newline_FST,
+    full_stream_to_line_based_FST,
+    process_empty_transitions,
+    product_fst_automaton,
+)
+from stream.utils.function_timer import timer
 
 no_newline_automaton = ast_to_automaton(RegexParser("[^\\n]*").parse())
 

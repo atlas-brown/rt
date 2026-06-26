@@ -1,16 +1,11 @@
-from collections import deque
-import jpype
-import jpype.imports
-
-from stream.config.global_config import CONFIG
-if not jpype.isJVMStarted():
-    jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import Automaton, RegExp, State, Transition # type: ignore
-from stream.tool_error import ToolError
-
-from typing import Deque, List, Callable, Optional, Dict, Set, Tuple
 import re
 from abc import ABC, abstractmethod
+from collections import deque
+from typing import Callable, Deque, Dict, List, Optional, Set, Tuple
+
+from stream.config.global_config import CONFIG
+from stream.java_api import Automaton, RegExp, State, Transition
+from stream.tool_error import ToolError
 
 alphabet_size = 255
 

@@ -1,9 +1,9 @@
 from typing import Optional
-# import z3
-import jpype.imports
-if not jpype.isJVMStarted():
-    jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata # type: ignore
+
+import jpype
+
+from stream.java_api import Automaton, BasicAutomata, BasicOperations, RegExp
+
 
 class Node:
     pass
@@ -764,4 +764,3 @@ if __name__ == "__main__":
     print(f"\nShortest Example: {shortest!r}")
     print(ord(shortest[0]))
     print(ord(shortest[-1]))
-    jpype.shutdownJVM()

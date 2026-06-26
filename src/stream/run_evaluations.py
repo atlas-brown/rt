@@ -10,13 +10,9 @@ import sys
 from functools import partial
 from pathlib import Path
 from typing import List, TextIO, Tuple
-import jpype
-import jpype.imports
 from tqdm import tqdm
 
 from stream.utils.timing import Timing
-if not jpype.isJVMStarted():
-    jpype.startJVM(classpath=["jars/automaton.jar"])
 from stream.type_checker import ScriptChecker
 from stream.parser.shell_parser_util import extract_pipe_nodes_from_file
 from stream.tool_error import PashAnnotationParsingError, TimeoutError
@@ -1222,7 +1218,6 @@ if __name__ == "__main__":
                 progress_stream=original_stdout if args.progress else None,
             )
         Timing.finish_all()
-        jpype.shutdownJVM()
     except Exception:
         if args.log_file:
             logging.exception("Evaluation failed")

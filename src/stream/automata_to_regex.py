@@ -6,15 +6,9 @@ from dataclasses import dataclass
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 
 import jpype
-import jpype.imports
 
-if not jpype.isJVMStarted():
-    jpype.startJVM(classpath=["jars/automaton.jar"])
-
-from dk.brics.automaton import Automaton, BasicAutomata, BasicOperations, State, Transition  # type: ignore
-
-from stream.regex_parser import RegexParser, Node, ast_to_automaton
-
+from stream.java_api import Automaton, BasicAutomata, BasicOperations, State, Transition
+from stream.regex_parser import Node, RegexParser, ast_to_automaton
 
 ASCII_ALPHABET_MAX = 255
 DEFAULT_MAX_STATES = 24
