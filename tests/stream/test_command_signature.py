@@ -2,7 +2,7 @@ import pytest
 from pash_annotations.datatypes.BasicDatatypes import Flag, Operand, Option
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
-from stream.command_signature import CommandSignature, InferenceResult
+from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.transformation_ast import ConstantTransform
 from stream.user_annotation import AnnotationType, EnvAnnotation
@@ -252,20 +252,20 @@ def test_apply_command_type_integration_for_cat_grep_sort(lookup_signature):
     inv = CommandInvocationInitial("cat", [], [Operand("file.txt")])
     command_type = cat_sig.determine_command_type(inv, [], {})
     result = cat_sig.apply_command_type(command_type, RegularType("hello"))
-    assert isinstance(result, InferenceResult)
-    assert result.output_type.pattern == ".*"
+    assert isinstance(result, RegularType)
+    assert result.pattern == ".*"
 
     # grep with pattern
     inv = CommandInvocationInitial("grep", [], [Operand("abc"), Operand("file.txt")])
     command_type = grep_sig.determine_command_type(inv, [], {})
     result = grep_sig.apply_command_type(command_type, RegularType("hello"))
-    assert isinstance(result, InferenceResult)
+    assert isinstance(result, RegularType)
     # grep output is an intersection containing the pattern
-    assert "abc" in (result.output_type.pattern or "")
+    assert "abc" in (result.pattern or "")
 
     # sort -n (output should preserve input)
     inv = CommandInvocationInitial("sort", [Flag("-n")], [])
     command_type = sort_sig.determine_command_type(inv, [], {})
     result = sort_sig.apply_command_type(command_type, RegularType("123"))
-    assert isinstance(result, InferenceResult)
-    assert result.output_type.pattern == "123"
+    assert isinstance(result, RegularType)
+    assert result.pattern == "123"

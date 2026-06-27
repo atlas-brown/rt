@@ -2,7 +2,7 @@ import pytest
 
 from stream.parser.shell_parser import ShellParser
 from stream.regular_type import RegularType
-from stream.type_checker import ErrorResult, PipelineChecker, ScriptChecker
+from stream.type_checker import ErrorResult, ScriptChecker
 
 
 def test_input_compatibility_produces_error_result(tmp_path):
@@ -65,16 +65,6 @@ def test_correct_assertion_produces_no_error(tmp_path):
 
     echo_errors = [err for err in result.error_results if err.command_name == "echo"]
     assert len(echo_errors) == 0
-
-
-def test_backward_tracing_returns_expected_witness_and_index():
-    checker = PipelineChecker({}, {}, [])
-    checker.backward_map[0] = lambda nfa: RegularType("abc").nfa
-    checker.backward_map[1] = lambda nfa: RegularType("def").nfa
-
-    witness, index = checker.backward("xyz", 3)
-    assert witness == "abc"
-    assert index == 0
 
 
 def test_statistics_are_populated_after_checking(tmp_path):

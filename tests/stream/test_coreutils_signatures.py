@@ -3,7 +3,6 @@ from pathlib import Path
 from pash_annotations.datatypes.BasicDatatypes import Operand
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
-from stream.command_signature import InferenceResult
 from stream.regular_type import RegularType
 from stream.signature_loader import SignatureLoader
 
@@ -147,33 +146,37 @@ def test_coreutils_identity_filters_preserve_line_type(lookup_signature, apply_s
         CommandInvocationInitial("tee", [], []),
     )
 
-    assert isinstance(result, InferenceResult)
-    assert result.output_type.is_subtype(input_type)[0]
-    assert input_type.is_subtype(result.output_type)[0]
+    assert isinstance(result, RegularType)
+    assert result.is_subtype(input_type)[0]
+    assert input_type.is_subtype(result)[0]
 
+    tee_inv = CommandInvocationInitial("tee", [], [])
     source_result = apply_signature(
         tee_signature,
         RegularType(""),
-        CommandInvocationInitial("tee", [], []),
+        tee_inv,
     )
 
-    assert isinstance(source_result, InferenceResult)
-    assert RegularType("[a-z]+").is_subtype(source_result.output_type)[0]
-    assert source_result.self_contained is False
+    assert isinstance(source_result, RegularType)
+    assert RegularType("[a-z]+").is_subtype(source_result)[0]
+    command_type = tee_signature.determine_command_type(tee_inv, [], {})
+    assert command_type.self_contained is False
 
 
 def test_coreutils_file_operands_fall_back_to_unknown_content(lookup_signature, apply_signature):
     tac_signature = lookup_signature("tac")
 
+    tac_inv = CommandInvocationInitial("tac", [], [Operand("/tmp/input.txt")])
     result = apply_signature(
         tac_signature,
         RegularType(""),
-        CommandInvocationInitial("tac", [], [Operand("/tmp/input.txt")]),
+        tac_inv,
     )
 
-    assert isinstance(result, InferenceResult)
-    assert RegularType("[a-z]+").is_subtype(result.output_type)[0]
-    assert result.self_contained is False
+    assert isinstance(result, RegularType)
+    assert RegularType("[a-z]+").is_subtype(result)[0]
+    command_type = tac_signature.determine_command_type(tac_inv, [], {})
+    assert command_type.self_contained is False
 
 
 def test_coreutils_stable_output_shapes_and_no_stdin_heuristic(lookup_signature, apply_signature):
@@ -191,7 +194,7 @@ def test_coreutils_stable_output_shapes_and_no_stdin_heuristic(lookup_signature,
         {},
     )
 
-    assert isinstance(nproc_result, InferenceResult)
-    assert nproc_result.output_type.is_subtype(RegularType("[0-9]+"))[0]
+    assert isinstance(nproc_result, RegularType)
+    assert nproc_result.is_subtype(RegularType("[0-9]+"))[0]
     assert whoami_input.pattern == ""
     assert no_input_type is None

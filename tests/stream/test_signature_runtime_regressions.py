@@ -1,7 +1,6 @@
 from pash_annotations.datatypes.BasicDatatypes import Flag, Operand, Option
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
-from stream.command_signature import InferenceResult
 from stream.regular_type import RegularType
 
 
@@ -24,8 +23,8 @@ def test_sort_allows_leading_option_like_operands_without_parser_crash(
 
     result = apply_signature(sort_signature, RegularType(".+"), invocation)
 
-    assert isinstance(result, InferenceResult)
-    assert isinstance(result.output_type, RegularType)
+    assert isinstance(result, RegularType)
+    assert isinstance(result, RegularType)
 
 
 def test_grep_f_file_without_pattern_operand_falls_back_without_index_error(
@@ -48,8 +47,8 @@ def test_grep_f_file_without_pattern_operand_falls_back_without_index_error(
 
     assert isinstance(input_type, RegularType)
     assert no_input_type is None
-    assert isinstance(result, InferenceResult)
-    assert isinstance(result.output_type, RegularType)
+    assert isinstance(result, RegularType)
+    assert isinstance(result, RegularType)
 
 
 def test_grep_combined_fw_file_keeps_input_type(lookup_signature, apply_signature):
@@ -70,9 +69,9 @@ def test_grep_combined_fw_file_keeps_input_type(lookup_signature, apply_signatur
 
     assert isinstance(expected_input_type, RegularType)
     assert no_input_type is None
-    assert isinstance(result, InferenceResult)
-    assert result.output_type.is_subtype(input_type)[0]
-    assert input_type.is_subtype(result.output_type)[0]
+    assert isinstance(result, RegularType)
+    assert result.is_subtype(input_type)[0]
+    assert input_type.is_subtype(result)[0]
 
 
 def test_grep_e_pattern_from_operands_initializes_pattern_type_string(lookup_signature, apply_signature):
@@ -85,8 +84,8 @@ def test_grep_e_pattern_from_operands_initializes_pattern_type_string(lookup_sig
 
     result = apply_signature(grep_signature, RegularType(".+"), invocation)
 
-    assert isinstance(result, InferenceResult)
-    assert isinstance(result.output_type, RegularType)
+    assert isinstance(result, RegularType)
+    assert isinstance(result, RegularType)
 
 
 def test_constructed_command_type_carries_input_constraints(lookup_signature):
@@ -111,7 +110,6 @@ def test_constructed_command_type_carries_input_constraints(lookup_signature):
 
     assert isinstance(sort_type.input_type, RegularType)
     assert isinstance(sort_type.no_input_type, RegularType)
-    assert sort_type.negative_constraint is sort_type.no_input_type
 
 
 def test_find_exec_ls_unwraps_nested_inference_result(lookup_signature):
@@ -135,8 +133,8 @@ def test_find_exec_ls_unwraps_nested_inference_result(lookup_signature):
     command_type = find_signature.determine_command_type(invocation, [], {})
     result = find_signature.apply_command_type(command_type, RegularType(".+"))
 
-    assert isinstance(result, InferenceResult)
-    assert isinstance(result.output_type, RegularType)
+    assert isinstance(result, RegularType)
+    assert isinstance(result, RegularType)
 
 
 def test_sed_falls_back_for_complex_patterns_and_multi_command_operands(
@@ -168,7 +166,7 @@ def test_sed_falls_back_for_complex_patterns_and_multi_command_operands(
 
     assert isinstance(input_type, RegularType)
     assert no_input_type is None
-    assert isinstance(malformed_result, InferenceResult)
-    assert isinstance(malformed_result.output_type, RegularType)
-    assert isinstance(multi_result, InferenceResult)
-    assert isinstance(multi_result.output_type, RegularType)
+    assert isinstance(malformed_result, RegularType)
+    assert isinstance(malformed_result, RegularType)
+    assert isinstance(multi_result, RegularType)
+    assert isinstance(multi_result, RegularType)

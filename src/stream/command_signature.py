@@ -1,24 +1,15 @@
-from dataclasses import dataclass
 import logging
 from stream.command_type_parser import parse_transform_expression
-from stream.command_type import CommandType, CommandTypeResult, PolymorphicCommandType, SimpleCommandType
+from stream.command_type import CommandType, PolymorphicCommandType, SimpleCommandType
 from stream.regular_type import RegularType
 from stream.transformation_ast import ALPHA, ConstantTransform, TransformationNode
 import re
-from typing import Callable, List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any, Optional, Tuple
 from shasta.ast_node import *
 from pash_annotations.parser.parser import parse as annot_parse
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
-from dk.brics.automaton import Automaton # type: ignore
 from stream.tool_error import ToolError, PashAnnotationParsingError
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
-
-
-@dataclass
-class InferenceResult:
-    output_type: RegularType
-    backward_func: Optional[Callable[[Automaton], Automaton]] = None
-    self_contained: Optional[bool] = None
 
 
 class CommandSignature:
@@ -261,9 +252,8 @@ class CommandSignature:
             output_tainted=tainted,
         )
 
-    def apply_command_type(self, command_type: CommandType, input_type: RegularType) -> InferenceResult:
-        result: CommandTypeResult = command_type.apply_to_input(input_type)
-        return InferenceResult(result.output_type, result.backward_func, result.self_contained)
+    def apply_command_type(self, command_type: CommandType, input_type: RegularType) -> RegularType:
+        return command_type.apply_to_input(input_type)
 
     def construct_output_transform(
         self,

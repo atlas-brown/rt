@@ -139,9 +139,9 @@ def test_specific_invocation_annotation_precedes_generic_signature(tmp_path, app
     )
 
     assert specific_signature.match
-    assert specific_result.output_type.pattern == "[0-9]+"
+    assert specific_result.pattern == "[0-9]+"
     assert generic_signature.match == {}
-    assert generic_result.output_type.pattern == ".*"
+    assert generic_result.pattern == ".*"
 
 
 def test_invocation_annotation_overrides_special_signature_only_for_exact_invocation(
@@ -179,10 +179,10 @@ def test_invocation_annotation_overrides_special_signature_only_for_exact_invoca
 
     assert exact_signature.match
     assert exact_signature.__class__.__name__ == "CommandSignature"
-    assert exact_result.output_type.pattern == "[0-9]+"
+    assert exact_result.pattern == "[0-9]+"
     assert other_signature.match == {}
     assert other_signature.__class__.__name__ == "GrepSignature"
-    assert other_result.output_type.pattern != "[0-9]+"
+    assert other_result.pattern != "[0-9]+"
 
 
 def test_command_type_parser_supports_simple_and_forall_annotations():
@@ -346,7 +346,7 @@ def test_complex_nested_operator_command_types_apply(annotation, input_type):
 
     result = command_type.apply_to_input(input_type)
 
-    assert isinstance(result.output_type, RegularType)
+    assert isinstance(result, RegularType)
 
 
 @pytest.mark.parametrize(
@@ -368,7 +368,7 @@ def test_direct_regular_type_operator_command_types_apply(annotation):
 
     result = command_type.apply_to_input(RegularType("[a-z]+"))
 
-    assert isinstance(result.output_type, RegularType)
+    assert isinstance(result, RegularType)
 
 
 def test_cli_registers_polymorphic_regular_operator(tmp_path, monkeypatch, capsys):

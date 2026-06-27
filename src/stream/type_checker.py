@@ -1,13 +1,11 @@
 import logging
-import re
 import time
 import traceback
 from dataclasses import dataclass
-from stream.command_signature import CommandSignature, InferenceResult
-from stream.config.global_config import CONFIG
+from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.parser.shell_parser import ShellParser
-from typing import Callable, Dict, Optional, List, Tuple
+from typing import Dict, Optional, List, Tuple
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 from stream.tool_error import ToolError, PashAnnotationParsingError
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
@@ -206,7 +204,6 @@ class PipelineChecker:
         self.max_automata_size = 1
         self.statistics_time = 0.0
         self.self_contained = True
-        self.backward_map: Dict[int, Callable[[str], str] | None] = {}
         self.runtime_error_kind: Optional[str] = None
         self.runtime_error_message: Optional[str] = None
         self.runtime_error_type: Optional[str] = None
@@ -266,20 +263,11 @@ class PipelineChecker:
                 no_input_type = command_type.no_input_type
 
                 inference_result = signature.apply_command_type(command_type, previous_output_type)
-                self_contained = True
-                backward_func = None
-                if isinstance(inference_result, InferenceResult):
-                    backward_func = inference_result.backward_func
-                    self_contained = inference_result.self_contained
-                    current_output_type = inference_result.output_type
-                else:
-                    current_output_type = inference_result
+                current_output_type = inference_result
                 assert isinstance(current_output_type, RegularType)
 
-                if self_contained is not None and not self_contained:
+                if command_type.self_contained is not None and not command_type.self_contained:
                     self.self_contained = False
-                
-                self.backward_map[command_index] = backward_func
 
                 # ----------------------------------------------
                 # Output automata post-processing & stats
@@ -446,21 +434,3 @@ class PipelineChecker:
         self.runtime_error_message = str(error)
         self.runtime_error_type = type(error).__name__
         self.runtime_error_traceback = traceback.format_exc()
-    
-
-    def backward(self, witness: str, command_index: int) -> Tuple[str, int]:
-        if not CONFIG["enable_FST"]:
-            return witness, command_index
-        real_command_index = command_index - 1 # offset by 1 because command_index is 1-indexed
-        witness = re.escape(witness)
-        witness_nfa = RegularType(witness).nfa
-        current_nfa = witness_nfa
-        while (real_command_index - 1) in self.backward_map:
-            backward_func = self.backward_map[real_command_index - 1]
-            if backward_func is None:
-                break
-            current_nfa = backward_func(current_nfa)
-            if isinstance(current_nfa, str):
-                current_nfa = RegularType(re.escape(current_nfa)).nfa
-            real_command_index -= 1
-        return str(current_nfa.getShortestExample(True)), real_command_index
