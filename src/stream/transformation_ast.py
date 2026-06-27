@@ -304,7 +304,7 @@ class TranslateCharsTransform(TransformationNode):
         
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
         from stream.config.global_config import CONFIG
-        from stream.regular_operator import complement_set, preprocess
+        from stream.regular_operator import complement_set, preprocess_char_set
         from stream.transducer import compression_FST, product_fst_automaton, translate_to_line_delimited_FST, translation_FST
 
         input_result = self.input_node.apply(env)
@@ -313,8 +313,8 @@ class TranslateCharsTransform(TransformationNode):
             source_chars = self.source_chars
             target_chars = self.target_chars
         else:
-            source_chars = preprocess(self.source_chars)
-            target_chars = preprocess(self.target_chars)
+            source_chars = preprocess_char_set(self.source_chars)
+            target_chars = preprocess_char_set(self.target_chars)
         if self.invert:
             source_chars = complement_set(source_chars)
 
@@ -352,12 +352,12 @@ class DeleteCharsTransform(TransformationNode):
 
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
         from stream.config.global_config import CONFIG
-        from stream.regular_operator import complement_set, preprocess
+        from stream.regular_operator import complement_set, preprocess_char_set
         from stream.transducer import deletion_FST, product_fst_automaton
 
         input_result = self.input_node.apply(env)
 
-        chars = self.chars if self.preprocessed else preprocess(self.chars)
+        chars = self.chars if self.preprocessed else preprocess_char_set(self.chars)
         if self.invert:
             chars = complement_set(chars)
         if self.approximate_when_fst_disabled and not CONFIG.get("enable_FST", True):

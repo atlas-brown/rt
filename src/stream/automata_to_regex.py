@@ -8,7 +8,7 @@ from typing import Dict, Iterable, List, Optional, Set, Tuple
 import jpype
 
 from stream.java_api import Automaton, BasicAutomata, BasicOperations, State, Transition
-from stream.regex_parser import Node, RegexParser, ast_to_automaton
+from stream.regex_parser import Node, RegexParser, ast_to_automaton, escape_literal as _regex_escape_literal
 
 ASCII_ALPHABET_MAX = 255
 DEFAULT_MAX_STATES = 24
@@ -643,9 +643,7 @@ def _escape_literal(char: str) -> str:
         return escapes[char]
     if not _is_readable_char(char):
         raise RegexConversionBudgetExceeded()
-    if char in "^$.*+?{}[]()|&~\\":
-        return "\\" + char
-    return char
+    return _regex_escape_literal(char)
 
 
 def _escape_char_class(char: str) -> Optional[str]:

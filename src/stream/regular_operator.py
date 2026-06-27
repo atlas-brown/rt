@@ -3,7 +3,7 @@ from stream.regular_type import RegularType
 from stream.transducer import *
 from typing import List, Set, Optional, Dict, Tuple, Union, Callable
 
-def preprocess(source_chars: str) -> str:
+def preprocess_char_set(source_chars: str) -> str:
     """
     source_chars: C
     C: CC | c | POSIX character class | c-c
@@ -108,8 +108,8 @@ def translate_chars(input_type: RegularType, source_chars: str, target_chars: st
     C: CC | c | POSIX character class | c-c
     """
 
-    source_chars = preprocess(source_chars)
-    target_chars = preprocess(target_chars)
+    source_chars = preprocess_char_set(source_chars)
+    target_chars = preprocess_char_set(target_chars)
     if invert:
         source_chars = complement_set(source_chars)
     fst = translation_FST(source_chars, target_chars)
@@ -176,7 +176,7 @@ def field_select(input_type: RegularType, delimiter: str, field_indices: str, in
 
     # Process delimiter and field indices
     if delimiter:
-        delimiter = preprocess(delimiter)
+        delimiter = preprocess_char_set(delimiter)
         
     fields, has_unbounded_range = parse_field_indices(field_indices)
     
