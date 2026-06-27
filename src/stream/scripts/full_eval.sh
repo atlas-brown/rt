@@ -71,7 +71,7 @@ run_rt() {
     shift 2
     start_stage "$label"
     if [ ! -f "$outdir/evaluation_results.json" ] || [ -n "$FORCE" ]; then
-        python3 src/stream/run_evaluations.py "$@" --outdir "$outdir" --progress --progress-label "$label" --log-file /dev/null || {
+        python3 src/stream/scripts/run_eval.py "$@" --outdir "$outdir" --progress --progress-label "$label" --log-file /dev/null || {
             local status=$?
             printf '  failed with exit code %s\n' "$status"
             exit "$status"
@@ -106,7 +106,7 @@ run_summary() {
     local category_output="$2"
     shift 2
     start_stage "$label"
-    python3 src/stream/evaluation_summary.py "$@" > "$category_output" 2>/dev/null || {
+    python3 src/stream/scripts/summarize_eval.py "$@" > "$category_output" 2>/dev/null || {
         local status=$?
         printf '  failed with exit code %s\n' "$status"
         exit "$status"

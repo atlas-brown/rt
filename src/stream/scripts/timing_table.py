@@ -4,7 +4,7 @@ import csv
 import json
 from pathlib import Path
 
-from stream.evaluation_summary import normalize_address
+from stream.scripts.summarize_eval import normalize_address
 
 
 def parse_seconds(value: str) -> float:
