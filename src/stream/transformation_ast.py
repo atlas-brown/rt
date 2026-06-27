@@ -279,7 +279,7 @@ class TranslateCharsTransform(TransformationNode):
         
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
         from stream.config.global_config import CONFIG
-        from stream.regular_operator import complement_set, preprocess_char_set
+        from stream.char_set_utils import complement_set, preprocess_char_set
         from stream.transducer import compression_FST, product_fst_automaton, translate_to_line_delimited_FST, translation_FST
 
         input_result = self.input_node.apply(env)
@@ -327,7 +327,7 @@ class DeleteCharsTransform(TransformationNode):
 
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
         from stream.config.global_config import CONFIG
-        from stream.regular_operator import complement_set, preprocess_char_set
+        from stream.char_set_utils import complement_set, preprocess_char_set
         from stream.transducer import deletion_FST, product_fst_automaton
 
         input_result = self.input_node.apply(env)

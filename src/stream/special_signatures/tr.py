@@ -3,7 +3,7 @@ from typing import Optional, Tuple
 
 from stream.command_signature import CommandSignature
 from stream.command_type import PolymorphicCommandType, SimpleCommandType
-from stream.regular_operator import replace_POSIX_class
+from stream.char_set_utils import replace_POSIX_class
 from stream.regular_type import RegularType
 from stream.transformation_ast import ALPHA, ConstantTransform, DeleteCharsTransform, TranslateCharsTransform
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
