@@ -152,10 +152,3 @@ def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> s
         return f"[{set1}]*"
 
     return f"~(.*[{set1}].*)"
-
-def refine_log(s: str) -> str:
-    if s == " ":
-        return "\" \""
-    if s == "":
-        return "\"\""
-    return s

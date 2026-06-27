@@ -68,12 +68,6 @@ def strip_quotes(string: str) -> str:
                 string = string[1:-1]
     return string
 
-def refine_log(s: str) -> str:
-    """Format string for logging purposes."""
-    if s == "":
-        return "\"\""
-    return s
-
 def has_unescaped_end_anchor(pattern: str) -> bool:
     """Return True when pattern ends in a dollar not escaped by a backslash."""
     if not pattern.endswith("$"):
@@ -420,8 +414,3 @@ class SedSignature(CommandSignature):
         if command.is_end_anchor:
             pattern = pattern + "$"
         return pattern
-
-def refine_log(s: str) -> str:
-    if s == "":
-        return "\"\""
-    return s

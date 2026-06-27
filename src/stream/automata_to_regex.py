@@ -8,7 +8,7 @@ from typing import Dict, Iterable, List, Optional, Set, Tuple
 import jpype
 
 from stream.java_api import Automaton, BasicAutomata, BasicOperations, State, Transition
-from stream.regex_parser import Node, RegexParser, ast_to_automaton, escape_literal as _regex_escape_literal
+from stream.regex_parser import RegexParser, ast_to_automaton, escape_literal as _regex_escape_literal
 
 ASCII_ALPHABET_MAX = 255
 DEFAULT_MAX_STATES = 24
@@ -93,15 +93,6 @@ def automaton_to_regex(
         return converter.convert(automaton)
     except RegexConversionBudgetExceeded:
         return None
-
-
-def automaton_to_ast(automaton: Automaton) -> Node:
-    """Convert an automaton to a regex AST when the budgeted conversion works."""
-
-    regex = automaton_to_regex(automaton)
-    if regex is None:
-        raise RegexConversionBudgetExceeded(automaton_summary(automaton))
-    return RegexParser(regex).parse()
 
 
 class _AutomatonToRegex:
