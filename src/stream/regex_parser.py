@@ -691,6 +691,50 @@ def remove_anchors(pattern: "RegularType") -> "RegularType":
     return pattern
 
 
+def has_backreference(text: str) -> bool:
+    return re.search(r'(?<!\\)(?:\\\\)*\\[1-9]', text) is not None
+
+
+def has_basic_capture_group(pattern: str) -> bool:
+    return "\\(" in pattern or "\\)" in pattern
+
+
+def escape_literal_for_regular_type(string: str) -> str:
+    return (
+        re.escape(string)
+        .replace("\\$", "[$]")
+        .replace("\\{", "[{]")
+        .replace("\\}", "[}]")
+    )
+
+
+def build_character_class(chars: str) -> str:
+    escaped_chars = []
+    seen = set()
+    for ch in chars:
+        if ch in seen:
+            continue
+        seen.add(ch)
+        if ch == "\n":
+            escaped = "\\n"
+        elif ch == "\t":
+            escaped = "\\t"
+        elif ch == "\r":
+            escaped = "\\r"
+        elif ch == "\\":
+            escaped = "\\\\"
+        elif ch == "-":
+            escaped = "\\-"
+        elif ch == "]":
+            escaped = "\\]"
+        elif ch == "^":
+            escaped = "\\^"
+        else:
+            escaped = re.escape(ch)
+        escaped_chars.append(escaped)
+    return "".join(escaped_chars)
+
+
 if __name__ == "__main__":
     pattern = "~(.*{{a}}.*)&(a{1,3}{{b}}[ab-e[:digit:]]{3,10}[^ab])+[]+a-z]"
     mode = "compat"

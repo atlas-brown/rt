@@ -1,4 +1,5 @@
 from typing import Dict, List, Optional, Set, Tuple, Union, Any, Mapping
+from stream.regex_parser import build_character_class
 from stream.regular_type import RegularType
 import re
 
@@ -30,37 +31,11 @@ def _approximate_translate_chars_without_fst(source_chars: str, target_chars: st
 
 
 def _type_excluding_chars(chars: str, tainted: bool) -> RegularType:
-    char_class = _regex_char_class(chars)
+    char_class = build_character_class(chars)
     if not char_class:
         return RegularType(".*", tainted=tainted)
     return RegularType(f"~(.*[{char_class}].*)", tainted=tainted)
 
-
-def _regex_char_class(chars: str) -> str:
-    escaped_chars = []
-    seen = set()
-    for ch in chars:
-        if ch in seen:
-            continue
-        seen.add(ch)
-        if ch == "\n":
-            escaped = "\\n"
-        elif ch == "\t":
-            escaped = "\\t"
-        elif ch == "\r":
-            escaped = "\\r"
-        elif ch == "\\":
-            escaped = "\\\\"
-        elif ch == "-":
-            escaped = "\\-"
-        elif ch == "]":
-            escaped = "\\]"
-        elif ch == "^":
-            escaped = "\\^"
-        else:
-            escaped = re.escape(ch)
-        escaped_chars.append(escaped)
-    return "".join(escaped_chars)
 
 class TransformationNode:
     """Base class for all AST nodes in the transformation tree."""
