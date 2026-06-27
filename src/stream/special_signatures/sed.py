@@ -1,3 +1,4 @@
+import re
 from dataclasses import dataclass
 from typing import List
 
@@ -122,6 +123,12 @@ def parse_substitute_command(operand: str, delimiter: str) -> SubstituteCommand:
     # Process pattern and replacement
     pattern = pattern.replace("\\\\", "\\")
     pattern = strip_quotes(pattern)
+
+    # Handle escaped delimiters in pattern (from original logic)
+    match = re.search(r'(\\+)$', pattern)
+    if match and (len(match.group(1)) % 2 == 1):
+        pattern = pattern + delimiter
+
     replacement = strip_quotes(replacement)
 
     # Check for global flag
