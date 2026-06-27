@@ -1,6 +1,10 @@
-from typing import Optional
+import re
+from typing import TYPE_CHECKING, Optional
 
 import jpype
+
+if TYPE_CHECKING:
+    from stream.regular_type import RegularType
 
 from stream.java_api import Automaton, BasicAutomata, BasicOperations, RegExp
 
@@ -740,6 +744,43 @@ def convert_to_pure_string_for_ast(ast: Node) -> Optional[str]:
             return node.items[0].char
         return None
     return _convert_to_pure_string(ast)
+
+def preprocess(pattern: str | None) -> str:
+    if pattern is None:
+        pattern = ""
+    replace_pattern = r'\$\{[^}]*\}|\$\([^)]*\)|\\\$\\\{[^}]*\\\}|\\\$\\\([^)]*\\\)'
+    pattern = re.sub(replace_pattern, r'(.*)', pattern)
+    replace_pattern = r'\(\?!'
+    pattern = re.sub(replace_pattern, r'~(', pattern)
+    return pattern
+
+
+def starts_with_start_anchor(pattern: "RegularType") -> bool:
+    if pattern.ast is None:
+        return False
+    if isinstance(pattern.ast, Concatenate):
+        return isinstance(pattern.ast.nodes[0], StartAnchor)
+    return False
+
+
+def ends_with_end_anchor(pattern: "RegularType") -> bool:
+    if pattern.ast is None:
+        return False
+    if isinstance(pattern.ast, Concatenate):
+        return isinstance(pattern.ast.nodes[-1], EndAnchor)
+    return False
+
+
+def remove_anchors(pattern: "RegularType") -> "RegularType":
+    if pattern.ast is None:
+        return pattern
+    if isinstance(pattern.ast, Concatenate):
+        if isinstance(pattern.ast.nodes[0], StartAnchor):
+            pattern.ast.nodes = pattern.ast.nodes[1:]
+        if isinstance(pattern.ast.nodes[-1], EndAnchor):
+            pattern.ast.nodes = pattern.ast.nodes[:-1]
+    return pattern
+
 
 if __name__ == "__main__":
     pattern = "~(.*{{a}}.*)&(a{1,3}{{b}}[ab-e[:digit:]]{3,10}[^ab])+[]+a-z]"

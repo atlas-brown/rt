@@ -7,7 +7,7 @@ from stream.config.global_config import CONFIG
 from stream.java_api import Automaton, RegExp, State, Transition
 from stream.tool_error import ToolError
 
-alphabet_size = 255
+from stream.constants import alphabet_size
 
 class OutputType(ABC):
     

@@ -15,7 +15,8 @@ from stream.regex_parser import (
     Union,
     ast_to_regex,
 )
-from stream.regular_type import RegularType, readable_automata_repr
+from stream.regular_type import RegularType
+from stream.constants import readable_automata_repr
 from stream.main import _strip_regular_type
 
 

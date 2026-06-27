@@ -1,89 +1,18 @@
 import logging
-import re
-from contextlib import contextmanager
-from typing import Optional, Set, Tuple
+from typing import Optional, Tuple
 
 from stream.automata_to_regex import automaton_to_regex, get_singleton
-from stream.java_api import (
-    Automaton,
-    BasicAutomata,
-    BasicOperations,
-    RegExp,
-    SpecialOperations,
-    State,
-    Transition,
+from stream.automaton_utils import reverse_automaton
+from stream.constants import (
+    alphabet_automaton,
+    get_readable_automata_repr_enabled,
+    no_newline_automaton,
 )
-from stream.regex_parser import (
-    CharacterClass,
-    Complement,
-    Concatenate,
-    Dot,
-    EmptyLanguageNode,
-    EndAnchor,
-    Intersection,
-    Literal,
-    Node,
-    Range,
-    RegexParser,
-    Repeat,
-    StartAnchor,
-    Union,
-    ast_to_automaton,
-    ast_to_regex,
-)
+from stream.java_api import Automaton, BasicOperations
+from stream.regex_parser import RegexParser, ast_to_automaton, ast_to_regex, preprocess
 from stream.tool_error import ToolError
-from stream.transducer import (
-    process_empty_transitions,
-)
 from stream.utils.function_timer import timer
 
-no_newline_automaton = ast_to_automaton(RegexParser("[^\\n]*").parse())
-
-alphabet_size = 255
-alphabet_automaton = RegExp(f"[{chr(0)}-{chr(alphabet_size)}]*").toAutomaton()
-READABLE_AUTOMATA_REPR_ENABLED = False
-
-
-def set_readable_automata_repr_enabled(enabled: bool) -> None:
-    global READABLE_AUTOMATA_REPR_ENABLED
-    READABLE_AUTOMATA_REPR_ENABLED = enabled
-
-
-def get_readable_automata_repr_enabled() -> bool:
-    return READABLE_AUTOMATA_REPR_ENABLED
-
-
-@contextmanager
-def readable_automata_repr(enabled: bool):
-    previous = get_readable_automata_repr_enabled()
-    set_readable_automata_repr_enabled(enabled)
-    try:
-        yield
-    finally:
-        set_readable_automata_repr_enabled(previous)
-
-def reverse_automaton(automaton: Automaton) -> Automaton:
-        empty_transitions: Set[Tuple[State, State]] = set()
-        mapping: dict[State, State] = {}
-        out_nfa = Automaton()
-        initial_state = out_nfa.getInitialState()
-        for state in automaton.getStates():
-            mapping[state] = State()
-        for state in automaton.getStates():
-            if state.isAccept():
-                empty_transitions.add((initial_state, mapping[state]))
-            for transition in state.getTransitions():
-                min_in = transition.getMin()
-                max_in = transition.getMax()
-                dest = transition.getDest()
-                mapping[dest].addTransition(Transition(min_in, max_in, mapping[state]))
-        mapping[automaton.getInitialState()].setAccept(True)
-        # handle empty transitions
-        process_empty_transitions(empty_transitions)
-        out_nfa.setDeterministic(False)
-        out_nfa.removeDeadTransitions()
-        out_nfa.minimize()
-        return out_nfa
 
 class RegularType:
     def __init__(
@@ -277,20 +206,20 @@ class RegularType:
 
 
     def __repr__(self) -> str:
-       if self.pattern is None:
-           if READABLE_AUTOMATA_REPR_ENABLED:
-               regex = automaton_to_regex(
-                   self.nfa,
-                   max_states=18,
-                   max_transitions=120,
-                   max_regex_length=1000,
-                   max_edge_length=600,
-                   line_based=True,
-               )
-               if regex is not None:
-                   return f"RegularType({regex})"
-           return "RegularType(Automaton)\n" + str(self.nfa)
-       return f"RegularType({self.pattern})"
+        if self.pattern is None:
+            if get_readable_automata_repr_enabled():
+                regex = automaton_to_regex(
+                    self.nfa,
+                    max_states=18,
+                    max_transitions=120,
+                    max_regex_length=1000,
+                    max_edge_length=600,
+                    line_based=True,
+                )
+                if regex is not None:
+                    return f"RegularType({regex})"
+            return "RegularType(Automaton)\n" + str(self.nfa)
+        return f"RegularType({self.pattern})"
     
     @timer
     def get_singleton(self) -> Optional[str]:
@@ -340,43 +269,3 @@ class RegularType:
         if regex is not None:
             return regex
         return str(self.nfa)
-
-
-def starts_with_start_anchor(pattern: RegularType) -> bool:
-    if pattern.ast is None:
-        return False
-    if isinstance(pattern.ast, Concatenate):
-        return isinstance(pattern.ast.nodes[0], StartAnchor)
-    return False
-
-def ends_with_end_anchor(pattern: RegularType) -> bool:
-    if pattern.ast is None:
-        return False
-    if isinstance(pattern.ast, Concatenate):
-        return isinstance(pattern.ast.nodes[-1], EndAnchor)
-    return False
-
-def remove_anchors(pattern: RegularType) -> RegularType:
-    if pattern.ast is None:
-        return pattern
-    if isinstance(pattern.ast, Concatenate):
-        if isinstance(pattern.ast.nodes[0], StartAnchor):
-            pattern.ast.nodes = pattern.ast.nodes[1:]
-        if isinstance(pattern.ast.nodes[-1], EndAnchor):
-            pattern.ast.nodes = pattern.ast.nodes[:-1]
-    return pattern
-
-
-
-# replace ${A} with (.*)  and  $(A) with (.*)
-def preprocess(pattern: str | None) -> str:
-    if pattern is None:
-        pattern = ""
-    # process replacement(${A} to (.*)) 
-    replace_pattern = r'\$\{[^}]*\}|\$\([^)]*\)|\\\$\\\{[^}]*\\\}|\\\$\\\([^)]*\\\)'
-    pattern = re.sub(replace_pattern, r'(.*)', pattern)
-    # ?! -> ~
-    replace_pattern = r'\(\?!'
-    pattern = re.sub(replace_pattern, r'~(', pattern)
-    return pattern
-        

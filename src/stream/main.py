@@ -11,7 +11,7 @@ import sys
 
 from stream.config.global_config import CONFIG
 from stream.type_checker import ErrorResult, ScriptChecker
-from stream.regular_type import readable_automata_repr
+from stream.constants import readable_automata_repr
 from stream.utils.format import pretty_ast_node
 
 

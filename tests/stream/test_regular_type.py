@@ -5,7 +5,8 @@ from hypothesis import given
 from hypothesis import strategies as st
 
 from stream.java_api import BasicAutomata, BasicOperations
-from stream.regular_type import RegularType, preprocess
+from stream.regular_type import RegularType
+from stream.regex_parser import preprocess
 
 _SMALL_PATTERNS = [
     "a",

@@ -3,7 +3,8 @@ from stream.command_signature import CommandSignature
 from stream.command_type import PolymorphicCommandType
 from stream.transformation_ast import ALPHA, ComplementTransform, ConcatenateTransform, ConstantTransform, IntersectionTransform, LineExtractTransform, TaintTransform
 
-from stream.regular_type import RegularType, ends_with_end_anchor, remove_anchors, starts_with_start_anchor
+from stream.regular_type import RegularType
+from stream.regex_parser import ends_with_end_anchor, remove_anchors, starts_with_start_anchor
 from stream.tool_error import ToolError
 
 class GrepSignature(CommandSignature):
