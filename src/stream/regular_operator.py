@@ -99,9 +99,6 @@ def complement_set(source_chars: str) -> str:
         raise ToolError("Invalid set for tr (empty complement)")
     return result
 
-def reverse(input_type: RegularType) -> RegularType:
-    return input_type.reverse()
-
 def translate_chars(input_type: RegularType, source_chars: str, target_chars: str, invert: bool = False, squeeze: bool = False) -> RegularType:
     """
     source_chars, target_chars: C
