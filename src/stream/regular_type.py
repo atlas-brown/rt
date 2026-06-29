@@ -9,7 +9,7 @@ from stream.constants import (
     no_newline_automaton,
 )
 from stream.java_api import Automaton, BasicOperations
-from stream.regex_parser import RegexParser, ast_to_automaton, ast_to_regex, preprocess
+from stream.regex_parser import Concatenate, EndAnchor, RegexParser, StartAnchor, ast_to_automaton, ast_to_regex, preprocess
 from stream.tool_error import ToolError
 from stream.utils.function_timer import timer
 
@@ -269,3 +269,45 @@ class RegularType:
         if regex is not None:
             return regex
         return str(self.nfa)
+
+    @property
+    def has_start_anchor(self) -> bool:
+        if self.ast is None:
+            return False
+        if isinstance(self.ast, Concatenate):
+            if self.ast.nodes and isinstance(self.ast.nodes[0], StartAnchor):
+                return True
+        return False
+
+    @property
+    def has_end_anchor(self) -> bool:
+        if self.ast is None:
+            return False
+        if isinstance(self.ast, Concatenate):
+            if self.ast.nodes and isinstance(self.ast.nodes[-1], EndAnchor):
+                return True
+        return False
+
+    def without_anchors(self) -> 'RegularType':
+        if self.ast is None:
+            return self
+        if not isinstance(self.ast, Concatenate):
+            return self
+        nodes = list(self.ast.nodes)
+        if nodes and isinstance(nodes[0], StartAnchor):
+            nodes.pop(0)
+        if nodes and isinstance(nodes[-1], EndAnchor):
+            nodes.pop()
+        if len(nodes) == len(self.ast.nodes):
+            return self
+        result = RegularType(automaton=self.nfa)
+        if not nodes:
+            result.ast = Concatenate([])
+            result.pattern = ""
+        else:
+            new_ast = Concatenate(nodes)
+            result.ast = new_ast
+            result.pattern = ast_to_regex(new_ast)
+        result.tainted = self.tainted
+        return result
+

@@ -664,33 +664,6 @@ def preprocess(pattern: str | None) -> str:
     return pattern
 
 
-def starts_with_start_anchor(pattern: "RegularType") -> bool:
-    if pattern.ast is None:
-        return False
-    if isinstance(pattern.ast, Concatenate):
-        return isinstance(pattern.ast.nodes[0], StartAnchor)
-    return False
-
-
-def ends_with_end_anchor(pattern: "RegularType") -> bool:
-    if pattern.ast is None:
-        return False
-    if isinstance(pattern.ast, Concatenate):
-        return isinstance(pattern.ast.nodes[-1], EndAnchor)
-    return False
-
-
-def remove_anchors(pattern: "RegularType") -> "RegularType":
-    if pattern.ast is None:
-        return pattern
-    if isinstance(pattern.ast, Concatenate):
-        if isinstance(pattern.ast.nodes[0], StartAnchor):
-            pattern.ast.nodes = pattern.ast.nodes[1:]
-        if isinstance(pattern.ast.nodes[-1], EndAnchor):
-            pattern.ast.nodes = pattern.ast.nodes[:-1]
-    return pattern
-
-
 def has_backreference(text: str) -> bool:
     return re.search(r'(?<!\\)(?:\\\\)*\\[1-9]', text) is not None
 

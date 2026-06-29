@@ -4,7 +4,6 @@ from stream.command_type import PolymorphicCommandType
 from stream.transformation_ast import ALPHA, ComplementTransform, ConcatenateTransform, ConstantTransform, IntersectionTransform, LineExtractTransform, TaintTransform
 
 from stream.regular_type import RegularType
-from stream.regex_parser import ends_with_end_anchor, remove_anchors, starts_with_start_anchor
 from stream.tool_error import ToolError
 
 class GrepSignature(CommandSignature):
@@ -87,12 +86,12 @@ class GrepSignature(CommandSignature):
         original_no_input_type = RegularType(pattern, mode)
 
         if "-o" not in parsed_flags:
-            if not starts_with_start_anchor(original_no_input_type):
+            if not original_no_input_type.has_start_anchor:
                 no_input_type = RegularType(".*") + no_input_type
-            if not ends_with_end_anchor(original_no_input_type):
+            if not original_no_input_type.has_end_anchor:
                 no_input_type = no_input_type + RegularType(".*")
 
-        no_input_type = remove_anchors(no_input_type)
+        no_input_type = no_input_type.without_anchors()
         no_input_type.tainted = False
 
         if "-v" not in parsed_flags:
@@ -148,18 +147,18 @@ class GrepSignature(CommandSignature):
             return PolymorphicCommandType(ConstantTransform(RegularType("[0-9]+")), self_contained=self_contained)
 
         if "-o" not in flags:
-            if not starts_with_start_anchor(original_pattern_type):
+            if not original_pattern_type.has_start_anchor:
                 pattern_type = RegularType(".*", tainted=False) + pattern_type
-            if not ends_with_end_anchor(original_pattern_type):
+            if not original_pattern_type.has_end_anchor:
                 pattern_type = pattern_type + RegularType(".*", tainted=False)
-            pattern_type = remove_anchors(pattern_type)
+            pattern_type = pattern_type.without_anchors()
             pattern_node = ConstantTransform(pattern_type)
             transform = IntersectionTransform(source, pattern_node)
         else:
-            if not starts_with_start_anchor(original_pattern_type) and not ends_with_end_anchor(original_pattern_type):
+            if not original_pattern_type.has_start_anchor and not original_pattern_type.has_end_anchor:
                 pattern_type.tainted = True
                 return PolymorphicCommandType(ConstantTransform(pattern_type), self_contained=self_contained)
-            pattern_type = remove_anchors(pattern_type)
+            pattern_type = pattern_type.without_anchors()
             transform = IntersectionTransform(source, ConstantTransform(pattern_type))
 
         if "-w" in flags:
