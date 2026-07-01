@@ -358,7 +358,6 @@ def _build_operator_transform(
             _string_arg(positional[2]),
             invert=_bool_kw(keyword, "invert", False),
             squeeze=_bool_kw(keyword, "squeeze", False),
-            stream=_bool_kw(keyword, "stream", False),
         )
     if canonical == "delete_chars":
         _require_arity(canonical, positional, 2)
@@ -366,7 +365,6 @@ def _build_operator_transform(
             expr(0),
             _string_arg(positional[1]),
             invert=_bool_kw(keyword, "invert", False),
-            stream=_bool_kw(keyword, "stream", False),
         )
     if canonical == "field_select":
         _require_arity(canonical, positional, 3)
@@ -392,7 +390,6 @@ def _build_operator_transform(
             _string_arg(positional[2]),
             global_match=_bool_kw(keyword, "global", _bool_kw(keyword, "global_match", False)),
             mode=_string_kw(keyword, "mode", "compat"),
-            stream=_bool_kw(keyword, "stream", False),
         )
     if canonical == "line_extract":
         _require_arity(canonical, positional, 2)

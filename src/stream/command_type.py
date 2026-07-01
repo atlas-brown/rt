@@ -1,16 +1,10 @@
-from dataclasses import dataclass
-from typing import Any, Callable, Optional
+from typing import Optional
+
 from stream.regular_type import RegularType
 from stream.transformation_ast import (
     clone_regular_type,
     TransformationNode,
 )
-
-@dataclass
-class CommandTypeResult:
-    output_type: RegularType
-    backward_func: Optional[Callable[[Any], Any]] = None
-    self_contained: Optional[bool] = None
 
 
 class CommandType:
@@ -19,12 +13,10 @@ class CommandType:
         self,
         input_type: Optional[RegularType] = None,
         no_input_type: Optional[RegularType] = None,
-        backward_func: Optional[Callable[[Any], Any]] = None,
         self_contained: Optional[bool] = None,
     ):
         self.input_type = input_type if input_type is not None else RegularType(".*")
         self.no_input_type = no_input_type
-        self.backward_func = backward_func
         self.self_contained = self_contained
 
     def set_input_constraints(
@@ -34,23 +26,11 @@ class CommandType:
     ) -> None:
         self.input_type = input_type
         self.no_input_type = no_input_type
-    
-    def apply_to_input(self, input_type: RegularType) -> CommandTypeResult:
+
+    def apply_to_input(self, input_type: RegularType) -> RegularType:
         """Apply this command type to the given input type to produce the output type."""
         raise NotImplementedError("Subclasses must implement apply_to_input")
 
-    def _coerce_result(self, result: Any) -> CommandTypeResult:
-        if isinstance(result, CommandTypeResult):
-            return result
-        if isinstance(result, RegularType):
-            return CommandTypeResult(result, self.backward_func, self.self_contained)
-        if hasattr(result, "output_type"):
-            return CommandTypeResult(
-                result.output_type,
-                getattr(result, "backward_func", self.backward_func),
-                getattr(result, "self_contained", self.self_contained),
-            )
-        raise TypeError(f"Command type transformation returned unsupported result {type(result)}")
 
 class SimpleCommandType(CommandType):
     """A simple command type that specifies fixed input, output, and negative constraint."""
@@ -59,7 +39,6 @@ class SimpleCommandType(CommandType):
         input_type: RegularType,
         output_type: RegularType,
         negative_constraint: Optional[RegularType] = None,
-        backward_func: Optional[Callable[[Any], Any]] = None,
         self_contained: Optional[bool] = None,
         no_input_type: Optional[RegularType] = None,
     ):
@@ -68,53 +47,37 @@ class SimpleCommandType(CommandType):
         super().__init__(
             input_type=input_type,
             no_input_type=no_input_type,
-            backward_func=backward_func,
             self_contained=self_contained,
         )
-        self.negative_constraint = self.no_input_type
         self.output_type = output_type
 
-    def set_input_constraints(
-        self,
-        input_type: RegularType,
-        no_input_type: Optional[RegularType],
-    ) -> None:
-        super().set_input_constraints(input_type, no_input_type)
-        self.negative_constraint = no_input_type
-    
-    def apply_to_input(self, input_type: RegularType) -> CommandTypeResult:
-        # For simple command types, the output is always the same regardless of input
-        return CommandTypeResult(
-            clone_regular_type(self.output_type),
-            self.backward_func,
-            self.self_contained,
-        )
-    
+    def apply_to_input(self, input_type: RegularType) -> RegularType:
+        return clone_regular_type(self.output_type)
+
     def __repr__(self) -> str:
-        if self.negative_constraint is not None:
-            return f"({self.input_type}, {self.negative_constraint}) -> {self.output_type}"
+        if self.no_input_type is not None:
+            return f"({self.input_type}, {self.no_input_type}) -> {self.output_type}"
         else:
             return f"{self.input_type} -> {self.output_type}"
+
 
 class PolymorphicCommandType(CommandType):
     """
     A polymorphic command type that can adapt based on the input type.
-    
+
     This represents the type: ∀α ⊆ Bound, α ⊄ NegativeConstraint. α -> TransformAST
-    
+
     Where:
     - α is a type parameter
     - Bound is an optional upper bound on the type parameter
     - NegativeConstraint is an optional negative constraint on the type parameter
     - TransformAST is an AST expression that can reference α and compute the output type
     """
-    def __init__(self, 
+    def __init__(self,
                  transformation: TransformationNode,
-                 bound: Optional[RegularType] = None, 
+                 bound: Optional[RegularType] = None,
                  negative_constraint: Optional[RegularType] = None,
-                 backward_func: Optional[Callable[[Any], Any]] = None,
                  self_contained: Optional[bool] = None,
-                 normalize_input_to_line: Optional[bool] = None,
                  output_tainted: Optional[bool] = None,
                  input_type: Optional[RegularType] = None,
                  no_input_type: Optional[RegularType] = None):
@@ -125,35 +88,19 @@ class PolymorphicCommandType(CommandType):
         super().__init__(
             input_type=input_type,
             no_input_type=no_input_type,
-            backward_func=backward_func,
             self_contained=self_contained,
         )
-        self.bound = input_type  # Upper bound on the type parameter
-        self.negative_constraint = self.no_input_type  # Negative constraint on the type parameter
         self.transformation = transformation
-        self.normalize_input_to_line = normalize_input_to_line
         self.output_tainted = output_tainted
 
-    def set_input_constraints(
-        self,
-        input_type: RegularType,
-        no_input_type: Optional[RegularType],
-    ) -> None:
-        super().set_input_constraints(input_type, no_input_type)
-        self.bound = input_type
-        self.negative_constraint = no_input_type
-    
-    def apply_to_input(self, input_type: RegularType) -> CommandTypeResult:
-        actual_input = input_type
-        if self.normalize_input_to_line is True and input_type.repr_mode == "stream":
-            actual_input = input_type.to_line_based_repr()
-        env = {"α": actual_input, "actual_input_type": actual_input}
-        result = self._coerce_result(self.transformation.apply(env))
+    def apply_to_input(self, input_type: RegularType) -> RegularType:
+        env = {"α": input_type, "actual_input_type": input_type}
+        result = self.transformation.apply(env)
         if self.output_tainted is not None:
-            result.output_type.tainted = self.output_tainted
+            result.tainted = self.output_tainted
         return result
-    
+
     def __repr__(self) -> str:
-        bound_str = f"[α ⊆ {self.bound}]" if self.bound else ""
-        negative_constraint_str = f"[α ⊄ {self.negative_constraint}]" if self.negative_constraint else ""
+        bound_str = f"[α ⊆ {self.input_type}]" if self.input_type else ""
+        negative_constraint_str = f"[α ⊄ {self.no_input_type}]" if self.no_input_type else ""
         return f"∀α{bound_str}{negative_constraint_str}. α -> {self.transformation}"

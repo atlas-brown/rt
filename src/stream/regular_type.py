@@ -1,72 +1,24 @@
-import re
-from contextlib import contextmanager
-from typing import Optional, Set, Tuple
-from stream.regex_parser import CharacterClass, Dot, EmptyLanguageNode, Literal, Range, Repeat, Union, Complement, Concatenate, EndAnchor, Intersection, RegexParser, StartAnchor, ast_to_automaton, Node, ast_to_regex
 import logging
+from typing import Optional, Tuple
+
+from stream.automata_to_regex import automaton_to_regex, get_singleton
+from stream.automaton_utils import reverse_automaton
+from stream.constants import (
+    alphabet_automaton,
+    get_readable_automata_repr_enabled,
+    no_newline_automaton,
+)
+from stream.java_api import Automaton, BasicOperations
+from stream.regex_parser import Concatenate, EndAnchor, RegexParser, StartAnchor, ast_to_automaton, ast_to_regex, preprocess
 from stream.tool_error import ToolError
 from stream.utils.function_timer import timer
-import jpype.imports
-from stream.transducer import add_newline_if_not_end_with_newline_FST, full_stream_to_line_based_FST, product_fst_automaton
-from stream.automata_to_regex import automaton_to_regex, get_singleton
-if not jpype.isJVMStarted():
-    jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata, SpecialOperations, State, Transition, RegExp # type: ignore
-from stream.transducer import process_empty_transitions
 
-no_newline_automaton = ast_to_automaton(RegexParser("[^\\n]*").parse())
-
-alphabet_size = 255
-alphabet_automaton = RegExp(f"[{chr(0)}-{chr(alphabet_size)}]*").toAutomaton()
-READABLE_AUTOMATA_REPR_ENABLED = False
-
-
-def set_readable_automata_repr_enabled(enabled: bool) -> None:
-    global READABLE_AUTOMATA_REPR_ENABLED
-    READABLE_AUTOMATA_REPR_ENABLED = enabled
-
-
-def get_readable_automata_repr_enabled() -> bool:
-    return READABLE_AUTOMATA_REPR_ENABLED
-
-
-@contextmanager
-def readable_automata_repr(enabled: bool):
-    previous = get_readable_automata_repr_enabled()
-    set_readable_automata_repr_enabled(enabled)
-    try:
-        yield
-    finally:
-        set_readable_automata_repr_enabled(previous)
-
-def reverse_automaton(automaton: Automaton) -> Automaton:
-        empty_transitions: Set[Tuple[State, State]] = set()
-        mapping: dict[State, State] = {}
-        out_nfa = Automaton()
-        initial_state = out_nfa.getInitialState()
-        for state in automaton.getStates():
-            mapping[state] = State()
-        for state in automaton.getStates():
-            if state.isAccept():
-                empty_transitions.add((initial_state, mapping[state]))
-            for transition in state.getTransitions():
-                min_in = transition.getMin()
-                max_in = transition.getMax()
-                dest = transition.getDest()
-                mapping[dest].addTransition(Transition(min_in, max_in, mapping[state]))
-        mapping[automaton.getInitialState()].setAccept(True)
-        # handle empty transitions
-        process_empty_transitions(empty_transitions)
-        out_nfa.setDeterministic(False)
-        out_nfa.removeDeadTransitions()
-        out_nfa.minimize()
-        return out_nfa
 
 class RegularType:
     def __init__(
             self, 
             pattern: Optional[str] = None, 
             mode: str = "compat", 
-            repr_mode: str = "line",
             automaton: Optional[Automaton] = None,
             hole_dict: Optional[dict[str, 'RegularType']] = None,
             tainted: bool = True,
@@ -74,18 +26,14 @@ class RegularType:
         if pattern is None and automaton is None:
             raise ValueError("Invalid RegularType object, pattern is None and automaton is None")
         
-        self.repr_mode = repr_mode
         self.tainted = tainted
         if automaton is not None:
             self.pattern = None
             self.ast = None
             self.nfa = automaton
             self.nfa = self.nfa.intersection(alphabet_automaton)
-            if repr_mode == "line":
-                self.nfa = self.nfa.intersection(no_newline_automaton)
+            self.nfa = self.nfa.intersection(no_newline_automaton)
             return
-        if pattern is not None and "\\n" in pattern:
-            self.repr_mode = "stream"
         self.pattern = pattern
         self.ast = RegexParser(preprocess(self.pattern), mode).parse()
         if mode == "basic":
@@ -96,8 +44,7 @@ class RegularType:
             automaton_dict = None
         self.nfa = ast_to_automaton(self.ast, hole_dict=automaton_dict)
         self.nfa = self.nfa.intersection(alphabet_automaton)
-        if self.repr_mode == "line":
-            self.nfa = self.nfa.intersection(no_newline_automaton)
+        self.nfa = self.nfa.intersection(no_newline_automaton)
 
     def empty_intersection(self, other: 'RegularType') -> bool:
         return self.nfa.intersection(other.nfa).isEmpty()
@@ -110,16 +57,8 @@ class RegularType:
         return str(self.nfa.getShortestExample(True))
     
     def is_subtype(self, other: 'RegularType', enable_timeout: bool = False, timeout: int = 10, enable_witness: bool = True) -> Tuple[bool, str | None]:
-        if self.repr_mode == "stream" or other.repr_mode == "stream":
-            a = self.to_full_stream_repr().nfa
-            a = a.intersection(ast_to_automaton(RegexParser(".+").parse()))
-            a = product_fst_automaton(add_newline_if_not_end_with_newline_FST(), a)
-            b = other.to_full_stream_repr().nfa
-            b = b.intersection(ast_to_automaton(RegexParser(".+").parse()))
-            b = product_fst_automaton(add_newline_if_not_end_with_newline_FST(), b)
-        else:
-            a = self.nfa
-            b = other.nfa
+        a = self.nfa
+        b = other.nfa
         logging.debug("checking subsumption")
         is_subtype = a.subsetOf(b)
         witness = None
@@ -151,55 +90,12 @@ class RegularType:
 
     def is_empty(self) -> bool:
         logging.debug("checking emptiness")
-        return self.to_line_based_repr().nfa.isEmpty()
+        return self.nfa.isEmpty()
     
     def is_empty_string(self) -> bool:
         logging.debug("checking empty string")
-        return self.to_line_based_repr().nfa.isEmptyString()
+        return self.nfa.isEmptyString()
     
-    @timer
-    def to_full_stream_repr(self) -> "RegularType":
-        if self.repr_mode == "stream":
-            return self
-        if self.repr_mode == "line":
-            # (r\n)*(r\n?)?
-            line_nfa = self.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
-            nfa = BasicOperations.concatenate(line_nfa, BasicAutomata.makeChar('\n'))
-            nfa = BasicOperations.repeat(nfa, 0)
-
-            nfa2 = BasicOperations.concatenate(line_nfa, BasicOperations.repeat(BasicAutomata.makeChar('\n'), 0, 1))
-            nfa2 = BasicOperations.repeat(nfa2, 0, 1)
-            nfa = BasicOperations.concatenate(nfa, nfa2)
-            nfa.setDeterministic(False)
-            nfa.removeDeadTransitions()
-            nfa.minimize()
-            return RegularType(automaton=nfa, repr_mode="stream", tainted=self.tainted)
-
-    def to_one_line_repr(self) -> "RegularType":
-        if self.repr_mode == "line":
-            line_nfa = self.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
-            nfa = BasicOperations.concatenate(line_nfa, BasicAutomata.makeChar('\n'))
-            return RegularType(automaton=nfa, repr_mode="stream", tainted=True)
-        else:
-            return self
-
-    def to_one_line_without_newline_repr(self) -> "RegularType":
-        if self.repr_mode == "line":
-            line_nfa = self.nfa.intersection(ast_to_automaton(RegexParser("[^\\n]*").parse()))
-            return RegularType(automaton=line_nfa, repr_mode="stream", tainted=True)
-        else:
-            return self
-
-    @timer
-    def to_line_based_repr(self) -> "RegularType":
-        if self.repr_mode == "line":
-            return self
-        if self.repr_mode == "stream":
-            fst = full_stream_to_line_based_FST()
-            nfa = product_fst_automaton(fst, self.nfa)
-            return RegularType(automaton=nfa, repr_mode="line", tainted=True)
-
-
     def __le__(self, other: 'RegularType') -> bool:
         is_subtype, _ = self.is_subtype(other, enable_witness=False)
         return is_subtype
@@ -209,8 +105,8 @@ class RegularType:
         return is_subtype
     
     def __add__(self, other: 'RegularType') -> 'RegularType':
-        a = self.to_line_based_repr().nfa
-        b = other.to_line_based_repr().nfa
+        a = self.nfa
+        b = other.nfa
         out = RegularType(automaton=BasicOperations.concatenate(a, b))
         # out.nfa.setDeterministic(False)
         # out.nfa.removeDeadTransitions()
@@ -221,8 +117,8 @@ class RegularType:
         return out
     
     def __sub__(self, other: 'RegularType') -> 'RegularType':
-        a = self.to_line_based_repr().nfa
-        b = other.to_line_based_repr().nfa
+        a = self.nfa
+        b = other.nfa
         out = RegularType(automaton=BasicOperations.minus(a, b))
         # out.nfa.setDeterministic(False)
         # out.nfa.removeDeadTransitions()
@@ -231,8 +127,8 @@ class RegularType:
         return out
 
     def __and__(self, other: 'RegularType') -> 'RegularType':
-        a = self.to_line_based_repr().nfa
-        b = other.to_line_based_repr().nfa
+        a = self.nfa
+        b = other.nfa
         out = RegularType(automaton=BasicOperations.intersection(a, b))
         # out.nfa.setDeterministic(False)
         # out.nfa.removeDeadTransitions()
@@ -243,8 +139,8 @@ class RegularType:
         return out
     
     def __or__(self, other: 'RegularType') -> 'RegularType':
-        a = self.to_line_based_repr().nfa
-        b = other.to_line_based_repr().nfa
+        a = self.nfa
+        b = other.nfa
         out = RegularType(automaton=BasicOperations.union(a, b))
         # out.nfa.setDeterministic(False)
         # out.nfa.removeDeadTransitions()
@@ -255,7 +151,7 @@ class RegularType:
         return out
     
     def __invert__(self) -> 'RegularType':
-        a = self.to_line_based_repr().nfa
+        a = self.nfa
         out = RegularType(automaton=BasicOperations.minus(no_newline_automaton, a))
         # out.nfa.setDeterministic(False)
         # out.nfa.removeDeadTransitions()
@@ -266,7 +162,7 @@ class RegularType:
         return out
     
     def optional(self) -> 'RegularType':
-        a = self.to_line_based_repr().nfa
+        a = self.nfa
         out = RegularType(automaton=BasicOperations.optional(a))
         # out.nfa.setDeterministic(False)
         # out.nfa.removeDeadTransitions()
@@ -277,7 +173,7 @@ class RegularType:
         return out
     
     def kleene_star(self) -> 'RegularType':
-        a = self.to_line_based_repr().nfa
+        a = self.nfa
         out = RegularType(automaton=BasicOperations.repeat(a, 0))
         # out.nfa.setDeterministic(False)
         # out.nfa.removeDeadTransitions()
@@ -288,7 +184,7 @@ class RegularType:
         return out
     
     def kleene_plus(self) -> 'RegularType':
-        a = self.to_line_based_repr().nfa
+        a = self.nfa
         out = RegularType(automaton=BasicOperations.repeat(a, 1))
         # out.nfa.setDeterministic(False)
         # out.nfa.removeDeadTransitions()
@@ -300,7 +196,7 @@ class RegularType:
     
 
     def reverse(self) -> 'RegularType':
-        a = self.to_line_based_repr().nfa
+        a = self.nfa
         out_nfa = reverse_automaton(a)
         reverse = RegularType(automaton=out_nfa)
         if self.pattern is not None:
@@ -310,20 +206,20 @@ class RegularType:
 
 
     def __repr__(self) -> str:
-       if self.pattern is None:
-           if READABLE_AUTOMATA_REPR_ENABLED:
-               regex = automaton_to_regex(
-                   self.nfa,
-                   max_states=18,
-                   max_transitions=120,
-                   max_regex_length=1000,
-                   max_edge_length=600,
-                   line_based=self.repr_mode == "line",
-               )
-               if regex is not None:
-                   return f"RegularType({regex})"
-           return "RegularType(Automaton)\n" + str(self.nfa)
-       return f"RegularType({self.pattern})"
+        if self.pattern is None:
+            if get_readable_automata_repr_enabled():
+                regex = automaton_to_regex(
+                    self.nfa,
+                    max_states=18,
+                    max_transitions=120,
+                    max_regex_length=1000,
+                    max_edge_length=600,
+                    line_based=True,
+                )
+                if regex is not None:
+                    return f"RegularType({regex})"
+            return "RegularType(Automaton)\n" + str(self.nfa)
+        return f"RegularType({self.pattern})"
     
     @timer
     def get_singleton(self) -> Optional[str]:
@@ -369,45 +265,49 @@ class RegularType:
     @timer
     def to_regex(self) -> str:
         """Convert automaton to a regular expression string."""
-        regex = automaton_to_regex(self.nfa, line_based=self.repr_mode == "line")
+        regex = automaton_to_regex(self.nfa, line_based=True)
         if regex is not None:
             return regex
         return str(self.nfa)
 
-
-def starts_with_start_anchor(pattern: RegularType) -> bool:
-    if pattern.ast is None:
+    @property
+    def has_start_anchor(self) -> bool:
+        if self.ast is None:
+            return False
+        if isinstance(self.ast, Concatenate):
+            if self.ast.nodes and isinstance(self.ast.nodes[0], StartAnchor):
+                return True
         return False
-    if isinstance(pattern.ast, Concatenate):
-        return isinstance(pattern.ast.nodes[0], StartAnchor)
-    return False
 
-def ends_with_end_anchor(pattern: RegularType) -> bool:
-    if pattern.ast is None:
+    @property
+    def has_end_anchor(self) -> bool:
+        if self.ast is None:
+            return False
+        if isinstance(self.ast, Concatenate):
+            if self.ast.nodes and isinstance(self.ast.nodes[-1], EndAnchor):
+                return True
         return False
-    if isinstance(pattern.ast, Concatenate):
-        return isinstance(pattern.ast.nodes[-1], EndAnchor)
-    return False
 
-def remove_anchors(pattern: RegularType) -> RegularType:
-    if pattern.ast is None:
-        return pattern
-    if isinstance(pattern.ast, Concatenate):
-        if isinstance(pattern.ast.nodes[0], StartAnchor):
-            pattern.ast.nodes = pattern.ast.nodes[1:]
-        if isinstance(pattern.ast.nodes[-1], EndAnchor):
-            pattern.ast.nodes = pattern.ast.nodes[:-1]
-    return pattern
+    def without_anchors(self) -> 'RegularType':
+        if self.ast is None:
+            return self
+        if not isinstance(self.ast, Concatenate):
+            return self
+        nodes = list(self.ast.nodes)
+        if nodes and isinstance(nodes[0], StartAnchor):
+            nodes.pop(0)
+        if nodes and isinstance(nodes[-1], EndAnchor):
+            nodes.pop()
+        if len(nodes) == len(self.ast.nodes):
+            return self
+        result = RegularType(automaton=self.nfa)
+        if not nodes:
+            result.ast = Concatenate([])
+            result.pattern = ""
+        else:
+            new_ast = Concatenate(nodes)
+            result.ast = new_ast
+            result.pattern = ast_to_regex(new_ast)
+        result.tainted = self.tainted
+        return result
 
-
-
-# replace ${A} with (.*)  and  $(A) with (.*)
-def preprocess(pattern: str) -> str:
-    # process replacement(${A} to (.*)) 
-    replace_pattern = r'\$\{[^}]*\}|\$\([^)]*\)|\\\$\\\{[^}]*\\\}|\\\$\\\([^)]*\\\)'
-    pattern = re.sub(replace_pattern, r'(.*)', pattern)
-    # ?! -> ~
-    replace_pattern = r'\(\?!'
-    pattern = re.sub(replace_pattern, r'~(', pattern)
-    return pattern
-        

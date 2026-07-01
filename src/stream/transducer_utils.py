@@ -1,18 +1,13 @@
-from collections import deque
-import jpype
-import jpype.imports
-
-from stream.config.global_config import CONFIG
-if not jpype.isJVMStarted():
-    jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import Automaton, RegExp, State, Transition # type: ignore
-from stream.tool_error import ToolError
-
-from typing import Deque, List, Callable, Optional, Dict, Set, Tuple
 import re
 from abc import ABC, abstractmethod
+from collections import deque
+from typing import Callable, Deque, Dict, List, Optional, Set, Tuple
 
-alphabet_size = 255
+from stream.config.global_config import CONFIG
+from stream.java_api import Automaton, RegExp, State, Transition
+from stream.tool_error import ToolError
+
+from stream.constants import alphabet_size
 
 class OutputType(ABC):
     
@@ -773,41 +768,6 @@ def create_fst(transition_specs: List[Tuple[int, str, str, int] | Tuple[int, str
         fst.set_accept(fs)
     fst._process_other_transitions()
     fst._process_not_consumed_transitions()
-    return fst
-
-def line_based_functional_to_stream_FST(fst: FST) -> FST:
-    start_state_id = fst.initial.id
-    for state in fst.states.values():
-        new_transitions: List[FST_Transition] = []
-        for transition in state.transitions:
-            min_char = transition.min
-            max_char = transition.max
-            if min_char == None:
-                if max_char != "\n":
-                    new_transitions.append(transition)
-                continue
-            if max_char == None:
-                if min_char != "\n":
-                    new_transitions.append(transition)
-                continue
-            if ord(min_char) > ord("\n") or ord(max_char) < ord("\n"):
-                new_transitions.append(transition)
-                continue
-            if ord(min_char) == ord("\n") and ord(max_char) == ord("\n"):
-                continue
-            m = chr(ord("\n") - 1)
-            n = chr(ord("\n") + 1)
-            if ord(min_char) == ord("\n"):
-                new_transitions.append(FST_Transition(n, max_char, transition.output, transition.to, transition.is_other, transition.is_not_consumed))
-                continue
-            if ord(max_char) == ord("\n"):
-                new_transitions.append(FST_Transition(min_char, m, transition.output, transition.to, transition.is_other, transition.is_not_consumed))
-                continue
-            new_transitions.append(FST_Transition(min_char, m, transition.output, transition.to, transition.is_other, transition.is_not_consumed))
-            new_transitions.append(FST_Transition(n, max_char, transition.output, transition.to, transition.is_other, transition.is_not_consumed))
-        state.transitions = new_transitions
-        if state.accept:
-            fst.add_transition(state.id, "\n", "\n", "\n", start_state_id)
     return fst
 
 def compute_fst_automaton_product(fst: FST, automaton: Automaton) -> FST:

@@ -1,7 +1,9 @@
 import re
 from typing import Optional, Tuple
+
 from stream.command_signature import CommandSignature
 from stream.command_type import PolymorphicCommandType, SimpleCommandType
+from stream.char_set_utils import replace_POSIX_class
 from stream.regular_type import RegularType
 from stream.transformation_ast import ALPHA, ConstantTransform, DeleteCharsTransform, TranslateCharsTransform
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
@@ -41,7 +43,6 @@ class TrSignature(CommandSignature):
                 set1,
                 set2,
                 invert=invert,
-                stream=True,
                 approximate_when_fst_disabled=True,
                 preprocessed=True,
             )
@@ -50,7 +51,6 @@ class TrSignature(CommandSignature):
                 ALPHA,
                 set1,
                 invert=invert,
-                stream=True,
                 approximate_when_fst_disabled=True,
                 preprocessed=True,
             )
@@ -62,7 +62,6 @@ class TrSignature(CommandSignature):
                 target,
                 invert=invert,
                 squeeze=True,
-                stream=True,
                 approximate_when_fst_disabled=True,
                 preprocessed=True,
             )
@@ -70,17 +69,6 @@ class TrSignature(CommandSignature):
             transform = ConstantTransform(RegularType(".*"))
 
         return PolymorphicCommandType(transform, self_contained=True)
-
-def replace_POSIX_class(set1: str) -> str:
-    set1 = set1.replace("[:lower:]", "a-z")
-    set1 = set1.replace("[:upper:]", "A-Z")
-    set1 = set1.replace("[:alpha:]", "a-zA-Z")
-    set1 = set1.replace("[:punct:]", "!-/:-@[-`{-~")
-    set1 = set1.replace("[:digit:]", "0-9")
-    set1 = set1.replace("[:alnum:]", "a-zA-Z0-9")
-    set1 = set1.replace("[:blank:]", " \t")
-    set1 = set1.replace("[:space:]", " \t\r\n\v\f")
-    return set1
 
 def expand_ranges(input_set: str) -> str:
     result = input_set
@@ -110,15 +98,6 @@ def expand_ranges(input_set: str) -> str:
         result = new_result
     if exists_dash:
         result += "-"
-    return result
-
-def complement_set(input_set: str) -> str:
-    result = ""
-    for i in range(256):
-        if chr(i) not in input_set:
-            result += chr(i)
-    if result == "":
-        raise ToolError("Invalid set for tr (empty complement)")
     return result
 
 def preprocess_set(set1: str) -> str:
@@ -173,10 +152,3 @@ def get_output_pattern(parsed_command_invocation: CommandInvocationInitial) -> s
         return f"[{set1}]*"
 
     return f"~(.*[{set1}].*)"
-
-def refine_log(s: str) -> str:
-    if s == " ":
-        return "\" \""
-    if s == "":
-        return "\"\""
-    return s

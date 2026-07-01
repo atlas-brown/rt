@@ -167,7 +167,7 @@ def main(
         prev_out_type = inferred_input_type
 
     command_type = signature.determine_command_type(invocation, [], {})
-    out_type = signature.apply_command_type(command_type, prev_out_type).output_type
+    out_type = signature.apply_command_type(command_type, prev_out_type)
     out_pattern = _display_pattern(out_type)
 
     print("Invocation:")

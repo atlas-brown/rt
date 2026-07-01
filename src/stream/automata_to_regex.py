@@ -6,15 +6,9 @@ from dataclasses import dataclass
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 
 import jpype
-import jpype.imports
 
-if not jpype.isJVMStarted():
-    jpype.startJVM(classpath=["jars/automaton.jar"])
-
-from dk.brics.automaton import Automaton, BasicAutomata, BasicOperations, State, Transition  # type: ignore
-
-from stream.regex_parser import RegexParser, Node, ast_to_automaton
-
+from stream.java_api import Automaton, BasicAutomata, BasicOperations, State, Transition
+from stream.regex_parser import RegexParser, ast_to_automaton, escape_literal as _regex_escape_literal
 
 ASCII_ALPHABET_MAX = 255
 DEFAULT_MAX_STATES = 24
@@ -99,15 +93,6 @@ def automaton_to_regex(
         return converter.convert(automaton)
     except RegexConversionBudgetExceeded:
         return None
-
-
-def automaton_to_ast(automaton: Automaton) -> Node:
-    """Convert an automaton to a regex AST when the budgeted conversion works."""
-
-    regex = automaton_to_regex(automaton)
-    if regex is None:
-        raise RegexConversionBudgetExceeded(automaton_summary(automaton))
-    return RegexParser(regex).parse()
 
 
 class _AutomatonToRegex:
@@ -649,9 +634,7 @@ def _escape_literal(char: str) -> str:
         return escapes[char]
     if not _is_readable_char(char):
         raise RegexConversionBudgetExceeded()
-    if char in "^$.*+?{}[]()|&~\\":
-        return "\\" + char
-    return char
+    return _regex_escape_literal(char)
 
 
 def _escape_char_class(char: str) -> Optional[str]:

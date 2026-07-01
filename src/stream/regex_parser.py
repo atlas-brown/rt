@@ -1,9 +1,13 @@
-from typing import Optional
-# import z3
-import jpype.imports
-if not jpype.isJVMStarted():
-    jpype.startJVM(classpath=["jars/automaton.jar"])
-from dk.brics.automaton import RegExp, Automaton, BasicOperations, BasicAutomata # type: ignore
+import re
+from typing import TYPE_CHECKING, Optional
+
+import jpype
+
+if TYPE_CHECKING:
+    from stream.regular_type import RegularType
+
+from stream.java_api import Automaton, BasicAutomata, BasicOperations, RegExp
+
 
 class Node:
     pass
@@ -467,97 +471,6 @@ def escape_char_class(ch):
     return ch
     
 
-def ast_to_z3(node):
-    import z3
-    any_char = z3.Range(chr(0), chr(127))
-    if isinstance(node, EmptyLanguageNode):
-        return z3.Intersect(z3.Re("a"), z3.Re("b"))
-    elif isinstance(node, Literal):
-        return z3.Re(node.char)
-    elif isinstance(node, Dot):
-        return any_char
-    elif isinstance(node, Concatenate):
-        children = [ast_to_z3(child) for child in node.nodes]
-        children = [child for child in children if child != None]
-        if len(children) == 0:
-            return z3.Re("")
-        if len(children) == 1:
-            return children[0]
-        return z3.Concat(children)
-    elif isinstance(node, Repeat):
-        base = ast_to_z3(node.node)
-        if node.min == 0 and node.max == 1:
-            return z3.Option(base)
-        elif node.max is not None:
-            return z3.Loop(base, node.min, node.max)
-        elif node.min == 0:
-            return z3.Star(base)
-        elif node.min == 1:
-            return z3.Plus(base)
-        else:
-            return z3.Concat(z3.Loop(base, node.min, node.min), z3.Star(base))
-    elif isinstance(node, CharacterClass):
-        items = [ast_to_z3(item) for item in node.items]
-        if node.negate:
-            return z3.Intersect(any_char, z3.Complement(z3.Union(items)))
-        return z3.Union(items)
-    elif isinstance(node, Range):
-        return z3.Range(node.start, node.end)
-    elif isinstance(node, Intersection):
-        return z3.Intersect(ast_to_z3(node.left), ast_to_z3(node.right))
-    elif isinstance(node, Complement):
-        return z3.Intersect(z3.Star(any_char), z3.Complement(ast_to_z3(node.node)))
-    elif isinstance(node, Union):
-        return z3.Union(ast_to_z3(node.left), ast_to_z3(node.right))
-    elif isinstance(node, PosixClass):
-        name = node.name
-        if name == "upper":
-            return z3.Range("A", "Z")
-        elif name == "lower":
-            return z3.Range("a", "z")
-        elif name == "alpha":
-            return z3.Union(z3.Range("A", "Z"), z3.Range("a", "z"))
-        elif name == "digit":
-            return z3.Range("0", "9")
-        elif name == "xdigit":
-            return z3.Union(z3.Range("0", "9"), z3.Range("A", "F"), z3.Range("a", "f"))
-        elif name == "alnum":
-            return z3.Union(z3.Range("A", "Z"), z3.Range("a", "z"), z3.Range("0", "9"))
-        elif name == "punct":
-            return z3.Union(
-                z3.Range("!", "/"),
-                z3.Range(":", "@"),
-                z3.Range("[", "`"),
-                z3.Range("{", "~")
-            )
-        elif name == "blank":
-            return z3.Union(z3.Re(" "), z3.Re("\t"))
-        elif name == "space":
-            return z3.Union(
-                z3.Re(" "),
-                z3.Re("\t"),
-                z3.Re("\n"),
-                z3.Re("\r"),
-                z3.Re("\v"),
-                z3.Re("\f")
-            )
-        elif name == "cntrl":
-            return z3.Union(z3.Range(chr(0), chr(31)), z3.Range(chr(127), chr(127)))
-        elif name == "graph":
-            return z3.Range(chr(33), chr(126))
-        elif name == "print":
-            return z3.Range(chr(32), chr(126))
-        else:
-            raise ValueError(f"Unknown POSIX character class: {name}")
-    elif isinstance(node, StartAnchor):
-        return z3.Re("")
-    elif isinstance(node, EndAnchor):
-        return z3.Re("")
-    elif isinstance(node, Hole):
-        raise ValueError("Hole node is not supported in Z3 translation")
-    else:
-        raise ValueError(f"Unknown node type: {node}")
-
 def ast_to_regex(ast):
     def _ast_to_regex(node, parent_prec=0):
         my_prec = get_prec(node)
@@ -741,6 +654,60 @@ def convert_to_pure_string_for_ast(ast: Node) -> Optional[str]:
         return None
     return _convert_to_pure_string(ast)
 
+def preprocess(pattern: str | None) -> str:
+    if pattern is None:
+        pattern = ""
+    replace_pattern = r'\$\{[^}]*\}|\$\([^)]*\)|\\\$\\\{[^}]*\\\}|\\\$\\\([^)]*\\\)'
+    pattern = re.sub(replace_pattern, r'(.*)', pattern)
+    replace_pattern = r'\(\?!'
+    pattern = re.sub(replace_pattern, r'~(', pattern)
+    return pattern
+
+
+def has_backreference(text: str) -> bool:
+    return re.search(r'(?<!\\)(?:\\\\)*\\[1-9]', text) is not None
+
+
+def has_basic_capture_group(pattern: str) -> bool:
+    return "\\(" in pattern or "\\)" in pattern
+
+
+def escape_literal_for_regular_type(string: str) -> str:
+    return (
+        re.escape(string)
+        .replace("\\$", "[$]")
+        .replace("\\{", "[{]")
+        .replace("\\}", "[}]")
+    )
+
+
+def build_character_class(chars: str) -> str:
+    escaped_chars = []
+    seen = set()
+    for ch in chars:
+        if ch in seen:
+            continue
+        seen.add(ch)
+        if ch == "\n":
+            escaped = "\\n"
+        elif ch == "\t":
+            escaped = "\\t"
+        elif ch == "\r":
+            escaped = "\\r"
+        elif ch == "\\":
+            escaped = "\\\\"
+        elif ch == "-":
+            escaped = "\\-"
+        elif ch == "]":
+            escaped = "\\]"
+        elif ch == "^":
+            escaped = "\\^"
+        else:
+            escaped = re.escape(ch)
+        escaped_chars.append(escaped)
+    return "".join(escaped_chars)
+
+
 if __name__ == "__main__":
     pattern = "~(.*{{a}}.*)&(a{1,3}{{b}}[ab-e[:digit:]]{3,10}[^ab])+[]+a-z]"
     mode = "compat"
@@ -764,4 +731,3 @@ if __name__ == "__main__":
     print(f"\nShortest Example: {shortest!r}")
     print(ord(shortest[0]))
     print(ord(shortest[-1]))
-    jpype.shutdownJVM()

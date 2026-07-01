@@ -1,13 +1,11 @@
 import logging
-import re
 import time
 import traceback
 from dataclasses import dataclass
-from stream.command_signature import CommandSignature, InferenceResult
-from stream.config.global_config import CONFIG
+from stream.command_signature import CommandSignature
 from stream.regular_type import RegularType
 from stream.parser.shell_parser import ShellParser
-from typing import Callable, Dict, Optional, List, Tuple
+from typing import Dict, Optional, List, Tuple
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 from stream.tool_error import ToolError, PashAnnotationParsingError
 from stream.user_annotation import AnnotationType, EnvAnnotation, UserAnnotation
@@ -16,18 +14,8 @@ from shasta.ast_node import PipeNode, CommandNode
 from stream.utils.function_timer import timer
 
 
-def pattern_mentions_newline(pattern: str) -> bool:
-    return "\n" in pattern or "\\n" in pattern or "\\012" in pattern
-
-
 def automata_size_for_statistics(regular_type: RegularType) -> int:
     """Count states in line-based form without changing checker semantics."""
-    if regular_type.repr_mode == "stream" and CONFIG.get("enable_FST", True):
-        regular_type = regular_type.to_line_based_repr()
-        regular_type.nfa.setDeterministic(False)
-        regular_type.nfa.determinize()
-        regular_type.nfa.removeDeadTransitions()
-        regular_type.nfa.minimize()
     return len(regular_type.nfa.getStates())
 
 
@@ -216,7 +204,6 @@ class PipelineChecker:
         self.max_automata_size = 1
         self.statistics_time = 0.0
         self.self_contained = True
-        self.backward_map: Dict[int, Callable[[str], str] | None] = {}
         self.runtime_error_kind: Optional[str] = None
         self.runtime_error_message: Optional[str] = None
         self.runtime_error_type: Optional[str] = None
@@ -276,20 +263,11 @@ class PipelineChecker:
                 no_input_type = command_type.no_input_type
 
                 inference_result = signature.apply_command_type(command_type, previous_output_type)
-                self_contained = True
-                backward_func = None
-                if isinstance(inference_result, InferenceResult):
-                    backward_func = inference_result.backward_func
-                    self_contained = inference_result.self_contained
-                    current_output_type = inference_result.output_type
-                else:
-                    current_output_type = inference_result
+                current_output_type = inference_result
                 assert isinstance(current_output_type, RegularType)
 
-                if self_contained is not None and not self_contained:
+                if command_type.self_contained is not None and not command_type.self_contained:
                     self.self_contained = False
-                
-                self.backward_map[command_index] = backward_func
 
                 # ----------------------------------------------
                 # Output automata post-processing & stats
@@ -371,11 +349,8 @@ class PipelineChecker:
                 # ----------------------------------------------
                 for annotation in corresponding_annotations:
                     if annotation.annotation_type == AnnotationType.ASSERT:
-                        # `@output "..."` is typically line-oriented unless the
-                        # asserted regex itself explicitly mentions newlines.
                         asserted_output_type = RegularType(annotation.pattern)
-                        stream_assertion = pattern_mentions_newline(annotation.pattern)
-                        checked_output_type = current_output_type if stream_assertion else current_output_type.to_line_based_repr()
+                        checked_output_type = current_output_type
                         is_assertion_violated, witness = checked_output_type.is_subtype(asserted_output_type)
                         is_assertion_violated = not is_assertion_violated  # Negate because we want to check if assertion is violated
                         if is_assertion_violated:
@@ -401,10 +376,7 @@ class PipelineChecker:
 
                 for annotation in corresponding_annotations:
                     if annotation.annotation_type == AnnotationType.ASSERT_CONTAINS:
-                        # `output_contains` is line-oriented: check membership against the
-                        # line-based language even when the command currently carries a
-                        # stream representation.
-                        line_based_output_type = current_output_type.to_line_based_repr()
+                        line_based_output_type = current_output_type
                         asserted_line_type = RegularType(annotation.pattern)
                         is_contains_violated, witness = asserted_line_type.is_subtype(line_based_output_type)
                         is_contains_violated = not is_contains_violated  # Negate because we want to check if assertion is violated
@@ -462,21 +434,3 @@ class PipelineChecker:
         self.runtime_error_message = str(error)
         self.runtime_error_type = type(error).__name__
         self.runtime_error_traceback = traceback.format_exc()
-    
-
-    def backward(self, witness: str, command_index: int) -> Tuple[str, int]:
-        if not CONFIG["enable_FST"]:
-            return witness, command_index
-        real_command_index = command_index - 1 # offset by 1 because command_index is 1-indexed
-        witness = re.escape(witness)
-        witness_nfa = RegularType(witness).nfa
-        current_nfa = witness_nfa
-        while (real_command_index - 1) in self.backward_map:
-            backward_func = self.backward_map[real_command_index - 1]
-            if backward_func is None:
-                break
-            current_nfa = backward_func(current_nfa)
-            if isinstance(current_nfa, str):
-                current_nfa = RegularType(re.escape(current_nfa)).nfa
-            real_command_index -= 1
-        return str(current_nfa.getShortestExample(True)), real_command_index

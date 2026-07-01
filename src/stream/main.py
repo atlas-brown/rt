@@ -8,11 +8,10 @@ from collections.abc import Iterator
 import re
 import sys
 
-import jpype
 
 from stream.config.global_config import CONFIG
 from stream.type_checker import ErrorResult, ScriptChecker
-from stream.regular_type import readable_automata_repr
+from stream.constants import readable_automata_repr
 from stream.utils.format import pretty_ast_node
 
 
@@ -111,22 +110,11 @@ def preamble(
     )
     CONFIG["enable_user_annotation"] = not disable_annotations
 
-    if not jpype.isJVMStarted():
-        jpype.startJVM(
-            classpath=[
-                "jars/automaton.jar",
-                "jars/autorex.jar",
-                "jars/slf4j-api-2.0.9.jar",
-                "jars/slf4j-simple-2.0.9.jar",
-            ]
-        )
-
     # Add any other main/interactive_main common setup here
 
 
 def postamble() -> None:
-    if jpype.isJVMStarted():
-        jpype.shutdownJVM()
+    pass
 
     # Add any other main/interactive_main common cleanup here
 

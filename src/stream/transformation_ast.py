@@ -1,4 +1,5 @@
 from typing import Dict, List, Optional, Set, Tuple, Union, Any, Mapping
+from stream.regex_parser import build_character_class
 from stream.regular_type import RegularType
 import re
 
@@ -9,12 +10,10 @@ def clone_regular_type(regular_type: RegularType) -> RegularType:
     if regular_type.pattern is not None:
         return RegularType(
             regular_type.pattern,
-            repr_mode=regular_type.repr_mode,
             tainted=regular_type.tainted,
         )
     return RegularType(
         automaton=regular_type.nfa.clone(),
-        repr_mode=regular_type.repr_mode,
         tainted=regular_type.tainted,
     )
 
@@ -22,47 +21,21 @@ def clone_regular_type(regular_type: RegularType) -> RegularType:
 def _approximate_translate_chars_without_fst(source_chars: str, target_chars: str, squeeze: bool, tainted: bool) -> RegularType:
     if squeeze:
         if not target_chars:
-            return RegularType(".*", repr_mode="stream", tainted=tainted)
+            return RegularType(".*", tainted=tainted)
         output_chars = set()
         for index, _ in enumerate(source_chars):
             output_chars.add(target_chars[index] if index < len(target_chars) else target_chars[-1])
         excluded_chars = "".join(ch for ch in source_chars if ch not in output_chars)
         return _type_excluding_chars(excluded_chars, tainted)
-    return RegularType(".*", repr_mode="stream", tainted=tainted)
+    return RegularType(".*", tainted=tainted)
 
 
 def _type_excluding_chars(chars: str, tainted: bool) -> RegularType:
-    char_class = _regex_char_class(chars)
+    char_class = build_character_class(chars)
     if not char_class:
-        return RegularType(".*", repr_mode="stream", tainted=tainted)
-    return RegularType(f"~(.*[{char_class}].*)", repr_mode="stream", tainted=tainted)
+        return RegularType(".*", tainted=tainted)
+    return RegularType(f"~(.*[{char_class}].*)", tainted=tainted)
 
-
-def _regex_char_class(chars: str) -> str:
-    escaped_chars = []
-    seen = set()
-    for ch in chars:
-        if ch in seen:
-            continue
-        seen.add(ch)
-        if ch == "\n":
-            escaped = "\\n"
-        elif ch == "\t":
-            escaped = "\\t"
-        elif ch == "\r":
-            escaped = "\\r"
-        elif ch == "\\":
-            escaped = "\\\\"
-        elif ch == "-":
-            escaped = "\\-"
-        elif ch == "]":
-            escaped = "\\]"
-        elif ch == "^":
-            escaped = "\\^"
-        else:
-            escaped = re.escape(ch)
-        escaped_chars.append(escaped)
-    return "".join(escaped_chars)
 
 class TransformationNode:
     """Base class for all AST nodes in the transformation tree."""
@@ -109,14 +82,13 @@ class ConstantTransform(TransformationNode):
 
 class RegexPatternTransform(TransformationNode):
     """A transformation that creates a RegularType from a regex pattern."""
-    def __init__(self, pattern: str, mode: str = "compat", repr_mode: str = "line", tainted: bool = True):
+    def __init__(self, pattern: str, mode: str = "compat", tainted: bool = True):
         self.pattern = pattern
         self.mode = mode
-        self.repr_mode = repr_mode
         self.tainted = tainted
         
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
-        return RegularType(self.pattern, mode=self.mode, repr_mode=self.repr_mode, tainted=self.tainted)
+        return RegularType(self.pattern, mode=self.mode, tainted=self.tainted)
     
     def __repr__(self) -> str:
         return f"RegexPattern('{self.pattern}')"
@@ -143,18 +115,14 @@ class ComposeTransform(TransformationNode):
         self,
         outer: TransformationNode,
         inner: TransformationNode,
-        normalize_input_to_line: Optional[bool] = None,
         output_tainted: Optional[bool] = None,
     ):
         self.outer = outer
         self.inner = inner
-        self.normalize_input_to_line = normalize_input_to_line
         self.output_tainted = output_tainted
 
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
         actual_input = self.inner.apply(env)
-        if self.normalize_input_to_line is True and actual_input.repr_mode == "stream":
-            actual_input = actual_input.to_line_based_repr()
 
         child_env = dict(env)
         child_env["α"] = actual_input
@@ -178,15 +146,6 @@ class IntersectionTransform(TransformationNode):
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
         left_result = self.left.apply(env)
         right_result = self.right.apply(env)
-        if left_result.repr_mode == "stream" and right_result.repr_mode == "line":
-            from stream.transducer import product_fst_automaton, stream_based_filter_FST
-
-            nfa = product_fst_automaton(stream_based_filter_FST(right_result.nfa), left_result.nfa)
-            return RegularType(
-                automaton=nfa,
-                repr_mode="stream",
-                tainted=left_result.tainted or right_result.tainted,
-            )
         return left_result & right_result
     
     def __repr__(self) -> str:
@@ -305,7 +264,6 @@ class TranslateCharsTransform(TransformationNode):
         target_chars: str,
         invert: bool = False,
         squeeze: bool = False,
-        stream: bool = False,
         approximate_when_fst_disabled: bool = False,
         line_delimited: bool = False,
         preprocessed: bool = False,
@@ -315,26 +273,23 @@ class TranslateCharsTransform(TransformationNode):
         self.input_node = input_node
         self.invert = invert
         self.squeeze = squeeze
-        self.stream = stream
         self.approximate_when_fst_disabled = approximate_when_fst_disabled
         self.line_delimited = line_delimited
         self.preprocessed = preprocessed
         
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
         from stream.config.global_config import CONFIG
-        from stream.regular_operator import complement_set, preprocess
+        from stream.char_set_utils import complement_set, preprocess_char_set
         from stream.transducer import compression_FST, product_fst_automaton, translate_to_line_delimited_FST, translation_FST
 
         input_result = self.input_node.apply(env)
-        if self.stream:
-            input_result = input_result.to_full_stream_repr()
 
         if self.preprocessed:
             source_chars = self.source_chars
             target_chars = self.target_chars
         else:
-            source_chars = preprocess(self.source_chars)
-            target_chars = preprocess(self.target_chars)
+            source_chars = preprocess_char_set(self.source_chars)
+            target_chars = preprocess_char_set(self.target_chars)
         if self.invert:
             source_chars = complement_set(source_chars)
 
@@ -347,7 +302,6 @@ class TranslateCharsTransform(TransformationNode):
             output_automaton = product_fst_automaton(compression_FST(target_chars), output_automaton)
         return RegularType(
             automaton=output_automaton,
-            repr_mode=input_result.repr_mode,
             tainted=input_result.tainted,
         )
     
@@ -362,27 +316,23 @@ class DeleteCharsTransform(TransformationNode):
         input_node: TransformationNode,
         chars: str,
         invert: bool = False,
-        stream: bool = False,
         approximate_when_fst_disabled: bool = False,
         preprocessed: bool = False,
     ):
         self.input_node = input_node
         self.chars = chars
         self.invert = invert
-        self.stream = stream
         self.approximate_when_fst_disabled = approximate_when_fst_disabled
         self.preprocessed = preprocessed
 
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
         from stream.config.global_config import CONFIG
-        from stream.regular_operator import complement_set, preprocess
+        from stream.char_set_utils import complement_set, preprocess_char_set
         from stream.transducer import deletion_FST, product_fst_automaton
 
         input_result = self.input_node.apply(env)
-        if self.stream:
-            input_result = input_result.to_full_stream_repr()
 
-        chars = self.chars if self.preprocessed else preprocess(self.chars)
+        chars = self.chars if self.preprocessed else preprocess_char_set(self.chars)
         if self.invert:
             chars = complement_set(chars)
         if self.approximate_when_fst_disabled and not CONFIG.get("enable_FST", True):
@@ -391,7 +341,6 @@ class DeleteCharsTransform(TransformationNode):
         fst = deletion_FST(chars)
         return RegularType(
             automaton=product_fst_automaton(fst, input_result.nfa),
-            repr_mode=input_result.repr_mode,
             tainted=input_result.tainted,
         )
 
@@ -443,7 +392,6 @@ class FieldSelectTransform(TransformationNode):
         from stream.transducer import (
             correct_cut_field_FST,
             cut_char_FST,
-            line_based_functional_to_stream_FST,
             product_fst_automaton,
         )
 
@@ -475,11 +423,8 @@ class FieldSelectTransform(TransformationNode):
         else:
             fst = cut_char_FST(indices, has_upperbound)
 
-        if input_result.repr_mode == "stream":
-            fst = line_based_functional_to_stream_FST(fst)
         return RegularType(
             automaton=product_fst_automaton(fst, input_result.nfa),
-            repr_mode=input_result.repr_mode,
             tainted=input_result.tainted,
         )
     
@@ -502,7 +447,6 @@ class LastFieldTransform(TransformationNode):
             fst = start_regex_replacement_FST(RegularType(f".*{re.escape(delimiter)}").nfa, "")
             return RegularType(
                 automaton=product_fst_automaton(fst, input_result.nfa),
-                repr_mode=input_result.repr_mode,
                 tainted=input_result.tainted,
             )
         return input_result
@@ -519,7 +463,6 @@ class TranslateMatchTransform(TransformationNode):
         replacement: str,
         global_match: bool = False,
         mode: str = "compat",
-        stream: bool = False,
     ):
         if isinstance(pattern, str):
             pattern = RegexPatternTransform(pattern, mode=mode)
@@ -530,14 +473,11 @@ class TranslateMatchTransform(TransformationNode):
         self.input_node = input_node
         self.global_match = global_match
         self.mode = mode
-        self.stream = stream
         
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
         from stream.regular_operator import translate_match
         
         input_result = self.input_node.apply(env)
-        if self.stream:
-            input_result = input_result.to_full_stream_repr()
         
         # Handle pattern based on its type
         pattern_to_use = self.pattern
@@ -596,16 +536,8 @@ class HeadLinesTransform(TransformationNode):
         self.line_count = line_count
 
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
-        from stream.transducer import head_FST, product_fst_automaton
-
         input_result = self.input_node.apply(env)
-        if self.line_count > 7:
-            return input_result.to_line_based_repr()
-        return RegularType(
-            automaton=product_fst_automaton(head_FST("\n", self.line_count), input_result.to_full_stream_repr().nfa),
-            repr_mode="stream",
-            tainted=input_result.tainted,
-        )
+        return clone_regular_type(input_result)
 
     def __repr__(self) -> str:
         return f"head-lines({self.input_node}, {self.line_count})"
@@ -618,16 +550,8 @@ class TailLinesTransform(TransformationNode):
         self.line_count = line_count
 
     def apply(self, env: Mapping[str, RegularType]) -> RegularType:
-        from stream.transducer import product_fst_automaton, tail_FST
-
         input_result = self.input_node.apply(env)
-        if self.line_count > 7:
-            return input_result.to_line_based_repr()
-        return RegularType(
-            automaton=product_fst_automaton(tail_FST("\n", self.line_count), input_result.to_full_stream_repr().nfa),
-            repr_mode="stream",
-            tainted=input_result.tainted,
-        )
+        return clone_regular_type(input_result)
 
     def __repr__(self) -> str:
         return f"tail-lines({self.input_node}, {self.line_count})"

@@ -2,6 +2,12 @@ import re
 from dataclasses import dataclass
 from typing import List
 
+from stream.regex_parser import (
+    escape_literal_for_regular_type,
+    has_backreference,
+    has_basic_capture_group,
+)
+
 @dataclass
 class SedCommand:
     """Base class for individual sed commands."""
@@ -55,19 +61,13 @@ class ParsedSedOperand:
         """Returns the first command."""
         return self.commands[0] if self.commands else UnknownCommand()
 
-def preprocess_string(string: str) -> str:
+def strip_quotes(string: str) -> str:
     """Remove quotes from string if present and not escaped."""
     if len(string) > 1:
         if string[-2] != "\\":
             if (string.startswith("'") and string.endswith("'")) or (string.startswith('"') and string.endswith('"')):
                 string = string[1:-1]
     return string
-
-def refine_log(s: str) -> str:
-    """Format string for logging purposes."""
-    if s == "":
-        return "\"\""
-    return s
 
 def has_unescaped_end_anchor(pattern: str) -> bool:
     """Return True when pattern ends in a dollar not escaped by a backslash."""
@@ -80,14 +80,6 @@ def has_unescaped_end_anchor(pattern: str) -> bool:
         backslash_count += 1
         index -= 1
     return backslash_count % 2 == 0
-
-def has_backreference(text: str) -> bool:
-    """Return True when replacement text references a captured group."""
-    return re.search(r'(?<!\\)(?:\\\\)*\\[1-9]', text) is not None
-
-def has_basic_capture_group(pattern: str) -> bool:
-    """Return True when a basic-regex capture group appears in the pattern."""
-    return "\\(" in pattern or "\\)" in pattern
 
 def parse_substitute_command(operand: str, delimiter: str) -> SubstituteCommand:
     """Parse a substitute command with any delimiter (s/pattern/replacement/flags, s|pattern|replacement|flags, etc)."""
@@ -130,14 +122,14 @@ def parse_substitute_command(operand: str, delimiter: str) -> SubstituteCommand:
 
     # Process pattern and replacement
     pattern = pattern.replace("\\\\", "\\")
-    pattern = preprocess_string(pattern)
+    pattern = strip_quotes(pattern)
 
     # Handle escaped delimiters in pattern (from original logic)
     match = re.search(r'(\\+)$', pattern)
     if match and (len(match.group(1)) % 2 == 1):
         pattern = pattern + delimiter
 
-    replacement = preprocess_string(replacement)
+    replacement = strip_quotes(replacement)
 
     # Check for global flag
     is_global = "g" in flags
@@ -370,7 +362,7 @@ class SedSignature(CommandSignature):
                 if not isinstance(command, SubstituteCommand):
                     continue
 
-                replacement = preprocess(command.replacement)
+                replacement = strip_quotes(command.replacement)
                 replacement = escape_literal_for_regular_type(replacement)
                 replacement = replacement.replace("\\\\\\\\t", "\t")
                 if command.has_backreference or "\\\\1" in replacement:
@@ -415,7 +407,7 @@ class SedSignature(CommandSignature):
         if cls._is_exact_anchor_substitution(command):
             return None
         if command.pattern.endswith("\\$"):
-            pattern = preprocess(command.pattern[:-2])
+            pattern = strip_quotes(command.pattern[:-2])
             if command.is_start_anchor:
                 pattern = "^" + pattern
             return pattern
@@ -423,29 +415,9 @@ class SedSignature(CommandSignature):
 
     @staticmethod
     def _pattern_for_matching(command: SubstituteCommand) -> str:
-        pattern = preprocess(command.pattern)
+        pattern = strip_quotes(command.pattern)
         if command.is_start_anchor:
             pattern = "^" + pattern
         if command.is_end_anchor:
             pattern = pattern + "$"
         return pattern
-
-def preprocess(string: str) -> str:
-    if len(string) > 1:
-        if string[-2] != "\\":
-            if (string.startswith("'") and string.endswith("'")) or (string.startswith('"') and string.endswith('"')):
-                string = string[1:-1]
-    return string
-
-def escape_literal_for_regular_type(string: str) -> str:
-    return (
-        re.escape(string)
-        .replace("\\$", "[$]")
-        .replace("\\{", "[{]")
-        .replace("\\}", "[}]")
-    )
-
-def refine_log(s: str) -> str:
-    if s == "":
-        return "\"\""
-    return s
