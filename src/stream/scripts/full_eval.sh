@@ -15,6 +15,16 @@ export PYTHONPATH=src
 TYPEDB="$(pwd)/ltsh_config/typedb"
 export TYPEDB
 
+if [[ -n "${VIRTUAL_ENV:-}" && -x "$VIRTUAL_ENV/bin/python" ]]; then
+    PYTHON_CMD=("$VIRTUAL_ENV/bin/python")
+elif command -v uv >/dev/null 2>&1; then
+    PYTHON_CMD=(uv run python)
+elif [[ -x ./.venv/bin/python ]]; then
+    PYTHON_CMD=(./.venv/bin/python)
+else
+    PYTHON_CMD=(python3)
+fi
+
 EVAL_ROOT=evaluation_results
 BASELINE_DIR="$EVAL_ROOT/baseline"
 DERIVED_DIR="$EVAL_ROOT/derived"
@@ -71,7 +81,7 @@ run_rt() {
     shift 2
     start_stage "$label"
     if [ ! -f "$outdir/evaluation_results.json" ] || [ -n "$FORCE" ]; then
-        python3 src/stream/run_evaluations.py "$@" --outdir "$outdir" --progress --progress-label "$label" --log-file /dev/null || {
+        "${PYTHON_CMD[@]}" src/stream/run_evaluations.py "$@" --outdir "$outdir" --progress --progress-label "$label" --log-file /dev/null || {
             local status=$?
             printf '  failed with exit code %s\n' "$status"
             exit "$status"
@@ -86,7 +96,7 @@ run_baseline() {
     local label="$1"
     start_stage "$label"
     if [ ! -f "$BASELINE_CSV" ] || [ -n "$FORCE" ]; then
-        python3 src/stream/scripts/baseline.py \
+        "${PYTHON_CMD[@]}" src/stream/scripts/baseline.py \
             --csv-file "$BASELINE_CSV" \
             --json-file "$BASELINE_JSON" \
             --warnings-json-file "$BASELINE_WARNINGS_JSON" \
@@ -106,7 +116,7 @@ run_summary() {
     local category_output="$2"
     shift 2
     start_stage "$label"
-    python3 src/stream/evaluation_summary.py "$@" > "$category_output" 2>/dev/null || {
+    "${PYTHON_CMD[@]}" src/stream/evaluation_summary.py "$@" > "$category_output" 2>/dev/null || {
         local status=$?
         printf '  failed with exit code %s\n' "$status"
         exit "$status"
@@ -202,26 +212,26 @@ for summary_config in "y y" "n y" "y n"; do
 done
 
 run_logged "performance with FSTs" \
-    python3 src/stream/scripts/performance.py \
+    "${PYTHON_CMD[@]}" src/stream/scripts/performance.py \
     evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json \
     "$BASELINE_CSV" \
     evaluation_results/ann:y_heuristic:y_fst:y/length_time_pairs.csv \
     "$DERIVED_DIR/analysis_time_stats_fst:y.csv"
 run_logged "performance without FSTs" \
-    python3 src/stream/scripts/performance.py \
+    "${PYTHON_CMD[@]}" src/stream/scripts/performance.py \
     evaluation_results/ann:y_heuristic:y_fst:n/evaluation_results.json \
     "$BASELINE_CSV" \
     evaluation_results/ann:y_heuristic:y_fst:n/length_time_pairs.csv \
     "$DERIVED_DIR/analysis_time_stats_fst:n.csv"
 run_logged "automata sizes" \
-    python3 src/stream/scripts/extract_automata_size.py \
+    "${PYTHON_CMD[@]}" src/stream/scripts/extract_automata_size.py \
     evaluation_results/ann:y_heuristic:y_fst:y/evaluation_results.json \
     evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv
 
-run_logged "ablation table" python3 src/stream/scripts/ablation_table.py
-run_logged "timing table" python3 src/stream/scripts/timing_table.py
+run_logged "ablation table" "${PYTHON_CMD[@]}" src/stream/scripts/ablation_table.py
+run_logged "timing table" "${PYTHON_CMD[@]}" src/stream/scripts/timing_table.py
 run_logged "plots" \
-    python3 src/stream/scripts/plots.py \
+    "${PYTHON_CMD[@]}" src/stream/scripts/plots.py \
     "$DERIVED_DIR/overview_heuristic:y_fst:y.csv" \
     "$DERIVED_DIR/bug_detection_heuristic:y_fst:y.csv" \
     evaluation_results/ann:y_heuristic:y_fst:y/automata_sizes.csv \

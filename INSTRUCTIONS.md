@@ -41,10 +41,10 @@ Confirm sufficient documentation, key components, and basic executability:
 
 The recommended quickstart path is the provided Docker image.
 
-From the repository root, build the container and start a shell in it:
+From the repository root, build the image and start a shell in it:
 
 ```sh
-docker build -t rt-artifact .
+docker build --target dev -t rt-artifact .
 docker run --rm -it -v "$(pwd):/home/StreamTypes" rt-artifact
 ```
 
@@ -93,9 +93,9 @@ bash scripts/reproduce_full.sh --force
 
 This wrapper calls the existing end-to-end pipeline and performs the following:
 
-1. generates baseline data with `python3 src/stream/scripts/baseline.py`,
+1. generates baseline data with the project Python environment,
 2. runs the main RT configuration and the ablations,
-3. regenerates the paper plots with `python3 src/stream/scripts/plots.py`.
+3. regenerates the paper plots and tables.
 
 The final outputs to inspect are:
 
