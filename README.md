@@ -67,7 +67,21 @@ Invocation:
 echo hello
 
 Type:
-.* -> hello
+∀α[α ⊆ RegularType(.*)]. α -> Constant(RegularType(hello))
+```
+
+```sh
+uv run rti -i echo hello
+```
+
+Example output:
+
+```text
+Invocation:
+hello
+
+Type:
+echo -> .*
 ```
 
 You can also use `rti` to update a type annotation for one exact command
