@@ -54,7 +54,9 @@ exits with status `0`.
 
 ### `rti`: resolve command types
 
-Use `rti` when you want to inspect the regular type of a single command invocation. It prints the invocation and the resolved input-to-output type.
+Use `rti` when you want to inspect the regular or polymorhic type of a single command invocation. 
+
+It prints the invocation and the polymorphic type:
 
 ```sh
 uv run rti echo hello
@@ -69,6 +71,8 @@ echo hello
 Type:
 ∀α[α ⊆ RegularType(.*)]. α -> Constant(RegularType(hello))
 ```
+
+It prints the invocation and the resolved input-to-output type:
 
 ```sh
 uv run rti -i echo hello
