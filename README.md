@@ -34,7 +34,7 @@ For local host installation instead of Docker, install the Python requirements a
 RT exposes two command-line interfaces through the project environment:
 
 1. `rt` checks shell scripts and pipelines.
-2. `rtr` queries and updates the regular type.
+2. `rti` queries and updates the regular type.
 
 ### `rt`: check scripts and pipelines
 
@@ -52,12 +52,12 @@ When RT finds a pipeline type error, it prints the diagnostic and exits
 with status `1`. If no RT errors are found, it prints `No RT errors found.` and
 exits with status `0`.
 
-### `rtr`: resolve command types
+### `rti`: resolve command types
 
-Use `rtr` when you want to inspect the regular type of a single command invocation. It prints the invocation and the resolved input-to-output type.
+Use `rti` when you want to inspect the regular type of a single command invocation. It prints the invocation and the resolved input-to-output type.
 
 ```sh
-uv run rtr echo hello
+uv run rti echo hello
 ```
 
 Example output:
@@ -70,11 +70,11 @@ Type:
 .* -> hello
 ```
 
-You can also use `rtr` to update a type annotation for one exact command
+You can also use `rti` to update a type annotation for one exact command
 invocation:
 
 ```sh
-uv run rtr --type '[0-9]+ -> [0-9]+' my_command --my-flag
+uv run rti --type '[0-9]+ -> [0-9]+' my_command --my-flag
 ```
 
 ## Detailed Instructions

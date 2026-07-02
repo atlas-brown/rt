@@ -4,7 +4,7 @@ import pytest
 from pash_annotations.datatypes.BasicDatatypes import Flag, Operand
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
-from rtr import main as rtr_main
+from rti import main as rti_main
 from stream.command_type_parser import (
     parse_command_type_annotation,
     parse_transform_expression,
@@ -32,7 +32,7 @@ def test_cli_registers_simple_invocation_annotation(tmp_path, monkeypatch, capsy
         ],
     )
 
-    rtr_main.cli_main()
+    rti_main.cli_main()
 
     output = capsys.readouterr().out
     assert "Registered type annotation:" in output
@@ -54,7 +54,7 @@ def test_cli_registers_polymorphic_invocation_annotation(tmp_path, monkeypatch, 
         ],
     )
 
-    rtr_main.cli_main()
+    rti_main.cli_main()
 
     output = capsys.readouterr().out
     assert "Registered type annotation:" in output
@@ -78,17 +78,17 @@ def test_cli_registers_option_value_specific_annotation(tmp_path, monkeypatch, c
         ],
     )
 
-    rtr_main.cli_main()
+    rti_main.cli_main()
 
     registration_output = capsys.readouterr().out
     assert "tail -n 3" in registration_output
     assert ".* -> [0-9]+" in registration_output
 
-    rtr_main.main("tail", ["-n", "3"], RegularType(".*"), signature_dir=tmp_path)
+    rti_main.main("tail", ["-n", "3"], RegularType(".*"), signature_dir=tmp_path)
     exact_output = capsys.readouterr().out
     assert ".* -> [0-9]+" in exact_output
 
-    rtr_main.main("tail", ["-n", "4"], RegularType(".*"), signature_dir=tmp_path)
+    rti_main.main("tail", ["-n", "4"], RegularType(".*"), signature_dir=tmp_path)
     other_output = capsys.readouterr().out
     assert ".* -> .*" in other_output
 
@@ -115,7 +115,7 @@ def test_specific_invocation_annotation_precedes_generic_signature(tmp_path, app
         [Flag("-n")],
         [Operand("status")],
     )
-    rtr_main.register_invocation_type(
+    rti_main.register_invocation_type(
         specific_invocation,
         tmp_path,
         ".* -> [0-9]+",
@@ -155,7 +155,7 @@ def test_invocation_annotation_overrides_special_signature_only_for_exact_invoca
 
     exact_invocation = CommandInvocationInitial("grep", [], [Operand("foo")])
     other_invocation = CommandInvocationInitial("grep", [], [Operand("bar")])
-    rtr_main.register_invocation_type(
+    rti_main.register_invocation_type(
         exact_invocation,
         tmp_path,
         ".* -> [0-9]+",
@@ -384,7 +384,7 @@ def test_cli_registers_polymorphic_regular_operator(tmp_path, monkeypatch, capsy
         ],
     )
 
-    rtr_main.cli_main()
+    rti_main.cli_main()
 
     output = capsys.readouterr().out
     assert "Registered type annotation:" in output
@@ -406,7 +406,7 @@ def test_cli_registers_direct_regular_type_operator_annotation(
         ],
     )
 
-    rtr_main.cli_main()
+    rti_main.cli_main()
 
     output = capsys.readouterr().out
     yaml_text = next(tmp_path.glob("customcmd__annotation_*.yaml")).read_text(
@@ -433,7 +433,7 @@ def test_cli_regular_operator_annotation_allows_automaton_output(
         ],
     )
 
-    rtr_main.cli_main()
+    rti_main.cli_main()
 
     output = capsys.readouterr().out
     assert "Registered type annotation:" in output
@@ -455,7 +455,7 @@ def test_cli_registers_nested_regular_operator_annotation(
         ],
     )
 
-    rtr_main.cli_main()
+    rti_main.cli_main()
 
     output = capsys.readouterr().out
     yaml_text = next(tmp_path.glob("customcmd__annotation_*.yaml")).read_text(
