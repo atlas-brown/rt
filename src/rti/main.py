@@ -182,7 +182,10 @@ def main(
     print("Invocation:")
     print(" ".join((command, *args)))
     print()
-    print("Type:")
+    print("Polymorphic Type:")
+    print(command_type)
+    print()
+    print("Instatiated Type:")
     print(in_pattern + " -> " + out_pattern)
 
 

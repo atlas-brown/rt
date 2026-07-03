@@ -23,7 +23,7 @@ def test_cli_registers_simple_invocation_annotation(tmp_path, monkeypatch, capsy
     monkeypatch.setattr(
         "sys.argv",
         [
-            "rtr",
+            "rti",
             "--signature-dir",
             tmp_path.as_posix(),
             "--type",
@@ -45,7 +45,7 @@ def test_cli_registers_polymorphic_invocation_annotation(tmp_path, monkeypatch, 
     monkeypatch.setattr(
         "sys.argv",
         [
-            "rtr",
+            "rti",
             "--signature-dir",
             tmp_path.as_posix(),
             "--type",
@@ -67,7 +67,7 @@ def test_cli_registers_option_value_specific_annotation(tmp_path, monkeypatch, c
     monkeypatch.setattr(
         "sys.argv",
         [
-            "rtr",
+            "rti",
             "--signature-dir",
             tmp_path.as_posix(),
             "--type",
@@ -375,7 +375,7 @@ def test_cli_registers_polymorphic_regular_operator(tmp_path, monkeypatch, capsy
     monkeypatch.setattr(
         "sys.argv",
         [
-            "rtr",
+            "rti",
             "--signature-dir",
             tmp_path.as_posix(),
             "--type",
@@ -397,7 +397,7 @@ def test_cli_registers_direct_regular_type_operator_annotation(
     monkeypatch.setattr(
         "sys.argv",
         [
-            "rtr",
+            "rti",
             "--signature-dir",
             tmp_path.as_posix(),
             "--type",
@@ -424,7 +424,7 @@ def test_cli_regular_operator_annotation_allows_automaton_output(
     monkeypatch.setattr(
         "sys.argv",
         [
-            "rtr",
+            "rti",
             "--signature-dir",
             tmp_path.as_posix(),
             "--type",
@@ -446,7 +446,7 @@ def test_cli_registers_nested_regular_operator_annotation(
     monkeypatch.setattr(
         "sys.argv",
         [
-            "rtr",
+            "rti",
             "--signature-dir",
             tmp_path.as_posix(),
             "--type",
