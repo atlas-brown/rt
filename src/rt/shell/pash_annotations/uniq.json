@@ -1,0 +1,46 @@
+{
+    "flag": [
+        [
+            "-c",
+            "--count"
+        ],
+        [
+            "-d",
+            "--repeated"
+        ],
+        [
+            "-D"
+        ],
+        [
+            "-i",
+            "--ignore-case"
+        ],
+        [
+            "-u",
+            "--unique"
+        ],
+        [
+            "--help"
+        ],
+        [
+            "--version"
+        ]
+    ],
+    "option": [
+        [
+            "-w",
+            "--check-chars",
+            "NUM"
+        ],
+        [
+            "-s",
+            "--skip-chars",
+            "NUM"
+        ],
+        [
+            "-f",
+            "--skip-fields",
+            "NUM"
+        ]
+    ]
+}
