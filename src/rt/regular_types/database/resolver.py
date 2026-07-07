@@ -18,7 +18,7 @@ class TypeResolver(ABC):
         invocation: CommandInvocationInitial,
         annotations: Sequence[CommandAnnotation] | None,
         env: Mapping[str, StreamTransform],
-        heuristic_rules: Sequence[str] | None = None,
+        heuristic_rules: Sequence[str] | None = None,  # TODO: Should this field be removed since heuristics now live outside yaml or should heuristics move back into yaml?
     ) -> CommandType:
         pass
 
