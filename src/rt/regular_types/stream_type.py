@@ -28,7 +28,7 @@ class StreamType:
 
     @classmethod
     def from_automaton(cls, automaton: Automaton) -> Self:
-        return cls.from_automaton(
+        return cls(
             automaton.intersection(ALPHABET_AUTOMATON).intersection(
                 NO_NEWLINE_AUTOMATON
             )
