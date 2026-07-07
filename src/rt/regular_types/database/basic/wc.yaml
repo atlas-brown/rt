@@ -1,0 +1,9 @@
+input: '.*'
+output: '( )+[0-9]+( )+[0-9]+( )+[0-9]+'
+when:
+  - opts: ['-l']
+    output: ' *[0-9]+'
+  - opts: ['-c']
+    output: ' *[0-9]+'
+  - opts: ['-w']
+    output: ' *[0-9]+'

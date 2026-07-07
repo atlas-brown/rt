@@ -1,0 +1,9 @@
+input: ''
+output: 'not a tty|/.+'
+when:
+  - opts: ['--quiet']
+    output: '.*'
+  - opts: ['--silent']
+    output: '.*'
+  - opts: ['-s']
+    output: '.*'

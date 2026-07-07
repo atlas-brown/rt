@@ -1,0 +1,15 @@
+input: '.*'
+output: '[[:xdigit:]]{128} [ *](-|.+)'
+when:
+  - opts: ['--check']
+    output: '.*'
+  - opts: ['--quiet']
+    output: '.*'
+  - opts: ['--status']
+    output: '.*'
+  - opts: ['--strict']
+    output: '.*'
+  - opts: ['--tag']
+    output: '.*'
+  - opts: ['-c']
+    output: '.*'
