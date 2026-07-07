@@ -19,6 +19,7 @@ dependencies = [
     "matplotlib-set-diagrams>=0.2.2",
     "tqdm>=4.68.3",
     "hypothesis>=6.155.7",
+    "platformdirs>=4.10.0",
 ]
 
 [project.scripts]
