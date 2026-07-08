@@ -75,17 +75,20 @@ Type:
 It prints the invocation and the resolved input-to-output type:
 
 ```sh
-uv run rti -i echo hello
+uv run rti -i hello grep o
 ```
 
 Example output:
 
 ```text
 Invocation:
-hello
+grep o
 
-Type:
-echo -> .*
+Polymorphic Type:
+∀α[α ⊆ RegularType(.*)]. α -> (α & Constant(RegularType(((.*)(o))(.*))))
+
+Instatiated Type:
+hello -> hello
 ```
 
 You can also use `rti` to update a type annotation for one exact command
