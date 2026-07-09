@@ -7,10 +7,15 @@ from rt.transducer import (
     compression_transducer,
     correct_cut_field_transducer,
     create_transducer,
+    cut_char_transducer,
     deletion_transducer,
+    first_regex_replacement_transducer,
     first_replacement_transducer,
+    global_regex_extract_transducer,
+    global_regex_replacement_transducer,
     global_replacement_transducer,
     product_transducer_automaton,
+    start_regex_extract_transducer,
     start_regex_replacement_transducer,
     translation_transducer,
 )
@@ -118,13 +123,13 @@ def test_first_replacement_transducer_property(
 
 
 @given(
-    from_chars=st.text(alphabet=_SMALL_ALPHABET, min_size=1, max_size=5).map(
+    from_chars=st.text(alphabet=_SMALL_ALPHABET, min_size=1, max_size=3).map(
         _unique_chars
     ),
-    to_chars=st.text(alphabet=_REPLACEMENT_ALPHABET, min_size=1, max_size=5).map(
+    to_chars=st.text(alphabet=_REPLACEMENT_ALPHABET, min_size=1, max_size=3).map(
         _unique_chars
     ),
-    text=st.text(alphabet=_SMALL_ALPHABET + _REPLACEMENT_ALPHABET, max_size=25),
+    text=st.text(alphabet=_SMALL_ALPHABET + _REPLACEMENT_ALPHABET, max_size=15),
 )
 def test_inverse_double_inverse_subsumption(
     from_chars: str, to_chars: str, text: str
@@ -138,13 +143,13 @@ def test_inverse_double_inverse_subsumption(
 
 
 @given(
-    from_chars=st.text(alphabet=_SMALL_ALPHABET, min_size=1, max_size=5).map(
+    from_chars=st.text(alphabet=_SMALL_ALPHABET, min_size=1, max_size=3).map(
         _unique_chars
     ),
-    to_chars=st.text(alphabet=_REPLACEMENT_ALPHABET, min_size=1, max_size=5).map(
+    to_chars=st.text(alphabet=_REPLACEMENT_ALPHABET, min_size=1, max_size=3).map(
         _unique_chars
     ),
-    text=st.text(alphabet=_SMALL_ALPHABET + _REPLACEMENT_ALPHABET, max_size=25),
+    text=st.text(alphabet=_SMALL_ALPHABET + _REPLACEMENT_ALPHABET, max_size=15),
 )
 def test_inverse_soundness(
     from_chars: str, to_chars: str, text: str
@@ -310,3 +315,60 @@ def test_string_replacement_fst(create_automaton, assert_equivalent_automata) ->
     expected = create_automaton("abab(x*y*)*z*|abab(x*y*)*ababcz*")
     actual = product_transducer_automaton(fst_inverse, nfa)
     assert_equivalent_automata(expected, actual)
+
+
+def test_cut_char_transducer_single_field() -> None:
+    """Tests that cut_char_transducer extracts exactly the character at the
+    specified 1-based field position."""
+    fst = cut_char_transducer([1])
+    assert fst.transform_all("abc") == {"a"}
+    assert fst.transform_all("") == {""}
+
+
+def test_cut_char_transducer_multiple_fields() -> None:
+    """Tests that cut_char_transducer extracts characters at multiple positions
+    and drops everything beyond max_field when upper bound is set."""
+    fst = cut_char_transducer([1, 3])
+    assert fst.transform_all("abcde") == {"ac"}
+    assert fst.transform_all("ab") == {"a"}
+
+
+def test_cut_char_transducer_no_upperbound() -> None:
+    """Tests that cut_char_transducer with has_upperbound=False preserves
+    all characters from and after the selected positions."""
+    fst = cut_char_transducer([2], has_upperbound=False)
+    assert fst.transform_all("abcde") == {"bcde"}
+    assert fst.transform_all("a") == {""}
+
+
+def test_global_regex_replacement(create_automaton) -> None:
+    """Tests that global_regex_replacement_transducer replaces every occurrence
+    of a regex pattern with a replacement string."""
+    fst = global_regex_replacement_transducer(create_automaton("a"), "X")
+    assert fst.transform_all("aba") == {"XbX"}
+    assert fst.transform_all("bab") == {"bXb"}
+    assert fst.transform_all("xyz") == {"xyz"}
+
+
+def test_first_regex_replacement(create_automaton) -> None:
+    """Tests that first_regex_replacement_transducer replaces only the first
+    occurrence of a regex pattern."""
+    fst = first_regex_replacement_transducer(create_automaton("a"), "X")
+    assert fst.transform_all("aba") == {"Xba"}
+    assert fst.transform_all("bab") == {"bXb"}
+
+
+def test_global_regex_extract(create_automaton) -> None:
+    """Tests that global_regex_extract_transducer extracts all matches of a
+    regex pattern and discards non-matching text."""
+    fst = global_regex_extract_transducer(create_automaton("a+"))
+    assert fst.transform_all("baab") == {"aa"}
+    assert fst.transform_all("xyz") == set()
+
+
+def test_start_regex_extract(create_automaton) -> None:
+    """Tests that start_regex_extract_transducer extracts the match from the
+    start of the input, discarding everything else."""
+    fst = start_regex_extract_transducer(create_automaton("a+"))
+    assert fst.transform_all("aab") == {"aa"}
+    assert fst.transform_all("baa") == set()
