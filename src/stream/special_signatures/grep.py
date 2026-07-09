@@ -1,10 +1,11 @@
 import re
 from stream.command_signature import CommandSignature
-from stream.command_type import PolymorphicCommandType
+from stream.command_type import PolymorphicCommandType, NoInputReason
 from stream.transformation_ast import ALPHA, ComplementTransform, ConcatenateTransform, ConstantTransform, IntersectionTransform, LineExtractTransform, TaintTransform
 
 from stream.regular_type import RegularType
 from stream.tool_error import ToolError
+from typing import Optional
 
 class GrepSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
@@ -54,28 +55,28 @@ class GrepSignature(CommandSignature):
         return flags, flag_args, operands, has_double_dash
 
     def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations):
-        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
+        input_type, no_input_type, no_input_reason = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         if "no_meaningless_command" not in heuristic_rules:
-            return input_type, no_input_type
+            return input_type, no_input_type, no_input_reason
     
         parsed_flags, _, operands, has_double_dash = self._parsed_flags_and_operands(parsed_command_invocation)
 
         if len(operands) > 1 or (len(operands) == 1 and "-e" in parsed_flags):
-            return RegularType(""), None
+            return RegularType(""), None, None
 
         if "-e" in parsed_flags or "-c" in parsed_flags or "-f" in parsed_flags:
-            return input_type, no_input_type
+            return input_type, no_input_type, no_input_reason
 
         if "-n" in parsed_flags:
-            return input_type, no_input_type
+            return input_type, no_input_type, no_input_reason
         if not operands:
-            return input_type, no_input_type
+            return input_type, no_input_type, no_input_reason
         if "-e" not in parsed_flags:
             pattern = operands[0]
             if pattern.startswith("-") and not has_double_dash:
                 raise ToolError("Pattern cannot start with '-'")
             if self._contains_shell_expansion(pattern):
-                return input_type, None
+                return input_type, None, None
             pattern = pattern.replace("\\\\", "\\")
             pattern = pattern.replace("\\\\|", "\\|")
             if "-F" in parsed_flags:
@@ -94,10 +95,16 @@ class GrepSignature(CommandSignature):
         no_input_type = no_input_type.without_anchors()
         no_input_type.tainted = False
 
+        # RT currently treats all operands after the grep pattern as files.
+        # GNU grep's "-" filename (stdin) semantics are not modeled.
+        reads_stdin = len(operands) <= 1 and "-f" not in parsed_flags
+
         if "-v" not in parsed_flags:
-            return input_type, no_input_type
+            reason = NoInputReason.FILTER if reads_stdin else no_input_reason
+            return input_type, no_input_type, reason
         else:
-            return input_type, ~no_input_type
+            reason = NoInputReason.FILTER if reads_stdin else no_input_reason
+            return input_type, no_input_type, reason
 
             
     def construct_command_type(self, parsed_command_invocation, env_annotations):

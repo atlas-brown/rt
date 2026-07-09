@@ -1,6 +1,7 @@
 import re
 from dataclasses import dataclass
 from typing import List
+from stream.command_type import NoInputReason
 
 from stream.regex_parser import (
     escape_literal_for_regular_type,
@@ -302,9 +303,9 @@ class SedSignature(CommandSignature):
         super().__init__(*args, **kwargs)
 
     def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations):
-        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
+        input_type, no_input_type, no_input_reason = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         if "no_meaningless_command" not in heuristic_rules:
-            return input_type, no_input_type
+            return input_type, no_input_type, no_input_reason
 
         try:
             operands = super().get_operands(parsed_command_invocation)
@@ -313,20 +314,20 @@ class SedSignature(CommandSignature):
             parsed_operand = parse_sed_operand(operands[0])
             command = parsed_operand.primary_command
             if not isinstance(command, SubstituteCommand):
-                return input_type, no_input_type
+                return input_type, no_input_type, no_input_reason
             pattern = self._pattern_for_input_constraint(command)
             if pattern is None:
-                return input_type, no_input_type
+                return input_type, no_input_type, no_input_reason
             if command.has_backreference or command.has_basic_capture_group:
-                return input_type, None
+                return input_type, None, None
 
             no_input_type = ~(RegularType(".*") + RegularType(pattern) + RegularType(".*"))
             no_input_type.tainted = False
-            return input_type, no_input_type
+            return input_type, no_input_type, NoInputReason.NO_EFFECT
         except Exception as error:
             if isinstance(error, ToolError):
                 raise
-            return input_type, None
+            return input_type, None, None
 
     def construct_command_type(self, parsed_command_invocation, env_annotations):
         operands = super().get_operands(parsed_command_invocation)

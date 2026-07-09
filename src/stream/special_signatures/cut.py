@@ -1,7 +1,7 @@
 import re
 from typing import Optional, Tuple
 from stream.command_signature import CommandSignature
-from stream.command_type import PolymorphicCommandType
+from stream.command_type import PolymorphicCommandType, NoInputReason
 from stream.regular_type import RegularType
 from stream.transformation_ast import ALPHA, ConstantTransform, FieldSelectTransform
 
@@ -12,9 +12,9 @@ class CutSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations) -> Tuple[RegularType, Optional[RegularType]]:
+    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations) -> Tuple[RegularType, Optional[RegularType], Optional[NoInputReason]]:
         if len(parsed_command_invocation.operand_list) > 0 and "no_ignored_input" in heuristic_rules:
-            return RegularType(""), None
+            return RegularType(""), None, None
         
         flags = set()
         flag_args = {}
@@ -50,24 +50,24 @@ class CutSignature(CommandSignature):
             field_num = max(args)
             # every arg is a variable or default value
             if field_num == -1:
-                return RegularType(".*"), None
+                return RegularType(".*"), None, None
             if field_num < 1:
                 raise ToolError(f"field number must be greater than 0: {field_num}")
             if field_num == 1:
                 if "no_meaningless_command" not in heuristic_rules:
-                    return RegularType(".*"), None
+                    return RegularType(".*"), None, None
                 else:
                     no_input_type = RegularType("[^" + delimiter + "]*")
                     no_input_type.tainted = False
-                    return RegularType(".*"), no_input_type
+                    return RegularType(".*"), no_input_type, NoInputReason.FILTER
             
             pattern = f"[^{delimiter}]*({re.escape(delimiter)}[^{delimiter}]*){{0,{field_num-2}}}"
             if "no_meaningless_command" not in heuristic_rules:
-                return RegularType(".*"), None
+                return RegularType(".*"), None, None
             else:
                 no_input_type = RegularType(pattern)
                 no_input_type.tainted = False
-                return RegularType(".*"), no_input_type
+                return RegularType(".*"), no_input_type, NoInputReason.FILTER
             
         return super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
 

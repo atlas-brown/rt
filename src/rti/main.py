@@ -125,6 +125,8 @@ def find_signature(loader: SignatureLoader, invocation):
 
 
 def _display_pattern(regular_type: RegularType) -> str:
+    if regular_type.get_singleton() is not None:
+        return regular_type.get_singleton()
     if regular_type.pattern is not None:
         return regular_type.pattern
     return repr(regular_type)
@@ -155,7 +157,7 @@ def main(
 
     # Determine input type
     if prev_out_type is None:
-        in_type, _ = signature.determine_input_type(invocation, [], [], {})
+        in_type, _, _ = signature.determine_input_type(invocation, [], [], {})
         in_pattern = _display_pattern(in_type)
         inferred_input_type = in_type
     else:

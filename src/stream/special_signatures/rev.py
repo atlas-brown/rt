@@ -1,6 +1,6 @@
 import re
 from stream.command_signature import CommandSignature
-from stream.command_type import PolymorphicCommandType
+from stream.command_type import PolymorphicCommandType, NoInputReason
 from stream.regular_type import RegularType
 from stream.transformation_ast import ALPHA, ConstantTransform, ReverseTransform
 from stream.tool_error import ToolError
@@ -11,7 +11,7 @@ class RevSignature(CommandSignature):
 
     def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations):
         if len(parsed_command_invocation.operand_list) > 0 and "no_ignored_input" in heuristic_rules:
-            return RegularType(""), None
+            return RegularType(""), None, None
         return super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
 
     def construct_command_type(self, parsed_command_invocation, env_annotations):

@@ -1,4 +1,5 @@
 from typing import Optional
+from enum import Enum
 
 from stream.regular_type import RegularType
 from stream.transformation_ast import (
@@ -6,6 +7,10 @@ from stream.transformation_ast import (
     TransformationNode,
 )
 
+class NoInputReason(Enum):
+    FILTER = "filter"
+    BAD_INPUT = "bad_input"
+    NO_EFFECT = "no_effect"
 
 class CommandType:
     """Base class for representing the type of a command."""
@@ -14,18 +19,22 @@ class CommandType:
         input_type: Optional[RegularType] = None,
         no_input_type: Optional[RegularType] = None,
         self_contained: Optional[bool] = None,
+        no_input_reason: Optional[NoInputReason] = None,
     ):
         self.input_type = input_type if input_type is not None else RegularType(".*")
         self.no_input_type = no_input_type
         self.self_contained = self_contained
+        self.no_input_reason = no_input_reason
 
     def set_input_constraints(
         self,
         input_type: RegularType,
         no_input_type: Optional[RegularType],
+        no_input_reason: Optional[NoInputReason],
     ) -> None:
         self.input_type = input_type
         self.no_input_type = no_input_type
+        self.no_input_reason = no_input_reason
 
     def apply_to_input(self, input_type: RegularType) -> RegularType:
         """Apply this command type to the given input type to produce the output type."""
@@ -41,6 +50,7 @@ class SimpleCommandType(CommandType):
         negative_constraint: Optional[RegularType] = None,
         self_contained: Optional[bool] = None,
         no_input_type: Optional[RegularType] = None,
+        no_input_reason: Optional[NoInputReason] = None,
     ):
         if no_input_type is None:
             no_input_type = negative_constraint
@@ -48,6 +58,7 @@ class SimpleCommandType(CommandType):
             input_type=input_type,
             no_input_type=no_input_type,
             self_contained=self_contained,
+            no_input_reason=no_input_reason,
         )
         self.output_type = output_type
 
@@ -80,7 +91,8 @@ class PolymorphicCommandType(CommandType):
                  self_contained: Optional[bool] = None,
                  output_tainted: Optional[bool] = None,
                  input_type: Optional[RegularType] = None,
-                 no_input_type: Optional[RegularType] = None):
+                 no_input_type: Optional[RegularType] = None,
+                 no_input_reason: Optional[NoInputReason] = None):
         if input_type is None:
             input_type = bound
         if no_input_type is None:
@@ -89,6 +101,7 @@ class PolymorphicCommandType(CommandType):
             input_type=input_type,
             no_input_type=no_input_type,
             self_contained=self_contained,
+            no_input_reason=no_input_reason,
         )
         self.transformation = transformation
         self.output_tainted = output_tainted

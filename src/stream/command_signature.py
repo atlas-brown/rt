@@ -1,6 +1,6 @@
 import logging
 from stream.command_type_parser import parse_transform_expression
-from stream.command_type import CommandType, PolymorphicCommandType, SimpleCommandType
+from stream.command_type import CommandType, NoInputReason, PolymorphicCommandType, SimpleCommandType
 from stream.regular_type import RegularType
 from stream.transformation_ast import ALPHA, ConstantTransform, TransformationNode
 import re
@@ -176,7 +176,7 @@ class CommandSignature:
         heuristic_rules: Optional[List[str]] = None,
     ) -> CommandType:
         heuristic_rules = heuristic_rules or []
-        input_type, no_input_type = self.determine_input_type(
+        input_type, no_input_type, no_input_reason = self.determine_input_type(
             parsed_command_invocation,
             user_annotations,
             heuristic_rules,
@@ -199,6 +199,7 @@ class CommandSignature:
                     parsed_command_invocation,
                     input_type,
                     no_input_type,
+                    no_input_reason
                 )
 
         if parsed_command_invocation.cmd_name != "xargs" and parsed_command_invocation.cmd_name != "grep" and len(parsed_command_invocation.operand_list) >= 1 and self.isInteresting:
@@ -223,12 +224,14 @@ class CommandSignature:
                 parsed_command_invocation,
                 input_type,
                 no_input_type,
+                no_input_reason
             )
         return self._finalize_command_type(
             self.construct_command_type(parsed_command_invocation, env_annotations),
             parsed_command_invocation,
             input_type,
             no_input_type,
+            no_input_reason
         )
 
     def _finalize_command_type(
@@ -237,8 +240,9 @@ class CommandSignature:
         parsed_command_invocation: CommandInvocationInitial,
         input_type: RegularType,
         no_input_type: Optional[RegularType],
+        no_input_reason: Optional[NoInputReason],
     ) -> CommandType:
-        command_type.set_input_constraints(input_type, no_input_type)
+        command_type.set_input_constraints(input_type, no_input_type, no_input_reason)
         return command_type
 
     def construct_command_type(self, parsed_command_invocation: CommandInvocationInitial, env_annotations: Dict[str, List[EnvAnnotation]]) -> CommandType:
@@ -456,23 +460,24 @@ class CommandSignature:
                 return RegularType(annotation.pattern, tainted=False)
         return RegularType(".*")
     
-    def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType]]:
+    def determine_input_type(self, parsed_command_invocation: CommandInvocationInitial, user_annotations: List[UserAnnotation], heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType], Optional[NoInputReason]]:
         assert isinstance(parsed_command_invocation, CommandInvocationInitial)
 
         for annotation in user_annotations:
             if annotation.annotation_type == AnnotationType.EXPECT:
-                return RegularType(annotation.pattern), None
+                return RegularType(annotation.pattern), None, None
 
         if self._xargs_uses_explicit_delimiter(parsed_command_invocation):
             heuristic_rules = [rule for rule in heuristic_rules if rule != "no_space_in_file_name"]
             
         return self.get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
     
-    def get_input_type(self, parsed_command_invocation: CommandInvocationInitial, heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType]]:
+    def get_input_type(self, parsed_command_invocation: CommandInvocationInitial, heuristic_rules: List[str], env_annotations: Dict[str, List[EnvAnnotation]]) -> Tuple[RegularType, Optional[RegularType], Optional[NoInputReason]]:
 
         input_type = self.default_input_type.pattern
 
         no_input_type = None
+        no_input_reason = None
 
         parsed_args = set(map(lambda arg: arg['name'], self.args[:len(self.get_operands(parsed_command_invocation))]))
 
@@ -501,13 +506,19 @@ class CommandSignature:
                         input_type = value
                     if key == "no_input_type":
                         no_input_type = value
+                    if key == "no_input_reason":
+                        no_input_reason = NoInputReason(value)
                 logging.debug(f"Command: {self.command_name}, Updated input type: {input_type}")
                 if rule.get('stop', False):
                     break
 
         logging.debug(f"Command: {self.command_name}, Expected input type: {input_type}")
         
-        return RegularType(input_type), RegularType(no_input_type) if no_input_type is not None else None
+        return (
+            RegularType(input_type), 
+            RegularType(no_input_type) if no_input_type is not None else None, 
+            no_input_reason
+        )
     
     def __repr__(self) -> str:
         return f"CommandSignature({self.command_name}, {self.default_input_type}, {self.default_output_type}, {self.args}, {self.flags}, {self.rules}, match={self.match})"

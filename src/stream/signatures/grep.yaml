@@ -9,4 +9,3 @@ args:
   type: .+
 flags: []
 rules: []
-isInteresting: true

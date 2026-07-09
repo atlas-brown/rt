@@ -1,8 +1,10 @@
 import logging
+from shutil import which
 import time
 import traceback
 from dataclasses import dataclass
 from stream.command_signature import CommandSignature
+from stream.command_type import NoInputReason
 from stream.regular_type import RegularType
 from stream.parser.shell_parser import ShellParser
 from typing import Dict, Optional, List, Tuple
@@ -261,6 +263,7 @@ class PipelineChecker:
                 )
                 input_type = command_type.input_type
                 no_input_type = command_type.no_input_type
+                no_input_reason = command_type.no_input_reason
 
                 inference_result = signature.apply_command_type(command_type, previous_output_type)
                 current_output_type = inference_result
@@ -312,7 +315,28 @@ class PipelineChecker:
                     is_not_subtype, witness = previous_output_type.not_subtype(no_input_type)
                     if not is_not_subtype:
                         error_message = f"Command '{signature.command_name}' received input '{previous_output_type}' but it should not accept input type which is subset of '{no_input_type}' according to heuristic rules."
-                        
+
+                        if no_input_reason is not None:
+                            if no_input_reason == NoInputReason.FILTER:
+                                error_message = (
+                                    f"Command '{signature.command_name}' received input '{previous_output_type}', "
+                                    f"which is already guaranteed to satisfy '{no_input_type}' according to heuristic rules. "
+                                    f"The command cannot filter out any possible input and is therefore likely redundant or unintended. "
+                                )
+                            elif no_input_reason == NoInputReason.BAD_INPUT:
+                                error_message = (
+                                    f"Command '{signature.command_name}' received input '{previous_output_type}', "
+                                    f"which matches the bad-input heuristic. This input is likely unintended for this command."
+                                )
+                            elif no_input_reason == NoInputReason.NO_EFFECT:
+                                error_message = (
+                                    f"Command '{signature.command_name}' received input '{previous_output_type}', "
+                                    f"which does not match the transformation pattern. "
+                                    f"Hence the command does not change the input and is therefore likely redundant or unintended."
+                                )
+                            else:
+                                error_message += f" Reason: {no_input_reason.value}."
+
                         error_result = ErrorResult(
                             message=error_message,
                             all_input=True,
@@ -320,7 +344,7 @@ class PipelineChecker:
                             command_name=signature.command_name,
                             command_index=command_index + 1,
                         )
-                        
+
                         error_results.append(error_result)
                         previous_output_type = current_output_type
                         continue

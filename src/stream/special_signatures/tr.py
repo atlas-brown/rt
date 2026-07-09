@@ -2,7 +2,7 @@ import re
 from typing import Optional, Tuple
 
 from stream.command_signature import CommandSignature
-from stream.command_type import PolymorphicCommandType, SimpleCommandType
+from stream.command_type import PolymorphicCommandType, SimpleCommandType, NoInputReason
 from stream.char_set_utils import replace_POSIX_class
 from stream.regular_type import RegularType
 from stream.transformation_ast import ALPHA, ConstantTransform, DeleteCharsTransform, TranslateCharsTransform
@@ -15,15 +15,15 @@ class TrSignature(CommandSignature):
         super().__init__(*args, **kwargs)
         
 
-    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations) -> Tuple[RegularType, Optional[RegularType]]:
-        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
+    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations) -> Tuple[RegularType, Optional[RegularType], Optional[NoInputReason]]:
+        input_type, no_input_type, no_input_reason = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         if "no_meaningless_command" not in heuristic_rules:
-            return input_type, no_input_type
+            return input_type, no_input_type, no_input_reason
         set1 = parsed_command_invocation.operand_list[0].name
         if set1 == "\\\\n" or set1 == "\\012" or set1 == "\\\\012":
-            return input_type, no_input_type
+            return input_type, no_input_type, no_input_reason
         
-        return input_type, RegularType(get_output_pattern(parsed_command_invocation), tainted=False)
+        return input_type, RegularType(get_output_pattern(parsed_command_invocation), tainted=False), NoInputReason.NO_EFFECT
 
     def construct_command_type(self, parsed_command_invocation, env_annotations):
         parsed_flags = set(map(lambda flag_option: flag_option.get_name(), parsed_command_invocation.flag_option_list))

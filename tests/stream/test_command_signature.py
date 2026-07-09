@@ -17,17 +17,17 @@ def test_get_input_type_updates_based_on_flags(lookup_signature):
 
     # Default (no flags)
     inv = CommandInvocationInitial("sort", [], [])
-    input_type, no_input_type = sort_sig.get_input_type(inv, [], {})
+    input_type, no_input_type, _ = sort_sig.get_input_type(inv, [], {})
     assert input_type.pattern == ".*"
 
     # With -n flag
     inv = CommandInvocationInitial("sort", [Flag("-n")], [])
-    input_type, no_input_type = sort_sig.get_input_type(inv, [], {})
+    input_type, no_input_type, _ = sort_sig.get_input_type(inv, [], {})
     assert input_type.pattern == "[[:blank:]]*[-+]?[0-9]+.*"
 
     # With -h flag
     inv = CommandInvocationInitial("sort", [Flag("-h")], [])
-    input_type, no_input_type = sort_sig.get_input_type(inv, [], {})
+    input_type, no_input_type, _ = sort_sig.get_input_type(inv, [], {})
     assert input_type.pattern == "[[:blank:]]*[-+]?[0-9]+.*"
 
 
@@ -36,7 +36,7 @@ def test_get_input_type_for_grep(lookup_signature):
     inv = CommandInvocationInitial(
         "grep", [], [Operand("pattern"), Operand("file.txt")]
     )
-    input_type, no_input_type = grep_sig.get_input_type(inv, [], {})
+    input_type, no_input_type, _ = grep_sig.get_input_type(inv, [], {})
     assert input_type.pattern == ".*"
     assert no_input_type is None
 

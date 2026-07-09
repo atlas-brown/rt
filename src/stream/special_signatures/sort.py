@@ -11,10 +11,10 @@ class SortSignature(CommandSignature):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations) -> Tuple[RegularType, Optional[RegularType]]:
+    def get_input_type(self, parsed_command_invocation, heuristic_rules, env_annotations):
         if len(parsed_command_invocation.operand_list) > 0:
-            return RegularType(".*"), None
-        input_type, no_input_type = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
+            return RegularType(".*"), None, None
+        input_type, no_input_type, no_input_reason = super().get_input_type(parsed_command_invocation, heuristic_rules, env_annotations)
         flags = set()
         flag_args : dict[str, list[str]] = {}
         for flag in parsed_command_invocation.flag_option_list:
@@ -26,7 +26,7 @@ class SortSignature(CommandSignature):
                 flag_args[name].append(flag.get_arg())
 
         if "-k" not in flags:
-            return input_type, no_input_type
+            return input_type, no_input_type, no_input_reason
         
         input_type = RegularType(".*")
         args = flag_args.get('-k')
@@ -39,7 +39,7 @@ class SortSignature(CommandSignature):
                     try:
                         field, start = int(field), int(start)
                     except Exception as e:
-                        return RegularType(".*"), None
+                        return RegularType(".*"), None, None
                     pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[^\t ]{{{start}}}.*"
                     input_type = input_type & RegularType(pattern)
                 else:
@@ -47,7 +47,7 @@ class SortSignature(CommandSignature):
                     try:
                         field, start = int(field), int(start)
                     except Exception as e:
-                        return RegularType(".*"), None
+                        return RegularType(".*"), None, None
                     if "n" in flag:
                         pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[0-9].*"
                         input_type = input_type & RegularType(pattern)
@@ -62,7 +62,7 @@ class SortSignature(CommandSignature):
                         pattern = f"[\t ]*([^\t ]+[\t ]+){{{field - 1}}}[0-9]+.*"
                         input_type = input_type & RegularType(pattern)
 
-        return input_type, None
+        return input_type, None, no_input_reason
 
     def construct_command_type(self, parsed_command_invocation, env_annotations):
         if len(parsed_command_invocation.operand_list) > 0:

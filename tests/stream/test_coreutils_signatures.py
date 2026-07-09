@@ -188,7 +188,7 @@ def test_coreutils_stable_output_shapes_and_no_stdin_heuristic(lookup_signature,
         RegularType(".*"),
         CommandInvocationInitial("nproc", [], []),
     )
-    whoami_input, no_input_type = whoami_signature.get_input_type(
+    whoami_input, no_input_type, _ = whoami_signature.get_input_type(
         CommandInvocationInitial("whoami", [], []),
         ["no_ignored_input"],
         {},

@@ -38,7 +38,7 @@ def test_grep_f_file_without_pattern_operand_falls_back_without_index_error(
         [],
     )
 
-    input_type, no_input_type = grep_signature.get_input_type(
+    input_type, no_input_type, _ = grep_signature.get_input_type(
         invocation,
         ["no_meaningless_command"],
         {},
@@ -60,7 +60,7 @@ def test_grep_combined_fw_file_keeps_input_type(lookup_signature, apply_signatur
     )
     input_type = RegularType("[A-Z]*")
 
-    expected_input_type, no_input_type = grep_signature.get_input_type(
+    expected_input_type, no_input_type, _ = grep_signature.get_input_type(
         invocation,
         ["no_meaningless_command"],
         {},
@@ -154,7 +154,7 @@ def test_sed_falls_back_for_complex_patterns_and_multi_command_operands(
         [Operand(r"s/ /\\ /g;s/^/pushd -q /;1!G;h;\$!d;")],
     )
 
-    input_type, no_input_type = sed_signature.get_input_type(
+    input_type, no_input_type, _ = sed_signature.get_input_type(
         malformed_pattern,
         ["no_meaningless_command"],
         {},
