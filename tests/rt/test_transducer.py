@@ -117,6 +117,47 @@ def test_first_replacement_transducer_property(
     assert fst.transform_all(text) == {expected}
 
 
+@given(
+    from_chars=st.text(alphabet=_SMALL_ALPHABET, min_size=1, max_size=5).map(
+        _unique_chars
+    ),
+    to_chars=st.text(alphabet=_REPLACEMENT_ALPHABET, min_size=1, max_size=5).map(
+        _unique_chars
+    ),
+    text=st.text(alphabet=_SMALL_ALPHABET + _REPLACEMENT_ALPHABET, max_size=25),
+)
+def test_inverse_double_inverse_subsumption(
+    from_chars: str, to_chars: str, text: str
+) -> None:
+    """Tests that applying inverse() twice to a translation transducer yields
+    results that subsume the original transducer's outputs."""
+    fst = translation_transducer(from_chars, to_chars)
+    forward = fst.transform_all(text)
+    double_inverse = fst.inverse().inverse().transform_all(text)
+    assert forward.issubset(double_inverse)
+
+
+@given(
+    from_chars=st.text(alphabet=_SMALL_ALPHABET, min_size=1, max_size=5).map(
+        _unique_chars
+    ),
+    to_chars=st.text(alphabet=_REPLACEMENT_ALPHABET, min_size=1, max_size=5).map(
+        _unique_chars
+    ),
+    text=st.text(alphabet=_SMALL_ALPHABET + _REPLACEMENT_ALPHABET, max_size=25),
+)
+def test_inverse_soundness(
+    from_chars: str, to_chars: str, text: str
+) -> None:
+    """Tests that if a translation transducer maps input to output, then the
+    inverse transducer can map that output back to the original input."""
+    fst = translation_transducer(from_chars, to_chars)
+    forward_outputs = fst.transform_all(text)
+    fst_inv = fst.inverse()
+    for output in forward_outputs:
+        assert text in fst_inv.transform_all(output)
+
+
 def test_inverse_fst() -> None:
     """Tests that a translation transducer's inverse maps output characters
     back to their originals and rejects invalid sequences."""
