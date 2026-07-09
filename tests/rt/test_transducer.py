@@ -1,3 +1,5 @@
+import string
+
 from hypothesis import given
 from hypothesis import strategies as st
 
@@ -13,8 +15,8 @@ from rt.transducer import (
     translation_transducer,
 )
 
-_SMALL_ALPHABET = "abc"
-_REPLACEMENT_ALPHABET = "xy"
+_SMALL_ALPHABET = string.ascii_lowercase[:12]
+_REPLACEMENT_ALPHABET = string.ascii_lowercase[12:20]
 
 
 def _unique_chars(s: str) -> str:
@@ -55,11 +57,19 @@ def test_compression_transducer_property(data: st.DataObject) -> None:
         st.text(alphabet=_SMALL_ALPHABET, min_size=1, max_size=3).map(_unique_chars),
         label="chars_to_compress",
     )
-    text = data.draw(st.text(alphabet=chars_to_compress, max_size=50), label="text")
+    text = data.draw(
+        st.text(
+            alphabet=chars_to_compress + _REPLACEMENT_ALPHABET,
+            max_size=50,
+        ),
+        label="text",
+    )
     fst = compression_transducer(chars_to_compress)
     result = next(iter(fst.transform_all(text)))
+    assert result or not text
     for i in range(len(result) - 1):
-        assert not (result[i] == result[i + 1])
+        if result[i] in chars_to_compress and result[i + 1] in chars_to_compress:
+            assert result[i] != result[i + 1]
 
 
 @given(
@@ -70,11 +80,11 @@ def test_compression_transducer_property(data: st.DataObject) -> None:
 )
 def test_deletion_transducer_property(chars_to_delete: str, text: str) -> None:
     """Tests that deletion_transducer removes all occurrences of the specified
-    characters from the input."""
+    characters from the input while preserving the order of remaining characters."""
     fst = deletion_transducer(chars_to_delete)
     result = next(iter(fst.transform_all(text)))
-    for c in chars_to_delete:
-        assert c not in result
+    expected = "".join(c for c in text if c not in chars_to_delete)
+    assert result == expected
 
 
 @given(
