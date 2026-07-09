@@ -17,9 +17,6 @@ def _unique_chars(s: str) -> str:
     return "".join(dict.fromkeys(s))
 
 
-# TODO: Add docstrings explaining what properties are being tested in each test
-
-
 @given(
     from_chars=st.text(alphabet=_SMALL_ALPHABET, min_size=1, max_size=3).map(
         _unique_chars
@@ -30,6 +27,8 @@ def _unique_chars(s: str) -> str:
     text=st.text(alphabet=_SMALL_ALPHABET + _REPLACEMENT_ALPHABET, max_size=50),
 )
 def test_translation_transducer_property(from_chars: str, to_chars: str, text: str) -> None:
+    """Tests that translation_transducer maps each from_char to the corresponding
+    to_char and passes through characters not in from_chars."""
     fst = translation_transducer(from_chars, to_chars)
     expected = ""
     for char in text:
@@ -46,6 +45,8 @@ def test_translation_transducer_property(from_chars: str, to_chars: str, text: s
 
 @given(data=st.data())
 def test_compression_transducer_property(data: st.DataObject) -> None:
+    """Tests that compression_transducer produces output with no consecutive
+    duplicate characters among the compressed set."""
     chars_to_compress = data.draw(
         st.text(alphabet=_SMALL_ALPHABET, min_size=1, max_size=3).map(_unique_chars),
         label="chars_to_compress",
@@ -64,6 +65,8 @@ def test_compression_transducer_property(data: st.DataObject) -> None:
     text=st.text(alphabet=_SMALL_ALPHABET + _REPLACEMENT_ALPHABET, max_size=50),
 )
 def test_deletion_transducer_property(chars_to_delete: str, text: str) -> None:
+    """Tests that deletion_transducer removes all occurrences of the specified
+    characters from the input."""
     fst = deletion_transducer(chars_to_delete)
     result = next(iter(fst.transform_all(text)))
     for c in chars_to_delete:
@@ -78,6 +81,8 @@ def test_deletion_transducer_property(chars_to_delete: str, text: str) -> None:
 def test_global_replacement_transducer_property(
     pattern: str, replacement: str, text: str
 ) -> None:
+    """Tests that global_replacement_transducer replaces all occurrences of a
+    pattern with a replacement string, matching str.replace semantics."""
     fst = global_replacement_transducer(pattern, replacement)
     expected = text.replace(pattern, replacement)
     assert fst.transform_all(text) == {expected}
@@ -91,6 +96,8 @@ def test_global_replacement_transducer_property(
 def test_first_replacement_transducer_property(
     pattern: str, replacement: str, text: str
 ) -> None:
+    """Tests that first_replacement_transducer replaces only the first
+    occurrence of a pattern with a replacement string."""
     fst = first_replacement_transducer(pattern, replacement)
     expected = text.replace(pattern, replacement, 1)
     assert fst.transform_all(text) == {expected}
