@@ -20,7 +20,17 @@ from rt.transducer import (
     translation_transducer,
 )
 
-# TODO: Add inverse tests for cut_char_transducer, global_regex_replacement_transducer, first_regex_replacement_transducer, global_regex_extract_transducer, start_regex_extract_transducer
+# TODO: Broaden regex builder coverage: test multi-char patterns, quantifiers,
+#       alternation, and character classes beyond single-char "a" and "a+"
+# TODO: Add inverse composition tests for builders that only have forward tests
+#       (first_replacement, cut_char, global_regex_replacement,
+#       first_regex_replacement, global_regex_extract, start_regex_extract).
+# TODO: Test non-deterministic transform_all outputs: verify that ambiguous
+#       transducers can produce multiple valid output strings.
+# TODO: Test error paths: empty patterns/regexes, config explosion limits,
+#       epsilon cycle detection, and other ValueError/RuntimeError cases.
+# TODO: Vary parameters in hardcoded tests: test different delimiters, field
+#       lists, has_upperbound values, and pattern/replacement combinations.
 
 _SMALL_ALPHABET = string.ascii_lowercase[:12]
 _REPLACEMENT_ALPHABET = string.ascii_lowercase[12:20]
