@@ -1807,26 +1807,6 @@ def _add_guarded_fallbacks(
             )
 
 
-def translate_to_line_delimited_FST(set1: str) -> Transducer:
-    specs = []
-    for c in set1:
-        specs.append((0, c, "", 0))
-        specs.append((0, c, "", 100))
-        specs.append((1, c, "", 100))
-        specs.append((2, c, "", 0))
-        specs.append((2, c, "", 3))
-    specs.extend(
-        [
-            (0, "$other", "$self", 1),
-            (0, "$other", "", 2),
-            (1, "$other", "$self", 1),
-            (2, "$other", "", 2),
-            (100, "$other", "", 100),
-        ]
-    )
-    return create_transducer(specs, start_state=0, final_states={1, 3, 100})
-
-
 def translation_transducer(set1: str, set2: str) -> Transducer:
     specs = []
     for i, c in enumerate(set1):
@@ -1864,34 +1844,6 @@ def deletion_transducer(set1: str) -> Transducer:
         specs.append((0, c, "", 0))
     specs.append((0, "$other", "$self", 0))
     return create_transducer(specs, start_state=0, final_states={0})
-
-
-def cut_field_transducer(
-    delimiter: str, fields: list[int], has_upperbound: bool = True
-) -> Transducer:
-    # cut -f 1 -> [1]
-    # cut -f 1,3 -> [1, 3]
-    # cut -f 1-3 -> [1, 2, 3]
-    # cut -f 1- -> [1], no upperbound
-    specs = []
-    max_field = max(fields)
-    for i in range(1, max_field + 1):
-        if i in fields and (i != max_field or not has_upperbound):
-            specs.append((i, delimiter, delimiter, i + 1))
-        else:
-            specs.append((i, delimiter, "", i + 1))
-
-        if i in fields:
-            specs.append((i, "$other", "$self", i))
-        else:
-            specs.append((i, "$other", "", i))
-    if has_upperbound:
-        specs.append((max_field + 1, "$other", "", max_field + 1))
-    else:
-        specs.append((max_field + 1, "$other", "$self", max_field + 1))
-    return create_transducer(
-        specs, start_state=1, final_states={i for i in range(1, max_field + 2)}
-    )
 
 
 def correct_cut_field_transducer(
@@ -1953,32 +1905,6 @@ def cut_char_transducer(fields: list[int], has_upperbound: bool = True) -> Trans
         specs.append((max_field + 1, "$other", "$self", max_field + 1))
     return create_transducer(
         specs, start_state=1, final_states={i for i in range(1, max_field + 2)}
-    )
-
-
-def filter_transducer(automaton: Automaton) -> Transducer:
-    automaton.determinize()
-    automaton.minimize()
-    automaton.removeDeadTransitions()
-    state_map: dict[AutomatonState, int] = {}
-    specs = []
-    states = automaton.getStates()
-    for i, state in enumerate(states):
-        state_map[state] = i + 1
-    initial_state_id = state_map[automaton.getInitialState()]
-    final_states = set()
-    for state in states:
-        state_id = state_map[state]
-        if state.isAccept():
-            final_states.add(state_id)
-        for trans in state.getSortedTransitions(True):
-            min_char = trans.getMin()
-            max_char = trans.getMax()
-            input_range = min_char + "--" + max_char
-            dest_state_id = state_map[trans.getDest()]
-            specs.append((state_id, input_range, "$self", dest_state_id))
-    return create_transducer(
-        specs, start_state=initial_state_id, final_states=final_states
     )
 
 

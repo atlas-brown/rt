@@ -20,6 +20,8 @@ from rt.transducer import (
     translation_transducer,
 )
 
+# TODO: Add inverse tests for cut_char_transducer, global_regex_replacement_transducer, first_regex_replacement_transducer, global_regex_extract_transducer, start_regex_extract_transducer
+
 _SMALL_ALPHABET = string.ascii_lowercase[:12]
 _REPLACEMENT_ALPHABET = string.ascii_lowercase[12:20]
 
