@@ -8,6 +8,7 @@ from typing import Mapping, Optional
 from stream.command_type import CommandType, PolymorphicCommandType, SimpleCommandType
 from stream.regex_parser import RegexParser
 from stream.regular_type import RegularType
+from stream.type_alias import resolve_type_from_name, get_type_name
 from stream.transformation_ast import (
     ALPHA,
     ComposeTransform,
@@ -72,7 +73,7 @@ class ParsedCommandTypeAnnotation:
     polymorphic: bool = False
     variable_name: Optional[str] = None
 
-    def to_command_type(self) -> CommandType:
+    def to_command_type(self) -> CommandType: 
         input_type = RegularType(self.input_type)
         if self.polymorphic:
             return PolymorphicCommandType(
@@ -118,6 +119,16 @@ def parse_command_type_annotation(annotation: str) -> ParsedCommandTypeAnnotatio
         body = forall_match.group(2).strip()
 
     input_text, output_text = _split_arrow(body)
+    
+    resolved_input = resolve_type_alias_expression(input_text)
+    if resolved_input is not None:
+        input_text = resolved_input
+    
+    resolved_out = resolve_type_alias_expression(output_text)
+    if resolved_out is not None:
+        output_text = resolved_out
+    
+
     if variable_name is not None:
         aliases = {variable_name, f"{{{{{variable_name}}}}}"}
         if variable_name != "α":
@@ -614,3 +625,12 @@ def _is_top_level_at(text: str, target_index: int) -> bool:
             brace_depth -= 1
         index += 1
     return paren_depth == 0 and bracket_depth == 0 and brace_depth == 0 and quote is None
+
+def resolve_type_alias_expression(expr: str) -> str | None:
+    alias = get_type_name(expr)
+    if alias is None:
+        return None
+    type_name = resolve_type_from_name(alias)
+    if type_name is None:
+        raise ValueError(f"Unknown type alias: {alias}")
+    return type_name

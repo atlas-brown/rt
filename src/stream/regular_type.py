@@ -12,6 +12,7 @@ from stream.java_api import Automaton, BasicOperations
 from stream.regex_parser import Concatenate, EndAnchor, RegexParser, StartAnchor, ast_to_automaton, ast_to_regex, preprocess
 from stream.tool_error import ToolError
 from stream.utils.function_timer import timer
+from stream.type_alias import resolve_name_from_exp 
 
 
 class RegularType:
@@ -310,4 +311,7 @@ class RegularType:
             result.pattern = ast_to_regex(new_ast)
         result.tainted = self.tainted
         return result
+    
+    def get_type_alias(self):
+        return resolve_name_from_exp(self.pattern)
 

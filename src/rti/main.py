@@ -10,6 +10,7 @@ from stream.command_type_parser import parse_command_type_annotation
 from stream.parser.shell_parser_util import annot_parser_wrapper as parse_invocation
 from stream.regular_type import RegularType
 from stream.signature_loader import SignatureLoader
+from stream.type_alias import save_custom_alias, get_type_name, resolve_type_from_name
 
 
 DEFAULT_SIGNATURE_DIR = "./src/stream/signatures"
@@ -34,6 +35,7 @@ def cli_main():
     parser.add_argument(
         "command",
         type=str,
+        nargs="?",
         help="The command to resolve the regular type for",
     )
     parser.add_argument(
@@ -49,18 +51,77 @@ def cli_main():
         default=None,
         help="The regular type of the supposed input to the invocation when resolving it.",
     )
+    parser.add_argument(
+        "--def-type",
+        help="Add a new user defined type alias."
+    )
+    parser.add_argument(
+        "--show-type",
+        help="Shows the resolved type."
+    )
     args = parser.parse_args()
 
-    input_type = None
-    if args.input_type is not None:
-        input_type = RegularType(args.input_type)
-    main(
-        args.command,
-        args.args,
-        input_type,
-        signature_dir=args.signature_dir,
-        type_annotation=args.type_annotation,
-    )
+    try:
+        if args.def_type is not None:
+            raw_in = args.def_type
+            if "::" not in raw_in:
+                parser.error("Invalid format for --def-type. Use: name :: expression")
+            
+            name, exp = raw_in.split("::", 1)
+
+            name = name.strip()
+            exp = exp.strip()
+
+            if not re.fullmatch(r"[A-Za-z0-9_-]+", name):
+                parser.error(f"Invalid alias name: '{name}'. Only alphanumeric, underscores, and dashes allowed.")
+            
+            save_custom_alias(name, exp)
+            print(f"Success: Registered alias [[:{name}:]] -> {exp}")
+            return
+        
+        if args.show_type is not None:
+            raw_in = args.show_type
+            if "->" not in raw_in:
+                parser.error("Invalid format for --show-type. Use: type -> type")
+            
+            name1, name2 = raw_in.split("->", 1)
+            name1 = name1.strip()
+            name2 = name2.strip()
+
+            type_name1 = get_type_name(name1)
+            if type_name1 is not None:
+                exp1 = resolve_type_from_name(type_name1)
+                if exp1 is not None:
+                    name1 = exp1
+
+            type_name2 = get_type_name(name2)
+            if type_name2 is not None:
+                exp2 = resolve_type_from_name(type_name2)
+                if exp2 is not None:
+                    name2 = exp2
+            
+            print()
+            print("Resolved Types:")
+            print(name1, "->", name2)
+            return
+
+        
+        if args.command is None:
+            parser.error("the following are required: command")
+
+        input_type = None
+        if args.input_type is not None:
+            input_type = RegularType(args.input_type)
+        main(
+            args.command,
+            args.args,
+            input_type,
+            signature_dir=args.signature_dir,
+            type_annotation=args.type_annotation,
+        )
+
+    except ValueError as e:
+        parser.error(str(e))
 
 
 def _safe_file_part(value: str) -> str:
@@ -127,6 +188,8 @@ def find_signature(loader: SignatureLoader, invocation):
 def _display_pattern(regular_type: RegularType) -> str:
     if regular_type.get_singleton() is not None:
         return regular_type.get_singleton()
+    if regular_type.get_type_alias() is not None:
+        return regular_type.get_type_alias()
     if regular_type.pattern is not None:
         return regular_type.pattern
     return repr(regular_type)
