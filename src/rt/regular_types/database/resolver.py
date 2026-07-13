@@ -91,7 +91,7 @@ class RuleResolver(TypeResolver):
     def __init__(
         self,
         input_type: str = ".*",
-        output_type: str = "{{input}}",
+        output_type: str = ".*",
         when: list[dict] | None = None,
     ):
         self._input = input_type

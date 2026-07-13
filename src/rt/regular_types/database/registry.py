@@ -88,7 +88,7 @@ def _load_yaml_resolvers() -> dict[str, RuleResolver]:
             data = yaml.safe_load(f)
         resolvers[key] = RuleResolver(
             input_type=data.get("input", ".*"),
-            output_type=data.get("output", "{{input}}"),
+            output_type=data.get("output", ".*"),
             when=data.get("when"),
         )
     return resolvers
@@ -144,7 +144,7 @@ def _load_user_yaml_resolvers() -> dict[str, RuleResolver]:
         try:
             resolvers[key] = RuleResolver(
                 input_type=data.get("input", ".*"),
-                output_type=data.get("output", "{{input}}"),
+                output_type=data.get("output", ".*"),
                 when=data.get("when"),
             )
         except Exception as e:

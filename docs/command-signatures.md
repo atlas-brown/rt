@@ -9,7 +9,7 @@ subcommands: `xargs_cat.yaml` defines the signature for `xargs cat`.
 | Field | Required | Description |
 |---|---|---|
 | `input` | yes | Regex the command expects on stdin. `""` means no stdin. |
-| `output` | no | Regex or expression for what the command produces on stdout. Defaults to `{{input}}`. |
+| `output` | no | Regex or expression for what the command produces on stdout. Defaults to `.*`. |
 | `when` | no | List of conditional overrides. Evaluated top-to-bottom, first match wins. |
 
 ### `when` entries
