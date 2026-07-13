@@ -1,125 +1,191 @@
-# RT Artifact README
+# Rt: An overlay type system for shell pipelines
 
-To evaluate the artifact for the OSDI'26 paper titled "RT: Regular Types for the Streaming Shell", jump straight to [INSTRUCTIONS.md](INSTRUCTIONS.md).
+Jump to: [How it works](#how-it-works) | [Features](#features) | [User annotations](#user-annotations) | [Installation](#installation) | [Usage](#usage) | [Documentation](#documentation) | [Citing](#citing) | [Contributing](#contributing)
 
-## Getting Started Instructions
+Rt catches data incompatibilities in shell pipelines before they run. Give it a
+shell program and it tells you when one command produces data the next command
+can't consume -- with a concrete counterexample showing exactly what breaks.
 
-RT is a prototype for statically checking shell pipelines with regular types, command models, finite-state reasoning, and optional user annotations. This artifact includes the checker implementation, the benchmark suites used in the paper evaluation for functional checks and result reproduction.
+```
+$ cat pipeline.sh
+find . |
+grep -E 'book[0-9]+\.txt' |
+xargs cat
+```
 
-The fastest way to check the basic functionality is to use the provided Docker image. From the repository root, build the image and start a shell in it:
+```
+$ rt pipeline.sh
+Error (ln. 1): grep → xargs
+    grep produced '[^n]*' but xargs expects '([^[:blank:]]+|".+"|'.+')'
+    Counterexample: " "
+```
+
+`grep -E 'book[0-9]+\.txt'` produces filenames -- including ones with spaces
+or tabs. But `xargs` splits its input on whitespace, so a file named
+`my book1.txt` would be split into two arguments: `my` and `book1.txt`.
+Rt catches this mismatch and tells you exactly what triggers it.
+
+## How it works
+
+Rt gives each position in a pipeline a *regular type* -- a regular expression
+describing the shape of every line that can appear at that point. For example,
+after `grep -E '^[0-9]+$'`, the output type is lines consisting only of digits;
+after `cut -d, -f1`, the output type is lines containing no commas.
+
+Commands are modeled as transformations from input type to output type. Simple
+commands like `echo` produce a fixed output regardless of input. Filtering
+commands like `grep` produce output that is a subset of their input. Commands
+that reshape data character-by-character -- `tr`, `cut`, `head` -- are modeled
+with *finite-state transducers* that precisely describe how each input line is
+rewritten into an output line.
+
+To check a pipeline, Rt walks the commands left-to-right, composing these
+transformations. At each step it verifies that the previous command's output
+type is compatible with the next command's input type. If not, it reports a
+counterexample: a concrete string that triggers the mismatch.
+
+## Features
+
+- **Pipeline type checking.** Verify that the output of each command in a
+  pipeline is compatible with the input of the next.
+- **Concrete counterexamples.** Every error includes a witness string that
+  triggers the incompatibility, not just a vague warning.
+- **Polymorphic command models.** Commands like `grep` and `cut` are modeled as
+  input-dependent transformations, so the checker adapts to your pipeline's
+  actual data.
+- **User annotations.** Embed type expectations directly in shell comments to
+  guide the checker or verify properties:
+
+  ```sh
+  # @assume "gen_books.sh" --> "^[A-Z][a-z]+ [0-9]+$"
+  gen_books.sh |
+  # @expect "[0-9]+" --> "grep -E '^[0-9]-[0-9]+-[0-9]+-[0-9A-Z]$'"
+  grep -E '^[0-9]-[0-9]+-[0-9]+-[0-9A-Z]$'
+  ```
+
+- **Finite-state transducers.** Character-level transformations for commands
+  like `tr`, `cut`, and `head`.
+- **Interactive type inspection.** Use `rti` to query the type of any command
+  invocation.
+
+## User annotations
+
+Annotations are shell comments placed on the line immediately above a pipeline
+or command. They start with `# @` followed by a keyword and quoted arguments.
+The `command` field in command-level annotations must be the full invocation
+including all flags and arguments (e.g. `"grep -E 'pattern'"`, not just
+`"grep"`).
+
+### Command-level annotations
+
+| Annotation | Syntax | Description |
+|---|---|---|
+| `@assume` | `# @assume "invocation" --> "regex"` | Declare that the command's output matches the regex |
+| `@expect` | `# @expect "regex" --> "invocation"` | Declare the expected input type for a command (stored, not yet verified) |
+| `@assert` | `# @assert "invocation" --> "regex"` | Assert that a command's output conforms to the regex |
+| `@assert_contains` | `# @assert_contains "invocation" --> "regex"` | Assert that a command's input contains strings matching the regex |
+
+### Pipeline-level annotations
+
+| Annotation | Syntax | Description |
+|---|---|---|
+| `@input` | `# @input "regex"` | Declare the expected input type for the entire pipeline |
+| `@output` | `# @output "regex"` | Assert the pipeline's output conforms to the regex |
+| `@output_contains` | `# @output_contains "regex"` | Assert the pipeline's output contains strings matching the regex |
+
+### Environment annotations
+
+| Annotation | Syntax | Description |
+|---|---|---|
+| `@file` | `# @file "$varname" : "regex"` | Declare the type of a file operand's content |
+| `@var` | `# @var "$varname" : "regex"` | Declare the type of a non-file shell variable |
+| `@concretize` | `# @concretize "varname" --> "path"` | Concretize a file variable by reading its content from `path` |
+
+## Installation
+
+The quickest way to get started:
 
 ```sh
-docker build --target dev -t rt-artifact .
-docker run --rm -it -v "$(pwd):/home/StreamTypes" rt-artifact
+curl -fsSL https://raw.githubusercontent.com/atlas-brown/rt/main/scripts/install.sh | sh
 ```
 
-Inside the container, run:
+This downloads a thin `rt` wrapper to `~/.local/bin` that runs Rt in Docker.
+Make sure `~/.local/bin` is on your `PATH`. Requires [Docker](https://docs.docker.com/get-docker/).
+
+### Build from source
+
+If you'd rather run natively, Rt uses [uv](https://docs.astral.sh/uv/) for
+dependency management. You will need a Java runtime -- the checker loads
+automaton operations through JPype.
 
 ```sh
-bash scripts/check_functionality.sh
+git clone https://github.com/atlas-brown/rt.git
+cd rt
+uv sync
+uv run rt --help
 ```
 
-Equivalently, run the same check directly from the host with the same image:
+Make sure `java` is on your `PATH` and `JAVA_HOME` is set before running.
+
+## Usage
+
+### `rt` -- check programs and pipelines
 
 ```sh
-docker run --rm -v "$(pwd):/home/StreamTypes" rt-artifact bash scripts/check_functionality.sh
+# Check a shell program file
+rt program.sh
+
+# Check a pipeline interactively (reads from stdin)
+rt
 ```
 
-This script runs the unit test suite and then runs RT on `examples/motivating_example.sh` through the top-level `rt.sh` entry point. The smoke test should print the first expected RT diagnostic for the motivating example. This is the short artifact-functional path and should complete within the short review window.
+Rt prints diagnostics for each type error it finds. If no errors are found,
+nothing is printed and the exit status is `0`.
 
-For local host installation instead of Docker, install the Python requirements and a Java runtime before running the same command.
+Output formats: `--compact` (single-line output) or `--json` (structured JSON).
 
-## Command-Line Interfaces
-
-RT exposes two command-line interfaces through the project environment:
-
-1. `rt` checks shell scripts and pipelines.
-2. `rti` queries and updates the regular type.
-
-### `rt`: check scripts and pipelines
-
-Use `rt` when you want to analyze a shell script or an ad hoc pipeline. The
-interface can check a shell script from a file, or it can read one pipeline at a
-time interactively from standard input.
-
-Inside the Docker shell from the quickstart, invoke the checker with `uv run`:
+### `rti` -- inspect command types
 
 ```sh
-uv run rt examples/motivating_example.sh
+# Show the polymorphic type of a command
+rti echo hello
+
+# Show the input-to-output type of a command
+rti -i hello grep o
+
+# Register a custom type annotation for a command
+rti --type '[0-9]+ -> [0-9]+' my_command --my-flag
 ```
 
-When RT finds a pipeline type error, it prints the diagnostic and exits
-with status `1`. If no RT errors are found, it prints `No RT errors found.` and
-exits with status `0`.
+`rti --type` persists the annotation as a YAML file under the signatures
+directory, so subsequent `rt` runs will use it.
 
-### `rti`: resolve command types
+## Documentation
 
-Use `rti` when you want to inspect the regular or polymorhic type of a single command invocation. 
+- [Architecture overview](docs/architecture.md) -- how the checker works under
+  the hood: stream types, command types, transformations, stream transformers,
+  and the automaton engine.
+- [Command signatures](docs/command-signatures.md) -- how to define and
+  register custom command types, including YAML format, output expressions,
+  extended modules, and `rti --type` registration.
 
-It prints the invocation and the polymorphic type:
+## Citing
 
-```sh
-uv run rti echo hello
+If you use Rt in your research, please cite:
+
+```bibtex
+@inproceedings{rt:osdi:2026,
+  title     = {Rt: Regular Types for the Streaming Shell},
+  author    = {Li, Zekai and Lazarek, Lukas and Lamprou, Evangelos and Kapetanakis, George and Mamouras, Konstantinos and Vasilakis, Nikos},
+  year      = {2026},
+  booktitle = {20th USENIX Symposium on Operating Systems Design and Implementation (OSDI 26)},
+  publisher = {USENIX Association},
+  url       = {https://www.usenix.org/conference/osdi26/presentation/li-zekai},
+  artifact  = {https://github.com/atlas-brown/rt},
+  tags      = {correctness}
+}
 ```
 
-Example output:
+## Contributing
 
-```text
-Invocation:
-echo hello
-
-Type:
-∀α[α ⊆ RegularType(.*)]. α -> Constant(RegularType(hello))
-```
-
-It prints the invocation and the resolved input-to-output type:
-
-```sh
-uv run rti -i hello grep o
-```
-
-Example output:
-
-```text
-Invocation:
-grep o
-
-Polymorphic Type:
-∀α[α ⊆ RegularType(.*)]. α -> (α & Constant(RegularType(((.*)(o))(.*))))
-
-Instatiated Type:
-hello -> hello
-```
-
-You can also use `rti` to update a type annotation for one exact command
-invocation:
-
-```sh
-uv run rti --type '[0-9]+ -> [0-9]+' my_command --my-flag
-```
-
-## Detailed Instructions
-
-The main entry points are:
-
-1. `bash scripts/check_functionality.sh` for the short functionality check.
-2. `bash scripts/reproduce_full.sh --force` for the full paper-result reproduction.
-
-When using the Docker image, run the full reproduction with the same image:
-
-```sh
-docker run --rm -v "$(pwd):/home/StreamTypes" rt-artifact bash scripts/reproduce_full.sh --force
-```
-
-The full reproduction pipeline runs the baseline comparison, the main RT configuration, the ablations, and the plot/table generation with the project Python environment. Its runtime depends on the machine and storage speed; on a typical review machine, expect roughly one hour.
-
-The primary outputs to inspect after full reproduction are:
-
-1. `evaluation_results/tables/ablation_table.md`
-2. `evaluation_results/tables/timing_table.md`
-3. `evaluation_results/plots/accuracy-chart-with-annotations.pdf`
-4. `evaluation_results/plots/accuracy-chart-without-annotations.pdf`
-5. `evaluation_results/plots/bug-detection.pdf`
-6. `evaluation_results/plots/automata-sizes.pdf`
-
-The benchmark directories and output paths are configured in `src/stream/config/config.yaml`. For local non-Docker reproduction, make sure Python, Java, ShellCheck, Rust, and LadderTypes are available before running the full pipeline.
+Rt is a research prototype from the [ATLAS Group](https://atlas.cs.brown.edu/). We welcome contributions. See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, project layout, and guidelines.
