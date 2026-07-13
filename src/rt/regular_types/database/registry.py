@@ -187,6 +187,13 @@ def _cache_key(invocation: CommandInvocationInitial) -> str:
 
 
 def _extract_xargs_subcommand(invocation: CommandInvocationInitial) -> str | None:
+    """Return the subcommand that *xargs* will execute, if any.
+
+    Walks the operand list skipping flag options and their arguments
+    (``-I``/``--replace``, ``-d``/``--delimiter``, ``-L``/``--max-lines``)
+    to find the first non-flag operand, which is the subcommand name.
+    Returns ``None`` if no subcommand is present.
+    """
     operands = [op.name for op in invocation.operand_list]
     flags = {fo.get_name() for fo in invocation.flag_option_list}
     index = 0

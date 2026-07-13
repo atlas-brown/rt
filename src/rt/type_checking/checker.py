@@ -17,6 +17,8 @@ from rt.type_checking.annotations import (
 )
 from rt.type_checking.heuristics import CommandPosition, Context, Heuristic
 
+# Collected once at import time.  If a Heuristic subclass is loaded after this
+# module is first imported it will not be included.
 _DEFAULT_HEURISTICS = Heuristic.__subclasses__()
 
 

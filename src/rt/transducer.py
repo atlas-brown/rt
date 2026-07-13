@@ -1123,6 +1123,14 @@ def create_transducer(
     start_state: int = 0,
     final_states: set[int] | None = None,
 ) -> Transducer:
+    """Build a :class:`Transducer` from a declarative transition table.
+
+    Each *transition_spec* is ``(from_state, input_range, output, next_state)``
+    or ``(from_state, input_range, output, next_state, is_not_consumed)``.
+    ``input_range`` supports special values ``$epsilon`` (epsilon transition),
+    ``$other`` (catch-all for any character not explicitly handled), and
+    ``"--"``-separated ranges (e.g. ``"a--z"``).
+    """
     fst = Transducer()
     fst.set_start(start_state)
     if final_states is None:
@@ -1193,7 +1201,11 @@ def create_transducer(
 def compute_transducer_automaton_product(
     fst: Transducer, automaton: Automaton
 ) -> Transducer:
-    # First, compute the complete FST (FST x NFA = FST)
+    """Compute the cross-product of an FST and an NFA, yielding a product FST.
+
+    The result models the FST's behavior when applied to the specific
+    automaton's language.
+    """
     product_fst = Transducer()
     worklist: deque[tuple[State, AutomatonState]] = deque()
     state_to_id: dict[AutomatonState, int] = {}  # Map automaton states to unique IDs
@@ -1319,12 +1331,22 @@ def compute_transducer_automaton_product(
 def product_transducer_automaton_with_projection(
     fst: Transducer, automaton: Automaton
 ) -> Automaton:
-    product_fst = compute_transducer_automaton_product(fst, automaton)
-    # compute the output projection
+    """Compute the product FST and project its output labels into an automaton.
+
+    Convenience wrapper around :func:`compute_transducer_automaton_product`
+    followed by :meth:`Transducer.output_projection`.
+    """
     return product_fst.output_projection()
 
 
 def product_transducer_automaton(fst: Transducer, automaton: Automaton) -> Automaton:
+    """Apply an FST to an automaton, returning the output language automaton.
+
+    This is the primary entry point for stream-type transformations:
+    given a transducer modelling a command's character-level behaviour and
+    an input automaton describing the shape of incoming data, it computes
+    the automaton of all possible output lines.
+    """
     product = Automaton()
     worklist: deque[tuple[AutomatonState, State, AutomatonState]] = deque()
     new_states: dict[tuple[AutomatonState, State], AutomatonState] = {}

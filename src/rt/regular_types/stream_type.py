@@ -24,7 +24,7 @@ from rt.utils import char_set_complement
 @dataclass(frozen=True)
 class StreamType:
     automaton: Automaton
-    regex: str | None = None
+    regex: str | None = None  # human-readable hint for error messages; the automaton is canonical
 
     @classmethod
     def from_automaton(cls, automaton: Automaton) -> Self:
@@ -241,6 +241,7 @@ class StreamType:
 
         indices_list = list(indices)
         has_upperbound = True
+        # -1 means "to end of line" (no upper bound, like ``cut -f 3-``).
         if indices_list and indices_list[-1] == -1:
             has_upperbound = False
             indices_list = indices_list[:-1]

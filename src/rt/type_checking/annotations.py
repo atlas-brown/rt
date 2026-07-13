@@ -16,9 +16,10 @@ class EnvAnnotationKind(StrEnum):
     VAR = auto()  # The value of environment variable $var matches this regex
     FILE = auto()  # The content of a file operand matches this regex
     CONCRETIZE = auto()  # The annotation was produced by reading and analyzing a file
-    INPUT_CONTAINS = (
-        "assert_contains"  # A command's input must contain strings matching this regex
-    )
+    INPUT_CONTAINS = "assert_contains"
+    # ^ matches the annotation keyword `# @assert_contains` in shell comments.
+    # The value is explicit (not auto()) so the parser can use it as a lookup key.
+    # Semantics: a command's input must contain strings matching this regex.
     OUTPUT_CONTAINS = (
         auto()
     )  # The pipeline's final output must contain strings matching this regex

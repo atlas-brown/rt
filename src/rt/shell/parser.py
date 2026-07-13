@@ -282,6 +282,13 @@ def _arg_to_str(arg: Sequence[ast.ArgChar]):
 
 
 def _process_special_cases_in_args(s: list[str]) -> list[str]:
+    """Normalize command-line arguments so annotation strings match parsed invocations.
+
+    Handles shell aliases, shorthand options, and quoting conventions:
+    strips ``command``/`\\`/``_`` prefixes, expands ``head``/``tail`` short-options,
+    splits clustered single-letter flags, rewrites ``egrep`` to ``grep -E``,
+    strips ``--color=`` from grep, and removes surrounding quotes.
+    """
     if len(s) > 0:
         if s[0] == "command" and len(s) > 1:
             s = s[1:]

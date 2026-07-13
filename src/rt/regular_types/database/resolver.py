@@ -26,6 +26,7 @@ class TypeResolver(ABC):
 def _parse_transform_expression(
     expression: str, env: Mapping[str, StreamTransform]
 ) -> StreamTransform:
+    # The expression language is documented in docs/command-signatures.md.
     if not expression:
         return Input()
 
