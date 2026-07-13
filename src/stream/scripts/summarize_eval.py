@@ -11,7 +11,7 @@ def convert_to_github_address(address):
         address = address[2:]
     parts = address.split('/')
     collection = '/'.join(parts[:-1])
-    benchmark = "https://github.com/brown-cs2952r/StreamTypes/blob/main/" + address
+    benchmark = "https://github.com/atlas-brown/rt/blob/main/" + address
     return benchmark, collection
 
 def normalize_address(address):
