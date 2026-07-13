@@ -23,7 +23,7 @@ dependencies = [
 ]
 
 [project.scripts]
-rt = "stream.main:cli_main"
+rt = "rt.main:cli_main"
 rti = "rti.main:cli_main"
 
 [build-system]
