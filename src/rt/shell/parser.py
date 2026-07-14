@@ -137,9 +137,6 @@ def _parse_pipelines(script: Path) -> Iterator[Pipeline]:
                     if left is None or right is None:
                         break
 
-                    if left == right:
-                        continue
-
                     left_refined = _refine_command(left.replace(r"\"", '"'))
                     right_refined = _refine_command(right.replace(r"\"", '"'))
 
