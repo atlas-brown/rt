@@ -108,7 +108,7 @@ class RuleResolver(TypeResolver):
         annotations = annotations or []
 
         for annotation in annotations:
-            if annotation.kind == CommandAnnotationKind.ASSUME:
+            if annotation.kind == CommandAnnotationKind.ASSUME_OUTPUT:
                 input_st = (
                     StreamType.from_pattern(self._input)
                     if self._input
@@ -140,18 +140,6 @@ class RuleResolver(TypeResolver):
                     entry.get("output", self._output),
                 )
         return self._input, self._output
-
-    def _match_input_type(
-        self,
-        invocation_flags: set[str],
-        heuristic_rules: list[str] | None = None,
-    ) -> tuple[StreamType, StreamType | None]:
-        input_pat, _ = self._match_when(invocation_flags)
-        return (
-            StreamType.from_pattern(input_pat)
-            if input_pat
-            else StreamType.from_pattern("")
-        ), None
 
     def _get_operands(
         self,

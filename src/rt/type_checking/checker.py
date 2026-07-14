@@ -53,12 +53,16 @@ def type_check(
     pipeline: Pipeline,
     heuristics: Sequence[type[Heuristic]] = _DEFAULT_HEURISTICS,
 ) -> Iterator[TypeCheckError]:
-    input = _resolve_input(pipeline)
+    input = StreamType.from_pattern(".*")
 
     for i, (inv, anns) in enumerate(pipeline.commands):
         cmd_type = types.get_type(inv, anns, pipeline.env)
 
-        if cmd_type.accepted_input is not None:
+        skip_input_check = any(
+            a.kind == CommandAnnotationKind.ASSUME_INPUT for a in anns
+        )
+
+        if cmd_type.accepted_input is not None and not skip_input_check:
             is_subtype, witness = input.is_subtype(cmd_type.accepted_input, True)
             if not is_subtype:
                 yield InputMismatchError(
