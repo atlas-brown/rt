@@ -91,78 +91,94 @@ def _parse_pipelines(script: Path) -> Iterator[Pipeline]:
                 if line_number < 1:
                     break
 
-                match = _ANNOTATION_PATTERN.match(
-                    script_lines[line_number - 1]
-                )  # Minus one for the list index
-                if match is None:
-                    break
+                line = script_lines[line_number - 1]  # Minus one for the list index
 
-                if match.group(1) is not None:
-                    kind = match.group(1)
-                    first = match.group(2)
-                    second = match.group(3)
+                # Try colon form: @kind left : right
+                match = _COLON_PATTERN.match(line)
+                if match:
+                    kind_str = match.group(1)
+                    left = match.group(2) or match.group(3) or match.group(4)
+                    right = match.group(5) or match.group(6) or match.group(7)
 
-                    if kind in (
-                        CommandAnnotationKind.ASSUME,
-                        CommandAnnotationKind.ASSERT,
-                        CommandAnnotationKind.EXPECT,
-                    ):
-                        if kind == CommandAnnotationKind.EXPECT:
-                            pattern = first
-                            command = second
-                        else:
-                            pattern = second
-                            command = first
+                    if left is None or right is None:
+                        break
 
-                        refined_command = _refine_command(command.replace(r"\"", '"'))
-                        for i, cmd_node in enumerate(pipeline_items):
+                    if kind_str in _COLON_COMMAND_KINDS.split("|"):
+                        refined = _refine_command(left.replace(r"\"", '"'))
+                        for cmd_idx, cmd_node in enumerate(pipeline_items):
                             if (
                                 isinstance(cmd_node, ast.CommandNode)
-                                and cmd_node.pretty() == refined_command
+                                and cmd_node.pretty() == refined
                             ):
-                                kind = CommandAnnotationKind(kind)
-                                cmd_annotations[i].append(
-                                    CommandAnnotation(kind, pattern)
+                                kind = CommandAnnotationKind(kind_str)
+                                cmd_annotations[cmd_idx].insert(
+                                    0, CommandAnnotation(kind, left, right)
                                 )
                                 break
+                    elif kind_str == EnvAnnotationKind.CONCRETIZE:
+                        name = left
+                        file_path = right
+                        concrete_pattern = _concretize_file_to_pattern(file_path, script)
+                        ann = EnvAnnotation(EnvAnnotationKind.CONCRETIZE, name, concrete_pattern)
+                        env_annotations.setdefault(name, []).insert(0, ann)
+                    else:
+                        kind = EnvAnnotationKind(kind_str)
+                        ann = EnvAnnotation(kind, left, right)
+                        env_annotations.setdefault(left, []).insert(0, ann)
+                    continue
 
-                    elif kind == EnvAnnotationKind.INPUT_CONTAINS:
-                        command = first
-                        pattern = second
-                        refined_command = _refine_command(command.replace(r"\"", '"'))
-                        ann = EnvAnnotation(EnvAnnotationKind.INPUT_CONTAINS, pattern)
-                        env_annotations.setdefault(refined_command, []).append(ann)
+                # Try arrow form: @kind left -> right
+                match = _ARROW_PATTERN.match(line)
+                if match:
+                    kind_str = match.group(1)
+                    left = match.group(2) or match.group(3) or match.group(4)
+                    right = match.group(5) or match.group(6) or match.group(7)
 
-                elif match.group(4) is not None:
-                    var = _normalize_annotation_var(match.group(5))
-                    file_path = match.group(6)
-                    concrete_pattern = _concretize_file_to_pattern(file_path, script)
-                    ann = EnvAnnotation(EnvAnnotationKind.CONCRETIZE, concrete_pattern)
-                    env_annotations.setdefault(var, []).append(ann)
+                    if left is None or right is None:
+                        break
 
-                elif match.group(7) is not None:
-                    kind = match.group(7)
-                    pattern = match.group(8)
+                    if left == right:
+                        continue
 
-                    if kind == CommandAnnotationKind.INPUT:
-                        cmd_annotations[0].append(
-                            CommandAnnotation(CommandAnnotationKind.INPUT, pattern)
-                        )
-                    elif kind == CommandAnnotationKind.OUTPUT:
-                        cmd_annotations[-1].append(
-                            CommandAnnotation(CommandAnnotationKind.OUTPUT, pattern)
-                        )
-                    elif kind == EnvAnnotationKind.OUTPUT_CONTAINS:
-                        ann = EnvAnnotation(EnvAnnotationKind.OUTPUT_CONTAINS, pattern)
-                        env_annotations.setdefault("__stdout__", []).append(ann)
+                    left_refined = _refine_command(left.replace(r"\"", '"'))
+                    right_refined = _refine_command(right.replace(r"\"", '"'))
 
-                elif match.group(9) is not None:
-                    kind = match.group(9)
-                    name = _normalize_annotation_var(match.group(10))
-                    pattern = match.group(11)
-                    kind = EnvAnnotationKind(kind)
-                    ann = EnvAnnotation(kind, pattern)
-                    env_annotations.setdefault(name, []).append(ann)
+                    left_matches = any(
+                        isinstance(cmd, ast.CommandNode) and cmd.pretty() == left_refined
+                        for cmd in pipeline_items
+                    )
+                    right_matches = any(
+                        isinstance(cmd, ast.CommandNode) and cmd.pretty() == right_refined
+                        for cmd in pipeline_items
+                    )
+
+                    if left_matches and not right_matches:
+                        cmd_str = left
+                        regex = right
+                        resolved = _ARROW_KIND_MAP[kind_str][1]
+                    elif right_matches and not left_matches:
+                        cmd_str = right
+                        regex = left
+                        resolved = _ARROW_KIND_MAP[kind_str][0]
+                    else:
+                        continue
+
+                    for cmd_idx, cmd_node in enumerate(pipeline_items):
+                        if (
+                            isinstance(cmd_node, ast.CommandNode)
+                            and cmd_node.pretty() == (left_refined if left_matches else right_refined)
+                        ):
+                            cmd_annotations[cmd_idx].insert(
+                                0, CommandAnnotation(resolved, cmd_str, regex)
+                            )
+                            break
+                    continue
+
+                stripped = line.strip()
+                if stripped == "" or stripped.startswith("#"):
+                    continue
+
+                break
 
             command_pairs = [
                 (inv, tuple(anns))
@@ -178,40 +194,45 @@ def _parse_pipelines(script: Path) -> Iterator[Pipeline]:
 
 _LIBDASH_INITIALIZED = False
 
-_DOUBLE_QUOTED_KINDS = "|".join(
+_COLON_COMMAND_KINDS = "|".join(
     [
-        CommandAnnotationKind.ASSUME,
-        CommandAnnotationKind.ASSERT,
-        CommandAnnotationKind.EXPECT,
-        EnvAnnotationKind.INPUT_CONTAINS,
+        CommandAnnotationKind.ASSUME_INPUT,
+        CommandAnnotationKind.ASSUME_OUTPUT,
+        CommandAnnotationKind.ASSERT_INPUT,
+        CommandAnnotationKind.ASSERT_OUTPUT,
+        CommandAnnotationKind.ASSERT_INPUT_CONTAINS,
+        CommandAnnotationKind.ASSERT_OUTPUT_CONTAINS,
     ]
 )
 
-_SINGLE_QUOTED_KINDS = "|".join(
+_COLON_ENV_KINDS = "|".join(
     [
-        CommandAnnotationKind.INPUT,
-        CommandAnnotationKind.OUTPUT,
-        EnvAnnotationKind.OUTPUT_CONTAINS,
-    ]
-)
-
-_COLON_KINDS = "|".join(
-    [
-        EnvAnnotationKind.FILE,
         EnvAnnotationKind.VAR,
+        EnvAnnotationKind.FILE,
+        EnvAnnotationKind.CONCRETIZE,
     ]
 )
 
-_ANNOTATION_PATTERN = re.compile(
-    rf'^\s*#\s*@({_DOUBLE_QUOTED_KINDS})\s*"(.*)"\s*-->\s*"(.*)"\s*$'
-    rf'|^\s*#\s*@({EnvAnnotationKind.CONCRETIZE})\s*"(.*)"\s*-->\s*"(.*)"\s*$'
-    rf'|^\s*#\s*@({_SINGLE_QUOTED_KINDS})\s*"(.*)"\s*$'
-    rf'|^\s*#\s*@({_COLON_KINDS})\s*"(.*)"\s*:\s*"(.*)"\s*$'
+_COLON_KINDS = f"{_COLON_COMMAND_KINDS}|{_COLON_ENV_KINDS}"
+
+_ARROW_KINDS = "assume|assert|assert_contains"
+
+_ARROW_KIND_MAP = {
+    "assume": (CommandAnnotationKind.ASSUME_INPUT, CommandAnnotationKind.ASSUME_OUTPUT),
+    "assert": (CommandAnnotationKind.ASSERT_INPUT, CommandAnnotationKind.ASSERT_OUTPUT),
+    "assert_contains": (CommandAnnotationKind.ASSERT_INPUT_CONTAINS, CommandAnnotationKind.ASSERT_OUTPUT_CONTAINS),
+}
+
+_TOKEN = "(?:\"([^\"]*)\"|'([^']*)'|(\\S+))"
+
+_COLON_PATTERN = re.compile(
+    rf'^\s*#\s*@({_COLON_KINDS})\s+{_TOKEN}\s*:\s*{_TOKEN}\s*$'
 )
 
+_ARROW_PATTERN = re.compile(
+    rf'^\s*#\s*@({_ARROW_KINDS})\s+{_TOKEN}\s*->\s*{_TOKEN}\s*$'
+)
 
-def _normalize_annotation_var(var: str) -> str:
-    return re.sub(r"\$(?!\{)([A-Za-z_][A-Za-z0-9_]*|[0-9]+)", r"${\1}", var)
 
 
 def _parse_shell_script(
