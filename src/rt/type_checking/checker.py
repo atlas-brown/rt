@@ -9,6 +9,10 @@ from collections.abc import Iterator, Mapping, Sequence
 from dataclasses import dataclass
 
 import rt.regular_types.database.registry as types
+from rt.regular_types.database.resolver import (
+    build_command_env,
+    resolve_annotation_pattern,
+)
 from rt.regular_types.stream_type import StreamType
 from rt.shell.parser import Pipeline
 from rt.type_checking.annotations import (
@@ -55,12 +59,13 @@ def type_check(
     input = StreamType.from_pattern(".*")
 
     for i, (inv, anns) in enumerate(pipeline.commands):
+        cmd_env = build_command_env(inv, pipeline.env)
         cmd_type = types.get_type(inv, anns, pipeline.env)
 
         assert_input = None
         for a in anns:
             if a.kind == CommandAnnotationKind.ASSERT_INPUT:
-                assert_input = StreamType.from_pattern(a.regex)
+                assert_input = resolve_annotation_pattern(a.regex, cmd_env, input=input)
 
         skip_input_check = any(
             a.kind == CommandAnnotationKind.ASSUME_INPUT for a in anns
@@ -111,7 +116,7 @@ def type_check(
         if not skip_remaining_checks:
             for ann in anns:
                 if ann.kind == CommandAnnotationKind.ASSERT_OUTPUT:
-                    asserted = StreamType.from_pattern(ann.regex)
+                    asserted = resolve_annotation_pattern(ann.regex, cmd_env, input=input)
                     is_ok, witness = output.is_subtype(asserted, True)
                     if not is_ok:
                         yield AssertionViolationError(
@@ -121,7 +126,7 @@ def type_check(
                             witness=witness,
                         )
                 elif ann.kind == CommandAnnotationKind.ASSERT_INPUT_CONTAINS:
-                    asserted = StreamType.from_pattern(ann.regex)
+                    asserted = resolve_annotation_pattern(ann.regex, cmd_env, input=input)
                     is_ok, witness = asserted.is_subtype(input, True)
                     if not is_ok:
                         yield AssertionViolationError(
@@ -131,7 +136,7 @@ def type_check(
                             witness=witness,
                         )
                 elif ann.kind == CommandAnnotationKind.ASSERT_OUTPUT_CONTAINS:
-                    asserted = StreamType.from_pattern(ann.regex)
+                    asserted = resolve_annotation_pattern(ann.regex, cmd_env, input=input)
                     is_ok, witness = asserted.is_subtype(output, True)
                     if not is_ok:
                         yield AssertionViolationError(
