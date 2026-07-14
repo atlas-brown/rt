@@ -7,6 +7,7 @@ from rt.regular_types.database.resolver import (
     RuleResolver,
     _parse_transform_expression,
     build_env,
+    resolve_annotation_pattern,
 )
 from rt.regular_types.stream_transform import Constant, Input
 from rt.regular_types.stream_type import StreamType
@@ -292,3 +293,28 @@ class TestRuleResolverResolve:
             inv, [], env, heuristic_rules=["no_meaningless_command"]
         )
         assert isinstance(result, CommandType)
+
+
+class TestResolveAnnotationPattern:
+    def test_plain_regex(self):
+        result = resolve_annotation_pattern("[0-9]+", {})
+        assert isinstance(result, StreamType)
+
+    def test_input_hole(self):
+        env = {"input": Input()}
+        inp = StreamType(automaton=MagicMock())
+        result = resolve_annotation_pattern("{{input}}", env, input=inp)
+        # {{input}} resolves to Input() which returns the input StreamType
+        assert result is inp
+
+    def test_dollar_n_hole(self):
+        literal_type = StreamType(automaton=MagicMock())
+        env = {"$1": Constant(literal_type)}
+        result = resolve_annotation_pattern("{{$1}}", env)
+        assert result is literal_type
+
+    def test_hole_with_no_input_falls_back_to_dot_star(self):
+        env = {"input": Input()}
+        result = resolve_annotation_pattern("{{input}}", env)
+        # No input provided, so defaults to ".*"
+        assert isinstance(result, StreamType)

@@ -597,3 +597,34 @@ echo hi | cat
         assert anns[0].kind == kind
         assert anns[0].command_str == cmd
         assert anns[0].regex == regex
+
+
+# ---------------------------------------------------------------------------
+# Template holes ({{...}}) in annotation regexes
+# ---------------------------------------------------------------------------
+
+_HOLE_REGEXES = [
+    # {{input}} — double-quoted
+    ('@assume_output cat : "{{input}}"', "{{input}}"),
+    # {{$1}} — single-quoted
+    ("@assume_output cat : '{{$1}}'", "{{$1}}"),
+    # {{@$1}} — double-quoted
+    ('@assume_output cat : "{{@$1}}"', "{{@$1}}"),
+    # {{$@}} — unquoted
+    ("@assume_output cat : {{$@}}", "{{$@}}"),
+    # {{d$@}} — double-quoted
+    ('@assume_output cat : "{{d$@}}"', "{{d$@}}"),
+    # Arrow form with {{input}}
+    ("@assume cat -> '{{input}}'", "{{input}}"),
+]
+
+
+@pytest.mark.parametrize("anno,expected_regex", _HOLE_REGEXES)
+def test_template_holes_preserved_in_regex(anno, expected_regex):
+    script = f'''
+# {anno}
+echo hi | cat
+'''
+    anns = _cmd_anns(script, 1)
+    assert len(anns) == 1
+    assert anns[0].regex == expected_regex
