@@ -1,25 +1,16 @@
 [project]
-name = "stream"
+name = "rt"
 version = "0.1.0"
-description = ""
+description = "An overlay type system for Unix shell pipelines"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "click>=8.4.0",
     "jpype1>=1.7.1",
     "pash-annotations>=0.2.4",
-    "pytest>=9.0.3",
-    "python-dotenv>=1.2.2",
     "pyyaml>=6.0.3",
+    "platformdirs>=4.10.0",
     "libdash @ git+https://github.com/binpash/libdash",
     "shasta @ git+https://github.com/binpash/shasta",
-    "pandas>=3.0.3",
-    "numpy>=2.5.0",
-    "matplotlib>=3.11.0",
-    "matplotlib-set-diagrams>=0.2.2",
-    "tqdm>=4.68.3",
-    "hypothesis>=6.155.7",
-    "platformdirs>=4.10.0",
 ]
 
 [project.scripts]
@@ -31,4 +22,4 @@ requires = ["uv_build>=0.8.15"]
 build-backend = "uv_build"
 
 [dependency-groups]
-dev = ["stubgenj>=0.2.12"]
+dev = ["stubgenj>=0.2.12", "pytest>=9.0.3", "hypothesis>=6.155.7"]

@@ -1,14 +1,9 @@
+**/.git/
+**/.github/
+**/.hypothesis/
+**/.pytest_cache/
 **/.venv/
 **/__pycache__/
 
-*.pyc
-.DS_Store
-
-**/target/**
-
-generated_dfas/**
-src/generated_scripts/**
-src/test_scripts/**
-
-.gitignore
-.git/
+**/.DS_Store
+**/.gitignore
