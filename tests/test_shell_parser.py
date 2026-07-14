@@ -558,3 +558,42 @@ echo hi | cat
     anns = _cmd_anns(script, 1)
     assert len(anns) == 1
     assert anns[0].regex == "[0-9]+"
+
+
+# ---------------------------------------------------------------------------
+# Quoted special characters — colon/arrow inside quoted values
+# ---------------------------------------------------------------------------
+
+_QUOTED_SPECIAL_CHARS = [
+    # Colon inside double-quoted regex
+    ('@assume_output cat : "[a-z]:[0-9]"',
+     CommandAnnotationKind.ASSUME_OUTPUT, "cat", "[a-z]:[0-9]"),
+    # Colon inside single-quoted regex
+    ("@assert_output cat : '[a-z]:[0-9]'",
+     CommandAnnotationKind.ASSERT_OUTPUT, "cat", "[a-z]:[0-9]"),
+    # Arrow inside double-quoted regex
+    ('@assume cat -> "[a-z] -> [0-9]"',
+     CommandAnnotationKind.ASSUME_OUTPUT, "cat", "[a-z] -> [0-9]"),
+    # Arrow inside single-quoted regex
+    ("@assert cat -> '[a-z] -> [0-9]'",
+     CommandAnnotationKind.ASSERT_OUTPUT, "cat", "[a-z] -> [0-9]"),
+    # Arrow between two single-quoted values containing arrows
+    ("@assert 'x -> y' -> 'a -> b'",
+     None, None, None),  # neither side matches a pipeline command → skipped
+]
+
+
+@pytest.mark.parametrize("anno,kind,cmd,regex", _QUOTED_SPECIAL_CHARS)
+def test_quoted_special_characters_not_parsed_as_separators(anno, kind, cmd, regex):
+    script = f'''
+# {anno}
+echo hi | cat
+'''
+    anns = _cmd_anns(script, 1)
+    if kind is None:
+        assert len(anns) == 0
+    else:
+        assert len(anns) == 1
+        assert anns[0].kind == kind
+        assert anns[0].command_str == cmd
+        assert anns[0].regex == regex
