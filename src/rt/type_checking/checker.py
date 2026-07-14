@@ -41,6 +41,14 @@ class AssertionViolationError(TypeCheckError):
 
 
 @dataclass(frozen=True)
+class ContainsViolationError(TypeCheckError):
+    cmd_idx: int
+    stream: StreamType
+    pattern: str
+    witness: str
+
+
+@dataclass(frozen=True)
 class HeuristicViolationError(TypeCheckError):
     cmd_idx: int
     message: str
@@ -123,20 +131,20 @@ def type_check(
                     asserted = resolve_annotation_pattern(ann.regex, cmd_env, input=input)
                     is_ok, witness = asserted.is_subtype(input, True)
                     if not is_ok:
-                        yield AssertionViolationError(
+                        yield ContainsViolationError(
                             cmd_idx=i,
-                            output=input,
-                            asserted=ann.regex,
+                            stream=input,
+                            pattern=ann.regex,
                             witness=witness,
                         )
                 elif ann.kind == CommandAnnotationKind.ASSERT_OUTPUT_CONTAINS:
                     asserted = resolve_annotation_pattern(ann.regex, cmd_env, input=input)
                     is_ok, witness = asserted.is_subtype(output, True)
                     if not is_ok:
-                        yield AssertionViolationError(
+                        yield ContainsViolationError(
                             cmd_idx=i,
-                            output=output,
-                            asserted=ann.regex,
+                            stream=output,
+                            pattern=ann.regex,
                             witness=witness,
                         )
 

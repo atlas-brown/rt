@@ -6,6 +6,7 @@ from rt.regular_types.stream_type import StreamType
 from rt.shell.parser import Pipeline
 from rt.type_checking.checker import (
     AssertionViolationError,
+    ContainsViolationError,
     HeuristicViolationError,
     InputMismatchError,
     TypeCheckError,
@@ -45,6 +46,21 @@ def format_human(errors: Sequence[TypeCheckError], pipeline: Pipeline) -> str:
                 lines.append(
                     f"  {cmd} produced '{_pretty(output)}' "
                     f"but asserted '{asserted}'"
+                )
+                if witness:
+                    lines.append(f'  Counterexample: "{witness}"')
+
+            case ContainsViolationError(
+                cmd_idx=idx, stream=stream, pattern=pattern, witness=witness
+            ):
+                cmd = commands[idx] if idx < len(commands) else "?"
+                frag = _pipe_fragment(commands, idx, idx + 1)
+                ln = _line_number(pipeline, idx)
+                lines.append(f"Error (ln. {ln}):")
+                lines.append(f"> {frag}")
+                lines.append(
+                    f"  {cmd} stream '{_pretty(stream)}' "
+                    f"does not contain '{pattern}'"
                 )
                 if witness:
                     lines.append(f'  Counterexample: "{witness}"')
@@ -92,6 +108,16 @@ def format_json(errors: Sequence[TypeCheckError], pipeline: Pipeline) -> str:
                     asserted=asserted,
                     witness=witness,
                 )
+            case ContainsViolationError(
+                cmd_idx=idx, stream=stream, pattern=pattern, witness=witness
+            ):
+                entry.update(
+                    kind="contains_violation",
+                    cmd_idx=idx,
+                    stream=_pretty(stream),
+                    pattern=pattern,
+                    witness=witness,
+                )
             case HeuristicViolationError(cmd_idx=idx, message=msg):
                 entry.update(
                     kind="heuristic_violation",
@@ -131,6 +157,15 @@ def format_compact(errors: Sequence[TypeCheckError], pipeline: Pipeline) -> str:
                 lines.append(
                     f"Error (ln. {ln}): {cmd}: "
                     f"output '{_pretty(output)}' does not match assertion '{asserted}'"
+                )
+            case ContainsViolationError(
+                cmd_idx=idx, stream=stream, pattern=pattern, witness=witness
+            ):
+                cmd = commands[idx] if idx < len(commands) else "?"
+                ln = _line_number(pipeline, idx)
+                lines.append(
+                    f"Error (ln. {ln}): {cmd}: "
+                    f"stream '{_pretty(stream)}' does not contain '{pattern}'"
                 )
             case HeuristicViolationError(cmd_idx=idx, message=msg):
                 ln = _line_number(pipeline, idx)
