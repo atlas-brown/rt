@@ -1,1 +1,0 @@
-find | xargs stat -c %y | sort -n | head -3

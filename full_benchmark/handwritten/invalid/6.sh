@@ -1,1 +1,0 @@
-seq 10 | grep -oE '[0-9a-f]+' | head -n 5 | sort -n

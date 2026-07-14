@@ -1,1 +1,0 @@
-docker network inspect $network_id | grep "EndpointIP\|VIP" | cut -d':' -f2 | sort | uniq | sort -rn

@@ -1,1 +1,0 @@
-grep -oE '[0-9a-f]+' a.txt | grep -vwE '0' | sort -n

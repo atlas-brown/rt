@@ -1,1 +1,0 @@
-cat foo | cp bar

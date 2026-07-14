@@ -1,1 +1,0 @@
-grep -oE '[0-9A-Fa-f]+' a.txt | tr A-F a-f | sort -n

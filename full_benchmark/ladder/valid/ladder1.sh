@@ -1,1 +1,0 @@
-cat foo | xargs cp bar
