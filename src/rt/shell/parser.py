@@ -254,7 +254,7 @@ def _extract_pipeline_nodes(node: ast.AstNode) -> list[ast.PipeNode]:
 def _get_command_invocation(cmd: ast.CommandNode) -> CommandInvocationInitial:
     try:
         args = _args_to_strs(cmd.arguments)
-        return _annot_parser_wrapper(args)
+        return parse_invocation(args)
     except Exception:
         logging.warning(f"Failed to parse command: {cmd.pretty()}")
     return CommandInvocationInitial("unknown", [], [])
@@ -357,7 +357,7 @@ def _process_special_cases_in_args(s: list[str]) -> list[str]:
 
 
 # TODO: This function is almost verbatim a copy-paste of the one in pash_annotations. Try to figure out a way to eliminate this duplication. The reason for this is the use of extra annotations that are local to this project.
-def _annot_parser_wrapper(args: list[str]) -> CommandInvocationInitial:
+def parse_invocation(args: list[str]) -> CommandInvocationInitial:
     parsed_elements_list: list[str] = args
     cmd_name: str = parsed_elements_list[0]
 
