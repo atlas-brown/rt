@@ -29,7 +29,7 @@ chmod +x "${target}"
 echo " done"
 
 printf "%s" "Pulling Docker image..."
-docker pull "ghcr.io/${repo}:latest" >/dev/null 2>&1 || {
+if ! docker pull "ghcr.io/${repo}:latest" >/dev/null 2>&1; then
     echo " failed"
     echo "" >&2
     echo "Error: could not pull ghcr.io/${repo}:latest" >&2
@@ -38,7 +38,8 @@ docker pull "ghcr.io/${repo}:latest" >/dev/null 2>&1 || {
     echo "" >&2
     rm -f "${target}"
     exit 1
-}
+fi
+
 echo " done"
 
 echo ""

@@ -1,41 +1,64 @@
-#! /usr/bin/env bash
+#! /usr/bin/env sh
 
-set -euo pipefail
+set -eu
 
-image="${RT_IMAGE:-ghcr.io/atlas-brown/rt:latest}"
+image="${RT_IMAGE:-rt}"
+image_remote="${RT_IMAGE_REMOTE:-ghcr.io/atlas-brown/rt:latest}"
 runtime="${RT_RUNTIME:-docker}"
 
-if ! command -v "$runtime" &>/dev/null; then
-    echo "rt: '$runtime' not found" >&2
-    echo "    install Docker from https://docs.docker.com/get-docker/" >&2
+if ! command -v "$runtime" >/dev/null 2>&1; then
+    echo "rt: '$runtime' command not found" >&2
     exit 1
 fi
 
-if ! "$runtime" image inspect "$image" &>/dev/null; then
-    echo "rt: pulling '$image'..." >&2
-    "$runtime" pull "$image" >&2 || {
-        echo "rt: failed to pull '$image'" >&2
+if ! "$runtime" image inspect "$image" >/dev/null 2>&1; then
+    echo "rt: pulling '$image_remote'..." >&2
+    if ! "$runtime" pull "$image_remote" >&2; then
+        echo "rt: failed to pull '$image_remote'" >&2
         echo "    build locally:  docker build --target sys -t rt . " >&2
         echo "    then set:       export RT_IMAGE=rt" >&2
         exit 1
-    }
+    fi
 fi
 
-rt_args=()
-runtime_args=()
+# Remember how many arguments were in argv at this point
+init_argv="$#"
 
-if [ -t 0 ]; then
-    runtime_args+=("--tty")
-fi
-
+# Loop 1: build the docker args
+argv=$init_argv
 for arg; do
+    argv=$((argv - 1))
+    
     if [ -f "$arg" ]; then
-        arg_abs="$(realpath "$arg")"
-        rt_args+=("$arg_abs")
-        runtime_args+=(-v "${arg_abs}:${arg_abs}:ro")
-    else
-        rt_args+=("$arg")
+        arg="$(realpath "$arg")"
+        set -- "$@" -v  "${arg}:${arg}:ro"
+        echo "$@"
+    fi
+
+    if [ "$argv" -eq 0 ]; then
+        break
     fi
 done
 
-exec "$runtime" run --rm --interactive "${runtime_args[@]}" "$image" "${rt_args[@]}"
+set -- "$@" "$image"
+
+# Loop 2: build the rt args
+argv=$init_argv
+for arg; do
+    argv=$((argv - 1))
+
+    if [ -f "$arg" ]; then
+        arg="$(realpath "$arg")"
+    fi
+    
+    set -- "$@" "$arg"
+
+    if [ "$argv" -eq 0 ]; then
+        break
+    fi
+done
+
+# Pop all initial args
+shift "$init_argv"
+
+exec "$runtime" run --rm --interactive "$@"
