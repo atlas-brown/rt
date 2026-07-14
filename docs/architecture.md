@@ -59,8 +59,7 @@ left-to-right:
 5. Checks three kinds of violations:
    - **Input mismatch** — the incoming data does not fit what the command expects
    - **Empty output** — the command always produces nothing (a likely bug)
-   - **Annotation failure** — a user annotation (`@assert`, `@output`) is
-     violated
+    - **Annotation failure** — a user annotation (`@assert_output`, `@assert_input`, `@assert_*_contains`) is violated
 6. Passes the new stream type to the next command
 
 Each violation carries a counterexample — a concrete string that triggers the
@@ -128,20 +127,34 @@ and template holes (for polymorphic types).
 
 ### 11. User Annotations
 
-**User annotations** are inline directives in shell script comments that can be
-attached to pipelines or individual commands. Parsed from `# @` comments:
+**User annotations** are inline directives in shell script comments attached to
+pipelines or individual commands. Parsed from `# @` comments in two forms:
+
+**Colon form** (unambiguous — the name/command is always on the left):
 
 | Directive | Syntax | Meaning |
 |---|---|---|
-| **Assume** | `# @assume "invocation" --> "regex"` | Treat this command as producing exactly this type |
-| **Expect** | `# @expect "regex" --> "invocation"` | This command requires exactly this input type |
-| **Assert** | `# @assert "invocation" --> "regex"` | Verify that this command's output conforms to this type |
-| **Assert Contains** | `# @assert_contains "invocation" --> "regex"` | Verify that the command's input contains strings matching this type |
-| **Input** | `# @input "regex"` | Declare the pipeline's expected input type |
-| **Output** | `# @output "regex"` | Assert the pipeline's output conforms to this type |
-| **Output Contains** | `# @output_contains "regex"` | Verify that the pipeline's output contains strings matching this type |
-| **File / Var** | `# @file "$v" : "regex"` / `# @var "$v" : "regex"` | Declare the type of a file operand or shell variable |
-| **Concretize** | `# @concretize "varname" --> "path"` | Snapshot a file's contents into a type at check time |
+| **Assume Input** | `# @assume_input <command> : <regex>` | Trust that the command's input matches this type |
+| **Assume Output** | `# @assume_output <command> : <regex>` | Trust that the command's output matches this type |
+| **Assert Input** | `# @assert_input <command> : <regex>` | Verify the command's input is a subset of this type |
+| **Assert Output** | `# @assert_output <command> : <regex>` | Verify the command's output is a subset of this type |
+| **Assert Input Contains** | `# @assert_input_contains <command> : <regex>` | Verify the command's input contains strings matching this type |
+| **Assert Output Contains** | `# @assert_output_contains <command> : <regex>` | Verify the command's output contains strings matching this type |
+| **File** | `# @file <name> : <regex>` | Declare the type of a file operand's contents |
+| **Var** | `# @var <name> : <regex>` | Declare the type of a shell variable's contents |
+| **Concretize** | `# @concretize <name> : <path>` | Snapshot a file at `path` into a type at check time |
+
+**Arrow form** (fallback — the parser disambiguates by matching one side against
+pipeline commands; silently skipped if ambiguous):
+
+| Directive | Syntax | Resolves to |
+|---|---|---|
+| **Assume** | `# @assume <command> -> <regex>` | `@assume_output` |
+| | `# @assume <regex> -> <command>` | `@assume_input` |
+| **Assert** | `# @assert <command> -> <regex>` | `@assert_output` |
+| | `# @assert <regex> -> <command>` | `@assert_input` |
+| **Assert Contains** | `# @assert_contains <command> -> <regex>` | `@assert_output_contains` |
+| | `# @assert_contains <regex> -> <command>` | `@assert_input_contains` |
 
 ### 12. Automaton Engine
 

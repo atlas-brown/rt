@@ -57,9 +57,9 @@ counterexample: a concrete string that triggers the mismatch.
   guide the checker or verify properties:
 
   ```sh
-  # @assume "gen_books.sh" --> "^[A-Z][a-z]+ [0-9]+$"
+  # @assume "gen_books.sh" -> "^[A-Z][a-z]+ [0-9]+$"
   gen_books.sh |
-  # @expect "[0-9]+" --> "grep -E '^[0-9]-[0-9]+-[0-9]+-[0-9A-Z]$'"
+  # @assert "[0-9]+" -> "grep -E '^[0-9]-[0-9]+-[0-9]+-[0-9A-Z]$'"
   grep -E '^[0-9]-[0-9]+-[0-9]+-[0-9A-Z]$'
   ```
 
@@ -70,36 +70,116 @@ counterexample: a concrete string that triggers the mismatch.
 
 ## User annotations
 
-Annotations are shell comments placed on the line immediately above a pipeline
-or command. They start with `# @` followed by a keyword and quoted arguments.
-The `command` field in command-level annotations must be the full invocation
-including all flags and arguments (e.g. `"grep -E 'pattern'"`, not just
-`"grep"`).
+Annotations are shell comments placed on lines above a pipeline. They start
+with `# @` followed by a keyword and arguments:
+
+```shell
+# @assume_output some_command : [a-z0-9]+
+# Or:
+# @assume some_command -> [a-z0-9]+
+```
+
+Arguments can be quoted (single or double quotes), or unquoted (must not
+contain whitespace). Quotes are stripped from the value. The command field
+must be the full invocation including all flags and arguments (e.g.,
+`"grep -E 'pattern'"`, not just `"grep"`).
+
+Annotations are scanned upwards from the pipeline, skipping blank lines
+and non-annotation comments, until a non-comment, non-empty line is reached.
+Annotations are stored in top-to-bottom order; later annotations overwrite
+earlier ones when they conflict.
 
 ### Command-level annotations
 
 | Annotation | Syntax | Description |
 |---|---|---|
-| `@assume` | `# @assume "invocation" --> "regex"` | Declare that the command's output matches the regex |
-| `@expect` | `# @expect "regex" --> "invocation"` | Declare the expected input type for a command (stored, not yet verified) |
-| `@assert` | `# @assert "invocation" --> "regex"` | Assert that a command's output conforms to the regex |
-| `@assert_contains` | `# @assert_contains "invocation" --> "regex"` | Assert that a command's input contains strings matching the regex |
+| `@assume_input` | `# @assume_input <command> : <regex>` | Declare the command's input type |
+| `@assume_output` | `# @assume_output <command> : <regex>` | Declare the command's output type |
+| `@assert_input` | `# @assert_input <command> : <regex>` | Verify the command's input is a subset of the regex |
+| `@assert_output` | `# @assert_output <command> : <regex>` | Verify the command's output is a subset of the regex |
+| `@assert_input_contains` | `# @assert_input_contains <command> : <regex>` | Verify the command's input contains strings matching the regex (i.e., is a subset) |
+| `@assert_output_contains` | `# @assert_output_contains <command> : <regex>` | Verify the command's output contains strings matching the regex (i.e., is a subset) |
 
-### Pipeline-level annotations
+#### Concise syntax
 
-| Annotation | Syntax | Description |
-|---|---|---|
-| `@input` | `# @input "regex"` | Declare the expected input type for the entire pipeline |
-| `@output` | `# @output "regex"` | Assert the pipeline's output conforms to the regex |
-| `@output_contains` | `# @output_contains "regex"` | Assert the pipeline's output contains strings matching the regex |
+Some annotations can be written using the more concise arrow syntax seen below:
+
+| Annotation | Resolves to |
+|---|---|
+| `@assume <command> -> <regex>` | `@assume_output` |
+| `@assume <regex> -> <command>` | `@assume_input` |
+| `@assert <command> -> <regex>` | `@assert_output` |
+| `@assert <regex> -> <command>` | `@assert_input` |
+| `@assert_contains <command> -> <regex>` | `@assert_output_contains` |
+| `@assert_contains <regex> -> <command>` | `@assert_input_contains` |
+
+If both sides match a command, or neither does, the annotation is ignored because it is ambiguous (which side is the command and which the regex?). In such cases the colon syntax should be used.
 
 ### Environment annotations
 
 | Annotation | Syntax | Description |
 |---|---|---|
-| `@file` | `# @file "$varname" : "regex"` | Declare the type of a file operand's content |
-| `@var` | `# @var "$varname" : "regex"` | Declare the type of a non-file shell variable |
-| `@concretize` | `# @concretize "varname" --> "path"` | Concretize a file variable by reading its content from `path` |
+| `@var` | `# @var <name> : <regex>` | Declare the type of a shell variable's contents |
+| `@file` | `# @file <name> : <regex>` | Declare the type of a file operand's contents |
+| `@concretize` | `# @concretize <name> : <path>` | Read a file at `path` and use its contents as the type of `name` |
+
+### Examples
+
+**Declaring unknown types.** Use `@assume_output` when you know exactly what a
+command produces but the checker can't infer it:
+
+```sh
+# @assume_output "gen_books.sh" : "^[A-Z][a-z]+ [0-9]+$"
+gen_books.sh | wc -l
+```
+
+**Verifying properties.** Use `@assert_output` to catch unexpected results:
+
+```sh
+# @assert_output "grep foo" : "[a-z]+"
+cat data.txt | grep foo
+```
+
+If `grep foo` could produce digits or spaces, the checker reports a
+counterexample.
+
+**Describing variable contents.** Use `@var` when a shell variable holds a known
+type. The checker substitutes the declared pattern into the command's argument
+pattern:
+
+```sh
+# @var GREP_FILTER : "[0-9]+"
+cat data.txt | grep -E "$GREP_FILTER"
+```
+
+**Snapshotting a file's shape.** Use `@concretize` to derive a type from an
+actual file on disk:
+
+```sh
+# @concretize F : /path/to/example.txt
+cat /path/to/example.txt | sort
+```
+
+At check time, the checker reads `/path/to/example.txt`, and uses the result as the type for `F`.
+If the path cannot be resolved, the annotation is simply ignored.
+
+**Using the arrow shorthand.** The arrow form is equivalent when unambiguous:
+
+```sh
+# These two are equivalent:
+# @assume_output "gen_books.sh" : "[0-9]+"
+# @assume "gen_books.sh" -> "[0-9]+"
+gen_books.sh | wc -l
+
+# Input assertions reverse the arrow direction:
+# @assert_input "grep foo" : "[0-9]+"
+# @assert "[0-9]+" -> "grep foo"
+cat data.txt | grep foo
+```
+
+Arrow annotations are skipped if the parser cannot determine which side is the
+command (i.e., when neither or both sides match pipeline commands). Use the colon
+form to avoid ambiguity.
 
 ## Installation
 
