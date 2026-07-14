@@ -107,7 +107,7 @@ class RuleResolver(TypeResolver):
     ) -> CommandType:
         annotations = annotations or []
 
-        for annotation in annotations:
+        for annotation in reversed(annotations):
             if annotation.kind == CommandAnnotationKind.ASSUME_OUTPUT:
                 input_st = (
                     StreamType.from_pattern(self._input)
