@@ -79,13 +79,23 @@ class CutResolver(RuleResolver):
             {fo.get_name() for fo in invocation.flag_option_list}
         )
 
+    def _annotated_content_type(
+        self, operand_index: int, env: dict | None
+    ) -> StreamType | None:
+        if env is None:
+            return None
+        transform = env.get(f"@${operand_index + 1}")
+        if transform is not None:
+            return transform.apply(StreamType.from_pattern(".*"), {})
+        return None
+
     def resolve(
         self, invocation, user_annotations=None, env=None, heuristic_rules=None
     ):
         source = Input()
         if len(invocation.operand_list) > 0:
             file_name = invocation.operand_list[0].name
-            annotated = self._annotated_content_type(file_name, env)
+            annotated = self._annotated_content_type(0, env)
             if annotated is None:
                 annotated = StreamType.from_pattern(".*")
             source = Constant(annotated)
