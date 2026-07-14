@@ -61,17 +61,14 @@ def resolve_annotation_pattern(
 
     Uses the same resolution path as YAML output expressions.  If the pattern
     is a plain regex it is compiled directly; if it is a ``{{hole}}`` reference
-    the corresponding env transform is evaluated.
-
-    .. note::
-        Mixed patterns like ``prefix{{input}}suffix`` produce a ``Regex``
-        transform whose AST may contain holes.  When StreamTypeTemplate is
-        wired up the call to ``StreamType.from_regex`` below will be replaced
-        with ``StreamTypeTemplate.from_regex(…).instantiate(input)`` so that
-        those holes are properly resolved.
+    the corresponding env transform is evaluated.  Mixed patterns like
+    ``prefix{{input}}suffix`` are resolved via ``StreamTypeTemplate`` using the
+    hole mapping derived from ``env``.
     """
     transform = _parse_transform_expression(pattern, env)
-    return transform.apply(input or StreamType.from_pattern(".*"), {})
+    input_st = input or StreamType.from_pattern(".*")
+    holes = {k: t.apply(input_st, {}) for k, t in env.items()}
+    return transform.apply(input_st, holes)
 
 
 def build_command_env(

@@ -1,9 +1,3 @@
-# TODO(deferred): Implement hole mapping provider for StreamTypeTemplate.instantiate().
-# During type checking, the checker must build a Mapping[str, Automaton] that maps
-# each predefined hole name (corresponding to command input, positional arguments,
-# and option arguments) to its inferred automaton. This mapping is then passed to
-# StreamTypeTemplate.from_regex() and used during instantiation.
-
 from abc import ABC
 from collections.abc import Iterator, Mapping, Sequence
 from dataclasses import dataclass

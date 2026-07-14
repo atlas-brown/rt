@@ -318,3 +318,15 @@ class TestResolveAnnotationPattern:
         result = resolve_annotation_pattern("{{input}}", env)
         # No input provided, so defaults to ".*"
         assert isinstance(result, StreamType)
+
+    def test_mixed_pattern_input_hole_is_resolved(self):
+        env = {"input": Input()}
+        inp = StreamType.from_pattern("[a-z]+")
+        result = resolve_annotation_pattern("prefix{{input}}suffix", env, input=inp)
+        assert isinstance(result, StreamType)
+
+    def test_mixed_pattern_dollar_n_hole_is_resolved(self):
+        literal_type = StreamType.from_pattern("hello")
+        env = {"input": Input(), "$1": Constant(literal_type)}
+        result = resolve_annotation_pattern("[{{$1}}]+", env)
+        assert isinstance(result, StreamType)

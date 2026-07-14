@@ -20,6 +20,8 @@ class Regex(ABC):
         pass
 
     def has_child_of_type(self, t: type["Regex"]) -> bool:
+        if isinstance(self, t):
+            return True
         for field in fields(self):
             value = getattr(self, field.name)
 
