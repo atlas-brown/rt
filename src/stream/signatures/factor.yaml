@@ -1,7 +1,0 @@
-command_name: factor
-default_input_type: .*
-default_output_type: .*
-args: []
-flags: []
-rules: []
-isInteresting: true

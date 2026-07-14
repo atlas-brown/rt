@@ -1,7 +1,0 @@
-command_name: xargs_curl
-default_input_type: (.+[.].+)|(localhost(:[0-9]+)?)|([$][{][A-Za-z_][A-Za-z0-9_]*[}].+)
-default_output_type: .*
-args: []
-flags: []
-rules: []
-isInteresting: true

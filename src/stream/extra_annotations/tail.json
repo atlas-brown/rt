@@ -1,1 +1,0 @@
-{"flag": [["-q", "--quiet", "--silent"], ["-v", "--verbose"], ["-z", "--zero-terminated"], ["-f"], ["--help"], ["--version"]], "option": [["-c", "--bytes", "NUM"], ["-n", "--lines", "NUM"]]}

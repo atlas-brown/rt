@@ -1,7 +1,0 @@
-command_name: xargs_expr
-default_input_type: '[-+]?[0-9]+'
-default_output_type: -?[0-9]+
-args: []
-flags: []
-rules: []
-isInteresting: true

@@ -1,7 +1,0 @@
-command_name: nl
-default_input_type: .*
-default_output_type: ( )+[0-9]+( )+.*
-args: []
-flags: []
-rules: []
-isInteresting: true
