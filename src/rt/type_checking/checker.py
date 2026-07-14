@@ -58,17 +58,23 @@ def type_check(
     for i, (inv, anns) in enumerate(pipeline.commands):
         cmd_type = types.get_type(inv, anns, pipeline.env)
 
+        assert_input = None
+        for a in anns:
+            if a.kind == CommandAnnotationKind.ASSERT_INPUT:
+                assert_input = StreamType.from_pattern(a.regex)
+
         skip_input_check = any(
             a.kind == CommandAnnotationKind.ASSUME_INPUT for a in anns
         )
 
-        if cmd_type.accepted_input is not None and not skip_input_check:
-            is_subtype, witness = input.is_subtype(cmd_type.accepted_input, True)
+        accepted = assert_input if assert_input is not None else cmd_type.accepted_input
+        if accepted is not None and not skip_input_check:
+            is_subtype, witness = input.is_subtype(accepted, True)
             if not is_subtype:
                 yield InputMismatchError(
                     cmd_idx=i,
                     actual=input,
-                    expected=cmd_type.accepted_input,
+                    expected=accepted,
                     witness=witness,
                 )
 
@@ -105,12 +111,29 @@ def type_check(
 
         if not skip_remaining_checks:
             for ann in anns:
-                if ann.kind in (
-                    CommandAnnotationKind.ASSERT,
-                    CommandAnnotationKind.OUTPUT,
-                ):
+                if ann.kind == CommandAnnotationKind.ASSERT_OUTPUT:
                     asserted = StreamType.from_pattern(ann.regex)
                     is_ok, witness = output.is_subtype(asserted, True)
+                    if not is_ok:
+                        yield AssertionViolationError(
+                            cmd_idx=i,
+                            output=output,
+                            asserted=ann.regex,
+                            witness=witness,
+                        )
+                elif ann.kind == CommandAnnotationKind.ASSERT_INPUT_CONTAINS:
+                    asserted = StreamType.from_pattern(ann.regex)
+                    is_ok, witness = asserted.is_subtype(input, True)
+                    if not is_ok:
+                        yield AssertionViolationError(
+                            cmd_idx=i,
+                            output=input,
+                            asserted=ann.regex,
+                            witness=witness,
+                        )
+                elif ann.kind == CommandAnnotationKind.ASSERT_OUTPUT_CONTAINS:
+                    asserted = StreamType.from_pattern(ann.regex)
+                    is_ok, witness = asserted.is_subtype(output, True)
                     if not is_ok:
                         yield AssertionViolationError(
                             cmd_idx=i,
