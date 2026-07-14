@@ -11,9 +11,11 @@ import yaml
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
 from rt.regular_types.command_type import CommandType
-from rt.regular_types.database.resolver import RuleResolver, TypeResolver, build_env
-from rt.regular_types.stream_transform import Constant, StreamTransform
-from rt.regular_types.stream_type import StreamType
+from rt.regular_types.database.resolver import (
+    RuleResolver,
+    TypeResolver,
+    build_command_env,
+)
 from rt.type_checking.annotations import (
     CommandAnnotation,
     EnvAnnotation,
@@ -39,9 +41,7 @@ def get_type(
     if resolver is None:
         resolver = RuleResolver()
 
-    env = build_env(invocation)
-    if env_annotations:
-        env = _enrich_env(env, invocation, env_annotations)
+    env = build_command_env(invocation, env_annotations)
 
     return resolver.resolve(
         invocation,
@@ -236,28 +236,6 @@ def _extract_xargs_subcommand(invocation: CommandInvocationInitial) -> str | Non
 # ---------------------------------------------------------------------------
 
 
-def _enrich_env(
-    env: MutableMapping[str, StreamTransform],
-    invocation: CommandInvocationInitial,
-    env_annotations: Mapping[str, Sequence[EnvAnnotation]],
-) -> dict[str, StreamTransform]:
-    for i, op in enumerate(invocation.operand_list, 1):
-        for annot in env_annotations.get(op.name, []):
-            if annot.kind in {EnvAnnotationKind.FILE, EnvAnnotationKind.CONCRETIZE}:
-                env[f"@${i}"] = Constant(StreamType.from_pattern(annot.regex))
-    for name, anns in env_annotations.items():
-        for ann in anns:
-            if ann.kind == EnvAnnotationKind.VAR:
-                # The var: prefix avoids collisions with built-in env keys
-                # (input, $1, @$1, d$@, …) and signals provenance so resolvers
-                # can distinguish @var-injected entries from other constants.
-                env[f"var:{name}"] = Constant(
-                    StreamType(
-                        automaton=StreamType.from_pattern(ann.regex).automaton,
-                        regex=ann.regex,
-                    )
-                )
-    return dict(env)
 
 
 # ---------------------------------------------------------------------------

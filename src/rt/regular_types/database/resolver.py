@@ -1,6 +1,6 @@
 import re
 from abc import ABC, abstractmethod
-from collections.abc import Mapping, Sequence
+from collections.abc import Mapping, MutableMapping, Sequence
 
 from pash_annotations.datatypes.CommandInvocationInitial import CommandInvocationInitial
 
@@ -8,7 +8,7 @@ from rt.regex import parse_regex
 from rt.regular_types.command_type import CommandType
 from rt.regular_types.stream_transform import Constant, Input, Regex, StreamTransform
 from rt.regular_types.stream_type import StreamType
-from rt.type_checking.annotations import CommandAnnotation, CommandAnnotationKind
+from rt.type_checking.annotations import CommandAnnotation, CommandAnnotationKind, EnvAnnotation
 
 
 class TypeResolver(ABC):
@@ -52,6 +52,38 @@ def _parse_transform_expression(
     return Regex(parse_regex(stripped))
 
 
+def resolve_annotation_pattern(
+    pattern: str,
+    env: Mapping[str, StreamTransform],
+    input: StreamType | None = None,
+) -> StreamType:
+    """Resolve an annotation regex that may contain ``{{hole}}`` references.
+
+    Uses the same resolution path as YAML output expressions.  If the pattern
+    is a plain regex it is compiled directly; if it is a ``{{hole}}`` reference
+    the corresponding env transform is evaluated.
+
+    .. note::
+        Mixed patterns like ``prefix{{input}}suffix`` produce a ``Regex``
+        transform whose AST may contain holes.  When StreamTypeTemplate is
+        wired up the call to ``StreamType.from_regex`` below will be replaced
+        with ``StreamTypeTemplate.from_regex(…).instantiate(input)`` so that
+        those holes are properly resolved.
+    """
+    transform = _parse_transform_expression(pattern, env)
+    return transform.apply(input or StreamType.from_pattern(".*"), {})
+
+
+def build_command_env(
+    invocation: CommandInvocationInitial,
+    env_annotations: Mapping[str, Sequence[EnvAnnotation]] | None = None,
+) -> dict[str, StreamTransform]:
+    env = build_env(invocation)
+    if env_annotations:
+        env = _enrich_env(env, invocation, env_annotations)
+    return env
+
+
 def build_env(invocation: CommandInvocationInitial) -> dict[str, StreamTransform]:
     env: dict[str, StreamTransform] = {"input": Input()}
     operands = [op.name for op in invocation.operand_list]
@@ -87,6 +119,27 @@ def build_env(invocation: CommandInvocationInitial) -> dict[str, StreamTransform
     return env
 
 
+def _enrich_env(
+    env: MutableMapping[str, StreamTransform],
+    invocation: CommandInvocationInitial,
+    env_annotations: Mapping[str, Sequence[EnvAnnotation]],
+) -> dict[str, StreamTransform]:
+    for i, op in enumerate(invocation.operand_list, 1):
+        for annot in env_annotations.get(op.name, []):
+            if annot.kind in {EnvAnnotationKind.FILE, EnvAnnotationKind.CONCRETIZE}:
+                env[f"@${i}"] = Constant(StreamType.from_pattern(annot.regex))
+    for name, anns in env_annotations.items():
+        for ann in anns:
+            if ann.kind == EnvAnnotationKind.VAR:
+                env[f"var:{name}"] = Constant(
+                    StreamType(
+                        automaton=StreamType.from_pattern(ann.regex).automaton,
+                        regex=ann.regex,
+                    )
+                )
+    return dict(env)
+
+
 class RuleResolver(TypeResolver):
     def __init__(
         self,
@@ -114,10 +167,8 @@ class RuleResolver(TypeResolver):
                     if self._input
                     else StreamType.from_pattern("")
                 )
-                return CommandType.simple(
-                    input_st,
-                    StreamType.from_pattern(annotation.regex),
-                )
+                transform = _parse_transform_expression(annotation.regex, env)
+                return CommandType(input_st, transform)
 
         flags = {fo.get_name() for fo in invocation.flag_option_list}
         input_pat, output_pat = self._match_when(flags)
