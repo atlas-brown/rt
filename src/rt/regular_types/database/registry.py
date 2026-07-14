@@ -1,6 +1,8 @@
 import importlib
 import importlib.resources
+import json
 import pkgutil
+import re
 import sys
 from collections.abc import Mapping, MutableMapping, Sequence
 from pathlib import Path
@@ -259,3 +261,72 @@ def _resolver_to_yaml_data(resolver: RuleResolver) -> dict:
     if resolver._when:
         data["when"] = resolver._when
     return data
+
+
+# ---------------------------------------------------------------------------
+# Type alias management
+# ---------------------------------------------------------------------------
+
+_BUILTIN_TYPE_ALIASES: dict[str, str] = {
+    "filename": r"[^/\n]+",
+    "mask": r"[rwx-]{9}",
+    "base64": r"(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?",
+    "integer": r"-?[0-9]+",
+    "float": r"-?(?:[0-9]+\.[0-9]*|\.[0-9]+)",
+    "md5": r"[A-Fa-f0-9]{32}",
+    "sha128": r"[A-Fa-f0-9]{32}",
+    "sha256": r"[A-Fa-f0-9]{64}",
+    "number": r"-?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)",
+    "day-of-the-week": r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|Mon|Tue|Wed|Thu|Fri|Sat|Sun)",
+    "month": r"(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)",
+    "hh:mm:ss": r"(?:[01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]",
+    "year": r"[0-9]{4}",
+    "username": r"[a-z_][a-z0-9_-]*",
+    "hh:mm": r"(?:[01][0-9]|2[0-3]):[0-5][0-9]",
+    "absolute-path": r"/.*",
+    "ip-address": r"(?:[0-9]{1,3}\.){3}[0-9]{1,3}",
+}
+
+
+def _alias_file() -> Path | None:
+    d = _user_basic_dir()
+    if d is None:
+        return None
+    return d / "aliases.json"
+
+
+def _load_aliases() -> dict[str, str]:
+    path = _alias_file()
+    if path is None or not path.exists():
+        return {}
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def save_alias(name: str, expression: str) -> None:
+    aliases = _load_aliases()
+    aliases[name] = expression
+    path = _alias_file()
+    if path is not None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w") as f:
+            json.dump(aliases, f, indent=4)
+
+
+def get_type_name(type_exp: str) -> str | None:
+    match = re.fullmatch(r"\[\[:([A-Za-z0-9_-]+):\]\]", type_exp)
+    if match:
+        return match.group(1)
+    return None
+
+
+def resolve_type_from_name(type_name: str) -> str | None:
+    if type_name in _BUILTIN_TYPE_ALIASES:
+        return _BUILTIN_TYPE_ALIASES[type_name]
+    aliases = _load_aliases()
+    if type_name in aliases:
+        return aliases[type_name]
+    return None
