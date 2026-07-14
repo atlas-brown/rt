@@ -52,6 +52,28 @@ def _parse_transform_expression(
     return Regex(parse_regex(stripped))
 
 
+def _substitute_shell_vars(
+    operand: str, env: Mapping[str, StreamTransform]
+) -> str:
+    """Replace ``$NAME`` and ``${{NAME}}`` tokens in *operand* with their
+    ``@var``-declared regex pattern, falling back to ``[^\\n]*`` (wildcard)
+    when the variable is undeclared."""
+    _SHELL_VAR = re.compile(r"\$\{[^}]+\}|\$[a-zA-Z_][a-zA-Z0-9_]*")
+
+    def _replacer(match: re.Match[str]) -> str:
+        token = match.group(0)
+        if token.startswith("${"):
+            bare = token[2:-1]
+        else:
+            bare = token[1:]
+        entry = env.get(f"var:{bare}")
+        if isinstance(entry, Constant) and entry.output.regex is not None:
+            return entry.output.regex
+        return "[^\n]*"
+
+    return _SHELL_VAR.sub(_replacer, operand)
+
+
 def resolve_annotation_pattern(
     pattern: str,
     env: Mapping[str, StreamTransform],

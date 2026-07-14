@@ -1,26 +1,12 @@
 import re
 
 from rt.regular_types.command_type import CommandType
-from rt.regular_types.database.resolver import RuleResolver
-from rt.regular_types.stream_transform import Constant, StreamTransform
+from rt.regular_types.database.resolver import RuleResolver, _substitute_shell_vars
+from rt.regular_types.stream_transform import Constant
 from rt.regular_types.stream_type import StreamType
 
 
 class EchoResolver(RuleResolver):
-
-    @staticmethod
-    def _variable_pattern(token: str, env) -> str:
-        candidate_keys = [token]
-        if token.startswith("${") and token.endswith("}"):
-            candidate_keys.append(token[2:-1])
-        elif token.startswith("$") and len(token) > 1:
-            candidate_keys.append(token[1:])
-
-        for key in candidate_keys:
-            entry = env.get(f"var:{key}")
-            if isinstance(entry, Constant) and entry.output.regex is not None:
-                return entry.output.regex
-        return "[^\n]*"
 
     def resolve(
         self, invocation, user_annotations=None, env=None, heuristic_rules=None
@@ -44,7 +30,7 @@ class EchoResolver(RuleResolver):
                 if literal_part:
                     pattern_parts.append(re.escape(literal_part))
                 var_name = var_match.group(1)
-                replacement = self._variable_pattern(var_name, env)
+                replacement = _substitute_shell_vars(var_name, env)
                 self_contained = False
                 pattern_parts.append(replacement)
                 last_end = var_match.end()

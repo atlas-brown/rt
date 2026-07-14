@@ -6,6 +6,7 @@ from rt.regular_types.command_type import CommandType
 from rt.regular_types.database.resolver import (
     RuleResolver,
     _parse_transform_expression,
+    _substitute_shell_vars,
     build_env,
     resolve_annotation_pattern,
 )
@@ -330,3 +331,55 @@ class TestResolveAnnotationPattern:
         env = {"input": Input(), "$1": Constant(literal_type)}
         result = resolve_annotation_pattern("[{{$1}}]+", env)
         assert isinstance(result, StreamType)
+
+
+class TestSubstituteShellVars:
+    @staticmethod
+    def _var_st(pattern: str) -> Constant:
+        st = StreamType(
+            automaton=StreamType.from_pattern(pattern).automaton,
+            regex=pattern,
+        )
+        return Constant(st)
+
+    def test_dollar_var_resolved(self):
+        env = {"var:HOME": self._var_st("[a-z]+")}
+        result = _substitute_shell_vars("$HOME", env)
+        assert result == "[a-z]+"
+
+    def test_braced_var_resolved(self):
+        env = {"var:HOME": self._var_st("[a-z]+")}
+        result = _substitute_shell_vars("${HOME}", env)
+        assert result == "[a-z]+"
+
+    def test_unknown_var_returns_wildcard(self):
+        result = _substitute_shell_vars("$UNKNOWN", {})
+        assert result == "[^\n]*"
+
+    def test_mixed_literal_and_var(self):
+        env = {"var:NAME": self._var_st("[A-Z]+")}
+        result = _substitute_shell_vars("Hello $NAME", env)
+        assert result == "Hello [A-Z]+"
+
+    def test_multiple_vars(self):
+        env = {
+            "var:A": self._var_st("[0-9]"),
+            "var:B": self._var_st("[a-z]"),
+        }
+        result = _substitute_shell_vars("$A-$B", env)
+        assert result == "[0-9]-[a-z]"
+
+    def test_no_vars_returns_unchanged(self):
+        result = _substitute_shell_vars("literal", {})
+        assert result == "literal"
+
+    def test_entry_not_constant_returns_wildcard(self):
+        env = {"var:X": Input()}
+        result = _substitute_shell_vars("$X", env)
+        assert result == "[^\n]*"
+
+    def test_entry_with_none_regex_returns_wildcard(self):
+        st = StreamType(automaton=StreamType.from_pattern(".*").automaton, regex=None)
+        env = {"var:X": Constant(st)}
+        result = _substitute_shell_vars("$X", env)
+        assert result == "[^\n]*"
