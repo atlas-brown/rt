@@ -2,9 +2,8 @@ import re
 
 from rt.regular_types.command_type import CommandType
 from rt.regular_types.database.resolver import RuleResolver
-from rt.regular_types.stream_transform import Constant
+from rt.regular_types.stream_transform import Constant, StreamTransform
 from rt.regular_types.stream_type import StreamType
-from rt.type_checking.annotations import EnvAnnotationKind
 
 
 class EchoResolver(RuleResolver):
@@ -13,15 +12,14 @@ class EchoResolver(RuleResolver):
     def _variable_pattern(token: str, env) -> str:
         candidate_keys = [token]
         if token.startswith("${") and token.endswith("}"):
-            candidate_keys.append(f"${token[2:-1]}")
+            candidate_keys.append(token[2:-1])
         elif token.startswith("$") and len(token) > 1:
-            candidate_keys.append("${" + token[1:] + "}")
+            candidate_keys.append(token[1:])
 
-        annotations = env.get("__annotations__", {})
         for key in candidate_keys:
-            for annot in annotations.get(key, []):
-                if annot.kind == EnvAnnotationKind.VAR:
-                    return annot.regex
+            entry = env.get(f"var:{key}")
+            if isinstance(entry, Constant) and entry.output.regex is not None:
+                return entry.output.regex
         return "[^\n]*"
 
     def resolve(

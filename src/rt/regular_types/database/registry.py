@@ -245,6 +245,18 @@ def _enrich_env(
         for annot in env_annotations.get(op.name, []):
             if annot.kind in {EnvAnnotationKind.FILE, EnvAnnotationKind.CONCRETIZE}:
                 env[f"@${i}"] = Constant(StreamType.from_pattern(annot.regex))
+    for name, anns in env_annotations.items():
+        for ann in anns:
+            if ann.kind == EnvAnnotationKind.VAR:
+                # The var: prefix avoids collisions with built-in env keys
+                # (input, $1, @$1, d$@, …) and signals provenance so resolvers
+                # can distinguish @var-injected entries from other constants.
+                env[f"var:{name}"] = Constant(
+                    StreamType(
+                        automaton=StreamType.from_pattern(ann.regex).automaton,
+                        regex=ann.regex,
+                    )
+                )
     return dict(env)
 
 
