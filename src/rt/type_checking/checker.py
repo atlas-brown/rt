@@ -13,7 +13,6 @@ from rt.regular_types.stream_type import StreamType
 from rt.shell.parser import Pipeline
 from rt.type_checking.annotations import (
     CommandAnnotationKind,
-    EnvAnnotationKind,
 )
 from rt.type_checking.heuristics import CommandPosition, Context, Heuristic
 
@@ -143,34 +142,3 @@ def type_check(
                         )
 
         input = output
-
-    yield from _check_output_contains(pipeline, input)
-
-
-def _resolve_input(pipeline: Pipeline) -> StreamType:
-    if pipeline.commands:
-        _, anns = pipeline.commands[0]
-        for ann in anns:
-            if ann.kind == CommandAnnotationKind.INPUT:
-                return StreamType.from_pattern(ann.regex)
-    return StreamType.from_pattern(".*")
-
-
-def _check_output_contains(
-    pipeline: Pipeline, output: StreamType
-) -> Iterator[TypeCheckError]:
-    # __stdout__ is a sentinel key used by the shell parser (parser.py) to group
-    # OUTPUT_CONTAINS env annotations. The parser stores these under this key because
-    # they apply to the pipeline's output stream rather than a specific variable.
-    annotations = pipeline.env.get("__stdout__", [])
-    for ann in annotations:
-        if ann.kind == EnvAnnotationKind.OUTPUT_CONTAINS:
-            asserted = StreamType.from_pattern(ann.regex)
-            is_ok, _ = asserted.is_subtype(output, True)
-            if not is_ok:
-                yield AssertionViolationError(
-                    cmd_idx=len(pipeline.commands) - 1,
-                    output=output,
-                    asserted=ann.regex,
-                    witness="",
-                )
