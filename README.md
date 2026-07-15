@@ -1,6 +1,6 @@
 # Rt: An overlay type system for shell pipelines
 
-Jump to: [How it works](#how-it-works) | [Features](#features) | [User annotations](#user-annotations) | [Installation](#installation) | [Usage](#usage) | [Documentation](#documentation) | [Citing](#citing) | [Contributing](#contributing)
+Jump to: [How it works](#how-it-works) | [Features](#features) | [Annotations](#annotations) | [Installation](#installation) | [Usage](#usage) | [Documentation](#documentation) | [Citing](#citing) | [Contributing](#contributing)
 
 Rt catches data incompatibilities in shell pipelines before they run. Give it a
 shell program and it tells you when one command produces data the next command
@@ -68,52 +68,52 @@ counterexample: a concrete string that triggers the mismatch.
 - **Interactive type inspection.** Use `rti` to query the type of any command
   invocation.
 
-## User annotations
+## Annotations
 
-Annotations are shell comments placed on lines above a pipeline. They start
-with `# @` followed by a keyword and arguments:
+Annotations are user-provided type hints. They are shell comments placed on lines above a pipeline. They start
+with `@` followed by a keyword and arguments:
 
 ```shell
-# @assume_output some_command : [a-z0-9]+
+# @assume_output some_invocation : [a-z0-9]+
 # Or:
-# @assume some_command -> [a-z0-9]+
+# @assume some_invocation -> [a-z0-9]+
 ```
 
 Arguments can be quoted (single or double quotes), or unquoted (must not
-contain whitespace). Quotes are stripped from the value. The command field
+contain whitespace). Quotes are stripped from the value. The invocation field
 must be the full invocation including all flags and arguments (e.g.,
 `"grep -E 'pattern'"`, not just `"grep"`).
 
-Annotations are scanned upwards from the pipeline, skipping blank lines
-and non-annotation comments, until a non-comment, non-empty line is reached.
-Annotations are stored in top-to-bottom order; later annotations overwrite
-earlier ones when they conflict.
+Each pipeline can contain arbitrarily many annotations.
+They can appear anywhere between two consecutive commands, even inbetween empty lines or other comments.
+When two or more annotations are conflicting (same kind of annotation about the same invocation),
+the one closest to the pipeline overwrites the rest.
 
-### Command-level annotations
+### Invocation-level annotations
 
 | Annotation | Syntax | Description |
 |---|---|---|
-| `@assume_input` | `# @assume_input <command> : <regex>` | Declare the command's input type |
-| `@assume_output` | `# @assume_output <command> : <regex>` | Declare the command's output type |
-| `@assert_input` | `# @assert_input <command> : <regex>` | Verify the command's input is a subset of the regex |
-| `@assert_output` | `# @assert_output <command> : <regex>` | Verify the command's output is a subset of the regex |
-| `@assert_input_contains` | `# @assert_input_contains <command> : <regex>` | Verify the command's input contains strings matching the regex (i.e., is a superset of the regex) |
-| `@assert_output_contains` | `# @assert_output_contains <command> : <regex>` | Verify the command's output contains strings matching the regex (i.e., is a superset of the regex) |
+| `@assume_input` | `# @assume_input <invocation> : <regex>` | Declare the invocation's input type |
+| `@assume_output` | `# @assume_output <invocation> : <regex>` | Declare the invocation's output type |
+| `@assert_input` | `# @assert_input <invocation> : <regex>` | Verify the invocation's input is a subset of the regex |
+| `@assert_output` | `# @assert_output <invocation> : <regex>` | Verify the invocation's output is a subset of the regex |
+| `@assert_input_contains` | `# @assert_input_contains <invocation> : <regex>` | Verify the invocation's input contains strings matching the regex (i.e., is a superset of the regex) |
+| `@assert_output_contains` | `# @assert_output_contains <invocation> : <regex>` | Verify the invocation's output contains strings matching the regex (i.e., is a superset of the regex) |
 
 #### Concise syntax
 
-Some annotations can be written using the more concise arrow syntax seen below:
+The above annotations can also be written using the more concise arrow syntax seen below:
 
-| Annotation | Resolves to |
+| Annotation | Equivalent to |
 |---|---|
-| `@assume <command> -> <regex>` | `@assume_output` |
-| `@assume <regex> -> <command>` | `@assume_input` |
-| `@assert <command> -> <regex>` | `@assert_output` |
-| `@assert <regex> -> <command>` | `@assert_input` |
-| `@assert_contains <command> -> <regex>` | `@assert_output_contains` |
-| `@assert_contains <regex> -> <command>` | `@assert_input_contains` |
+| `@assume <invocation> -> <regex>` | `@assume_output` |
+| `@assume <regex> -> <invocation>` | `@assume_input` |
+| `@assert <invocation> -> <regex>` | `@assert_output` |
+| `@assert <regex> -> <invocation>` | `@assert_input` |
+| `@assert_contains <invocation> -> <regex>` | `@assert_output_contains` |
+| `@assert_contains <regex> -> <invocation>` | `@assert_input_contains` |
 
-If both sides match a command, or neither does, the annotation is ignored because it is ambiguous (which side is the command and which the regex?). In such cases the colon syntax should be used.
+If both sides match an invocation, or neither does, the annotation is ignored because it is ambiguous (which side is the invocation and which the regex?). In such cases the colon syntax should be used.
 
 ### Environment annotations
 
@@ -125,8 +125,8 @@ If both sides match a command, or neither does, the annotation is ignored becaus
 
 ### Examples
 
-**Declaring unknown types.** Use `@assume_output` when you know exactly what a
-command produces but the checker can't infer it:
+**Declaring unknown types.** Use `@assume_output` when you know exactly what an
+invocation produces but the checker can't infer it:
 
 ```sh
 # @assume_output "gen_books.sh" : "^[A-Z][a-z]+ [0-9]+$"
@@ -144,7 +144,7 @@ If `grep foo` could produce digits or spaces, the checker reports a
 counterexample.
 
 **Describing variable contents.** Use `@var` when a shell variable holds a known
-type. The checker substitutes the declared pattern into the command's argument
+type. The checker substitutes the declared pattern into the invocation's argument
 pattern:
 
 ```sh
@@ -176,10 +176,6 @@ gen_books.sh | wc -l
 # @assert "[0-9]+" -> "grep foo"
 cat data.txt | grep foo
 ```
-
-Arrow annotations are skipped if the parser cannot determine which side is the
-command (i.e., when neither or both sides match pipeline commands). Use the colon
-form to avoid ambiguity.
 
 ## Installation
 
@@ -224,16 +220,16 @@ nothing is printed and the exit status is `0`.
 
 Output formats: `--compact` (single-line output) or `--json` (structured JSON).
 
-### `rti` -- inspect command types
+### `rti` -- inspect invocation types
 
 ```sh
-# Show the polymorphic type of a command
+# Show the polymorphic type of an invocation
 rti echo hello
 
-# Show the input-to-output type of a command
+# Show the input-to-output type of an invocation
 rti -i hello grep o
 
-# Register a custom type annotation for a command
+# Register a custom type annotation for an invocation
 rti --type '[0-9]+ -> [0-9]+' my_command --my-flag
 ```
 
