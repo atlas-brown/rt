@@ -65,11 +65,13 @@ class NoEmptyOutput(Heuristic):
 
     @staticmethod
     def output_override(ctx: Context) -> StreamType | None:
-        return StreamType.from_pattern(".*")
+        if NoEmptyOutput.is_violated(ctx):
+            return StreamType.from_pattern(".*")
+        return None
 
     @staticmethod
     def skip_remaining_checks(ctx: Context) -> bool:
-        return True
+        return NoEmptyOutput.is_violated(ctx)
 
 
 class NoIgnoredInput(Heuristic):
