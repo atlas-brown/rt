@@ -15,20 +15,6 @@ from rt.regular_types.stream_type import StreamType, _replace_posix_class
 
 class TrResolver(RuleResolver):
 
-    def _resolve_input_type(self, invocation, env, heuristic_rules=None):
-        input_type, no_input_type = self._match_input_type(
-            {fo.get_name() for fo in invocation.flag_option_list}
-        )
-        if "no_meaningless_command" not in heuristic_rules:
-            return input_type, no_input_type
-        set1 = invocation.operand_list[0].name
-        if set1 == "\\\\n" or set1 == "\\012" or set1 == "\\\\012":
-            return input_type, no_input_type
-
-        return input_type, StreamType(
-            automaton=StreamType.from_pattern(get_output_pattern(invocation)).automaton
-        )
-
     def resolve(
         self, invocation, user_annotations=None, env=None, heuristic_rules=None
     ):

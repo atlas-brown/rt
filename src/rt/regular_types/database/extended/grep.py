@@ -83,52 +83,6 @@ class GrepResolver(RuleResolver):
 
         return flags, flag_args, operands, has_double_dash
 
-    def _resolve_input_type(self, invocation, env, heuristic_rules=None):
-        input_type, no_input_type = self._match_input_type(
-            {fo.get_name() for fo in invocation.flag_option_list}
-        )
-        if "no_meaningless_command" not in heuristic_rules:
-            return input_type, no_input_type
-
-        parsed_flags, _, operands, has_double_dash = self._parsed_flags_and_operands(
-            invocation
-        )
-
-        if len(operands) > 1 or (len(operands) == 1 and "-e" in parsed_flags):
-            return StreamType.from_pattern(""), None
-
-        if "-e" in parsed_flags or "-c" in parsed_flags or "-f" in parsed_flags:
-            return input_type, no_input_type
-
-        if "-n" in parsed_flags:
-            return input_type, no_input_type
-        if not operands:
-            return input_type, no_input_type
-        if "-e" not in parsed_flags:
-            pattern = operands[0]
-            if pattern.startswith("-") and not has_double_dash:
-                raise ValueError("Pattern cannot start with '-'")
-            if self._contains_shell_expansion(pattern):
-                return input_type, None
-            pattern = pattern.replace("\\\\", "\\")
-            pattern = pattern.replace("\\\\|", "\\|")
-            if "-F" in parsed_flags:
-                pattern = re.escape(pattern)
-
-        no_input_type = StreamType.from_pattern(pattern)
-        original_pattern = pattern
-
-        if "-o" not in parsed_flags:
-            if not _has_start_anchor(original_pattern):
-                no_input_type = StreamType.from_pattern(".*").concatenate(no_input_type)
-            if not _has_end_anchor(original_pattern):
-                no_input_type = no_input_type.concatenate(StreamType.from_pattern(".*"))
-
-        if "-v" not in parsed_flags:
-            return input_type, no_input_type
-        else:
-            return input_type, no_input_type.complement()
-
     def resolve(
         self, invocation, user_annotations=None, env=None, heuristic_rules=None
     ):

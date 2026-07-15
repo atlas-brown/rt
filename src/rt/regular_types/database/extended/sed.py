@@ -227,40 +227,6 @@ def parse_sed_operand(operand: str) -> ParsedSedOperand:
 
 class SedResolver(RuleResolver):
 
-    def _resolve_input_type(self, invocation, env, heuristic_rules=None):
-        input_type, no_input_type = self._match_input_type(
-            {fo.get_name() for fo in invocation.flag_option_list}
-        )
-        if "no_meaningless_command" not in heuristic_rules:
-            return input_type, no_input_type
-
-        try:
-            operands = self._get_operands(invocation)
-            if len(operands) == 0:
-                raise ValueError("No operand provided for sed")
-            parsed_operand = parse_sed_operand(operands[0])
-            command = parsed_operand.primary_command
-            if not isinstance(command, SubstituteCommand):
-                return input_type, no_input_type
-            pattern = self._pattern_for_input_constraint(command)
-            if pattern is None:
-                return input_type, no_input_type
-            if command.has_backreference or command.has_basic_capture_group:
-                return input_type, None
-
-            no_input_type = (
-                StreamType.from_pattern(".*")
-                .concatenate(StreamType.from_pattern(pattern))
-                .concatenate(StreamType.from_pattern(".*"))
-                .complement()
-            )
-            no_input_type = StreamType(automaton=no_input_type.automaton)
-            return input_type, no_input_type
-        except Exception as error:
-            if isinstance(error, ValueError):
-                raise
-            return input_type, None
-
     def resolve(
         self, invocation, user_annotations=None, env=None, heuristic_rules=None
     ):
