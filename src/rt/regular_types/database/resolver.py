@@ -109,6 +109,8 @@ def build_env(invocation: CommandInvocationInitial) -> dict[str, StreamTransform
     for i, val in enumerate(operands, 1):
         env[f"${i}"] = Constant(StreamType.from_pattern(re.escape(val)))
         env[f"@${i}"] = Constant(StreamType.from_pattern(".*"))
+        # TODO: @@$i represents the full content type of every file in the
+        # directory pointed to by operand $i.  Implement lazily (as in, when it's actually needed by a command).
         env[f"@@${i}"] = Constant(StreamType.from_pattern(".*"))
     if operands:
         joined = " ".join(re.escape(op) for op in operands)
@@ -116,7 +118,7 @@ def build_env(invocation: CommandInvocationInitial) -> dict[str, StreamTransform
     else:
         env["$1"] = Constant(StreamType.from_pattern(".*"))
         env["@$1"] = Constant(StreamType.from_pattern(".*"))
-        env["@@$1"] = Constant(StreamType.from_pattern(".*"))
+        env["@@$1"] = Constant(StreamType.from_pattern(".*"))  # TODO: see comment above
         env["$@"] = Constant(StreamType.from_pattern(".*"))
 
     option_args: dict[str, list[str]] = {}
