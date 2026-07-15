@@ -97,8 +97,8 @@ earlier ones when they conflict.
 | `@assume_output` | `# @assume_output <command> : <regex>` | Declare the command's output type |
 | `@assert_input` | `# @assert_input <command> : <regex>` | Verify the command's input is a subset of the regex |
 | `@assert_output` | `# @assert_output <command> : <regex>` | Verify the command's output is a subset of the regex |
-| `@assert_input_contains` | `# @assert_input_contains <command> : <regex>` | Verify the command's input contains strings matching the regex (i.e., is a subset) |
-| `@assert_output_contains` | `# @assert_output_contains <command> : <regex>` | Verify the command's output contains strings matching the regex (i.e., is a subset) |
+| `@assert_input_contains` | `# @assert_input_contains <command> : <regex>` | Verify the command's input contains strings matching the regex (i.e., is a superset of the regex) |
+| `@assert_output_contains` | `# @assert_output_contains <command> : <regex>` | Verify the command's output contains strings matching the regex (i.e., is a superset of the regex) |
 
 #### Concise syntax
 
