@@ -42,12 +42,13 @@ def cli_main():
     )
 
     args = parser.parse_args()
-    main(
+    exit_code = main(
         file=args.file,
         use_json=args.json,
         use_compact=args.compact,
         log_level=args.log_level,
     )
+    sys.exit(exit_code)
 
 
 def main(
@@ -55,7 +56,7 @@ def main(
     use_json: bool = False,
     use_compact: bool = False,
     log_level: str | None = None,
-):
+) -> int:
     configure_logging(log_level)
 
     if file is not None:
@@ -65,16 +66,38 @@ def main(
         if sys.stdin.isatty():
             print("Reading pipelines from stdin; use Ctrl+D to exit")
 
+    had_type_errors = False
+    had_system_error = False
+
     for elem in it:
         for pipeline in parse_pipelines(elem):
             logging.debug("Parsed pipeline: %r", pipeline)
-            for err in type_check(pipeline):
+            errors, system_error = _safe_type_check(pipeline)
+            if system_error:
+                had_system_error = True
+            for err in errors:
+                had_type_errors = True
                 logging.debug("Got error: %r", err)
                 print(
                     format_error(
                         err, pipeline, use_json=use_json, use_compact=use_compact
                     )
                 )
+
+    if had_system_error:
+        return 2
+    if had_type_errors:
+        return 1
+    return 0
+
+
+def _safe_type_check(
+    pipeline: Pipeline,
+) -> tuple[list[TypeCheckError], bool]:
+    try:
+        return list(type_check(pipeline)), False
+    except Exception:
+        return [], True
 
 
 def configure_logging(log_level: str | None) -> None:
