@@ -8,7 +8,7 @@ from rt.regex import parse_regex
 from rt.regular_types.command_type import CommandType
 from rt.regular_types.stream_transform import Constant, Input, Regex, StreamTransform
 from rt.regular_types.stream_type import StreamType
-from rt.type_checking.annotations import CommandAnnotation, CommandAnnotationKind, EnvAnnotation
+from rt.type_checking.annotations import CommandAnnotation, CommandAnnotationKind, EnvAnnotation, EnvAnnotationKind
 
 
 class TypeResolver(ABC):
