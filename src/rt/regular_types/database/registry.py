@@ -14,8 +14,11 @@ from rt.regular_types.command_type import CommandType
 from rt.regular_types.database.resolver import (
     RuleResolver,
     TypeResolver,
+    _parse_transform_expression,
     build_command_env,
 )
+from rt.regular_types.stream_transform import StreamTransform
+from rt.regular_types.stream_type import StreamType
 from rt.type_checking.annotations import (
     CommandAnnotation,
     EnvAnnotation,
@@ -43,12 +46,22 @@ def get_type(
 
     env = build_command_env(invocation, env_annotations)
 
-    return resolver.resolve(
-        invocation,
-        user_annotations or [],
-        env,
-        heuristic_rules,
+    return _safe_resolve(
+        resolver, invocation, user_annotations or [], env, heuristic_rules
     )
+
+
+def _safe_resolve(
+    resolver: TypeResolver,
+    invocation: CommandInvocationInitial,
+    user_annotations: Sequence[CommandAnnotation],
+    env: Mapping[str, StreamTransform],
+    heuristic_rules: Sequence[str] | None,
+) -> CommandType:
+    try:
+        return resolver.resolve(invocation, user_annotations, env, heuristic_rules)
+    except Exception:
+        return RuleResolver().resolve(invocation, [], env, heuristic_rules)
 
 
 def register_type(key: str, resolver: RuleResolver) -> None:
@@ -86,13 +99,16 @@ def _load_yaml_resolvers() -> dict[str, RuleResolver]:
         if not entry.name.endswith(".yaml"):
             continue
         key = entry.name.removesuffix(".yaml")
-        with entry.open("r") as f:
-            data = yaml.safe_load(f)
-        resolvers[key] = RuleResolver(
-            input_type=data.get("input", ".*"),
-            output_type=data.get("output", ".*"),
-            when=data.get("when"),
-        )
+        try:
+            with entry.open("r") as f:
+                data = yaml.safe_load(f)
+            resolvers[key] = RuleResolver(
+                input_type=data.get("input", ".*"),
+                output_type=data.get("output", ".*"),
+                when=data.get("when"),
+            )
+        except Exception:
+            continue
     return resolvers
 
 

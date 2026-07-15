@@ -1131,10 +1131,6 @@ class AwkResolver(RuleResolver):
         operand = self._get_awk_program(invocation)
         if operand is None:
             return super().resolve(invocation, None, env, None)
-        if "\\s" in operand:
-            raise ValueError(
-                "awk regular expressions do not support the '\\s' character class in POSIX awk"
-            )
 
         normalized_operand = self._normalize_program_text(operand)
         field_separator = self._get_field_separator(invocation)
@@ -1144,6 +1140,12 @@ class AwkResolver(RuleResolver):
         if program_index is not None and program_index + 1 < len(operands):
             file_type = self._file_from_env(env)
             source = Constant(file_type)
+
+        if "\\s" in operand:
+            # raise ValueError(
+            #     "awk regular expressions do not support the '\\s' character class in POSIX awk"
+            # )
+            return super().resolve(invocation, None, env, None)
 
         try:
             program = parse_awk_program(

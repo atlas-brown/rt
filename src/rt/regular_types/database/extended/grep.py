@@ -115,12 +115,14 @@ class GrepResolver(RuleResolver):
                 original_pattern = arg
         else:
             if len(normalized_operands) == 0 and "-f" not in flags:
-                raise ValueError("No pattern provided for grep")
+                # raise ValueError("No pattern provided for grep")
+                return super().resolve(invocation, user_annotations, env, heuristic_rules)
             if len(normalized_operands) == 0:
                 return CommandType(None, source)
             pattern = normalized_operands[0]
             if pattern.startswith("--") and not has_double_dash:
-                raise ValueError("Pattern cannot start with '--'")
+                # raise ValueError("Pattern cannot start with '--'")
+                return super().resolve(invocation, user_annotations, env, heuristic_rules)
             pattern = pattern.replace("\\\\", "\\")
             if "-F" in flags:
                 pattern = re.escape(pattern)

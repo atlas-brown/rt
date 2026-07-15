@@ -446,8 +446,11 @@ def _concretize_file_to_pattern(path: str, script_dir: Path) -> str:
     if not os.path.isabs(file_path):
         file_path = os.path.join(str(script_dir.parent), file_path)
 
-    with open(file_path, "r", encoding="utf-8", errors="replace") as handle:
-        lines = handle.read().splitlines()
+    try:
+        with open(file_path, "r", encoding="utf-8", errors="replace") as handle:
+            lines = handle.read().splitlines()
+    except (FileNotFoundError, PermissionError, OSError):
+        return ".*"
 
     seen: set[str] = set()
     escaped_lines: list[str] = []
