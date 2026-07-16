@@ -11,8 +11,10 @@ from rt.transducer import (
     correct_cut_field_transducer,
     cut_char_transducer,
     first_regex_replacement_transducer,
+    first_replacement_transducer,
     global_regex_extract_transducer,
     global_regex_replacement_transducer,
+    global_replacement_transducer,
     product_transducer_automaton,
     start_regex_extract_transducer,
     start_regex_replacement_transducer,
@@ -24,7 +26,9 @@ from rt.utils import char_set_complement
 @dataclass(frozen=True)
 class StreamType:
     automaton: Automaton
-    regex: str | None = None  # human-readable hint for error messages; the automaton is canonical
+    regex: str | None = (
+        None  # human-readable hint for error messages; the automaton is canonical
+    )
 
     @classmethod
     def from_automaton(cls, automaton: Automaton) -> Self:
@@ -144,9 +148,9 @@ class StreamType:
             and (s1 := _find_exact_match(pattern_str)) is not None
         ):
             fst = (
-                first_replacement_FST(s1, replacement)  # type: ignore
+                first_replacement_transducer(s1, replacement)
                 if first_occurence_only
-                else global_replacement_FST(s1, replacement)  # type: ignore
+                else global_replacement_transducer(s1, replacement)
             )
             dfa = product_transducer_automaton(fst, self.automaton)
             return self.from_automaton(dfa)
