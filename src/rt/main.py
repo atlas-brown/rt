@@ -26,7 +26,7 @@ def cli_main():
         metavar="LEVEL",
         type=str.upper,
         choices=_LOG_LEVELS.keys(),
-        help=argparse.SUPPRESS,  # Hidden argument
+        help=argparse.SUPPRESS,  # Hidden argument; only for developers of the system
     )
 
     format_group = parser.add_mutually_exclusive_group()

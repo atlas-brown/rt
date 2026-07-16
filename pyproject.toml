@@ -9,7 +9,7 @@ dependencies = [
     "pash-annotations>=0.2.4",
     "pyyaml>=6.0.3",
     "platformdirs>=4.10.0",
-    "libdash @ git+https://github.com/binpash/libdash",
+    "libdash>=0.4.1",
     "shasta @ git+https://github.com/binpash/shasta",
 ]
 
