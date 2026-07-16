@@ -49,7 +49,7 @@ class EmptyLanguage(Regex):
 
 @dataclass(frozen=True)
 class Epsilon(Regex):
-    """The empty string - matches everything."""
+    """The empty string - matches only the empty string."""
 
     def to_automaton(self, holes: Mapping[str, Automaton]) -> Automaton:
         return Automaton.makeEmptyString()
