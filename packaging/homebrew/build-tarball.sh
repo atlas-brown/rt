@@ -12,8 +12,7 @@ mkdir -p "${stage}/scripts"
 cp "${root}/scripts/run-in-container.sh" "${stage}/scripts/"
 
 rm -f "${tarball}"
-# GNU tar (CI): reproducible archive. BSD tar (macOS): best-effort.
-if tar --version >/dev/null 2>&1 && tar --version 2>&1 | grep -q 'GNU tar'; then
+if tar --version 2>&1 | grep -q 'GNU tar'; then
 	tar -C "${out}/stage" \
 		--sort=name \
 		--mtime='UTC 1970-01-01' \
