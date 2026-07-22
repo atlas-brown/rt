@@ -9,7 +9,7 @@
 #      including the git-sourced libdash/shasta packages, which get compiled
 #      from source using cargo/rustc *here*, at build time, so the target
 #      machine never needs a Rust toolchain.
-#   3. Physically copy the patched stream/ and rtr/ packages on top of that
+#   3. Physically copy the patched rt/ and rti/ packages on top of that
 #      resolved site-packages directory, replacing uv's editable-install
 #      pointer (a .pth file with a hardcoded absolute path) with real files.
 #   4. Stage that site-packages dir + jars/ + a bundled Python runtime + two
@@ -27,7 +27,7 @@ PKG_NAME="rt-artifact"
 PKG_VERSION="$(grep -m1 '^version' "$REPO_ROOT/pyproject.toml" | sed -E 's/.*"(.*)".*/\1/')"
 PKG_ITERATION="1"
 MAINTAINER="${RT_PACKAGE_MAINTAINER:-maintainer@email.com}"
-DESCRIPTION="RT: Regular Types for the Streaming Shell -- static checker for shell pipelines (rt, rtr)"
+DESCRIPTION="Rt: an overlay type system for shell pipelines -- static checker for shell pipelines (rt, rti)"
 URL="https://github.com/atlas-brown/rt"
 PY_VERSION="3.12"
 PREFIX="/usr/lib/rt-artifact"
@@ -68,12 +68,12 @@ if [[ ! -d "$SITE_PACKAGES" ]]; then
 fi
 
 echo "==> Replacing the editable-install pointer with relocatable package files"
-rm -f "$SITE_PACKAGES"/stream.pth
-rm -rf "$SITE_PACKAGES/stream" "$SITE_PACKAGES/rtr"
-cp -a "$SRC_WORK/src/stream" "$SITE_PACKAGES/stream"
-cp -a "$SRC_WORK/src/rtr" "$SITE_PACKAGES/rtr"
+rm -f "$SITE_PACKAGES"/_rt.pth "$SITE_PACKAGES"/rt.pth
+rm -rf "$SITE_PACKAGES/rt" "$SITE_PACKAGES/rti"
+cp -a "$SRC_WORK/src/rt" "$SITE_PACKAGES/rt"
+cp -a "$SRC_WORK/src/rti" "$SITE_PACKAGES/rti"
 find "$SITE_PACKAGES" -name "__pycache__" -type d -prune -exec rm -rf {} +
-find "$SITE_PACKAGES/stream" "$SITE_PACKAGES/rtr" -maxdepth 2 -iname "unit_tests" -type d -prune -exec rm -rf {} +
+find "$SITE_PACKAGES/rt" "$SITE_PACKAGES/rti" -maxdepth 2 -iname "unit_tests" -type d -prune -exec rm -rf {} +
 
 echo "==> Building the fpm source tree"
 FPM_ROOT="$WORK_DIR/fpm-root"
@@ -90,9 +90,9 @@ cp -a "$MANAGED_PYTHON_DIR/bin" "$FPM_ROOT$PREFIX/python/bin"
 cp -a "$MANAGED_PYTHON_DIR/lib" "$FPM_ROOT$PREFIX/python/lib"
 find "$FPM_ROOT$PREFIX/python" -name "__pycache__" -type d -prune -exec rm -rf {} +
 
-for cmd in rt rtr; do
-  entry_module="stream.main"
-  [[ "$cmd" == "rtr" ]] && entry_module="rtr.main"
+for cmd in rt rti; do
+  entry_module="rt.main"
+  [[ "$cmd" == "rti" ]] && entry_module="rti.main"
   cat > "$FPM_ROOT/usr/bin/$cmd" <<WRAPPER
 #!/bin/sh
 # Installed by the $PKG_NAME package. Runs the bundled Python interpreter

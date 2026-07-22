@@ -1,0 +1,33 @@
+name: Build and publish release packages
+
+# Runs packaging/build-docker.sh (.deb + .rpm) and attaches the resulting
+# packages to the GitHub Release for the pushed tag, creating the release if
+# it doesn't already exist.
+#
+# Note: packaging/build.sh reads the package version from pyproject.toml, not
+# from the git tag. Bump the version there before tagging so the two stay
+# in sync.
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Build .deb and .rpm packages
+        run: bash packaging/build-docker.sh
+
+      - name: Publish packages to the GitHub Release
+        uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3.0.2
+        with:
+          files: packaging/dist/*
+          generate_release_notes: true

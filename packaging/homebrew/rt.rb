@@ -2,7 +2,7 @@
 #   1. Tag a release on the atlas-brown/rt repo and paste its source tarball
 #      URL + sha256 below.
 class RtArtifact < Formula
-  desc "RT: Regular Types for the Streaming Shell -- static checker for shell pipelines"
+  desc "Rt: an overlay type system for shell pipelines -- static checker for shell pipelines"
   homepage "https://github.com/atlas-brown/rt"
   url "TODO-source-tarball-url"
   sha256 "TODO-source-tarball-sha256"
@@ -31,13 +31,15 @@ class RtArtifact < Formula
     site_packages = Pathname.glob(".venv/lib/python3.*/site-packages").first
     raise "uv sync did not produce a site-packages directory" if site_packages.nil?
 
-    (site_packages/"stream.pth").unlink if (site_packages/"stream.pth").exist?
-    rm_rf site_packages/"stream"
-    rm_rf site_packages/"rtr"
-    cp_r "src/stream", site_packages/"stream"
-    cp_r "src/rtr", site_packages/"rtr"
+    ["_rt.pth", "rt.pth"].each do |pth|
+      (site_packages/pth).unlink if (site_packages/pth).exist?
+    end
+    rm_rf site_packages/"rt"
+    rm_rf site_packages/"rti"
+    cp_r "src/rt", site_packages/"rt"
+    cp_r "src/rti", site_packages/"rti"
     Dir.glob("#{site_packages}/**/__pycache__").each { |d| rm_rf d }
-    %w[stream rtr].each do |pkg|
+    %w[rt rti].each do |pkg|
       unit_tests = site_packages/pkg/"unit_tests"
       rm_rf unit_tests if unit_tests.exist?
     end
@@ -48,8 +50,8 @@ class RtArtifact < Formula
     java_home = Formula["openjdk@21"].opt_prefix/"libexec/openjdk.jdk/Contents/Home"
 
     {
-      "rt" => "stream.main",
-      "rtr" => "rtr.main",
+      "rt" => "rt.main",
+      "rti" => "rti.main",
     }.each do |cmd, entry_module|
       (bin/cmd).write <<~SH
         #!/bin/sh
@@ -64,6 +66,6 @@ class RtArtifact < Formula
 
   test do
     system bin/"rt", "--help"
-    system bin/"rtr", "--help"
+    system bin/"rti", "--help"
   end
 end
