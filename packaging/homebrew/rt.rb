@@ -3,8 +3,8 @@ class Rt < Formula
   homepage 'https://github.com/atlas-brown/rt'
   version '0.1.0'
   license :cannot_represent
-  url "https://github.com/atlas-brown/rt/archive/refs/tags/v#{version}.tar.gz"
-  sha256 ""
+  url "https://github.com/atlas-brown/rt/releases/download/v#{version}/rt-#{version}.tar.gz"
+  sha256 ''
 
   def install
     bin.install 'scripts/run-in-container.sh' => 'rt'
@@ -13,7 +13,7 @@ class Rt < Formula
 
   def caveats
     <<~EOS
-      rt and rti requires Docker.
+      rt and rti require Docker.
 
         Install Docker: https://docs.docker.com/get-docker/
 

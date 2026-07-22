@@ -8,3 +8,5 @@
 **/.coverage/
 *.deb
 *.rpm
+*.tar.gz
+/dist/
