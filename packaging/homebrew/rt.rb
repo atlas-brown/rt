@@ -1,7 +1,7 @@
 # TODO before this formula works:
 #   1. Tag a release on the atlas-brown/rt repo and paste its source tarball
 #      URL + sha256 below.
-class RtArtifact < Formula
+class Rt < Formula
   desc "Rt: an overlay type system for shell pipelines -- static checker for shell pipelines"
   homepage "https://github.com/atlas-brown/rt"
   url "TODO-source-tarball-url"
