@@ -1,7 +1,7 @@
 name: rt
 arch: all
 platform: linux
-version: 0.1.0
+version: ${VERSION}
 section: utils
 priority: optional
 maintainer: atlas-brown <https://github.com/atlas-brown>
