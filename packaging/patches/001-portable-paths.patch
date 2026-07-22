@@ -1,0 +1,54 @@
+diff --git a/src/rt/java_api.py b/src/rt/java_api.py
+index 6eda321..b1a91e3 100644
+--- a/src/rt/java_api.py
++++ b/src/rt/java_api.py
+@@ -1,13 +1,48 @@
++import os
++from pathlib import Path
++
+ import jpype
+ import jpype.imports  # This module is imported for its side effects
+
+
++# Packaging-time fix (see packaging/patches/001-portable-paths.patch): upstream
++# hardcoded "jars/automaton.jar" as a literal relative path, which only
++# resolves when rt is run with the repo root as the working directory. A
++# system-wide install (.deb/.rpm/homebrew) invokes rt from an arbitrary
++# directory, so resolve the jar relative to RT_JARS_DIR (set by the installed
++# wrapper script) or the repo root first, falling back to the original
++# CWD-relative lookup for the dev/editable-install workflow.
++def _automaton_jar_path() -> str:
++    candidates = []
++
++    env_override = os.environ.get("RT_JARS_DIR")
++    if env_override:
++        candidates.append(Path(env_override))
++
++    # java_api.py -> rt -> src -> repo root, for editable/dev checkouts.
++    candidates.append(Path(__file__).resolve().parent.parent.parent / "jars")
++
++    # Original upstream assumption: CWD is the repo root.
++    candidates.append(Path("jars"))
++
++    for candidate in candidates:
++        jar = candidate / "automaton.jar"
++        if jar.is_file():
++            return str(jar)
++
++    searched = ", ".join(str(c / "automaton.jar") for c in candidates)
++    raise FileNotFoundError(
++        f"Could not locate automaton.jar (tried: {searched}). "
++        "Set RT_JARS_DIR to override."
++    )
++
++
+ def ensure_jvm():
+     # JVM initialization logic belongs here
+     if not jpype.isJVMStarted():
+         jpype.startJVM(
+             "--enable-native-access=ALL-UNNAMED",  # Needed to suppress deprecation warning
+-            classpath=["jars/automaton.jar"],
++            classpath=[_automaton_jar_path()],
+         )
+
+
