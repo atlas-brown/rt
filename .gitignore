@@ -6,3 +6,7 @@
 **/.venv/
 **/.vscode/
 **/.coverage/
+*.deb
+*.rpm
+*.tar.gz
+/dist/
