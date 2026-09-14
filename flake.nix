@@ -37,15 +37,20 @@
     ...
   }: let
     inherit (nixpkgs) lib;
+
     systems = [
       "x86_64-linux"
       "aarch64-linux"
       "x86_64-darwin"
       "aarch64-darwin"
     ];
+
     forAllSystems = lib.genAttrs systems;
 
     workspace = uv2nix.lib.workspace.loadWorkspace {workspaceRoot = ./.;};
+
+    rt-version = "dynamic";
+    rt-tag-version = "rt-${rt-version}";
 
     overlay = workspace.mkPyprojectOverlay {
       sourcePreference = "wheel";
@@ -61,6 +66,8 @@
       license = lib.licenses.mit;
       mainProgram = "rt";
       platforms = lib.platforms.unix;
+      # version can be left out or set to rt-version since uv handles the actual egg-info versioning
+      version = rt-version;
     };
 
     wrapRt = {
@@ -68,7 +75,7 @@
       jdk,
       bin,
     }:
-      pkgs.runCommand "rt-0.1.0" {
+      pkgs.runCommand rt-tag-version {
         nativeBuildInputs = [pkgs.makeWrapper];
         inherit meta;
       } ''
