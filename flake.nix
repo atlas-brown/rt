@@ -162,6 +162,7 @@
             virtualenv
             pkgs.uv
             jdk
+            pkgs.git
           ];
           env = {
             UV_NO_SYNC = "1";
