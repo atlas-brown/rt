@@ -83,11 +83,9 @@
         makeWrapper ${bin}/rt "$out/bin/rt" \
           --set JAVA_HOME ${jdk} \
           --prefix PATH : ${lib.makeBinPath [jdk]} \
-          --set RT_AUTOMATON_JAR ${./src/rt/automaton.jar}
         makeWrapper ${bin}/rti "$out/bin/rti" \
           --set JAVA_HOME ${jdk} \
           --prefix PATH : ${lib.makeBinPath [jdk]} \
-          --set RT_AUTOMATON_JAR ${./src/rt/automaton.jar}
       '';
 
     pythonSets = forAllSystems (
@@ -173,7 +171,6 @@
           shellHook = ''
             unset PYTHONPATH
             export REPO_ROOT=$(git rev-parse --show-toplevel)
-            export RT_AUTOMATON_JAR="$REPO_ROOT/src/rt/automaton.jar"
           '';
         };
       }
