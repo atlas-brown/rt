@@ -1,14 +1,17 @@
 import os
 
+from pathlib import Path
 import jpype
 import jpype.imports # This module is imported for its side effects
+
+AUTOMATION_JAR  = Path(__file__).with_name("automation.jar")
 
 def ensure_jvm():
     # JVM initialization logic belongs here
     if not jpype.isJVMStarted():
         jpype.startJVM(
             "--enable-native-access=ALL-UNNAMED",  # Needed to suppress deprecation warning
-            classpath=[os.environ.get("RT_AUTOMATON_JAR", "jars/automaton.jar")],
+            classpath=[str(AUTOMATION_JAR)],
         )
         
 ensure_jvm()
