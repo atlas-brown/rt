@@ -83,11 +83,11 @@
         makeWrapper ${bin}/rt "$out/bin/rt" \
           --set JAVA_HOME ${jdk} \
           --prefix PATH : ${lib.makeBinPath [jdk]} \
-          --set RT_AUTOMATON_JAR ${./jars/automaton.jar}
+          --set RT_AUTOMATON_JAR ${./src/rt/automaton.jar}
         makeWrapper ${bin}/rti "$out/bin/rti" \
           --set JAVA_HOME ${jdk} \
           --prefix PATH : ${lib.makeBinPath [jdk]} \
-          --set RT_AUTOMATON_JAR ${./jars/automaton.jar}
+          --set RT_AUTOMATON_JAR ${./src/rt/automaton.jar}
       '';
 
     pythonSets = forAllSystems (
@@ -162,6 +162,7 @@
             virtualenv
             pkgs.uv
             jdk
+            pkgs.git
           ];
           env = {
             UV_NO_SYNC = "1";
@@ -172,7 +173,7 @@
           shellHook = ''
             unset PYTHONPATH
             export REPO_ROOT=$(git rev-parse --show-toplevel)
-            export RT_AUTOMATON_JAR="$REPO_ROOT/jars/automaton.jar"
+            export RT_AUTOMATON_JAR="$REPO_ROOT/src/rt/automaton.jar"
           '';
         };
       }
