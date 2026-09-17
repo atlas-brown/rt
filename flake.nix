@@ -82,10 +82,10 @@
         mkdir -p "$out/bin"
         makeWrapper ${bin}/rt "$out/bin/rt" \
           --set JAVA_HOME ${jdk} \
-          --prefix PATH : ${lib.makeBinPath [jdk]} \
+          --prefix PATH : ${lib.makeBinPath [jdk]}
         makeWrapper ${bin}/rti "$out/bin/rti" \
           --set JAVA_HOME ${jdk} \
-          --prefix PATH : ${lib.makeBinPath [jdk]} \
+          --prefix PATH : ${lib.makeBinPath [jdk]}
       '';
 
     pythonSets = forAllSystems (
@@ -102,7 +102,9 @@
             postPatch =
               (old.postPatch or "")
               + lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
-                substituteInPlace setup.py --replace-fail 'libtoolize = "glibtoolize"' 'libtoolize = "libtoolize"'
+                if [ -f setup.py ]; then
+                  substituteInPlace setup.py --replace-fail 'libtoolize = "glibtoolize"' 'libtoolize = "libtoolize"'
+                fi
               '';
           });
         };

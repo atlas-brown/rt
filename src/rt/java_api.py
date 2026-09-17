@@ -1,10 +1,8 @@
-import os
-
 from pathlib import Path
 import jpype
 import jpype.imports # This module is imported for its side effects
 
-AUTOMATON_JAR  = Path(__file__).with_name("automaton.jar")
+AUTOMATON_JAR = Path(__file__).with_name("automaton.jar")
 
 def ensure_jvm():
     # JVM initialization logic belongs here
