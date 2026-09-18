@@ -2,9 +2,11 @@ name: Docker
 
 on:
   push:
+    branches: [main]
     tags: ['v*.*.*']
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -34,8 +36,10 @@ jobs:
       meta-flavor: |
         latest=auto
       meta-tags: |
+        type=ref,event=branch
         type=semver,pattern={{version}},prefix=v
         type=semver,pattern={{major}}.{{minor}},prefix=v
+        type=raw,value=latest,enable={{is_default_branch}}
         type=ref,event=pr
     secrets:
       registry-auths: |
