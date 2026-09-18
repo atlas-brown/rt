@@ -24,7 +24,7 @@ jobs:
       id-token: write
     with:
       output: image
-      push: ${{ github.event_name == 'push' }}
+      push: ${{ github.event_name != 'pull_request' }}
       platforms: linux/amd64,linux/arm64
       context: .
       file: Dockerfile
@@ -39,7 +39,6 @@ jobs:
         type=ref,event=branch
         type=semver,pattern={{version}},prefix=v
         type=semver,pattern={{major}}.{{minor}},prefix=v
-        type=raw,value=latest,enable={{is_default_branch}}
         type=ref,event=pr
     secrets:
       registry-auths: |
