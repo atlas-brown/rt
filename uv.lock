@@ -78,7 +78,22 @@ wheels = [
 [[package]]
 name = "libdash"
 version = "0.5.1"
-source = { git = "https://github.com/binpash/libdash#dc8255c12f7bd5e3cd276357528c587ccd3c512d" }
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a7/86/47fedc1c47f3750bc0534f5c4957929f9d7dd1d76c27124bdaa95f9b366f/libdash-0.5.1.tar.gz", hash = "sha256:9e9327d697fe980a0ae18a59983aaf44ef6241f9cca8174b81839e906ae45b07", size = 181785, upload-time = "2026-09-01T22:44:32.789Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c6/06/4f8c862deb26e5a5294aff4373d9ef9bbd6dc1286b3ecd537e95c59f132c/libdash-0.5.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:8c3325d3389a42740d4a360817c3b07dce2cc63f2cec9828aec14c894e2f402f", size = 159935, upload-time = "2026-09-01T22:44:11.671Z" },
+    { url = "https://files.pythonhosted.org/packages/f4/27/1c86f2b768138de83ed5e5de5fdccea4bd40a90b9c6de55a17c442a4a527/libdash-0.5.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:59be22e884ba7377e04db408e8ef92a36ca45f4f0f6d6f271f9b3b5debda9e56", size = 280957, upload-time = "2026-09-01T22:44:13.044Z" },
+    { url = "https://files.pythonhosted.org/packages/b3/a1/0ac6ddfbef70f7bfec7a5e2eec12ec71f3f3f752ee46f9b14051f1bb43c0/libdash-0.5.1-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:5ac160c63e6a079060881aa896423f3550bd7809a5e6d8a62bbf874e69f44194", size = 271155, upload-time = "2026-09-01T22:44:14.223Z" },
+    { url = "https://files.pythonhosted.org/packages/4f/91/70d02b4aefe50af427f906e221c3d44432ac9bd00e0cb9d8c3698bcad417/libdash-0.5.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:e9b9c3ff7f27761663b8be7cd9a76a0dddaab1146bf353fff1b472827973b6f5", size = 159932, upload-time = "2026-09-01T22:44:15.206Z" },
+    { url = "https://files.pythonhosted.org/packages/9f/6f/22f665e2073461d75b6ebce71c07fc44e5fa6efea3770200908b0549b0b8/libdash-0.5.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:456d00ece9f24840ed7792ac53714a860b85e0f4740a9c2ceff27e8ec7ef37ed", size = 280958, upload-time = "2026-09-01T22:44:16.299Z" },
+    { url = "https://files.pythonhosted.org/packages/63/d3/2c1f3cf023c19492d0ad6144410f65e24e9c6bbf5264f2bae8edb324aac5/libdash-0.5.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:a2da3e52c5eb9148da4cc7c62171d1bc5d5af8a18c531afec386784321b7301e", size = 271154, upload-time = "2026-09-01T22:44:17.539Z" },
+    { url = "https://files.pythonhosted.org/packages/37/72/213b76a4f50239fb7411b52d09053999065f7cd2f10cda7a6ff905d1fd1c/libdash-0.5.1-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:b16472874748daa89b9f664cddf5c3e2d4a02c519702042ccb2c484634e85f09", size = 159937, upload-time = "2026-09-01T22:44:18.708Z" },
+    { url = "https://files.pythonhosted.org/packages/28/f7/00671c703731cb813380181d3fefd080b775c74ebe7855f324e7112c28b2/libdash-0.5.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:be891316b1196c0409e63bbf9bd5ebac0e1fdf2f445004c6aebd9e8103077775", size = 280956, upload-time = "2026-09-01T22:44:19.789Z" },
+    { url = "https://files.pythonhosted.org/packages/23/bb/a00f695b0817975c2743f8856bd321c27fb14c7d98f9bc957e0de70d9b8c/libdash-0.5.1-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:49a34841402aeb504207e2a66f6012e3735834096bad80a916a8c83dc2223d93", size = 271154, upload-time = "2026-09-01T22:44:20.962Z" },
+    { url = "https://files.pythonhosted.org/packages/13/e2/dd60978efe966a576f68f49469321fbfa5a2c253c7a8700b77f2e0381541/libdash-0.5.1-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:7bf92db75cce858a7d9a8ad3013ec187d6c7c942a30f30c9a70ce8bf770e2df6", size = 159944, upload-time = "2026-09-01T22:44:22.31Z" },
+    { url = "https://files.pythonhosted.org/packages/6d/76/3c865396cc2523ba729397ed36d5b24ae1f7712875b1b5b4db996473b430/libdash-0.5.1-cp314-cp314t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:0929826fdc8bfb33e4d1e59198dae08f910801bd57c3f5dbe6cfb6b9d7469b1a", size = 280957, upload-time = "2026-09-01T22:44:23.572Z" },
+    { url = "https://files.pythonhosted.org/packages/1a/f0/81d8f9d1af50f790a3def2e15db32e74d1257ab8ed5d1a1e37b146007e07/libdash-0.5.1-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:5b5d4f1a6612443dc32a16562a50eb686a7e86ecef283ff5f48d790e502ccabb", size = 271154, upload-time = "2026-09-01T22:44:24.752Z" },
+]
 
 [[package]]
 name = "packaging"
@@ -209,7 +224,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "jpype1", specifier = ">=1.7.1" },
-    { name = "libdash", git = "https://github.com/binpash/libdash" },
+    { name = "libdash", specifier = ">=0.4.1" },
     { name = "pash-annotations", specifier = ">=0.2.4" },
     { name = "platformdirs", specifier = ">=4.10.0" },
     { name = "pyyaml", specifier = ">=6.0.3" },

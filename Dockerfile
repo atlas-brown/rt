@@ -50,7 +50,6 @@ RUN groupadd --system --gid 999 nonroot && \
 
 # Copy the necessary project files and install
 COPY pyproject.toml uv.lock README.md ./
-COPY jars ./jars
 COPY src ./src
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-dev
