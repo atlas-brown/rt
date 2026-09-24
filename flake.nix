@@ -99,13 +99,6 @@
               ++ (with pkgs; [autoconf automake libtool])
               ++ final.resolveBuildSystem {setuptools = [];};
             env = (old.env or {}) // {CFLAGS = "-std=gnu17";};
-            postPatch =
-              (old.postPatch or "")
-              + lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
-                if [ -f setup.py ]; then
-                  substituteInPlace setup.py --replace-fail 'libtoolize = "glibtoolize"' 'libtoolize = "libtoolize"'
-                fi
-              '';
           });
         };
       in
