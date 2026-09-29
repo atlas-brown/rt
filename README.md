@@ -6,14 +6,14 @@ Rt catches data incompatibilities in shell pipelines before they run. Give it a
 shell program and it tells you when one command produces data the next command
 can't consume -- with a concrete counterexample showing exactly what breaks.
 
-```
+```sh
 $ cat pipeline.sh
 find . |
 grep -E 'book[0-9]+\.txt' |
 xargs cat
 ```
 
-```
+```sh
 $ rt pipeline.sh
 Error (ln. 1): grep → xargs
     grep produced '[^n]*' but xargs expects '([^[:blank:]]+|".+"|'.+')'
